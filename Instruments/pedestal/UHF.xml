@@ -1,0 +1,123 @@
+<?xml version="1.0" ?> 
+
+<PropertyList> 
+
+ <path>UHF.ac</path> 
+
+ <params>
+  <frq-disp>/instrumentation/hf[0]/frequencies/selected-khz</frq-disp>
+  <frq-disp2>/instrumentation/hf[1]/frequencies/selected-khz</frq-disp2>
+  <center-light>/controls/lighting/instrument-lights</center-light>
+ </params>
+
+ 
+<!-- ROOF FLUORESCENT LIGHTING -->
+
+ <animation>
+  <name>UHF</name>
+  <object-name>Plate</object-name>
+  <object-name>SelectorUnit</object-name>
+  <object-name>SelectorUnit2</object-name>
+  <object-name>SelectorDecimal</object-name>
+  <object-name>SelectorDecimal2</object-name>
+  <object-name>SelectorHundred</object-name>
+  <object-name>SelectorHundred2</object-name>
+  <object-name>SelectorThausend</object-name>
+  <object-name>SelectorThausend2</object-name>
+ </animation>
+
+ <animation>
+  <type>material</type>
+  <object-name>UHF</object-name>
+  <emission>
+   <red>0.71</red>
+   <green>0.79</green>
+   <blue>0.87</blue>
+   <factor-prop>systems/lighting/level/roof</factor-prop>
+  </emission> 
+ </animation> 
+
+
+<!-- DISPLAY -->
+
+ <text>
+  <name>Frequency 1</name>
+  <type type="string">number-value</type>
+  <property alias="../../params/frq-disp"/>
+  <format type="string">%1.4f</format>
+  <draw-text type="bool">true</draw-text>
+  <font>led.txf</font>
+  <character-size type="double">0.009</character-size>
+  <character-aspect-ratio type="double">1.0</character-aspect-ratio>
+  <font-resolution>
+   <width type="int">32</width>
+   <height type="int">32</height>
+  </font-resolution>
+  <alignment>left-center</alignment>
+  <axis-alignment>yz-plane</axis-alignment>
+  <offsets>
+   <pitch-deg>-90</pitch-deg>
+   <x-m>-0.007</x-m>
+   <y-m>-0.051</y-m>
+   <z-m> 0.003</z-m>
+  </offsets>
+ </text>
+
+ <animation>
+  <type>material</type>
+  <object-name>Frequency 1</object-name>
+  <emission>
+   <red>1.0</red>
+   <green>0.7</green>
+   <blue>0.5</blue>
+   <factor-prop alias="../../../params/center-light"/>
+  </emission>
+  <ambient>
+   <red>1.0</red>
+   <green>1.0</green>
+   <blue>1.0</blue>
+   <offset-prop>systems/lighting/level/roof-ambient</offset-prop>
+  </ambient>
+ </animation>
+
+ <text>
+  <name>Frequency 2</name>
+  <type type="string">number-value</type>
+  <property alias="../../params/frq-disp"/>
+  <format type="string">%1.4f</format>
+  <draw-text type="bool">true</draw-text>
+  <font>led.txf</font>
+  <character-size type="double">0.009</character-size>
+  <character-aspect-ratio type="double">1.0</character-aspect-ratio>
+  <font-resolution>
+   <width type="int">32</width>
+   <height type="int">32</height>
+  </font-resolution>
+  <alignment>left-center</alignment>
+  <axis-alignment>yz-plane</axis-alignment>
+  <offsets>
+   <pitch-deg>-90</pitch-deg>
+   <x-m>-0.007</x-m>
+   <y-m> 0.022</y-m>
+   <z-m> 0.003</z-m>
+  </offsets>
+ </text>
+
+ <animation>
+  <type>material</type>
+  <object-name>Frequency 2</object-name>
+  <emission>
+   <red>1.0</red>
+   <green>0.7</green>
+   <blue>0.5</blue>
+   <factor-prop alias="../../../params/center-light"/>
+  </emission>
+  <ambient>
+   <red>1.0</red>
+   <green>1.0</green>
+   <blue>1.0</blue>
+   <offset-prop>systems/lighting/level/roof-ambient</offset-prop>
+  </ambient>
+ </animation>
+
+</PropertyList>

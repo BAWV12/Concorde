@@ -1,0 +1,733 @@
+<?xml version="1.0" ?> 
+
+<!-- OSG lighting :
+
+     - only 1 material per object (child included).
+     - Red warnings are not directly illuminated by roof.
+
+
+     Known problems :
+     ==============
+     - if no voltage, off light becomes less darker.
+-->
+
+
+<PropertyList> 
+  <path>throttle-cylinder.ac</path> 
+
+  <animation>
+   <name>Throttle</name>
+   <object-name>ThrottleBase</object-name>
+   <object-name>ThrottleIndexLeft</object-name>
+   <object-name>Throttle1</object-name>
+   <object-name>Throttle2</object-name>
+   <object-name>Throttle3</object-name>
+   <object-name>Throttle4</object-name>
+   <object-name>ThrottleIndexRight</object-name>
+   <object-name>Reverse1</object-name>
+   <object-name>Reverse2</object-name>
+   <object-name>Reverse3</object-name>
+   <object-name>Reverse4</object-name>
+   <object-name>ReheatSelector1</object-name>
+   <object-name>ReheatSelector2</object-name>
+   <object-name>ReheatSelector3</object-name>
+   <object-name>ReheatSelector4</object-name>
+  </animation> 
+
+  <animation>
+   <type>material</type>
+   <object-name>Throttle</object-name>
+   <emission>
+    <red>0.71</red>
+    <green>0.79</green>
+    <blue>0.87</blue>
+    <factor-prop>systems/lighting/level/roof</factor-prop>
+   </emission> 
+  </animation> 
+
+<!-- THROTTLE -->
+
+  <animation>
+   <type>rotate</type>
+   <object-name>ThrottleIndexLeft</object-name>
+   <property>controls/engines/engine[0]/throttle-manual</property>
+   <factor>-20</factor>
+   <offset-deg>20</offset-deg>
+   <center>
+    <x-m> 0.0</x-m>
+    <y-m> 0.0</y-m>
+    <z-m>-0.070</z-m>
+   </center>
+   <axis>
+    <x>0.0</x>
+    <y>1.0</y>
+    <z>0.0</z>
+   </axis>
+  </animation>
+
+  <animation>
+   <type>rotate</type>
+   <object-name>Throttle1</object-name>
+   <property>controls/engines/engine[0]/throttle-manual</property>
+   <factor>-20</factor>
+   <offset-deg>0</offset-deg>
+   <center>
+    <x-m> 0.0</x-m>
+    <y-m> 0.0</y-m>
+    <z-m>-0.070</z-m>
+   </center>
+   <axis>
+    <x>0.0</x>
+    <y>1.0</y>
+    <z>0.0</z>
+   </axis>
+  </animation>
+
+  <animation>
+   <type>rotate</type>
+   <object-name>Throttle2</object-name>
+   <property>controls/engines/engine[1]/throttle-manual</property>
+   <factor>-20</factor>
+   <offset-deg>0</offset-deg>
+   <center>
+    <x-m> 0.0</x-m>
+    <y-m> 0.0</y-m>
+    <z-m>-0.070</z-m>
+   </center>
+   <axis>
+    <x>0.0</x>
+    <y>1.0</y>
+    <z>0.0</z>
+   </axis>
+  </animation>
+
+  <animation>
+   <type>rotate</type>
+   <object-name>Throttle3</object-name>
+   <property>controls/engines/engine[2]/throttle-manual</property>
+   <factor>-20</factor>
+   <offset-deg>0</offset-deg>
+   <center>
+    <x-m> 0.0</x-m>
+    <y-m> 0.0</y-m>
+    <z-m>-0.070</z-m>
+   </center>
+   <axis>
+    <x>0.0</x>
+    <y>1.0</y>
+    <z>0.0</z>
+   </axis>
+  </animation>
+
+  <animation>
+   <type>rotate</type>
+   <object-name>Throttle4</object-name>
+   <property>controls/engines/engine[3]/throttle-manual</property>
+   <factor>-20</factor>
+   <offset-deg>0</offset-deg>
+   <center>
+    <x-m> 0.0</x-m>
+    <y-m> 0.0</y-m>
+    <z-m>-0.070</z-m>
+   </center>
+   <axis>
+    <x>0.0</x>
+    <y>1.0</y>
+    <z>0.0</z>
+   </axis>
+  </animation>
+
+  <animation>
+   <type>rotate</type>
+   <object-name>ThrottleIndexRight</object-name>
+   <property>controls/engines/engine[3]/throttle-manual</property>
+   <factor>-20</factor>
+   <offset-deg>20</offset-deg>
+   <center>
+    <x-m> 0.0</x-m>
+    <y-m> 0.0</y-m>
+    <z-m>-0.070</z-m>
+   </center>
+   <axis>
+    <x>0.0</x>
+    <y>1.0</y>
+    <z>0.0</z>
+   </axis>
+  </animation>
+
+  <animation>
+   <type>pick</type>
+   <object-name>Throttle1</object-name>
+   <action>
+    <button>0</button>
+    <repeatable>true</repeatable>
+    <binding>
+     <command>property-adjust</command>
+     <property>controls/engines/engine[0]/throttle-manual</property>
+     <step>0.1</step>
+     <min>0</min>
+     <max>1</max>
+     <wrap>0</wrap>
+    </binding>
+   </action>
+   <action>
+    <button>1</button>
+    <repeatable>true</repeatable>
+    <binding>
+     <command>property-adjust</command>
+     <property>controls/engines/engine[0]/throttle-manual</property>
+     <step>-0.1</step>
+     <min>0</min>
+     <max>1</max>
+     <wrap>0</wrap>
+    </binding>
+   </action>
+  </animation>
+
+  <animation>
+   <type>pick</type>
+   <object-name>Throttle2</object-name>
+   <action>
+    <button>0</button>
+    <repeatable>true</repeatable>
+    <binding>
+     <command>property-adjust</command>
+     <property>controls/engines/engine[1]/throttle-manual</property>
+     <step>0.1</step>
+     <min>0</min>
+     <max>1</max>
+     <wrap>0</wrap>
+    </binding>
+   </action>
+   <action>
+    <button>1</button>
+    <repeatable>true</repeatable>
+    <binding>
+     <command>property-adjust</command>
+     <property>controls/engines/engine[1]/throttle-manual</property>
+     <step>-0.1</step>
+     <min>0</min>
+     <max>1</max>
+     <wrap>0</wrap>
+    </binding>
+   </action>
+  </animation>
+
+  <animation>
+   <type>pick</type>
+   <object-name>Throttle3</object-name>
+   <action>
+    <button>0</button>
+    <repeatable>true</repeatable>
+    <binding>
+     <command>property-adjust</command>
+     <property>controls/engines/engine[2]/throttle-manual</property>
+     <step>0.1</step>
+     <min>0</min>
+     <max>1</max>
+     <wrap>0</wrap>
+    </binding>
+   </action>
+   <action>
+    <button>1</button>
+    <repeatable>true</repeatable>
+    <binding>
+     <command>property-adjust</command>
+     <property>controls/engines/engine[2]/throttle-manual</property>
+     <step>-0.1</step>
+     <min>0</min>
+     <max>1</max>
+     <wrap>0</wrap>
+    </binding>
+   </action>
+  </animation>
+
+  <animation>
+   <type>pick</type>
+   <object-name>Throttle4</object-name>
+   <action>
+    <button>0</button>
+    <repeatable>true</repeatable>
+    <binding>
+     <command>property-adjust</command>
+     <property>controls/engines/engine[3]/throttle-manual</property>
+     <step>0.1</step>
+     <min>0</min>
+     <max>1</max>
+     <wrap>0</wrap>
+    </binding>
+   </action>
+   <action>
+    <button>1</button>
+    <repeatable>true</repeatable>
+    <binding>
+     <command>property-adjust</command>
+     <property>controls/engines/engine[3]/throttle-manual</property>
+     <step>-0.1</step>
+     <min>0</min>
+     <max>1</max>
+     <wrap>0</wrap>
+    </binding>
+   </action>
+  </animation>
+
+<!-- dark ambient enables to distinguish the emission, with mininal value by roof lighting -->
+
+  <animation>
+   <type>material</type>
+   <object-name>RedThrottle1</object-name>
+   <condition>
+    <not include="../../Panels/Instruments/concorde-cond-voltage-bulb.xml"/>
+   </condition>
+   <ambient>
+    <red>1.0</red>
+    <green>1.0</green>
+    <blue>1.0</blue>
+    <factor-prop>systems/throttles/throttle[0]/failure</factor-prop>
+    <offset-prop>systems/lighting/level/roof-ambient</offset-prop>
+   </ambient> 
+   <emission>
+    <red>1.0</red>
+    <green>1.0</green>
+    <blue>0.2</blue>
+    <factor-prop>systems/throttles/throttle[0]/failure</factor-prop>
+    <offset-prop>systems/lighting/level/roof-ambient</offset-prop>
+   </emission> 
+  </animation> 
+
+  <animation>
+   <type>material</type>
+   <object-name>RedThrottle2</object-name>
+   <condition>
+    <not include="../../Panels/Instruments/concorde-cond-voltage-bulb.xml"/>
+   </condition>
+   <ambient>
+    <red>1.0</red>
+    <green>1.0</green>
+    <blue>1.0</blue>
+    <factor-prop>systems/throttles/throttle[1]/failure</factor-prop>
+    <offset-prop>systems/lighting/level/roof-ambient</offset-prop>
+   </ambient> 
+   <emission>
+    <red>1.0</red>
+    <green>1.0</green>
+    <blue>0.2</blue>
+    <factor-prop>systems/throttles/throttle[1]/failure</factor-prop>
+    <offset-prop>systems/lighting/level/roof-ambient</offset-prop>
+   </emission> 
+  </animation> 
+
+  <animation>
+   <type>material</type>
+   <object-name>RedThrottle3</object-name>
+   <condition>
+    <not include="../../Panels/Instruments/concorde-cond-voltage-bulb.xml"/>
+   </condition>
+   <ambient>
+    <red>1.0</red>
+    <green>1.0</green>
+    <blue>1.0</blue>
+    <factor-prop>systems/throttles/throttle[2]/failure</factor-prop>
+    <offset-prop>systems/lighting/level/roof-ambient</offset-prop>
+   </ambient> 
+   <emission>
+    <red>1.0</red>
+    <green>1.0</green>
+    <blue>0.2</blue>
+    <factor-prop>systems/throttles/throttle[2]/failure</factor-prop>
+    <offset-prop>systems/lighting/level/roof-ambient</offset-prop>
+   </emission> 
+  </animation> 
+
+  <animation>
+   <type>material</type>
+   <object-name>RedThrottle4</object-name>
+   <condition>
+    <not include="../../Panels/Instruments/concorde-cond-voltage-bulb.xml"/>
+   </condition>
+   <ambient>
+    <red>1.0</red>
+    <green>1.0</green>
+    <blue>1.0</blue>
+    <factor-prop>systems/throttles/throttle[3]/failure</factor-prop>
+    <offset-prop>systems/lighting/level/roof-ambient</offset-prop>
+   </ambient> 
+   <emission>
+    <red>1.0</red>
+    <green>1.0</green>
+    <blue>0.2</blue>
+    <factor-prop>systems/throttles/throttle[3]/failure</factor-prop>
+    <offset-prop>systems/lighting/level/roof-ambient</offset-prop>
+   </emission> 
+  </animation> 
+
+  <animation>
+   <type>pick</type>
+   <object-name>RedThrottle1</object-name>
+   <action>
+    <button>0</button>
+    <repeatable>true</repeatable>
+    <binding>
+     <command>property-assign</command>
+     <property>controls/throttles/throttle[0]/test</property>
+     <value>true</value>
+    </binding>
+    <mod-up>
+     <binding>
+      <command>property-assign</command>
+      <property>controls/throttles/throttle[0]/test</property>
+      <value>false</value>
+     </binding>
+     <binding>
+      <command>property-toggle</command>
+      <property>/instrumentation/generic/click</property>
+     </binding>
+    </mod-up>
+   </action>
+  </animation>
+
+  <animation>
+   <type>pick</type>
+   <object-name>RedThrottle2</object-name>
+   <action>
+    <button>0</button>
+    <repeatable>true</repeatable>
+    <binding>
+     <command>property-assign</command>
+     <property>controls/throttles/throttle[1]/test</property>
+     <value>true</value>
+    </binding>
+    <mod-up>
+     <binding>
+      <command>property-assign</command>
+      <property>controls/throttles/throttle[1]/test</property>
+      <value>false</value>
+     </binding>
+     <binding>
+      <command>property-toggle</command>
+      <property>/instrumentation/generic/click</property>
+     </binding>
+    </mod-up>
+   </action>
+  </animation>
+
+  <animation>
+   <type>pick</type>
+   <object-name>RedThrottle3</object-name>
+   <action>
+    <button>0</button>
+    <repeatable>true</repeatable>
+    <binding>
+     <command>property-assign</command>
+     <property>controls/throttles/throttle[2]/test</property>
+     <value>true</value>
+    </binding>
+    <mod-up>
+     <binding>
+      <command>property-assign</command>
+      <property>controls/throttles/throttle[2]/test</property>
+      <value>false</value>
+     </binding>
+     <binding>
+      <command>property-toggle</command>
+      <property>/instrumentation/generic/click</property>
+     </binding>
+    </mod-up>
+   </action>
+  </animation>
+
+  <animation>
+   <type>pick</type>
+   <object-name>RedThrottle4</object-name>
+   <action>
+    <button>0</button>
+    <repeatable>true</repeatable>
+    <binding>
+     <command>property-assign</command>
+     <property>controls/throttles/throttle[3]/test</property>
+     <value>true</value>
+    </binding>
+    <mod-up>
+     <binding>
+      <command>property-assign</command>
+      <property>controls/throttles/throttle[3]/test</property>
+      <value>false</value>
+     </binding>
+     <binding>
+      <command>property-toggle</command>
+      <property>/instrumentation/generic/click</property>
+     </binding>
+    </mod-up>
+   </action>
+  </animation>
+
+
+<!-- REVERSE -->
+
+  <animation>
+   <type>rotate</type>
+   <object-name>Reverse1</object-name>
+   <property>controls/engines/engine[0]/throttle-manual</property>
+   <factor>-20</factor>
+   <offset-deg>0</offset-deg>
+   <center>
+    <x-m> 0.0</x-m>
+    <y-m> 0.0</y-m>
+    <z-m>-0.070</z-m>
+   </center>
+   <axis>
+    <x>0.0</x>
+    <y>1.0</y>
+    <z>0.0</z>
+   </axis>
+  </animation>
+
+  <animation>
+   <type>rotate</type>
+   <object-name>Reverse2</object-name>
+   <property>controls/engines/engine[1]/throttle-manual</property>
+   <factor>-20</factor>
+   <offset-deg>0</offset-deg>
+   <center>
+    <x-m> 0.0</x-m>
+    <y-m> 0.0</y-m>
+    <z-m>-0.070</z-m>
+   </center>
+   <axis>
+    <x>0.0</x>
+    <y>1.0</y>
+    <z>0.0</z>
+   </axis>
+  </animation>
+
+  <animation>
+   <type>rotate</type>
+   <object-name>Reverse3</object-name>
+   <property>controls/engines/engine[2]/throttle-manual</property>
+   <factor>-20</factor>
+   <offset-deg>0</offset-deg>
+   <center>
+    <x-m> 0.0</x-m>
+    <y-m> 0.0</y-m>
+    <z-m>-0.070</z-m>
+   </center>
+   <axis>
+    <x>0.0</x>
+    <y>1.0</y>
+    <z>0.0</z>
+   </axis>
+  </animation>
+
+  <animation>
+   <type>rotate</type>
+   <object-name>Reverse4</object-name>
+   <property>controls/engines/engine[3]/throttle-manual</property>
+   <factor>-20</factor>
+   <offset-deg>0</offset-deg>
+   <center>
+    <x-m> 0.0</x-m>
+    <y-m> 0.0</y-m>
+    <z-m>-0.070</z-m>
+   </center>
+   <axis>
+    <x>0.0</x>
+    <y>1.0</y>
+    <z>0.0</z>
+   </axis>
+  </animation>
+
+  <animation>
+   <type>rotate</type>
+   <object-name>Reverse1</object-name>
+   <property>controls/engines/engine[0]/reverser</property>
+   <factor>92</factor>
+   <center>
+    <x-m> 0.060</x-m>
+    <y-m> 0.0</y-m>
+    <z-m> 0.167</z-m>
+   </center>
+   <axis>
+    <x>0.0</x>
+    <y>1.0</y>
+    <z>0.0</z>
+   </axis>
+  </animation>
+
+  <animation>
+   <type>rotate</type>
+   <object-name>Reverse2</object-name>
+   <property>controls/engines/engine[1]/reverser</property>
+   <factor>92</factor>
+   <center>
+    <x-m> 0.060</x-m>
+    <y-m> 0.0</y-m>
+    <z-m> 0.167</z-m>
+   </center>
+   <axis>
+    <x>0.0</x>
+    <y>1.0</y>
+    <z>0.0</z>
+   </axis>
+  </animation>
+
+  <animation>
+   <type>rotate</type>
+   <object-name>Reverse3</object-name>
+   <property>controls/engines/engine[2]/reverser</property>
+   <factor>92</factor>
+   <center>
+    <x-m> 0.060</x-m>
+    <y-m> 0.0</y-m>
+    <z-m> 0.167</z-m>
+   </center>
+   <axis>
+    <x>0.0</x>
+    <y>1.0</y>
+    <z>0.0</z>
+   </axis>
+  </animation>
+
+  <animation>
+   <type>rotate</type>
+   <object-name>Reverse4</object-name>
+   <property>controls/engines/engine[3]/reverser</property>
+   <factor>92</factor>
+   <center>
+    <x-m> 0.060</x-m>
+    <y-m> 0.0</y-m>
+    <z-m> 0.167</z-m>
+   </center>
+   <axis>
+    <x>0.0</x>
+    <y>1.0</y>
+    <z>0.0</z>
+   </axis>
+  </animation>
+
+<!-- REHEAT -->
+
+  <animation>
+   <type>rotate</type>
+   <object-name>ReheatSelector1</object-name>
+   <property>controls/engines/engine[0]/reheat</property>
+   <factor>-30</factor>
+   <offset-deg>0</offset-deg>
+   <center>
+    <x-m> 0.144</x-m>
+    <y-m> 0.0</y-m>
+    <z-m> 0.026</z-m>
+   </center>
+   <axis>
+    <x>0.0</x>
+    <y>1.0</y>
+    <z>0.0</z>
+   </axis>
+  </animation>
+
+  <animation>
+   <type>rotate</type>
+   <object-name>ReheatSelector2</object-name>
+   <property>controls/engines/engine[1]/reheat</property>
+   <factor>-30</factor>
+   <offset-deg>0</offset-deg>
+   <center>
+    <x-m> 0.144</x-m>
+    <y-m> 0.0</y-m>
+    <z-m> 0.026</z-m>
+   </center>
+   <axis>
+    <x>0.0</x>
+    <y>1.0</y>
+    <z>0.0</z>
+   </axis>
+  </animation>
+
+  <animation>
+   <type>rotate</type>
+   <object-name>ReheatSelector3</object-name>
+   <property>controls/engines/engine[2]/reheat</property>
+   <factor>-30</factor>
+   <offset-deg>0</offset-deg>
+   <center>
+    <x-m> 0.144</x-m>
+    <y-m> 0.0</y-m>
+    <z-m> 0.026</z-m>
+   </center>
+   <axis>
+    <x>0.0</x>
+    <y>1.0</y>
+    <z>0.0</z>
+   </axis>
+  </animation>
+
+  <animation>
+   <type>rotate</type>
+   <object-name>ReheatSelector4</object-name>
+   <property>controls/engines/engine[3]/reheat</property>
+   <factor>-30</factor>
+   <offset-deg>0</offset-deg>
+   <center>
+    <x-m> 0.144</x-m>
+    <y-m> 0.0</y-m>
+    <z-m> 0.026</z-m>
+   </center>
+   <axis>
+    <x>0.0</x>
+    <y>1.0</y>
+    <z>0.0</z>
+   </axis>
+  </animation>
+
+  <animation>
+   <type>pick</type>
+   <object-name>ReheatSelector1</object-name>
+   <action>
+    <button>0</button>
+    <repeatable>false</repeatable>
+    <binding>
+     <command>property-toggle</command>
+     <property>controls/engines/engine[0]/reheat</property>
+    </binding>
+   </action>
+  </animation>
+
+  <animation>
+   <type>pick</type>
+   <object-name>ReheatSelector2</object-name>
+   <action>
+    <button>0</button>
+    <repeatable>false</repeatable>
+    <binding>
+     <command>property-toggle</command>
+     <property>controls/engines/engine[1]/reheat</property>
+    </binding>
+   </action>
+  </animation>
+
+  <animation>
+   <type>pick</type>
+   <object-name>ReheatSelector3</object-name>
+   <action>
+    <button>0</button>
+    <repeatable>false</repeatable>
+    <binding>
+     <command>property-toggle</command>
+     <property>controls/engines/engine[2]/reheat</property>
+    </binding>
+   </action>
+  </animation>
+
+  <animation>
+   <type>pick</type>
+   <object-name>ReheatSelector4</object-name>
+   <action>
+    <button>0</button>
+    <repeatable>false</repeatable>
+    <binding>
+     <command>property-toggle</command>
+     <property>controls/engines/engine[3]/reheat</property>
+    </binding>
+   </action>
+  </animation>
+
+</PropertyList>

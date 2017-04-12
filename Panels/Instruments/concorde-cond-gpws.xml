@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+
+<!-- GPWS alarm condition :
+
+     light off.
+-->
+
+<PropertyList>
+
+    <or include="concorde-cond-voltage-bulb.xml">
+     <or include="concorde-cond-flashing-light.xml"/>  <!-- bug -->
+     <not include="concorde-cond-terrain.xml"/>
+    </or>
+
+</PropertyList>

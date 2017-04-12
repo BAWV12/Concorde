@@ -1,0 +1,53 @@
+<?xml version="1.0"?>
+
+<PropertyList>
+ <name>Pump green</name>
+ <w-base>56</w-base>
+ <h-base>56</h-base>
+
+
+ <layers>
+
+  <layer>
+   <name>Title</name>
+   <type>text</type>
+   <point-size>7</point-size>
+   <color>
+    <red>1.0</red>
+    <green>1.0</green>
+    <blue>1.0</blue>
+   </color>
+   <chunks>
+    <chunk>
+     <type>literal</type>
+     <text>PUMP</text>
+    </chunk>
+   </chunks>
+  </layer>
+
+  <layer>
+   <name>Title 2</name>
+   <type>text</type>
+   <point-size>7</point-size>
+   <color>
+    <red>1.0</red>
+    <green>1.0</green>
+    <blue>1.0</blue>
+   </color>
+   <chunks>
+    <chunk>
+     <type>literal</type>
+     <text>GREEN</text>
+    </chunk>
+   </chunks>
+   <transformations>
+    <transformation>
+     <type>y-shift</type>
+     <offset>-10</offset>
+    </transformation>
+   </transformations>
+  </layer>
+
+ </layers>
+
+</PropertyList>

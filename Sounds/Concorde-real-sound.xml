@@ -1,0 +1,1311 @@
+<?xml version="1.0"?>
+
+<!-- Concorde original sounds from Ryuji Ozawa and Andrew Wilson (reverse).
+
+   Available at http://wwww.flightsim.com, as consnd98.zip (FS98 sound, 3.9 MB) and
+   conrt.zip (reverse, 100 KB).
+
+   Since this file is not GPL, you must download and install yourself the sounds
+   in Concorde/Sounds (without renaming) :
+   - con1 (internal idle).
+   - con2 (external nozzle transit).
+   - con3 (internal cruise).
+   - con5 (external nozzle idle).
+   - con7 (external reheat).
+   - rumblex (reverse).
+   - in Concorde-set.xml, substitute Concorde-real-sound.xml to Concorde-sound.xml.
+
+
+   These sounds are not currently supported by simgear sound engine.
+
+
+   TO DO :
+   =====
+   - one cannot include sounds in a common file.
+
+
+   References :
+   ==========
+   see Concorde-sound.xml.
+-->
+ 
+<PropertyList>
+
+<!-- position x/y/z = depth/width/height, from nose (because of VRP) -->
+
+ <fx>
+
+<!-- INTERNAL ENGINE -->
+
+  <engine>
+   <name>internal taxi</name>
+   <path>Aircraft/Concorde/Sounds/con1.wav</path>
+   <mode>looped</mode>
+   <condition>
+    <and>
+     <property>/sim/current-view/internal</property>
+     <or>
+      <property>/engines/engine[0]/running</property>
+      <property>/engines/engine[1]/running</property>     
+      <property>/engines/engine[2]/running</property>     
+      <property>/engines/engine[3]/running</property>     
+     </or>
+     <less-than>
+      <property>/engines/engine[0]/n1</property>
+      <value>40.0</value>     
+     </less-than>
+     <less-than>
+      <property>/engines/engine[1]/n1</property>
+      <value>40.0</value>     
+     </less-than>
+     <less-than>
+      <property>/engines/engine[2]/n1</property>
+      <value>40.0</value>     
+     </less-than>
+     <less-than>
+      <property>/engines/engine[3]/n1</property>
+      <value>40.0</value>     
+     </less-than>
+     <not>
+      <or>
+       <property>/engines/engine[0]/augmentation</property>
+       <property>/engines/engine[1]/augmentation</property>
+       <property>/engines/engine[2]/augmentation</property>
+       <property>/engines/engine[3]/augmentation</property>
+      </or>
+     </not>     
+     <less-than>
+      <property>/systems/engines/engine[0]/bucket-deg</property>
+      <value>40</value>
+     </less-than>
+     <less-than>
+      <property>/systems/engines/engine[1]/bucket-deg</property>
+      <value>40</value>
+     </less-than>
+     <less-than>
+      <property>/systems/engines/engine[2]/bucket-deg</property>
+      <value>40</value>
+     </less-than>
+     <less-than>
+      <property>/systems/engines/engine[3]/bucket-deg</property>
+      <value>40</value>
+     </less-than>
+    </and>
+   </condition>
+   <volume>
+    <property>/engines/engine[0]/thrust_lb[0]</property>
+    <type>sqrt</type>
+    <factor>0.004</factor>
+    <offset>0.040</offset>
+   </volume>
+   <volume>
+    <property>/engines/engine[1]/thrust_lb[0]</property>
+    <type>sqrt</type>
+    <factor>0.004</factor>
+    <offset>0.040</offset>
+   </volume>    
+   <volume>
+    <property>/engines/engine[2]/thrust_lb[0]</property>
+    <type>sqrt</type>
+    <factor>0.004</factor>
+    <offset>0.040</offset>
+   </volume>    
+   <volume>
+    <property>/engines/engine[3]/thrust_lb[0]</property>
+    <type>sqrt</type>
+    <factor>0.004</factor>
+    <offset>0.040</offset>
+   </volume>    
+   <position>
+    <x>8.0</x>                                                   <!-- cockpit -->
+    <y>0.0</y>
+    <z>0.0</z>
+   </position>
+  </engine>
+
+  <engine>
+   <name>internal cruise</name>
+   <path>Aircraft/Concorde/Sounds/con3.wav</path>
+   <mode>looped</mode>
+   <condition>
+    <and>
+     <property>/sim/current-view/internal</property>
+     <or>
+      <property>/engines/engine[0]/running</property>
+      <property>/engines/engine[1]/running</property>     
+      <property>/engines/engine[2]/running</property>     
+      <property>/engines/engine[3]/running</property>     
+     </or>
+     <or>
+      <or>
+       <greater-than-equals>
+        <property>/engines/engine[0]/n1</property>
+        <value>40.0</value>     
+       </greater-than-equals>
+       <greater-than-equals>
+        <property>/engines/engine[1]/n1</property>
+        <value>40.0</value>     
+       </greater-than-equals>
+       <greater-than-equals>
+        <property>/engines/engine[2]/n1</property>
+        <value>40.0</value>     
+       </greater-than-equals>
+       <greater-than-equals>
+        <property>/engines/engine[3]/n1</property>
+        <value>40.0</value>     
+       </greater-than-equals>
+      </or>
+      <or>
+       <property>/engines/engine[0]/augmentation</property>
+       <property>/engines/engine[1]/augmentation</property>
+       <property>/engines/engine[2]/augmentation</property>
+       <property>/engines/engine[3]/augmentation</property>
+      </or>
+     </or>
+     <less-than>
+      <property>/systems/engines/engine[0]/bucket-deg</property>
+      <value>40</value>
+     </less-than>
+     <less-than>
+      <property>/systems/engines/engine[1]/bucket-deg</property>
+      <value>40</value>
+     </less-than>
+     <less-than>
+      <property>/systems/engines/engine[2]/bucket-deg</property>
+      <value>40</value>
+     </less-than>
+     <less-than>
+      <property>/systems/engines/engine[3]/bucket-deg</property>
+      <value>40</value>
+     </less-than>
+    </and>
+   </condition>
+   <volume>
+    <property>/engines/engine[0]/thrust_lb[0]</property>
+    <type>ln</type>
+    <factor>0.03</factor>
+    <offset>0.015</offset>
+   </volume>
+   <volume>
+    <property>/engines/engine[1]/thrust_lb[0]</property>
+    <type>ln</type>
+    <factor>0.03</factor>
+    <offset>0.015</offset>
+   </volume>    
+   <volume>
+    <property>/engines/engine[2]/thrust_lb[0]</property>
+    <type>ln</type>
+    <factor>0.03</factor>
+    <offset>0.015</offset>
+   </volume>    
+   <volume>
+    <property>/engines/engine[3]/thrust_lb[0]</property>
+    <type>ln</type>
+    <factor>0.03</factor>
+    <offset>0.015</offset>
+   </volume>    
+   <volume>
+    <property>/velocities/airspeed-kt</property>                 <!-- more noisy in flight -->
+    <factor>0.00015</factor>
+    <max>0.06</max>                                              <!-- 400 kt -->
+   </volume>    
+   <position>
+    <x>8.0</x>                                                   <!-- cockpit -->
+    <y>0.0</y>
+    <z>0.0</z>
+   </position>
+  </engine>
+
+  <wind>
+   <name>nose wind</name>
+   <path>Sounds/wind.wav</path>
+   <mode>looped</mode>
+   <condition>
+    <and>
+     <property>/sim/current-view/internal</property>
+     <greater-than>
+      <property>/surface-positions/flap-pos-norm</property>
+      <property n="1">/sim/flaps/setting[1]</property>           <!-- until noose is streamlined -->
+     </greater-than>
+     <greater-than>
+      <property>/velocities/airspeed-kt</property>
+      <value>200</value>                                         <!-- enough speed -->
+     </greater-than>
+    </and>
+   </condition>
+   <!-- at 10000 ft, reduced air density is expected to substract 1/10 of the sound caused by the 250 kt air velocity -->
+   <volume>
+    <property>/position/altitude-ft</property>
+    <factor>-0.000015</factor>
+    <!--factor>-0.00000001</factor-->
+    <offset>1.0</offset>
+    <min>0.1</min>
+    <max>1.0</max>
+   </volume>
+   <volume>
+     <property>/velocities/airspeed-kt</property>
+     <factor>0.0015</factor>
+     <!--factor>0.0000040</factor-->
+     <min>0.03</min>
+     <max>0.25</max>
+   </volume>
+   <pitch>
+    <property>/velocities/airspeed-kt</property>
+    <factor>0.01</factor>
+    <offset>1.25</offset>
+   </pitch>
+   <position>
+    <x>8.0</x>                                                   <!-- cockpit -->
+    <y>0.0</y>
+    <z>0.0</z>
+   </position>
+  </wind>
+
+  <reverse>
+   <name>internal reverse</name>
+   <path>Aircraft/Concorde/Sounds/rumblex.wav</path>
+   <mode>looped</mode>
+   <condition>
+    <and>
+     <property>/sim/current-view/internal</property>
+     <or>
+      <property>/engines/engine[0]/running</property>
+      <property>/engines/engine[1]/running</property>     
+      <property>/engines/engine[2]/running</property>     
+      <property>/engines/engine[3]/running</property>     
+     </or>
+     <or>
+      <greater-than-equals>
+       <property>/systems/engines/engine[0]/bucket-deg</property>
+       <value>40</value>
+      </greater-than-equals>
+      <greater-than-equals>
+       <property>/systems/engines/engine[1]/bucket-deg</property>
+       <value>40</value>
+      </greater-than-equals>
+      <greater-than-equals>
+       <property>/systems/engines/engine[2]/bucket-deg</property>
+       <value>40</value>
+      </greater-than-equals>
+      <greater-than-equals>
+       <property>/systems/engines/engine[3]/bucket-deg</property>
+       <value>40</value>
+      </greater-than-equals>
+     </or>
+    </and>
+   </condition>
+   <volume>
+    <property>/engines/engine[0]/thrust_lb[0]</property>
+    <type>sqrt</type>
+    <factor>0.001</factor>
+    <offset>0.005</offset>
+   </volume>
+   <volume>
+    <property>/engines/engine[1]/thrust_lb[0]</property>
+    <type>sqrt</type>
+    <factor>0.001</factor>
+    <offset>0.005</offset>
+   </volume>    
+   <volume>
+    <property>/engines/engine[2]/thrust_lb[0]</property>
+    <type>sqrt</type>
+    <factor>0.001</factor>
+    <offset>0.005</offset>
+   </volume>    
+   <volume>
+    <property>/engines/engine[3]/thrust_lb[0]</property>
+    <type>sqrt</type>
+    <factor>0.001</factor>
+    <offset>0.005</offset>
+   </volume>    
+   <position>
+    <x>40.0</x>                                                  <!-- behind -->
+    <y>0.0</y>
+    <z>0.0</z>
+   </position>
+  </reverse>
+
+<!-- EXTERNAL ENGINE -->
+
+  <engine>
+   <name>external taxi</name>
+   <path>Aircraft/Concorde/Sounds/con5.wav</path>
+   <mode>looped</mode>
+   <condition>
+    <and>
+     <not>
+      <property>/sim/current-view/internal</property>
+     </not>
+     <or>
+      <less-than>
+       <property>/systems/engines/transit</property>
+       <value>0.05</value>
+      </less-than>
+      <greater-than>
+       <property>/systems/engines/transit</property>
+       <value>0.95</value>
+      </greater-than>
+     </or>
+     <or>
+      <property>/engines/engine[0]/running</property>
+      <property>/engines/engine[1]/running</property>     
+      <property>/engines/engine[2]/running</property>     
+      <property>/engines/engine[3]/running</property>     
+     </or>
+     <less-than>
+      <property>/engines/engine[0]/n1</property>
+      <value>50.0</value>     
+     </less-than>
+     <less-than>
+      <property>/engines/engine[1]/n1</property>
+      <value>50.0</value>     
+     </less-than>
+     <less-than>
+      <property>/engines/engine[2]/n1</property>
+      <value>50.0</value>     
+     </less-than>
+     <less-than>
+      <property>/engines/engine[3]/n1</property>
+      <value>50.0</value>     
+     </less-than>
+     <not>
+      <or>
+       <property>/engines/engine[0]/augmentation</property>
+       <property>/engines/engine[1]/augmentation</property>
+       <property>/engines/engine[2]/augmentation</property>
+       <property>/engines/engine[3]/augmentation</property>
+      </or>
+     </not>     
+     <less-than>
+      <property>/systems/engines/engine[0]/bucket-deg</property>
+      <value>40</value>
+     </less-than>
+     <less-than>
+      <property>/systems/engines/engine[1]/bucket-deg</property>
+      <value>40</value>
+     </less-than>
+     <less-than>
+      <property>/systems/engines/engine[2]/bucket-deg</property>
+      <value>40</value>
+     </less-than>
+     <less-than>
+      <property>/systems/engines/engine[3]/bucket-deg</property>
+      <value>40</value>
+     </less-than>
+    </and>
+   </condition>
+   <volume>
+    <property>/engines/engine[0]/thrust_lb[0]</property>
+    <type>sqrt</type>
+    <factor>0.003</factor>
+    <offset>0.01</offset>
+   </volume>
+   <volume>
+    <property>/engines/engine[1]/thrust_lb[0]</property>
+    <type>sqrt</type>
+    <factor>0.003</factor>
+    <offset>0.01</offset>
+   </volume>    
+   <volume>
+    <property>/engines/engine[2]/thrust_lb[0]</property>
+    <type>sqrt</type>
+    <factor>0.003</factor>
+    <offset>0.01</offset>
+   </volume>    
+   <volume>
+    <property>/engines/engine[3]/thrust_lb[0]</property>
+    <type>sqrt</type>
+    <factor>0.003</factor>
+    <offset>0.01</offset>
+   </volume>    
+   <reference-dist>250.0</reference-dist>
+   <max-dist>8000.0</max-dist>
+   <position>
+    <x>40.0</x>                                                  <!-- behind -->
+    <y>0.0</y>
+    <z>0.0</z>
+   </position>
+  </engine>
+
+  <engine>
+   <name>external nozzle cone</name>
+   <path>Aircraft/Concorde/Sounds/con5.wav</path>
+   <mode>looped</mode>
+   <condition>
+    <and>
+     <not>
+      <property>/sim/current-view/internal</property>
+     </not>
+     <or>
+      <less-than>
+       <property>/systems/engines/transit</property>
+       <value>0.05</value>
+      </less-than>
+      <greater-than>
+       <property>/systems/engines/transit</property>
+       <value>0.95</value>
+      </greater-than>
+     </or>
+     <or>
+      <property>/engines/engine[0]/running</property>
+      <property>/engines/engine[1]/running</property>     
+      <property>/engines/engine[2]/running</property>     
+      <property>/engines/engine[3]/running</property>     
+     </or>
+     <less-than>
+      <property>/engines/engine[0]/n1</property>
+      <value>50.0</value>     
+     </less-than>
+     <less-than>
+      <property>/engines/engine[1]/n1</property>
+      <value>50.0</value>     
+     </less-than>
+     <less-than>
+      <property>/engines/engine[2]/n1</property>
+      <value>50.0</value>     
+     </less-than>
+     <less-than>
+      <property>/engines/engine[3]/n1</property>
+      <value>50.0</value>     
+     </less-than>
+     <not>
+      <or>
+       <property>/engines/engine[0]/augmentation</property>
+       <property>/engines/engine[1]/augmentation</property>
+       <property>/engines/engine[2]/augmentation</property>
+       <property>/engines/engine[3]/augmentation</property>
+      </or>
+     </not>     
+     <less-than>
+      <property>/systems/engines/engine[0]/bucket-deg</property>
+      <value>40</value>
+     </less-than>
+     <less-than>
+      <property>/systems/engines/engine[1]/bucket-deg</property>
+      <value>40</value>
+     </less-than>
+     <less-than>
+      <property>/systems/engines/engine[2]/bucket-deg</property>
+      <value>40</value>
+     </less-than>
+     <less-than>
+      <property>/systems/engines/engine[3]/bucket-deg</property>
+      <value>40</value>
+     </less-than>
+    </and>
+   </condition>
+   <volume>
+    <property>/engines/engine[0]/thrust_lb[0]</property>
+    <type>sqrt</type>
+    <factor>0.003</factor>
+    <offset>0.01</offset>
+   </volume>
+   <volume>
+    <property>/engines/engine[1]/thrust_lb[0]</property>
+    <type>sqrt</type>
+    <factor>0.003</factor>
+    <offset>0.01</offset>
+   </volume>    
+   <volume>
+    <property>/engines/engine[2]/thrust_lb[0]</property>
+    <type>sqrt</type>
+    <factor>0.003</factor>
+    <offset>0.01</offset>
+   </volume>    
+   <volume>
+    <property>/engines/engine[3]/thrust_lb[0]</property>
+    <type>sqrt</type>
+    <factor>0.003</factor>
+    <offset>0.01</offset>
+   </volume>    
+   <position>
+    <x>40.0</x>
+    <y>0.0</y>
+    <z>0.0</z>
+   </position>
+   <orientation>
+    <x>1.0</x>
+    <y>0.0</y>
+    <z>0.0</z>
+    <inner-angle>0</inner-angle>
+    <outer-angle>60</outer-angle>
+    <outer-gain>0.0</outer-gain>
+   </orientation>
+   <reference-dist>250.0</reference-dist>
+   <max-dist>8000.0</max-dist>
+  </engine>
+
+  <engine>
+   <name>external transit</name>
+   <path>Aircraft/Concorde/Sounds/con2.wav</path>
+   <mode>looped</mode>
+   <condition>
+    <and>
+     <not>
+      <property>/sim/current-view/internal</property>
+     </not>
+     <greater-than-equals>
+      <property>/systems/engines/transit</property>
+      <value>0.05</value>
+     </greater-than-equals>
+     <less-than-equals>
+      <property>/systems/engines/transit</property>
+      <value>0.95</value>
+     </less-than-equals>
+     <or>
+      <property>/engines/engine[0]/running</property>
+      <property>/engines/engine[1]/running</property>     
+      <property>/engines/engine[2]/running</property>     
+      <property>/engines/engine[3]/running</property>     
+     </or>
+     <less-than>
+      <property>/systems/engines/engine[0]/bucket-deg</property>
+      <value>40</value>
+     </less-than>
+     <less-than>
+      <property>/systems/engines/engine[1]/bucket-deg</property>
+      <value>40</value>
+     </less-than>
+     <less-than>
+      <property>/systems/engines/engine[2]/bucket-deg</property>
+      <value>40</value>
+     </less-than>
+     <less-than>
+      <property>/systems/engines/engine[3]/bucket-deg</property>
+      <value>40</value>
+     </less-than>
+    </and>
+   </condition>
+   <volume>
+    <property>/engines/engine[0]/thrust_lb[0]</property>
+    <type>sqrt</type>
+    <factor>0.003</factor>
+    <offset>0.04</offset>
+   </volume>
+   <volume>
+    <property>/engines/engine[1]/thrust_lb[0]</property>
+    <type>sqrt</type>
+    <factor>0.003</factor>
+    <offset>0.04</offset>
+   </volume>    
+   <volume>
+    <property>/engines/engine[2]/thrust_lb[0]</property>
+    <type>sqrt</type>
+    <factor>0.003</factor>
+    <offset>0.04</offset>
+   </volume>    
+   <volume>
+    <property>/engines/engine[3]/thrust_lb[0]</property>
+    <type>sqrt</type>
+    <factor>0.003</factor>
+    <offset>0.04</offset>
+   </volume>    
+   <position>
+    <x>40.0</x>                                                  <!-- behind -->
+    <y>0.0</y>
+    <z>0.0</z>
+   </position>
+   <reference-dist>250.0</reference-dist>
+   <max-dist>8000.0</max-dist>
+  </engine>
+
+  <engine>
+   <name>external takeoff</name>
+   <path>Aircraft/Concorde/Sounds/con7.wav</path>
+   <mode>looped</mode>
+   <condition>
+    <and>
+     <not>
+      <property>/sim/current-view/internal</property>
+     </not>
+     <or>
+      <less-than>
+       <property>/systems/engines/transit</property>
+       <value>0.05</value>
+      </less-than>
+      <greater-than>
+       <property>/systems/engines/transit</property>
+       <value>0.95</value>
+      </greater-than>
+     </or>
+     <or>
+      <property>/engines/engine[0]/running</property>
+      <property>/engines/engine[1]/running</property>     
+      <property>/engines/engine[2]/running</property>     
+      <property>/engines/engine[3]/running</property>     
+     </or>
+     <or>
+      <greater-than-equals>
+       <property>/engines/engine[0]/n1</property>
+       <value>50.0</value>     
+      </greater-than-equals>
+      <greater-than-equals>
+       <property>/engines/engine[1]/n1</property>
+       <value>50.0</value>     
+      </greater-than-equals>
+      <greater-than-equals>
+       <property>/engines/engine[2]/n1</property>
+       <value>50.0</value>     
+      </greater-than-equals>
+      <greater-than-equals>
+       <property>/engines/engine[3]/n1</property>
+       <value>50.0</value>     
+      </greater-than-equals>
+      <property>/engines/engine[0]/augmentation</property>
+      <property>/engines/engine[1]/augmentation</property>
+      <property>/engines/engine[2]/augmentation</property>
+      <property>/engines/engine[3]/augmentation</property>
+     </or>
+     <less-than>
+      <property>/systems/engines/engine[0]/bucket-deg</property>
+      <value>40</value>
+     </less-than>
+     <less-than>
+      <property>/systems/engines/engine[1]/bucket-deg</property>
+      <value>40</value>
+     </less-than>
+     <less-than>
+      <property>/systems/engines/engine[2]/bucket-deg</property>
+      <value>40</value>
+     </less-than>
+     <less-than>
+      <property>/systems/engines/engine[3]/bucket-deg</property>
+      <value>40</value>
+     </less-than>
+    </and>
+   </condition>
+   <volume>
+    <property>/engines/engine[0]/thrust_lb[0]</property>
+    <type>sqrt</type>
+    <factor>0.0035</factor>
+    <offset>0.01</offset>
+   </volume>
+   <volume>
+    <property>/engines/engine[1]/thrust_lb[0]</property>
+    <type>sqrt</type>
+    <factor>0.0035</factor>
+    <offset>0.01</offset>
+   </volume>    
+   <volume>
+    <property>/engines/engine[2]/thrust_lb[0]</property>
+    <type>sqrt</type>
+    <factor>0.0035</factor>
+    <offset>0.01</offset>
+   </volume>    
+   <volume>
+    <property>/engines/engine[3]/thrust_lb[0]</property>
+    <type>sqrt</type>
+    <factor>0.0035</factor>
+    <offset>0.01</offset>
+   </volume>    
+   <position>
+    <x>40.0</x>                                                  <!-- behind -->
+    <y>0.0</y>
+    <z>0.0</z>
+   </position>
+   <reference-dist>250.0</reference-dist>
+   <max-dist>8000.0</max-dist>
+  </engine>
+
+  <reverse>
+   <name>external reverse</name>
+   <path>Aircraft/Concorde/Sounds/rumblex.wav</path>
+   <mode>looped</mode>
+   <condition>
+    <and>
+     <not>
+      <property>/sim/current-view/internal</property>
+     </not>
+     <or>
+      <property>/engines/engine[0]/running</property>
+      <property>/engines/engine[1]/running</property>     
+      <property>/engines/engine[2]/running</property>     
+      <property>/engines/engine[3]/running</property>     
+     </or>
+     <or>
+      <greater-than-equals>
+       <property>/systems/engines/engine[0]/bucket-deg</property>
+       <value>40</value>
+      </greater-than-equals>
+      <greater-than-equals>
+       <property>/systems/engines/engine[1]/bucket-deg</property>
+       <value>40</value>
+      </greater-than-equals>
+      <greater-than-equals>
+       <property>/systems/engines/engine[2]/bucket-deg</property>
+       <value>40</value>
+      </greater-than-equals>
+      <greater-than-equals>
+       <property>/systems/engines/engine[3]/bucket-deg</property>
+       <value>40</value>
+      </greater-than-equals>
+     </or>
+    </and>
+   </condition>
+   <volume>
+    <property>/engines/engine[0]/thrust_lb[0]</property>
+    <type>sqrt</type>
+    <factor>0.004</factor>
+    <offset>0.035</offset>
+   </volume>
+   <volume>
+    <property>/engines/engine[1]/thrust_lb[0]</property>
+    <type>sqrt</type>
+    <factor>0.004</factor>
+    <offset>0.035</offset>
+   </volume>    
+   <volume>
+    <property>/engines/engine[2]/thrust_lb[0]</property>
+    <type>sqrt</type>
+    <factor>0.004</factor>
+    <offset>0.035</offset>
+   </volume>    
+   <volume>
+    <property>/engines/engine[3]/thrust_lb[0]</property>
+    <type>sqrt</type>
+    <factor>0.004</factor>
+    <offset>0.035</offset>
+   </volume>    
+   <position>
+    <x>40.0</x>                                                  <!-- behind -->
+    <y>0.0</y>
+    <z>0.0</z>
+   </position>
+   <reference-dist>250.0</reference-dist>
+   <max-dist>8000.0</max-dist>
+  </reverse>
+
+<!-- ENGINE START -->
+
+  <start>
+   <name>engine 1 start</name>
+   <path>Sounds/exhaust_start.wav</path>
+   <mode>once</mode>
+   <condition>
+    <and>
+     <property>/engines/engine[0]/cranking</property>
+     <property>/engines/engine[0]/starter</property>
+     <greater-than>
+      <property>/engines/engine[0]/n2</property>
+      <value>37</value>
+     </greater-than>
+    </and>
+   </condition>
+   <position>
+    <x>40.0</x>                                                  <!-- behind -->
+    <y>-6.0</y>                                                  <!-- left -->
+    <z>0.0</z>
+   </position>
+   <volume>
+    <max>0.3</max>
+   </volume>
+   <reference-dist>500.0</reference-dist>
+   <max-dist>8000.0</max-dist>
+  </start>
+
+  <start>
+   <name>engine 2 start</name>
+   <path>Sounds/exhaust_start.wav</path>
+   <mode>once</mode>
+   <condition>
+    <and>
+     <property>/engines/engine[1]/cranking</property>
+     <property>/engines/engine[1]/starter</property>
+     <greater-than>
+      <property>/engines/engine[1]/n2</property>
+      <value>37</value>
+     </greater-than>
+    </and>
+   </condition>
+   <position>
+    <x>40.0</x>                                                  <!-- behind -->
+    <y>-4.0</y>                                                  <!-- left -->
+    <z>0.0</z>
+   </position>
+   <volume>
+    <max>0.3</max>
+   </volume>
+   <reference-dist>500.0</reference-dist>
+   <max-dist>8000.0</max-dist>
+  </start>
+
+  <start>
+   <name>engine 3 start</name>
+   <path>Sounds/exhaust_start.wav</path>
+   <mode>once</mode>
+   <condition>
+    <and>
+     <property>/engines/engine[2]/cranking</property>
+     <property>/engines/engine[2]/starter</property>
+     <greater-than>
+      <property>/engines/engine[2]/n2</property>
+      <value>37</value>
+     </greater-than>
+    </and>
+   </condition>
+   <position>
+    <x>40.0</x>                                                  <!-- behind -->
+    <y>4.0</y>                                                   <!-- right -->
+    <z>0.0</z>
+   </position>
+   <volume>
+    <max>0.3</max>
+   </volume>
+   <reference-dist>500.0</reference-dist>
+   <max-dist>8000.0</max-dist>
+  </start>
+
+  <start>
+   <name>engine 4 start</name>
+   <path>Sounds/exhaust_start.wav</path>
+   <mode>once</mode>
+   <condition>
+    <and>
+     <property>/engines/engine[3]/cranking</property>
+     <property>/engines/engine[3]/starter</property>
+     <greater-than>
+      <property>/engines/engine[3]/n2</property>
+      <value>37</value>
+     </greater-than>
+    </and>
+   </condition>
+   <position>
+    <x>40.0</x>                                                  <!-- behind -->
+    <y>6.0</y>                                                   <!-- right -->
+    <z>0.0</z>
+   </position>
+   <volume>
+    <max>0.3</max>
+   </volume>
+   <reference-dist>500.0</reference-dist>
+   <max-dist>8000.0</max-dist>
+  </start>
+
+<!-- ENGINE SHUTDOWN -->
+
+  <shutdown>
+   <name>engine 1 shutdown</name>
+   <path>Sounds/exhaust_shutdown.wav</path>
+   <mode>once</mode>
+   <condition>
+    <and>
+     <property>/engines/engine[0]/cutoff</property>
+     <greater-than>
+      <property>/engines/engine[0]/n2</property>
+      <value>30</value> <!-- on starter, N2 increases till 25 -->
+     </greater-than>
+    </and>
+   </condition>
+   <position>
+    <x>40.0</x>                                                  <!-- behind -->
+    <y>-6.0</y>                                                  <!-- left -->
+    <z>0.0</z>
+   </position>
+   <volume>
+    <max>0.5</max>
+   </volume>
+   <reference-dist>500.0</reference-dist>
+   <max-dist>8000.0</max-dist>
+  </shutdown>
+
+  <shutdown>
+   <name>engine 2 shutdown</name>
+   <path>Sounds/exhaust_shutdown.wav</path>
+   <mode>once</mode>
+   <condition>
+    <and>
+     <property>/engines/engine[1]/cutoff</property>
+     <greater-than>
+      <property>/engines/engine[1]/n2</property>
+      <value>30</value>
+     </greater-than>
+    </and>
+   </condition>
+   <position>
+    <x>40.0</x>                                                  <!-- behind -->
+    <y>-4.0</y>                                                  <!-- left -->
+    <z>0.0</z>
+   </position>
+   <volume>
+    <max>0.5</max>
+   </volume>
+   <reference-dist>500.0</reference-dist>
+   <max-dist>8000.0</max-dist>
+  </shutdown>
+
+  <shutdown>
+   <name>engine 3 shutdown</name>
+   <path>Sounds/exhaust_shutdown.wav</path>
+   <mode>once</mode>
+   <condition>
+    <and>
+     <property>/engines/engine[2]/cutoff</property>
+     <greater-than>
+      <property>/engines/engine[2]/n2</property>
+      <value>30</value>
+     </greater-than>
+    </and>
+   </condition>
+   <position>
+    <x>40.0</x>                                                  <!-- behind -->
+    <y>4.0</y>                                                   <!-- right -->
+    <z>0.0</z>
+   </position>
+   <volume>
+    <max>0.5</max>
+   </volume>
+   <reference-dist>500.0</reference-dist>
+   <max-dist>8000.0</max-dist>
+  </shutdown>
+
+  <shutdown>
+   <name>engine 4 shutdown</name>
+   <path>Sounds/exhaust_shutdown.wav</path>
+   <mode>once</mode>
+   <condition>
+    <and>
+     <property>/engines/engine[3]/cutoff</property>
+     <greater-than>
+      <property>/engines/engine[3]/n2</property>
+      <value>30</value>
+     </greater-than>
+    </and>
+   </condition>
+   <position>
+    <x>40.0</x>                                                  <!-- behind -->
+    <y>6.0</y>                                                   <!-- right -->
+    <z>0.0</z>
+   </position>
+   <volume>
+    <max>0.5</max>
+   </volume>
+   <reference-dist>500.0</reference-dist>
+   <max-dist>8000.0</max-dist>
+  </shutdown>
+
+<!-- DEFAULT SOUNDS -->
+
+  <shock>
+   <name>shock front</name>
+   <path>Sounds/squeal.wav</path>
+   <condition>
+    <and>
+     <property>/gear/gear[0]/wow</property>
+     <less-than>
+      <property>/velocities/vertical-speed-fps</property>
+      <value>0</value>
+     </less-than>
+    </and>
+   </condition>
+   <volume>
+    <property>/velocities/speed-down-fps</property>
+    <factor>0.05</factor>
+   </volume>
+   <volume>
+    <property>/velocities/airspeed-kt</property>
+    <factor>0.01</factor>
+   </volume>
+   <volume>
+    <internal>dt_stop</internal>
+    <factor>0.05</factor>
+    <max>1.0</max>
+   </volume>
+   <pitch>
+    <property>/velocities/airspeed-kt</property>
+    <factor>0.0025</factor>
+    <offset>1.2</offset>
+   </pitch>
+   <position>
+    <x>19.0</x>
+    <y>0.0</y>
+    <z>0.0</z>
+   </position>
+   <reference-dist>10.0</reference-dist>
+   <max-dist>20.0</max-dist>
+  </shock>
+
+  <shock>
+   <name>shock left</name>
+   <path>Sounds/squeal.wav</path>
+   <condition>
+    <and>
+     <or>
+      <property>/gear/gear[1]/wow</property>
+      <property>/gear/gear[2]/wow</property>
+     </or>
+     <less-than>
+      <property>/velocities/vertical-speed-fps</property>
+      <value>0</value>
+     </less-than>
+    </and>
+   </condition>
+   <volume>
+    <property>/velocities/speed-down-fps</property>
+    <factor>0.05</factor>
+   </volume>
+   <volume>
+    <property>/velocities/airspeed-kt</property>
+    <factor>0.01</factor>
+   </volume>
+   <volume>
+    <internal>dt_stop</internal>
+    <factor>0.05</factor>
+    <max>1.0</max>
+   </volume>
+   <pitch>
+    <property>/velocities/airspeed-kt</property>
+    <factor>0.0025</factor>
+    <offset>1.2</offset>
+   </pitch>
+   <position>
+    <x>37.0</x>
+    <y>-4.0</y>
+    <z>0.0</z>
+   </position>
+   <reference-dist>10.0</reference-dist>
+   <max-dist>20.0</max-dist>
+  </shock>
+
+  <shock>
+   <name>shock right</name>
+   <path>Sounds/squeal.wav</path>
+   <condition>
+    <and>
+     <or>
+      <property>/gear/gear[3]/wow</property>
+      <property>/gear/gear[4]/wow</property>
+     </or>
+     <less-than>
+      <property>/velocities/vertical-speed-fps</property>
+      <value>0</value>
+     </less-than>
+    </and>
+   </condition>
+   <volume>
+    <property>/velocities/speed-down-fps</property>
+    <factor>0.05</factor>
+   </volume>
+   <volume>
+    <property>/velocities/airspeed-kt</property>
+    <factor>0.01</factor>
+   </volume>
+   <volume>
+    <internal>dt_stop</internal>
+    <factor>0.05</factor>
+    <max>1.0</max>
+   </volume>
+   <pitch>
+    <property>/velocities/airspeed-kt</property>
+    <factor>0.0025</factor>
+    <offset>1.2</offset>
+   </pitch>
+   <position>
+    <x>37.0</x>
+    <y>4.0</y>
+    <z>0.0</z>
+   </position>
+   <reference-dist>10.0</reference-dist>
+   <max-dist>20.0</max-dist>
+  </shock>
+ 
+  <flap>
+   <name>flaps</name>
+   <mode>in-transit</mode>
+   <path>Sounds/flaps.wav</path>
+   <property>/surface-positions/flap-pos-norm</property>
+   <volume>
+    <factor>0.15</factor>
+   </volume>
+   <position>
+    <x>7.0</x>                                                   <!-- nose -->
+    <y>0.0</y>
+    <z>0.0</z>
+   </position>
+   <reference-dist>10.0</reference-dist>
+   <max-dist>20.0</max-dist>
+  </flap>
+
+<!-- warning sounds :
+
+     - between seats.
+     - reference and max disable outside.
+-->
+
+  <gear>
+   <name>gear-horn</name>
+   <path>Sounds/gear-hrn.wav</path>
+   <mode>looped</mode>
+   <type>avionics</type>
+   <condition include="../Panels/Instruments/concorde-cond-gear.xml"/>
+   <position>
+    <x>8.0</x>
+    <y>0.0</y>
+    <z>0.0</z>
+   </position>
+   <reference-dist>2.0</reference-dist>
+   <max-dist>10.0</max-dist>
+  </gear>
+
+  <stall>
+   <name>stall</name>
+   <mode>looped</mode>
+   <path>Sounds/stall.wav</path>
+   <type>avionics</type>
+   <condition include="../Panels/Instruments/concorde-cond-stall.xml"/>
+   <position>
+    <x>8.0</x>
+    <y>0.0</y>
+    <z>0.0</z>
+   </position>
+   <reference-dist>2.0</reference-dist>
+   <max-dist>10.0</max-dist>
+  </stall>
+ 
+  <overspeed>
+   <name>overspeed</name>
+   <mode>looped</mode>
+   <path>Sounds/overspeed.wav</path>
+   <type>avionics</type>
+   <condition include="../Panels/Instruments/concorde-cond-overspeed.xml"/>
+   <position>
+    <x>8.0</x>
+    <y>0.0</y>
+    <z>0.0</z>
+   </position>
+   <reference-dist>2.0</reference-dist>
+   <max-dist>10.0</max-dist>
+  </overspeed>
+ 
+  <terrain>
+   <name>pull up</name>
+   <mode>looped</mode>
+   <path>Sounds/mk-viii/pull-up.wav</path>
+   <type>avionics</type>
+   <condition include="../Panels/Instruments/concorde-cond-terrain.xml"/>
+   <position>
+    <x>8.0</x>
+    <y>0.0</y>
+    <z>0.0</z>
+   </position>
+   <reference-dist>2.0</reference-dist>
+   <max-dist>10.0</max-dist>
+  </terrain>
+ 
+  <cavalry>
+   <name>cavalry charge</name>
+   <mode>looped</mode>
+   <path>Sounds/overspeed2.wav</path>
+   <type>avionics</type>
+   <condition include="../Panels/Instruments/concorde-cond-cavalry.xml"/>
+   <position>
+    <x>8.0</x>
+    <y>0.0</y>
+    <z>0.0</z>
+   </position>
+   <reference-dist>2.0</reference-dist>
+   <max-dist>10.0</max-dist>
+  </cavalry>
+ 
+  <single-gong>
+   <name>single gong</name>
+   <mode>once</mode>
+   <path>Sounds/beep.wav</path>
+   <type>avionics</type>
+   <condition include="../Panels/Instruments/concorde-cond-gong-single.xml"/>
+   <position>
+    <x>8.0</x>
+    <y>0.0</y>
+    <z>0.0</z>
+   </position>
+   <reference-dist>2.0</reference-dist>
+   <max-dist>10.0</max-dist>
+  </single-gong>
+ 
+  <repeated-gong>
+   <name>repeated gong</name>
+   <mode>once</mode>
+   <path>Sounds/beep.wav</path>
+   <type>avionics</type>
+   <condition include="../Panels/Instruments/concorde-cond-gong-10s.xml"/>
+   <position>
+    <x>8.0</x>
+    <y>0.0</y>
+    <z>0.0</z>
+   </position>
+   <reference-dist>2.0</reference-dist>
+   <max-dist>10.0</max-dist>
+  </repeated-gong>
+ 
+  <gong>
+   <name>gong</name>
+   <mode>looped</mode>
+   <path>Sounds/beep.wav</path>
+   <type>avionics</type>
+   <condition include="../Panels/Instruments/concorde-cond-gong.xml"/>
+   <position>
+    <x>8.0</x>
+    <y>0.0</y>
+    <z>0.0</z>
+   </position>
+   <reference-dist>2.0</reference-dist>
+   <max-dist>10.0</max-dist>
+  </gong>
+
+  <door>
+   <name>door</name>
+   <path>Sounds/door_close.wav</path>
+   <condition>
+    <equals>
+     <property>/controls/doors/flight-deck/position-norm</property>
+     <value>0.0</value>
+    </equals>
+   </condition>
+   <volume>
+    <factor>0.2</factor>
+   </volume>
+   <position>
+    <x>12.0</x>                                                  <!-- door -->
+    <y>0.0</y>
+    <z>0.0</z>
+   </position>
+   <reference-dist>2.0</reference-dist>
+   <max-dist>10.0</max-dist>
+  </door>
+
+  <click>
+   <name>click on</name>
+   <path>Sounds/click.wav</path>
+   <type>avionics</type>
+   <condition>
+    <property>/instrumentation/generic/click</property>
+   </condition>
+   <position>
+    <x>8.0</x>
+    <y>0.0</y>
+    <z>0.0</z>
+   </position>
+   <reference-dist>2.0</reference-dist>
+   <max-dist>10.0</max-dist>
+  </click>
+
+  <click>
+   <name>click off</name>
+   <path>Sounds/click.wav</path>
+   <type>avionics</type>
+   <condition>
+    <not>
+     <property>/instrumentation/generic/click</property>
+    </not>
+   </condition>
+   <position>
+    <x>8.0</x>
+    <y>0.0</y>
+    <z>0.0</z>
+   </position>
+   <reference-dist>2.0</reference-dist>
+   <max-dist>10.0</max-dist>
+  </click>
+
+</fx>
+ 
+</PropertyList>

@@ -1,0 +1,160 @@
+<?xml version="1.0"?>
+
+<!-- engine start valve -->
+
+<PropertyList>
+ <name>Engine Start Valve</name>
+ <w-base>28</w-base>
+ <h-base>56</h-base>
+
+ <params>
+  <starter>/engines/engine[0]/starter</starter>
+  <control-cutoff>/controls/engines/engine[0]/cutoff</control-cutoff>
+  <num>/systems/engines/engine[0]/engine-num</num>
+  <defined-status>/systems/electrical/power/specific</defined-status>
+ </params>
+
+
+ <layers>
+
+  <layer>
+   <name>valve</name>
+   <type>switch</type>
+
+   <layer>
+    <name>undefined</name>
+    <condition>
+     <not>
+      <property alias="../../../../../../params/defined-status"/>
+     </not>
+    </condition>
+    <texture>
+     <path>Aircraft/Concorde/Panels/Instruments/Textures/concorde-hatched-bg.png</path>
+    </texture>
+    <w>28</w>
+    <h>28</h>
+   </layer>
+
+   <layer>
+    <name>shut</name>
+    <condition>
+     <or>
+      <not>
+       <property alias="../../../../../../../params/starter"/>
+      </not>
+      <property alias="../../../../../../params/control-cutoff"/>
+     </or>
+    </condition>
+    <texture>
+     <path>Aircraft/Concorde/Panels/Instruments/Textures/concorde-black-shut.png</path>
+     <x1>0.0</x1>
+     <y1>0.0</y1>
+     <x2>1.0</x2>
+     <y2>1.0</y2>
+    </texture>
+    <w>28</w>
+    <h>28</h>
+   </layer>
+
+   <layer>
+    <name>open</name>
+    <texture>
+    <path>Aircraft/Concorde/Panels/Instruments/Textures/concorde-white-open.png</path>
+     <x1>0.0</x1>
+     <y1>0.0</y1>
+     <x2>1.0</x2>
+     <y2>1.0</y2>
+    </texture>
+    <w>28</w>
+    <h>28</h>
+   </layer>
+  </layer>
+
+  <layer>
+   <name>Title engine number</name>
+   <type>switch</type>
+
+   <layer>
+    <name>1</name>
+    <condition>
+     <equals>
+      <property alias="../../../../../../params/num"/>
+      <value>1</value>
+     </equals>
+    </condition>
+    <texture>
+     <path>Aircraft/Concorde/Panels/Instruments/Textures/concorde-1.png</path>
+     <x1>0.0</x1>
+     <y1>0.0</y1>
+     <x2>1.0</x2>
+     <y2>1.0</y2>
+    </texture>
+    <w>20</w>
+    <h>20</h>
+   </layer>
+
+   <layer>
+    <name>2</name>
+    <condition>
+     <equals>
+      <property alias="../../../../../../params/num"/>
+      <value>2</value>
+     </equals>
+    </condition>
+    <texture>
+     <path>Aircraft/Concorde/Panels/Instruments/Textures/concorde-2.png</path>
+     <x1>0.0</x1>
+     <y1>0.0</y1>
+     <x2>1.0</x2>
+     <y2>1.0</y2>
+    </texture>
+    <w>20</w>
+    <h>20</h>
+   </layer>
+
+   <layer>
+    <name>3</name>
+    <condition>
+     <equals>
+      <property alias="../../../../../../params/num"/>
+      <value>3</value>
+     </equals>
+    </condition>
+    <texture>
+     <path>Aircraft/Concorde/Panels/Instruments/Textures/concorde-3.png</path>
+     <x1>0.0</x1>
+     <y1>0.0</y1>
+     <x2>1.0</x2>
+     <y2>1.0</y2>
+    </texture>
+    <w>20</w>
+    <h>20</h>
+   </layer>
+
+   <layer>
+    <name>4</name>
+    <texture>
+     <path>Aircraft/Concorde/Panels/Instruments/Textures/concorde-4.png</path>
+     <x1>0.0</x1>
+     <y1>0.0</y1>
+     <x2>1.0</x2>
+     <y2>1.0</y2>
+    </texture>
+    <w>20</w>
+    <h>20</h>
+   </layer>
+
+   <transformations>
+    <transformation>
+     <type>x-shift</type>
+     <offset>-2</offset>
+    </transformation>
+    <transformation>
+     <type>y-shift</type>
+     <offset>-22</offset>
+    </transformation>
+   </transformations>
+  </layer>
+ </layers>
+
+</PropertyList>

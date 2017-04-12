@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+
+<!-- Voltage condition for AC instruments feeded by 26 volts Main A :
+
+     - only when single instrument; otherwise creates a specific condition (example : gear, flaps).
+-->
+
+<PropertyList>
+
+   <greater-than>
+    <property>/systems/electrical/outputs/main-26a</property>
+    <value>20.0</value>
+   </greater-than>
+
+</PropertyList>

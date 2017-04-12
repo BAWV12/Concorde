@@ -1,0 +1,69 @@
+<?xml version="1.0"?>
+
+<!-- Engine secondary air door
+-->
+
+<PropertyList>
+ <name>Secondary air door</name>
+ <w-base>28</w-base>
+ <h-base>28</h-base>
+
+ <params>
+  <air-door>/systems/engines/engine[0]/secondary-air-door</air-door>
+  <defined-status>/systems/electrical/power/specific</defined-status>
+ </params>
+
+
+ <layers>
+
+  <layer>
+   <name>door</name>
+   <type>switch</type>
+
+   <layer>
+    <name>undefined</name>
+    <condition>
+     <not>
+      <property alias="../../../../../../params/defined-status"/>
+     </not>
+    </condition>
+    <texture>
+     <path>Aircraft/Concorde/Panels/Instruments/Textures/concorde-hatched-bg.png</path>
+    </texture>
+    <w>28</w>
+    <h>28</h>
+   </layer>
+
+   <layer>
+    <name>open</name>
+    <condition>
+     <property alias="../../../../../params/air-door"/>
+    </condition>
+    <texture>
+    <path>Aircraft/Concorde/Panels/Instruments/Textures/concorde-black-open.png</path>
+     <x1>0.0</x1>
+     <y1>0.0</y1>
+     <x2>1.0</x2>
+     <y2>1.0</y2>
+    </texture>
+    <w>28</w>
+    <h>28</h>
+   </layer>
+
+   <layer>
+    <name>shut</name>
+    <texture>
+     <path>Aircraft/Concorde/Panels/Instruments/Textures/concorde-white-shut.png</path>
+     <x1>0.0</x1>
+     <y1>0.0</y1>
+     <x2>1.0</x2>
+     <y2>1.0</y2>
+    </texture>
+    <w>28</w>
+    <h>28</h>
+   </layer>
+  </layer>
+
+ </layers>
+
+</PropertyList>

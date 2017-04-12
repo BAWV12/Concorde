@@ -1,0 +1,397 @@
+<?xml version="1.0"?>
+
+<!-- Concorde DC rotary selector (voltmeter) :
+
+-->
+
+<PropertyList>
+ <name>DC rotary selector</name>
+ <w-base>164</w-base>
+ <h-base>123</h-base>
+
+
+ <layers>
+
+<!-- SELECTOR LEFT -->
+
+  <layer>
+   <name>Title batt A</name>
+   <type>text</type>
+   <point-size>11</point-size>
+   <color>
+    <red>1.0</red>
+    <green>1.0</green>
+    <blue>1.0</blue>
+   </color>
+   <chunks>
+    <chunk>
+     <type>literal</type>
+     <text>BATT</text>
+    </chunk>
+   </chunks>
+   <transformations>
+    <transformation>
+     <type>x-shift</type>
+     <offset>-81</offset>
+    </transformation>
+    <transformation>
+     <type>y-shift</type>
+     <offset>5</offset>
+    </transformation>
+   </transformations>
+  </layer>
+
+  <layer>
+   <name>Title batt A (line 2)</name>
+   <type>text</type>
+   <point-size>11</point-size>
+   <color>
+    <red>1.0</red>
+    <green>1.0</green>
+    <blue>1.0</blue>
+   </color>
+   <chunks>
+    <chunk>
+     <type>literal</type>
+     <text>A</text>
+    </chunk>
+   </chunks>
+   <transformations>
+    <transformation>
+     <type>x-shift</type>
+     <offset>-68</offset>
+    </transformation>
+    <transformation>
+     <type>y-shift</type>
+     <offset>-12</offset>
+    </transformation>
+   </transformations>
+  </layer>
+
+  <layer>
+   <name>Title essential A</name>
+   <type>text</type>
+   <point-size>11</point-size>
+   <color>
+    <red>1.0</red>
+    <green>1.0</green>
+    <blue>1.0</blue>
+   </color>
+   <chunks>
+    <chunk>
+     <type>literal</type>
+     <text>ESS</text>
+    </chunk>
+   </chunks>
+   <transformations>
+    <transformation>
+     <type>x-shift</type>
+     <offset>-55</offset>
+    </transformation>
+    <transformation>
+     <type>y-shift</type>
+     <offset>32</offset>
+    </transformation>
+   </transformations>
+  </layer>
+
+  <layer>
+   <name>Title essential A (line 2)</name>
+   <type>text</type>
+   <point-size>11</point-size>
+   <color>
+    <red>1.0</red>
+    <green>1.0</green>
+    <blue>1.0</blue>
+   </color>
+   <chunks>
+    <chunk>
+     <type>literal</type>
+     <text>A</text>
+    </chunk>
+   </chunks>
+   <transformations>
+    <transformation>
+     <type>x-shift</type>
+     <offset>-44</offset>
+    </transformation>
+    <transformation>
+     <type>y-shift</type>
+     <offset>16</offset>
+    </transformation>
+   </transformations>
+  </layer>
+
+<!-- SELECTOR VERTICAL -->
+
+  <layer>
+   <name>Title main A</name>
+   <type>text</type>
+   <point-size>11</point-size>
+   <color>
+    <red>1.0</red>
+    <green>1.0</green>
+    <blue>1.0</blue>
+   </color>
+   <chunks>
+    <chunk>
+     <type>literal</type>
+     <text>MAIN A</text>
+    </chunk>
+   </chunks>
+   <transformations>
+    <transformation>
+     <type>x-shift</type>
+     <offset>-25</offset>
+    </transformation>
+    <transformation>
+     <type>y-shift</type>
+     <offset>51</offset>
+    </transformation>
+   </transformations>
+  </layer>
+
+<!-- SELECTOR RIGHT -->
+
+  <layer>
+   <name>Title main B</name>
+   <type>text</type>
+   <point-size>11</point-size>
+   <color>
+    <red>1.0</red>
+    <green>1.0</green>
+    <blue>1.0</blue>
+   </color>
+   <chunks>
+    <chunk>
+     <type>literal</type>
+     <text>MAIN</text>
+    </chunk>
+   </chunks>
+   <transformations>
+    <transformation>
+     <type>x-shift</type>
+     <offset>23</offset>
+    </transformation>
+    <transformation>
+     <type>y-shift</type>
+     <offset>32</offset>
+    </transformation>
+   </transformations>
+  </layer>
+
+  <layer>
+   <name>Title main B (line 2)</name>
+   <type>text</type>
+   <point-size>11</point-size>
+   <color>
+    <red>1.0</red>
+    <green>1.0</green>
+    <blue>1.0</blue>
+   </color>
+   <chunks>
+    <chunk>
+     <type>literal</type>
+     <text>B</text>
+    </chunk>
+   </chunks>
+   <transformations>
+    <transformation>
+     <type>x-shift</type>
+     <offset>36</offset>
+    </transformation>
+    <transformation>
+     <type>y-shift</type>
+     <offset>16</offset>
+    </transformation>
+   </transformations>
+  </layer>
+
+  <layer>
+   <name>Title essential B</name>
+   <type>text</type>
+   <point-size>11</point-size>
+   <color>
+    <red>1.0</red>
+    <green>1.0</green>
+    <blue>1.0</blue>
+   </color>
+   <chunks>
+    <chunk>
+     <type>literal</type>
+     <text>ESS</text>
+    </chunk>
+   </chunks>
+   <transformations>
+    <transformation>
+     <type>x-shift</type>
+     <offset>51</offset>
+    </transformation>
+    <transformation>
+     <type>y-shift</type>
+     <offset>5</offset>
+    </transformation>
+   </transformations>
+  </layer>
+
+  <layer>
+   <name>Title essential B (line 2)</name>
+   <type>text</type>
+   <point-size>12</point-size>
+   <color>
+    <red>1.0</red>
+    <green>1.0</green>
+    <blue>1.0</blue>
+   </color>
+   <chunks>
+    <chunk>
+     <type>literal</type>
+     <text>B</text>
+    </chunk>
+   </chunks>
+   <transformations>
+    <transformation>
+     <type>x-shift</type>
+     <offset>60</offset>
+    </transformation>
+    <transformation>
+     <type>y-shift</type>
+     <offset>-12</offset>
+    </transformation>
+   </transformations>
+  </layer>
+
+  <layer>
+   <name>Title batt B</name>
+   <type>text</type>
+   <point-size>11</point-size>
+   <color>
+    <red>1.0</red>
+    <green>1.0</green>
+    <blue>1.0</blue>
+   </color>
+   <chunks>
+    <chunk>
+     <type>literal</type>
+     <text>BATT</text>
+    </chunk>
+   </chunks>
+   <transformations>
+    <transformation>
+     <type>x-shift</type>
+     <offset>27</offset>
+    </transformation>
+    <transformation>
+     <type>y-shift</type>
+     <offset>-42</offset>
+    </transformation>
+   </transformations>
+  </layer>
+
+  <layer>
+   <name>Title batt B (line 2)</name>
+   <type>text</type>
+   <point-size>11</point-size>
+   <color>
+    <red>1.0</red>
+    <green>1.0</green>
+    <blue>1.0</blue>
+   </color>
+   <chunks>
+    <chunk>
+     <type>literal</type>
+     <text>B</text>
+    </chunk>
+   </chunks>
+   <transformations>
+    <transformation>
+     <type>x-shift</type>
+     <offset>40</offset>
+    </transformation>
+    <transformation>
+     <type>y-shift</type>
+     <offset>-58</offset>
+    </transformation>
+   </transformations>
+  </layer>
+
+  <layer>
+   <name>knob rotation</name>
+   <texture>
+    <path>Aircraft/Concorde/Panels/Instruments/Textures/navcom-radios.png</path>
+    <x1>0.53125</x1>
+    <x2>0.59765625</x2>
+    <y1>0.05859375</y1>
+    <y2>0.1484375</y2>
+   </texture>
+   <w>55</w>
+   <h>60</h>
+   <transformations>
+    <transformation>
+     <type>rotation</type>
+     <property>/controls/electric/dc/voltmeter</property>
+     <min>-2</min>
+     <max>3</max>
+     <scale>45</scale>
+     <offset>0</offset>
+    </transformation>
+   </transformations>
+  </layer>
+
+ </layers>
+
+ <actions>
+
+  <action>
+   <name>selector left</name>
+   <button>0</button>
+   <x>-43</x>
+   <y>-41</y>
+   <w>42</w>
+   <h>82</h>
+   <binding>
+    <command>property-adjust</command>
+    <property>/controls/electric/dc/voltmeter</property>
+    <step>-1</step>
+    <min>-2</min>
+    <max>3</max>
+    <wrap>0</wrap>
+   </binding>
+   <binding>
+    <command>nasal</command>
+    <script>globals.Concorde.electricalsystem.dcvoltmeterexport();</script>
+   </binding>
+   <binding>
+    <command>property-toggle</command>
+    <property>/instrumentation/generic/click</property>
+   </binding>
+  </action>
+
+  <action>
+   <name>selector right</name>
+   <button>0</button>
+   <x>1</x>
+   <y>-41</y>
+   <w>42</w>
+   <h>82</h>
+   <binding>
+    <command>property-adjust</command>
+    <property>/controls/electric/dc/voltmeter</property>
+    <step>1</step>
+    <min>-2</min>
+    <max>3</max>
+    <wrap>0</wrap>
+   </binding>
+   <binding>
+    <command>nasal</command>
+    <script>globals.Concorde.electricalsystem.dcvoltmeterexport();</script>
+   </binding>
+   <binding>
+    <command>property-toggle</command>
+    <property>/instrumentation/generic/click</property>
+   </binding>
+  </action>
+
+ </actions>
+
+</PropertyList>

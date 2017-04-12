@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+
+<!-- Voltage condition for external lights :
+
+     - navigation and collisions lights supplied by ground / flight busbars 28X et 29X (steward switch).
+-->
+
+<PropertyList>
+
+   <or>
+    <greater-than>
+     <property>/systems/electrical/outputs/specific</property>
+     <value>20.0</value>
+    </greater-than>
+    <greater-than>
+     <property>/systems/electrical/outputs/probe/ac-ground-flight[0]</property>
+     <value>20.0</value>
+    </greater-than>
+    <greater-than>
+     <property>/systems/electrical/outputs/probe/ac-ground-flight[1]</property>
+     <value>20.0</value>
+    </greater-than>
+   </or>
+
+</PropertyList>

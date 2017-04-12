@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+
+<PropertyList>
+
+  <params>
+    <n2>engines/engine[1]/n2</n2>
+    <rh>engines/engine[1]/augmentation</rh>
+  </params>
+
+  <particlesystem include="smoke_r.xml"/>
+</PropertyList>

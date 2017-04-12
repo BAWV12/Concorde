@@ -1,0 +1,86 @@
+<?xml version="1.0"?>
+
+<!-- Alarm on nose wheel :
+
+     - no hydraulics (green and yellow).
+     - must be reset.
+-->
+
+<PropertyList>
+ <name>Alarm on nose wheel</name>
+ <w-base>52</w-base>
+ <h-base>104</h-base>
+
+
+ <layers>
+<!-- translucent lens -->  
+  <layer>
+   <name>Alarm light</name>
+   <type>switch</type>
+    <layer>
+     <name>off</name>
+     <type>group</type>
+     <condition>
+      <or include="concorde-cond-voltage-bulb.xml">
+       <and>
+        <not>
+         <property>/controls/gear/steering/test</property>
+        </not>
+        <property>/controls/gear/steering/hydraulic</property>
+       </and>
+      </or>
+     </condition>
+
+     <layer include="concorde-bulb-off.xml">
+      <w>104</w>
+      <h>52</h>
+     </layer>
+     <layer>
+      <name>background off</name>
+      <texture>
+       <path>Aircraft/Concorde/Panels/Instruments/Textures/concorde-red-nose-wheel.png</path>
+       <x1>0.0</x1>
+       <y1>0.1</y1>
+       <x2>1.0</x2>
+       <y2>0.9</y2>
+      </texture>
+      <w>104</w>
+      <h>52</h>
+     </layer>
+    </layer>
+
+    <layer>
+     <name>on</name>
+     <type>group</type>
+
+     <layer include="concorde-bulb-on.xml">
+      <condition include="concorde-cond-light-copilot.xml"/>
+      <w>104</w>
+      <h>52</h>
+     </layer>
+     <layer>
+      <name>background on</name>
+      <texture>
+       <path>Aircraft/Concorde/Panels/Instruments/Textures/concorde-red-nose-wheel.png</path>
+       <x1>0.0</x1>
+       <y1>0.1</y1>
+       <x2>1.0</x2>
+       <y2>0.9</y2>
+      </texture>
+      <w>104</w>
+      <h>52</h>
+      <emissive>true</emissive>
+     </layer>
+    </layer>
+
+    <transformations>
+     <transformation>
+      <type>rotation</type>
+      <offset>90</offset>
+     </transformation>
+    </transformations>
+  </layer>
+
+ </layers>
+
+</PropertyList>

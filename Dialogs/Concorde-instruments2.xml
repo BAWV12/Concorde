@@ -1,0 +1,381 @@
+<?xml version="1.0"?>
+
+<!-- - many instruments are common with engineer or copilot.
+ -->
+
+<PropertyList>
+
+ <name>Concorde-instruments2</name>
+ <width>700</width>
+ <height>600</height>
+ <modal>false</modal>
+
+ <text>
+  <x>10</x>
+  <y>570</y>
+  <label>Concorde Instruments</label>
+ </text>
+
+ <group>
+  <y>540</y>
+
+  <text>
+   <x>100</x>
+   <label>(Uncheck an instrument to fail it.)</label>
+   <color>
+     <red>0.5</red>
+     <green>0.5</green>
+     <blue>0.5</blue>
+   </color>
+  </text>
+
+ </group>
+
+
+<!-- copilot -->
+
+ <text>
+  <x>30</x>
+  <y>470</y>
+  <label>Copilot</label>
+ </text>
+
+ <group>
+  <y>430</y>
+
+  <checkbox>
+   <x>10</x>
+   <y>0</y>
+   <width>20</width>
+   <height>20</height>
+   <label>Accelerometer 2</label>
+   <property>/instrumentation/accelerometer-aoa[1]/serviceable</property>
+  </checkbox>
+
+  <checkbox>
+   <x>240</x>
+   <y>0</y>
+   <width>20</width>
+   <height>20</height>
+   <label>ADC 2</label>
+   <property>/instrumentation/adc[1]/serviceable</property>
+  </checkbox>
+
+  <checkbox>
+   <x>470</x>
+   <y>0</y>
+   <width>20</width>
+   <height>20</height>
+   <label>ADF 2</label>
+   <property>/instrumentation/adf[1]/serviceable</property>
+  </checkbox>
+
+ </group>
+
+
+ <group>
+  <y>400</y>
+
+  <checkbox>
+   <x>10</x>
+   <y>0</y>
+   <width>20</width>
+   <height>20</height>
+   <label>Airspeed 2</label>
+   <property>/instrumentation/airspeed-indicator[1]/serviceable</property>
+  </checkbox>
+
+  <checkbox>
+   <x>470</x>
+   <y>0</y>
+   <width>20</width>
+   <height>20</height>
+   <label>Altimeter 2</label>
+   <property>/instrumentation/altimeter[1]/serviceable</property>
+  </checkbox>
+
+ </group>
+
+
+ <group>
+  <y>370</y>
+
+  <checkbox>
+   <x>240</x>
+   <y>0</y>
+   <width>20</width>
+   <height>20</height>
+   <label>Attitude 2</label>
+   <property>/instrumentation/attitude-indicator[1]/serviceable</property>
+  </checkbox>
+
+ </group>
+
+
+ <group>
+  <y>340</y>
+
+  <checkbox>
+   <x>240</x>
+   <y>0</y>
+   <width>20</width>
+   <height>20</height>
+   <label>Clock</label>
+   <property>/instrumentation/clock/serviceable</property>
+  </checkbox>
+
+  <checkbox>
+   <x>470</x>
+   <y>0</y>
+   <width>20</width>
+   <height>20</height>
+   <label>COM 2</label>
+   <property>/instrumentation/comm[1]/serviceable</property>
+  </checkbox>
+
+ </group>
+
+
+ <group>
+  <y>310</y>
+
+  <checkbox>
+   <x>10</x>
+   <y>0</y>
+   <width>20</width>
+   <height>20</height>
+   <label>Compass 2</label>
+   <property>/instrumentation/compass[1]/serviceable</property>
+  </checkbox>
+
+  <checkbox>
+   <x>240</x>
+   <y>0</y>
+   <width>20</width>
+   <height>20</height>
+   <label>DME 2</label>
+   <property>/instrumentation/dme[1]/serviceable</property>
+  </checkbox>
+
+  <checkbox>
+   <x>470</x>
+   <y>0</y>
+   <width>20</width>
+   <height>20</height>
+   <label>Fuel weight</label>
+   <property>/instrumentation/fuel/serviceable</property>
+  </checkbox>
+
+ </group>
+
+
+ <group>
+  <y>280</y>
+
+  <checkbox>
+   <x>10</x>
+   <y>0</y>
+   <width>20</width>
+   <height>20</height>
+   <label>Heading</label>
+   <property>/instrumentation/heading-indicator/serviceable</property>
+  </checkbox>
+
+  <checkbox>
+   <x>240</x>
+   <y>0</y>
+   <width>20</width>
+   <height>20</height>
+   <label>HSI 2</label>
+   <property>/instrumentation/hsi[1]/serviceable</property>
+  </checkbox>
+
+  <checkbox>
+   <x>470</x>
+   <y>0</y>
+   <width>20</width>
+   <height>20</height>
+   <label>INS 2</label>
+   <property>/instrumentation/ins[1]/serviceable</property>
+  </checkbox>
+
+ </group>
+
+
+ <group>
+  <y>250</y>
+
+  <checkbox>
+   <x>10</x>
+   <y>0</y>
+   <width>20</width>
+   <height>20</height>
+   <label>Mach 2</label>
+   <property>/instrumentation/mach-indicator[1]/serviceable</property>
+  </checkbox>
+
+  <checkbox>
+   <x>240</x>
+   <y>0</y>
+   <width>20</width>
+   <height>20</height>
+   <label>Magnetic compass</label>
+   <property>/instrumentation/magnetic-compass/serviceable</property>
+  </checkbox>
+
+  <checkbox>
+   <x>470</x>
+   <y>0</y>
+   <width>20</width>
+   <height>20</height>
+   <label>Marker beacon</label>
+   <property>/instrumentation/marker-beacon/serviceable</property>
+  </checkbox>
+
+ </group>
+
+
+ <group>
+  <y>220</y>
+
+  <checkbox>
+   <x>10</x>
+   <y>0</y>
+   <width>20</width>
+   <height>20</height>
+   <label>NAV 2</label>
+   <property>/instrumentation/nav[2]/serviceable</property>
+  </checkbox>
+
+  <checkbox>
+   <x>240</x>
+   <y>0</y>
+   <width>20</width>
+   <height>20</height>
+   <label>Radio altimeter 2</label>
+   <property>/instrumentation/radio-altimeter[1]/serviceable</property>
+  </checkbox>
+
+  <checkbox>
+   <x>470</x>
+   <y>0</y>
+   <width>20</width>
+   <height>20</height>
+   <label>Sideslip 2</label>
+   <property>/instrumentation/side-slip[1]/serviceable</property>
+  </checkbox>
+
+ </group>
+
+ <group>
+  <y>190</y>
+
+  <checkbox>
+   <x>240</x>
+   <y>0</y>
+   <width>20</width>
+   <height>20</height>
+   <label>Temperature 2</label>
+   <property>/instrumentation/temperature[1]/serviceable</property>
+  </checkbox>
+
+  <checkbox>
+   <x>470</x>
+   <y>0</y>
+   <width>20</width>
+   <height>20</height>
+   <label>Transponder</label>
+   <property>/instrumentation/transponder/serviceable</property>
+  </checkbox>
+
+ </group>
+
+ <group>
+  <y>160</y>
+
+  <checkbox>
+   <x>10</x>
+   <y>0</y>
+   <width>20</width>
+   <height>20</height>
+   <label>Turn</label>
+   <property>/instrumentation/turn-indicator/serviceable</property>
+  </checkbox>
+
+  <checkbox>
+   <x>240</x>
+   <y>0</y>
+   <width>20</width>
+   <height>20</height>
+   <label>Vertical Speed 2</label>
+   <property>/instrumentation/vertical-speed-indicator[1]/serviceable</property>
+  </checkbox>
+
+ </group>
+
+
+<!-- buttons -->
+
+ <group>
+  <y>10</y>
+
+  <button>
+   <x>50</x>
+   <y>0</y>
+   <legend>Back</legend>
+   <key>b</key>
+   <binding>
+   <command>dialog-show</command>
+    <dialog-name>Concorde-menu</dialog-name>
+   </binding>
+   <binding>
+    <command>dialog-close</command>
+   </binding>
+  </button>
+
+  <button>
+   <x>200</x>
+   <y>0</y>
+   <legend>Close</legend>
+   <default>true</default>
+   <equal>true</equal>
+   <key>Esc</key>
+   <binding>
+    <command>dialog-apply</command>
+   </binding>
+   <binding>
+    <command>dialog-close</command>
+   </binding>
+  </button>
+
+  <button>
+   <x>450</x>
+   <y>0</y>
+   <legend>Page 3</legend>
+   <key>p</key>
+   <binding>
+    <command>dialog-apply</command>
+   </binding>
+   <binding>
+    <command>dialog-show</command>
+    <dialog-name>Concorde-instruments3</dialog-name>
+   </binding>
+   <binding>
+    <command>dialog-close</command>
+   </binding>
+  </button>
+
+  <button>
+   <x>600</x>
+   <y>0</y>
+   <legend>Apply</legend>
+    <key>a</key>
+   <equal>true</equal>
+   <binding>
+    <command>dialog-apply</command>
+   </binding>
+  </button>
+
+ </group>
+
+</PropertyList>

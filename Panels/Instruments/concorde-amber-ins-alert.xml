@@ -1,0 +1,89 @@
+<?xml version="1.0"?>
+
+<!-- INS alert warning -->
+
+<PropertyList>
+ <name>INS alert warning</name>
+ <w-base>52</w-base>
+ <h-base>26</h-base>
+
+ <params>
+  <alert-ctrl>/instrumentation/ins[0]/light/alert</alert-ctrl>
+  <mode-ctrl>/instrumentation/ins[0]/msu/mode</mode-ctrl>
+  <test-ctrl>/instrumentation/ins[0]/control/test</test-ctrl>
+ </params>
+
+
+ <layers>
+
+<!-- translucent lens -->  
+  <layer>
+   <name>Alarm light</name>
+   <type>switch</type>
+
+   <layer>
+    <name>off</name>
+    <type>group</type>
+    <condition>
+     <or>
+      <not include="concorde-cond-voltage-inst.xml"/>
+      <equals>
+       <property alias="../../../../../../../params/mode-ctrl"/>
+       <value>-2</value>
+      </equals>
+      <and>
+       <not>
+        <property alias="../../../../../../../../params/alert-ctrl"/>
+       </not>
+       <not>
+        <property alias="../../../../../../../../params/test-ctrl"/>
+       </not>
+      </and>
+     </or>
+    </condition>
+
+    <layer include="concorde-bulb-off.xml">
+     <w>52</w>
+     <h>26</h>
+    </layer>
+    <layer>
+     <name>background off</name>
+     <texture>
+      <path>Aircraft/Concorde/Panels/Instruments/Textures/concorde-amber-alert.png</path>
+      <x1>0.0</x1>
+      <y1>0.25</y1>
+      <x2>1.0</x2>
+      <y2>0.75</y2>
+     </texture>
+     <w>52</w>
+     <h>26</h>
+    </layer>
+   </layer>
+
+   <layer>
+    <name>on</name>
+    <type>group</type>
+
+    <layer include="concorde-bulb-on.xml">
+     <w>52</w>
+     <h>26</h>
+    </layer>
+    <layer>
+     <name>background on</name>
+     <texture>
+      <path>Aircraft/Concorde/Panels/Instruments/Textures/concorde-amber-alert.png</path>
+      <x1>0.0</x1>
+      <y1>0.25</y1>
+      <x2>1.0</x2>
+      <y2>0.75</y2>
+     </texture>
+     <w>52</w>
+     <h>26</h>
+     <emissive>true</emissive>
+    </layer>
+   </layer>
+  </layer>
+
+ </layers>
+
+</PropertyList>

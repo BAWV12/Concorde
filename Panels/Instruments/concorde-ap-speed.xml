@@ -1,0 +1,172 @@
+<?xml version="1.0"?>
+
+<!--Concorde speed knob :
+
+    - real range is 130 to 400 kt.
+    - the speed dial is dissociated from its autopilot target;
+    as speed hold is pressed, the current speed is supposed not echoed on the dial.
+-->
+
+<PropertyList>
+
+ <name>Speed setting knob</name>
+ <w-base>120</w-base>
+ <h-base>120</h-base>
+
+
+ <layers>
+
+  <layer>
+   <name>knob</name>
+   <texture>
+    <path>Aircraft/Concorde/Panels/Instruments/Textures/concorde-black-knob.png</path>
+   </texture>
+    <w>55</w>
+    <h>55</h>
+   <transformations>
+    <transformation>
+     <type>x-shift</type>
+     <offset>14</offset>
+    </transformation>
+   </transformations>
+  </layer>
+
+  <layer>
+   <name>selector</name>
+   <texture>
+    <path>Aircraft/Concorde/Panels/Instruments/Textures/concorde-white-button.png</path>
+   </texture>
+   <w>14</w>
+   <h>52</h>
+   <transformations>
+    <transformation>
+     <type>x-shift</type>
+     <offset>14</offset>
+    </transformation>
+    <transformation>
+     <type>rotation</type>
+     <property>/controls/autoflight/speed-select</property>
+     <scale>1</scale>
+     <offset>-130</offset>
+    </transformation>
+   </transformations>
+  </layer>
+
+  <layer>
+   <name>Title knob</name>
+   <type>text</type>
+   <point-size>7</point-size>
+   <color>
+    <red>1.0</red>
+    <green>1.0</green>
+    <blue>1.0</blue>
+   </color>
+   <chunks>
+    <chunk>
+     <type>literal</type>
+     <text>SPEED SELECT</text>
+    </chunk>
+   </chunks>
+   <transformations>
+    <transformation>
+     <type>x-shift</type>
+     <offset>-16</offset>
+    </transformation>
+    <transformation>
+     <type>y-shift</type>
+     <offset>-40</offset>
+    </transformation>
+   </transformations>
+  </layer>
+
+ </layers>
+
+ <actions>
+
+  <action>
+   <name>Minus 10</name>
+   <button>0</button>
+   <x>-7</x>
+   <y>-22</y>
+   <w>22</w>
+   <h>22</h>
+   <binding>
+    <command>property-adjust</command>
+    <property>/controls/autoflight/speed-select</property>
+    <step>-10</step>
+    <min>130</min>
+    <max>400</max>
+    <wrap>0</wrap>
+   </binding>
+   <binding>
+    <command>nasal</command>
+    <script>globals.Concorde.autothrottlesystem.atspeedselectexport();</script>
+   </binding>
+  </action>
+
+  <action>
+   <name>Plus 10</name>
+   <button>0</button>
+   <x>-7</x>
+   <y>2</y>
+   <w>22</w>
+   <h>22</h>
+   <binding>
+    <command>property-adjust</command>
+    <property>/controls/autoflight/speed-select</property>
+    <step>10</step>
+    <min>130</min>
+    <max>400</max>
+    <wrap>0</wrap>
+   </binding>
+   <binding>
+    <command>nasal</command>
+    <script>globals.Concorde.autothrottlesystem.atspeedselectexport();</script>
+   </binding>
+  </action>
+
+  <action>
+   <name>Minus 1</name>
+   <button>0</button>
+   <x>16</x>
+   <y>-22</y>
+   <w>22</w>
+   <h>22</h>
+   <binding>
+    <command>property-adjust</command>
+    <property>/controls/autoflight/speed-select</property>
+    <step>-1</step>
+    <min>130</min>
+    <max>400</max>
+    <wrap>0</wrap>
+   </binding>
+   <binding>
+    <command>nasal</command>
+    <script>globals.Concorde.autothrottlesystem.atspeedselectexport();</script>
+   </binding>
+  </action>
+
+  <action>
+   <name>Plus 1</name>
+   <button>0</button>
+   <x>16</x>
+   <y>2</y>
+   <w>22</w>
+   <h>22</h>
+   <binding>
+    <command>property-adjust</command>
+    <property>/controls/autoflight/speed-select</property>
+    <step>1</step>
+    <min>130</min>
+    <max>400</max>
+    <wrap>0</wrap>
+   </binding>
+   <binding>
+    <command>nasal</command>
+    <script>globals.Concorde.autothrottlesystem.atspeedselectexport();</script>
+   </binding>
+  </action>
+
+ </actions>
+
+</PropertyList>

@@ -1,0 +1,235 @@
+<?xml version="1.0"?>
+
+<!-- Concorde online help :
+
+     WARNING : real data are duplicated from Readme.
+-->
+
+<PropertyList>
+
+<!-- Specific keys -->
+
+    <key>
+      <name>[ ]</name>
+      <desc>raise/lower nose</desc>
+    </key>
+    <key>
+      <name>=</name>
+      <desc>menu</desc>
+    </key>
+    <key>
+      <name>left/right</name>
+      <desc>autopilot track heading (knob)</desc>
+    </key>
+    <key>
+      <name></name>
+      <desc>floating view left/right</desc>
+    </key>
+    <key>
+      <name>up/down</name>
+      <desc>increase/decrease (datum) autopilot altitude</desc>
+    </key>
+    <key>
+      <name></name>
+      <desc>floating view front/aft</desc>
+    </key>
+    <key>
+      <name>ctrl up/down</name>
+      <desc>increase/decrease (datum) autopilot altitude (slow)</desc>
+    </key>
+    <key>
+      <name></name>
+      <desc>floating view front/aft (fast)</desc>
+    </key>
+    <key>
+      <name>page up/down</name>
+      <desc>increase/decrease (datum) autothrottle speed</desc>
+    </key>
+    <key>
+      <name></name>
+      <desc>floating view up/down</desc>
+    </key>
+    <key>
+      <name>F12</name>
+      <desc>radio frequencies</desc>
+    </key>
+    <key>
+      <name>shift-F12</name>
+      <desc>crew text</desc>
+    </key>
+    <key>
+      <name>a/A</name>
+      <desc>speed-up</desc>
+    </key>
+    <key>
+      <name>alt-b</name>
+      <desc>emergency brakes</desc>
+    </key>
+    <key>
+      <name>f</name>
+      <desc>full cockpit</desc>
+    </key>
+    <key>
+      <name>alt-g</name>
+      <desc>gear standby</desc>
+    </key>
+    <key>
+      <name>alt-n</name>
+      <desc>nose standby</desc>
+    </key>
+    <key>
+      <name>q</name>
+      <desc>quit speed-up</desc>
+    </key>
+    <key>
+      <name>s</name>
+      <desc>engine start (quick)</desc>
+    </key>
+    <key>
+      <name>S</name>
+      <desc>swaps 2D panel</desc>
+    </key>
+    <key>
+      <name>y</name>
+      <desc>toggle yoke</desc>
+    </key>
+    <key>
+      <name>ctrl-A</name>
+      <desc>altitude acquire</desc>
+    </key>
+    <key>
+      <name>ctrl-B</name>
+      <desc>reverse thrust</desc>
+    </key>
+    <key>
+      <name>ctrl-D</name>
+      <desc>disconnect autopilot</desc>
+    </key>
+    <key>
+      <name>ctrl-E</name>
+      <desc>engineer view</desc>
+    </key>
+    <key>
+      <name>ctrl-F</name>
+      <desc>reheat (afterburner)</desc>
+    </key>
+    <key>
+      <name>ctrl-G</name>
+      <desc>glide slope</desc>
+    </key>
+    <key>
+      <name>ctrl-H</name>
+      <desc>heading hold</desc>
+    </key>
+    <key>
+      <name>ctrl-K</name>
+      <desc>observer (floating) view</desc>
+    </key>
+    <key>
+      <name>ctrl-L</name>
+      <desc>observer 2 (floating) view</desc>
+    </key>
+    <key>
+      <name>ctrl-N</name>
+      <desc>nav 1 hold</desc>
+    </key>
+    <key>
+      <name>ctrl-O</name>
+      <desc>overhead view</desc>
+    </key>
+    <key>
+      <name>ctrl-P</name>
+      <desc>pitch hold</desc>
+    </key>
+    <key>
+      <name>ctrl-Q</name>
+      <desc>virtual crew</desc>
+    </key>
+    <key>
+      <name>shift-ctrl-Q</name>
+      <desc>abort checklist</desc>
+    </key>
+    <key>
+      <name>ctrl-S</name>
+      <desc>speed acquire</desc>
+    </key>
+    <key>
+      <name>ctrl-T</name>
+      <desc>altitude hold</desc>
+    </key>
+    <key>
+     <name>shift-ctrl-V</name>
+     <desc>restore view pitch</desc>
+    </key>
+    <key>
+      <name>ctrl-W</name>
+      <desc>steward (floating) view</desc>
+    </key>
+    <key>
+      <name>shift-ctrl-X</name>
+      <desc>restore floating view</desc>
+    </key>
+    <key>
+      <name>ctrl-Y</name>
+      <desc>copilot view</desc>
+    </key>
+
+<!-- FDM ops -->
+
+<text> Takeoff (408000 lb) :
+            nose 5 deg, afterburner, V1 165 kt,
+            VR 195 kt, pitch 13.5 deg at rotation, V2 220 kt.
+            trim before engaging autopilot.
+ Subsonic cruise :
+            Mach 0.95, at FL260 (full load).
+ Acceleration :
+            afterburner at Mach 0.93.
+            climb with full throttle.
+            air intakes starts closing at Mach 1.3.
+            stop afterburner at Mach 1.7.
+ Supersonic cruise :
+            Mach 2.0 at FL500, then 50-60 ft/min.
+ Supersonic descent :
+            at 250 NM decelerate at 350 kt,
+            before starting the descent until Mach 0.95 FL380 (empty load).
+ Approach : 
+            190 kt.
+            10 NM at 3500 ft.
+ Landing (245000 lb) :
+            nose 12.5 deg, VREF 162 kt, pitch 10 deg at touch down.
+ Taxi :
+            nose 5 deg, only 2 engines.
+ Parking :
+            nose and visor up, as weather seal.
+
+<!-- Real data -->
+ ________________________Limitations________________________
+ max taxing : 412000 lb
+ max take off : 408000 lb
+ max landing : 245000 lb
+
+ V max for jettison (fuel) : Mach 0.93
+ V max for windscreen wiper operation : 325 kt
+ V visor down or operating : 325 kt
+ V nose 5 or operating between UP and 5 : 325 kt
+ Vla above 41000 ft (lowest autorized) : 300 kt
+ V nose DOWN or operating between 5 and DOWN : 270 kt (&lt; 20000 ft)
+ V landing lights : 270 kt
+ Vlo (landing gear operation) : 270 kt
+ Vle (landing gear extended) : 270 kt
+ Vla 15000/41000 ft : 250 kt
+ Vla below 15000 ft : VREF or V2 or V3
+ Vmc (minimum control speed with engine inoperative)
+ Vmcl (approach) : 150 kt
+ Vmc (takeoff) : 132 kt
+ Vmcg (ground) : 116 kt
+
+ runway : 11200 ft takeoff, 7300 ft landing
+ max climb rate : 5000 ft/min
+ ceiling : 60000 ft
+
+ max range : supersonic 3550 nm, subsonic 2760 nm
+ fuel flow : 20.5 tons/hour at Mach 2
+ max temperature : 127 degC on nose</text>
+
+</PropertyList>

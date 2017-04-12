@@ -1,0 +1,31 @@
+AC3Db
+MATERIAL "DefaultWhite" rgb 1 1 1  amb 1 1 1  emis 0 0 0  spec 0.5 0.5 0.5  shi 64  trans 0
+MATERIAL "white_light_on" rgb 1 1 1 amb 0.5 0.5 0.5 emis 0 0 0 spec 0 0 0 shi 32 trans 0
+OBJECT world
+kids 1
+OBJECT poly
+name "MainLanding"
+data 8
+Mesh.140
+texture "concorde-lights.png"
+texrep 1 1
+crease 30.000000
+numvert 4
+0.001606 0.431304 -0.431262
+0.001606 0.431304 0.431262
+-0.001606 -0.431222 0.431262
+-0.001606 -0.431222 -0.431262
+numsurf 2
+SURF 0x00
+mat 1
+refs 3
+0 0.37890625 0.3203125
+3 0.37890625 0.05078125
+2 0.63671875 0.05078125
+SURF 0x00
+mat 1
+refs 3
+0 0.37890625 0.3203125
+2 0.63671875 0.05078125
+1 0.63671875 0.3203125
+kids 0

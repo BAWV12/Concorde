@@ -1,0 +1,88 @@
+<?xml version="1.0"?>
+
+<!-- Hydrualic shut off valves -->
+
+<PropertyList>
+ <name>Hydraulic shut off valves</name>
+ <w-base>84</w-base>
+ <h-base>28</h-base>
+
+
+ <layers>
+
+  <layer>
+   <name>Title</name>
+   <type>text</type>
+   <point-size>7</point-size>
+   <color>
+    <red>1.0</red>
+    <green>1.0</green>
+    <blue>1.0</blue>
+   </color>
+   <chunks>
+    <chunk>
+     <type>literal</type>
+     <text>SHUT</text>
+    </chunk>
+   </chunks>
+   <transformations>
+    <transformation>
+     <type>x-shift</type>
+     <offset>5</offset>
+    </transformation>
+    <transformation>
+     <type>y-shift</type>
+     <offset>9</offset>
+    </transformation>
+   </transformations>
+  </layer>
+
+  <layer>
+   <name>Title line 2</name>
+   <type>text</type>
+   <point-size>7</point-size>
+   <color>
+    <red>1.0</red>
+    <green>1.0</green>
+    <blue>1.0</blue>
+   </color>
+   <chunks>
+    <chunk>
+     <type>literal</type>
+     <text>OFF</text>
+    </chunk>
+   </chunks>
+   <transformations>
+    <transformation>
+     <type>x-shift</type>
+     <offset>7</offset>
+    </transformation>
+   </transformations>
+  </layer>
+
+  <layer>
+   <name>Title line 3</name>
+   <type>text</type>
+   <point-size>7</point-size>
+   <color>
+    <red>1.0</red>
+    <green>1.0</green>
+    <blue>1.0</blue>
+   </color>
+   <chunks>
+    <chunk>
+     <type>literal</type>
+     <text>VALVES</text>
+    </chunk>
+   </chunks>
+   <transformations>
+    <transformation>
+     <type>y-shift</type>
+     <offset>-9</offset>
+    </transformation>
+   </transformations>
+  </layer>
+
+ </layers>
+
+</PropertyList>

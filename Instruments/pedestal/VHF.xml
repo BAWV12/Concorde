@@ -1,0 +1,762 @@
+<?xml version="1.0" ?> 
+
+<!-- VHF :
+
+     - width is the same than INS.
+     - by day, digits are visible without internal lighting.
+     - by night, internal lighting of digits is lightly red.
+
+
+     Known problems :
+     ==============
+     - if no voltage, off light becomes less darker.
+-->
+
+<PropertyList> 
+
+ <params>
+  <vhf-frq>/instrumentation/comm[0]/frequencies/selected-mhz</vhf-frq>
+  <vhf-stdby>/instrumentation/comm[0]/frequencies/standby-mhz</vhf-stdby>
+  <vhf-selected>/controls/audio/comm[0]/selected</vhf-selected>
+  <vhf-selected2>/controls/audio/comm[0]/standby</vhf-selected2>
+  <vhf-knob>/controls/audio/comm[0]/knob[0]</vhf-knob>
+  <vhf-knob2>/controls/audio/comm[0]/knob[1]</vhf-knob2>
+  <center-light>/controls/lighting/instrument-lights</center-light>
+ </params>
+
+
+ <path>VHF.ac</path> 
+
+<!-- ROOF FLUORESCENT LIGHTING -->
+
+ <animation>
+  <name>VHF</name>
+  <object-name>Plate</object-name>
+  <object-name>TransfertSwitch</object-name>
+  <object-name>TransferSwitch</object-name>
+  <object-name>SwitchPlate</object-name>
+  <object-name>Selector</object-name>
+  <object-name>SelectorDecimal</object-name>
+  <object-name>SelectorStandby.001</object-name>
+  <object-name>SelectorDecimalStandby</object-name>
+ </animation>
+
+ <animation>
+  <type>material</type>
+  <object-name>VHF</object-name>
+  <emission>
+   <red>0.71</red>
+   <green>0.79</green>
+   <blue>0.87</blue>
+   <factor-prop>systems/lighting/level/roof</factor-prop>
+  </emission> 
+ </animation> 
+
+<!-- GREEN LIGHT -->
+
+<!-- dark ambient enables to distinguish the emission, with mininal value by roof lighting -->
+
+ <animation>
+  <type>material</type>
+  <object-name>Light</object-name>
+  <condition>
+   <not include="../../Panels/Instruments/concorde-cond-voltage-bulb.xml"/>
+  </condition>
+  <emission>
+   <red>1.0</red>
+   <green>1.0</green>
+   <blue>0.2</blue>
+   <factor-prop alias="../../../params/vhf-selected"/>
+   <offset-prop>systems/lighting/level/roof-ambient</offset-prop>
+  </emission> 
+  <ambient>
+   <red>1.0</red>
+   <green>1.0</green>
+   <blue>0.2</blue>
+   <factor-prop alias="../../../params/vhf-selected"/>
+   <offset-prop>systems/lighting/level/roof-ambient</offset-prop>
+  </ambient>
+ </animation> 
+
+ <animation>
+  <type>material</type>
+  <object-name>LightStandby</object-name>
+  <condition>
+   <not include="../../Panels/Instruments/concorde-cond-voltage-bulb.xml"/>
+  </condition>
+  <emission>
+   <red>1.0</red>
+   <green>1.0</green>
+   <blue>0.2</blue>
+   <factor-prop alias="../../../params/vhf-selected2"/>
+   <offset-prop>systems/lighting/level/roof-ambient</offset-prop>
+  </emission> 
+  <ambient>
+   <red>1.0</red>
+   <green>1.0</green>
+   <blue>0.2</blue>
+   <factor-prop alias="../../../params/vhf-selected2"/>
+   <offset-prop>systems/lighting/level/roof-ambient</offset-prop>
+  </ambient>
+ </animation> 
+
+<!-- DISPLAY -->
+
+ <text>
+  <name>Selected frequency left</name>
+  <type type="string">number-value</type>
+  <property alias="../../params/vhf-frq"/>
+  <format type="string">%5.2f</format>
+  <draw-text type="bool">true</draw-text>
+  <font>led.txf</font>
+  <character-size type="double">0.009</character-size>
+  <character-aspect-ratio type="double">1.0</character-aspect-ratio>
+  <font-resolution>
+   <width type="int">32</width>
+   <height type="int">32</height>
+  </font-resolution>
+  <alignment>left-center</alignment>
+  <axis-alignment>yz-plane</axis-alignment>
+  <offsets>
+   <pitch-deg>-90</pitch-deg>
+   <x-m>-0.007</x-m>
+   <y-m>-0.054</y-m>
+   <z-m> 0.003</z-m>
+  </offsets>
+ </text>
+
+ <text>
+  <name>Standby frequency left</name>
+  <type type="string">number-value</type>
+  <property alias="../../params/vhf-stdby"/>
+  <format type="string">%5.2f</format>
+  <draw-text type="bool">true</draw-text>
+  <font>led.txf</font>
+  <character-size type="double">0.009</character-size>
+  <character-aspect-ratio type="double">1.0</character-aspect-ratio>
+  <font-resolution>
+   <width type="int">32</width>
+   <height type="int">32</height>
+  </font-resolution>
+  <alignment>left-center</alignment>
+  <axis-alignment>yz-plane</axis-alignment>
+  <offsets>
+   <pitch-deg>-90</pitch-deg>
+   <x-m>-0.007</x-m>
+   <y-m>-0.054</y-m>
+   <z-m> 0.003</z-m>
+  </offsets>
+ </text>
+
+ <animation>
+  <type>material</type>
+  <object-name>Selected frequency left</object-name>
+  <emission>
+   <red>1.0</red>
+   <green>0.7</green>
+   <blue>0.5</blue>
+   <factor-prop alias="../../../params/center-light"/>
+  </emission>
+  <ambient>
+   <red>1.0</red>
+   <green>1.0</green>
+   <blue>1.0</blue>
+   <offset-prop>systems/lighting/level/roof-ambient</offset-prop>
+  </ambient>
+ </animation>
+
+ <animation>
+  <type>material</type>
+  <object-name>Standby frequency left</object-name>
+  <emission>
+   <red>1.0</red>
+   <green>0.7</green>
+   <blue>0.5</blue>
+   <factor-prop alias="../../../params/center-light"/>
+  </emission>
+  <ambient>
+   <red>1.0</red>
+   <green>1.0</green>
+   <blue>1.0</blue>
+   <offset-prop>systems/lighting/level/roof-ambient</offset-prop>
+  </ambient>
+ </animation>
+
+ <animation>
+  <type>select</type>
+  <object-name>Selected frequency left</object-name>
+  <condition>
+   <property alias="../../../params/vhf-selected"/>
+  </condition>
+ </animation>
+
+ <animation>
+  <type>select</type>
+  <object-name>Standby frequency left</object-name>
+  <condition>
+   <property alias="../../../params/vhf-selected2"/>
+  </condition>
+ </animation>
+
+ <text>
+  <name>Selected frequency right</name>
+  <type type="string">number-value</type>
+  <property alias="../../params/vhf-frq"/>
+  <format type="string">%5.2f</format>
+  <draw-text type="bool">true</draw-text>
+  <font>led.txf</font>
+  <character-size type="double">0.009</character-size>
+  <character-aspect-ratio type="double">1.0</character-aspect-ratio>
+  <font-resolution>
+   <width type="int">32</width>
+   <height type="int">32</height>
+  </font-resolution>
+  <alignment>left-center</alignment>
+  <axis-alignment>yz-plane</axis-alignment>
+  <offsets>
+   <pitch-deg>-90</pitch-deg>
+   <x-m>-0.007</x-m>
+   <y-m> 0.023</y-m>
+   <z-m> 0.003</z-m>
+  </offsets>
+ </text>
+
+ <text>
+  <name>Standby frequency right</name>
+  <type type="string">number-value</type>
+  <property alias="../../params/vhf-stdby"/>
+  <format type="string">%5.2f</format>
+  <draw-text type="bool">true</draw-text>
+  <font>led.txf</font>
+  <character-size type="double">0.009</character-size>
+  <character-aspect-ratio type="double">1.0</character-aspect-ratio>
+  <font-resolution>
+   <width type="int">32</width>
+   <height type="int">32</height>
+  </font-resolution>
+  <alignment>left-center</alignment>
+  <axis-alignment>yz-plane</axis-alignment>
+  <offsets>
+   <pitch-deg>-90</pitch-deg>
+   <x-m>-0.007</x-m>
+   <y-m> 0.023</y-m>
+   <z-m> 0.003</z-m>
+  </offsets>
+ </text>
+
+ <animation>
+  <type>material</type>
+  <object-name>Selected frequency right</object-name>
+  <emission>
+   <red>1.0</red>
+   <green>0.7</green>
+   <blue>0.5</blue>
+   <factor-prop alias="../../../params/center-light"/>
+  </emission>
+  <ambient>
+   <red>1.0</red>
+   <green>1.0</green>
+   <blue>1.0</blue>
+   <offset-prop>systems/lighting/level/roof-ambient</offset-prop>
+  </ambient>
+ </animation>
+
+ <animation>
+  <type>material</type>
+  <object-name>Standby frequency right</object-name>
+  <emission>
+   <red>1.0</red>
+   <green>0.7</green>
+   <blue>0.5</blue>
+   <factor-prop alias="../../../params/center-light"/>
+  </emission>
+  <ambient>
+   <red>1.0</red>
+   <green>1.0</green>
+   <blue>1.0</blue>
+   <offset-prop>systems/lighting/level/roof-ambient</offset-prop>
+  </ambient>
+ </animation>
+
+ <animation>
+  <type>select</type>
+  <object-name>Selected frequency right</object-name>
+  <condition>
+   <property alias="../../../params/vhf-selected2"/>
+  </condition>
+ </animation>
+
+ <animation>
+  <type>select</type>
+  <object-name>Standby frequency right</object-name>
+  <condition>
+   <property alias="../../../params/vhf-selected"/>
+  </condition>
+ </animation>
+
+<!-- SWITCH -->
+
+ <animation>
+  <type>rotate</type>
+  <object-name>TransferSwitch</object-name>
+  <property alias="../../params/vhf-selected"/>
+  <factor>10</factor>
+  <offset-deg>0</offset-deg>   
+  <center>
+   <x-m>-0.0074</x-m>
+   <y-m> 0.0</y-m>
+   <z-m> 0.0</z-m>
+  </center>
+  <axis>
+   <x> 1.0</x>
+   <y> 0.0</y>
+   <z> 0.0</z>
+  </axis>
+ </animation>
+
+ <animation>
+  <type>rotate</type>
+  <object-name>TransferSwitch</object-name>
+  <property alias="../../params/vhf-selected2"/>
+  <factor>-10</factor>
+  <offset-deg>0</offset-deg>   
+  <center>
+   <x-m>-0.0074</x-m>
+   <y-m> 0.0</y-m>
+   <z-m> 0.0</z-m>
+  </center>
+  <axis>
+   <x> 1.0</x>
+   <y> 0.0</y>
+   <z> 0.0</z>
+  </axis>
+ </animation>
+
+ <animation>
+  <name>Switch</name>
+  <object-name>TransferSwitch</object-name>
+  <object-name>SwitchPlate</object-name>
+ </animation>
+
+ <animation>
+  <type>pick</type>
+  <object-name>Switch</object-name>
+  <action>
+   <button>0</button>
+   <repeatable>false</repeatable>
+   <binding>
+    <command>property-swap</command>
+    <property alias="../../../../params/vhf-selected"/>
+    <property alias="../../../../params/vhf-selected2"/>
+   </binding>
+   <binding>
+    <command>property-swap</command>
+    <property alias="../../../../params/vhf-frq"/>
+    <property alias="../../../../params/vhf-stdby"/>
+   </binding>
+   <binding>
+    <command>property-toggle</command>
+    <property>/instrumentation/generic/click</property>
+   </binding>
+  </action>
+  </animation>
+
+<!-- KNOBS -->
+
+ <animation>
+  <type>rotate</type>
+  <object-name>Selector</object-name>
+  <property alias="../../params/vhf-knob"/>
+  <factor>2</factor>
+  <offset-deg>0</offset-deg>   
+  <center>
+   <x-m> 0.0199</x-m>
+   <y-m>-0.0382</y-m>
+   <z-m> 0.0</z-m>
+  </center>
+  <axis>
+   <x> 0.0</x>
+   <y> 0.0</y>
+   <z>-1.0</z>
+  </axis>
+ </animation>
+
+ <animation>
+  <type>rotate</type>
+  <object-name>SelectorDecimal</object-name>
+  <property alias="../../params/vhf-knob"/>
+  <factor>720</factor>
+  <offset-deg>0</offset-deg>   
+  <center>
+   <x-m> 0.0199</x-m>
+   <y-m>-0.0382</y-m>
+   <z-m> 0.0</z-m>
+  </center>
+  <axis>
+   <x> 0.0</x>
+   <y> 0.0</y>
+   <z>-1.0</z>
+  </axis>
+ </animation>
+
+ <animation>
+  <type>pick</type>
+  <object-name>Selector</object-name>
+  <action>
+   <button>0</button>
+   <repeatable>true</repeatable>
+   <binding>
+    <condition>
+     <property alias="../../../../../params/vhf-selected"/>
+    </condition>
+    <command>property-adjust</command>
+    <property alias="../../../../params/vhf-frq"/>
+    <step>1</step>
+    <min>100</min>
+    <max>400</max>
+    <wrap>0</wrap>
+   </binding>
+   <binding>
+    <condition>
+     <not>
+      <property alias="../../../../../../params/vhf-selected"/>
+     </not>
+    </condition>
+    <command>property-adjust</command>
+    <property alias="../../../../params/vhf-stdby"/>
+    <step>1</step>
+    <min>100</min>
+    <max>400</max>
+    <wrap>0</wrap>
+   </binding>
+   <binding>
+    <command>property-adjust</command>
+    <property alias="../../../../params/vhf-knob"/>
+    <step>1</step>
+    <wrap>0</wrap>
+   </binding>
+   <binding>
+    <command>property-toggle</command>
+    <property>/instrumentation/generic/click</property>
+   </binding>
+  </action>
+  <action>
+   <button>1</button>
+   <repeatable>true</repeatable>
+   <binding>
+    <condition>
+     <property alias="../../../../../params/vhf-selected"/>
+    </condition>
+    <command>property-adjust</command>
+    <property alias="../../../../params/vhf-frq"/>
+    <step>-1</step>
+    <min>100</min>
+    <max>400</max>
+    <wrap>0</wrap>
+   </binding>
+   <binding>
+    <condition>
+     <not>
+      <property alias="../../../../../../params/vhf-selected"/>
+     </not>
+    </condition>
+    <command>property-adjust</command>
+    <property alias="../../../../params/vhf-stdby"/>
+    <step>-1</step>
+    <min>100</min>
+    <max>400</max>
+    <wrap>0</wrap>
+   </binding>
+   <binding>
+    <command>property-adjust</command>
+    <property alias="../../../../params/vhf-knob"/>
+    <step>-1</step>
+    <wrap>0</wrap>
+   </binding>
+   <binding>
+    <command>property-toggle</command>
+    <property>/instrumentation/generic/click</property>
+   </binding>
+  </action>
+ </animation>
+
+ <animation>
+  <type>pick</type>
+  <object-name>SelectorDecimal</object-name>
+  <action>
+   <button>0</button>
+   <repeatable>true</repeatable>
+   <binding>
+    <condition>
+     <property alias="../../../../../params/vhf-selected"/>
+    </condition>
+    <command>property-adjust</command>
+    <property alias="../../../../params/vhf-frq"/>
+    <step>0.01</step>
+    <min>100</min>
+    <max>400</max>
+    <wrap>0</wrap>
+   </binding>
+   <binding>
+    <condition>
+     <not>
+      <property alias="../../../../../../params/vhf-selected"/>
+     </not>
+    </condition>
+    <command>property-adjust</command>
+    <property alias="../../../../params/vhf-stdby"/>
+    <step>0.01</step>
+    <min>100</min>
+    <max>400</max>
+    <wrap>0</wrap>
+   </binding>
+   <binding>
+    <command>property-adjust</command>
+    <property alias="../../../../params/vhf-knob"/>
+    <step>0.01</step>
+    <wrap>0</wrap>
+   </binding>
+   <binding>
+    <command>property-toggle</command>
+    <property>/instrumentation/generic/click</property>
+   </binding>
+  </action>
+  <action>
+   <button>1</button>
+   <repeatable>true</repeatable>
+   <binding>
+    <condition>
+     <property alias="../../../../../params/vhf-selected"/>
+    </condition>
+    <command>property-adjust</command>
+    <property alias="../../../../params/vhf-frq"/>
+    <step>-0.01</step>
+    <min>100</min>
+    <max>400</max>
+    <wrap>0</wrap>
+   </binding>
+   <binding>
+    <condition>
+     <not>
+      <property alias="../../../../../../params/vhf-selected"/>
+     </not>
+    </condition>
+    <command>property-adjust</command>
+    <property alias="../../../../params/vhf-stdby"/>
+    <step>-0.01</step>
+    <min>100</min>
+    <max>400</max>
+    <wrap>0</wrap>
+   </binding>
+   <binding>
+    <command>property-adjust</command>
+    <property alias="../../../../params/vhf-knob"/>
+    <step>-0.01</step>
+    <wrap>0</wrap>
+   </binding>
+   <binding>
+    <command>property-toggle</command>
+    <property>/instrumentation/generic/click</property>
+   </binding>
+  </action>
+ </animation>
+
+ <animation>
+  <type>rotate</type>
+  <object-name>SelectorStandby.001</object-name>
+  <property alias="../../params/vhf-knob2"/>
+  <factor>2</factor>
+  <offset-deg>0</offset-deg>   
+  <center>
+   <x-m> 0.0199</x-m>
+   <y-m> 0.0388</y-m>
+   <z-m> 0.0</z-m>
+  </center>
+  <axis>
+   <x> 0.0</x>
+   <y> 0.0</y>
+   <z>-1.0</z>
+  </axis>
+ </animation>
+
+ <animation>
+  <type>rotate</type>
+  <object-name>SelectorDecimalStandby</object-name>
+  <property alias="../../params/vhf-knob2"/>
+  <factor>720</factor>
+  <offset-deg>0</offset-deg>   
+  <center>
+   <x-m> 0.0199</x-m>
+   <y-m> 0.0388</y-m>
+   <z-m> 0.0</z-m>
+  </center>
+  <axis>
+   <x> 0.0</x>
+   <y> 0.0</y>
+   <z>-1.0</z>
+  </axis>
+ </animation>
+
+ <animation>
+  <type>pick</type>
+  <object-name>SelectorStandby.001</object-name>
+  <action>
+   <button>0</button>
+   <repeatable>true</repeatable>
+   <binding>
+    <condition>
+     <property alias="../../../../../params/vhf-selected2"/>
+    </condition>
+    <command>property-adjust</command>
+    <property alias="../../../../params/vhf-frq"/>
+    <step>1</step>
+    <min>100</min>
+    <max>400</max>
+    <wrap>0</wrap>
+   </binding>
+   <binding>
+    <condition>
+     <not>
+      <property alias="../../../../../../params/vhf-selected2"/>
+     </not>
+    </condition>
+    <command>property-adjust</command>
+    <property alias="../../../../params/vhf-stdby"/>
+    <step>1</step>
+    <min>100</min>
+    <max>400</max>
+    <wrap>0</wrap>
+   </binding>
+   <binding>
+    <command>property-adjust</command>
+    <property alias="../../../../params/vhf-knob2"/>
+    <step>1</step>
+    <wrap>0</wrap>
+   </binding>
+   <binding>
+    <command>property-toggle</command>
+    <property>/instrumentation/generic/click</property>
+   </binding>
+  </action>
+  <action>
+   <button>1</button>
+   <repeatable>true</repeatable>
+   <binding>
+    <condition>
+     <property alias="../../../../../params/vhf-selected2"/>
+    </condition>
+    <command>property-adjust</command>
+    <property alias="../../../../params/vhf-frq"/>
+    <step>-1</step>
+    <min>100</min>
+    <max>400</max>
+    <wrap>0</wrap>
+   </binding>
+   <binding>
+    <condition>
+     <not>
+      <property alias="../../../../../../params/vhf-selected2"/>
+     </not>
+    </condition>
+    <command>property-adjust</command>
+    <property alias="../../../../params/vhf-stdby"/>
+    <step>-1</step>
+    <min>100</min>
+    <max>400</max>
+    <wrap>0</wrap>
+   </binding>
+   <binding>
+    <command>property-adjust</command>
+    <property alias="../../../../params/vhf-knob2"/>
+    <step>-1</step>
+    <wrap>0</wrap>
+   </binding>
+   <binding>
+    <command>property-toggle</command>
+    <property>/instrumentation/generic/click</property>
+   </binding>
+  </action>
+ </animation>
+
+ <animation>
+  <type>pick</type>
+  <object-name>SelectorDecimalStandby</object-name>
+  <action>
+   <button>0</button>
+   <repeatable>true</repeatable>
+   <binding>
+    <condition>
+     <property alias="../../../../../params/vhf-selected2"/>
+    </condition>
+    <command>property-adjust</command>
+    <property alias="../../../../params/vhf-frq"/>
+    <step>0.01</step>
+    <min>100</min>
+    <max>400</max>
+    <wrap>0</wrap>
+   </binding>
+   <binding>
+    <condition>
+     <not>
+      <property alias="../../../../../../params/vhf-selected2"/>
+     </not>
+    </condition>
+    <command>property-adjust</command>
+    <property alias="../../../../params/vhf-stdby"/>
+    <step>0.01</step>
+    <min>100</min>
+    <max>400</max>
+    <wrap>0</wrap>
+   </binding>
+   <binding>
+    <command>property-adjust</command>
+    <property alias="../../../../params/vhf-knob2"/>
+    <step>0.01</step>
+    <wrap>0</wrap>
+   </binding>
+   <binding>
+    <command>property-toggle</command>
+    <property>/instrumentation/generic/click</property>
+   </binding>
+  </action>
+  <action>
+   <button>1</button>
+   <repeatable>true</repeatable>
+   <binding>
+    <condition>
+     <property alias="../../../../../params/vhf-selected2"/>
+    </condition>
+    <command>property-adjust</command>
+    <property alias="../../../../params/vhf-frq"/>
+    <step>-0.01</step>
+    <min>100</min>
+    <max>400</max>
+    <wrap>0</wrap>
+   </binding>
+   <binding>
+    <condition>
+     <not>
+      <property alias="../../../../../../params/vhf-selected2"/>
+     </not>
+    </condition>
+    <command>property-adjust</command>
+    <property alias="../../../../params/vhf-stdby"/>
+    <step>-0.01</step>
+    <min>100</min>
+    <max>400</max>
+    <wrap>0</wrap>
+   </binding>
+   <binding>
+    <command>property-adjust</command>
+    <property alias="../../../../params/vhf-knob2"/>
+    <step>-0.01</step>
+    <wrap>0</wrap>
+   </binding>
+   <binding>
+    <command>property-toggle</command>
+    <property>/instrumentation/generic/click</property>
+   </binding>
+  </action>
+ </animation>
+
+</PropertyList>

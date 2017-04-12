@@ -1,0 +1,100 @@
+<?xml version="1.0"?>
+
+<!-- Concorde visor status
+
+-->
+
+<PropertyList>
+
+ <name>Visor status</name>
+ <w-base>60</w-base>
+ <h-base>60</h-base>
+
+ <layers>
+
+  <layer>
+   <name>background</name>
+   <type>switch</type>
+
+   <layer>
+    <name>Visor down</name>
+    <condition>
+     <and include="concorde-cond-voltage-nose.xml">
+      <greater-than-equals>
+       <property>/instrumentation/nose-visor/pos-norm</property>
+       <property n="1">/sim/flaps/setting[1]</property>
+      </greater-than-equals>
+     </and>
+    </condition>
+    <texture>
+     <path>Aircraft/Concorde/Panels/Instruments/Textures/concorde-black-down.png</path>
+    </texture>
+    <x1>0.0</x1>
+    <y1>0.40</y1>
+    <x2>1.0</x2>
+    <y2>0.60</y2>
+    <w>60</w>
+    <h>30</h>
+   </layer>
+
+   <layer>
+    <name>Visor up</name>
+    <condition>
+     <and include="concorde-cond-voltage-nose.xml">
+      <equals>
+       <property>/instrumentation/nose-visor/pos-norm</property>
+       <property n="1">/sim/flaps/setting[0]</property>
+      </equals>
+     </and>
+    </condition>
+    <texture>
+     <path>Aircraft/Concorde/Panels/Instruments/Textures/concorde-black-up.png</path>
+    </texture>
+    <x1>0.0</x1>
+    <y1>0.40</y1>
+    <x2>1.0</x2>
+    <y2>0.60</y2>
+    <w>60</w>
+    <h>30</h>
+   </layer>
+
+   <layer>
+    <name>background transit</name>
+    <texture>
+     <path>Aircraft/Concorde/Panels/Instruments/Textures/concorde-hatched-bg.png</path>
+    </texture>
+    <w>60</w>
+    <h>30</h>
+   </layer>
+  </layer>
+
+  <layer>
+   <name>Title</name>
+   <type>text</type>
+   <point-size>16</point-size>
+   <color>
+    <red>1.0</red>
+    <green>1.0</green>
+    <blue>1.0</blue>
+   </color>
+   <chunks>
+    <chunk>
+     <type>literal</type>
+     <text>VISOR</text>
+    </chunk>
+   </chunks>
+   <transformations>
+    <transformation>
+     <type>x-shift</type>
+     <offset>-26</offset>
+    </transformation>
+    <transformation>
+     <type>y-shift</type>
+     <offset>-25</offset>
+    </transformation>
+   </transformations>
+  </layer>
+
+ </layers>
+
+</PropertyList>

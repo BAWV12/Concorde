@@ -1,0 +1,765 @@
+<?xml version="1.0"?>
+
+<PropertyList>
+
+ <name>Discharge valve position indicator</name>
+ <w-base>125</w-base>
+ <h-base>250</h-base>
+
+ <layers>
+
+  <layer include="concorde-gauge-high.xml"/>
+
+  <layer>
+   <name>background</name>
+   <texture>
+    <path>Aircraft/Concorde/Panels/Instruments/Textures/concorde-black-bg.png</path>
+    <x1>0.42</x1>
+    <y1>0.0</y1>
+    <x2>0.60</x2>
+    <y2>1.0</y2>
+   </texture>
+   <w>85</w>
+   <h>187</h>
+  </layer>
+
+<!-- SYSTEM 1 -->
+
+  <layer>
+   <name>Forward valve</name>
+   <texture>
+    <path>Aircraft/Concorde/Panels/Instruments/Textures/hsi2.png</path>
+    <x1>0.8465625</x1>
+    <x2>0.948125</x2>
+    <y1>0.449375</y1>
+    <y2>0.5375</y2>
+   </texture>
+   <w>10</w>
+   <h>10</h>
+   <transformations>
+    <transformation>
+     <type>rotation</type>
+     <offset>-90</offset> <!-- horizontal right -->
+    </transformation>
+    <transformation>
+     <type>y-shift</type>
+     <offset>31</offset> <!-- aligned left -->
+    </transformation> 
+    <transformation>
+     <type>x-shift</type>
+     <offset>-64</offset> <!-- 0 % -->
+    </transformation> 
+    <transformation>
+     <condition include="concorde-cond-voltage-inst.xml"/>
+     <type>x-shift</type>
+     <property>/systems/pressurization/system[0]/discharge-fwd-percent</property>
+     <min>0</min>
+     <max>100</max>
+     <scale>1.0</scale>
+     <interpolation> <!-- index must increase, because of lookup ! -->
+      <entry><ind>  0</ind><dep>  0.0</dep></entry>
+      <entry><ind> 50</ind><dep> 68.0</dep></entry>
+      <entry><ind>100</ind><dep>136.0</dep></entry>
+     </interpolation>
+    </transformation>
+   </transformations>
+  </layer>
+
+  <layer>
+   <name>Aft valve</name>
+   <texture>
+    <path>Aircraft/Concorde/Panels/Instruments/Textures/hsi2.png</path>
+    <x1>0.8465625</x1>
+    <x2>0.948125</x2>
+    <y1>0.449375</y1>
+    <y2>0.5375</y2>
+   </texture>
+   <w>10</w>
+   <h>10</h>
+   <transformations>
+    <transformation>
+     <type>rotation</type>
+     <offset>90</offset> <!-- horizontal left -->
+    </transformation>
+    <transformation>
+     <type>y-shift</type>
+     <offset>-12</offset> <!-- aligned right -->
+    </transformation> 
+    <transformation>
+     <type>x-shift</type>
+     <offset>64</offset> <!-- 0 % -->
+    </transformation> 
+    <transformation>
+     <condition include="concorde-cond-voltage-inst.xml"/>
+     <type>x-shift</type>
+     <property>/systems/pressurization/system[0]/discharge-aft-percent</property>
+     <min>0</min>
+     <max>100</max>
+     <scale>1.0</scale>
+     <interpolation> <!-- index must increase, because of lookup ! -->
+      <entry><ind>  0</ind><dep>   0.0</dep></entry>
+      <entry><ind> 50</ind><dep> -68.0</dep></entry>
+      <entry><ind>100</ind><dep>-136.0</dep></entry>
+     </interpolation>
+    </transformation>
+   </transformations>
+  </layer>
+
+<!-- SYSTEM 2 -->
+
+  <layer>
+   <name>Forward valve</name>
+   <texture>
+    <path>Aircraft/Concorde/Panels/Instruments/Textures/hsi2.png</path>
+    <x1>0.8465625</x1>
+    <x2>0.948125</x2>
+    <y1>0.449375</y1>
+    <y2>0.5375</y2>
+   </texture>
+   <w>10</w>
+   <h>10</h>
+   <transformations>
+    <transformation>
+     <type>rotation</type>
+     <offset>-90</offset> <!-- horizontal right -->
+    </transformation>
+    <transformation>
+     <type>y-shift</type>
+     <offset>-13</offset> <!-- aligned left -->
+    </transformation> 
+    <transformation>
+     <type>x-shift</type>
+     <offset>-64</offset> <!-- 0 % -->
+    </transformation> 
+    <transformation>
+     <condition include="concorde-cond-voltage-inst.xml"/>
+     <type>x-shift</type>
+     <property>/systems/pressurization/system[1]/discharge-fwd-percent</property>
+     <min>0</min>
+     <max>100</max>
+     <scale>1.0</scale>
+     <interpolation> <!-- index must increase, because of lookup ! -->
+      <entry><ind>  0</ind><dep>  0.0</dep></entry>
+      <entry><ind> 50</ind><dep> 68.0</dep></entry>
+      <entry><ind>100</ind><dep>136.0</dep></entry>
+     </interpolation>
+    </transformation>
+   </transformations>
+  </layer>
+
+  <layer>
+   <name>Aft valve</name>
+   <texture>
+    <path>Aircraft/Concorde/Panels/Instruments/Textures/hsi2.png</path>
+    <x1>0.8465625</x1>
+    <x2>0.948125</x2>
+    <y1>0.449375</y1>
+    <y2>0.5375</y2>
+   </texture>
+   <w>10</w>
+   <h>10</h>
+   <transformations>
+    <transformation>
+     <type>rotation</type>
+     <offset>90</offset> <!-- horizontal left -->
+    </transformation>
+    <transformation>
+     <type>y-shift</type>
+     <offset>32</offset> <!-- aligned right -->
+    </transformation> 
+    <transformation>
+     <type>x-shift</type>
+     <offset>64</offset> <!-- 0 % -->
+    </transformation> 
+    <transformation>
+     <condition include="concorde-cond-voltage-inst.xml"/>
+     <type>x-shift</type>
+     <property>/systems/pressurization/system[1]/discharge-aft-percent</property>
+     <min>0</min>
+     <max>100</max>
+     <scale>1.0</scale>
+     <interpolation> <!-- index must increase, because of lookup ! -->
+      <entry><ind>  0</ind><dep>   0.0</dep></entry>
+      <entry><ind> 50</ind><dep> -68.0</dep></entry>
+      <entry><ind>100</ind><dep>-136.0</dep></entry>
+     </interpolation>
+    </transformation>
+   </transformations>
+  </layer>
+
+<!-- ELECTRICAL POWER -->
+
+  <layer>
+   <name>OFF flag</name>
+   <condition>
+    <not include="concorde-cond-voltage-inst.xml"/>
+   </condition>
+   <texture>
+    <path>Aircraft/Concorde/Panels/Instruments/Textures/misc-1.png</path>
+    <x1>0.9375</x1>
+    <y1>0.5</y1>
+    <x2>1.0</x2>
+    <y2>0.546875</y2>
+   </texture>
+   <w>20</w>
+   <h>6</h>
+   <transformations>
+    <transformation>
+     <type>x-shift</type>
+     <offset>-23</offset>
+    </transformation>
+    <transformation>
+     <type>y-shift</type>
+     <offset>80</offset>
+    </transformation>
+   </transformations>
+  </layer>
+
+  <layer>
+   <name>OFF 2 flag</name>
+   <condition>
+    <not include="concorde-cond-voltage-inst.xml"/>
+   </condition>
+   <texture>
+    <path>Aircraft/Concorde/Panels/Instruments/Textures/misc-1.png</path>
+    <x1>0.9375</x1>
+    <y1>0.5</y1>
+    <x2>1.0</x2>
+    <y2>0.546875</y2>
+   </texture>
+   <w>20</w>
+   <h>6</h>
+   <transformations>
+    <transformation>
+     <type>x-shift</type>
+     <offset>22</offset>
+    </transformation>
+    <transformation>
+     <type>y-shift</type>
+     <offset>80</offset>
+    </transformation>
+   </transformations>
+  </layer>
+
+<!-- SYSTEM -->
+
+  <layer>
+   <name>Title system</name>
+   <type>text</type>
+   <point-size>6</point-size>
+   <color>
+    <red>1.0</red>
+    <green>1.0</green>
+    <blue>1.0</blue>
+   </color>
+   <chunks>
+    <chunk>
+     <type>literal</type>
+     <text>SYS 1</text>
+    </chunk>
+   </chunks>
+   <transformations>
+    <transformation>
+     <type>x-shift</type>
+     <offset>-34</offset>
+    </transformation>
+    <transformation>
+     <type>y-shift</type>
+     <offset>85</offset>
+    </transformation>
+   </transformations>
+  </layer>
+
+  <layer>
+   <name>Title 2 system</name>
+   <type>text</type>
+   <point-size>6</point-size>
+   <color>
+    <red>1.0</red>
+    <green>1.0</green>
+    <blue>1.0</blue>
+   </color>
+   <chunks>
+    <chunk>
+     <type>literal</type>
+     <text>SYS 2</text>
+    </chunk>
+   </chunks>
+   <transformations>
+    <transformation>
+     <type>x-shift</type>
+     <offset>15</offset>
+    </transformation>
+    <transformation>
+     <type>y-shift</type>
+     <offset>85</offset>
+    </transformation>
+   </transformations>
+  </layer>
+
+<!-- SCALE -->
+
+  <layer>
+   <name>Title open</name>
+   <type>text</type>
+   <point-size>6</point-size>
+   <color>
+    <red>1.0</red>
+    <green>1.0</green>
+    <blue>1.0</blue>
+   </color>
+   <chunks>
+    <chunk>
+     <type>literal</type>
+     <text>OPEN</text>
+    </chunk>
+   </chunks>
+   <transformations>
+    <transformation>
+     <type>x-shift</type>
+     <offset>-8</offset>
+    </transformation>
+    <transformation>
+     <type>y-shift</type>
+     <offset>70</offset>
+    </transformation>
+   </transformations>
+  </layer>
+
+  <layer>
+   <name>Title 90</name>
+   <type>text</type>
+   <point-size>6</point-size>
+   <color>
+    <red>1.0</red>
+    <green>1.0</green>
+    <blue>1.0</blue>
+   </color>
+   <chunks>
+    <chunk>
+     <type>literal</type>
+     <text>90</text>
+    </chunk>
+   </chunks>
+   <transformations>
+    <transformation>
+     <type>x-shift</type>
+     <offset>-2</offset>
+    </transformation>
+    <transformation>
+     <type>y-shift</type>
+     <offset>57</offset>
+    </transformation>
+   </transformations>
+  </layer>
+
+  <layer>
+   <name>Title 80</name>
+   <type>text</type>
+   <point-size>6</point-size>
+   <color>
+    <red>1.0</red>
+    <green>1.0</green>
+    <blue>1.0</blue>
+   </color>
+   <chunks>
+    <chunk>
+     <type>literal</type>
+     <text>80</text>
+    </chunk>
+   </chunks>
+   <transformations>
+    <transformation>
+     <type>x-shift</type>
+     <offset>-2</offset>
+    </transformation>
+    <transformation>
+     <type>y-shift</type>
+     <offset>44</offset>
+    </transformation>
+   </transformations>
+  </layer>
+
+  <layer>
+   <name>Title 70</name>
+   <type>text</type>
+   <point-size>6</point-size>
+   <color>
+    <red>1.0</red>
+    <green>1.0</green>
+    <blue>1.0</blue>
+   </color>
+   <chunks>
+    <chunk>
+     <type>literal</type>
+     <text>70</text>
+    </chunk>
+   </chunks>
+   <transformations>
+    <transformation>
+     <type>x-shift</type>
+     <offset>-2</offset>
+    </transformation>
+    <transformation>
+     <type>y-shift</type>
+     <offset>31</offset>
+    </transformation>
+   </transformations>
+  </layer>
+
+  <layer>
+   <name>Title 60</name>
+   <type>text</type>
+   <point-size>6</point-size>
+   <color>
+    <red>1.0</red>
+    <green>1.0</green>
+    <blue>1.0</blue>
+   </color>
+   <chunks>
+    <chunk>
+     <type>literal</type>
+     <text>60</text>
+    </chunk>
+   </chunks>
+   <transformations>
+    <transformation>
+     <type>x-shift</type>
+     <offset>-2</offset>
+    </transformation>
+    <transformation>
+     <type>y-shift</type>
+     <offset>18</offset>
+    </transformation>
+   </transformations>
+  </layer>
+
+  <layer>
+   <name>Title 50</name>
+   <type>text</type>
+   <point-size>6</point-size>
+   <color>
+    <red>1.0</red>
+    <green>1.0</green>
+    <blue>1.0</blue>
+   </color>
+   <chunks>
+    <chunk>
+     <type>literal</type>
+     <text>50</text>
+    </chunk>
+   </chunks>
+   <transformations>
+    <transformation>
+     <type>x-shift</type>
+     <offset>-2</offset>
+    </transformation>
+    <transformation>
+     <type>y-shift</type>
+     <offset>5</offset>
+    </transformation>
+   </transformations>
+  </layer>
+
+  <layer>
+   <name>Title 40</name>
+   <type>text</type>
+   <point-size>6</point-size>
+   <color>
+    <red>1.0</red>
+    <green>1.0</green>
+    <blue>1.0</blue>
+   </color>
+   <chunks>
+    <chunk>
+     <type>literal</type>
+     <text>40</text>
+    </chunk>
+   </chunks>
+   <transformations>
+    <transformation>
+     <type>x-shift</type>
+     <offset>-2</offset>
+    </transformation>
+    <transformation>
+     <type>y-shift</type>
+     <offset>-8</offset>
+    </transformation>
+   </transformations>
+  </layer>
+
+  <layer>
+   <name>Title 30</name>
+   <type>text</type>
+   <point-size>6</point-size>
+   <color>
+    <red>1.0</red>
+    <green>1.0</green>
+    <blue>1.0</blue>
+   </color>
+   <chunks>
+    <chunk>
+     <type>literal</type>
+     <text>30</text>
+    </chunk>
+   </chunks>
+   <transformations>
+    <transformation>
+     <type>x-shift</type>
+     <offset>-2</offset>
+    </transformation>
+    <transformation>
+     <type>y-shift</type>
+     <offset>-21</offset>
+    </transformation>
+   </transformations>
+  </layer>
+
+  <layer>
+   <name>Title 20</name>
+   <type>text</type>
+   <point-size>6</point-size>
+   <color>
+    <red>1.0</red>
+    <green>1.0</green>
+    <blue>1.0</blue>
+   </color>
+   <chunks>
+    <chunk>
+     <type>literal</type>
+     <text>20</text>
+    </chunk>
+   </chunks>
+   <transformations>
+    <transformation>
+     <type>x-shift</type>
+     <offset>-2</offset>
+    </transformation>
+    <transformation>
+     <type>y-shift</type>
+     <offset>-34</offset>
+    </transformation>
+   </transformations>
+  </layer>
+
+  <layer>
+   <name>Title 10</name>
+   <type>text</type>
+   <point-size>6</point-size>
+   <color>
+    <red>1.0</red>
+    <green>1.0</green>
+    <blue>1.0</blue>
+   </color>
+   <chunks>
+    <chunk>
+     <type>literal</type>
+     <text>10</text>
+    </chunk>
+   </chunks>
+   <transformations>
+    <transformation>
+     <type>x-shift</type>
+     <offset>-2</offset>
+    </transformation>
+    <transformation>
+     <type>y-shift</type>
+     <offset>-47</offset>
+    </transformation>
+   </transformations>
+  </layer>
+
+  <layer>
+   <name>Title unit</name>
+   <type>text</type>
+   <point-size>6</point-size>
+   <color>
+    <red>1.0</red>
+    <green>1.0</green>
+    <blue>1.0</blue>
+   </color>
+   <chunks>
+    <chunk>
+     <type>literal</type>
+     <text>%</text>
+    </chunk>
+   </chunks>
+   <transformations>
+    <transformation>
+     <type>x-shift</type>
+     <offset>-1</offset>
+    </transformation>
+    <transformation>
+     <type>y-shift</type>
+     <offset>-54</offset>
+    </transformation>
+   </transformations>
+  </layer>
+
+  <layer>
+   <name>Title shut</name>
+   <type>text</type>
+   <point-size>6</point-size>
+   <color>
+    <red>1.0</red>
+    <green>1.0</green>
+    <blue>1.0</blue>
+   </color>
+   <chunks>
+    <chunk>
+     <type>literal</type>
+     <text>SHUT</text>
+    </chunk>
+   </chunks>
+   <transformations>
+    <transformation>
+     <type>x-shift</type>
+     <offset>-8</offset>
+    </transformation>
+    <transformation>
+     <type>y-shift</type>
+     <offset>-60</offset>
+    </transformation>
+   </transformations>
+  </layer>
+
+<!-- BOTTOM TEXT -->
+
+  <layer>
+   <name>Title foward</name>
+   <type>text</type>
+   <point-size>6</point-size>
+   <color>
+    <red>1.0</red>
+    <green>1.0</green>
+    <blue>1.0</blue>
+   </color>
+   <chunks>
+    <chunk>
+     <type>literal</type>
+     <text>FWD</text>
+    </chunk>
+   </chunks>
+   <transformations>
+    <transformation>
+     <type>x-shift</type>
+     <offset>-37</offset>
+    </transformation>
+    <transformation>
+     <type>y-shift</type>
+     <offset>-78</offset>
+    </transformation>
+   </transformations>
+  </layer>
+
+  <layer>
+   <name>Title aft</name>
+   <type>text</type>
+   <point-size>6</point-size>
+   <color>
+    <red>1.0</red>
+    <green>1.0</green>
+    <blue>1.0</blue>
+   </color>
+   <chunks>
+    <chunk>
+     <type>literal</type>
+     <text>AFT</text>
+    </chunk>
+   </chunks>
+   <transformations>
+    <transformation>
+     <type>x-shift</type>
+     <offset>-18</offset>
+    </transformation>
+    <transformation>
+     <type>y-shift</type>
+     <offset>-78</offset>
+    </transformation>
+   </transformations>
+  </layer>
+
+  <layer>
+   <name>Title 2 foward</name>
+   <type>text</type>
+   <point-size>6</point-size>
+   <color>
+    <red>1.0</red>
+    <green>1.0</green>
+    <blue>1.0</blue>
+   </color>
+   <chunks>
+    <chunk>
+     <type>literal</type>
+     <text>FWD</text>
+    </chunk>
+   </chunks>
+   <transformations>
+    <transformation>
+     <type>x-shift</type>
+     <offset>7</offset>
+    </transformation>
+    <transformation>
+     <type>y-shift</type>
+     <offset>-78</offset>
+    </transformation>
+   </transformations>
+  </layer>
+
+  <layer>
+   <name>Title 2 aft</name>
+   <type>text</type>
+   <point-size>6</point-size>
+   <color>
+    <red>1.0</red>
+    <green>1.0</green>
+    <blue>1.0</blue>
+   </color>
+   <chunks>
+    <chunk>
+     <type>literal</type>
+     <text>AFT</text>
+    </chunk>
+   </chunks>
+   <transformations>
+    <transformation>
+     <type>x-shift</type>
+     <offset>26</offset>
+    </transformation>
+    <transformation>
+     <type>y-shift</type>
+     <offset>-78</offset>
+    </transformation>
+   </transformations>
+  </layer>
+
+  <layer>
+   <name>Title</name>
+   <type>text</type>
+   <point-size>4.8</point-size>
+   <color>
+    <red>1.0</red>
+    <green>1.0</green>
+    <blue>1.0</blue>
+   </color>
+   <chunks>
+    <chunk>
+     <type>literal</type>
+     <text>DISCHARGE VALVE POSITION</text>
+    </chunk>
+   </chunks>
+   <transformations>
+    <transformation>
+     <type>x-shift</type>
+     <offset>-40</offset>
+    </transformation>
+    <transformation>
+     <type>y-shift</type>
+     <offset>-88</offset>
+    </transformation>
+   </transformations>
+  </layer>
+
+ </layers>
+
+</PropertyList>

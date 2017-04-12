@@ -1,0 +1,72 @@
+<?xml version="1.0"?>
+
+<!-- Engine leak. -->
+
+<PropertyList>
+ <name>Leak alarm</name>
+ <w-base>104</w-base>
+ <h-base>26</h-base>
+
+
+ <layers>
+
+<!-- translucent lens -->  
+  <layer>
+   <name>Warning light</name>
+   <type>switch</type>
+
+   <layer>
+    <name>lamp off</name>
+    <type>group</type>
+    <condition>
+     <or include="concorde-cond-voltage-bulb.xml">
+      <or include="concorde-cond-test-eng-center.xml"/>
+     </or>
+    </condition>
+
+    <layer include="concorde-bulb-off.xml">
+     <w>104</w>
+     <h>20</h>
+    </layer>
+    <layer>
+     <name>background off</name>
+     <texture>
+      <path>Aircraft/Concorde/Panels/Instruments/Textures/concorde-red-leak.png</path>
+      <x1>0.0</x1>
+      <y1>0.25</y1>
+      <x2>1.0</x2>
+      <y2>0.75</y2>
+     </texture>
+     <w>104</w>
+     <h>20</h>
+    </layer>
+   </layer>
+
+   <layer>
+    <name>lamp on</name>
+    <type>group</type>
+
+    <layer include="concorde-bulb-on.xml">
+     <condition include="concorde-cond-light-eng-center.xml"/>
+     <w>104</w>
+     <h>20</h>
+    </layer>
+    <layer>
+     <name>background on</name>
+     <texture>
+      <path>Aircraft/Concorde/Panels/Instruments/Textures/concorde-red-leak.png</path>
+      <x1>0.0</x1>
+      <y1>0.25</y1>
+      <x2>1.0</x2>
+      <y2>0.75</y2>
+     </texture>
+     <w>104</w>
+     <h>20</h>
+     <emissive>true</emissive>
+    </layer>
+   </layer>
+  </layer>
+
+ </layers>
+
+</PropertyList>

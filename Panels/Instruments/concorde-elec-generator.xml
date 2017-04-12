@@ -1,0 +1,138 @@
+<?xml version="1.0"?>
+
+<!-- Concorde generator selector switch (connects a generator to the main bus) -->
+
+<PropertyList>
+
+ <name>Generator selector</name>
+ <w-base>130</w-base>
+ <h-base>104</h-base>
+
+ <params>
+  <master-alt>/controls/engines/engine[0]/master-alt</master-alt>
+ </params>
+
+
+ <layers>
+
+  <layer>
+   <name>Generator selector</name>
+   <type>switch</type>
+
+   <layer include="concorde-switch-on.xml">
+    <name>on</name>
+    <condition>
+     <property alias="../../../../../params/master-alt"/>
+    </condition>
+   </layer>
+
+   <layer include="concorde-switch-3rd.xml">
+    <name>off</name>
+   </layer>
+  </layer>
+
+  <layer>
+   <name>Title on</name>
+   <type>text</type>
+   <point-size>10</point-size>
+   <color>
+    <red>1.0</red>
+    <green>1.0</green>
+    <blue>1.0</blue>
+   </color>
+   <chunks>
+    <chunk>
+     <type>literal</type>
+     <text>ON</text>
+    </chunk>
+   </chunks>
+   <transformations>
+    <transformation>
+     <type>x-shift</type>
+     <offset>-25</offset>
+    </transformation>
+    <transformation>
+     <type>y-shift</type>
+     <offset>27</offset>
+    </transformation>
+   </transformations>
+  </layer>
+
+  <layer>
+   <name>Title off</name>
+   <type>text</type>
+   <point-size>10</point-size>
+   <color>
+    <red>1.0</red>
+    <green>1.0</green>
+    <blue>1.0</blue>
+   </color>
+   <chunks>
+    <chunk>
+     <type>literal</type>
+     <text>OFF</text>
+    </chunk>
+   </chunks>
+   <transformations>
+    <transformation>
+     <type>x-shift</type>
+     <offset>-62</offset>
+    </transformation>
+    <transformation>
+     <type>y-shift</type>
+     <offset>-3</offset>
+    </transformation>
+   </transformations>
+  </layer>
+
+  <layer>
+   <name>Title 3</name>
+   <type>text</type>
+   <point-size>10</point-size>
+   <color>
+    <red>1.0</red>
+    <green>1.0</green>
+    <blue>1.0</blue>
+   </color>
+   <chunks>
+    <chunk>
+     <type>literal</type>
+     <text>TEST</text>
+    </chunk>
+   </chunks>
+   <transformations>
+    <transformation>
+     <type>x-shift</type>
+     <offset>-40</offset>
+    </transformation>
+    <transformation>
+     <type>y-shift</type>
+     <offset>-32</offset>
+    </transformation>
+   </transformations>
+  </layer>
+
+ </layers>
+
+ <actions>
+
+  <action>
+   <name>Select generator</name>
+   <button>0</button>
+   <x>-21</x>
+   <y>-21</y>
+   <w>42</w>
+   <h>42</h>
+   <binding>
+    <command>property-toggle</command>
+    <property alias="../../../../params/master-alt"/>
+   </binding>
+   <binding>
+    <command>property-toggle</command>
+    <property>/instrumentation/generic/click</property>
+   </binding>
+  </action>
+
+ </actions>
+ 
+</PropertyList>

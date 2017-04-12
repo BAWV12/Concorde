@@ -1,0 +1,390 @@
+<?xml version="1.0"?>
+
+<!-- Concorde IVSI with TCAS.
+
+     Real data :
+     - limited to 6000 ft / minute.
+     - integrated TCAS, supporting TCAS II.
+     - glass instrument (not analog).
+
+     Hypothetical data :
+     - limited to 9 targets.
+     - color codes : cyan (other traffic), yellow (proximate traffic).
+     - the IVSI indicates RA (Resolution Advisatory) by a vertical speed.
+
+
+     References :
+     ==========
+http://www.ac11.org/library/TCAS_II_V7.pdf :
+       TCAS II version 7, FAA, November 2000.
+
+http://www.janes.com/transport/news/jau/jau000725_1_n.shtml :
+       Collins TCAS.
+
+http://www.aeroflight.co.uk/types/international/aerospat-bac/concorde/concorde.htm :
+       TCAS since 1995.
+
+http://www.faa.gov/AVR/afs/exempt/EX5798.DOC :
+       Exemption until July 1 1994, FAA, November 1993.
+
+http://www.faa.gov/AVR/afs/exempt/EX5799B.DOC :
+       Exemption until December 31 1995, FAA, December 1994.
+
+
+......................................................................
+Adapted from John Check j4strngs@rockfish.net
+
+This is an instrument configuration file for the open-source flight
+simulator FlightGear (www.flightgear.org).  The file is an XML-encoded
+FlightGear property list defining the instrument's layers and actions.
+
+Each instrument is composed of layers stacked on top of each other.
+A layer may be a texture (with transparent parts to show the layers
+underneath), text, or a special layer that switches between two
+others (say, to turn an indicator light on or off).  Each layer can
+move independently in proportion to a property value, and text
+can be generated from property values as well: all of the layer's
+movements are defined as transformations.
+
+Actions are hotspots on the instrument that will respond to a mouse
+click.  Actions always modify the values of properties, either by
+adjusting them, toggling them, or swaping them with other
+properties' values.
+-->
+
+<PropertyList>
+ <name>IVSI / TCAS</name>
+ <w-base>128</w-base>
+ <h-base>128</h-base>
+
+ <params>
+  <adc>/instrumentation/adc[0]/output/vertical-speed-fps</adc>
+ </params>
+
+
+ <layers>
+
+
+
+  <layer>
+   <name>glare shield</name>
+   <texture>
+    <path>Aircraft/Concorde/Panels/Instruments/Textures/concorde-altitude-selector.png</path>
+    <x1>0.0</x1>
+    <y1>0.0</y1>
+    <x2>1.0</x2>
+    <y2>1.0</y2>
+   </texture>
+   <w>100</w>
+   <h>100</h>
+  </layer>
+
+  <layer>
+   <name>instrument</name>
+   <condition include="concorde-cond-voltage-inst.xml"/>
+   <texture>
+    <path>Aircraft/Concorde/Panels/Instruments/Textures/concorde-tcas.png</path>
+    <x1>0.0</x1>
+    <y1>0.0</y1>
+    <x2>1.0</x2>
+    <y2>1.0</y2>
+   </texture>
+   <w>100</w>
+   <h>100</h>
+  </layer>
+
+  <layer>
+   <name>needle</name>
+   <condition include="concorde-cond-voltage-inst.xml"/>
+   <texture>
+    <path>Aircraft/Concorde/Panels/Instruments/Textures/concorde-tcas-misc.png</path>
+    <x1>0.3125</x1>
+    <y1>0.95703125</y1>
+    <x2>0.99</x2>
+    <y2>1</y2>
+   </texture>
+   <w>90</w>
+   <h>7</h>
+   <transformations>
+    <transformation>
+     <type>rotation</type>
+     <property alias="../../../../../params/adc"/>
+     <min>-100.0</min>
+     <max>100.0</max>
+     <scale>1.0</scale>
+     <interpolation>
+      <entry><ind>-100.0</ind><dep>-175.0</dep></entry>
+      <entry><ind>-80.0</ind><dep>-165.0</dep></entry>
+      <entry><ind>-65.0</ind><dep>-150.0</dep></entry>
+      <entry><ind>-50.0</ind><dep>-135.0</dep></entry>
+      <entry><ind>-33.3</ind><dep>-110.0</dep></entry>
+      <entry><ind>-25</ind><dep>-90</dep></entry>
+      <entry><ind>-16.7</ind><dep>-65</dep></entry>
+      <entry><ind> 0</ind><dep>  0.0</dep></entry>
+      <entry><ind>16.7</ind><dep>65</dep></entry>
+      <entry><ind>25</ind><dep>90</dep></entry>
+      <entry><ind>33.3</ind><dep>110</dep></entry>
+      <entry><ind>50.0</ind><dep>135.0</dep></entry>
+      <entry><ind>65.0</ind><dep>150.0</dep></entry>
+      <entry><ind>80.0</ind><dep>165.0</dep></entry>
+      <entry><ind>100.0</ind><dep>180.0</dep></entry>
+     </interpolation>
+    </transformation>
+    <transformation>
+     <type>x-shift</type>
+     <offset>-45</offset>
+    </transformation>
+   </transformations>
+  </layer>
+
+  <layer>
+   <name>TCAS display</name>
+   <condition include="concorde-cond-voltage-inst.xml"/>
+   <texture>
+    <path>Aircraft/Instruments/Textures/od_wxradar.rgb</path>
+    <x1>0.0</x1>
+    <y1>0.0</y1>
+    <x2>1.0</x2>
+    <y2>1.0</y2>
+   </texture>
+   <w>98</w>
+   <h>98</h>
+  </layer>
+
+  <layer>
+   <condition include="concorde-cond-voltage-inst.xml"/>
+   <name>range</name>
+   <type>text</type>
+   <font>lucida</font>
+   <point-size>5</point-size>
+   <color>
+    <red>1.0</red>
+    <green>1.0</green>
+    <blue>1.0</blue>
+   </color>
+   <chunks>
+    <chunk>
+     <text type="string">RNG</text>
+    </chunk>
+    <chunk>
+     <type>number-value</type>
+     <property>instrumentation/radar/range</property>
+     <format> %2.0f</format>
+    </chunk>
+   </chunks>
+   <transformations>
+    <transformation>
+     <type>x-shift</type>
+     <offset>25</offset>
+    </transformation>
+    <transformation>
+     <type>y-shift</type>
+     <offset>38</offset>
+    </transformation>
+   </transformations>
+  </layer>
+
+<!--MODE display -->
+
+  <layer>
+   <condition include="concorde-cond-voltage-inst.xml">
+    <equals>
+    <property>/instrumentation/tcas/inputs/mode</property>
+    <value>1</value>
+    </equals>
+   </condition>
+   <name>STBY</name>
+   <type>text</type>
+   <font>lucida</font>
+   <point-size>5</point-size>
+   <color>
+    <red>1.0</red>
+    <green>1.0</green>
+    <blue>1.0</blue>
+   </color>
+   <chunks>
+    <chunk>
+     <text type="string">STBY</text>
+    </chunk>
+   </chunks>
+   <transformations>
+    <transformation>
+     <type>x-shift</type>
+     <offset>-45</offset>
+    </transformation>
+    <transformation>
+     <type>y-shift</type>
+     <offset>-40</offset>
+    </transformation>
+   </transformations>
+  </layer>
+
+  <layer>
+   <condition include="concorde-cond-voltage-inst.xml">
+    <equals>
+    <property>/instrumentation/tcas/inputs/mode</property>
+    <value>2</value>
+    </equals>
+   </condition>
+   <name>TA only</name>
+   <type>text</type>
+   <font>lucida</font>
+   <point-size>5</point-size>
+   <color>
+    <red>1.0</red>
+    <green>1.0</green>
+    <blue>1.0</blue>
+   </color>
+   <chunks>
+    <chunk>
+     <text type="string">TA&#10;ONLY</text>
+    </chunk>
+   </chunks>
+   <transformations>
+    <transformation>
+     <type>x-shift</type>
+     <offset>-42</offset>
+    </transformation>
+    <transformation>
+     <type>y-shift</type>
+     <offset>-40</offset>
+    </transformation>
+   </transformations>
+  </layer>
+
+  <layer>
+   <condition include="concorde-cond-voltage-inst.xml">
+    <equals>
+    <property>/instrumentation/tcas/inputs/mode</property>
+    <value>3</value>
+    </equals>
+   </condition>
+   <name>TA/RA</name>
+   <type>text</type>
+   <font>lucida</font>
+   <point-size>5</point-size>
+   <color>
+    <red>1.0</red>
+    <green>1.0</green>
+    <blue>1.0</blue>
+   </color>
+   <chunks>
+    <chunk>
+     <text type="string">TA/RA</text>
+    </chunk>
+   </chunks>
+   <transformations>
+    <transformation>
+     <type>x-shift</type>
+     <offset>-45</offset>
+    </transformation>
+    <transformation>
+     <type>y-shift</type>
+     <offset>-40</offset>
+    </transformation>
+   </transformations>
+  </layer>
+
+<!--buttons -->
+
+  <layer>
+   <name>mode button</name>
+   <w>17</w>
+   <h>12</h>
+   <texture>
+    <path>Aircraft/Concorde/Panels/Instruments/Textures/concorde-tcas-misc.png</path>
+    <x1>0</x1>
+    <y1>1</y1>
+    <x2>0.0703125</x2>
+    <y2>0.953125</y2>
+   </texture>
+   <transformations>
+    <transformation>
+     <type>x-shift</type>
+     <offset>-47</offset>
+    </transformation>
+    <transformation>
+     <type>y-shift</type>
+     <offset>-47</offset>
+    </transformation>
+    <transformation>
+     <type>rotation</type>
+     <offset>45</offset>
+    </transformation>
+   </transformations>
+  </layer>
+
+  <layer>
+   <name>range button</name>
+   <w>17</w>
+   <h>12</h>
+   <texture>
+    <path>Aircraft/Concorde/Panels/Instruments/Textures/concorde-tcas-misc.png</path>
+    <x1>0</x1>
+    <y1>1</y1>
+    <x2>0.0703125</x2>
+    <y2>0.953125</y2>
+   </texture>
+   <transformations>
+    <transformation>
+     <type>x-shift</type>
+     <offset>47</offset>
+    </transformation>
+    <transformation>
+     <type>y-shift</type>
+     <offset>-47</offset>
+    </transformation>
+    <transformation>
+     <type>rotation</type>
+     <offset>-45</offset>
+    </transformation>
+   </transformations>
+  </layer>
+
+ </layers>
+
+<!-- Actions for the 2 buttons -->
+
+ <actions>
+  <action>
+   <name>range switch</name>
+   <button>0</button>
+   <x>38</x>
+   <y>-58</y>
+   <w>20</w>
+   <h>20</h>
+   <condition>
+    <property>/instrumentation/radar/range</property>
+   </condition>
+   <binding>
+    <command>property-adjust</command>
+    <property>/instrumentation/radar/range</property>
+    <step>5</step>
+    <min>5</min>
+    <max>45</max>
+    <wrap>1</wrap>
+   </binding>
+  </action>
+
+  <action>
+   <name>mode switch</name>
+   <button>0</button>
+   <x>-58</x>
+   <y>-58</y>
+   <w>20</w>
+   <h>20</h>
+   <condition>
+    <property>/instrumentation/tcas/inputs/mode</property>
+   </condition>
+   <binding>
+    <command>property-cycle</command>
+    <property>/instrumentation/tcas/inputs/mode</property>
+     <value>1</value>
+     <value>2</value>
+     <value>3</value>
+   </binding>
+  </action>
+
+ </actions>
+
+</PropertyList>

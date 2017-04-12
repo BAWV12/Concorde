@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+
+<!-- Secondary air doors -->
+
+<PropertyList>
+ <name>Secondary air doors</name>
+ <w-base>300</w-base>
+ <h-base>15</h-base>
+
+ <layers>
+
+  <layer>
+   <name>Title</name>
+   <type>text</type>
+   <point-size>10</point-size>
+   <color>
+    <red>1.0</red>
+    <green>1.0</green>
+    <blue>1.0</blue>
+   </color>
+   <chunks>
+    <chunk>
+     <type>literal</type>
+     <text>SECONDARY AIR DOORS</text>
+    </chunk>
+   </chunks>
+  </layer>
+
+ </layers>
+
+</PropertyList>

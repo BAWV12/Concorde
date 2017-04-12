@@ -1,0 +1,280 @@
+<!-- Fuel flow. -->
+
+<PropertyList>
+ <name>Fuel flow kg/h x1000</name>
+ <w-base>128</w-base>
+ <h-base>128</h-base>
+
+ <params>
+  <ff-select>/engines/engine[0]/fuel-flow_pph</ff-select>
+  <bug-select>/controls/engines/engine[0]/bug_pph</bug-select>
+ </params>
+
+ <layers>
+
+
+
+  <layer>
+   <name>background</name>
+   <w>95</w>
+   <h>95</h>
+   <texture>
+    <path>Aircraft/Concorde/Panels/Instruments/Textures/concorde-fuelflow.png</path>
+    <x1>0</x1>
+    <y1>0</y1>
+    <x2>1</x2>
+    <y2>1</y2>
+   </texture>
+   <transformations>
+    <transformation>
+     <type>x-shift</type>
+     <offset>-3</offset>
+    </transformation>
+   </transformations>
+  </layer>
+
+  <layer>
+   <name>Power management</name>
+   <type>switch</type>
+
+   <layer>
+    <name>FF digital</name>
+    <condition include="concorde-cond-voltage-inst.xml"/>
+    <type>text</type>
+    <point-size>18</point-size>
+    <color>
+     <red>1.0</red>
+     <green>1.0</green>
+     <blue>1.0</blue>
+    </color>
+    <chunks>
+     <chunk>
+      <type>number-value</type>
+       <property alias="../../../../../../params/ff-select"/>
+      <format>%2.f</format>
+      <scale>0.000453592</scale> <!-- kg/h x1000 -->
+     </chunk>
+    </chunks>
+    <transformations>
+     <transformation>
+      <type>x-shift</type>
+      <offset>-15</offset>
+     </transformation>
+      <transformation>
+      <type>y-shift</type>
+      <offset>-33</offset>
+     </transformation>
+    </transformations>
+   </layer>
+
+   <layer>
+    <name>OFF flag</name>
+    <texture>
+     <path>Aircraft/Concorde/Panels/Instruments/Textures/misc-1.png</path>
+     <x1>0.9375</x1>
+     <y1>0.5</y1>
+     <x2>1.0</x2>
+     <y2>0.546875</y2>
+    </texture>
+    <w>20</w>
+    <h>8</h>
+    <transformations>
+     <transformation>
+      <type>x-shift</type>
+      <offset>13</offset>
+     </transformation>
+     <transformation>
+      <type>y-shift</type>
+      <offset>0</offset>
+     </transformation>
+    </transformations>
+   </layer>
+  </layer>
+
+  <layer>
+   <name>Bug digital</name>
+   <condition include="concorde-cond-voltage-inst.xml"/>
+   <type>text</type>
+   <point-size>18</point-size>
+   <color>
+    <red>1.0</red>
+    <green>1.0</green>
+    <blue>1.0</blue>
+   </color>
+   <chunks>
+    <chunk>
+     <type>number-value</type>
+     <property alias="../../../../../params/bug-select"/>
+     <format>%2.f</format>
+     <scale>0.000453592</scale> <!-- kg/h x1000 -->
+    </chunk>
+   </chunks>
+   <transformations>
+    <transformation>
+     <type>x-shift</type>
+     <offset>-27</offset>
+    </transformation>
+     <transformation>
+     <type>y-shift</type>
+     <offset>25</offset>
+    </transformation>
+   </transformations>
+   </layer>
+  
+  <layer>
+   <name>Takeoff bug</name>
+   <w>20</w>
+   <h>15</h>
+   <texture>
+    <path>Aircraft/Concorde/Panels/Instruments/Textures/hsi2.png</path>
+    <x1>0.8515625</x1>
+    <x2>0.953125</x2>
+    <y1>0.359375</y1>
+    <y2>0.4375</y2>
+   </texture>
+   <transformations>
+    <transformation>
+     <type>x-shift</type>
+     <offset>-3</offset>
+    </transformation>
+    <transformation>
+     <type>y-shift</type>
+     <offset>-2</offset>
+    </transformation>
+    <transformation>
+     <type>rotation</type>
+     <property alias="../../../../../params/bug-select"/>
+     <interpolation>
+      <entry> <ind>    0.0</ind> <dep>  0</dep> </entry>
+      <entry> <ind>13227.0</ind> <dep>144</dep> </entry> <!-- 6000 kg /h -->
+      <entry> <ind>92595.0</ind> <dep>360</dep> </entry>
+     </interpolation>
+    </transformation>
+    <transformation>
+     <type>y-shift</type>
+     <offset>41</offset>
+    </transformation>
+   </transformations>
+  </layer>
+
+  <layer>
+   <name>needle</name>
+   <w>6</w>
+   <h>41</h>
+   <texture>
+    <path>Aircraft/Concorde/Panels/Instruments/Textures/misc-1.png</path>
+    <x1>0.8</x1>
+    <y1>0.78125</y1>
+    <x2>0.8375</x2>
+    <y2>1.0</y2>
+   </texture>
+   <transformations>
+    <transformation>
+     <type>x-shift</type>
+     <offset>-3</offset>
+    </transformation>
+    <transformation>
+     <type>rotation</type>
+     <condition include="concorde-cond-voltage-inst.xml"/>
+     <property alias="../../../../../params/ff-select"/>
+     <min>0</min>
+     <max>92595</max> <!-- 42000 kg/h -->
+     <interpolation>
+      <entry> <ind>    0.0</ind> <dep>  0</dep> </entry>
+      <entry> <ind>13227.0</ind> <dep>144</dep> </entry> <!-- 6000 kg /h -->
+      <entry> <ind>92595.0</ind> <dep>360</dep> </entry>
+     </interpolation>
+    </transformation>
+    <transformation>
+     <type>y-shift</type>
+     <offset>20</offset>
+    </transformation>
+   </transformations>
+  </layer>
+
+  <layer>
+   <name>glare shield</name>
+   <texture>
+    <path>Aircraft/Concorde/Panels/Instruments/Textures/bezel1.png</path>
+    <x1>0.5</x1>
+    <y1>0.0</y1>
+    <x2>1.0</x2>
+    <y2>0.5</y2>
+   </texture>
+   <w>113</w>
+   <h>113</h>
+   <transformations>
+    <transformation>
+     <type>y-shift</type>
+     <offset>-3</offset>
+    </transformation>
+   </transformations>
+  </layer>
+
+  <layer>
+   <name>Bug Knob</name>
+   <w>27</w>
+   <h>27</h>
+   <texture>
+    <path>Aircraft/Concorde/Panels/Instruments/Textures/hsi2.png</path>
+    <x1>0.0</x1>
+    <x2>0.171875</x2>
+    <y1>0.0</y1>
+    <y2>0.171875</y2>
+   </texture>
+   <transformations>
+    <transformation>
+     <type>x-shift</type>
+     <offset>42</offset>
+    </transformation>
+    <transformation>
+     <type>y-shift</type>
+     <offset>-43</offset>
+    </transformation>
+    <transformation>
+     <type>rotation</type>
+     <property alias="../../../../../params/bug-select"/>
+     <scale>-5</scale>
+    </transformation>
+   </transformations>
+  </layer>
+
+ </layers>
+
+ <actions>
+
+  <action>
+   <name>Minus 1000</name>
+   <button>0</button>
+   <x>23</x>
+   <y>-56</y>
+   <w>20</w>
+   <h>25</h>
+   <binding>
+    <command>property-adjust</command>
+    <property alias="../../../../params/bug-select"/>
+    <step>-3150</step> <!-- 1000 kg/h -->
+    <min>0</min>
+    <max>50000</max>
+   </binding>
+  </action>
+
+  <action>
+   <name>Plus 1000</name>
+   <button>0</button>
+   <x>43</x>
+   <y>-56</y>
+   <w>20</w>
+   <h>25</h>
+   <binding>
+    <command>property-adjust</command>
+    <property alias="../../../../params/bug-select"/>
+    <step>3150</step> <!-- 1000 kg/h -->
+    <min>0</min>
+    <max>50000</max>
+   </binding>
+  </action>
+
+ </actions>
+
+</PropertyList>

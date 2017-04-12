@@ -1,0 +1,57 @@
+AC3Db
+MATERIAL "DefaultWhite" rgb 1 1 1  amb 1 1 1  emis 0 0 0  spec 0.5 0.5 0.5  shi 64  trans 0
+MATERIAL "white_light_on.001" rgb 1 1 1 amb 0.5 0.5 0.5 emis 0 0 0 spec 0 0 0 shi 32 trans 0
+OBJECT world
+kids 2
+OBJECT poly
+name "TaxiTurnLeft"
+data 8
+Mesh.144
+texture "concorde-lights.png"
+texrep 1 1
+crease 30.000000
+numvert 4
+-24.130661 -0.124508 0.93956
+-23.50082 -0.137146 0.97939
+-23.48428 -0.614279 0.56644
+-24.11412 -0.601641 0.52661
+numsurf 2
+SURF 0x00
+mat 1
+refs 3
+0 0.37890625 0.31640625
+3 0.37890625 0.0546875
+2 0.63671875 0.0546875
+SURF 0x00
+mat 1
+refs 3
+0 0.37890625 0.31640625
+2 0.63671875 0.0546875
+1 0.63671875 0.31640625
+kids 0
+OBJECT poly
+name "TaxiTurnRight"
+data 8
+Mesh.145
+texture "concorde-lights.png"
+texrep 1 1
+crease 30.000000
+numvert 4
+-23.506395 -0.136786 -0.986846
+-24.134624 -0.120963 -0.927472
+-24.108164 -0.601804 -0.519369
+-23.479935 -0.617627 -0.578743
+numsurf 2
+SURF 0x00
+mat 1
+refs 3
+0 0.37890625 0.3203125
+3 0.37890625 0.05078125
+2 0.6328125 0.05078125
+SURF 0x00
+mat 1
+refs 3
+0 0.37890625 0.3203125
+2 0.6328125 0.05078125
+1 0.6328125 0.3203125
+kids 0

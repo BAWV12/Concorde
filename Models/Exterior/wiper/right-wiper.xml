@@ -1,0 +1,41 @@
+<?xml version="1.0" ?> 
+
+<PropertyList> 
+ <path>wiper.ac</path> 
+
+<!-- makes a right one, by symmetry -->
+
+ <animation>
+  <type>rotate</type>
+  <object-name>Wiper</object-name>
+  <offset-deg>180</offset-deg>
+  <center>
+   <x-m>0.0</x-m>
+   <y-m>0.0</y-m>
+   <z-m>0.0</z-m>
+  </center>
+  <axis>
+   <x>0</x>
+   <y>0</y>
+   <z>1</z>
+  </axis>
+ </animation>
+
+ <animation>
+  <type>rotate</type>
+  <object-name>Wiper</object-name>
+  <property>controls/wiper/motor[1]/position-norm</property>
+  <factor>90</factor>
+  <center>
+   <x-m>0.0</x-m>
+   <y-m>0.0</y-m>
+   <z-m>0.0</z-m>
+  </center>
+  <axis>
+   <x>1</x>
+   <y>0</y>
+   <z>0</z>
+  </axis>
+ </animation>
+
+</PropertyList>

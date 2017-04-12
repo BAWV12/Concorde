@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+
+<!-- Test on warning lights of aft engineer panel.
+-->
+
+<PropertyList>
+
+   <not>
+    <property>/controls/lighting/crew/engineer/aft/test</property>
+   </not>
+
+</PropertyList>

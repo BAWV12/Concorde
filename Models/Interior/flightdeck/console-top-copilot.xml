@@ -1,0 +1,19 @@
+<?xml version="1.0" ?> 
+
+<PropertyList> 
+ <path>console-top.ac</path> 
+
+<!-- make a copilot console (but that is a mirroring, once shape will be more accurate) -->
+
+ <animation>
+  <type>rotate</type>
+  <object-name>TopConsole</object-name>
+  <offset-deg>180.0</offset-deg>
+  <axis>
+   <x>0</x>
+   <y>0</y>
+   <z>1</z>
+  </axis>
+ </animation>
+
+</PropertyList>

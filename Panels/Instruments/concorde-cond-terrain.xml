@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+
+<!-- Concorde alarm on Terrain :
+
+     - test.
+     - excessive rate of descent below 2500 ft.
+     - excessive closure rate with ground.
+     - loss of altitude below 700 ft, after takeoff or goaround.
+     - gear not locked below 500 ft, or nose not down below 200 ft on approach.
+
+     Cannot move to nasal, because response time must be instantaneous.
+-->
+
+<PropertyList>
+
+ <and>
+  <property>/systems/gpws/serviceable</property>
+  <or>
+   <property>/systems/gpws/test</property>
+   <property>/systems/gpws/terrain</property>
+  </or>
+ </and>
+
+</PropertyList>

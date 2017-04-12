@@ -1,0 +1,142 @@
+<?xml version="1.0"?>
+
+<!-- Side slip indicator :
+
+     - true aerodynamical in degrees.
+-->
+
+<PropertyList>
+
+ <name>Side Slip indicator</name>
+ <w-base>150</w-base>
+ <h-base>40</h-base>
+
+ <params>
+  <serviceable>/instrumentation/side-slip[0]/serviceable</serviceable>
+  <angle-sel>/instrumentation/side-slip[0]/angle-deg</angle-sel>
+ </params>
+
+
+ <layers>
+
+
+  <layer>
+   <name>background</name>
+   <texture>
+    <path>Aircraft/Concorde/Panels/Instruments/Textures/concorde-side-slip.png</path>
+     <x1>0.0</x1>
+     <y1>0.44</y1>
+     <x2>1.0</x2>
+     <y2>0.62</y2>
+   </texture>
+    <w>100</w>
+    <h>18</h>
+  </layer>
+
+  <layer>
+   <name>Side Slip display</name>
+   <texture>
+    <path>Aircraft/Concorde/Panels/Instruments/Textures/hsi2.png</path>
+    <x1>0.8465625</x1>
+    <x2>0.948125</x2>
+    <y1>0.449375</y1>
+    <y2>0.5375</y2>
+   </texture>
+   <w>11</w>
+   <h>11</h>
+   <transformations>
+    <transformation>
+     <type>rotation</type>
+     <offset>-180</offset> <!-- vertical -->
+    </transformation> 
+    <transformation>
+     <type>y-shift</type>
+     <offset>6</offset> <!-- aligned vertical -->
+    </transformation> 
+    <transformation>
+     <condition>
+      <and include="concorde-cond-voltage-inst.xml">
+       <property alias="../../../../../../../params/serviceable"/>
+      </and>
+     </condition>
+     <type>x-shift</type>
+     <property alias="../../../../../params/angle-sel"/>
+     <min>-15.0</min>
+     <max>15.0</max>
+     <scale>1.0</scale>
+     <interpolation> <!-- index must increase, because of lookup ! -->
+      <entry><ind>-15.0</ind><dep> 41.0</dep></entry>
+      <entry><ind> -5.0</ind><dep> 20.0</dep></entry>
+      <entry><ind>  0.0</ind><dep>  0.0</dep></entry>
+      <entry><ind>  5.0</ind><dep>-20.0</dep></entry>
+      <entry><ind> 15.0</ind><dep>-41.0</dep></entry>
+     </interpolation>
+    </transformation>
+   </transformations>
+  </layer>
+
+  <layer>
+   <name>OFF flag</name>
+   <condition>
+    <or>
+     <not include="concorde-cond-voltage-inst.xml"/>
+     <not> 
+      <property alias="../../../../../../params/serviceable"/>
+     </not> 
+    </or>
+   </condition>
+   <texture>
+    <path>Aircraft/Concorde/Panels/Instruments/Textures/misc-1.png</path>
+    <x1>0.9375</x1>
+    <y1>0.5</y1>
+    <x2>1.0</x2>
+    <y2>0.546875</y2>
+   </texture>
+   <w>18</w>
+   <h>7</h>
+   <transformations>
+    <transformation>
+     <type>x-shift</type>
+     <offset>-11</offset>
+    </transformation>
+    <transformation>
+     <type>y-shift</type>
+     <offset>3.25</offset>
+    </transformation>
+   </transformations>
+  </layer>
+
+  <layer>
+   <name>OFF flag 2</name>
+   <condition>
+    <or>
+     <not include="concorde-cond-voltage-inst.xml"/>
+     <not> 
+      <property alias="../../../../../../params/serviceable"/>
+     </not> 
+    </or>
+   </condition>
+   <texture>
+    <path>Aircraft/Concorde/Panels/Instruments/Textures/misc-1.png</path>
+    <x1>0.9375</x1>
+    <y1>0.5</y1>
+    <x2>1.0</x2>
+    <y2>0.546875</y2>
+   </texture>
+   <w>18</w>
+   <h>7</h>
+   <transformations>
+    <transformation>
+     <type>x-shift</type>
+     <offset>10</offset>
+    </transformation>
+    <transformation>
+     <type>y-shift</type>
+     <offset>3.25</offset>
+    </transformation>
+   </transformations>
+  </layer>
+
+ </layers>
+
+</PropertyList>

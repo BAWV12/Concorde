@@ -1,0 +1,133 @@
+<?xml version="1.0"?>
+
+<!-- Reheat selector -->
+
+<PropertyList>
+ <name>Reheat selector</name>
+ <w-base>28</w-base>
+ <h-base>38</h-base>
+
+ <params>
+  <engine-reheat-select>/controls/engines/engine[0]/reheat</engine-reheat-select>
+ </params>
+
+
+ <layers>
+
+  <layer>
+   <name>Reheat selector</name>
+   <type>switch</type>
+
+   <layer>
+    <name>Reheat off</name>
+    <type>group</type>
+    <condition>
+      <not>
+       <property alias="../../../../../../params/engine-reheat-select"/>
+      </not>
+    </condition>
+
+    <layer>
+     <name>background</name>
+     <texture>
+      <path>Aircraft/Concorde/Panels/Instruments/Textures/concorde-white-button.png</path>
+     </texture>
+     <w>28</w>
+     <h>28</h>
+    </layer>
+
+    <layer>
+     <name>Title</name>
+     <type>text</type>
+     <point-size>22</point-size>
+     <color>
+      <red>0.0</red>
+      <green>0.0</green>
+      <blue>0.0</blue>
+     </color>
+     <chunks>
+      <chunk>
+       <type>literal</type>
+       <text>-</text>
+      </chunk>
+     </chunks>
+     <transformations>
+      <transformation>
+       <type>x-shift</type>
+       <offset>-3</offset>
+      </transformation>
+      <transformation>
+       <type>y-shift</type>
+       <offset>-6</offset>
+      </transformation>
+     </transformations>
+    </layer>
+   </layer> <!-- group -->
+
+   <layer>
+    <name>Reheat on</name>
+    <type>group</type>
+
+    <layer>
+     <name>background enabled</name>
+     <texture>
+      <path>Aircraft/Concorde/Panels/Instruments/Textures/concorde-white-button.png</path>
+     </texture>
+     <w>28</w>
+     <h>28</h>
+    </layer>
+
+    <layer>
+     <name>Title enabled</name>
+     <type>text</type>
+     <point-size>22</point-size>
+     <color>
+      <red>0.0</red>
+      <green>0.0</green>
+      <blue>0.0</blue>
+     </color>
+     <chunks>
+      <chunk>
+       <type>literal</type>
+       <text>-</text>
+      </chunk>
+     </chunks>
+     <transformations>
+      <transformation>
+       <type>x-shift</type>
+       <offset>-3</offset>
+      </transformation>
+      <transformation>
+       <type>y-shift</type>
+       <offset>-7</offset>
+      </transformation>
+     </transformations>
+    </layer>
+
+    <transformations>
+     <transformation>
+      <type>y-shift</type>
+      <offset>-10</offset>
+     </transformation>
+    </transformations>
+   </layer> <!-- group -->
+  </layer> <!-- switch -->
+
+ </layers>
+ 
+ <actions>
+  <action>
+   <desc>Engine reheat</desc>
+   <button>0</button>
+   <x>-13</x>
+   <y>-24</y>
+   <w>28</w>
+   <h>38</h>
+   <binding>
+    <command>property-toggle</command>
+    <property alias="../../../../params/engine-reheat-select"/>
+   </binding>
+  </action>
+ </actions>
+
+</PropertyList>

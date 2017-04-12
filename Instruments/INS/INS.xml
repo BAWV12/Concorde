@@ -1,0 +1,1306 @@
+<?xml version="1.0" ?> 
+
+<!-- INS at scale :
+
+     - test by push.
+     - warning lights are not directly lighted by roof.
+
+
+     TO DO :
+     =====
+     - auto / man switch.
+     - dim control of button lights.
+-->
+
+
+<PropertyList> 
+
+ <params>
+  <ins-service>/instrumentation/ins[0]/serviceable</ins-service>
+  <ins-selector>/instrumentation/ins[0]/control/selector</ins-selector>
+  <ins-switch>/instrumentation/ins[0]/control/test</ins-switch>
+  <ins-light>/instrumentation/ins[0]/control/light</ins-light>
+  <ins-waypoint>/instrumentation/ins[0]/control/waypoint</ins-waypoint>
+  <ins-mode>/instrumentation/ins[0]/msu/mode</ins-mode>
+  <display-left>/instrumentation/ins[0]/data/left</display-left>
+  <display-right>/instrumentation/ins[0]/data/right</display-right>
+  <light-alert>/instrumentation/ins[0]/light/alert</light-alert>
+  <light-warning>/instrumentation/ins[0]/light/warning</light-warning>
+  <light-remote>/instrumentation/ins[0]/light/remote</light-remote>
+  <light-insert>/instrumentation/ins[0]/light/insert</light-insert>
+  <light-hold>/instrumentation/ins[0]/light/hold</light-hold>
+  <light-battery>/instrumentation/ins[0]/light/battery</light-battery>
+ </params>
+
+
+ <path>INS.ac</path> 
+
+  <animation>
+   <name>INS</name>
+   <object-name>Plate</object-name>
+   <object-name>LeftDisplay</object-name>
+   <object-name>RightDisplay</object-name>
+   <object-name>WaypointSelector</object-name>
+   <object-name>FromToIndicator</object-name>
+   <object-name>WaypointChange</object-name>
+   <object-name>Button1</object-name>
+   <object-name>Button2</object-name>
+   <object-name>Button3</object-name>
+   <object-name>Button4</object-name>
+   <object-name>Button5</object-name>
+   <object-name>Button6</object-name>
+   <object-name>Button7</object-name>
+   <object-name>Button8</object-name>
+   <object-name>Button9</object-name>
+   <object-name>Button0</object-name>
+   <object-name>ClearButton</object-name>
+   <object-name>Plate2</object-name>
+   <object-name>DataSelector</object-name>
+   <object-name>DimControl</object-name>
+   <object-name>Switch</object-name>
+  </animation> 
+
+  <animation>
+   <type>material</type>
+   <object-name>INS</object-name>
+   <emission>
+    <red>0.71</red>
+    <green>0.79</green>
+    <blue>0.87</blue>
+    <factor-prop>systems/lighting/level/roof</factor-prop>
+   </emission> 
+  </animation> 
+
+<!-- TRACK / GROUND SPEED -->
+<!-- HEADING / DRIFT ANGLE -->
+<!-- CROSS TRACK DISTANCE / TRACK ERROR -->
+
+ <text>
+  <name>left text track</name>
+  <type type="string">number-value</type>
+  <property alias="../../params/display-left"/>
+  <format type="string">%5.2f</format>
+  <draw-text type="bool">true</draw-text>
+  <font>led.txf</font>
+  <character-size type="double">0.011</character-size>
+  <character-aspect-ratio type="double">1.0</character-aspect-ratio>
+  <font-resolution>
+   <width type="int">32</width>
+   <height type="int">32</height>
+  </font-resolution>
+  <alignment>left-center</alignment>
+  <axis-alignment>yz-plane</axis-alignment>
+  <offsets>
+   <pitch-deg>-90</pitch-deg>
+   <x-m>-0.044</x-m>
+   <y-m>-0.056</y-m>
+   <z-m> 0.007</z-m>
+  </offsets>
+ </text>
+
+ <text>
+  <name>right text track</name>
+  <type type="string">number-value</type>
+  <property alias="../../params/display-right"/>
+  <format type="string">%5.2f</format>
+  <draw-text type="bool">true</draw-text>
+  <font>led.txf</font>
+  <character-size type="double">0.011</character-size>
+  <character-aspect-ratio type="double">1.0</character-aspect-ratio>
+  <font-resolution>
+   <width type="int">32</width>
+   <height type="int">32</height>
+  </font-resolution>
+  <alignment>left-center</alignment>
+  <axis-alignment>yz-plane</axis-alignment>
+  <offsets>
+   <pitch-deg>-90</pitch-deg>
+   <x-m>-0.044</x-m>
+   <y-m> 0.005</y-m>
+   <z-m> 0.007</z-m>
+  </offsets>
+ </text>
+
+ <animation>
+  <type>select</type>
+  <object-name>left text track</object-name>
+  <condition>
+   <not-equals>
+    <property alias="../../../../params/display-left"/>
+    <value>-999</value>
+   </not-equals>
+  </condition>
+ </animation>
+
+ <animation>
+  <type>select</type>
+  <object-name>right text track</object-name>
+  <condition>
+   <not-equals>
+    <property alias="../../../../params/display-right"/>
+    <value>-999</value>
+   </not-equals>
+  </condition>
+ </animation>
+
+ <animation>
+  <name>text track</name>
+  <object-name>left text track</object-name>
+  <object-name>right text track</object-name>
+ </animation>
+
+ <animation>
+  <type>material</type>
+  <object-name>text track</object-name>
+  <emission>
+   <red>1.0</red>
+   <green>0.7</green>
+   <blue>0.0</blue>
+   <factor-prop alias="../../../params/ins-light"/>
+  </emission>
+  <ambient>
+   <red>1.0</red>
+   <green>0.7</green>
+   <blue>0.0</blue>
+   <factor-prop alias="../../../params/ins-light"/>
+  </ambient>
+  <diffuse>
+   <red>1.0</red>
+   <green>0.7</green>
+   <blue>0.0</blue>
+   <factor-prop alias="../../../params/ins-light"/>
+  </diffuse>
+ </animation>
+
+ <animation>
+  <type>select</type>
+  <object-name>text track</object-name>
+  <condition>
+   <and include="../../Panels/Instruments/concorde-cond-voltage-inst.xml">
+    <greater-than-equals>
+     <property alias="../../../../../params/ins-selector"/>
+     <value>-3</value>
+    </greater-than-equals>
+    <less-than-equals>
+     <property alias="../../../../../params/ins-selector"/>
+     <value>-1</value>
+    </less-than-equals>
+    <not-equals>
+     <property alias="../../../../../params/ins-mode"/>
+     <value>-2</value>
+    </not-equals>
+    <property alias="../../../../params/ins-service"/>
+   </and>
+  </condition>
+ </animation>
+
+<!-- POSITION -->
+
+ <text>
+  <name>left text position</name>
+  <type type="string">number-value</type>
+  <property alias="../../params/display-left"/>
+  <format type="string">%2.2f</format>
+  <draw-text type="bool">true</draw-text>
+  <font>led.txf</font>
+  <character-size type="double">0.011</character-size>
+  <character-aspect-ratio type="double">1.0</character-aspect-ratio>
+  <font-resolution>
+   <width type="int">32</width>
+   <height type="int">32</height>
+  </font-resolution>
+  <alignment>left-center</alignment>
+  <axis-alignment>yz-plane</axis-alignment>
+  <offsets>
+   <pitch-deg>-90</pitch-deg>
+   <x-m>-0.044</x-m>
+   <y-m>-0.056</y-m>
+   <z-m> 0.007</z-m>
+  </offsets>
+ </text>
+
+ <text>
+  <name>left text position negativ</name>
+  <type type="string">number-value</type>
+  <property alias="../../params/display-left"/>
+  <scale>-1</scale>
+  <format type="string">%#2.2f</format>
+  <draw-text type="bool">true</draw-text>
+  <font>led.txf</font>
+  <character-size type="double">0.011</character-size>
+  <character-aspect-ratio type="double">1.0</character-aspect-ratio>
+  <font-resolution>
+   <width type="int">32</width>
+   <height type="int">32</height>
+  </font-resolution>
+  <alignment>left-center</alignment>
+  <axis-alignment>yz-plane</axis-alignment>
+  <offsets>
+   <pitch-deg>-90</pitch-deg>
+   <x-m>-0.044</x-m>
+   <y-m>-0.056</y-m>
+   <z-m> 0.007</z-m>
+  </offsets>
+ </text>
+
+ <text>
+  <name>right text position</name>
+  <type type="string">number-value</type>
+  <property alias="../../params/display-right"/>
+  <format type="string">%3.2f</format>
+  <draw-text type="bool">true</draw-text>
+  <font>led.txf</font>
+  <character-size type="double">0.011</character-size>
+  <character-aspect-ratio type="double">1.0</character-aspect-ratio>
+  <font-resolution>
+   <width type="int">32</width>
+   <height type="int">32</height>
+  </font-resolution>
+  <alignment>left-center</alignment>
+  <axis-alignment>yz-plane</axis-alignment>
+  <offsets>
+   <pitch-deg>-90</pitch-deg>
+   <x-m>-0.044</x-m>
+   <y-m> 0.005</y-m>
+   <z-m> 0.007</z-m>
+  </offsets>
+ </text>
+
+ <text>
+  <name>right text position negativ</name>
+  <type type="string">number-value</type>
+  <property alias="../../params/display-right"/>
+  <scale>-1</scale>
+  <format type="string">%3.2f</format>
+  <draw-text type="bool">true</draw-text>
+  <font>led.txf</font>
+  <character-size type="double">0.011</character-size>
+  <character-aspect-ratio type="double">1.0</character-aspect-ratio>
+  <font-resolution>
+   <width type="int">32</width>
+   <height type="int">32</height>
+  </font-resolution>
+  <alignment>left-center</alignment>
+  <axis-alignment>yz-plane</axis-alignment>
+  <offsets>
+   <pitch-deg>-90</pitch-deg>
+   <x-m>-0.044</x-m>
+   <y-m> 0.005</y-m>
+   <z-m> 0.007</z-m>
+  </offsets>
+ </text>
+
+ <text>
+  <name>north cardinal</name>
+  <type type="string">literal</type>
+  <text type="string">N</text>
+  <draw-text type="bool">true</draw-text>
+  <font>Helvetica.txf</font>
+  <character-size type="double">0.008</character-size>
+  <character-aspect-ratio type="double">1.0</character-aspect-ratio>
+  <font-resolution>
+   <width type="int">32</width>
+   <height type="int">32</height>
+  </font-resolution>
+  <alignment>left-center</alignment>
+  <axis-alignment>yz-plane</axis-alignment>
+  <offsets>
+   <pitch-deg>-90</pitch-deg>
+   <x-m>-0.048</x-m>
+   <y-m>-0.018</y-m>
+   <z-m> 0.007</z-m>
+  </offsets>
+ </text>
+
+ <text>
+  <name>south cardinal</name>
+  <type type="string">literal</type>
+  <text type="string">S</text>
+  <draw-text type="bool">true</draw-text>
+  <font>Helvetica.txf</font>
+  <character-size type="double">0.008</character-size>
+  <character-aspect-ratio type="double">1.0</character-aspect-ratio>
+  <font-resolution>
+   <width type="int">32</width>
+   <height type="int">32</height>
+  </font-resolution>
+  <alignment>left-center</alignment>
+  <axis-alignment>yz-plane</axis-alignment>
+  <offsets>
+   <pitch-deg>-90</pitch-deg>
+   <x-m>-0.040</x-m>
+   <y-m>-0.018</y-m>
+   <z-m> 0.007</z-m>
+  </offsets>
+ </text>
+
+ <text>
+  <name>east cardinal</name>
+  <type type="string">literal</type>
+  <text type="string">E</text>
+  <draw-text type="bool">true</draw-text>
+  <font>Helvetica.txf</font>
+  <character-size type="double">0.008</character-size>
+  <character-aspect-ratio type="double">1.0</character-aspect-ratio>
+  <font-resolution>
+   <width type="int">32</width>
+   <height type="int">32</height>
+  </font-resolution>
+  <alignment>left-center</alignment>
+  <axis-alignment>yz-plane</axis-alignment>
+  <offsets>
+   <pitch-deg>-90</pitch-deg>
+   <x-m>-0.048</x-m>
+   <y-m> 0.053</y-m>
+   <z-m> 0.007</z-m>
+  </offsets>
+ </text>
+
+ <text>
+  <name>west cardinal</name>
+  <type type="string">literal</type>
+  <text type="string">W</text>
+  <draw-text type="bool">true</draw-text>
+  <font>Helvetica.txf</font>
+  <character-size type="double">0.008</character-size>
+  <character-aspect-ratio type="double">1.0</character-aspect-ratio>
+  <font-resolution>
+   <width type="int">32</width>
+   <height type="int">32</height>
+  </font-resolution>
+  <alignment>left-center</alignment>
+  <axis-alignment>yz-plane</axis-alignment>
+  <offsets>
+   <pitch-deg>-90</pitch-deg>
+   <x-m>-0.040</x-m>
+   <y-m> 0.053</y-m>
+   <z-m> 0.007</z-m>
+  </offsets>
+ </text>
+
+ <animation>
+  <name>latitude north</name>
+  <object-name>left text position</object-name>
+  <object-name>north cardinal</object-name>
+ </animation>
+
+ <animation>
+  <name>latitude south</name>
+  <object-name>left text position negativ</object-name>
+  <object-name>south cardinal</object-name>
+ </animation>
+
+ <animation>
+  <name>longitude east</name>
+  <object-name>right text position</object-name>
+  <object-name>east cardinal</object-name>
+ </animation>
+
+ <animation>
+  <name>longitude west</name>
+  <object-name>right text position negativ</object-name>
+  <object-name>west cardinal</object-name>
+ </animation>
+
+ <animation>
+  <type>select</type>
+  <object-name>latitude north</object-name>
+  <condition>
+   <and>
+    <greater-than>
+     <property alias="../../../../../params/display-left"/>
+     <value>0</value>
+    </greater-than>
+    <not-equals>
+     <property alias="../../../../../params/display-left"/>
+     <value>-999</value>
+    </not-equals>
+   </and>
+  </condition>
+ </animation>
+
+ <animation>
+  <type>select</type>
+  <object-name>latitude south</object-name>
+  <condition>
+   <and>
+    <less-than-equals>
+     <property alias="../../../../../params/display-left"/>
+     <value>0</value>
+    </less-than-equals>
+    <not-equals>
+     <property alias="../../../../../params/display-left"/>
+     <value>-999</value>
+    </not-equals>
+   </and>
+  </condition>
+ </animation>
+
+ <animation>
+  <type>select</type>
+  <object-name>longitude east</object-name>
+  <condition>
+   <and>
+    <greater-than>
+     <property alias="../../../../../params/display-right"/>
+     <value>0</value>
+    </greater-than>
+    <not-equals>
+     <property alias="../../../../../params/display-right"/>
+     <value>-999</value>
+    </not-equals>
+   </and>
+  </condition>
+ </animation>
+
+ <animation>
+  <type>select</type>
+  <object-name>longitude west</object-name>
+  <condition>
+   <and>
+    <less-than-equals>
+     <property alias="../../../../../params/display-right"/>
+     <value>0</value>
+    </less-than-equals>
+    <not-equals>
+     <property alias="../../../../../params/display-right"/>
+     <value>-999</value>
+    </not-equals>
+   </and>
+  </condition>
+ </animation>
+
+ <animation>
+  <name>text position</name>
+  <object-name>latitude north</object-name>
+  <object-name>latitude south</object-name>
+  <object-name>longitude east</object-name>
+  <object-name>longitude west</object-name>
+ </animation>
+
+ <animation>
+  <type>material</type>
+  <object-name>text position</object-name>
+  <emission>
+   <red>1.0</red>
+   <green>0.7</green>
+   <blue>0.0</blue>
+   <factor-prop alias="../../../params/ins-light"/>
+  </emission>
+  <ambient>
+   <red>1.0</red>
+   <green>0.7</green>
+   <blue>0.0</blue>
+   <factor-prop alias="../../../params/ins-light"/>
+  </ambient>
+  <diffuse>
+   <red>1.0</red>
+   <green>0.7</green>
+   <blue>0.0</blue>
+   <factor-prop alias="../../../params/ins-light"/>
+  </diffuse>
+ </animation>
+
+ <animation>
+  <type>select</type>
+  <object-name>text position</object-name>
+  <condition>
+   <and include="../../Panels/Instruments/concorde-cond-voltage-inst.xml">
+    <greater-than-equals>
+     <property alias="../../../../../params/ins-selector"/>
+     <value>0</value>
+    </greater-than-equals>
+    <less-than-equals>
+     <property alias="../../../../../params/ins-selector"/>
+     <value>1</value>
+    </less-than-equals>
+    <not-equals>
+     <property alias="../../../../../params/ins-mode"/>
+     <value>-2</value>
+    </not-equals>
+    <property alias="../../../../params/ins-service"/>
+   </and>
+  </condition>
+ </animation>
+
+<!-- WAYPOINT DISTANCE & TIME -->
+
+ <text>
+  <name>left text time</name>
+  <type type="string">number-value</type>
+  <property alias="../../params/display-left"/>
+  <format type="string">%4.0f</format>
+  <draw-text type="bool">true</draw-text>
+  <font>led.txf</font>
+  <character-size type="double">0.011</character-size>
+  <character-aspect-ratio type="double">1.0</character-aspect-ratio>
+  <font-resolution>
+   <width type="int">32</width>
+   <height type="int">32</height>
+  </font-resolution>
+  <alignment>left-center</alignment>
+  <axis-alignment>yz-plane</axis-alignment>
+  <offsets>
+   <pitch-deg>-90</pitch-deg>
+   <x-m>-0.044</x-m>
+   <y-m>-0.056</y-m>
+   <z-m> 0.007</z-m>
+  </offsets>
+ </text>
+
+ <text>
+  <name>right text time</name>
+  <type type="string">number-value</type>
+  <property alias="../../params/display-right"/>
+  <format type="string">%2.2f</format>
+  <draw-text type="bool">true</draw-text>
+  <font>led.txf</font>
+  <character-size type="double">0.011</character-size>
+  <character-aspect-ratio type="double">1.0</character-aspect-ratio>
+  <font-resolution>
+   <width type="int">32</width>
+   <height type="int">32</height>
+  </font-resolution>
+  <alignment>left-center</alignment>
+  <axis-alignment>yz-plane</axis-alignment>
+  <offsets>
+   <pitch-deg>-90</pitch-deg>
+   <x-m>-0.044</x-m>
+   <y-m> 0.005</y-m>
+   <z-m> 0.007</z-m>
+  </offsets>
+ </text>
+
+ <animation>
+  <type>select</type>
+  <object-name>left text time</object-name>
+  <condition>
+   <not-equals>
+    <property alias="../../../../params/display-left"/>
+    <value>-999</value>
+   </not-equals>
+  </condition>
+ </animation>
+
+ <animation>
+  <type>select</type>
+  <object-name>right text time</object-name>
+  <condition>
+   <not-equals>
+    <property alias="../../../../params/display-right"/>
+    <value>-999</value>
+   </not-equals>
+  </condition>
+ </animation>
+
+ <animation>
+  <name>text time</name>
+  <object-name>left text time</object-name>
+  <object-name>right text time</object-name>
+ </animation>
+
+ <animation>
+  <type>material</type>
+  <object-name>text time</object-name>
+  <emission>
+   <red>1.0</red>
+   <green>0.7</green>
+   <blue>0.0</blue>
+   <factor-prop alias="../../../params/ins-light"/>
+  </emission>
+  <ambient>
+   <red>1.0</red>
+   <green>0.7</green>
+   <blue>0.0</blue>
+   <factor-prop alias="../../../params/ins-light"/>
+  </ambient>
+  <diffuse>
+   <red>1.0</red>
+   <green>0.7</green>
+   <blue>0.0</blue>
+   <factor-prop alias="../../../params/ins-light"/>
+  </diffuse>
+ </animation>
+
+ <animation>
+  <type>select</type>
+  <object-name>text time</object-name>
+  <condition>
+   <and include="../../Panels/Instruments/concorde-cond-voltage-inst.xml">
+    <equals>
+     <property alias="../../../../../params/ins-selector"/>
+     <value>2</value>
+    </equals>
+    <not-equals>
+     <property alias="../../../../../params/ins-mode"/>
+     <value>-2</value>
+    </not-equals>
+    <property alias="../../../../params/ins-service"/>
+   </and>
+  </condition>
+ </animation>
+
+<!-- WIND -->
+
+ <text>
+  <name>left text wind</name>
+  <type type="string">number-value</type>
+  <property alias="../../params/display-left"/>
+  <format type="string">%03.0f</format>
+  <draw-text type="bool">true</draw-text>
+  <font>led.txf</font>
+  <character-size type="double">0.011</character-size>
+  <character-aspect-ratio type="double">1.0</character-aspect-ratio>
+  <font-resolution>
+   <width type="int">32</width>
+   <height type="int">32</height>
+  </font-resolution>
+  <alignment>left-center</alignment>
+  <axis-alignment>yz-plane</axis-alignment>
+  <offsets>
+   <pitch-deg>-90</pitch-deg>
+   <x-m>-0.044</x-m>
+   <y-m>-0.056</y-m>
+   <z-m> 0.007</z-m>
+  </offsets>
+ </text>
+
+ <text>
+  <name>right text wind</name>
+  <type type="string">number-value</type>
+  <property alias="../../params/display-right"/>
+  <format type="string">%3.0f</format>
+  <draw-text type="bool">true</draw-text>
+  <font>led.txf</font>
+  <character-size type="double">0.011</character-size>
+  <character-aspect-ratio type="double">1.0</character-aspect-ratio>
+  <font-resolution>
+   <width type="int">32</width>
+   <height type="int">32</height>
+  </font-resolution>
+  <alignment>left-center</alignment>
+  <axis-alignment>yz-plane</axis-alignment>
+  <offsets>
+   <pitch-deg>-90</pitch-deg>
+   <x-m>-0.044</x-m>
+   <y-m> 0.005</y-m>
+   <z-m> 0.007</z-m>
+  </offsets>
+ </text>
+
+ <animation>
+  <type>select</type>
+  <object-name>left text wind</object-name>
+  <condition>
+   <not-equals>
+    <property alias="../../../../params/display-left"/>
+    <value>-999</value>
+   </not-equals>
+  </condition>
+ </animation>
+
+ <animation>
+  <type>select</type>
+  <object-name>right text wind</object-name>
+  <condition>
+   <not-equals>
+    <property alias="../../../../params/display-right"/>
+    <value>-999</value>
+   </not-equals>
+  </condition>
+ </animation>
+
+ <animation>
+  <name>text wind</name>
+  <object-name>left text wind</object-name>
+  <object-name>right text wind</object-name>
+ </animation>
+
+ <animation>
+  <type>material</type>
+  <object-name>text wind</object-name>
+  <emission>
+   <red>1.0</red>
+   <green>0.7</green>
+   <blue>0.0</blue>
+   <factor-prop alias="../../../params/ins-light"/>
+  </emission>
+  <ambient>
+   <red>1.0</red>
+   <green>0.7</green>
+   <blue>0.0</blue>
+   <factor-prop alias="../../../params/ins-light"/>
+  </ambient>
+  <diffuse>
+   <red>1.0</red>
+   <green>0.7</green>
+   <blue>0.0</blue>
+   <factor-prop alias="../../../params/ins-light"/>
+  </diffuse>
+ </animation>
+
+ <animation>
+  <type>select</type>
+  <object-name>text wind</object-name>
+  <condition>
+   <and include="../../Panels/Instruments/concorde-cond-voltage-inst.xml">
+    <equals>
+     <property alias="../../../../../params/ins-selector"/>
+     <value>3</value>
+    </equals>
+    <not-equals>
+     <property alias="../../../../../params/ins-mode"/>
+     <value>-2</value>
+    </not-equals>
+    <property alias="../../../../params/ins-service"/>
+   </and>
+  </condition>
+ </animation>
+
+<!-- DESIRED TRACK / STATUS -->
+
+ <text>
+  <name>left text status</name>
+  <type type="string">number-value</type>
+  <property alias="../../params/display-left"/>
+  <format type="string">%5.2f</format>
+  <draw-text type="bool">true</draw-text>
+  <font>led.txf</font>
+  <character-size type="double">0.011</character-size>
+  <character-aspect-ratio type="double">1.0</character-aspect-ratio>
+  <font-resolution>
+   <width type="int">32</width>
+   <height type="int">32</height>
+  </font-resolution>
+  <alignment>left-center</alignment>
+  <axis-alignment>yz-plane</axis-alignment>
+  <offsets>
+   <pitch-deg>-90</pitch-deg>
+   <x-m>-0.044</x-m>
+   <y-m>-0.056</y-m>
+   <z-m> 0.007</z-m>
+  </offsets>
+ </text>
+
+ <text>
+  <name>right text status</name>
+  <type type="string">number-value</type>
+  <property alias="../../params/display-right"/>
+  <format type="string">%06.0f</format>
+  <draw-text type="bool">true</draw-text>
+  <font>led.txf</font>
+  <character-size type="double">0.011</character-size>
+  <character-aspect-ratio type="double">1.0</character-aspect-ratio>
+  <font-resolution>
+   <width type="int">32</width>
+   <height type="int">32</height>
+  </font-resolution>
+  <alignment>left-center</alignment>
+  <axis-alignment>yz-plane</axis-alignment>
+  <offsets>
+   <pitch-deg>-90</pitch-deg>
+   <x-m>-0.044</x-m>
+   <y-m> 0.005</y-m>
+   <z-m> 0.007</z-m>
+  </offsets>
+ </text>
+
+ <animation>
+  <type>select</type>
+  <object-name>left text status</object-name>
+  <condition>
+   <not-equals>
+    <property alias="../../../../params/display-left"/>
+    <value>-999</value>
+   </not-equals>
+  </condition>
+ </animation>
+
+ <animation>
+  <type>select</type>
+  <object-name>right text status</object-name>
+  <condition>
+   <not-equals>
+    <property alias="../../../../params/display-right"/>
+    <value>-999</value>
+   </not-equals>
+  </condition>
+ </animation>
+
+ <animation>
+  <name>text status</name>
+  <object-name>left text status</object-name>
+  <object-name>right text status</object-name>
+ </animation>
+
+ <animation>
+  <type>material</type>
+  <object-name>text status</object-name>
+  <emission>
+   <red>1.0</red>
+   <green>0.7</green>
+   <blue>0.0</blue>
+   <factor-prop alias="../../../params/ins-light"/>
+  </emission>
+  <ambient>
+   <red>1.0</red>
+   <green>0.7</green>
+   <blue>0.0</blue>
+   <factor-prop alias="../../../params/ins-light"/>
+  </ambient>
+  <diffuse>
+   <red>1.0</red>
+   <green>0.7</green>
+   <blue>0.0</blue>
+   <factor-prop alias="../../../params/ins-light"/>
+  </diffuse>
+ </animation>
+
+ <animation>
+  <type>select</type>
+  <object-name>text status</object-name>
+  <condition>
+   <and include="../../Panels/Instruments/concorde-cond-voltage-inst.xml">
+    <equals>
+     <property alias="../../../../../params/ins-selector"/>
+     <value>4</value>
+    </equals>
+    <not-equals>
+     <property alias="../../../../../params/ins-mode"/>
+     <value>-2</value>
+    </not-equals>
+    <property alias="../../../../params/ins-service"/>
+   </and>
+  </condition>
+ </animation>
+
+<!-- WARNING -->
+
+<!-- dark ambient enables to distinguish the emission, with mininal value by roof lighting -->
+
+ <animation>
+  <type>material</type>
+  <object-name>HoldButton</object-name>
+  <emission>
+   <red>1.0</red>
+   <green>1.0</green>
+   <blue>0.0</blue>
+   <factor-prop alias="../../../params/light-hold"/>
+   <offset-prop>systems/lighting/level/roof-ambient</offset-prop>
+  </emission> 
+  <ambient>
+   <red>0.5</red>
+   <green>0.5</green>
+   <blue>0.5</blue>
+   <offset-prop>systems/lighting/level/roof-ambient</offset-prop>
+  </ambient>
+ </animation> 
+
+ <animation>
+  <type>material</type>
+  <object-name>RemoteButton</object-name>
+  <emission>
+   <red>1.0</red>
+   <green>1.0</green>
+   <blue>0.0</blue>
+   <factor-prop alias="../../../params/light-remote"/>
+   <offset-prop>systems/lighting/level/roof-ambient</offset-prop>
+  </emission> 
+  <ambient>
+   <red>0.5</red>
+   <green>0.5</green>
+   <blue>0.5</blue>
+   <factor-prop alias="../../../params/light-remote"/>
+   <offset-prop>systems/lighting/level/roof-ambient</offset-prop>
+  </ambient>
+ </animation> 
+
+ <animation>
+  <type>material</type>
+  <object-name>InsertButton</object-name>
+  <emission>
+   <red>1.0</red>
+   <green>1.0</green>
+   <blue>0.0</blue>
+   <factor-prop alias="../../../params/light-insert"/>
+   <offset-prop>systems/lighting/level/roof-ambient</offset-prop>
+  </emission> 
+  <ambient>
+   <red>0.5</red>
+   <green>0.5</green>
+   <blue>0.5</blue>
+   <offset-prop>systems/lighting/level/roof-ambient</offset-prop>
+  </ambient>
+ </animation> 
+
+ <animation>
+  <type>material</type>
+  <object-name>AlertButton</object-name>
+  <emission>
+   <red>1.0</red>
+   <green>1.0</green>
+   <blue>0.0</blue>
+   <factor-prop alias="../../../params/light-alert"/>
+   <offset-prop>systems/lighting/level/roof-ambient</offset-prop>
+  </emission> 
+  <ambient>
+   <red>0.5</red>
+   <green>0.5</green>
+   <blue>0.5</blue>
+   <factor-prop alias="../../../params/light-alert"/>
+   <offset-prop>systems/lighting/level/roof-ambient</offset-prop>
+  </ambient>
+ </animation> 
+
+ <animation>
+  <type>material</type>
+  <object-name>BatteryButton</object-name>
+  <emission>
+   <red>1.0</red>
+   <green>1.0</green>
+   <blue>0.0</blue>
+   <factor-prop alias="../../../params/light-battery"/>
+   <offset-prop>systems/lighting/level/roof-ambient</offset-prop>
+  </emission> 
+  <ambient>
+   <red>0.5</red>
+   <green>0.5</green>
+   <blue>0.5</blue>
+   <factor-prop alias="../../../params/light-battery"/>
+   <offset-prop>systems/lighting/level/roof-ambient</offset-prop>
+  </ambient>
+ </animation> 
+
+ <animation>
+  <type>material</type>
+  <object-name>WarningButton</object-name>
+  <emission>
+   <red>1.0</red>
+   <green>0.0</green>
+   <blue>0.0</blue>
+   <factor-prop alias="../../../params/light-warning"/>
+   <offset-prop>systems/lighting/level/roof-ambient</offset-prop>
+  </emission> 
+  <ambient>
+   <red>0.5</red>
+   <green>0.5</green>
+   <blue>0.5</blue>
+   <factor-prop alias="../../../params/light-warning"/>
+   <offset-prop>systems/lighting/level/roof-ambient</offset-prop>
+  </ambient>
+ </animation> 
+
+<!-- WAYPOINT SELECTOR -->
+
+ <text>
+  <name>waypoint number</name>
+  <type type="string">number-value</type>
+  <property alias="../../params/ins-waypoint"/>
+  <format type="string">%1.0f</format>
+  <draw-text type="bool">true</draw-text>
+  <font>Helvetica.txf</font>
+  <character-size type="double">0.006</character-size>
+  <character-aspect-ratio type="double">1.0</character-aspect-ratio>
+  <font-resolution>
+   <width type="int">32</width>
+   <height type="int">32</height>
+  </font-resolution>
+  <alignment>left-center</alignment>
+  <axis-alignment>yz-plane</axis-alignment>
+  <offsets>
+   <pitch-deg>-90</pitch-deg>
+   <x-m>-0.012</x-m>
+   <y-m>-0.050</y-m>
+   <z-m> 0.005</z-m>
+  </offsets>
+ </text>
+
+ <animation>
+  <type>pick</type>
+  <object-name>WaypointSelector</object-name>
+  <action>
+   <button>0</button>
+   <binding>
+    <command>property-adjust</command>
+    <property alias="../../../../params/ins-waypoint"/>
+    <step>1</step>
+    <min>1</min>
+    <max>99</max>
+   </binding>
+   <binding>
+    <command>nasal</command>
+    <script>globals.Concorde.INSinstrument.computeexport();</script>
+   </binding>
+   <binding>
+    <command>property-toggle</command>
+    <property>instrumentation/generic/click</property>
+   </binding>
+  </action>
+  <action>
+   <button>1</button>
+   <binding>
+    <command>property-adjust</command>
+    <property alias="../../../../params/ins-waypoint"/>
+    <step>-1</step>
+    <min>1</min>
+    <max>99</max>
+   </binding>
+   <binding>
+    <command>nasal</command>
+    <script>globals.Concorde.INSinstrument.computeexport();</script>
+   </binding>
+   <binding>
+    <command>property-toggle</command>
+    <property>instrumentation/generic/click</property>
+   </binding>
+  </action>
+ </animation>
+
+<!-- FROM TO INDICATOR -->
+
+ <text>
+  <name>from indicator</name>
+  <type type="string">number-value</type>
+  <property alias="../../params/ins-waypoint"/>
+  <format type="string">%1.0f</format>
+  <draw-text type="bool">true</draw-text>
+  <font>led.txf</font>
+  <character-size type="double">0.011</character-size>
+  <character-aspect-ratio type="double">1.0</character-aspect-ratio>
+  <font-resolution>
+   <width type="int">32</width>
+   <height type="int">32</height>
+  </font-resolution>
+  <alignment>left-center</alignment>
+  <axis-alignment>yz-plane</axis-alignment>
+  <offsets>
+   <pitch-deg>-90</pitch-deg>
+   <x-m>-0.006</x-m>
+   <y-m>-0.020</y-m>
+   <z-m> 0.007</z-m>
+  </offsets>
+ </text>
+
+ <animation>
+  <type>material</type>
+  <object-name>from indicator</object-name>
+  <emission>
+   <red>1.0</red>
+   <green>0.7</green>
+   <blue>0.0</blue>
+   <factor-prop alias="../../../params/ins-light"/>
+  </emission>
+  <ambient>
+   <red>1.0</red>
+   <green>0.7</green>
+   <blue>0.0</blue>
+   <factor-prop alias="../../../params/ins-light"/>
+  </ambient>
+  <diffuse>
+   <red>1.0</red>
+   <green>0.7</green>
+   <blue>0.0</blue>
+   <factor-prop alias="../../../params/ins-light"/>
+  </diffuse>
+ </animation>
+
+ <animation>
+  <type>select</type>
+  <object-name>from indicator</object-name>
+  <condition include="../../Panels/Instruments/concorde-cond-voltage-inst.xml"/>
+ </animation>
+
+<!-- DATA SELECTOR -->
+
+ <animation>
+  <name>Selector</name>
+  <object-name>DataSelector</object-name>
+  <object-name>DimControl</object-name>
+ </animation>
+
+ <animation>
+  <type>rotate</type>
+  <object-name>Selector</object-name>
+  <property alias="../../params/ins-selector"/>
+  <factor>36</factor>
+  <offset-deg>-36</offset-deg>   
+  <center>
+   <x-m> 0.025</x-m>
+   <y-m>-0.047</y-m>
+   <z-m> 0.0</z-m>
+  </center>
+  <axis>
+   <x> 0.0</x>
+   <y> 0.0</y>
+   <z>-1.0</z>
+  </axis>
+ </animation>
+
+ <animation>
+  <type>pick</type>
+  <object-name>DataSelector</object-name>
+  <action>
+   <button>0</button>
+   <binding>
+    <command>property-adjust</command>
+    <property alias="../../../../params/ins-selector"/>
+    <step>1</step>
+    <min>-3</min>
+    <max>4</max>
+    <wrap>0</wrap>
+   </binding>
+   <binding>
+    <command>nasal</command>
+    <script>globals.Concorde.INSinstrument.computeexport();</script>
+   </binding>
+   <binding>
+    <command>property-toggle</command>
+    <property>instrumentation/generic/click</property>
+   </binding>
+  </action>
+  <action>
+   <button>1</button>
+   <binding>
+    <command>property-adjust</command>
+    <property alias="../../../../params/ins-selector"/>
+    <step>-1</step>
+    <min>-3</min>
+    <max>4</max>
+    <wrap>0</wrap>
+   </binding>
+   <binding>
+    <command>nasal</command>
+    <script>globals.Concorde.INSinstrument.computeexport();</script>
+   </binding>
+   <binding>
+    <command>property-toggle</command>
+    <property>instrumentation/generic/click</property>
+   </binding>
+  </action>
+ </animation>
+
+<!-- DIM CONTROL -->
+
+ <animation>
+  <type>rotate</type>
+  <object-name>DimControl</object-name>
+  <property alias="../../params/ins-light"/>
+  <factor>72</factor>
+  <offset-deg>-72</offset-deg>   
+  <center>
+   <x-m> 0.025</x-m>
+   <y-m>-0.047</y-m>
+   <z-m> 0.0</z-m>
+  </center>
+  <axis>
+   <x> 0.0</x>
+   <y> 0.0</y>
+   <z>-1.0</z>
+  </axis>
+ </animation>
+
+ <animation>
+  <type>pick</type>
+  <object-name>DimControl</object-name>
+  <action>
+   <button>0</button>
+   <binding>
+    <command>property-adjust</command>
+    <property alias="../../../../params/ins-light"/>
+    <step>0.2</step>
+    <min>0.2</min>
+    <max>1.0</max>
+    <wrap>0</wrap>
+   </binding>
+   <binding>
+    <command>property-toggle</command>
+    <property>instrumentation/generic/click</property>
+   </binding>
+  </action>
+  <action>
+   <button>1</button>
+   <binding>
+    <command>property-adjust</command>
+    <property alias="../../../../params/ins-light"/>
+    <step>-0.2</step>
+    <min>0.2</min>
+    <max>1.0</max>
+    <wrap>0</wrap>
+   </binding>
+   <binding>
+    <command>property-toggle</command>
+    <property>instrumentation/generic/click</property>
+   </binding>
+  </action>
+ </animation>
+
+<!-- SWITCH -->
+
+ <animation>
+  <type>translate</type>
+  <object-name>Switch</object-name>
+  <property alias="../../params/ins-switch"/>
+  <interpolation>
+   <entry>
+    <ind>0.0</ind>
+    <dep>0</dep>
+   </entry>
+   <entry>
+    <ind>1.0</ind>
+    <dep>-0.001</dep>
+   </entry>
+  </interpolation>
+  <center>
+   <x-m>0.0</x-m>
+   <y-m>0.0</y-m>
+   <z-m>0.0</z-m>
+  </center>
+  <axis>
+   <x>0</x>
+   <y>0</y>
+   <z>1</z>
+  </axis>
+ </animation>
+
+ <animation>
+  <type>rotate</type>
+  <object-name>Switch</object-name>
+  <offset-deg>-36</offset-deg>   
+  <center>
+   <x-m> 0.051</x-m>
+   <y-m>-0.022</y-m>
+   <z-m> 0.0</z-m>
+  </center>
+  <axis>
+   <x> 0.0</x>
+   <y> 0.0</y>
+   <z>-1.0</z>
+  </axis>
+ </animation>
+
+ <animation>
+  <type>pick</type>
+  <object-name>Switch</object-name>
+  <action>
+   <button>0</button>
+   <binding>
+    <command>property-assign</command>
+    <property alias="../../../../params/ins-switch"/>
+    <value>true</value>
+    <repeatable>true</repeatable>
+   </binding>
+   <mod-up>
+    <binding>
+     <command>property-assign</command>
+     <property alias="../../../../../params/ins-switch"/>
+     <value>false</value>
+    </binding>
+    <binding>
+     <command>property-toggle</command>
+     <property>/instrumentation/generic/click</property>
+    </binding>
+   </mod-up>
+  </action>
+ </animation>
+
+</PropertyList>

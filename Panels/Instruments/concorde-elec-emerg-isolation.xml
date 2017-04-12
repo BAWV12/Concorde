@@ -1,0 +1,230 @@
+<?xml version="1.0"?>
+
+<!-- Emergency generator isolation switch -->
+
+<PropertyList>
+
+ <name>Emergency Generator isolation</name>
+ <w-base>102</w-base>
+ <h-base>102</h-base>
+
+
+ <layers>
+
+  <layer>
+   <name>Isolation switch</name>
+   <type>switch</type>
+
+   <layer include="concorde-switch-on.xml">
+    <name>norm</name>
+    <condition>
+     <property>/controls/electric/ac/emergency/generator/arm</property>
+    </condition>
+   </layer>
+
+   <layer include="concorde-switch-3rd.xml">
+    <name>isolate</name>
+   </layer>
+
+   <transformations>
+    <transformation>
+     <type>x-shift</type>
+     <offset>-34</offset>
+    </transformation>
+    <transformation>
+     <type>y-shift</type>
+     <offset>-1.5</offset>
+    </transformation>
+   </transformations>
+  </layer>
+
+  <layer>
+   <name>guard</name>
+   <type>switch</type>
+
+   <layer>
+    <name>guard on</name>
+    <condition>
+     <property>/controls/electric/ac/emergency/generator/arm-guard</property>
+    </condition>
+    <texture>
+     <path>Aircraft/Concorde/Panels/Instruments/Textures/concorde-black-guard.png</path>
+     <x1>0.0</x1>
+     <y1>0.0</y1>
+     <x2>1.0</x2>
+     <y2>0.75</y2>
+    </texture>
+    <w>80</w>
+    <h>60</h>
+    <transformations>
+     <transformation>
+      <type>y-shift</type>
+      <offset>2</offset>
+     </transformation>
+    </transformations>
+   </layer>
+
+   <layer>
+    <name>guard off</name>
+    <texture>
+     <path>Aircraft/Concorde/Panels/Instruments/Textures/concorde-black-guard.png</path>
+     <x1>0.0</x1>
+     <y1>0.0</y1>
+     <x2>1.0</x2>
+     <y2>0.25</y2>
+    </texture>
+    <w>80</w>
+    <h>20</h>
+    <transformations>
+     <transformation>
+      <type>y-shift</type>
+      <offset>-25</offset>
+     </transformation>
+    </transformations>
+   </layer>
+   <transformations>
+    <transformation>
+     <type>x-shift</type>
+     <offset>-35</offset>
+    </transformation>
+   </transformations>
+  </layer>
+
+  <layer>
+   <name>Title on</name>
+   <type>text</type>
+   <point-size>8</point-size>
+   <color>
+    <red>1.0</red>
+    <green>1.0</green>
+    <blue>1.0</blue>
+   </color>
+   <chunks>
+    <chunk>
+     <type>literal</type>
+     <text>NORM</text>
+    </chunk>
+   </chunks>
+   <transformations>
+    <transformation>
+     <type>x-shift</type>
+     <offset>-19</offset>
+    </transformation>
+    <transformation>
+     <type>y-shift</type>
+     <offset>27</offset>
+    </transformation>
+   </transformations>
+  </layer>
+
+  <layer>
+   <name>Title off</name>
+   <type>text</type>
+   <point-size>8</point-size>
+   <color>
+    <red>1.0</red>
+    <green>1.0</green>
+    <blue>1.0</blue>
+   </color>
+   <chunks>
+    <chunk>
+     <type>literal</type>
+     <text>ISOL</text>
+    </chunk>
+   </chunks>
+   <transformations>
+    <transformation>
+     <type>x-shift</type>
+     <offset>-5</offset>
+    </transformation>
+    <transformation>
+     <type>y-shift</type>
+     <offset>-4</offset>
+    </transformation>
+   </transformations>
+  </layer>
+
+ </layers>
+
+ <actions>
+
+  <action>
+   <name>arm</name>
+   <condition>
+    <and>
+     <not>
+      <property>/controls/electric/ac/emergency/generator/arm</property>
+     </not>
+     <not>
+      <property>/controls/electric/ac/emergency/generator/arm-guard</property>
+     </not>
+    </and>
+   </condition>
+   <button>1</button>
+   <x>-55</x>
+   <y>-21</y>
+   <w>42</w>
+   <h>42</h>
+   <binding>
+    <command>property-toggle</command>
+    <property>/controls/electric/ac/emergency/generator/arm</property>
+   </binding>
+   <binding>
+    <command>property-toggle</command>
+    <property>/instrumentation/generic/click</property>
+   </binding>
+  </action>
+
+  <action>
+   <name>isolate</name>
+   <condition>
+    <and>
+     <property>/controls/electric/ac/emergency/generator/arm</property>
+     <not>
+      <property>/controls/electric/ac/emergency/generator/arm-guard</property>
+     </not>
+    </and>
+   </condition>
+   <button>1</button>
+   <x>-55</x>
+   <y>-21</y>
+   <w>42</w>
+   <h>42</h>
+   <binding>
+    <command>property-toggle</command>
+    <property>/controls/electric/ac/emergency/generator/arm</property>
+   </binding>
+   <binding>
+    <command>property-assign</command>
+    <property>/controls/electric/ac/emergency/generator/selected</property>
+    <value type="bool">false</value>
+   </binding>
+   <binding>
+    <command>property-toggle</command>
+    <property>/instrumentation/generic/click</property>
+   </binding>
+  </action>
+
+  <action>
+   <name>guard</name>
+   <condition>
+    <property>/controls/electric/ac/emergency/generator/arm</property>
+   </condition>
+   <button>0</button>
+   <x>-55</x>
+   <y>-21</y>
+   <w>42</w>
+   <h>42</h>
+   <binding>
+    <command>property-toggle</command>
+    <property>/controls/electric/ac/emergency/generator/arm-guard</property>
+   </binding>
+   <binding>
+    <command>property-toggle</command>
+    <property>/instrumentation/generic/click</property>
+   </binding>
+  </action>
+
+ </actions>
+ 
+</PropertyList>

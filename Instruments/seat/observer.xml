@@ -1,0 +1,117 @@
+<?xml version="1.0" ?> 
+
+<!-- auto smooth is disabled (except rail). -->
+
+<PropertyList> 
+ <path>seat-engineer.ac</path> 
+
+ <nasal>
+  <load>
+   var livery_update = aircraft.livery_update.new(
+   "Aircraft/Concorde/Models/Liveries", 10,
+   func { print("Concorde livery update (observer seat)") });
+  </load>
+
+  <unload>
+   livery_update.stop();
+  </unload>
+ </nasal>
+
+ <animation>
+  <name>unused</name>
+  <object-name>RailEngineer</object-name>
+ </animation>
+
+ <animation>
+  <type>select</type>
+  <object-name>unused</object-name>
+  <condition>
+    <equals>
+     <value>1</value>
+     <value>0</value>
+   </equals>
+  </condition>
+ </animation>
+
+ <animation>
+  <name>TopSeat</name>
+  <object-name>Seat</object-name>
+  <object-name>Armrest</object-name>
+ </animation>
+
+ <animation>
+  <name>MovingSeat</name>
+  <object-name>TopSeat</object-name>
+  <object-name>Boggie</object-name>
+ </animation>
+
+ <animation>
+  <name>AllSeat</name>
+  <object-name>MovingSeat</object-name>
+  <object-name>RailObserver</object-name>
+ </animation>
+
+ <animation>
+  <type>material</type>
+  <object-name>MovingSeat</object-name>
+  <property-base>sim/model/livery/</property-base>
+  <texture-prop>texture-seat</texture-prop>
+ </animation>
+
+ <animation>
+  <type>material</type>
+  <object-name>AllSeat</object-name>
+  <emission>
+   <red>0.66</red>
+   <green>0.68</green>
+   <blue>0.64</blue>
+   <factor-prop>systems/lighting/level/roof</factor-prop>
+  </emission> 
+ </animation> 
+
+<!-- installed with an angle -->
+
+ <animation>
+  <type>rotate</type>
+  <object-name>AllSeat</object-name>
+  <offset-deg>-3.0</offset-deg>
+  <center>
+   <x-m>0.0</x-m>
+   <y-m>0.0</y-m>
+   <z-m>0.0</z-m>
+  </center>
+  <axis>
+   <x>0.0</x>
+   <y>0.0</y>
+   <z>1.0</z>
+  </axis>
+ </animation>
+
+<!-- the condition rotates once -->
+
+ <animation>
+  <type>rotate</type>
+  <object-name>TopSeat</object-name>
+  <property>sim/current-view/goal-heading-offset-deg</property>
+  <condition>
+   <and>
+    <property>systems/seat/observer</property>
+    <not>
+     <property>systems/seat/position/observer/move</property>
+    </not>
+   </and>
+  </condition>
+  <offset-deg>93.0</offset-deg>
+  <center>
+   <x-m>0.0</x-m>
+   <y-m>0.0</y-m>
+   <z-m>0.0</z-m>
+  </center>
+  <axis>
+   <x>0.0</x>
+   <y>0.0</y>
+   <z>1.0</z>
+  </axis>
+ </animation>
+
+</PropertyList>

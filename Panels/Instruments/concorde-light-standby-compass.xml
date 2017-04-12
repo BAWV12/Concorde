@@ -1,0 +1,208 @@
+<?xml version="1.0"?>
+
+<!-- Standby compass light -->
+
+<PropertyList>
+
+ <name>Standby compass light</name>
+ <w-base>102</w-base>
+ <h-base>102</h-base>
+
+
+ <layers>
+
+  <layer>
+   <name>Lighting selector</name>
+   <type>switch</type>
+
+   <layer include="concorde-switch-3rd.xml">
+    <name>dim</name>
+    <condition>
+     <equals>
+      <property>/controls/lighting/crew/overhead/compass-norm</property>
+      <value>0.5</value>
+     </equals>
+    </condition>
+   </layer>
+
+   <layer include="concorde-switch-off.xml">
+    <name>off</name>
+    <condition>
+     <equals>
+      <property>/controls/lighting/crew/overhead/compass-norm</property>
+      <value>0.0</value>
+     </equals>
+    </condition>
+   </layer>
+
+   <layer include="concorde-switch-on.xml">
+    <name>on</name>
+   </layer>
+
+   <transformations>
+    <transformation>
+     <type>x-shift</type>
+     <offset>6</offset>
+    </transformation>
+    <transformation>
+     <type>y-shift</type>
+     <offset>7</offset>
+    </transformation>
+   </transformations>
+  </layer>
+
+<!-- labels -->
+
+  <layer>
+   <name>Title on</name>
+   <type>text</type>
+   <point-size>10</point-size>
+   <color>
+    <red>1.0</red>
+    <green>1.0</green>
+    <blue>1.0</blue>
+   </color>
+   <chunks>
+    <chunk>
+     <type>literal</type>
+     <text>BRIGHT</text>
+    </chunk>
+   </chunks>
+   <transformations>
+    <transformation>
+     <type>x-shift</type>
+     <offset>-16</offset>
+    </transformation>
+    <transformation>
+     <type>y-shift</type>
+     <offset>35</offset>
+    </transformation>
+   </transformations>
+  </layer>
+
+  <layer>
+   <name>Title 3</name>
+   <type>text</type>
+   <point-size>10</point-size>
+   <color>
+    <red>1.0</red>
+    <green>1.0</green>
+    <blue>1.0</blue>
+   </color>
+   <chunks>
+    <chunk>
+     <type>literal</type>
+     <text>DIM</text>
+    </chunk>
+   </chunks>
+   <transformations>
+    <transformation>
+     <type>x-shift</type>
+     <offset>-30</offset>
+    </transformation>
+    <transformation>
+     <type>y-shift</type>
+     <offset>20</offset>
+    </transformation>
+    <transformation>
+     <type>rotation</type>
+     <offset>90</offset>
+    </transformation>
+   </transformations>
+  </layer>
+
+  <layer>
+   <name>Title off</name>
+   <type>text</type>
+   <point-size>10</point-size>
+   <color>
+    <red>1.0</red>
+    <green>1.0</green>
+    <blue>1.0</blue>
+   </color>
+   <chunks>
+    <chunk>
+     <type>literal</type>
+     <text>OFF</text>
+    </chunk>
+   </chunks>
+   <transformations>
+    <transformation>
+     <type>x-shift</type>
+     <offset>-8</offset>
+    </transformation>
+    <transformation>
+     <type>y-shift</type>
+     <offset>-24</offset>
+    </transformation>
+   </transformations>
+  </layer>
+
+  <layer>
+   <name>Title</name>
+   <type>text</type>
+   <point-size>10</point-size>
+   <color>
+    <red>1.0</red>
+    <green>1.0</green>
+    <blue>1.0</blue>
+   </color>
+   <chunks>
+    <chunk>
+     <type>literal</type>
+     <text>COMPASS</text>
+    </chunk>
+   </chunks>
+   <transformations>
+    <transformation>
+     <type>x-shift</type>
+     <offset>-23</offset>
+    </transformation>
+    <transformation>
+     <type>y-shift</type>
+     <offset>-40</offset>
+    </transformation>
+   </transformations>
+  </layer>
+
+ </layers>
+
+ <actions>
+
+  <action>
+   <name>Bright</name>
+   <button>0</button>
+   <x>-15</x>
+   <y>-11</y>
+   <w>42</w>
+   <h>42</h>
+   <binding>
+    <command>nasal</command>
+    <script>globals.Concorde.lightingsystem.compassexport( 1.0 );</script>
+   </binding>
+   <binding>
+    <command>property-toggle</command>
+    <property>/instrumentation/generic/click</property>
+   </binding>
+  </action>
+
+  <action>
+   <name>Dim</name>
+   <button>1</button>
+   <x>-15</x>
+   <y>-11</y>
+   <w>42</w>
+   <h>42</h>
+   <binding>
+    <command>nasal</command>
+    <script>globals.Concorde.lightingsystem.compassexport( 0.5 );</script>
+   </binding>
+   <binding>
+    <command>property-toggle</command>
+    <property>/instrumentation/generic/click</property>
+   </binding>
+  </action>
+
+ </actions>
+ 
+</PropertyList>

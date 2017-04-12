@@ -1,0 +1,387 @@
+<?xml version="1.0"?>
+
+<PropertyList>
+
+   <key n="1">
+    <name>Ctrl-A</name>
+    <desc>Toggle autopilot altitude lock.</desc>
+    <binding>
+     <command>nasal</command>
+     <script>globals.Concorde.autopilotsystem.aptogglealtitudeexport();</script>
+    </binding>
+    <binding>
+     <command>property-toggle</command>
+     <property>/instrumentation/generic/click</property>
+    </binding>
+   </key>
+
+   <key n="2">
+    <name>Ctrl-B</name>
+    <desc>reverse thrust</desc>
+    <binding>
+     <command>nasal</command>
+     <script>globals.Concorde.enginesystem.reverseexport();</script>
+    </binding>
+   </key>
+
+<!-- Autopilot is easily disconnected from a thumb switch on the yoke. -->
+
+   <key n="4">
+    <name>CTRL-D</name>
+    <desc>Disconnect autopilot</desc>
+    <binding>
+     <command>nasal</command>
+     <script>globals.Concorde.autopilotsystem.apdiscexport();</script>
+    </binding>
+    <binding>
+     <command>property-toggle</command>
+     <property>/instrumentation/generic/click</property>
+    </binding>
+   </key>
+
+   <key n="5">
+    <name>Ctrl-E</name>
+    <desc>Toggle engineer view</desc>
+    <binding>
+     <command>nasal</command>
+     <script>globals.Concorde.seatsystem.viewexport("engineer");</script>
+    </binding>
+   </key>
+
+   <key n="6">
+    <name>Ctrl-F</name>
+    <desc>Reheat</desc>
+    <binding>
+     <command>nasal</command>
+     <script>globals.Concorde.engineercrew.reheatexport();</script>
+    </binding>
+   </key>
+
+   <key n="7">
+    <name>Ctrl-G</name>
+    <desc>Toggle autopilot glide slope lock.</desc>
+    <binding>
+     <command>nasal</command>
+     <script>globals.Concorde.autopilotsystem.aptoggleglideexport();</script>
+    </binding>
+    <binding>
+     <command>property-toggle</command>
+     <property>/instrumentation/generic/click</property>
+    </binding>
+   </key>
+
+   <key n="8">
+    <name>Ctrl-H</name>
+    <desc>Toggle autopilot heading lock.</desc>
+    <binding>
+     <command>nasal</command>
+     <script>globals.Concorde.autopilotsystem.aptoggleheadingexport();</script>
+    </binding>
+    <binding>
+     <command>property-toggle</command>
+     <property>/instrumentation/generic/click</property>
+    </binding>
+   </key>
+
+   <key n="11">
+    <name>Ctrl-K</name>
+    <desc>Toggle observer view.</desc>
+    <binding>
+     <command>nasal</command>
+     <script>globals.Concorde.seatsystem.viewexport("observer");</script>
+    </binding>
+   </key>
+
+   <key n="12">
+    <name>Ctrl-L</name>
+    <desc>Toggle observer 2 view.</desc>
+    <binding>
+     <command>nasal</command>
+     <script>globals.Concorde.seatsystem.viewexport("observer2");</script>
+    </binding>
+   </key>
+
+   <key n="14">
+    <name>Ctrl-N</name>
+    <desc>Toggle autopilot nav1 lock.</desc>
+    <binding>
+     <command>nasal</command>
+     <script>globals.Concorde.autopilotsystem.aptogglenav1export();</script>
+    </binding>
+    <binding>
+     <command>property-toggle</command>
+     <property>/instrumentation/generic/click</property>
+    </binding>
+   </key>
+
+   <key n="15">
+    <name>Ctrl-O</name>
+    <desc>Toggle overhead view.</desc>
+    <binding>
+     <command>nasal</command>
+     <script>globals.Concorde.seatsystem.viewexport("overhead");</script>
+    </binding>
+   </key>
+
+   <key n="16">
+    <name>Ctrl-P</name>
+    <desc>Toggle pitch hold.</desc>
+    <binding>
+     <command>nasal</command>
+     <script>globals.Concorde.autopilotsystem.aptogglepitchexport();</script>
+    </binding>
+    <binding>
+     <command>property-toggle</command>
+     <property>/instrumentation/generic/click</property>
+    </binding>
+   </key>
+
+   <key n="17">
+    <name>Ctrl-Q</name>
+    <desc>Toggle virtual crew.</desc>
+    <binding>
+     <command>nasal</command>
+     <script>globals.Concorde.copilotcrew.toggleexport();</script>
+    </binding>
+    <binding>
+     <command>nasal</command>
+     <script>globals.Concorde.copilothuman.wakeupexport();</script>
+    </binding>
+    <binding>
+     <command>nasal</command>
+     <script>globals.Concorde.engineercrew.toggleexport();</script>
+    </binding>
+    <binding>
+     <command>nasal</command>
+     <script>globals.Concorde.engineerhuman.wakeupexport();</script>
+    </binding>
+    <binding>
+     <command>nasal</command>
+     <script>globals.Concorde.crewscreen.toggleexport();</script>
+    </binding>
+    <binding>
+     <command>nasal</command>
+     <script>globals.Concorde.voicecrew.toggleexport();</script>
+    </binding>
+    <mod-shift>
+     <desc>Abort checklist.</desc>
+     <binding>
+      <command>nasal</command>
+      <script>globals.Concorde.voicecrew.abortexport();</script>
+     </binding>
+    </mod-shift>
+   </key>
+
+   <key n="19">
+    <name>Ctrl-S</name>
+    <desc>Toggle auto-throttle lock.</desc>
+    <binding>
+     <command>nasal</command>
+     <script>globals.Concorde.autothrottlesystem.attogglespeedexport();</script>
+    </binding>
+    <binding>
+     <command>property-toggle</command>
+     <property>/instrumentation/generic/click</property>
+    </binding>
+   </key>
+
+   <key n="20">
+    <name>Ctrl-T</name>
+    <desc>Toggle altitude hold.</desc>
+    <binding>
+     <command>nasal</command>
+     <script>globals.Concorde.autopilotsystem.aptogglealtitudeholdexport();</script>
+    </binding>
+    <binding>
+     <command>property-toggle</command>
+     <property>/instrumentation/generic/click</property>
+    </binding>
+   </key>
+
+   <key n="22">
+    <name>Ctrl-V</name>
+    <desc>Select initial view (view 0).</desc>
+    <binding>
+     <command>nasal</command>
+     <script>globals.Concorde.seatsystem.viewexport("captain");</script>
+    </binding>
+    <mod-shift>
+     <desc>Restore view pitch</desc>
+     <binding>
+      <command>nasal</command>
+      <script>globals.Concorde.seatsystem.restorepitchexport();</script>
+     </binding>
+    </mod-shift>
+   </key>
+
+   <key n="23">
+    <name>Ctrl-W</name>
+    <desc>Toggle steward view.</desc>
+    <binding>
+     <command>nasal</command>
+     <script>globals.Concorde.seatsystem.viewexport("steward");</script>
+    </binding>
+   </key>
+
+   <key n="24">
+    <name>Ctrl-X</name>
+    <mod-shift>
+     <desc>Reset floating view.</desc>
+     <binding>
+      <command>nasal</command>
+      <script>globals.Concorde.seatsystem.restoreexport();</script>
+     </binding>
+    </mod-shift>
+   </key>
+
+   <key n="25">
+    <name>Ctrl-Y</name>
+    <desc>Toggle copilot view.</desc>
+    <binding>
+     <command>nasal</command>
+     <script>globals.Concorde.seatsystem.viewexport("copilot");</script>
+    </binding>
+   </key>
+
+   <key n="61">
+    <name>=</name>
+    <desc>Menu</desc>
+    <binding>
+     <command>dialog-show</command>
+     <dialog-name>Concorde-menu</dialog-name>
+    </binding>
+   </key>
+
+   <key n="86">
+    <name>V</name>
+    <desc>Scroll in reverse through views.</desc>
+    <binding>
+     <command>nasal</command>
+     <script>globals.Concorde.seatsystem.scrollreverseexport();</script>
+    </binding>
+   </key>
+
+   <key n="98">
+    <name>b</name>
+    <desc>Toggle emergency brake on or off</desc>
+    <mod-alt>
+     <binding>
+      <command>nasal</command>
+      <script>globals.Concorde.hydraulicsystem.brakesemergencyexport();</script>
+     </binding>
+    </mod-alt>
+   </key>
+
+   <key n="102">
+    <name>f</name>
+    <desc>full cockpit</desc>
+    <binding>
+     <command>nasal</command>
+     <script>globals.Concorde.seatsystem.fullexport();</script>
+    </binding>
+   </key>
+
+   <key n="103">
+    <name>g</name>
+    <desc>Gear standby</desc>
+    <mod-alt>
+     <binding>
+      <command>nasal</command>
+      <script>globals.Concorde.gearsystem.standbyexport();</script>
+     </binding>
+    </mod-alt>
+   </key>
+
+   <key n="110">
+    <name>n</name>
+    <desc>Nose standby</desc>
+    <mod-alt>
+     <binding>
+      <command>nasal</command>
+      <script>globals.Concorde.noseinstrument.standbyexport();</script>
+     </binding>
+    </mod-alt>
+   </key>
+
+   <key n="113">
+    <name>q</name>
+    <desc>quit speed-up.</desc>
+    <binding>
+     <command>property-assign</command>
+     <property>/sim/speed-up</property>
+     <value>1</value>
+    </binding>
+   </key>
+
+   <key n="118">
+    <name>v</name>
+    <desc>Cycle view</desc>
+    <binding>
+     <command>nasal</command>
+     <script>globals.Concorde.seatsystem.scrollexport();</script>
+    </binding>
+   </key>
+
+   <key n="121">
+    <name>y</name>
+    <desc>Toggle yoke</desc>
+    <binding>
+     <command>property-toggle</command>
+     <property>/controls/seat/yoke</property>
+    </binding>
+   </key>
+
+   <key n="268">
+    <name>F12</name>
+    <desc>Radio dialog.</desc>
+    <binding>
+     <command>dialog-show</command>
+     <dialog-name>Concorde-radios</dialog-name>
+    </binding>
+    <mod-shift>
+    <desc>Toggle crew text.</desc>
+     <binding>
+      <command>nasal</command>
+      <script>globals.Concorde.voicecrew.crewtextexport();</script>
+     </binding>
+    </mod-shift>
+   </key>
+
+   <key n="357">
+    <name>Up</name>
+    <desc>Increase autopilot pitch (slow) or move floating view front (fast)</desc>
+    <mod-ctrl>
+     <binding>
+      <command>nasal</command>
+      <script>
+       if( !globals.Concorde.seatsystem.movelengthexport(-0.1) ) {
+           if( !globals.Concorde.autopilotsystem.datumapexport(0.1) ) {
+               # default
+           }
+       }
+      </script>
+     </binding>
+    </mod-ctrl>
+   </key>
+
+   <key n="359">
+    <name>Down</name>
+    <desc>Decrease autopilot pitch (slow) or move floating view aft (fast)</desc>
+    <repeatable type="bool">true</repeatable>
+    <mod-ctrl>
+     <binding>
+      <command>nasal</command>
+      <script>
+       if( !globals.Concorde.seatsystem.movelengthexport(0.1) ) {
+           if( !globals.Concorde.autopilotsystem.datumapexport(-0.1) ) {
+               # default
+           }
+       }
+      </script>
+     </binding>
+    </mod-ctrl>
+   </key>
+
+</PropertyList>
+
+

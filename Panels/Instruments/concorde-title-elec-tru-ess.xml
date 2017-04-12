@@ -1,0 +1,91 @@
+<?xml version="1.0"?>
+
+<!-- Essential bus of a TRU -->
+
+<PropertyList>
+ <name>Tittle Essential bus</name>
+ <w-base>84</w-base>
+ <h-base>28</h-base>
+
+ <params>
+  <eng-num>/systems/engines/engine[0]/engine-num</eng-num>
+ </params>
+
+
+ <layers>
+
+  <layer>
+   <name>Title</name>
+   <type>text</type>
+   <point-size>10</point-size>
+   <color>
+    <red>1.0</red>
+    <green>1.0</green>
+    <blue>1.0</blue>
+   </color>
+   <chunks>
+    <chunk>
+     <type>literal</type>
+     <text>A.C.ESS</text>
+    </chunk>
+   </chunks>
+  </layer>
+
+  <layer>
+   <name>Title 2</name>
+   <type>text</type>
+   <point-size>10</point-size>
+   <color>
+    <red>1.0</red>
+    <green>1.0</green>
+    <blue>1.0</blue>
+   </color>
+   <chunks>
+    <chunk>
+     <type>literal</type>
+     <text>BUS</text>
+    </chunk>
+   </chunks>
+   <transformations>
+    <transformation>
+     <type>x-shift</type>
+     <offset>10</offset>
+    </transformation>
+    <transformation>
+     <type>y-shift</type>
+     <offset>-13</offset>
+    </transformation>
+   </transformations>
+  </layer>
+
+  <layer>
+   <name>Bus number</name>
+   <type>text</type>
+   <point-size>10</point-size>
+   <color>
+    <red>1.0</red>
+    <green>1.0</green>
+    <blue>1.0</blue>
+   </color>
+   <chunks>
+    <chunk>
+     <type>number-value</type>
+     <property alias="../../../../../params/eng-num"/>
+     <format>%1.f</format>
+    </chunk>
+   </chunks>
+   <transformations>
+    <transformation>
+     <type>x-shift</type>
+     <offset>35</offset>
+    </transformation>
+    <transformation>
+     <type>y-shift</type>
+     <offset>-13</offset>
+    </transformation>
+   </transformations>
+  </layer>
+
+ </layers>
+
+</PropertyList>

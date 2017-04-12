@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+
+
+
+<PropertyList>
+  <sim>
+    <model>
+     <livery>
+      <name type="string">Braniff Airlines</name>
+      <index type="int">6</index>
+      <texture>Liveries/BI.png</texture>
+     </livery>
+    </model>
+  </sim>
+</PropertyList>

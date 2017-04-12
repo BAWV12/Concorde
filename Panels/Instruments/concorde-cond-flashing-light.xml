@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+
+<!-- Flashing light :
+
+     light off.
+-->
+
+<PropertyList>
+
+   <not>
+    <property>/instrumentation/generic/state</property>
+   </not>
+
+</PropertyList>

@@ -1,0 +1,59 @@
+<?xml version="1.0"?>
+
+<PropertyList>
+ <name>INS MODE</name>
+ <w-base>112</w-base>
+ <h-base>56</h-base>
+
+
+ <layers>
+
+  <layer>
+   <name>Title</name>
+   <type>text</type>
+   <point-size>7</point-size>
+   <color>
+    <red>1.0</red>
+    <green>1.0</green>
+    <blue>1.0</blue>
+   </color>
+   <chunks>
+    <chunk>
+     <type>literal</type>
+     <text>INS</text>
+    </chunk>
+   </chunks>
+   <transformations>
+    <transformation>
+     <type>x-shift</type>
+     <offset>28</offset>
+    </transformation>
+   </transformations>
+  </layer>
+
+  <layer>
+   <name>Title 2</name>
+   <type>text</type>
+   <point-size>7</point-size>
+   <color>
+    <red>1.0</red>
+    <green>1.0</green>
+    <blue>1.0</blue>
+   </color>
+   <chunks>
+    <chunk>
+     <type>literal</type>
+     <text>MODE SELECT</text>
+    </chunk>
+   </chunks>
+   <transformations>
+    <transformation>
+     <type>y-shift</type>
+     <offset>-10</offset>
+    </transformation>
+   </transformations>
+  </layer>
+
+ </layers>
+
+</PropertyList>

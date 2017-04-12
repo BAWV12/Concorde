@@ -1,0 +1,83 @@
+<?xml version="1.0"?>
+
+<PropertyList>
+
+ <name>Tank load limit</name>
+ <w-base>60</w-base>
+ <h-base>40</h-base>
+
+ <params>
+  <load-limit>/controls/fuel/tank[10]/limit-kg</load-limit>
+ </params>
+
+
+ <layers>
+
+  <layer>
+   <name>background</name>
+   <texture>
+    <path>Aircraft/Concorde/Panels/Instruments/Textures/concorde-black-bg.png</path>
+   </texture>
+    <w>60</w>
+    <h>30</h>
+  </layer>
+
+  <layer>
+   <name>display</name>
+   <type>text</type>
+   <font>led</font>
+   <point-size>6</point-size>
+   <color>
+    <red>1.0</red>
+    <green>1.0</green>
+    <blue>1.0</blue>
+   </color>
+   <chunks>
+    <chunk>
+     <type>number-value</type>
+     <format>%05.0f</format>
+     <property alias="../../../../../params/load-limit"/>
+    </chunk>
+   </chunks>
+   <transformations>
+    <transformation>
+     <type>x-shift</type>
+     <offset>-20</offset>
+    </transformation>
+    <transformation>
+     <type>y-shift</type>
+     <offset>-2</offset>
+    </transformation>
+   </transformations>
+  </layer>
+
+  <layer>
+   <name>Title unit</name>
+   <type>text</type>
+   <point-size>6</point-size>
+   <color>
+    <red>1.0</red>
+    <green>1.0</green>
+    <blue>1.0</blue>
+   </color>
+   <chunks>
+    <chunk>
+     <type>literal</type>
+     <text>KILOGRAMS</text>
+    </chunk>
+   </chunks>
+   <transformations>
+    <transformation>
+     <type>x-shift</type>
+     <offset>-19</offset>
+    </transformation>
+    <transformation>
+     <type>y-shift</type>
+     <offset>-12</offset>
+    </transformation>
+   </transformations>
+  </layer>
+
+ </layers>
+
+</PropertyList>

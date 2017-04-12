@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+
+<!-- AFCS modes at bright level.
+-->
+
+<PropertyList>
+
+   <not>
+    <property>/controls/lighting/crew/afcs/low</property>
+   </not>
+
+</PropertyList>

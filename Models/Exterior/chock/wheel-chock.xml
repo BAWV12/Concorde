@@ -1,0 +1,33 @@
+<?xml version="1.0" ?> 
+
+<!-- painted wheel chock -->
+
+<PropertyList> 
+
+ <params>
+  <height>/systems/gear/gear[0]/chock-z-m</height>
+ </params>
+
+ <path>chock.ac</path> 
+
+ <animation>
+  <type>select</type>
+  <object-name>chock</object-name>
+  <condition>
+   <property>/controls/gear/wheel-chocks</property>
+  </condition>
+ </animation>
+
+ <animation>
+  <type>translate</type>
+  <object-name>chock</object-name>
+  <property alias="../../params/height"/>
+  <factor>1.0</factor>
+  <axis>
+   <x>0</x>
+   <y>0</y>
+   <z>1</z>
+  </axis>
+ </animation>
+
+</PropertyList>

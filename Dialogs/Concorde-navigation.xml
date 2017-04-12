@@ -1,0 +1,449 @@
+<?xml version="1.0"?>
+
+<!-- Computations supposed to be done by the flight engineer. Also needed for debug :
+
+     - fuel at waypoint checks FDM, when it reaches 50000 ft : no need to go until KJFK.
+     - kg/h checks fuel pumping : should not change during a fuel transfer.
+-->
+
+
+<PropertyList>
+  <name>Concorde-navigation</name>
+  <layout>vbox</layout>
+  <width>750</width>
+
+  <text>
+    <label>Concorde navigation</label>
+  </text>
+
+  <hrule><dummy/></hrule>
+
+  <group>
+   <layout>hbox</layout>
+
+   <group>
+    <layout>vbox</layout>
+    <halign>center</halign>
+
+    <text>
+      <label>Radio management</label>
+    </text>
+
+    <text>
+     <label>(navaids in Nasal/Concorde-route.xml)</label>
+     <color>
+      <red>0.5</red>
+      <green>0.5</green>
+      <blue>0.5</blue>
+     </color>
+    </text>
+
+    <text>
+      <label>virtual crew overrides (within 200 NM, beyond FL100),</label>
+     <color>
+      <red>0.5</red>
+      <green>0.5</green>
+      <blue>0.5</blue>
+     </color>
+    </text>
+
+    <text>
+     <label>once nearest airport has changed</label>
+     <color>
+      <red>0.5</red>
+      <green>0.5</green>
+      <blue>0.5</blue>
+     </color>
+    </text>
+
+    <text>
+      <label></label>
+    </text>
+
+    <text>
+      <label></label>
+    </text>
+
+    <group>
+     <layout>hbox</layout>
+
+     <button>
+      <legend>Arrival</legend>
+      <key>a</key>
+      <binding>
+       <command>dialog-apply</command>
+      </binding>
+      <binding>
+        <command>nasal</command>
+        <script>globals.Concorde.engineercrew.radioexport(1);</script>
+      </binding>
+     </button>
+
+     <button>
+      <legend>Departure</legend>
+      <key>d</key>
+      <binding>
+       <command>dialog-apply</command>
+      </binding>
+      <binding>
+        <command>nasal</command>
+        <script>globals.Concorde.engineercrew.radioexport(0);</script>
+      </binding>
+     </button>
+    </group>
+
+    <group>
+     <layout>hbox</layout>
+
+     <text>
+      <halign>left</halign>
+      <property>/systems/human/airport-id</property>
+      <live>true</live>
+      <color>
+       <red>0.2</red>
+       <green>0.8</green>
+       <blue>0.2</blue>
+      </color>
+     </text>
+
+     <text>
+      <property>/systems/human/airport-phase</property>
+      <halign>left</halign>
+      <live>true</live>
+      <color>
+       <red>0.2</red>
+       <green>0.8</green>
+       <blue>0.2</blue>
+      </color>
+     </text>
+    </group>
+
+    <group>
+     <layout>hbox</layout>
+
+     <text>
+      <halign>left</halign>
+      <property>/systems/human/radio-id</property>
+      <live>true</live>
+      <color>
+       <red>0.2</red>
+       <green>0.8</green>
+       <blue>0.2</blue>
+      </color>
+     </text>
+
+     <text>
+      <property>/systems/human/radio-phase</property>
+      <halign>left</halign>
+      <live>true</live>
+      <color>
+       <red>0.2</red>
+       <green>0.8</green>
+       <blue>0.2</blue>
+      </color>
+     </text>
+    </group>
+
+    <text>
+      <label></label>
+    </text>
+
+    <group>
+     <layout>hbox</layout>
+     
+     <input>
+      <halign>left</halign>
+      <property>/controls/human/airport-id</property>
+      <label>at airport</label>
+     </input>
+
+     <button>
+      <legend>Search</legend>
+      <key>s</key>
+      <binding>
+       <command>dialog-show</command>
+       <dialog-name>Concorde-navigation2</dialog-name>
+      </binding>
+      <binding>
+       <command>dialog-close</command>
+      </binding>
+     </button>
+    </group>
+
+    <text>
+     <label>nearest airport in range, if none</label>
+     <color>
+      <red>0.5</red>
+      <green>0.5</green>
+      <blue>0.5</blue>
+     </color>
+    </text>
+
+    <text>
+      <label></label>
+    </text>
+   </group>
+   
+   <vrule/>
+
+   <group>
+    <layout>vbox</layout>
+    <halign>center</halign>
+
+    <text>
+      <label>Fuel at waypoint (kg)</label>
+    </text>
+
+    <group>
+      <layout>hbox</layout>
+
+      <text>
+       <halign>left</halign>
+       <live>true</live>
+       <property>/autopilot/route-manager/wp[0]/id</property>
+       <color>
+        <red>0.2</red>
+        <green>0.8</green>
+        <blue>0.2</blue>
+       </color>
+      </text>
+
+      <text>
+       <live>true</live>
+       <property>/systems/engineer/navigation/wp[0]/fuel-kg</property>
+       <color>
+        <red>0.2</red>
+        <green>0.8</green>
+        <blue>0.2</blue>
+       </color>
+      </text>
+    </group>
+
+    <group>
+      <layout>hbox</layout>
+
+      <text>
+       <halign>left</halign>
+       <live>true</live>
+       <property>/autopilot/route-manager/wp[1]/id</property>
+       <color>
+        <red>0.2</red>
+        <green>0.8</green>
+        <blue>0.2</blue>
+       </color>
+      </text>
+
+      <text>
+       <live>true</live>
+       <property>/systems/engineer/navigation/wp[1]/fuel-kg</property>
+       <color>
+        <red>0.2</red>
+        <green>0.8</green>
+        <blue>0.2</blue>
+       </color>
+      </text>
+    </group>
+
+    <group>
+      <layout>hbox</layout>
+
+      <text>
+       <halign>left</halign>
+       <live>true</live>
+       <property>/autopilot/route-manager/wp-last/id</property>
+       <color>
+        <red>0.2</red>
+        <green>0.8</green>
+        <blue>0.2</blue>
+       </color>
+      </text>
+
+      <text>
+       <live>true</live>
+       <property>/systems/engineer/navigation/wp[2]/fuel-kg</property>
+       <color>
+        <red>0.2</red>
+        <green>0.8</green>
+        <blue>0.2</blue>
+       </color>
+      </text>
+    </group>
+
+    <text>
+     <label></label>
+    </text>
+
+    <text>
+     <label>Fuel consumption (kg/h)</label>
+     <color>
+      <red>0.5</red>
+      <green>0.5</green>
+      <blue>0.5</blue>
+     </color>
+    </text>
+
+    <text>
+     <live>true</live>
+     <property>/instrumentation/fuel/fuel-flow-kg_ph</property>
+     <color>
+      <red>0.2</red>
+      <green>0.8</green>
+      <blue>0.2</blue>
+     </color>
+    </text>
+
+    <text>
+     <label></label>
+    </text>
+
+    <text>
+     <label>Rate (ft/minute) to reach</label>
+    </text>
+
+    <group>
+      <layout>hbox</layout>
+
+      <text>
+       <live>true</live>
+       <property>/autopilot/route-manager/wp[0]/id</property>
+       <color>
+        <red>0.2</red>
+        <green>0.8</green>
+        <blue>0.2</blue>
+       </color>
+      </text>
+
+      <text>
+       <live>true</live>
+       <property>/systems/engineer/navigation/wp[0]/speed-fpm</property>
+       <color>
+        <red>0.2</red>
+        <green>0.8</green>
+        <blue>0.2</blue>
+       </color>
+      </text>
+    </group>
+
+    <group>
+      <layout>hbox</layout>
+
+      <text>
+       <live>true</live>
+       <property>/autopilot/route-manager/wp[1]/id</property>
+       <color>
+        <red>0.2</red>
+        <green>0.8</green>
+        <blue>0.2</blue>
+       </color>
+      </text>
+
+      <text>
+       <live>true</live>
+       <property>/systems/engineer/navigation/wp[1]/speed-fpm</property>
+       <color>
+        <red>0.2</red>
+        <green>0.8</green>
+        <blue>0.2</blue>
+       </color>
+      </text>
+    </group>
+
+    <group>
+      <layout>hbox</layout>
+
+      <text>
+       <live>true</live>
+       <property>/autopilot/route-manager/wp-last/id</property>
+       <color>
+        <red>0.2</red>
+        <green>0.8</green>
+        <blue>0.2</blue>
+       </color>
+      </text>
+
+      <text>
+       <live>true</live>
+       <property>/systems/engineer/navigation/wp[2]/speed-fpm</property>
+       <color>
+        <red>0.2</red>
+        <green>0.8</green>
+        <blue>0.2</blue>
+       </color>
+      </text>
+    </group>
+
+    <text>
+     <label>at acquired altitude (ft)</label>
+     <color>
+      <red>0.5</red>
+      <green>0.5</green>
+      <blue>0.5</blue>
+     </color>
+    </text>
+
+    <text>
+     <live>true</live>
+     <property>/controls/autoflight/altitude-select</property>
+     <color>
+      <red>0.2</red>
+      <green>0.8</green>
+      <blue>0.2</blue>
+     </color>
+    </text>
+
+    <text>
+     <label></label>
+    </text>
+
+    <text>
+     <label>last waypoint at</label>
+     <color>
+      <red>0.5</red>
+      <green>0.5</green>
+      <blue>0.5</blue>
+     </color>
+    </text>
+
+    <input>
+     <halign>left</halign>
+     <property>/controls/engineer/destination-ft</property>
+     <label>ft</label>
+    </input>
+   </group>
+  </group>
+
+  <text>
+    <label></label>
+  </text>
+
+  <group>
+   <layout>hbox</layout>
+
+   <button>
+    <legend>Back</legend>
+    <key>b</key>
+    <binding>
+     <command>dialog-apply</command>
+    </binding>
+    <binding>
+     <command>dialog-show</command>
+     <dialog-name>Concorde-menu</dialog-name>
+    </binding>
+    <binding>
+      <command>dialog-close</command>
+    </binding>
+   </button>
+
+   <button>
+    <legend>Close</legend>
+    <default>true</default>
+    <key>Esc</key>
+    <binding>
+     <command>dialog-apply</command>
+    </binding>
+    <binding>
+      <command>dialog-close</command>
+    </binding>
+   </button>
+  </group>
+</PropertyList>

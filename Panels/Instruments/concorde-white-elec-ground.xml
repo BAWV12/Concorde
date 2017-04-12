@@ -1,0 +1,120 @@
+<?xml version="1.0"?>
+
+<!-- Ground power available :
+
+     - indicator light is powered by ground power.
+-->
+
+<PropertyList>
+ <name>Ground Power Available</name>
+ <w-base>104</w-base>
+ <h-base>26</h-base>
+
+
+ <layers>
+<!-- translucent lens -->  
+  <layer>
+   <name>indicator light</name>
+   <type>switch</type>
+   <layer>
+    <name>off</name>
+    <type>group</type>
+    <condition>
+     <equals>
+      <property>/systems/electrical/ground-service/volts</property>
+      <value>0.0</value>
+     </equals>
+    </condition>
+
+    <layer include="concorde-bulb-white-off.xml">
+     <w>104</w>
+     <h>20</h>
+    </layer>
+    <layer>
+     <name>background</name>
+     <texture>
+      <path>Aircraft/Concorde/Panels/Instruments/Textures/concorde-white-bulb.png</path>
+     </texture>
+     <w>104</w>
+     <h>20</h>
+    </layer>
+   </layer>
+
+   <layer>
+    <name>on</name>
+    <type>group</type>
+
+    <layer include="concorde-bulb-white-on.xml">
+     <w>104</w>
+     <h>20</h>
+    </layer>
+    <layer>
+     <name>background lighted</name>
+     <texture>
+      <path>Aircraft/Concorde/Panels/Instruments/Textures/concorde-white-bulb.png</path>
+     </texture>
+     <w>104</w>
+     <h>20</h>
+     <emissive>true</emissive>
+    </layer>
+   </layer>
+
+  </layer>
+
+  <layer>
+   <name>Title line 1</name>
+   <type>text</type>
+   <point-size>12</point-size>
+   <color>
+    <red>0.0</red>
+    <green>0.0</green>
+    <blue>0.0</blue>
+   </color>
+   <chunks>
+    <chunk>
+     <type>literal</type>
+     <text>GROUND PWR</text>
+    </chunk>
+   </chunks>
+   <transformations>
+    <transformation>
+     <type>x-shift</type>
+     <offset>-47</offset>
+    </transformation>
+    <transformation>
+     <type>y-shift</type>
+     <offset>3</offset>
+    </transformation>
+   </transformations>
+  </layer>
+
+  <layer>
+   <name>Title line 2</name>
+   <type>text</type>
+   <point-size>12</point-size>
+   <color>
+    <red>0.0</red>
+    <green>0.0</green>
+    <blue>0.0</blue>
+   </color>
+   <chunks>
+    <chunk>
+     <type>literal</type>
+     <text>AVAILABLE</text>
+    </chunk>
+   </chunks>
+   <transformations>
+    <transformation>
+     <type>x-shift</type>
+     <offset>-36</offset>
+    </transformation>
+    <transformation>
+     <type>y-shift</type>
+     <offset>-7</offset>
+    </transformation>
+   </transformations>
+  </layer>
+
+ </layers>
+
+</PropertyList>

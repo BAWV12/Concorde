@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+
+<!-- Engineer center warning lights at hight level.
+-->
+
+<PropertyList>
+
+   <not>
+    <property>/controls/lighting/crew/engineer/center/low</property>
+   </not>
+
+</PropertyList>

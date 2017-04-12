@@ -1,0 +1,115 @@
+<!-- Emergency/parking brakes accumulator pressure -->
+
+
+<PropertyList>
+ <name>Brakes accumulator pressure</name>
+ <w-base>128</w-base>
+ <h-base>128</h-base>
+
+ <layers>
+
+  <layer include="concorde-gauge.xml"/>
+
+  <layer>
+   <name>background</name>
+   <w>110</w>
+   <h>110</h>
+   <texture>
+    <path>Aircraft/Concorde/Panels/Instruments/Textures/concorde-hyd-pressure.png</path>
+    <x1>0</x1>
+    <y1>0</y1>
+    <x2>1</x2>
+    <y2>1</y2>
+   </texture>
+  </layer>
+
+  <layer>
+   <name>OFF flag</name>
+   <condition>
+    <not include="concorde-cond-voltage-inst.xml"/>
+   </condition>
+   <texture>
+    <path>Aircraft/Concorde/Panels/Instruments/Textures/misc-1.png</path>
+    <x1>0.9375</x1>
+    <y1>0.5</y1>
+    <x2>1.0</x2>
+    <y2>0.546875</y2>
+   </texture>
+   <w>30</w>
+   <h>15</h>
+   <transformations>
+    <transformation>
+     <type>x-shift</type>
+     <offset>5</offset>
+    </transformation>
+    <transformation>
+     <type>y-shift</type>
+     <offset>-40</offset>
+    </transformation>
+    <transformation>
+     <type>rotation</type>
+     <offset>40</offset>
+    </transformation>
+   </transformations>
+  </layer>
+
+  <layer>
+   <name>needle</name>
+   <w>6</w>
+   <h>48</h>
+   <texture>
+    <path>Aircraft/Concorde/Panels/Instruments/Textures/misc-1.png</path>
+    <x1>0.8</x1>
+    <y1>0.78125</y1>
+    <x2>0.8375</x2>
+    <y2>1.0</y2>
+   </texture>
+   <transformations>
+    <transformation>
+     <type>rotation</type>
+      <condition include="concorde-cond-voltage-inst.xml"/>
+      <property>/systems/brakes/yellow-accu-psi</property>
+      <min>0</min>
+      <max>6000</max>
+      <scale>0.048</scale>
+      <offset>216</offset>
+    </transformation>
+    <transformation>
+     <type>rotation</type>
+      <condition>
+       <not include="concorde-cond-voltage-inst.xml"/>
+      </condition>
+      <offset>-144</offset>
+    </transformation>
+    <transformation>
+     <type>y-shift</type>
+     <offset>20.0</offset>
+    </transformation>
+   </transformations>
+  </layer>
+
+  <layer>
+   <name>glare shield</name>
+   <texture>
+    <path>Aircraft/Concorde/Panels/Instruments/Textures/bezel1.png</path>
+    <x1>0.5</x1>
+    <y1>0.0</y1>
+    <x2>1.0</x2>
+    <y2>0.5</y2>
+   </texture>
+   <w>128</w>
+   <h>128</h>
+   <transformations>
+    <transformation>
+     <type>x-shift</type>
+     <offset>3</offset>
+    </transformation>
+    <transformation>
+     <type>y-shift</type>
+     <offset>-3</offset>
+    </transformation>
+   </transformations>
+  </layer>
+
+ </layers>
+</PropertyList>

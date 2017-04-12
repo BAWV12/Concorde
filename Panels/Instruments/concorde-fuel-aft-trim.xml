@@ -1,0 +1,74 @@
+<?xml version="1.0"?>
+
+<!-- Aft trim. -->
+
+<PropertyList>
+
+ <name>Aft trim</name>
+ <w-base>50</w-base>
+ <h-base>50</h-base>
+
+
+ <layers>
+
+  <layer>
+   <name>Trans valve</name>
+   <type>switch</type>
+   <layer>
+    <condition>
+     <and>
+      <not>
+       <property>/controls/fuel/tank[0]/aft-trim</property>
+      </not>
+      <not>
+       <property>/controls/fuel/tank[3]/aft-trim</property>
+      </not>
+     </and>
+    </condition>
+    <name>on</name>
+    <texture>
+     <path>Aircraft/Concorde/Panels/Instruments/Textures/concorde-black-norm.png</path>
+    </texture>
+    <w>25</w>
+    <h>25</h>
+   </layer>
+   <layer>
+    <name>off</name>
+    <texture>
+     <path>Aircraft/Concorde/Panels/Instruments/Textures/concorde-white-aft.png</path>
+    </texture>
+    <w>25</w>
+    <h>25</h>
+   </layer>
+  </layer>
+
+  <layer>
+   <name>Title</name>
+   <type>text</type>
+   <point-size>8</point-size>
+   <color>
+    <red>1.0</red>
+    <green>1.0</green>
+    <blue>1.0</blue>
+   </color>
+   <chunks>
+    <chunk>
+     <type>literal</type>
+     <text>TANKS 1 4</text>
+    </chunk>
+   </chunks>
+   <transformations>
+    <transformation>
+     <type>x-shift</type>
+     <offset>-24</offset>
+    </transformation>
+    <transformation>
+     <type>y-shift</type>
+     <offset>19</offset>
+    </transformation>
+   </transformations>
+  </layer>
+
+ </layers>
+ 
+</PropertyList>

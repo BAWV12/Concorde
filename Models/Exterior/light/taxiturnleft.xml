@@ -1,0 +1,51 @@
+<?xml version="1.0"?>
+
+<!-- 
+
+     Credits
+     =======
+     Light texture from bo105 (M. Franz).
+
+-->
+ 
+<PropertyList>
+  <path>taxiturn.ac</path>
+
+ <animation>
+  <type>noshadow</type>
+  <object-name>TaxiTurnLeft</object-name>
+ </animation>
+
+ <animation>
+  <type>select</type>
+  <object-name>TaxiTurnLeft</object-name>
+  <condition>
+   <and include="../../../Panels/Instruments/concorde-cond-voltage-light.xml">
+    <property>controls/lighting/external/taxi-turn[0]/on</property>
+   </and>
+  </condition>
+ </animation>
+
+ <animation>
+  <type>select</type>
+  <object-name>TaxiTurnRight</object-name>
+  <condition>
+   <equals>
+    <value>1</value>
+    <value>0</value>
+   </equals>
+  </condition>
+ </animation>
+
+ <animation>
+  <type>material</type>
+  <object-name>TaxiTurnLeft</object-name>
+  <emission>
+   <red>1.0</red>
+   <green>1.0</green>
+   <blue>1.0</blue>
+   <factor-prop>instrumentation/generic/factor</factor-prop>
+  </emission> 
+ </animation>
+
+</PropertyList>

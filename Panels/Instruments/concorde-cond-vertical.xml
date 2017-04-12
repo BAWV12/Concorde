@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+
+<!-- Vertical speed hold
+-->
+
+<PropertyList>
+
+  <or>
+   <equals>
+    <property>/autopilot/locks/altitude</property>
+    <value>vertical-speed-hold</value>
+   </equals>
+   <equals>
+    <property>/autopilot/locks/altitude</property>
+    <value>vertical-speed-hold-super</value>
+   </equals>
+  </or>
+
+</PropertyList>

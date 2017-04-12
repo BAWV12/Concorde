@@ -1,0 +1,79 @@
+<?xml version="1.0"?>
+
+<!-- Warning on autoland 2 : at least 1 channel. -->
+
+<PropertyList>
+ <name>Autoland 2 check</name>
+ <w-base>104</w-base>
+ <h-base>26</h-base>
+
+ <params>
+  <test>/controls/autoflight/autopilot[0]/test-land</test>
+ </params>
+
+
+ <layers>
+<!-- translucent lens -->  
+  <layer>
+    <name>Warning light</name>
+    <type>switch</type>
+
+    <layer>
+     <name>on</name>
+     <type>group</type>
+     <condition>
+      <and>
+       <not include="concorde-cond-voltage-bulb.xml"/>
+       <or>
+        <property alias="../../../../../../../params/test"/>
+        <property>/systems/autopilot/state/land2</property>
+       </or>
+      </and>
+     </condition>
+
+     <layer include="concorde-bulb-on.xml">
+      <w>52</w>
+      <h>26</h>
+     </layer>
+     <layer>
+      <name>background on</name>
+      <texture>
+       <path>Aircraft/Concorde/Panels/Instruments/Textures/concorde-green-land2.png</path>
+       <x1>0.0</x1>
+       <y1>0.0</y1>
+       <x2>1.0</x2>
+       <y2>1.0</y2>
+      </texture>
+      <w>52</w>
+      <h>26</h>
+      <emissive>true</emissive>
+     </layer>
+   </layer>
+
+    <layer>
+     <name>off</name>
+     <type>group</type>
+
+     <layer include="concorde-bulb-off.xml">
+      <w>52</w>
+      <h>26</h>
+     </layer>
+     <layer>
+      <name>background off</name>
+      <texture>
+       <path>Aircraft/Concorde/Panels/Instruments/Textures/concorde-green-land2.png</path>
+       <x1>0.0</x1>
+       <y1>0.0</y1>
+       <x2>1.0</x2>
+       <y2>1.0</y2>
+      </texture>
+      <w>52</w>
+      <h>26</h>
+     </layer>
+    </layer>
+
+  </layer>
+
+ </layers>
+
+</PropertyList>

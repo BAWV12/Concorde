@@ -1,0 +1,83 @@
+AC3Db
+MATERIAL "DefaultWhite" rgb 1 1 1  amb 1 1 1  emis 0 0 0  spec 0.5 0.5 0.5  shi 64  trans 0
+MATERIAL "white_light_on" rgb 1 1 1 amb 0.5 0.5 0.5 emis 0 0 0 spec 0 0 0 shi 32 trans 0
+OBJECT world
+kids 3
+OBJECT poly
+name "NavigationLeft"
+data 8
+Mesh.135
+texture "concorde-lights.png"
+texrep 1 1
+crease 30.000000
+numvert 4
+-0.289684 0.289579 0.009261
+0.289683 0.289579 0.009261
+0.289683 -0.289497 -0.009261
+-0.289684 -0.289497 -0.009261
+numsurf 2
+SURF 0x00
+mat 1
+refs 3
+0 0.64453125 0.31640625
+3 0.64453125 0.0546875
+2 0.90234375 0.0546875
+SURF 0x00
+mat 1
+refs 3
+0 0.64453125 0.31640625
+2 0.90234375 0.0546875
+1 0.90234375 0.31640625
+kids 0
+OBJECT poly
+name "NavigationRight"
+data 8
+Mesh.134
+texture "concorde-lights.png"
+texrep 1 1
+crease 30.000000
+numvert 4
+-0.289684 0.289579 0.009261
+0.289683 0.289579 0.009261
+0.289683 -0.289497 -0.009261
+-0.289684 -0.289497 -0.009261
+numsurf 2
+SURF 0x00
+mat 1
+refs 3
+0 0.1171875 0.32421875
+3 0.1171875 0.046875
+2 0.37109375 0.046875
+SURF 0x00
+mat 1
+refs 3
+0 0.1171875 0.32421875
+2 0.37109375 0.046875
+1 0.37109375 0.32421875
+kids 0
+OBJECT poly
+name "NavigationTail"
+data 8
+Mesh.136
+texture "concorde-lights.png"
+texrep 1 1
+crease 30.000000
+numvert 4
+-0.289684 0.289579 0.01044
+0.289683 0.289579 0.009261
+0.289683 -0.289497 -0.009261
+-0.289684 -0.289497 -0.008082
+numsurf 2
+SURF 0x00
+mat 1
+refs 3
+0 0.37890625 0.3203125
+3 0.37890625 0.05078125
+2 0.63671875 0.05078125
+SURF 0x00
+mat 1
+refs 3
+0 0.37890625 0.3203125
+2 0.63671875 0.05078125
+1 0.63671875 0.3203125
+kids 0

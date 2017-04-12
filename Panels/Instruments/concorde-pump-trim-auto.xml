@@ -1,0 +1,313 @@
+<?xml version="1.0"?>
+
+<PropertyList>
+
+ <name>Trim transfer auto master selector</name>
+ <w-base>102</w-base>
+ <h-base>153</h-base>
+
+ <params>
+  <forward-switch>/controls/fuel/pumps/auto-forward</forward-switch>
+  <off-switch>/controls/fuel/pumps/auto-off</off-switch>
+  <switch-guard>/controls/fuel/pumps/auto-guard</switch-guard>
+ </params>
+
+
+ <layers>
+
+  <layer>
+   <name>trim selector</name>
+   <type>switch</type>
+
+   <layer include="concorde-switch-3rd.xml">
+    <name>off</name>
+    <condition>
+     <property alias="../../../../../params/off-switch"/>
+    </condition>
+   </layer>
+
+   <layer include="concorde-switch-on.xml">
+    <name>forward</name>
+    <condition>
+     <property alias="../../../../../params/forward-switch"/>
+    </condition>
+   </layer>
+
+   <layer include="concorde-switch-off.xml">
+    <name>rearward</name>
+   </layer>
+
+   <transformations>
+    <transformation>
+     <type>x-shift</type>
+     <offset>-4</offset>
+    </transformation>
+    <transformation>
+     <type>y-shift</type>
+     <offset>-1.5</offset>
+    </transformation>
+   </transformations>
+  </layer>
+
+  <layer>
+   <name>guard</name>
+   <type>switch</type>
+
+   <layer>
+    <name>guard on</name>
+    <condition>
+     <property alias="../../../../../params/switch-guard"/>
+    </condition>
+    <texture>
+     <path>Aircraft/Concorde/Panels/Instruments/Textures/concorde-black-guard.png</path>
+     <x1>0.0</x1>
+     <y1>0.0</y1>
+     <x2>1.0</x2>
+     <y2>1.0</y2>
+    </texture>
+    <w>80</w>
+    <h>80</h>
+    <transformations>
+     <transformation>
+      <type>y-shift</type>
+      <offset>-5</offset>
+     </transformation>
+    </transformations>
+   </layer>
+
+   <layer>
+    <name>guard off</name>
+    <texture>
+     <path>Aircraft/Concorde/Panels/Instruments/Textures/concorde-black-guard.png</path>
+     <x1>0.0</x1>
+     <y1>0.0</y1>
+     <x2>1.0</x2>
+     <y2>0.25</y2>
+    </texture>
+    <w>80</w>
+    <h>30</h>
+    <transformations>
+     <transformation>
+      <type>y-shift</type>
+      <offset>-30</offset>
+     </transformation>
+    </transformations>
+   </layer>
+   <transformations>
+    <transformation>
+     <type>x-shift</type>
+     <offset>-5</offset>
+    </transformation>
+   </transformations>
+  </layer>
+
+  <layer>
+   <name>Title</name>
+   <type>text</type>
+   <point-size>10</point-size>
+   <color>
+    <red>1.0</red>
+    <green>1.0</green>
+    <blue>1.0</blue>
+   </color>
+   <chunks>
+    <chunk>
+     <type>literal</type>
+     <text>TRIM TRANS</text>
+    </chunk>
+   </chunks>
+   <transformations>
+    <transformation>
+     <type>x-shift</type>
+     <offset>-40</offset>
+    </transformation>
+    <transformation>
+     <type>y-shift</type>
+     <offset>70</offset>
+    </transformation>
+   </transformations>
+  </layer>
+
+  <layer>
+   <name>Title 2</name>
+   <type>text</type>
+   <point-size>10</point-size>
+   <color>
+    <red>1.0</red>
+    <green>1.0</green>
+    <blue>1.0</blue>
+   </color>
+   <chunks>
+    <chunk>
+     <type>literal</type>
+     <text>AUTO MASTER</text>
+    </chunk>
+   </chunks>
+   <transformations>
+    <transformation>
+     <type>x-shift</type>
+     <offset>-45</offset>
+    </transformation>
+    <transformation>
+     <type>y-shift</type>
+     <offset>55</offset>
+    </transformation>
+   </transformations>
+  </layer>
+
+  <layer>
+   <name>Title on</name>
+   <type>text</type>
+   <point-size>10</point-size>
+   <color>
+    <red>1.0</red>
+    <green>1.0</green>
+    <blue>1.0</blue>
+   </color>
+   <chunks>
+    <chunk>
+     <type>literal</type>
+     <text>FORWARD</text>
+    </chunk>
+   </chunks>
+   <transformations>
+    <transformation>
+     <type>x-shift</type>
+     <offset>-34</offset>
+    </transformation>
+    <transformation>
+     <type>y-shift</type>
+     <offset>40</offset>
+    </transformation>
+   </transformations>
+  </layer>
+
+  <layer>
+   <name>Title 3</name>
+   <type>text</type>
+   <point-size>10</point-size>
+   <color>
+    <red>1.0</red>
+    <green>1.0</green>
+    <blue>1.0</blue>
+   </color>
+   <chunks>
+    <chunk>
+     <type>literal</type>
+     <text>OFF</text>
+    </chunk>
+   </chunks>
+   <transformations>
+    <transformation>
+     <type>rotation</type>
+     <offset>90</offset>
+    </transformation>
+    <transformation>
+     <type>x-shift</type>
+     <offset>-10</offset>
+    </transformation>
+    <transformation>
+     <type>y-shift</type>
+     <offset>30</offset>
+    </transformation>
+   </transformations>
+  </layer>
+
+  <layer>
+   <name>Title off</name>
+   <type>text</type>
+   <point-size>10</point-size>
+   <color>
+    <red>1.0</red>
+    <green>1.0</green>
+    <blue>1.0</blue>
+   </color>
+   <chunks>
+    <chunk>
+     <type>literal</type>
+     <text>REARWARD</text>
+    </chunk>
+   </chunks>
+   <transformations>
+    <transformation>
+     <type>x-shift</type>
+     <offset>-35</offset>
+    </transformation>
+    <transformation>
+     <type>y-shift</type>
+     <offset>-55</offset>
+    </transformation>
+   </transformations>
+  </layer>
+
+ </layers>
+
+ <actions>
+
+  <action>
+   <name>Toggle switch</name>
+   <condition>
+    <not>
+     <property alias="../../../../../params/off-switch"/>
+    </not>
+   </condition>
+   <button>0</button>
+   <x>-25</x>
+   <y>-21</y>
+   <w>42</w>
+   <h>42</h>
+   <binding>
+    <command>property-toggle</command>
+    <property alias="../../../../params/forward-switch"/>
+   </binding>
+   <binding>
+    <command>property-toggle</command>
+    <property>/instrumentation/generic/click</property>
+   </binding>
+  </action>
+
+  <action>
+   <name>Toggle off</name>
+   <condition>
+    <not>
+     <property alias="../../../../../params/switch-guard"/>
+    </not>
+   </condition>
+   <button>1</button>
+   <x>-25</x>
+   <y>-21</y>
+   <w>42</w>
+   <h>42</h>
+   <binding>
+    <command>property-toggle</command>
+    <property alias="../../../../params/off-switch"/>
+   </binding>
+   <binding>
+    <command>property-toggle</command>
+    <property>/instrumentation/generic/click</property>
+   </binding>
+  </action>
+
+  <action>
+   <name>Toggle guard</name>
+   <condition>
+    <property alias="../../../../params/off-switch"/>
+   </condition>
+   <button>0</button>
+   <x>-25</x>
+   <y>-21</y>
+   <w>42</w>
+   <h>42</h>
+   <binding>
+    <command>property-toggle</command>
+    <property alias="../../../../params/switch-guard"/>
+   </binding>
+   <binding>
+    <command>property-toggle</command>
+    <property>/instrumentation/generic/click</property>
+   </binding>
+  </action>
+
+ </actions>
+ 
+</PropertyList>

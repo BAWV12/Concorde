@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+
+<!-- Test on warning lights of captain panel.
+-->
+
+<PropertyList>
+
+   <not>
+    <property>/controls/lighting/crew/captain/test</property>
+   </not>
+
+</PropertyList>

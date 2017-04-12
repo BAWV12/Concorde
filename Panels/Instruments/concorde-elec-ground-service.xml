@@ -1,0 +1,161 @@
+<?xml version="1.0"?>
+
+<!-- Ground service switch -->
+
+<PropertyList>
+
+ <name>Ground service switch</name>
+ <w-base>104</w-base>
+ <h-base>208</h-base>
+
+
+ <layers>
+
+  <layer>
+   <name>Ground service switch</name>
+   <type>switch</type>
+
+   <layer include="concorde-switch-on.xml">
+    <name>on</name>
+    <condition>
+     <property>/controls/electric/ac/ground</property>
+    </condition>
+   </layer>
+
+   <layer include="concorde-switch-off.xml">
+    <name>off</name>
+   </layer>
+  </layer>
+
+  <layer>
+   <name>Title</name>
+   <type>text</type>
+   <point-size>10</point-size>
+   <color>
+    <red>1.0</red>
+    <green>1.0</green>
+    <blue>1.0</blue>
+   </color>
+   <chunks>
+    <chunk>
+     <type>literal</type>
+     <text>GROUND</text>
+    </chunk>
+   </chunks>
+   <transformations>
+    <transformation>
+     <type>x-shift</type>
+     <offset>-25</offset>
+    </transformation>
+    <transformation>
+     <type>y-shift</type>
+     <offset>80</offset>
+    </transformation>
+   </transformations>
+  </layer>
+
+  <layer>
+   <name>Title 2</name>
+   <type>text</type>
+   <point-size>10</point-size>
+   <color>
+    <red>1.0</red>
+    <green>1.0</green>
+    <blue>1.0</blue>
+   </color>
+   <chunks>
+    <chunk>
+     <type>literal</type>
+     <text>SERVICE</text>
+    </chunk>
+   </chunks>
+   <transformations>
+    <transformation>
+     <type>x-shift</type>
+     <offset>-25</offset>
+    </transformation>
+    <transformation>
+     <type>y-shift</type>
+     <offset>65</offset>
+    </transformation>
+   </transformations>
+  </layer>
+
+  <layer>
+   <name>Title on</name>
+   <type>text</type>
+   <point-size>10</point-size>
+   <color>
+    <red>1.0</red>
+    <green>1.0</green>
+    <blue>1.0</blue>
+   </color>
+   <chunks>
+    <chunk>
+     <type>literal</type>
+     <text>ON</text>
+    </chunk>
+   </chunks>
+   <transformations>
+    <transformation>
+     <type>x-shift</type>
+     <offset>-9</offset>
+    </transformation>
+    <transformation>
+     <type>y-shift</type>
+     <offset>35</offset>
+    </transformation>
+   </transformations>
+  </layer>
+
+  <layer>
+   <name>Title off</name>
+   <type>text</type>
+   <point-size>10</point-size>
+   <color>
+    <red>1.0</red>
+    <green>1.0</green>
+    <blue>1.0</blue>
+   </color>
+   <chunks>
+    <chunk>
+     <type>literal</type>
+     <text>OFF</text>
+    </chunk>
+   </chunks>
+   <transformations>
+    <transformation>
+     <type>x-shift</type>
+     <offset>-10</offset>
+    </transformation>
+    <transformation>
+     <type>y-shift</type>
+     <offset>-37</offset>
+    </transformation>
+   </transformations>
+  </layer>
+
+ </layers>
+
+ <actions>
+
+  <action>
+   <name>Toggle ground service</name>
+   <button>0</button>
+   <x>-21</x>
+   <y>-21</y>
+   <w>42</w>
+   <h>42</h>
+   <binding>
+    <command>property-toggle</command>
+    <property>/controls/electric/ac/ground</property>
+   </binding>
+   <binding>
+    <command>property-toggle</command>
+    <property>/instrumentation/generic/click</property>
+   </binding>
+  </action>
+
+ </actions>
+ 
+</PropertyList>

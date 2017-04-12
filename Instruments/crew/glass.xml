@@ -1,0 +1,48 @@
+<?xml version="1.0"?>
+
+<!-- Glass :
+
+     - 3D indicator of virtual crew.
+ 
+-->
+
+<PropertyList>
+
+<path>glass.ac</path>
+ 
+ <animation>
+  <type>select</type>
+  <object-name>Glass</object-name>
+  <condition>
+   <or>
+    <property>/controls/copilot/activ</property>
+    <property>/controls/engineer/activ</property>
+   </or>
+  </condition>
+ </animation>
+
+ <animation>
+  <type>material</type>
+  <object-name>Glass</object-name>
+  <emission>
+   <red>0.66</red>
+   <green>0.68</green>
+   <blue>0.64</blue>
+   <factor-prop>systems/lighting/level/roof</factor-prop>
+  </emission>
+ </animation>
+
+ <animation>
+  <type>pick</type>
+  <object-name>Glass</object-name>
+  <action>
+   <button>0</button>
+   <binding>
+    <command>nasal</command>
+    <script>globals.Concorde.crewscreen.minimizeexport();</script>
+   </binding>
+  </action>
+ </animation>
+
+</PropertyList>
+

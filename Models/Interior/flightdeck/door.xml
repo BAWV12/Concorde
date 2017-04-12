@@ -1,0 +1,36 @@
+<?xml version="1.0" ?> 
+
+<PropertyList> 
+ <path>door.ac</path> 
+
+ <animation>
+  <type>rotate</type>
+  <object-name>FlightDeckDoor</object-name>
+  <property>controls/doors/flight-deck/position-norm</property>
+  <factor>-90</factor>
+  <offset-deg>0</offset-deg>   
+  <center>
+   <x-m> 0.0</x-m>
+   <y-m>-0.437</y-m>
+   <z-m> 0.0</z-m>
+  </center>
+  <axis>
+   <x>0.0</x>
+   <y>0.0</y>
+   <z>1.0</z>
+  </axis>
+ </animation>
+
+ <animation>
+  <type>pick</type>
+  <object-name>FlightDeckDoor</object-name>
+  <action>
+   <button>0</button>
+   <binding>
+    <command>nasal</command>
+    <script>globals.Concorde.doorsystem.flightdeckexport();</script>
+   </binding>
+  </action>
+ </animation>
+
+</PropertyList>

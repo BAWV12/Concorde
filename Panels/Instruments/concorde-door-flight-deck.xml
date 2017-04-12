@@ -1,0 +1,136 @@
+<?xml version="1.0"?>
+
+<!-- Flight deck door :
+
+     - open allows access from outside.
+-->
+
+<PropertyList>
+
+ <name>Flight deck door</name>
+ <w-base>104</w-base>
+ <h-base>156</h-base>
+
+ <layers>
+
+  <layer>
+   <name>Door</name>
+   <type>switch</type>
+
+   <layer include="concorde-switch-off.xml">
+    <name>normal</name>
+    <condition>
+     <property>/controls/doors/flight-deck/normal</property>
+    </condition>
+   </layer>
+
+   <layer include="concorde-switch-on.xml">
+    <name>open</name>
+   </layer>
+  </layer>
+
+  <layer>
+   <name>Title</name>
+   <type>text</type>
+   <point-size>13</point-size>
+   <color>
+    <red>1.0</red>
+    <green>1.0</green>
+    <blue>1.0</blue>
+   </color>
+   <chunks>
+    <chunk>
+     <type>literal</type>
+     <text>F/D DOOR</text>
+    </chunk>
+   </chunks>
+   <transformations>
+    <transformation>
+     <type>x-shift</type>
+     <offset>-35</offset>
+    </transformation>
+    <transformation>
+     <type>y-shift</type>
+     <offset>55</offset>
+    </transformation>
+   </transformations>
+  </layer>
+
+  <layer>
+   <name>Open Title</name>
+   <type>text</type>
+   <point-size>13</point-size>
+   <color>
+    <red>1.0</red>
+    <green>1.0</green>
+    <blue>1.0</blue>
+   </color>
+   <chunks>
+    <chunk>
+     <type>literal</type>
+     <text>OPEN</text>
+    </chunk>
+   </chunks>
+   <transformations>
+    <transformation>
+     <type>x-shift</type>
+     <offset>-20</offset>
+    </transformation>
+    <transformation>
+     <type>y-shift</type>
+     <offset>30</offset>
+    </transformation>
+   </transformations>
+  </layer>
+
+  <layer>
+   <name>Normal Title</name>
+   <type>text</type>
+   <point-size>13</point-size>
+   <color>
+    <red>1.0</red>
+    <green>1.0</green>
+    <blue>1.0</blue>
+   </color>
+   <chunks>
+    <chunk>
+     <type>literal</type>
+     <text>NORMAL</text>
+    </chunk>
+   </chunks>
+   <transformations>
+    <transformation>
+     <type>x-shift</type>
+     <offset>-31</offset>
+    </transformation>
+    <transformation>
+     <type>y-shift</type>
+     <offset>-34</offset>
+    </transformation>
+   </transformations>
+  </layer>
+
+ </layers>
+
+ <actions>
+
+  <action>
+   <name>toggle door</name>
+   <button>0</button>
+   <x>-22</x>
+   <y>-19</y>
+   <w>44</w>
+   <h>44</h>
+   <binding>
+    <command>property-toggle</command>
+    <property>/instrumentation/generic/click</property>
+   </binding>
+   <binding>
+    <command>property-toggle</command>
+    <property>/controls/doors/flight-deck/normal</property>
+   </binding>
+  </action>
+
+ </actions>
+ 
+</PropertyList>

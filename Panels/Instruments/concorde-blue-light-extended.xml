@@ -1,0 +1,91 @@
+<?xml version="1.0"?>
+
+<!-- Landing light extended :
+
+     - at least one landing light is not fully retracted.
+     - 0.01 is considered retracted, because Nasal interpolate doesn't always go until 0.0.
+-->
+
+<PropertyList>
+ <name>Light extended</name>
+ <w-base>104</w-base>
+ <h-base>26</h-base>
+
+ <params>
+  <left-extended>/controls/lighting/external/main-landing[0]/norm</left-extended>
+  <right-extended>/controls/lighting/external/main-landing[0]/norm</right-extended>
+ </params>
+
+
+ <layers>
+
+<!-- translucent lens -->  
+  <layer>
+   <name>Light extended</name>
+   <type>switch</type>
+
+   <layer>
+    <name>off</name>
+    <type>group</type>
+    <condition>
+     <or include="concorde-cond-voltage-bulb.xml">
+      <and>
+       <or include="concorde-cond-test-overhead.xml"/> <!-- bug -->
+       <less-than>
+        <property alias="../../../../../../../../params/left-extended"/>
+        <value>0.01</value>
+       </less-than>
+       <less-than>
+        <property alias="../../../../../../../../params/right-extended"/>
+        <value>0.01</value>
+       </less-than>
+      </and>
+     </or>
+    </condition>
+
+    <layer include="concorde-bulb-off.xml">
+     <w>104</w>
+     <h>20</h>
+    </layer>
+    <layer>
+     <name>background off</name>
+     <texture>
+      <path>Aircraft/Concorde/Panels/Instruments/Textures/concorde-blue-extended.png</path>
+      <x1>0.0</x1>
+      <y1>0.25</y1>
+      <x2>1.0</x2>
+      <y2>0.75</y2>
+     </texture>
+     <w>104</w>
+     <h>20</h>
+    </layer>
+   </layer>
+
+  <layer>
+    <name>on</name>
+    <type>group</type>
+
+    <layer include="concorde-bulb-on.xml">
+     <condition include="concorde-cond-light-overhead.xml"/>
+     <w>104</w>
+     <h>20</h>
+    </layer>
+    <layer>
+     <name>background on</name>
+     <texture>
+      <path>Aircraft/Concorde/Panels/Instruments/Textures/concorde-blue-extended.png</path>
+      <x1>0.0</x1>
+      <y1>0.25</y1>
+      <x2>1.0</x2>
+      <y2>0.75</y2>
+     </texture>
+     <w>104</w>
+     <h>20</h>
+     <emissive>true</emissive>
+    </layer>
+   </layer>
+  </layer>
+
+ </layers>
+
+</PropertyList>

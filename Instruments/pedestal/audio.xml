@@ -1,0 +1,684 @@
+<?xml version="1.0" ?> 
+
+<!-- Concorde VHF audio :
+
+     - push (3rd button) the knob, which lights, to adjust (1st button) the volume.
+     - at scale.
+-->
+
+<PropertyList>
+  
+ <params>
+  <vol-ctrl>/controls/audio/crew/captain/comm[0]/volume</vol-ctrl>
+  <vol-push>/controls/audio/crew/captain/comm[0]/volume-push</vol-push>
+  <vol-ctrl2>/controls/audio/crew/captain/comm[1]/volume</vol-ctrl2>
+  <vol-push2>/controls/audio/crew/captain/comm[1]/volume-push</vol-push2>
+  <adf-ctrl>/controls/audio/crew/captain/adf[0]/volume</adf-ctrl>
+  <adf-push>/controls/audio/crew/captain/adf[0]/volume-push</adf-push>
+  <adf-ctrl2>/controls/audio/crew/captain/adf[1]/volume</adf-ctrl2>
+  <adf-push2>/controls/audio/crew/captain/adf[1]/volume-push</adf-push2>
+  <nav-ctrl>/controls/audio/crew/captain/nav[0]/volume</nav-ctrl>
+  <nav-push>/controls/audio/crew/captain/nav[0]/volume-push</nav-push>
+  <nav-ctrl2>/controls/audio/crew/captain/nav[1]/volume</nav-ctrl2>
+  <nav-push2>/controls/audio/crew/captain/nav[1]/volume-push</nav-push2>
+ </params>
+
+ <path>audio.ac</path> 
+
+
+ 
+ <animation>
+  <name>Panel</name>
+  <object-name>Plate</object-name>
+  <object-name>Undefined1</object-name>
+  <object-name>Undefined11</object-name>
+  <object-name>Undefined12</object-name>
+  <object-name>Undefined13</object-name>
+  <object-name>Undefined14</object-name>
+  <object-name>Undefined32</object-name>
+  <object-name>UndefinedSwitch</object-name>
+ </animation> 
+  
+ <animation>
+  <type>material</type>
+  <object-name>Panel</object-name>
+  <emission>
+   <red>0.71</red>
+   <green>0.79</green>
+   <blue>0.87</blue>
+   <factor-prop>systems/lighting/level/roof</factor-prop>
+  </emission> 
+ </animation>
+ 
+ <animation>
+  <name>Buttons</name>
+  <object-name>Undefined20</object-name>
+  <object-name>Undefined21</object-name>
+  <object-name>Undefined30</object-name>
+  <object-name>Undefined31</object-name>
+ </animation> 
+  
+ <animation>
+  <type>material</type>
+  <object-name>Buttons</object-name>
+  <emission>
+   <red>0.5</red>
+   <green>0.5</green>
+   <blue>0.5</blue>
+   <factor-prop>systems/lighting/level/roof</factor-prop>
+  </emission> 
+ </animation> 
+
+ 
+ <!-- VHF 1 -->
+ 
+ <animation>
+  <type>material</type>
+  <object-name>VHF1Rx</object-name>
+  <condition>
+   <not include="../../Panels/Instruments/concorde-cond-voltage-bulb.xml"/>
+  </condition>
+  <emission>
+   <red>0.71</red>
+   <green>0.79</green>
+   <blue>0.87</blue>
+   <factor-prop alias="../../../params/vol-push"/>
+   <offset-prop>systems/lighting/level/roof-ambient</offset-prop>
+  </emission> 
+  <ambient>
+   <red>0.5</red>
+   <green>0.5</green>
+   <blue>0.5</blue>
+   <offset-prop>systems/lighting/level/roof-ambient</offset-prop>
+  </ambient>
+ </animation> 
+
+ <animation>
+  <type>translate</type>
+  <object-name>VHF1Rx</object-name>
+  <property alias="../../params/vol-push"/>
+  <factor>0.005</factor>
+  <axis>
+   <x> 0.0</x>
+   <y> 0.0</y>
+   <z>-1.0</z>
+  </axis>
+ </animation>
+
+ <animation>
+  <type>rotate</type>
+  <object-name>VHF1Rx</object-name>
+  <property alias="../../params/vol-ctrl"/>
+  <factor>360</factor>
+  <offset-deg>0</offset-deg>   
+  <center>
+   <x-m>-0.01286</x-m>
+   <y-m>-0.05103</y-m>
+   <z-m> 0.0</z-m>
+  </center>
+  <axis>
+   <x> 0.0</x>
+   <y> 0.0</y>
+   <z>-1.0</z>
+  </axis>
+ </animation>
+ 
+ <animation>
+  <type>pick</type>
+  <object-name>VHF1Rx</object-name>
+  <action>
+   <button>0</button>
+   <binding>
+    <condition>
+     <property alias="../../../../../params/vol-push"/>
+    </condition>
+    <command>property-adjust</command>
+    <property alias="../../../../params/vol-ctrl"/>
+    <step>0.1</step>
+    <min>0</min>
+    <max>1</max>
+    <wrap>0</wrap>
+   </binding>
+   <binding>
+    <command>nasal</command>
+    <script>globals.Concorde.seatsystem.audioexport();</script>
+   </binding>
+  </action>
+  <action>
+   <button>1</button>
+   <binding>
+    <condition>
+     <property alias="../../../../../params/vol-push"/>
+    </condition>
+    <command>property-adjust</command>
+    <property alias="../../../../params/vol-ctrl"/>
+    <step>-0.1</step>
+    <min>0</min>
+    <max>1</max>
+    <wrap>0</wrap>
+   </binding>
+   <binding>
+    <command>nasal</command>
+    <script>globals.Concorde.seatsystem.audioexport();</script>
+   </binding>
+  </action>
+  <action>
+   <button>2</button>
+   <binding>
+    <command>property-toggle</command>
+    <property alias="../../../../params/vol-push"/>
+   </binding>
+  </action>
+ </animation>
+
+ 
+ <!-- VHF 2 -->
+ 
+ <animation>
+  <type>material</type>
+  <object-name>VHF2Rx</object-name>
+  <condition>
+   <not include="../../Panels/Instruments/concorde-cond-voltage-bulb.xml"/>
+  </condition>
+  <emission>
+   <red>0.71</red>
+   <green>0.79</green>
+   <blue>0.87</blue>
+   <factor-prop alias="../../../params/vol-push2"/>
+   <offset-prop>systems/lighting/level/roof-ambient</offset-prop>
+  </emission> 
+  <ambient>
+   <red>0.5</red>
+   <green>0.5</green>
+   <blue>0.5</blue>
+   <offset-prop>systems/lighting/level/roof-ambient</offset-prop>
+  </ambient>
+ </animation> 
+
+ <animation>
+  <type>translate</type>
+  <object-name>VHF2Rx</object-name>
+  <property alias="../../params/vol-push2"/>
+  <factor>0.005</factor>
+  <axis>
+   <x> 0.0</x>
+   <y> 0.0</y>
+   <z>-1.0</z>
+  </axis>
+ </animation>
+
+ <animation>
+  <type>rotate</type>
+  <object-name>VHF2Rx</object-name>
+  <property alias="../../params/vol-ctrl2"/>
+  <factor>360</factor>
+  <offset-deg>0</offset-deg>   
+  <center>
+   <x-m>-0.01278</x-m>
+   <y-m>-0.03167</y-m>
+   <z-m> 0.0</z-m>
+  </center>
+  <axis>
+   <x> 0.0</x>
+   <y> 0.0</y>
+   <z>-1.0</z>
+  </axis>
+ </animation>
+ 
+ <animation>
+  <type>pick</type>
+  <object-name>VHF2Rx</object-name>
+  <action>
+   <button>0</button>
+   <binding>
+    <condition>
+     <property alias="../../../../../params/vol-push2"/>
+    </condition>
+    <command>property-adjust</command>
+    <property alias="../../../../params/vol-ctrl2"/>
+    <step>0.1</step>
+    <min>0</min>
+    <max>1</max>
+    <wrap>0</wrap>
+   </binding>
+   <binding>
+    <command>nasal</command>
+    <script>globals.Concorde.seatsystem.audioexport();</script>
+   </binding>
+  </action>
+  <action>
+   <button>1</button>
+   <binding>
+    <condition>
+     <property alias="../../../../../params/vol-push2"/>
+    </condition>
+    <command>property-adjust</command>
+    <property alias="../../../../params/vol-ctrl2"/>
+    <step>-0.1</step>
+    <min>0</min>
+    <max>1</max>
+    <wrap>0</wrap>
+   </binding>
+   <binding>
+    <command>nasal</command>
+    <script>globals.Concorde.seatsystem.audioexport();</script>
+   </binding>
+  </action>
+  <action>
+   <button>2</button>
+   <binding>
+    <command>property-toggle</command>
+    <property alias="../../../../params/vol-push2"/>
+   </binding>
+  </action>
+ </animation>
+
+ 
+ <!-- ADF 1 -->
+ 
+ <animation>
+  <type>material</type>
+  <object-name>ADF1Rx</object-name>
+  <condition>
+   <not include="../../Panels/Instruments/concorde-cond-voltage-bulb.xml"/>
+  </condition>
+  <emission>
+   <red>0.71</red>
+   <green>0.79</green>
+   <blue>0.87</blue>
+   <factor-prop alias="../../../params/adf-push"/>
+   <offset-prop>systems/lighting/level/roof-ambient</offset-prop>
+  </emission> 
+  <ambient>
+   <red>0.5</red>
+   <green>0.5</green>
+   <blue>0.5</blue>
+   <offset-prop>systems/lighting/level/roof-ambient</offset-prop>
+  </ambient>
+ </animation> 
+
+ <animation>
+  <type>translate</type>
+  <object-name>ADF1Rx</object-name>
+  <property alias="../../params/adf-push"/>
+  <factor>0.005</factor>
+  <axis>
+   <x> 0.0</x>
+   <y> 0.0</y>
+   <z>-1.0</z>
+  </axis>
+ </animation>
+
+ <animation>
+  <type>rotate</type>
+  <object-name>ADF1Rx</object-name>
+  <property alias="../../params/adf-ctrl"/>
+  <factor>360</factor>
+  <offset-deg>0</offset-deg>   
+  <center>
+   <x-m> 0.01519</x-m>
+   <y-m>-0.03159</y-m>
+   <z-m> 0.0</z-m>
+  </center>
+  <axis>
+   <x> 0.0</x>
+   <y> 0.0</y>
+   <z>-1.0</z>
+  </axis>
+ </animation>
+ 
+ <animation>
+  <type>pick</type>
+  <object-name>ADF1Rx</object-name>
+  <action>
+   <button>0</button>
+   <binding>
+    <condition>
+     <property alias="../../../../../params/adf-push"/>
+    </condition>
+    <command>property-adjust</command>
+    <property alias="../../../../params/adf-ctrl"/>
+    <step>0.1</step>
+    <min>0</min>
+    <max>1</max>
+    <wrap>0</wrap>
+   </binding>
+   <binding>
+    <command>nasal</command>
+    <script>globals.Concorde.seatsystem.audioexport();</script>
+   </binding>
+  </action>
+  <action>
+   <button>1</button>
+   <binding>
+    <condition>
+     <property alias="../../../../../params/adf-push"/>
+    </condition>
+    <command>property-adjust</command>
+    <property alias="../../../../params/adf-ctrl"/>
+    <step>-0.1</step>
+    <min>0</min>
+    <max>1</max>
+    <wrap>0</wrap>
+   </binding>
+   <binding>
+    <command>nasal</command>
+    <script>globals.Concorde.seatsystem.audioexport();</script>
+   </binding>
+  </action>
+  <action>
+   <button>2</button>
+   <binding>
+    <command>property-toggle</command>
+    <property alias="../../../../params/adf-push"/>
+   </binding>
+  </action>
+ </animation>
+
+ 
+ <!-- ADF 2 -->
+ 
+ <animation>
+  <type>material</type>
+  <object-name>ADF2Rx</object-name>
+  <condition>
+   <not include="../../Panels/Instruments/concorde-cond-voltage-bulb.xml"/>
+  </condition>
+  <emission>
+   <red>0.71</red>
+   <green>0.79</green>
+   <blue>0.87</blue>
+   <factor-prop alias="../../../params/adf-push2"/>
+   <offset-prop>systems/lighting/level/roof-ambient</offset-prop>
+  </emission> 
+  <ambient>
+   <red>0.5</red>
+   <green>0.5</green>
+   <blue>0.5</blue>
+   <offset-prop>systems/lighting/level/roof-ambient</offset-prop>
+  </ambient>
+ </animation> 
+
+ <animation>
+  <type>translate</type>
+  <object-name>ADF2Rx</object-name>
+  <property alias="../../params/adf-push2"/>
+  <factor>0.005</factor>
+  <axis>
+   <x> 0.0</x>
+   <y> 0.0</y>
+   <z>-1.0</z>
+  </axis>
+ </animation>
+
+ <animation>
+  <type>rotate</type>
+  <object-name>ADF2Rx</object-name>
+  <property alias="../../params/adf-ctrl2"/>
+  <factor>360</factor>
+  <offset-deg>0</offset-deg>   
+  <center>
+   <x-m> 0.01519</x-m>
+   <y-m>-0.01148</y-m>
+   <z-m> 0.0</z-m>
+  </center>
+  <axis>
+   <x> 0.0</x>
+   <y> 0.0</y>
+   <z>-1.0</z>
+  </axis>
+ </animation>
+ 
+ <animation>
+  <type>pick</type>
+  <object-name>ADF2Rx</object-name>
+  <action>
+   <button>0</button>
+   <binding>
+    <condition>
+     <property alias="../../../../../params/adf-push2"/>
+    </condition>
+    <command>property-adjust</command>
+    <property alias="../../../../params/adf-ctrl2"/>
+    <step>0.1</step>
+    <min>0</min>
+    <max>1</max>
+    <wrap>0</wrap>
+   </binding>
+   <binding>
+    <command>nasal</command>
+    <script>globals.Concorde.seatsystem.audioexport();</script>
+   </binding>
+  </action>
+  <action>
+   <button>1</button>
+   <binding>
+    <condition>
+     <property alias="../../../../../params/adf-push2"/>
+    </condition>
+    <command>property-adjust</command>
+    <property alias="../../../../params/adf-ctrl2"/>
+    <step>-0.1</step>
+    <min>0</min>
+    <max>1</max>
+    <wrap>0</wrap>
+   </binding>
+   <binding>
+    <command>nasal</command>
+    <script>globals.Concorde.seatsystem.audioexport();</script>
+   </binding>
+  </action>
+  <action>
+   <button>2</button>
+   <binding>
+    <command>property-toggle</command>
+    <property alias="../../../../params/adf-push2"/>
+   </binding>
+  </action>
+ </animation>
+
+ 
+ <!-- NAV 1 -->
+ 
+ <animation>
+  <type>material</type>
+  <object-name>NAV1Rx</object-name>
+  <condition>
+   <not include="../../Panels/Instruments/concorde-cond-voltage-bulb.xml"/>
+  </condition>
+  <emission>
+   <red>0.71</red>
+   <green>0.79</green>
+   <blue>0.87</blue>
+   <factor-prop alias="../../../params/nav-push"/>
+   <offset-prop>systems/lighting/level/roof-ambient</offset-prop>
+  </emission> 
+  <ambient>
+   <red>0.5</red>
+   <green>0.5</green>
+   <blue>0.5</blue>
+   <offset-prop>systems/lighting/level/roof-ambient</offset-prop>
+  </ambient>
+ </animation> 
+
+ <animation>
+  <type>translate</type>
+  <object-name>NAV1Rx</object-name>
+  <property alias="../../params/nav-push"/>
+  <factor>0.005</factor>
+  <axis>
+   <x> 0.0</x>
+   <y> 0.0</y>
+   <z>-1.0</z>
+  </axis>
+ </animation>
+
+ <animation>
+  <type>rotate</type>
+  <object-name>NAV1Rx</object-name>
+  <property alias="../../params/nav-ctrl"/>
+  <factor>360</factor>
+  <offset-deg>0</offset-deg>   
+  <center>
+   <x-m> 0.01519</x-m>
+   <y-m> 0.00934</y-m>
+   <z-m> 0.0</z-m>
+  </center>
+  <axis>
+   <x> 0.0</x>
+   <y> 0.0</y>
+   <z>-1.0</z>
+  </axis>
+ </animation>
+ 
+ <animation>
+  <type>pick</type>
+  <object-name>NAV1Rx</object-name>
+  <action>
+   <button>0</button>
+   <binding>
+    <condition>
+     <property alias="../../../../../params/nav-push"/>
+    </condition>
+    <command>property-adjust</command>
+    <property alias="../../../../params/nav-ctrl"/>
+    <step>0.1</step>
+    <min>0</min>
+    <max>1</max>
+    <wrap>0</wrap>
+   </binding>
+   <binding>
+    <command>nasal</command>
+    <script>globals.Concorde.seatsystem.audioexport();</script>
+   </binding>
+  </action>
+  <action>
+   <button>1</button>
+   <binding>
+    <condition>
+     <property alias="../../../../../params/nav-push"/>
+    </condition>
+    <command>property-adjust</command>
+    <property alias="../../../../params/nav-ctrl"/>
+    <step>-0.1</step>
+    <min>0</min>
+    <max>1</max>
+    <wrap>0</wrap>
+   </binding>
+   <binding>
+    <command>nasal</command>
+    <script>globals.Concorde.seatsystem.audioexport();</script>
+   </binding>
+  </action>
+  <action>
+   <button>2</button>
+   <binding>
+    <command>property-toggle</command>
+    <property alias="../../../../params/nav-push"/>
+   </binding>
+  </action>
+ </animation>
+
+ 
+ <!-- NAV 2 -->
+ 
+ <animation>
+  <type>material</type>
+  <object-name>NAV2Rx</object-name>
+  <condition>
+   <not include="../../Panels/Instruments/concorde-cond-voltage-bulb.xml"/>
+  </condition>
+  <emission>
+   <red>0.71</red>
+   <green>0.79</green>
+   <blue>0.87</blue>
+   <factor-prop alias="../../../params/nav-push2"/>
+   <offset-prop>systems/lighting/level/roof-ambient</offset-prop>
+  </emission> 
+  <ambient>
+   <red>0.5</red>
+   <green>0.5</green>
+   <blue>0.5</blue>
+   <offset-prop>systems/lighting/level/roof-ambient</offset-prop>
+  </ambient>
+ </animation> 
+
+ <animation>
+  <type>translate</type>
+  <object-name>NAV2Rx</object-name>
+  <property alias="../../params/nav-push2"/>
+  <factor>0.005</factor>
+  <axis>
+   <x> 0.0</x>
+   <y> 0.0</y>
+   <z>-1.0</z>
+  </axis>
+ </animation>
+
+ <animation>
+  <type>rotate</type>
+  <object-name>NAV2Rx</object-name>
+  <property alias="../../params/nav-ctrl2"/>
+  <factor>360</factor>
+  <offset-deg>0</offset-deg>   
+  <center>
+   <x-m> 0.01519</x-m>
+   <y-m> 0.02992</y-m>
+   <z-m> 0.0</z-m>
+  </center>
+  <axis>
+   <x> 0.0</x>
+   <y> 0.0</y>
+   <z>-1.0</z>
+  </axis>
+ </animation>
+ 
+ <animation>
+  <type>pick</type>
+  <object-name>NAV2Rx</object-name>
+  <action>
+   <button>0</button>
+   <binding>
+    <condition>
+     <property alias="../../../../../params/nav-push2"/>
+    </condition>
+    <command>property-adjust</command>
+    <property alias="../../../../params/nav-ctrl2"/>
+    <step>0.1</step>
+    <min>0</min>
+    <max>1</max>
+    <wrap>0</wrap>
+   </binding>
+   <binding>
+    <command>nasal</command>
+    <script>globals.Concorde.seatsystem.audioexport();</script>
+   </binding>
+  </action>
+  <action>
+   <button>1</button>
+   <binding>
+    <condition>
+     <property alias="../../../../../params/nav-push2"/>
+    </condition>
+    <command>property-adjust</command>
+    <property alias="../../../../params/nav-ctrl2"/>
+    <step>-0.1</step>
+    <min>0</min>
+    <max>1</max>
+    <wrap>0</wrap>
+   </binding>
+   <binding>
+    <command>nasal</command>
+    <script>globals.Concorde.seatsystem.audioexport();</script>
+   </binding>
+  </action>
+  <action>
+   <button>2</button>
+   <binding>
+    <command>property-toggle</command>
+    <property alias="../../../../params/nav-push2"/>
+   </binding>
+  </action>
+ </animation>
+
+</PropertyList>

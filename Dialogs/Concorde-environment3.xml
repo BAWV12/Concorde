@@ -1,0 +1,83 @@
+<?xml version="1.0"?>
+
+<PropertyList>
+  <name>Concorde-environment3</name>
+  <layout>vbox</layout>
+  <width>600</width>
+
+  <text>
+    <label>Concorde environment 3</label>
+  </text>
+
+  <hrule><dummy/></hrule>
+
+  <group>
+    <layout>vbox</layout>
+    <halign>center</halign>
+
+    <group>
+     <layout>vbox</layout>
+       
+     <text>
+      <label>Atmospheric Light Scattering  ~</label>
+     </text>
+
+     <text>
+      <label></label>
+     </text>
+
+     <text>
+      <label></label>
+     </text>
+
+     <checkbox>
+      <label>landing lights</label>
+      <property>/controls/environment/als/lights</property>
+      <binding>
+       <command>property-toggle</command>
+       <property>/controls/environment/als/lights</property>
+      </binding>
+     </checkbox>
+    </group>
+  </group>
+
+  <text>
+    <label></label>
+  </text>
+
+  <text>
+    <label></label>
+  </text>
+
+  <group>
+   <layout>hbox</layout>
+
+   <button>
+    <legend>Back</legend>
+    <key>b</key>
+    <binding>
+      <command>dialog-apply</command>
+    </binding>
+    <binding>
+     <command>dialog-show</command>
+     <dialog-name>Concorde-environment</dialog-name>
+    </binding>
+    <binding>
+      <command>dialog-close</command>
+    </binding>
+   </button>
+
+   <button>
+    <legend>Close</legend>
+    <default>true</default>
+    <key>Esc</key>
+    <binding>
+      <command>dialog-apply</command>
+    </binding>
+    <binding>
+      <command>dialog-close</command>
+    </binding>
+   </button>
+
+  </group>
+</PropertyList>

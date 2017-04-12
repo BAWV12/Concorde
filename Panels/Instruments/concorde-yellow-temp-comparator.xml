@@ -1,0 +1,87 @@
+<?xml version="1.0"?>
+
+<!-- Comparator light :
+
+     - discrepancy of mixing temperature between group 3 and 4.
+     - only if group 3 is slaved to group 4.
+-->
+
+<PropertyList>
+ <name>Comparator light</name>
+ <w-base>104</w-base>
+ <h-base>26</h-base>
+
+
+ <layers>
+
+<!-- translucent lens -->  
+  <layer>
+   <name>Warning light</name>
+   <type>switch</type>
+
+   <layer>
+    <name>lamp off</name>
+    <type>group</type>
+    <condition>
+     <or include="concorde-cond-voltage-bulb.xml">
+      <and>
+       <or include="concorde-cond-test-eng-center.xml"/>
+       <or>
+        <equals>
+         <property>/systems/temperature/group[2]/duct-degc</property>
+         <property n="1">/systems/temperature/group[3]/duct-degc</property>
+        </equals>
+        <not>
+         <property>/controls/temperature/group[2]/on</property>
+        </not>
+       </or>
+      </and>
+     </or>
+    </condition>
+
+    <layer include="concorde-bulb-off.xml">
+     <w>104</w>
+     <h>20</h>
+    </layer>
+    <layer>
+     <name>background off</name>
+     <texture>
+      <path>Aircraft/Concorde/Panels/Instruments/Textures/concorde-yellow-comparator.png</path>
+      <x1>0.0</x1>
+      <y1>0.25</y1>
+      <x2>1.0</x2>
+      <y2>0.75</y2>
+     </texture>
+     <w>104</w>
+     <h>20</h>
+    </layer>
+   </layer>
+
+   <layer>
+    <name>lamp on</name>
+    <type>group</type>
+
+    <layer include="concorde-bulb-on.xml">
+     <condition include="concorde-cond-light-eng-center.xml"/>
+     <w>104</w>
+     <h>20</h>
+    </layer>
+    <layer>
+     <name>background on</name>
+     <texture>
+      <path>Aircraft/Concorde/Panels/Instruments/Textures/concorde-yellow-comparator.png</path>
+      <x1>0.0</x1>
+      <y1>0.25</y1>
+      <x2>1.0</x2>
+      <y2>0.75</y2>
+     </texture>
+     <w>104</w>
+     <h>20</h>
+     <emissive>true</emissive>
+    </layer>
+   </layer>
+  </layer>
+
+ </layers>
+
+</PropertyList>

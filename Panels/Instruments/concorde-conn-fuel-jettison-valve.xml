@@ -1,0 +1,122 @@
+<?xml version="1.0"?>
+
+<!-- Jettison valve. -->
+
+
+<PropertyList>
+ <name>Jettison valve</name>
+ <w-base>50</w-base>
+ <h-base>100</h-base>
+
+ <params>
+  <jettison-valve>/controls/fuel/tank[4]/jettison-valve</jettison-valve>
+  <engine-num>/systems/engines/engine[0]/engine-num</engine-num>
+  <defined-status>/systems/electrical/power/specific</defined-status>
+ </params>
+
+
+ <layers>
+  <layer>
+   <name>Connection flag</name>
+   <type>switch</type>
+
+   <layer>
+    <name>undefined</name>
+    <condition>
+     <not>
+      <property alias="../../../../../../params/defined-status"/>
+     </not>
+    </condition>
+    <texture>
+     <path>Aircraft/Concorde/Panels/Instruments/Textures/concorde-hatched-bg.png</path>
+    </texture>
+    <w>25</w>
+    <h>25</h>
+   </layer>
+
+   <layer>
+    <name>on</name>
+    <condition>
+     <and>
+      <property alias="../../../../../../params/jettison-valve"/>
+     </and>
+    </condition>
+    <texture>
+     <path>Aircraft/Concorde/Panels/Instruments/Textures/concorde-bar-horizontal-bg.png</path>
+    </texture>
+    <w>25</w>
+    <h>25</h>
+   </layer>
+
+   <layer>
+    <name>off</name>
+    <texture>
+     <path>Aircraft/Concorde/Panels/Instruments/Textures/concorde-bar-vertical-bg.png</path>
+    </texture>
+    <w>25</w>
+    <h>25</h>
+   </layer>
+   <transformations>
+    <transformation>
+     <type>y-shift</type>
+     <offset>-15</offset>
+    </transformation>
+   </transformations>
+  </layer>
+
+  <layer>
+   <name>number</name>
+   <type>switch</type>
+
+   <layer>
+    <name>3</name>
+    <condition>
+     <equals>
+      <property alias="../../../../../../params/engine-num"/>
+      <value>3</value>
+     </equals>
+    </condition>
+    <texture>
+     <path>Aircraft/Concorde/Panels/Instruments/Textures/concorde-3.png</path>
+     <x1>0</x1>
+     <y1>0</y1>
+     <x2>1</x2>
+     <y2>1</y2>
+    </texture>
+    <w>15</w>
+    <h>15</h>
+   </layer>
+
+   <layer>
+    <name>4</name>
+    <condition>
+     <equals>
+      <property alias="../../../../../../params/engine-num"/>
+      <value>4</value>
+     </equals>
+    </condition>
+    <texture>
+     <path>Aircraft/Concorde/Panels/Instruments/Textures/concorde-4.png</path>
+     <x1>0</x1>
+     <y1>0</y1>
+     <x2>1</x2>
+     <y2>1</y2>
+    </texture>
+    <w>15</w>
+    <h>15</h>
+   </layer>
+   <transformations>
+    <transformation>
+     <type>x-shift</type>
+     <offset>0</offset>
+    </transformation>
+    <transformation>
+     <type>y-shift</type>
+     <offset>-42</offset>
+    </transformation>
+   </transformations>
+  </layer>
+
+ </layers>
+
+</PropertyList>

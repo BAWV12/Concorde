@@ -1,0 +1,271 @@
+<?xml version="1.0"?>
+
+<!-- Fuel configurations :
+
+     - for FDM testing.
+     - in JSBSim, 1 gal US = 6.6 lb.
+     - default is max landing weight.
+
+
+     Format :
+     - all tanks must have an entry.
+     - <tank n="12"></tank> means full tank (required by the tanks filling dialog).
+     - levels adjusted so that CG in range on ground (no sound alarm),
+       and fuel transfer is possible in flight.
+-->
+
+<PropertyList>
+
+ <!-- Max landing weight (245000 lb / 19000 kg fuel). -->
+    <filling n="0">
+     <comment>max landing</comment>
+     <tank n="0">
+      <level-gal_us>716.0</level-gal_us>
+     </tank>
+     <tank n="1">
+      <level-gal_us>716.0</level-gal_us>
+     </tank>
+     <tank n="2">
+      <level-gal_us>716.0</level-gal_us>
+     </tank>
+     <tank n="3">
+      <level-gal_us>716.0</level-gal_us>
+     </tank>
+     <tank n="4">
+      <level-gal_us>0.0</level-gal_us>
+     </tank>
+     <tank n="5">
+      <level-gal_us>0.0</level-gal_us>
+     </tank>
+     <tank n="6">
+      <level-gal_us>0.0</level-gal_us>
+     </tank>
+     <tank n="7">
+      <level-gal_us>0.0</level-gal_us>
+     </tank>
+     <tank n="8">
+      <level-gal_us>2219.0</level-gal_us>
+     </tank>
+     <tank n="9">
+      <level-gal_us>0.0</level-gal_us>
+     </tank>
+     <tank n="10">
+      <level-gal_us>1336.0</level-gal_us>
+     </tank>
+     <tank n="11">
+      <level-gal_us>0.0</level-gal_us>
+     </tank>
+     <tank n="12">
+      <level-gal_us>0.0</level-gal_us>
+     </tank>
+    </filling>
+
+<!-- Max take off weight (408000 lb / 93000 kg fuel). -->
+    <filling n="1">
+     <comment>max takeoff</comment>
+     <tank n="0"></tank>
+     <tank n="1"></tank>
+     <tank n="2"></tank>
+     <tank n="3"></tank>
+     <tank n="4"></tank>
+     <tank n="5"></tank>
+     <tank n="6"></tank>
+     <tank n="7"></tank>
+     <tank n="8"></tank>
+     <tank n="9"></tank>
+     <tank n="10">
+      <level-gal_us>2990.0</level-gal_us>
+     </tank>
+     <tank n="11"></tank>
+     <tank n="12"></tank>
+    </filling>
+
+<!-- Min fuel (less than 1000 kg in collector tanks). -->
+    <filling n="2">
+     <comment>min fuel</comment>
+     <tank n="0">
+      <level-gal_us>334.0</level-gal_us>
+     </tank>
+     <tank n="1">
+      <level-gal_us>334.0</level-gal_us>
+     </tank>
+     <tank n="2">
+      <level-gal_us>334.0</level-gal_us>
+     </tank>
+     <tank n="3">
+      <level-gal_us>334.0</level-gal_us>
+     </tank>
+     <tank n="4">
+      <level-gal_us>0.0</level-gal_us>
+     </tank>
+     <tank n="5">
+      <level-gal_us>0.0</level-gal_us>
+     </tank>
+     <tank n="6">
+      <level-gal_us>0.0</level-gal_us>
+     </tank>
+     <tank n="7">
+      <level-gal_us>0.0</level-gal_us>
+     </tank>
+     <tank n="8">
+      <level-gal_us>0.0</level-gal_us>
+     </tank>
+     <tank n="9">
+      <level-gal_us>0.0</level-gal_us>
+     </tank>
+     <tank n="10">
+      <level-gal_us>0.0</level-gal_us>
+     </tank>
+     <tank n="11">
+      <level-gal_us>0.0</level-gal_us>
+     </tank>
+     <tank n="12">
+      <level-gal_us>0.0</level-gal_us>
+     </tank>
+    </filling>
+
+<!-- Max fuel (411000 lb, 94400 kg fuel). -->
+    <filling n="3">
+     <comment>max fuel</comment>
+     <tank n="0"></tank>
+     <tank n="1"></tank>
+     <tank n="2"></tank>
+     <tank n="3"></tank>
+     <tank n="4"></tank>
+     <tank n="5"></tank>
+     <tank n="6"></tank>
+     <tank n="7"></tank>
+     <tank n="8"></tank>
+     <tank n="9"></tank>
+     <tank n="10">
+      <level-gal_us>3480.0</level-gal_us> <!-- full -->
+     </tank>
+     <tank n="11"></tank>
+     <tank n="12"></tank>
+    </filling>
+
+<!-- Supersonic climb, 30 NM before MERLY, 26000 ft Mach 0.95 (86000 kg fuel). -->
+    <filling n="4">
+     <comment>supersonic climb</comment>
+     <tank n="0"></tank>
+     <tank n="1"></tank>
+     <tank n="2"></tank>
+     <tank n="3"></tank>
+     <tank n="4"></tank>
+     <tank n="5"></tank>
+     <tank n="6"></tank>
+     <tank n="7"></tank>
+     <tank n="8">
+      <level-gal_us>2400.0</level-gal_us>
+     </tank>
+     <tank n="9"></tank>
+     <tank n="10">
+      <level-gal_us>1980.0</level-gal_us>
+     </tank>
+     <tank n="11"></tank>
+     <tank n="12"></tank>
+    </filling>
+
+<!-- Supersonic cruise, 50000 ft Mach 1.99 (67500 kg fuel). -->
+    <filling n="5">
+     <comment>supersonic cruise</comment>
+     <tank n="0"></tank>
+     <tank n="1"></tank>
+     <tank n="2"></tank>
+     <tank n="3"></tank>
+     <tank n="4">
+      <level-gal_us>1780.0</level-gal_us>
+     </tank>
+     <tank n="5"></tank>
+     <tank n="6">
+      <level-gal_us>1780.0</level-gal_us>
+     </tank>
+     <tank n="7"></tank>
+     <tank n="8">
+      <level-gal_us>3000.0</level-gal_us>
+     </tank>
+     <tank n="9">
+      <level-gal_us>0.0</level-gal_us>
+     </tank>
+     <tank n="10">
+      <level-gal_us>500.0</level-gal_us>
+     </tank>
+     <tank n="11"></tank>
+     <tank n="12"></tank>
+    </filling>
+
+<!-- Supersonic descent, 57800 ft 350 kt (28000 kg fuel). -->
+    <filling n="6">
+     <comment>supersonic descent (auxiliary)</comment>
+     <tank n="0"></tank>
+     <tank n="1"></tank>
+     <tank n="2"></tank>
+     <tank n="3"></tank>
+     <tank n="4">
+      <level-gal_us>0.0</level-gal_us>
+     </tank>
+     <tank n="5">
+      <level-gal_us>0.0</level-gal_us>
+     </tank>
+     <tank n="6">
+      <level-gal_us>0.0</level-gal_us>
+     </tank>
+     <tank n="7">
+      <level-gal_us>0.0</level-gal_us>
+     </tank>
+     <tank n="8">
+      <level-gal_us>2480.0</level-gal_us>
+     </tank>
+     <tank n="9">
+      <level-gal_us>0.0</level-gal_us>
+     </tank>
+     <tank n="10">
+      <level-gal_us>1000.0</level-gal_us>
+     </tank>
+     <tank n="11">
+      <level-gal_us>200.0</level-gal_us>
+     </tank>
+     <tank n="12">
+      <level-gal_us>200.0</level-gal_us>
+     </tank>
+    </filling>
+
+<!-- Supersonic 700-1000 nm trip -->
+    <filling n="7">
+     <comment>supersonic 1000 nm trip (40000 kg fuel).</comment>
+     <tank n="0"></tank>
+     <tank n="1"></tank>
+     <tank n="2"></tank>
+     <tank n="3"></tank>
+     <tank n="4">
+      <level-gal_us>1000</level-gal_us>
+     </tank>
+     <tank n="5">
+      <level-gal_us>1000.0</level-gal_us>
+     </tank>
+     <tank n="6">
+      <level-gal_us>1000</level-gal_us>
+     </tank>
+     <tank n="7">
+      <level-gal_us>1000.0</level-gal_us>
+     </tank>
+     <tank n="8">
+      <level-gal_us>2500.0</level-gal_us>
+     </tank>
+     <tank n="9">
+      <level-gal_us>0.0</level-gal_us>
+     </tank>
+     <tank n="10">
+      <level-gal_us>1000.0</level-gal_us>
+     </tank>
+     <tank n="11">
+      <level-gal_us>0.0</level-gal_us>
+     </tank>
+     <tank n="12">
+      <level-gal_us>0.0</level-gal_us>
+     </tank>
+    </filling>
+
+</PropertyList>
+
+

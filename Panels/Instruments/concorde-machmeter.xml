@@ -1,0 +1,378 @@
+<?xml version="1.0"?>
+
+<!-- Machmeter -->
+
+<PropertyList>
+
+ <name>Machmeter display</name>
+ <w-base>128</w-base>
+ <h-base>128</h-base>
+
+ <params>
+  <serviceable>/instrumentation/mach-indicator[0]/serviceable</serviceable>
+  <failure-flag>/instrumentation/mach-indicator[0]/failure-flag</failure-flag>
+  <mach-sel>/instrumentation/mach-indicator[0]/indicated-mach</mach-sel>
+  <mmo-sel>/instrumentation/mach-indicator[0]/mmo-mach</mmo-sel>
+  <min-sel>/instrumentation/mach-indicator[0]/min</min-sel>
+  <max-sel>/instrumentation/mach-indicator[0]/max</max-sel>
+ </params>
+
+
+ <layers>
+
+
+  <layer>
+   <name>background</name>
+   <texture>
+    <path>Aircraft/Concorde/Panels/Instruments/Textures/concorde-machmeter.png</path>
+   </texture>
+   <w>112</w>
+   <h>112</h>
+  </layer>
+
+  <layer>
+   <name>Mach display</name>
+   <condition>
+    <and include="concorde-cond-voltage-inst.xml">
+     <greater-than-equals>
+      <property alias="../../../../../../params/mach-sel"/>
+      <value>0.45</value>
+     </greater-than-equals>
+     <property alias="../../../../../params/serviceable"/>
+    </and>
+   </condition>
+   <type>text</type>
+   <point-size>13</point-size>
+   <color>
+    <red>1.0</red>
+    <green>1.0</green>
+    <blue>1.0</blue>
+   </color>
+   <chunks>
+    <chunk>
+     <type>number-value</type>
+     <property alias="../../../../../params/mach-sel"/>
+     <format>%1.2f</format>
+    </chunk>
+   </chunks>
+   <transformations>
+    <transformation>
+     <type>x-shift</type>
+     <offset>-30</offset>
+    </transformation>
+    <transformation>
+     <type>y-shift</type>
+     <offset>8</offset>
+    </transformation>
+   </transformations>
+  </layer>
+
+  <layer>
+   <name>OFF flag</name>
+   <condition>
+    <property alias="../../../../params/failure-flag"/>
+   </condition>
+   <texture>
+    <path>Aircraft/Concorde/Panels/Instruments/Textures/misc-1.png</path>
+    <x1>0.9375</x1>
+    <y1>0.5</y1>
+    <x2>1.0</x2>
+    <y2>0.546875</y2>
+   </texture>
+   <w>31</w>
+   <h>9</h>
+   <transformations>
+    <transformation>
+     <type>x-shift</type>
+     <offset>-32</offset>
+    </transformation>
+    <transformation>
+     <type>y-shift</type>
+     <offset>-25</offset>
+    </transformation>
+    <transformation>
+     <type>rotation</type>
+     <offset>-70</offset>
+    </transformation>
+   </transformations>
+  </layer>
+
+<!-- Mach -->
+
+  <layer>
+   <name>needle power management</name>
+   <type>switch</type>
+
+   <layer>
+    <name>needle</name>
+    <condition>
+     <and include="concorde-cond-voltage-inst.xml">
+      <property alias="../../../../../../params/serviceable"/>
+     </and>
+    </condition>
+    <texture>
+     <path>Aircraft/Concorde/Panels/Instruments/Textures/misc-1.png</path>
+     <x1>0.8</x1>
+     <y1>0.78125</y1>
+     <x2>0.8375</x2>
+     <y2>1.0</y2>
+    </texture>
+    <w>5</w>
+    <h>44</h>
+    <transformations>
+     <transformation>
+      <type>rotation</type>
+      <property alias="../../../../../../params/mach-sel"/>
+      <min>0.20</min>
+      <max>2.4</max>
+      <scale>1.0</scale>
+      <interpolation>
+       <entry><ind>0.20</ind><dep>-36</dep></entry>
+       <entry><ind>0.50</ind><dep>  0</dep></entry>
+       <entry><ind>1.75</ind><dep>180</dep></entry>
+       <entry><ind>2.40</ind><dep>274</dep></entry>
+      </interpolation>
+     </transformation>
+     <transformation>
+      <type>y-shift</type>
+      <offset>21</offset>
+     </transformation>
+    </transformations>
+   </layer> 
+
+   <layer>
+    <name>needle off</name>
+    <texture>
+     <path>Aircraft/Concorde/Panels/Instruments/Textures/misc-1.png</path>
+     <x1>0.8</x1>
+     <y1>0.78125</y1>
+     <x2>0.8375</x2>
+     <y2>1.0</y2>
+    </texture>
+    <w>5</w>
+    <h>44</h>
+    <transformations>
+     <transformation>
+      <type>rotation</type>
+      <offset>-36</offset>
+     </transformation>
+     <transformation>
+      <type>y-shift</type>
+      <offset>21</offset>
+     </transformation>
+    </transformations>
+   </layer> 
+  </layer> 
+
+<!-- Maximum Operating Mach number -->
+
+  <layer>
+   <name>MMO needle</name>
+   <texture>
+    <path>Aircraft/Concorde/Panels/Instruments/Textures/misc-1.png</path>
+    <x1>0.6914</x1>
+    <y1>0.78125</y1>
+    <x2>0.7289</x2>
+    <y2>1.0</y2>
+   </texture>
+   <w>5</w>
+   <h>44</h>
+   <transformations>
+    <transformation>
+     <type>rotation</type>
+     <condition>
+      <and include="concorde-cond-voltage-inst.xml">
+       <property alias="../../../../../../../params/serviceable"/>
+      </and>
+     </condition>
+     <property alias="../../../../../params/mmo-sel"/>
+     <min>0.45</min>
+     <max>2.4</max>
+     <scale>1.0</scale>
+     <interpolation>
+      <entry><ind>0.40</ind><dep>-14</dep></entry>
+      <entry><ind>0.50</ind><dep>  0</dep></entry>
+      <entry><ind>1.75</ind><dep>180</dep></entry>
+      <entry><ind>2.40</ind><dep>274</dep></entry>
+     </interpolation>
+    </transformation>
+    <transformation>
+     <type>y-shift</type>
+     <offset>21</offset>
+    </transformation>
+   </transformations>
+  </layer> 
+
+<!-- Minimum Mach number to be inside the Center of Gravity corridor -->
+
+  <layer>
+   <name>Mach min power management</name>
+   <type>switch</type>
+
+   <layer>
+    <name>Mach Min display</name>
+    <condition>
+     <and include="concorde-cond-voltage-inst.xml">
+      <property alias="../../../../../../params/serviceable"/>
+     </and>
+    </condition>
+    <texture>
+     <path>Aircraft/Concorde/Panels/Instruments/Textures/faces-LE-misc1.png</path>
+     <x1>0.6914</x1>
+     <y1>0.78125</y1>
+     <x2>0.7289</x2>
+     <y2>1.0</y2>
+    </texture>
+    <w>18</w>
+    <h>9</h>
+    <transformations>
+     <transformation>
+      <type>rotation</type>
+      <property alias="../../../../../../params/min-sel"/>
+      <min>0.0</min>
+      <max>2.4</max>
+      <scale>1.0</scale>
+      <interpolation>
+       <entry><ind>0.0</ind><dep>-72</dep></entry>
+       <entry><ind>0.50</ind><dep>  0</dep></entry>
+       <entry><ind>1.75</ind><dep>180</dep></entry>
+       <entry><ind>2.40</ind><dep>274</dep></entry>
+      </interpolation>
+     </transformation>
+     <transformation>
+      <type>y-shift</type> <!-- needle -->
+      <offset>49</offset>
+     </transformation>
+     <transformation>
+      <type>x-shift</type> <!-- align with min -->
+      <offset>-9</offset>
+     </transformation>
+     <transformation>
+      <type>rotation</type>
+      <offset>180</offset>
+     </transformation>
+    </transformations>
+   </layer> 
+
+   <layer>
+    <name>Mach Min off</name>
+    <texture>
+     <path>Aircraft/Concorde/Panels/Instruments/Textures/faces-LE-misc1.png</path>
+     <x1>0.6914</x1>
+     <y1>0.78125</y1>
+     <x2>0.7289</x2>
+     <y2>1.0</y2>
+    </texture>
+    <w>18</w>
+    <h>9</h>
+    <transformations>
+     <transformation>
+      <type>rotation</type>
+      <offset>-36</offset> <!-- like needle -->
+     </transformation>
+     <transformation>
+      <type>y-shift</type>
+      <offset>49</offset>
+     </transformation>
+     <transformation>
+      <type>x-shift</type>
+      <offset>-9</offset>
+     </transformation>
+     <transformation>
+      <type>rotation</type>
+      <offset>180</offset>
+     </transformation>
+    </transformations>
+   </layer> 
+  </layer> 
+
+<!-- Maximum Mach number to be inside the Center of Gravity corridor -->
+
+  <layer>
+   <name>Mach max power management</name>
+   <type>switch</type>
+
+   <layer>
+    <name>Mach Max display</name>
+    <condition>
+     <and include="concorde-cond-voltage-inst.xml">
+      <property alias="../../../../../../params/serviceable"/>
+     </and>
+    </condition>
+    <texture>
+     <path>Aircraft/Concorde/Panels/Instruments/Textures/faces-LE-misc1.png</path>
+     <x1>0.6914</x1>
+     <y1>0.78125</y1>
+     <x2>0.7289</x2>
+     <y2>1.0</y2>
+    </texture>
+    <w>18</w>
+    <h>9</h>
+    <transformations>
+     <transformation>
+      <type>rotation</type>
+      <property alias="../../../../../../params/max-sel"/>
+      <min>0.0</min>
+      <max>2.4</max>
+      <scale>1.0</scale>
+      <interpolation>
+       <entry><ind>0.50</ind><dep>  0</dep></entry>
+       <entry><ind>1.75</ind><dep>180</dep></entry>
+       <entry><ind>2.40</ind><dep>274</dep></entry>
+      </interpolation>
+     </transformation>
+     <transformation>
+      <type>y-shift</type> <!-- needle -->
+      <offset>49</offset>
+     </transformation>
+     <transformation>
+      <type>x-shift</type> <!-- align wit max -->
+      <offset>9</offset>
+     </transformation>
+    </transformations>
+   </layer> 
+
+   <layer>
+    <name>Mach Max off</name>
+    <texture>
+     <path>Aircraft/Concorde/Panels/Instruments/Textures/faces-LE-misc1.png</path>
+     <x1>0.6914</x1>
+     <y1>0.78125</y1>
+     <x2>0.7289</x2>
+     <y2>1.0</y2>
+    </texture>
+    <w>18</w>
+    <h>9</h>
+    <transformations>
+     <transformation>
+      <type>rotation</type>
+      <offset>46</offset> <!-- 0.82 -->
+     </transformation>
+     <transformation>
+      <type>y-shift</type>
+      <offset>49</offset>
+     </transformation>
+     <transformation>
+      <type>x-shift</type>
+      <offset>9</offset>
+     </transformation>
+    </transformations>
+   </layer> 
+  </layer> 
+  
+  <layer>
+   <name>glare shield</name>
+   <texture>
+    <path>Aircraft/Concorde/Panels/Instruments/Textures/bezel1.png</path>
+    <x1>0.5</x1>
+    <y1>0.0</y1>
+    <x2>1.0</x2>
+    <y2>0.5</y2>
+   </texture>
+   <w>128</w>
+   <h>128</h>
+  </layer>
+
+ </layers>
+
+</PropertyList>

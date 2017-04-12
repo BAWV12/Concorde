@@ -1,0 +1,193 @@
+<?xml version="1.0"?>
+
+<!-- Inertial Navigation System switch :
+
+     - test by push.
+     - TO DO : auto / man switch.
+-->
+
+<PropertyList>
+ <name>INS switch</name>
+ <w-base>150</w-base>
+ <h-base>150</h-base>
+
+ <params>
+  <selector-ctrl>/instrumentation/ins/control/selector</selector-ctrl>
+  <test-ctrl>/instrumentation/ins/control/test</test-ctrl>
+ </params>
+
+
+ <layers>
+
+  <layer>
+   <name>background selector</name>
+   <texture>
+    <path>Aircraft/Concorde/Panels/Instruments/Textures/concorde-ins.png</path>
+     <x1>0.0</x1>
+     <y1>0.0</y1>
+     <x2>1.0</x2>
+     <y2>1.0</y2>
+   </texture>
+   <w>140</w>
+   <h>140</h>
+   <transformations>
+    <transformation>
+     <type>x-shift</type>
+     <offset>15</offset>
+    </transformation>
+    <transformation>
+     <type>y-shift</type>
+     <offset>-30</offset>
+    </transformation>
+   </transformations>
+  </layer>
+
+<!-- SELECTOR -->
+
+  <layer>
+   <name>knob rotation</name>
+   <texture>
+    <path>Aircraft/Concorde/Panels/Instruments/Textures/navcom-radios.png</path>
+    <x1>0.53125</x1>
+    <x2>0.59765625</x2>
+    <y1>0.05859375</y1>
+    <y2>0.1484375</y2>
+   </texture>
+   <w>32</w>
+   <h>40</h>
+   <transformations>
+    <transformation>
+     <type>x-shift</type>
+     <offset>0</offset>
+    </transformation>
+    <transformation>
+     <type>y-shift</type>
+     <offset>-14</offset>
+    </transformation>
+    <transformation>
+     <type>rotation</type>
+     <property alias="../../../../../params/selector-ctrl"/>
+     <min>-3</min>
+     <max>4</max>
+     <scale>36</scale>
+     <offset>-36</offset>
+    </transformation>
+    <transformation>
+    <type>y-shift</type>
+    <offset>-4</offset>
+    </transformation>
+   </transformations>
+  </layer>
+
+<!-- AUTO SWITCH -->
+
+  <layer>
+   <name>knob rotation</name>
+   <texture>
+    <path>Aircraft/Concorde/Panels/Instruments/Textures/navcom-radios.png</path>
+    <x1>0.53125</x1>
+    <x2>0.59765625</x2>
+    <y1>0.05859375</y1>
+    <y2>0.1484375</y2>
+   </texture>
+   <w>24</w>
+   <h>30</h>
+   <transformations>
+    <transformation>
+     <type>x-shift</type>
+     <offset>46</offset>
+    </transformation>
+    <transformation>
+     <type>y-shift</type>
+     <offset>-60</offset>
+    </transformation>
+    <transformation>
+     <type>rotation</type>
+     <offset>-36</offset>
+    </transformation>
+   </transformations>
+  </layer>
+
+ </layers>
+
+ <actions>
+
+  <action>
+   <name>selector left</name>
+   <button>0</button>
+   <x>-50</x>
+   <y>-22</y>
+   <w>50</w>
+   <h>50</h>
+   <binding>
+    <command>property-adjust</command>
+    <property alias="../../../../params/selector-ctrl"/>
+    <step>-1</step>
+    <min>-3</min>
+    <max>4</max>
+    <wrap>0</wrap>
+   </binding>
+   <binding>
+    <command>nasal</command>
+    <script>globals.Concorde.INSinstrument.computeexport();</script>
+   </binding>
+   <binding>
+    <command>property-toggle</command>
+    <property>/instrumentation/generic/click</property>
+   </binding>
+  </action>
+
+  <action>
+   <name>selector right</name>
+   <button>0</button>
+   <x>0</x>
+   <y>-22</y>
+   <w>50</w>
+   <h>50</h>
+   <binding>
+    <command>property-adjust</command>
+    <property alias="../../../../params/selector-ctrl"/>
+    <step>1</step>
+    <min>-3</min>
+    <max>4</max>
+    <wrap>0</wrap>
+   </binding>
+   <binding>
+    <command>nasal</command>
+    <script>globals.Concorde.INSinstrument.computeexport();</script>
+   </binding>
+   <binding>
+    <command>property-toggle</command>
+    <property>/instrumentation/generic/click</property>
+   </binding>
+  </action>
+
+  <action>
+   <name>push switch</name>
+   <button>0</button>
+   <x>30</x>
+   <y>-73</y>
+   <w>30</w>
+   <h>30</h>
+   <binding>
+    <command>property-assign</command>
+    <property alias="../../../../params/test-ctrl"/>
+    <value>true</value>
+    <repeatable>true</repeatable>
+   </binding>
+   <mod-up>
+    <binding>
+     <command>property-assign</command>
+     <property alias="../../../../../params/test-ctrl"/>
+     <value>false</value>
+    </binding>
+    <binding>
+     <command>property-toggle</command>
+     <property>/instrumentation/generic/click</property>
+    </binding>
+   </mod-up>
+  </action>
+
+ </actions>
+
+</PropertyList>

@@ -1,0 +1,230 @@
+<?xml version="1.0"?>
+
+<!-- Disable autopilot :
+
+     - if no voltage, doesn't tell what virtual copilot is doing.
+     - group works by offset from previous layer inside group, except 1st layer which is absolute.
+-->
+
+
+<PropertyList>
+
+ <name>Disable autopilot</name>
+ <w-base>104</w-base>
+ <h-base>416</h-base>
+
+ <params>
+  <channel>/controls/autoflight/autopilot[0]/engage</channel>
+  <voltage>/systems/electrical/outputs/autopilot[1]</voltage>
+ </params>
+
+
+ <layers>
+
+  <layer>
+   <name>inside</name>
+   <texture>
+    <path>Aircraft/Concorde/Panels/Instruments/Textures/concorde-black-bg.png</path>
+    <x1>0.7</x1>
+    <y1>0.8</y1>
+    <x2>1.0</x2>
+    <y2>0.9</y2>
+   </texture>
+   <w>60</w>
+   <h>150</h>
+   <transformations>
+    <transformation>
+     <type>y-shift</type>
+     <offset>70</offset>
+    </transformation>
+   </transformations>
+  </layer>
+
+<!-- translucent lens -->
+  <layer>
+   <name>Green light + Switch</name>
+   <type>switch</type>
+
+   <layer>
+    <name>on</name>
+    <type>group</type>
+    <condition>
+     <and>
+      <property alias="../../../../../../params/channel"/>
+      <greater-than>
+       <property alias="../../../../../../../params/voltage"/>
+       <value>20.0</value>
+      </greater-than>
+     </and>
+    </condition>
+
+    <layer include="concorde-bulb-on.xml">
+     <w>104</w>
+     <h>30</h>
+     <transformations>
+      <transformation>
+       <type>y-shift</type>
+       <offset>200</offset>
+      </transformation>
+     </transformations>
+    </layer>
+    <layer>
+     <name>background light</name>
+     <texture>
+      <path>Aircraft/Concorde/Panels/Instruments/Textures/concorde-green-warning.png</path>
+      <x1>0.7</x1>
+      <y1>0.8</y1>
+      <x2>1.0</x2>
+      <y2>0.9</y2>
+     </texture>
+     <w>104</w>
+     <h>30</h>
+     <emissive>true</emissive>
+    </layer>
+
+    <layer>
+     <name>switch enabled</name>
+     <texture>
+      <path>Aircraft/Concorde/Panels/Instruments/Textures/concorde-white-button.png</path>
+     </texture>
+     <w>104</w>
+     <h>78</h>
+     <transformations>
+      <transformation>
+       <type>y-shift</type>
+       <offset>-75</offset>
+      </transformation>
+     </transformations>
+    </layer>
+    <layer>
+     <name>Title enabled</name>
+     <type>text</type>
+     <point-size>46</point-size>
+     <color>
+      <red>0.0</red>
+      <green>0.0</green>
+      <blue>0.0</blue>
+     </color>
+     <chunks>
+      <chunk>
+       <type>literal</type>
+       <text>AP</text>
+      </chunk>
+     </chunks>
+     <transformations>
+      <transformation>
+       <type>x-shift</type>
+       <offset>-31</offset>
+      </transformation>
+      <transformation>
+       <type>y-shift</type>
+       <offset>-20</offset>
+      </transformation>
+     </transformations>
+    </layer>
+   </layer>
+
+   <layer>
+    <name>off</name>
+    <type>group</type>
+
+    <layer include="concorde-bulb-off.xml">
+     <w>104</w>
+     <h>30</h>
+     <transformations>
+      <transformation>
+       <type>y-shift</type>
+       <offset>200</offset>
+      </transformation>
+     </transformations>
+    </layer>
+    <layer>
+     <name>background light</name>
+     <texture>
+      <path>Aircraft/Concorde/Panels/Instruments/Textures/concorde-green-warning.png</path>
+      <x1>0.7</x1>
+      <y1>0.8</y1>
+      <x2>1.0</x2>
+      <y2>0.9</y2>
+     </texture>
+     <w>104</w>
+     <h>30</h>
+    </layer>
+
+    <layer>
+     <name>switch off</name>
+     <texture>
+      <path>Aircraft/Concorde/Panels/Instruments/Textures/concorde-white-button.png</path>
+     </texture>
+     <w>104</w>
+     <h>78</h>
+     <transformations>
+      <transformation>
+       <type>y-shift</type>
+       <offset>-175</offset>
+      </transformation>
+     </transformations>
+    </layer>
+    <layer>
+     <name>Title</name>
+     <type>text</type>
+     <point-size>46</point-size>
+     <color>
+      <red>0.0</red>
+      <green>0.0</green>
+      <blue>0.0</blue>
+     </color>
+     <chunks>
+      <chunk>
+       <type>literal</type>
+       <text>AP</text>
+      </chunk>
+     </chunks>
+     <transformations>
+      <transformation>
+       <type>x-shift</type>
+       <offset>-30</offset>
+      </transformation>
+      <transformation>
+       <type>y-shift</type>
+       <offset>-20</offset>
+      </transformation>
+     </transformations>
+    </layer>
+   </layer>
+  </layer>
+
+ </layers>
+ 
+ <actions>
+
+  <action>
+   <desc>Toggle autopilot</desc>
+   <button>0</button>
+   <condition>
+    <greater-than>
+     <property alias="../../../../../params/voltage"/>
+     <value>20.0</value>
+    </greater-than>
+   </condition>
+   <x>-52</x>
+   <y>-20</y>
+   <w>104</w>
+   <h>184</h>
+   <binding>
+    <command>property-toggle</command>
+    <property alias="../../../../params/channel"/>
+   </binding>
+   <binding>
+    <command>nasal</command>
+    <script>globals.Concorde.autopilotsystem.apexport();</script>
+   </binding>
+   <binding>
+    <command>property-toggle</command>
+    <property>/instrumentation/generic/click</property>
+   </binding>
+  </action>
+
+ </actions>
+
+</PropertyList>

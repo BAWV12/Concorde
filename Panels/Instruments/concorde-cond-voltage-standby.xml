@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+
+<!-- Voltage condition for standby instruments :
+
+     - they have a normal supply and a standby supply (which relies on AC Essential 1).
+-->
+
+<PropertyList>
+
+  <or>
+   <greater-than>
+    <property>/systems/electrical/outputs/standby</property>
+    <value>20.0</value>
+   </greater-than>
+   <greater-than>
+    <property>/systems/electrical/outputs/specific</property>
+    <value>20.0</value>
+   </greater-than>
+  </or>
+
+</PropertyList>

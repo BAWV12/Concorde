@@ -1,0 +1,31 @@
+AC3Db
+MATERIAL "DefaultWhite" rgb 1 1 1  amb 1 1 1  emis 0 0 0  spec 0.5 0.5 0.5  shi 64  trans 0
+MATERIAL "white_light_on" rgb 1 1 1 amb 0.5 0.5 0.5 emis 0 0 0 spec 0 0 0 shi 32 trans 0
+OBJECT world
+kids 1
+OBJECT poly
+name "LandingTaxi"
+data 8
+Mesh.142
+texture "concorde-lights.png"
+texrep 1 1
+crease 30.000000
+numvert 4
+-1e-05 0.316303 -0.316259
+-1e-05 0.316303 0.316259
+1e-05 -0.316221 0.316259
+1e-05 -0.316221 -0.316259
+numsurf 2
+SURF 0x00
+mat 1
+refs 3
+0 0.37890625 0.31640625
+3 0.37890625 0.05859375
+2 0.63671875 0.05859375
+SURF 0x00
+mat 1
+refs 3
+0 0.37890625 0.31640625
+2 0.63671875 0.05859375
+1 0.63671875 0.31640625
+kids 0

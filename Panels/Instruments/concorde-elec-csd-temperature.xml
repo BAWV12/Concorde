@@ -1,0 +1,146 @@
+<!-- CSD oil temperature.
+-->
+
+<PropertyList>
+
+ <name>CSD Oil Temperature</name>
+ <w-base>128</w-base>
+ <h-base>128</h-base>
+
+ <params>
+  <inlet-select>/systems/engines/engine[0]/csd-inlet-degc</inlet-select>
+  <diff-select>/systems/engines/engine[0]/csd-diff-degc</diff-select>
+ </params>
+
+ <layers>
+
+  <layer include="concorde-gauge.xml"/>
+
+  <layer>
+   <name>background</name>
+   <w>110</w>
+   <h>110</h>
+   <texture>
+    <path>Aircraft/Concorde/Panels/Instruments/Textures/concorde-csd-oiltemperature.png</path>
+    <x1>0</x1>
+    <y1>0</y1>
+    <x2>1</x2>
+    <y2>1</y2>
+   </texture>
+  </layer>
+
+  <layer>
+   <name>inlet needle</name>
+   <w>6</w>
+   <h>48</h>
+   <texture>
+    <path>Aircraft/Concorde/Panels/Instruments/Textures/misc-1.png</path>
+    <x1>0.8</x1>
+    <y1>0.78125</y1>
+    <x2>0.8375</x2>
+    <y2>1.0</y2>
+   </texture>
+   <transformations>
+    <transformation>
+     <type>rotation</type>
+      <offset>180.0</offset>
+    </transformation>
+    <transformation>
+     <type>rotation</type>
+     <condition include="concorde-cond-voltage-inst.xml"/>
+     <property alias="../../../../../params/inlet-select"/>
+     <scale>0.72</scale>
+     <offset>0</offset>
+     <min>0</min>
+     <max>250</max>
+    </transformation>
+    <transformation>
+     <type>y-shift</type>
+     <offset>20</offset>
+    </transformation>
+   </transformations>
+  </layer>
+
+  <layer>
+   <name>differential needle</name>
+   <w>6</w>
+   <h>48</h>
+   <texture>
+    <path>Aircraft/Concorde/Panels/Instruments/Textures/misc-1.png</path>
+    <x1>0.8</x1>
+    <y1>0.78125</y1>
+    <x2>0.8375</x2>
+    <y2>1.0</y2>
+   </texture>
+   <transformations>
+    <transformation>
+     <type>rotation</type>
+      <offset>180.0</offset>
+    </transformation>
+    <transformation>
+     <type>rotation</type>
+     <condition include="concorde-cond-voltage-inst.xml"/>
+     <property alias="../../../../../params/diff-select"/>
+     <scale>-3.6</scale>
+     <offset>0</offset>
+     <min>0</min>
+     <max>50</max>
+    </transformation>
+    <transformation>
+     <type>y-shift</type>
+     <offset>20</offset>
+    </transformation>
+   </transformations>
+  </layer>
+
+  <layer>
+   <name>OFF flag</name>
+   <condition>
+    <not include="concorde-cond-voltage-inst.xml"/>
+   </condition>
+   <texture>
+    <path>Aircraft/Concorde/Panels/Instruments/Textures/misc-1.png</path>
+    <x1>0.9375</x1>
+    <y1>0.5</y1>
+    <x2>1.0</x2>
+    <y2>0.546875</y2>
+   </texture>
+   <w>25</w>
+   <h>8</h>
+   <transformations>
+    <transformation>
+     <type>x-shift</type>
+     <offset>-2</offset>
+    </transformation>
+    <transformation>
+     <type>y-shift</type>
+     <offset>20</offset>
+    </transformation>
+   </transformations>
+  </layer>
+
+  <layer>
+   <name>glare shield</name>
+   <texture>
+    <path>Aircraft/Concorde/Panels/Instruments/Textures/bezel1.png</path>
+    <x1>0.5</x1>
+    <y1>0.0</y1>
+    <x2>1.0</x2>
+    <y2>0.5</y2>
+   </texture>
+   <w>128</w>
+   <h>128</h>
+   <transformations>
+    <transformation>
+     <type>x-shift</type>
+     <offset>3</offset>
+    </transformation>
+    <transformation>
+     <type>y-shift</type>
+     <offset>-3</offset>
+    </transformation>
+   </transformations>
+  </layer>
+
+ </layers>
+</PropertyList>

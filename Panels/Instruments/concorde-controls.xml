@@ -1,0 +1,185 @@
+<?xml version="1.0"?>
+
+<!-- Concorde controls position indicators.
+
+
+Adapted from David Megginson, david@megginson.com.
+
+This is an instrument configuration file for the open-source flight
+simulator FlightGear (www.flightgear.org).  The file is an XML-encoded
+FlightGear property list defining the instrument's layers and actions.
+
+Each instrument is composed of layers stacked on top of each other.
+A layer may be a texture (with transparent parts to show the layers
+underneath), text, or a special layer that switches between two
+others (say, to turn an indicator light on or off).  Each layer can
+move independently in proportion to a property value, and text
+can be generated from property values as well: all of the layer's
+movements are defined as transformations.
+
+Actions are hotspots on the instrument that will respond to a mouse
+click.  Actions always modify the values of properties, either by
+adjusting them, toggling them, or swaping them with other
+properties' values.
+-->
+
+<PropertyList>
+ <name>control position indicators</name>
+ <w-base>128</w-base>
+ <h-base>128</h-base>
+
+ <layers>
+
+
+
+  <layer>
+   <name>background</name>
+   <texture>
+    <path>Aircraft/Concorde/Panels/Instruments/Textures/concorde-clock.png</path>
+    <x1>0.0</x1>
+    <y1>0.0</y1>
+    <x2>0.5</x2>
+    <y2>0.5</y2>
+   </texture>
+   <w>112</w>
+   <h>112</h>
+  </layer>
+
+  <layer>
+   <name>aileron indicator</name>
+   <texture>
+    <path>Aircraft/Concorde/Panels/Instruments/Textures/misc-1.png</path>
+    <x1>0.11328125</x1>
+    <y1>0.2734375</y1>
+    <x2>0.15234375</x2>
+    <y2>0.3046875</y2>
+   </texture>
+   <transformations>
+    <transformation>
+     <type>x-shift</type>
+     <property>/controls/flight/aileron</property>
+     <min>-1</min>
+     <max>1</max>
+     <scale>42</scale>
+    </transformation>
+     <transformation>
+     <type>rotation</type>
+     <offset>180</offset>
+     </transformation>
+     <transformation>
+     <type>y-shift</type>
+     <offset>-50</offset>
+     </transformation>
+     <transformation>
+     <type>x-shift</type>
+     <offset>2</offset>
+     </transformation>
+   </transformations>
+   <w>8</w>
+   <h>8</h>
+ </layer>
+
+  <layer>
+   <name>rudder indicator</name>
+   <texture>
+    <path>Aircraft/Concorde/Panels/Instruments/Textures/misc-1.png</path>
+    <x1>0.11328125</x1>
+    <y1>0.2734375</y1>
+    <x2>0.15234375</x2>
+    <y2>0.3046875</y2>
+   </texture>
+   <transformations>
+    <transformation>
+     <type>rotation</type>
+     <offset>0</offset>
+    </transformation>
+    <transformation>
+     <type>x-shift</type>
+     <property>/controls/flight/rudder</property>
+     <min>-1</min>
+     <max>1</max>
+     <scale>42</scale>
+    </transformation>
+    <transformation>
+     <type>y-shift</type>
+     <offset>-52</offset>
+    </transformation>
+     <transformation>
+     <type>x-shift</type>
+     <offset>-1</offset>
+     </transformation>
+   </transformations>
+   <w>8</w>
+   <h>8</h>
+  </layer>
+
+  <layer>
+   <name>elevator trim indicator</name>
+   <w>8</w>
+   <h>8</h>
+   <texture>
+    <path>Aircraft/Concorde/Panels/Instruments/Textures/misc-1.png</path>
+    <x1>0.11328125</x1>
+    <y1>0.2734375</y1>
+    <x2>0.15234375</x2>
+    <y2>0.3046875</y2>
+   </texture>
+   <transformations>
+    <transformation>
+     <type>rotation</type>
+     <offset>90</offset>
+    </transformation>
+    <transformation>
+     <type>x-shift</type>
+     <property>/controls/flight/elevator-trim</property>
+     <min>-1.0</min>
+     <max>1.0</max>
+     <scale>-42</scale>
+    </transformation>
+    <transformation>
+     <type>y-shift</type>
+     <offset>-12</offset>
+    </transformation>
+     <transformation>
+     <type>x-shift</type>
+     <offset>2</offset>
+     </transformation>
+   </transformations>
+  </layer>
+
+  <layer>
+   <name>elevator indicator</name>
+   <w>8</w>
+   <h>8</h>
+   <texture>
+    <path>Aircraft/Concorde/Panels/Instruments/Textures/misc-1.png</path>
+    <x1>0.11328125</x1>
+    <y1>0.2734375</y1>
+    <x2>0.15234375</x2>
+    <y2>0.3046875</y2>
+   </texture>
+   <transformations>
+    <transformation>
+     <type>rotation</type>
+     <offset>270</offset>
+    </transformation>
+    <transformation>
+     <type>x-shift</type>
+     <property>/controls/flight/elevator</property>
+     <min>-1.0</min>
+     <max>1.0</max>
+     <scale>42</scale>
+    </transformation>
+    <transformation>
+     <type>y-shift</type>
+     <offset>-10</offset>
+    </transformation>
+    <transformation>
+     <type>x-shift</type>
+     <offset>-1</offset>
+    </transformation>
+   </transformations>
+  </layer>
+
+ </layers>
+</PropertyList>

@@ -1,0 +1,513 @@
+<?xml version="1.0"?>
+
+<!--Concorde nav dme mode selector :
+
+    - frequency rotary selector.
+    - NAV 1 is DME 0.
+    
+    
+    Concorde nav test selector :
+
+    - frequency rotary selector (decimal).
+-->
+
+<PropertyList>
+
+ <name>Dial NAV</name>
+ <w-base>170</w-base>
+ <h-base>140</h-base>
+
+ <params>
+  <frq-disp>/instrumentation/nav[1]/frequencies/selected-mhz</frq-disp>
+  <frq-ctrl>/instrumentation/nav[1]/frequencies/selected-mhz</frq-ctrl>
+  <selector-ctrl>/instrumentation/dme[0]/selector</selector-ctrl>
+ </params>
+
+
+ <layers>
+
+
+
+  <layer>
+   <name>background</name>
+   <texture>
+    <path>Aircraft/Concorde/Panels/Instruments/Textures/concorde-black-bg.png</path>
+   </texture>
+   <w>70</w>
+   <h>40</h>
+   <transformations>
+    <transformation>
+     <type>y-shift</type>
+     <offset>20</offset>
+    </transformation>
+   </transformations>
+  </layer>
+
+  <layer>
+   <name>Title</name>
+   <type>text</type>
+   <point-size>16</point-size>
+   <color>
+    <red>1.0</red>
+    <green>1.0</green>
+    <blue>1.0</blue>
+   </color>
+   <chunks>
+    <chunk>
+     <type>literal</type>
+     <text>NAV</text>
+    </chunk>
+   </chunks>
+   <transformations>
+    <transformation>
+     <type>x-shift</type>
+     <offset>-14</offset>
+    </transformation>
+    <transformation>
+     <type>y-shift</type>
+     <offset>43</offset>
+    </transformation>
+   </transformations>
+  </layer>
+
+  <layer>
+   <name>NAV frequency display</name>
+   <type>text</type>
+   <font>led</font>
+   <point-size>8</point-size>
+   <color>
+    <red>1.0</red>
+    <green>1.0</green>
+    <blue>1.0</blue>
+   </color>
+   <chunks>
+    <chunk>
+     <type>number-value</type>
+     <property alias="../../../../../params/frq-disp"/>
+     <format>%3.2f</format>
+    </chunk>
+   </chunks>
+   <transformations>
+    <transformation>
+     <type>x-shift</type>
+     <offset>-30</offset>
+    </transformation>
+    <transformation>
+     <type>y-shift</type>
+     <offset>12</offset>
+    </transformation>
+   </transformations>
+  </layer>
+
+<!-- LEFT KNOB -->
+
+  <layer>
+   <name>knob</name>
+   <texture>
+    <path>Aircraft/Concorde/Panels/Instruments/Textures/concorde-black-knob.png</path>
+   </texture>
+    <w>35</w>
+    <h>35</h>
+   <transformations>
+    <transformation>
+     <type>x-shift</type>
+     <offset>-30</offset>
+    </transformation>
+    <transformation>
+     <type>y-shift</type>
+     <offset>-30</offset>
+    </transformation>
+   </transformations>
+  </layer>
+
+  <layer>
+   <name>selector</name>
+   <texture>
+    <path>Aircraft/Concorde/Panels/Instruments/Textures/concorde-white-button.png</path>
+     <x1>0.0</x1>
+     <y1>0.0</y1>
+     <x2>1.0</x2>
+     <y2>1.0</y2>
+   </texture>
+   <w>9</w>
+   <h>33</h>
+   <transformations>
+    <transformation>
+     <type>x-shift</type>
+     <offset>-30</offset>
+    </transformation>
+    <transformation>
+     <type>y-shift</type>
+     <offset>-30</offset>
+    </transformation>
+    <transformation>
+     <type>rotation</type>
+     <property alias="../../../../../params/selector-ctrl"/>
+     <scale>45</scale>
+    </transformation>
+   </transformations>
+  </layer>
+
+  <layer>
+   <name>Title warmed up</name>
+   <type>text</type>
+   <point-size>6</point-size>
+   <color>
+    <red>1.0</red>
+    <green>1.0</green>
+    <blue>1.0</blue>
+   </color>
+   <chunks>
+    <chunk>
+     <type>literal</type>
+     <text>S/B</text>
+    </chunk>
+   </chunks>
+   <transformations>
+    <transformation>
+     <type>x-shift</type>
+     <offset>-60</offset>
+    </transformation>
+    <transformation>
+     <type>y-shift</type>
+     <offset>-15</offset>
+    </transformation>
+   </transformations>
+  </layer>
+
+  <layer>
+   <name>Title</name>
+   <type>text</type>
+   <point-size>6</point-size>
+   <color>
+    <red>1.0</red>
+    <green>1.0</green>
+    <blue>1.0</blue>
+   </color>
+   <chunks>
+    <chunk>
+     <type>literal</type>
+     <text>DME</text>
+    </chunk>
+   </chunks>
+   <transformations>
+    <transformation>
+     <type>x-shift</type>
+     <offset>-38</offset>
+    </transformation>
+    <transformation>
+     <type>y-shift</type>
+     <offset>-7</offset>
+    </transformation>
+   </transformations>
+  </layer>
+
+  <layer>
+   <name>Title override</name>
+   <type>text</type>
+   <point-size>6</point-size>
+   <color>
+    <red>1.0</red>
+    <green>1.0</green>
+    <blue>1.0</blue>
+   </color>
+   <chunks>
+    <chunk>
+     <type>literal</type>
+     <text>OVRD</text>
+    </chunk>
+   </chunks>
+   <transformations>
+    <transformation>
+     <type>x-shift</type>
+     <offset>-13</offset>
+    </transformation>
+    <transformation>
+     <type>y-shift</type>
+     <offset>-15</offset>
+    </transformation>
+   </transformations>
+  </layer>
+
+<!-- RIGHT KNOB -->
+
+  <layer>
+   <name>knob</name>
+   <texture>
+    <path>Aircraft/Concorde/Panels/Instruments/Textures/concorde-black-knob.png</path>
+   </texture>
+    <w>35</w>
+    <h>35</h>
+   <transformations>
+    <transformation>
+     <type>x-shift</type>
+     <offset>30</offset>
+    </transformation>
+    <transformation>
+     <type>y-shift</type>
+     <offset>-30</offset>
+    </transformation>
+   </transformations>
+  </layer>
+
+  <layer>
+   <name>selector</name>
+   <texture>
+    <path>Aircraft/Concorde/Panels/Instruments/Textures/concorde-white-button.png</path>
+     <x1>0.0</x1>
+     <y1>0.0</y1>
+     <x2>1.0</x2>
+     <y2>1.0</y2>
+   </texture>
+   <w>9</w>
+   <h>33</h>
+   <transformations>
+    <transformation>
+     <type>x-shift</type>
+     <offset>30</offset>
+    </transformation>
+    <transformation>
+     <type>y-shift</type>
+     <offset>-30</offset>
+    </transformation>
+   </transformations>
+  </layer>
+
+  <layer>
+   <name>Title knob</name>
+   <type>text</type>
+   <point-size>6</point-size>
+   <color>
+    <red>1.0</red>
+    <green>1.0</green>
+    <blue>1.0</blue>
+   </color>
+   <chunks>
+    <chunk>
+     <type>literal</type>
+     <text>TESTS</text>
+    </chunk>
+   </chunks>
+   <transformations>
+    <transformation>
+     <type>x-shift</type>
+     <offset>20</offset>
+    </transformation>
+    <transformation>
+     <type>y-shift</type>
+     <offset>-55</offset>
+    </transformation>
+   </transformations>
+  </layer>
+
+ </layers>
+
+<!-- LEFT KNOB -->
+
+ <actions>
+
+  <action>
+   <name>Minus 10</name>
+   <button>0</button>
+   <x>-48</x>
+   <y>-47</y>
+   <w>18</w>
+   <h>18</h>
+   <binding>
+    <command>property-adjust</command>
+    <property alias="../../../../params/frq-ctrl"/>
+    <step>-10</step>
+    <min>100</min>
+    <max>400</max>
+    <wrap>0</wrap>
+   </binding>
+   <binding>
+    <command>nasal</command>
+    <script>globals.Concorde.autopilotsystem.apsendnavexport();</script>
+   </binding>
+  </action>
+
+  <action>
+   <name>Plus 10</name>
+   <button>0</button>
+   <x>-48</x>
+   <y>-29</y>
+   <w>18</w>
+   <h>18</h>
+   <binding>
+    <command>property-adjust</command>
+    <property alias="../../../../params/frq-ctrl"/>
+    <step>10</step>
+    <min>100</min>
+    <max>400</max>
+    <wrap>0</wrap>
+   </binding>
+   <binding>
+    <command>nasal</command>
+    <script>globals.Concorde.autopilotsystem.apsendnavexport();</script>
+   </binding>
+  </action>
+
+  <action>
+   <name>Minus 1</name>
+   <button>0</button>
+   <x>-30</x>
+   <y>-47</y>
+   <w>18</w>
+   <h>18</h>
+   <binding>
+    <command>property-adjust</command>
+    <property alias="../../../../params/frq-ctrl"/>
+    <step>-1</step>
+    <min>100</min>
+    <max>400</max>
+    <wrap>0</wrap>
+   </binding>
+   <binding>
+    <command>nasal</command>
+    <script>globals.Concorde.autopilotsystem.apsendnavexport();</script>
+   </binding>
+  </action>
+
+  <action>
+   <name>Plus 1</name>
+   <button>0</button>
+   <x>-30</x>
+   <y>-29</y>
+   <w>18</w>
+   <h>18</h>
+   <binding>
+    <command>property-adjust</command>
+    <property alias="../../../../params/frq-ctrl"/>
+    <step>1</step>
+    <min>100</min>
+    <max>400</max>
+    <wrap>0</wrap>
+   </binding>
+   <binding>
+    <command>nasal</command>
+    <script>globals.Concorde.autopilotsystem.apsendnavexport();</script>
+   </binding>
+  </action>
+
+  <action>
+   <name>Left</name>
+   <button>1</button>
+   <x>-48</x>
+   <y>-47</y>
+   <w>18</w>
+   <h>36</h>
+   <binding>
+    <command>property-adjust</command>
+    <property alias="../../../../params/selector-ctrl"/>
+    <step>-1</step>
+    <min>-1</min>
+    <max>1</max>
+   </binding>
+  </action>
+
+  <action>
+   <name>Right</name>
+   <button>1</button>
+   <x>-30</x>
+   <y>-47</y>
+   <w>18</w>
+   <h>36</h>
+   <binding>
+    <command>property-adjust</command>
+    <property alias="../../../../params/selector-ctrl"/>
+    <step>1</step>
+    <min>-1</min>
+    <max>1</max>
+   </binding>
+  </action>
+
+<!-- RIGHT KNOB -->
+
+  <action>
+   <name>Minus 1/10</name>
+   <button>0</button>
+   <x>13</x>
+   <y>-47</y>
+   <w>18</w>
+   <h>18</h>
+   <binding>
+    <command>property-adjust</command>
+    <property alias="../../../../params/frq-ctrl"/>
+    <step>-0.1</step>
+    <min>100</min>
+    <max>400</max>
+    <wrap>0</wrap>
+   </binding>
+   <binding>
+    <command>nasal</command>
+    <script>globals.Concorde.autopilotsystem.apsendnavexport();</script>
+   </binding>
+  </action>
+
+  <action>
+   <name>Plus 1/10</name>
+   <button>0</button>
+   <x>13</x>
+   <y>-29</y>
+   <w>18</w>
+   <h>18</h>
+   <binding>
+    <command>property-adjust</command>
+    <property alias="../../../../params/frq-ctrl"/>
+    <step>0.1</step>
+    <min>100</min>
+    <max>400</max>
+    <wrap>0</wrap>
+   </binding>
+   <binding>
+    <command>nasal</command>
+    <script>globals.Concorde.autopilotsystem.apsendnavexport();</script>
+   </binding>
+  </action>
+
+  <action>
+   <name>Minus 1/20</name>
+   <button>0</button>
+   <x>31</x>
+   <y>-47</y>
+   <w>18</w>
+   <h>18</h>
+   <binding>
+    <command>property-adjust</command>
+    <property alias="../../../../params/frq-ctrl"/>
+    <step>-0.05</step>
+    <min>100</min>
+    <max>400</max>
+    <wrap>0</wrap>
+   </binding>
+   <binding>
+    <command>nasal</command>
+    <script>globals.Concorde.autopilotsystem.apsendnavexport();</script>
+   </binding>
+  </action>
+
+  <action>
+   <name>Plus 1/20</name>
+   <button>0</button>
+   <x>31</x>
+   <y>-29</y>
+   <w>18</w>
+   <h>18</h>
+   <binding>
+    <command>property-adjust</command>
+    <property alias="../../../../params/frq-ctrl"/>
+    <step>0.05</step>
+    <min>100</min>
+    <max>400</max>
+    <wrap>0</wrap>
+   </binding>
+   <binding>
+    <command>nasal</command>
+    <script>globals.Concorde.autopilotsystem.apsendnavexport();</script>
+   </binding>
+  </action>
+
+ </actions>
+
+</PropertyList>

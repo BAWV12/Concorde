@@ -1,0 +1,1336 @@
+<?xml version="1.0"?>
+
+<!-- Concorde 3D ENGINEER engine panel
+
+Like the real one.
+
+WARNING : a button not working by click, means that it is too close of another button (eventually hidden);
+even if both click areas (ctrl-C) don't overlap. Changing internal geometry of button avoids this drawback.
+
+_______________________________________________________________________
+
+This is a panel configuration file for the open-source flight
+simulator FlightGear (www.flightgear.org).  The file is an XML-encoded
+FlightGear property list defining the panel's background texture and
+the location (and optionally, size) of the instruments that will
+appear on the panel.
+
+Each instrument is, itself, defined in an XML-encoded property list
+in a separate file.
+
+Co-ordinates are relative to the *bottom* left corner of the screen
+(as in OpenGL).  The total FlightGear window is always considered to
+be 1024x768, whatever its actual display size on the screen.  All
+paths are relative to $FG_ROOT.
+
+Note that the name of the element defining each instrument must be
+different, or else instrument definitions will be overwritten:
+that's not particularly XML-ish, but that's how property lists
+work in FlightGear right now.
+
+Each instrument has its own preferred width and height, but you can
+override those by providing <w>..</w> and <h>..</h> properties with the
+<x>...</x> and <y>...</y> properties.
+
+-->
+
+<!DOCTYPE PropertyList SYSTEM "panel.dtd">
+
+<PropertyList>
+
+ <name>Concorde Engineer Engine Panel</name>
+ <background>Aircraft/Concorde/Panels/Textures/transparent-bg.png</background>
+ <w>1024</w>
+ <h>512</h>
+ <y-offset>0</y-offset>
+ <view-height>500</view-height>
+
+ <instruments>
+
+<!-- ======== -->
+<!-- COLUMN 1 -->
+<!-- ======== -->
+
+<!-- ENGINE STARTING -->
+
+  <instrument include="Instruments/concorde-title-engine.xml">
+   <name>Engine starting</name>
+   <condition>
+    <or>
+     <and>
+      <property>/sim/current-view/internal</property>
+      <property>/systems/seat/engineer</property>
+      <less-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>360</value>
+      </less-than>
+      <greater-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>275</value>
+      </greater-than>
+      <less-than>
+       <property>/sim/current-view/goal-pitch-offset-deg</property>
+       <value>-15</value>
+      </less-than>
+     </and>
+     <property>/controls/seat/all</property>
+    </or>
+   </condition>
+   <x>15</x>
+   <y>450</y>
+   <w>300</w>
+   <h>30</h>
+  </instrument>
+
+<!-- Engine start valve -->
+
+  <instrument include="Instruments/concorde-engine-startvalve.xml">
+   <name>Engine 1 start valve</name>
+   <condition>
+    <or>
+     <and>
+      <property>/sim/current-view/internal</property>
+      <property>/systems/seat/engineer</property>
+      <less-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>360</value>
+      </less-than>
+      <greater-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>280</value>
+      </greater-than>
+      <less-than>
+       <property>/sim/current-view/goal-pitch-offset-deg</property>
+       <value>-15</value>
+      </less-than>
+     </and>
+     <property>/controls/seat/all</property>
+    </or>
+   </condition>
+   <params>
+    <starter>/engines/engine[0]/starter</starter>
+    <control-cutoff>/controls/engines/engine[0]/cutoff</control-cutoff>
+    <num>/systems/engines/engine[0]/engine-num</num>
+   </params>
+   <x>7</x>
+   <y>420</y>
+   <w>22</w>
+   <h>44</h>
+  </instrument>
+
+  <instrument include="Instruments/concorde-engine-startvalve.xml">
+   <name>Engine 2 start valve</name>
+   <condition>
+    <or>
+     <and>
+      <property>/sim/current-view/internal</property>
+      <property>/systems/seat/engineer</property>
+      <less-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>360</value>
+      </less-than>
+      <greater-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>275</value>
+      </greater-than>
+      <less-than>
+       <property>/sim/current-view/goal-pitch-offset-deg</property>
+       <value>-15</value>
+      </less-than>
+     </and>
+     <property>/controls/seat/all</property>
+    </or>
+   </condition>
+   <params>
+    <starter>/engines/engine[1]/starter</starter>
+    <control-cutoff>/controls/engines/engine[1]/cutoff</control-cutoff>
+    <num>/systems/engines/engine[1]/engine-num</num>
+   </params>
+   <x>46</x>
+   <y>420</y>
+   <w>22</w>
+   <h>44</h>
+  </instrument>
+
+  <instrument include="Instruments/concorde-engine-startvalve.xml">
+   <name>Engine 3 start valve</name>
+   <condition>
+    <or>
+     <and>
+      <property>/sim/current-view/internal</property>
+      <property>/systems/seat/engineer</property>
+      <less-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>360</value>
+      </less-than>
+      <greater-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>275</value>
+      </greater-than>
+      <less-than>
+       <property>/sim/current-view/goal-pitch-offset-deg</property>
+       <value>-15</value>
+      </less-than>
+     </and>
+     <property>/controls/seat/all</property>
+    </or>
+   </condition>
+   <params>
+    <starter>/engines/engine[2]/starter</starter>
+    <control-cutoff>/controls/engines/engine[2]/cutoff</control-cutoff>
+    <num>/systems/engines/engine[2]/engine-num</num>
+   </params>
+   <x>85</x>
+   <y>420</y>
+   <w>22</w>
+   <h>44</h>
+  </instrument>
+
+  <instrument include="Instruments/concorde-engine-startvalve.xml">
+   <name>Engine 4 start valve</name>
+   <condition>
+    <or>
+     <and>
+      <property>/sim/current-view/internal</property>
+      <property>/systems/seat/engineer</property>
+      <less-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>355</value>
+      </less-than>
+      <greater-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>270</value>
+      </greater-than>
+      <less-than>
+       <property>/sim/current-view/goal-pitch-offset-deg</property>
+       <value>-15</value>
+      </less-than>
+     </and>
+     <property>/controls/seat/all</property>
+    </or>
+   </condition>
+   <params>
+    <starter>/engines/engine[3]/starter</starter>
+    <control-cutoff>/controls/engines/engine[3]/cutoff</control-cutoff>
+    <num>/systems/engines/engine[3]/engine-num</num>
+   </params>
+   <x>124</x>
+   <y>420</y>
+   <w>22</w>
+   <h>44</h>
+  </instrument>
+
+<!-- Engine starter -->
+
+  <instrument include="Instruments/concorde-engine-starter.xml">
+   <name>Engine 1 starter</name>
+   <condition>
+    <or>
+     <and>
+      <property>/sim/current-view/internal</property>
+      <property>/systems/seat/engineer</property>
+      <less-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>360</value>
+      </less-than>
+      <greater-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>275</value>
+      </greater-than>
+      <less-than>
+       <property>/sim/current-view/goal-pitch-offset-deg</property>
+       <value>-20</value>
+      </less-than>
+     </and>
+     <property>/controls/seat/all</property>
+    </or>
+   </condition>
+   <params>
+    <control-starter>/controls/engines/engine[0]/starter</control-starter>
+    <control-relight>/systems/engines/engine[0]/relight</control-relight>
+    <engine-relight>/systems/electrical/power/relight[0]</engine-relight>
+    <air-pressure>/systems/air-bleed/power/cross[0]</air-pressure>
+    <num>/systems/engines/engine[0]/engine-num</num>
+   </params>
+   <x>5</x>
+   <y>355</y>
+   <w>45</w>
+   <h>45</h>
+  </instrument>
+
+  <instrument include="Instruments/concorde-engine-starter.xml">
+   <name>Engine 2 starter</name>
+   <condition>
+    <or>
+     <and>
+      <property>/sim/current-view/internal</property>
+      <property>/systems/seat/engineer</property>
+      <less-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>360</value>
+      </less-than>
+      <greater-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>275</value>
+      </greater-than>
+      <less-than>
+       <property>/sim/current-view/goal-pitch-offset-deg</property>
+       <value>-20</value>
+      </less-than>
+     </and>
+     <property>/controls/seat/all</property>
+    </or>
+   </condition>
+   <params>
+    <control-starter>/controls/engines/engine[1]/starter</control-starter>
+    <control-relight>/systems/engines/engine[1]/relight</control-relight>
+    <engine-relight>/systems/electrical/power/relight[1]</engine-relight>
+    <air-pressure>/systems/air-bleed/power/cross[1]</air-pressure>
+    <num>/systems/engines/engine[1]/engine-num</num>
+   </params>
+   <x>44</x>
+   <y>355</y>
+   <w>45</w>
+   <h>45</h>
+  </instrument>
+
+  <instrument include="Instruments/concorde-engine-starter.xml">
+   <name>Engine 3 starter</name>
+   <condition>
+    <or>
+     <and>
+      <property>/sim/current-view/internal</property>
+      <property>/systems/seat/engineer</property>
+      <less-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>360</value>
+      </less-than>
+      <greater-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>270</value>
+      </greater-than>
+      <less-than>
+       <property>/sim/current-view/goal-pitch-offset-deg</property>
+       <value>-20</value>
+      </less-than>
+     </and>
+     <property>/controls/seat/all</property>
+    </or>
+   </condition>
+   <params>
+    <control-starter>/controls/engines/engine[2]/starter</control-starter>
+    <control-relight>/systems/engines/engine[2]/relight</control-relight>
+    <engine-relight>/systems/electrical/power/relight[2]</engine-relight>
+    <air-pressure>/systems/air-bleed/power/cross[2]</air-pressure>
+    <num>/systems/engines/engine[2]/engine-num</num>
+   </params>
+   <x>78</x>
+   <y>355</y>
+   <w>45</w>
+   <h>45</h>
+  </instrument>
+
+  <instrument include="Instruments/concorde-engine-starter.xml">
+   <name>Engine 4 starter</name>
+   <condition>
+    <or>
+     <and>
+      <property>/sim/current-view/internal</property>
+      <property>/systems/seat/engineer</property>
+      <less-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>360</value>
+      </less-than>
+      <greater-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>270</value>
+      </greater-than>
+      <less-than>
+       <property>/sim/current-view/goal-pitch-offset-deg</property>
+       <value>-20</value>
+      </less-than>
+     </and>
+     <property>/controls/seat/all</property>
+    </or>
+   </condition>
+   <params>
+    <control-starter>/controls/engines/engine[3]/starter</control-starter>
+    <control-relight>/systems/engines/engine[3]/relight</control-relight>
+    <engine-relight>/systems/electrical/power/relight[3]</engine-relight>
+    <air-pressure>/systems/air-bleed/power/cross[3]</air-pressure>
+    <num>/systems/engines/engine[3]/engine-num</num>
+   </params>
+   <x>117</x>
+   <y>355</y>
+   <w>45</w>
+   <h>45</h>
+  </instrument>
+
+<!-- ignition -->
+
+  <instrument include="Instruments/concorde-green-lh-igniter.xml">
+   <name>LH igniter</name>
+   <condition>
+    <or>
+     <and>
+      <property>/sim/current-view/internal</property>
+      <property>/systems/seat/engineer</property>
+      <or>
+       <less-than>
+        <property>/sim/current-view/goal-heading-offset-deg</property>
+        <value>5</value>
+       </less-than>
+       <greater-than>
+        <property>/sim/current-view/goal-heading-offset-deg</property>
+        <value>275</value>
+       </greater-than>
+      </or>
+      <less-than>
+       <property>/sim/current-view/goal-pitch-offset-deg</property>
+       <value>-20</value>
+      </less-than>
+     </and>
+     <property>/controls/seat/all</property>
+    </or>
+   </condition>
+   <x>15</x>
+   <y>235</y>
+   <w>22</w>
+   <h>44</h>
+  </instrument>
+
+  <instrument include="Instruments/concorde-green-rh-igniter.xml">
+   <name>RH igniter</name>
+   <condition>
+    <or>
+     <and>
+      <property>/sim/current-view/internal</property>
+      <property>/systems/seat/engineer</property>
+      <or>
+       <less-than>
+        <property>/sim/current-view/goal-heading-offset-deg</property>
+        <value>5</value>
+       </less-than>
+       <greater-than>
+        <property>/sim/current-view/goal-heading-offset-deg</property>
+        <value>270</value>
+       </greater-than>
+      </or>
+      <less-than>
+       <property>/sim/current-view/goal-pitch-offset-deg</property>
+       <value>-20</value>
+      </less-than>
+     </and>
+     <property>/controls/seat/all</property>
+    </or>
+   </condition>
+   <x>83</x>
+   <y>235</y>
+   <w>22</w>
+   <h>44</h>
+  </instrument>
+
+  <instrument include="Instruments/concorde-engine-relight.xml">
+   <name>Emergency relight selector</name>
+   <condition>
+    <or>
+     <and>
+      <property>/sim/current-view/internal</property>
+      <property>/systems/seat/engineer</property>
+      <or>
+       <less-than>
+        <property>/sim/current-view/goal-heading-offset-deg</property>
+        <value>5</value>
+       </less-than>
+       <greater-than>
+        <property>/sim/current-view/goal-heading-offset-deg</property>
+        <value>265</value>
+       </greater-than>
+      </or>
+      <less-than>
+       <property>/sim/current-view/goal-pitch-offset-deg</property>
+       <value>-20</value>
+      </less-than>
+     </and>
+     <property>/controls/seat/all</property>
+    </or>
+   </condition>
+   <x>122</x>
+   <y>240</y>
+   <w>49.5</w>
+   <h>49.5</h>
+  </instrument>
+
+<!-- INS 1 -->
+
+  <instrument include="Instruments/concorde-ins-mode.xml">
+   <name>INS mode</name>
+   <condition>
+    <or>
+     <and>
+      <property>/sim/current-view/internal</property>
+      <property>/systems/seat/engineer</property>
+      <or>
+       <less-than>
+        <property>/sim/current-view/goal-heading-offset-deg</property>
+        <value>10</value>
+       </less-than>
+       <greater-than>
+        <property>/sim/current-view/goal-heading-offset-deg</property>
+        <value>270</value>
+       </greater-than>
+      </or>
+      <less-than>
+       <property>/sim/current-view/goal-pitch-offset-deg</property>
+       <value>-25</value>
+      </less-than>
+     </and>
+     <property>/controls/seat/all</property>
+    </or>
+   </condition>
+   <params>
+    <mode-ctrl>/instrumentation/ins[0]/msu/mode</mode-ctrl>
+   </params>
+   <x>30</x>
+   <y>170</y>
+   <w>56.25</w>
+   <h>45</h>
+  </instrument>
+
+  <instrument include="Instruments/concorde-green-ins-ready.xml">
+   <name>INS ready</name>
+   <condition>
+    <or>
+     <and>
+      <property>/sim/current-view/internal</property>
+      <property>/systems/seat/engineer</property>
+      <or>
+       <less-than>
+        <property>/sim/current-view/goal-heading-offset-deg</property>
+        <value>5</value>
+       </less-than>
+       <greater-than>
+        <property>/sim/current-view/goal-heading-offset-deg</property>
+        <value>265</value>
+       </greater-than>
+      </or>
+      <less-than>
+       <property>/sim/current-view/goal-pitch-offset-deg</property>
+       <value>-25</value>
+      </less-than>
+     </and>
+     <property>/controls/seat/all</property>
+    </or>
+   </condition>
+   <params>
+    <ready-select>/instrumentation/ins[0]/msu/ready</ready-select>
+    <test-ctrl>/instrumentation/ins[0]/control/test</test-ctrl>
+    <service-select>/instrumentation/ins[0]/serviceable</service-select>
+   </params>
+   <x>80</x>
+   <y>165</y>
+   <w>15</w>
+   <h>30</h>
+  </instrument>
+
+  <instrument include="Instruments/concorde-red-ins-battery.xml">
+   <name>INS battery</name>
+   <condition>
+    <or>
+     <and>
+      <property>/sim/current-view/internal</property>
+      <property>/systems/seat/engineer</property>
+      <or>
+       <less-than>
+        <property>/sim/current-view/goal-heading-offset-deg</property>
+        <value>5</value>
+       </less-than>
+       <greater-than>
+        <property>/sim/current-view/goal-heading-offset-deg</property>
+        <value>265</value>
+       </greater-than>
+      </or>
+      <less-than>
+       <property>/sim/current-view/goal-pitch-offset-deg</property>
+       <value>-25</value>
+      </less-than>
+     </and>
+     <property>/controls/seat/all</property>
+    </or>
+   </condition>
+   <params>
+    <mode-ctrl>/instrumentation/ins[0]/msu/mode</mode-ctrl>
+    <test-ctrl>/instrumentation/ins[0]/control/test</test-ctrl>
+    <service-select>/instrumentation/ins[0]/serviceable</service-select>
+   </params>
+   <x>105</x>
+   <y>165</y>
+   <w>15</w>
+   <h>30</h>
+  </instrument>
+
+  <instrument include="Instruments/concorde-title-ins.xml">
+   <name>INS mode select</name>
+   <condition>
+    <or>
+     <and>
+      <property>/sim/current-view/internal</property>
+      <property>/systems/seat/engineer</property>
+      <or>
+       <less-than>
+        <property>/sim/current-view/goal-heading-offset-deg</property>
+        <value>5</value>
+       </less-than>
+       <greater-than>
+        <property>/sim/current-view/goal-heading-offset-deg</property>
+        <value>260</value>
+       </greater-than>
+      </or>
+      <less-than>
+       <property>/sim/current-view/goal-pitch-offset-deg</property>
+       <value>-30</value>
+      </less-than>
+     </and>
+     <property>/controls/seat/all</property>
+    </or>
+   </condition>
+   <x>106</x>
+   <y>157</y>
+   <w>60</w>
+   <h>30</h>
+  </instrument>
+
+<!-- ======== -->
+<!-- COLUMN 2 -->
+<!-- ======== -->
+
+<!-- INS 2 -->
+
+  <instrument include="Instruments/concorde-ins-mode.xml">
+   <name>INS mode</name>
+   <condition>
+    <or>
+     <and>
+      <property>/sim/current-view/internal</property>
+      <property>/systems/seat/engineer</property>
+      <less-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>360</value>
+      </less-than>
+      <greater-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>265</value>
+      </greater-than>
+      <less-than>
+       <property>/sim/current-view/goal-pitch-offset-deg</property>
+       <value>-20</value>
+      </less-than>
+     </and>
+     <property>/controls/seat/all</property>
+    </or>
+   </condition>
+   <params>
+    <mode-ctrl>/instrumentation/ins[1]/msu/mode</mode-ctrl>
+   </params>
+   <x>180</x>
+   <y>320</y>
+   <w>56.25</w>
+   <h>45</h>
+  </instrument>
+
+  <instrument include="Instruments/concorde-green-ins-ready.xml">
+   <name>INS ready</name>
+   <condition>
+    <or>
+     <and>
+      <property>/sim/current-view/internal</property>
+      <property>/systems/seat/engineer</property>
+      <less-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>355</value>
+      </less-than>
+      <greater-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>260</value>
+      </greater-than>
+      <less-than>
+       <property>/sim/current-view/goal-pitch-offset-deg</property>
+       <value>-25</value>
+      </less-than>
+     </and>
+     <property>/controls/seat/all</property>
+    </or>
+   </condition>
+   <params>
+    <ready-select>/instrumentation/ins[1]/msu/ready</ready-select>
+    <test-ctrl>/instrumentation/ins[1]/control/test</test-ctrl>
+    <service-select>/instrumentation/ins[1]/serviceable</service-select>
+   </params>
+   <x>230</x>
+   <y>315</y>
+   <w>15</w>
+   <h>30</h>
+  </instrument>
+
+  <instrument include="Instruments/concorde-red-ins-battery.xml">
+   <name>INS battery</name>
+   <condition>
+    <or>
+     <and>
+      <property>/sim/current-view/internal</property>
+      <property>/systems/seat/engineer</property>
+      <less-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>355</value>
+      </less-than>
+      <greater-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>255</value>
+      </greater-than>
+      <less-than>
+       <property>/sim/current-view/goal-pitch-offset-deg</property>
+       <value>-25</value>
+      </less-than>
+     </and>
+     <property>/controls/seat/all</property>
+    </or>
+   </condition>
+   <params>
+    <mode-ctrl>/instrumentation/ins[1]/msu/mode</mode-ctrl>
+    <test-ctrl>/instrumentation/ins[1]/control/test</test-ctrl>
+    <service-select>/instrumentation/ins[1]/serviceable</service-select>
+   </params>
+   <x>255</x>
+   <y>315</y>
+   <w>15</w>
+   <h>30</h>
+  </instrument>
+
+  <instrument include="Instruments/concorde-title-ins.xml">
+   <name>INS mode select</name>
+   <condition>
+    <or>
+     <and>
+      <property>/sim/current-view/internal</property>
+      <property>/systems/seat/engineer</property>
+      <less-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>355</value>
+      </less-than>
+      <greater-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>255</value>
+      </greater-than>
+      <less-than>
+       <property>/sim/current-view/goal-pitch-offset-deg</property>
+       <value>-30</value>
+      </less-than>
+     </and>
+     <property>/controls/seat/all</property>
+    </or>
+   </condition>
+   <x>256</x>
+   <y>307</y>
+   <w>60</w>
+   <h>30</h>
+  </instrument>
+
+<!-- RAT DEPLOYEMENT -->
+
+  <instrument include="Instruments/concorde-title-rat.xml">
+   <name>RAM Air Turbine</name>
+   <condition>
+    <or>
+     <and>
+      <property>/sim/current-view/internal</property>
+      <property>/systems/seat/engineer</property>
+      <or>
+       <less-than>
+        <property>/sim/current-view/goal-heading-offset-deg</property>
+        <value>5</value>
+       </less-than>
+       <greater-than>
+        <property>/sim/current-view/goal-heading-offset-deg</property>
+        <value>245</value>
+       </greater-than>
+      </or>
+      <less-than>
+       <property>/sim/current-view/goal-pitch-offset-deg</property>
+       <value>-30</value>
+      </less-than>
+     </and>
+     <property>/controls/seat/all</property>
+    </or>
+   </condition>
+   <x>190</x>
+   <y>90</y>
+   <w>180</w>
+   <h>18</h>
+  </instrument>
+
+  <instrument include="Instruments/concorde-rat.xml">
+   <name>RAT selector 1</name>
+   <condition>
+    <or>
+     <and>
+      <property>/sim/current-view/internal</property>
+      <property>/systems/seat/engineer</property>
+      <or>
+       <less-than>
+        <property>/sim/current-view/goal-heading-offset-deg</property>
+        <value>10</value>
+       </less-than>
+       <greater-than>
+        <property>/sim/current-view/goal-heading-offset-deg</property>
+        <value>250</value>
+       </greater-than>
+      </or>
+      <less-than>
+       <property>/sim/current-view/goal-pitch-offset-deg</property>
+       <value>-30</value>
+      </less-than>
+     </and>
+     <property>/controls/seat/all</property>
+    </or>
+   </condition>
+   <params>
+    <rat-on>/systems/hydraulic/rat/selector[0]/on</rat-on>
+    <rat-test>/systems/hydraulic/rat/selector[0]/test</rat-test>
+    <rat-guard>/systems/hydraulic/rat/selector[0]/guard</rat-guard>
+    <rat-num>/systems/hydraulic/rat/selector[0]/num</rat-num>
+   </params>
+   <x>175</x>
+   <y>60</y>
+   <w>90</w>
+   <h>60</h>
+  </instrument>
+
+  <instrument include="Instruments/concorde-green-rat.xml">
+   <name>RAT deployed</name>
+   <condition>
+    <or>
+     <and>
+      <property>/sim/current-view/internal</property>
+      <property>/systems/seat/engineer</property>
+      <or>
+       <less-than>
+        <property>/sim/current-view/goal-heading-offset-deg</property>
+        <value>5</value>
+       </less-than>
+       <greater-than>
+        <property>/sim/current-view/goal-heading-offset-deg</property>
+        <value>250</value>
+       </greater-than>
+      </or>
+      <less-than>
+       <property>/sim/current-view/goal-pitch-offset-deg</property>
+       <value>-30</value>
+      </less-than>
+     </and>
+     <property>/controls/seat/all</property>
+    </or>
+   </condition>
+   <x>224</x>
+   <y>75</y>
+   <w>34</w>
+   <h>17</h>
+  </instrument>
+
+  <instrument include="Instruments/concorde-blue-rat.xml">
+   <name>RAT test</name>
+   <condition>
+    <or>
+     <and>
+     <property>/sim/current-view/internal</property>
+      <property>/systems/seat/engineer</property>
+      <or>
+       <less-than>
+        <property>/sim/current-view/goal-heading-offset-deg</property>
+        <value>10</value>
+       </less-than>
+       <greater-than>
+        <property>/sim/current-view/goal-heading-offset-deg</property>
+        <value>245</value>
+       </greater-than>
+      </or>
+      <less-than>
+       <property>/sim/current-view/goal-pitch-offset-deg</property>
+       <value>-30</value>
+      </less-than>
+     </and>
+     <property>/controls/seat/all</property>
+    </or>
+   </condition>
+   <x>224</x>
+   <y>50</y>
+   <w>34</w>
+   <h>17</h>
+  </instrument>
+
+  <instrument include="Instruments/concorde-rat.xml">
+   <name>RAT selector 2</name>
+   <condition>
+    <or>
+     <and>
+      <property>/sim/current-view/internal</property>
+      <property>/systems/seat/engineer</property>
+      <or>
+       <less-than>
+        <property>/sim/current-view/goal-heading-offset-deg</property>
+        <value>10</value>
+       </less-than>
+       <greater-than>
+        <property>/sim/current-view/goal-heading-offset-deg</property>
+        <value>240</value>
+       </greater-than>
+      </or>
+      <less-than>
+       <property>/sim/current-view/goal-pitch-offset-deg</property>
+       <value>-30</value>
+      </less-than>
+     </and>
+     <property>/controls/seat/all</property>
+    </or>
+   </condition>
+   <params>
+    <rat-on>/systems/hydraulic/rat/selector[1]/on</rat-on>
+    <rat-test>/systems/hydraulic/rat/selector[1]/test</rat-test>
+    <rat-guard>/systems/hydraulic/rat/selector[1]/guard</rat-guard>
+    <rat-num>/systems/hydraulic/rat/selector[1]/num</rat-num>
+   </params>
+   <x>255</x>
+   <y>60</y>
+   <w>90</w>
+   <h>60</h>
+  </instrument>
+
+<!-- ======== -->
+<!-- COLUMN 3 -->
+<!-- ======== -->
+
+<!-- DOORS -->
+
+  <instrument include="Instruments/concorde-red-door-fl.xml">
+   <name>Alarm front left door</name>
+   <condition>
+    <or>
+     <and>
+      <property>/sim/current-view/internal</property>
+      <property>/systems/seat/engineer</property>
+      <less-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>345</value>
+      </less-than>
+      <greater-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>255</value>
+      </greater-than>
+      <less-than>
+       <property>/sim/current-view/goal-pitch-offset-deg</property>
+       <value>-20</value>
+      </less-than>
+     </and>
+     <property>/controls/seat/all</property>
+    </or>
+   </condition>
+   <x>317</x>
+   <y>425</y>
+   <w>27</w>
+   <h>13</h>
+  </instrument>
+
+  <instrument include="Instruments/concorde-red-door-fr.xml">
+   <name>Alarm front right door</name>
+   <condition>
+    <or>
+     <and>
+      <property>/sim/current-view/internal</property>
+      <property>/systems/seat/engineer</property>
+      <less-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>345</value>
+      </less-than>
+      <greater-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>250</value>
+      </greater-than>
+      <less-than>
+       <property>/sim/current-view/goal-pitch-offset-deg</property>
+       <value>-20</value>
+      </less-than>
+     </and>
+     <property>/controls/seat/all</property>
+    </or>
+   </condition>
+   <x>347</x>
+   <y>425</y>
+   <w>27</w>
+   <h>13</h>
+  </instrument>
+
+  <instrument include="Instruments/concorde-red-door-uc.xml">
+   <name>Alarm upper cargo door</name>
+   <condition>
+    <or>
+     <and>
+      <property>/sim/current-view/internal</property>
+      <property>/systems/seat/engineer</property>
+      <less-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>345</value>
+      </less-than>
+      <greater-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>250</value>
+      </greater-than>
+      <less-than>
+       <property>/sim/current-view/goal-pitch-offset-deg</property>
+       <value>-20</value>
+      </less-than>
+     </and>
+     <property>/controls/seat/all</property>
+    </or>
+   </condition>
+   <x>377</x>
+   <y>425</y>
+   <w>27</w>
+   <h>13</h>
+  </instrument>
+
+  <instrument include="Instruments/concorde-red-door-cl.xml">
+   <name>Alarm centre left door</name>
+   <condition>
+    <or>
+     <and>
+      <property>/sim/current-view/internal</property>
+      <property>/systems/seat/engineer</property>
+      <less-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>350</value>
+      </less-than>
+      <greater-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>255</value>
+      </greater-than>
+      <less-than>
+       <property>/sim/current-view/goal-pitch-offset-deg</property>
+       <value>-20</value>
+      </less-than>
+     </and>
+     <property>/controls/seat/all</property>
+    </or>
+   </condition>
+   <x>317</x>
+   <y>408</y>
+   <w>27</w>
+   <h>13</h>
+  </instrument>
+
+  <instrument include="Instruments/concorde-red-door-cr.xml">
+   <name>Alarm centre right door</name>
+   <condition>
+    <or>
+     <and>
+      <property>/sim/current-view/internal</property>
+      <property>/systems/seat/engineer</property>
+      <less-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>345</value>
+      </less-than>
+      <greater-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>250</value>
+      </greater-than>
+      <less-than>
+       <property>/sim/current-view/goal-pitch-offset-deg</property>
+       <value>-20</value>
+      </less-than>
+     </and>
+     <property>/controls/seat/all</property>
+    </or>
+   </condition>
+   <x>347</x>
+   <y>408</y>
+   <w>27</w>
+   <h>13</h>
+  </instrument>
+
+  <instrument include="Instruments/concorde-red-door-mh.xml">
+   <name>Alarm miscellaneous hatches door</name>
+   <condition>
+    <or>
+     <and>
+      <property>/sim/current-view/internal</property>
+      <property>/systems/seat/engineer</property>
+      <less-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>345</value>
+      </less-than>
+      <greater-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>250</value>
+      </greater-than>
+      <less-than>
+       <property>/sim/current-view/goal-pitch-offset-deg</property>
+       <value>-20</value>
+      </less-than>
+     </and>
+     <property>/controls/seat/all</property>
+    </or>
+   </condition>
+   <x>377</x>
+   <y>408</y>
+   <w>27</w>
+   <h>13</h>
+  </instrument>
+
+  <instrument include="Instruments/concorde-red-door-rl.xml">
+   <name>Alarm rear left door</name>
+   <condition>
+    <or>
+     <and>
+      <property>/sim/current-view/internal</property>
+      <property>/systems/seat/engineer</property>
+      <less-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>350</value>
+      </less-than>
+      <greater-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>255</value>
+      </greater-than>
+      <less-than>
+       <property>/sim/current-view/goal-pitch-offset-deg</property>
+       <value>-20</value>
+      </less-than>
+     </and>
+     <property>/controls/seat/all</property>
+    </or>
+   </condition>
+   <x>317</x>
+   <y>391</y>
+   <w>27</w>
+   <h>13</h>
+  </instrument>
+
+  <instrument include="Instruments/concorde-red-door-rr.xml">
+   <name>Alarm rear right door</name>
+   <condition>
+    <or>
+     <and>
+      <property>/sim/current-view/internal</property>
+      <property>/systems/seat/engineer</property>
+      <less-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>345</value>
+      </less-than>
+      <greater-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>250</value>
+      </greater-than>
+      <less-than>
+       <property>/sim/current-view/goal-pitch-offset-deg</property>
+       <value>-20</value>
+      </less-than>
+     </and>
+     <property>/controls/seat/all</property>
+    </or>
+   </condition>
+   <x>347</x>
+   <y>391</y>
+   <w>27</w>
+   <h>13</h>
+  </instrument>
+
+  <instrument include="Instruments/concorde-red-door-lc.xml">
+   <name>Alarm lower cargo door</name>
+   <condition>
+    <or>
+     <and>
+      <property>/sim/current-view/internal</property>
+      <property>/systems/seat/engineer</property>
+      <less-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>345</value>
+      </less-than>
+      <greater-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>250</value>
+      </greater-than>
+      <less-than>
+       <property>/sim/current-view/goal-pitch-offset-deg</property>
+       <value>-20</value>
+      </less-than>
+     </and>
+     <property>/controls/seat/all</property>
+    </or>
+   </condition>
+   <x>377</x>
+   <y>391</y>
+   <w>27</w>
+   <h>13</h>
+  </instrument>
+
+  <instrument include="Instruments/concorde-test-doors.xml">
+   <name>Test doors</name>
+   <condition>
+     <or>
+      <and>
+       <property>/sim/current-view/internal</property>
+       <property>/systems/seat/engineer</property>
+       <less-than>
+        <property>/sim/current-view/goal-heading-offset-deg</property>
+        <value>345</value>
+       </less-than>
+       <greater-than>
+        <property>/sim/current-view/goal-heading-offset-deg</property>
+        <value>245</value>
+       </greater-than>
+       <less-than>
+        <property>/sim/current-view/goal-pitch-offset-deg</property>
+        <value>-20</value>
+       </less-than>
+      </and>
+      <property>/controls/seat/all</property>
+     </or>
+   </condition>
+   <x>412</x>
+   <y>390</y>
+   <w>30</w>
+   <h>45</h>
+  </instrument>
+
+<!-- INS 3 -->
+
+  <instrument include="Instruments/concorde-ins-mode.xml">
+   <name>INS mode</name>
+   <condition>
+    <or>
+     <and>
+      <property>/sim/current-view/internal</property>
+      <property>/systems/seat/engineer</property>
+      <less-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>350</value>
+      </less-than>
+      <greater-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>250</value>
+      </greater-than>
+      <less-than>
+       <property>/sim/current-view/goal-pitch-offset-deg</property>
+       <value>-25</value>
+      </less-than>
+     </and>
+     <property>/controls/seat/all</property>
+    </or>
+   </condition>
+   <params>
+    <mode-ctrl>/instrumentation/ins[2]/msu/mode</mode-ctrl>
+   </params>
+   <x>330</x>
+   <y>320</y>
+   <w>56.25</w>
+   <h>45</h>
+  </instrument>
+
+  <instrument include="Instruments/concorde-green-ins-ready.xml">
+   <name>INS ready</name>
+   <condition>
+    <or>
+     <and>
+      <property>/sim/current-view/internal</property>
+      <property>/systems/seat/engineer</property>
+      <less-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>350</value>
+      </less-than>
+      <greater-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>245</value>
+      </greater-than>
+      <less-than>
+       <property>/sim/current-view/goal-pitch-offset-deg</property>
+       <value>-25</value>
+      </less-than>
+     </and>
+     <property>/controls/seat/all</property>
+    </or>
+   </condition>
+   <params>
+    <ready-select>/instrumentation/ins[2]/msu/ready</ready-select>
+    <test-ctrl>/instrumentation/ins[2]/control/test</test-ctrl>
+    <service-select>/instrumentation/ins[2]/serviceable</service-select>
+   </params>
+   <x>380</x>
+   <y>315</y>
+   <w>15</w>
+   <h>30</h>
+  </instrument>
+
+  <instrument include="Instruments/concorde-red-ins-battery.xml">
+   <name>INS battery</name>
+   <condition>
+    <or>
+     <and>
+      <property>/sim/current-view/internal</property>
+      <property>/systems/seat/engineer</property>
+      <less-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>345</value>
+      </less-than>
+      <greater-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>240</value>
+      </greater-than>
+      <less-than>
+       <property>/sim/current-view/goal-pitch-offset-deg</property>
+       <value>-25</value>
+      </less-than>
+     </and>
+     <property>/controls/seat/all</property>
+    </or>
+   </condition>
+   <params>
+    <mode-ctrl>/instrumentation/ins[2]/msu/mode</mode-ctrl>
+    <test-ctrl>/instrumentation/ins[2]/control/test</test-ctrl>
+    <service-select>/instrumentation/ins[2]/serviceable</service-select>
+   </params>
+   <x>405</x>
+   <y>315</y>
+   <w>15</w>
+   <h>30</h>
+  </instrument>
+
+  <instrument include="Instruments/concorde-title-ins.xml">
+   <name>INS mode select</name>
+   <condition>
+    <or>
+     <and>
+      <property>/sim/current-view/internal</property>
+      <property>/systems/seat/engineer</property>
+      <less-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>345</value>
+      </less-than>
+      <greater-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>240</value>
+      </greater-than>
+      <less-than>
+       <property>/sim/current-view/goal-pitch-offset-deg</property>
+       <value>-30</value>
+      </less-than>
+     </and>
+     <property>/controls/seat/all</property>
+    </or>
+   </condition>
+   <x>401</x>
+   <y>307</y>
+   <w>60</w>
+   <h>30</h>
+  </instrument>
+
+ </instruments>
+
+</PropertyList>

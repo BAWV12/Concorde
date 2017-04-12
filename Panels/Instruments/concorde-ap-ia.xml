@@ -1,0 +1,119 @@
+<?xml version="1.0"?>
+
+<!-- Indicated Air Speed acquire -->
+
+<PropertyList>
+ <name>Indicated Air Speed acquire</name>
+ <w-base>104</w-base>
+ <h-base>26</h-base>
+
+
+ <layers>
+<!-- translucent lens -->  
+  <layer>
+   <name>Button light</name>
+   <type>switch</type>
+
+   <layer>
+    <type>group</type>
+    <name>on</name>
+    <condition>
+     <and>
+      <equals>
+       <property>/controls/autoflight/speed</property>
+       <value>speed-with-throttle</value>
+      </equals>
+      <equals>
+       <property>/controls/autoflight/speed2</property>
+       <value>speed-acquire</value>
+      </equals>
+      <not include="concorde-cond-land.xml"/>
+     </and>
+    </condition>
+
+    <layer include="concorde-bulb-white-on.xml">
+     <condition include="concorde-cond-light-afcs.xml"/>
+     <w>104</w>
+     <h>26</h>
+    </layer>
+    <layer>
+     <name>background on</name>
+     <texture>
+      <path>Aircraft/Concorde/Panels/Instruments/Textures/concorde-white-bulb.png</path>
+     </texture>
+     <w>104</w>
+     <h>26</h>
+     <emissive>true</emissive>
+    </layer>
+   </layer>
+
+   <layer>
+    <type>group</type>
+    <name>off</name>
+
+    <layer include="concorde-bulb-white-off.xml">
+     <w>104</w>
+     <h>26</h>
+    </layer>
+    <layer>
+     <name>background</name>
+     <texture>
+      <path>Aircraft/Concorde/Panels/Instruments/Textures/concorde-white-bulb.png</path>
+     </texture>
+     <w>104</w>
+     <h>26</h>
+    </layer>
+   </layer>
+  </layer>
+
+  <layer>
+   <name>Title</name>
+   <type>text</type>
+   <point-size>46</point-size>
+   <color>
+    <red>0.0</red>
+    <green>0.0</green>
+    <blue>0.0</blue>
+   </color>
+   <chunks>
+    <chunk>
+     <type>literal</type>
+     <text>IA</text>
+    </chunk>
+   </chunks>
+   <transformations>
+    <transformation>
+     <type>x-shift</type>
+     <offset>-26</offset>
+    </transformation>
+    <transformation>
+     <type>y-shift</type>
+     <offset>-6</offset>
+    </transformation>
+   </transformations>
+  </layer>
+ </layers>
+ 
+ <actions>
+
+  <action>
+   <desc>IAS hold</desc>
+   <condition include="concorde-cond-voltage-autopilot.xml"/>
+   <button>0</button>
+   <x>-53</x>
+   <y>-13</y>
+   <w>104</w>
+   <h>26</h>
+   <binding>
+    <command>nasal</command>
+    <script>globals.Concorde.autothrottlesystem.atspeedexport();</script>
+   </binding>
+   <binding>
+    <command>property-toggle</command>
+    <property>/instrumentation/generic/click</property>
+   </binding>
+  </action>
+
+ </actions>
+
+</PropertyList>

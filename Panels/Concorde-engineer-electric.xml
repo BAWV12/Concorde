@@ -1,0 +1,2006 @@
+<?xml version="1.0"?>
+
+<!-- Concorde 3D ENGINEER electrical panel
+
+Like the real panel.
+
+WARNING : a button not working by click, means that it is too close of another button (eventually hidden);
+even if both click areas (ctrl-C) don't overlap. Changing internal geometry of button avoids this drawback.
+
+_______________________________________________________________________
+
+This is a panel configuration file for the open-source flight
+simulator FlightGear (www.flightgear.org).  The file is an XML-encoded
+FlightGear property list defining the panel's background texture and
+the location (and optionally, size) of the instruments that will
+appear on the panel.
+
+Each instrument is, itself, defined in an XML-encoded property list
+in a separate file.
+
+Co-ordinates are relative to the *bottom* left corner of the screen
+(as in OpenGL).  The total FlightGear window is always considered-elec to
+be 1024x768, whatever its actual display size on the screen.  All
+paths are relative to $FG_ROOT.
+
+Note that the name of the element defining each instrument must be
+different, or else instrument definitions will be overwritten:
+that's not particularly XML-ish, but that's how property lists
+work in FlightGear right now.
+
+Each instrument has its own preferred width and height, but you can
+override those by providing <w>..</w> and <h>..</h> properties with the
+<x>...</x> and <y>...</y> properties.
+
+-->
+
+<!DOCTYPE PropertyList SYSTEM "panel.dtd">
+
+<PropertyList>
+
+ <name>Concorde Engineer Electrical Panel</name>
+ <background>Aircraft/Concorde/Panels/Textures/transparent-bg.png</background>
+ <w>1024</w>
+ <h>512</h>
+ <y-offset>0</y-offset>
+ <view-height>500</view-height>
+
+ <instruments>
+
+<!-- AC ESSENTIAL BUS -->
+
+  <instrument include="Instruments/concorde-conn-elec-ac-ess.xml">
+   <name>AC Essential Bus 1</name>
+   <condition>
+    <or>
+     <and>
+      <property>/sim/current-view/internal</property>
+      <property>/systems/seat/engineer</property>
+      <less-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>275</value>
+      </less-than>
+      <greater-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>205</value>
+      </greater-than>
+      <less-than>
+       <property>/sim/current-view/goal-pitch-offset-deg</property>
+       <value>5</value>
+      </less-than>
+     </and>
+     <property>/controls/seat/all</property>
+    </or>
+   </condition>
+   <params>
+    <connect-status>/controls/electric/ac/essential[0]</connect-status>
+    <engine-num>/systems/engines/engine[0]/engine-num</engine-num>
+   </params>
+   <x>30</x>
+   <y>620</y>
+   <w>18</w>
+   <h>54</h>
+  </instrument>
+
+  <instrument include="Instruments/concorde-conn-elec-ac-ess.xml">
+   <name>AC Essential Bus 2</name>
+   <condition>
+    <or>
+     <and>
+      <property>/sim/current-view/internal</property>
+      <property>/systems/seat/engineer</property>
+      <less-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>270</value>
+      </less-than>
+      <greater-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>205</value>
+      </greater-than>
+      <less-than>
+       <property>/sim/current-view/goal-pitch-offset-deg</property>
+       <value>5</value>
+      </less-than>
+     </and>
+     <property>/controls/seat/all</property>
+    </or>
+   </condition>
+   <params>
+    <connect-status>/controls/electric/ac/essential[1]</connect-status>
+    <engine-num>/systems/engines/engine[1]/engine-num</engine-num>
+   </params>
+   <x>80</x>
+   <y>620</y>
+   <w>18</w>
+   <h>54</h>
+  </instrument>
+
+  <instrument include="Instruments/concorde-conn-elec-ac-ess.xml">
+   <name>AC Essential Bus 3</name>
+   <condition>
+    <or>
+     <and>
+      <property>/sim/current-view/internal</property>
+      <property>/systems/seat/engineer</property>
+      <less-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>260</value>
+      </less-than>
+      <greater-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>190</value>
+      </greater-than>
+      <less-than>
+       <property>/sim/current-view/goal-pitch-offset-deg</property>
+       <value>5</value>
+      </less-than>
+     </and>
+     <property>/controls/seat/all</property>
+    </or>
+   </condition>
+   <params>
+    <connect-status>/controls/electric/ac/essential[2]</connect-status>
+    <engine-num>/systems/engines/engine[2]/engine-num</engine-num>
+   </params>
+   <x>325</x>
+   <y>620</y>
+   <w>18</w>
+   <h>54</h>
+  </instrument>
+
+  <instrument include="Instruments/concorde-conn-elec-ac-ess.xml">
+   <name>AC Essential Bus 4</name>
+   <condition>
+    <or>
+     <and>
+      <property>/sim/current-view/internal</property>
+      <property>/systems/seat/engineer</property>
+      <less-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>255</value>
+      </less-than>
+      <greater-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>190</value>
+      </greater-than>
+      <less-than>
+       <property>/sim/current-view/goal-pitch-offset-deg</property>
+       <value>5</value>
+      </less-than>
+     </and>
+     <property>/controls/seat/all</property>
+    </or>
+   </condition>
+   <params>
+    <connect-status>/controls/electric/ac/essential[3]</connect-status>
+    <engine-num>/systems/engines/engine[3]/engine-num</engine-num>
+   </params>
+   <x>375</x>
+   <y>620</y>
+   <w>18</w>
+   <h>54</h>
+  </instrument>
+
+<!-- EMERGENCY GENERATOR -->
+
+  <instrument include="Instruments/concorde-title-elec-emerg-gen.xml">
+   <name>Emergency Generator</name>
+   <condition>
+    <or>
+     <and>
+      <property>/sim/current-view/internal</property>
+      <property>/systems/seat/engineer</property>
+      <less-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>265</value>
+      </less-than>
+      <greater-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>200</value>
+      </greater-than>
+      <less-than>
+       <property>/sim/current-view/goal-pitch-offset-deg</property>
+       <value>5</value>
+      </less-than>
+     </and>
+     <property>/controls/seat/all</property>
+    </or>
+   </condition>
+   <x>177</x>
+   <y>650</y>
+   <w>90</w>
+   <h>30</h>
+  </instrument>
+
+  <instrument include="Instruments/concorde-red-elec-o-heat.xml">
+   <name>Emergency Generator Overheat</name>
+   <condition>
+    <or>
+     <and>
+      <property>/sim/current-view/internal</property>
+      <property>/systems/seat/engineer</property>
+      <less-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>270</value>
+      </less-than>
+      <greater-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>200</value>
+      </greater-than>
+      <less-than>
+       <property>/sim/current-view/goal-pitch-offset-deg</property>
+       <value>5</value>
+      </less-than>
+     </and>
+     <property>/controls/seat/all</property>
+    </or>
+   </condition>
+   <x>135</x>
+   <y>620</y>
+   <w>44</w>
+   <h>22</h>
+  </instrument>
+
+  <instrument include="Instruments/concorde-elec-emerg-wattmeter.xml">
+   <name>Load Emergency Generator</name>
+   <condition>
+    <or>
+     <and>
+      <property>/sim/current-view/internal</property>
+      <property>/systems/seat/engineer</property>
+      <less-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>265</value>
+      </less-than>
+      <greater-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>195</value>
+      </greater-than>
+      <less-than>
+       <property>/sim/current-view/goal-pitch-offset-deg</property>
+       <value>5</value>
+      </less-than>
+     </and>
+     <property>/controls/seat/all</property>
+    </or>
+   </condition>
+   <params>
+    <load-volts>/systems/electrical/outputs/probe/ac-emergency-a</load-volts>
+   </params>
+   <x>195</x>
+   <y>610</y>
+   <w>40</w>
+   <h>60</h>
+  </instrument>
+
+  <instrument include="Instruments/concorde-blue-elec-emerg.xml">
+   <name>Emergency Generator Selected</name>
+   <condition>
+    <or>
+     <and>
+      <property>/sim/current-view/internal</property>
+      <property>/systems/seat/engineer</property>
+      <less-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>260</value>
+      </less-than>
+      <greater-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>195</value>
+      </greater-than>
+      <less-than>
+       <property>/sim/current-view/goal-pitch-offset-deg</property>
+       <value>5</value>
+      </less-than>
+     </and>
+     <property>/controls/seat/all</property>
+    </or>
+   </condition>
+   <x>260</x>
+   <y>620</y>
+   <w>44</w>
+   <h>22</h>
+  </instrument>
+
+  <instrument include="Instruments/concorde-elec-emerg-isolation.xml">
+   <name>Emergency Generator Isolation</name>
+   <condition>
+    <or>
+     <and>
+      <property>/sim/current-view/internal</property>
+      <property>/systems/seat/engineer</property>
+      <less-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>270</value>
+      </less-than>
+      <greater-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>200</value>
+      </greater-than>
+      <less-than>
+       <property>/sim/current-view/goal-pitch-offset-deg</property>
+       <value>5</value>
+      </less-than>
+     </and>
+     <property>/controls/seat/all</property>
+    </or>
+   </condition>
+   <x>157</x>
+   <y>560</y>
+   <w>80</w>
+   <h>80</h>
+  </instrument>
+
+  <instrument include="Instruments/concorde-yellow-elec-fail.xml">
+   <name>Emergency Generator Fail</name>
+   <condition>
+    <or>
+     <and>
+      <property>/sim/current-view/internal</property>
+      <property>/systems/seat/engineer</property>
+      <less-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>265</value>
+      </less-than>
+      <greater-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>195</value>
+      </greater-than>
+      <less-than>
+       <property>/sim/current-view/goal-pitch-offset-deg</property>
+       <value>0</value>
+      </less-than>
+     </and>
+     <property>/controls/seat/all</property>
+    </or>
+   </condition>
+   <x>197</x>
+   <y>558</y>
+   <w>44</w>
+   <h>22</h>
+  </instrument>
+
+  <instrument include="Instruments/concorde-elec-emerg-generator.xml">
+   <name>Emergency Generator Selector</name>
+   <condition>
+    <or>
+     <and>
+      <property>/sim/current-view/internal</property>
+      <property>/systems/seat/engineer</property>
+      <less-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>265</value>
+      </less-than>
+      <greater-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>195</value>
+      </greater-than>
+      <less-than>
+       <property>/sim/current-view/goal-pitch-offset-deg</property>
+       <value>5</value>
+      </less-than>
+     </and>
+     <property>/controls/seat/all</property>
+    </or>
+   </condition>
+   <x>265</x>
+   <y>560</y>
+   <w>100</w>
+   <h>80</h>
+  </instrument>
+
+<!-- AC ESSENTIAL BUS -->
+
+  <instrument include="Instruments/concorde-amber-elec-ac-ess-bus.xml">
+   <name>Fault on AC Essential Bus 1</name>
+   <condition>
+    <or>
+     <and>
+      <property>/sim/current-view/internal</property>
+      <property>/systems/seat/engineer</property>
+      <less-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>275</value>
+      </less-than>
+      <greater-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>205</value>
+      </greater-than>
+      <less-than>
+       <property>/sim/current-view/goal-pitch-offset-deg</property>
+       <value>0</value>
+      </less-than>
+     </and>
+     <property>/controls/seat/all</property>
+    </or>
+   </condition>
+   <params>
+    <probe-volt>/systems/electrical/outputs/probe/ac-essential[0]</probe-volt>
+   </params>
+   <x>30</x>
+   <y>585</y>
+   <w>44</w>
+   <h>22</h>
+  </instrument>
+
+  <instrument include="Instruments/concorde-amber-elec-ac-ess-bus.xml">
+   <name>Fault on AC Essential Bus 2</name>
+   <condition>
+    <or>
+     <and>
+      <property>/sim/current-view/internal</property>
+      <property>/systems/seat/engineer</property>
+      <less-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>270</value>
+      </less-than>
+      <greater-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>200</value>
+      </greater-than>
+      <less-than>
+       <property>/sim/current-view/goal-pitch-offset-deg</property>
+       <value>0</value>
+      </less-than>
+     </and>
+     <property>/controls/seat/all</property>
+    </or>
+   </condition>
+   <params>
+    <probe-volt>/systems/electrical/outputs/probe/ac-essential[1]</probe-volt>
+   </params>
+   <x>80</x>
+   <y>585</y>
+   <w>44</w>
+   <h>22</h>
+  </instrument>
+
+  <instrument include="Instruments/concorde-amber-elec-ac-ess-bus.xml">
+   <name>Fault on AC Essential Bus 3</name>
+   <condition>
+    <or>
+     <and>
+      <property>/sim/current-view/internal</property>
+      <property>/systems/seat/engineer</property>
+      <less-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>260</value>
+      </less-than>
+      <greater-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>190</value>
+      </greater-than>
+      <less-than>
+       <property>/sim/current-view/goal-pitch-offset-deg</property>
+       <value>5</value>
+      </less-than>
+     </and>
+     <property>/controls/seat/all</property>
+    </or>
+   </condition>
+   <params>
+    <probe-volt>/systems/electrical/outputs/probe/ac-essential[2]</probe-volt>
+   </params>
+   <x>325</x>
+   <y>585</y>
+   <w>44</w>
+   <h>22</h>
+  </instrument>
+
+  <instrument include="Instruments/concorde-amber-elec-ac-ess-bus.xml">
+   <name>Fault on AC Essential Bus 4</name>
+   <condition>
+    <or>
+     <and>
+      <property>/sim/current-view/internal</property>
+      <property>/systems/seat/engineer</property>
+      <less-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>255</value>
+      </less-than>
+      <greater-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>190</value>
+      </greater-than>
+      <less-than>
+       <property>/sim/current-view/goal-pitch-offset-deg</property>
+       <value>5</value>
+      </less-than>
+     </and>
+     <property>/controls/seat/all</property>
+    </or>
+   </condition>
+   <params>
+    <probe-volt>/systems/electrical/outputs/probe/ac-essential[3]</probe-volt>
+   </params>
+   <x>375</x>
+   <y>585</y>
+   <w>44</w>
+   <h>22</h>
+  </instrument>
+
+<!-- EMERGENCY BUS -->
+
+  <instrument include="Instruments/concorde-elec-ac-ess-emerg.xml">
+   <name>AC Essential 1 Emergency switch</name>
+   <condition>
+    <or>
+     <and>
+      <property>/sim/current-view/internal</property>
+      <property>/systems/seat/engineer</property>
+      <less-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>275</value>
+      </less-than>
+      <greater-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>205</value>
+      </greater-than>
+      <less-than>
+       <property>/sim/current-view/goal-pitch-offset-deg</property>
+       <value>0</value>
+      </less-than>
+     </and>
+     <property>/controls/seat/all</property>
+    </or>
+   </condition>
+   <params>
+    <emerg-switch>/controls/electric/ac/emergency/essential[0]</emerg-switch>
+    <essential-switch>/controls/electric/ac/essential[0]</essential-switch>
+    <engine-num>/systems/engines/engine[0]/engine-num</engine-num>
+   </params>
+   <x>35</x>
+   <y>555</y>
+   <w>75</w>
+   <h>45</h>
+  </instrument>
+
+  <instrument include="Instruments/concorde-elec-ac-ess-emerg.xml">
+   <name>AC Essential 2 Emergency switch</name>
+   <condition>
+    <or>
+     <and>
+      <property>/sim/current-view/internal</property>
+      <property>/systems/seat/engineer</property>
+      <less-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>270</value>
+       </less-than>
+      <greater-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>200</value>
+      </greater-than>
+      <less-than>
+       <property>/sim/current-view/goal-pitch-offset-deg</property>
+       <value>0</value>
+      </less-than>
+     </and>
+     <property>/controls/seat/all</property>
+    </or>
+   </condition>
+   <params>
+    <emerg-switch>/controls/electric/ac/emergency/essential[1]</emerg-switch>
+    <essential-switch>/controls/electric/ac/essential[1]</essential-switch>
+    <engine-num>/systems/engines/engine[1]/engine-num</engine-num>
+   </params>
+   <x>85</x>
+   <y>555</y>
+   <w>75</w>
+   <h>45</h>
+  </instrument>
+
+  <instrument include="Instruments/concorde-elec-ac-ess-emerg.xml">
+   <name>AC Essential 3 Emergency switch</name>
+   <condition>
+    <or>
+     <and>
+      <property>/sim/current-view/internal</property>
+      <property>/systems/seat/engineer</property>
+      <less-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>260</value>
+      </less-than>
+      <greater-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>190</value>
+      </greater-than>
+      <less-than>
+       <property>/sim/current-view/goal-pitch-offset-deg</property>
+       <value>5</value>
+      </less-than>
+     </and>
+     <property>/controls/seat/all</property>
+    </or>
+   </condition>
+   <params>
+    <emerg-switch>/controls/electric/ac/emergency/essential[2]</emerg-switch>
+    <essential-switch>/controls/electric/ac/essential[2]</essential-switch>
+    <engine-num>/systems/engines/engine[2]/engine-num</engine-num>
+   </params>
+   <x>330</x>
+   <y>555</y>
+   <w>75</w>
+   <h>45</h>
+  </instrument>
+
+  <instrument include="Instruments/concorde-elec-ac-ess-emerg.xml">
+   <name>AC Essential 4 Emergency switch</name>
+   <condition>
+    <or>
+     <and>
+      <property>/sim/current-view/internal</property>
+      <property>/systems/seat/engineer</property>
+      <less-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>255</value>
+      </less-than>
+      <greater-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>190</value>
+      </greater-than>
+      <less-than>
+       <property>/sim/current-view/goal-pitch-offset-deg</property>
+       <value>5</value>
+      </less-than>
+     </and>
+     <property>/controls/seat/all</property>
+    </or>
+   </condition>
+   <params>
+    <emerg-switch>/controls/electric/ac/emergency/essential[3]</emerg-switch>
+    <essential-switch>/controls/electric/ac/essential[3]</essential-switch>
+    <engine-num>/systems/engines/engine[3]/engine-num</engine-num>
+   </params>
+   <x>380</x>
+   <y>555</y>
+   <w>75</w>
+   <h>45</h>
+  </instrument>
+
+  <instrument include="Instruments/concorde-connection.xml">
+   <name>Auto Shed Breaker</name>
+   <condition>
+    <or>
+     <and>
+      <property>/sim/current-view/internal</property>
+      <property>/systems/seat/engineer</property>
+      <less-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>265</value>
+      </less-than>
+      <greater-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>195</value>
+      </greater-than>
+      <less-than>
+       <property>/sim/current-view/goal-pitch-offset-deg</property>
+       <value>0</value>
+      </less-than>
+     </and>
+     <property>/controls/seat/all</property>
+    </or>
+   </condition>
+   <params>
+    <connect-status>/controls/electric/ac/emergency/asb</connect-status>
+   </params>
+   <x>200</x>
+   <y>530</y>
+   <w>18</w>
+   <h>18</h>
+  </instrument>
+
+<!-- TRU LOAD -->
+
+  <instrument include="Instruments/concorde-title-elec-tru-ess.xml">
+   <name>Input AC Essential 1</name>
+   <condition>
+    <or>
+     <and>
+      <property>/sim/current-view/internal</property>
+      <property>/systems/seat/engineer</property>
+      <less-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>280</value>
+      </less-than>
+      <greater-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>205</value>
+      </greater-than>
+      <less-than>
+       <property>/sim/current-view/goal-pitch-offset-deg</property>
+       <value>0</value>
+      </less-than>
+     </and>
+     <property>/controls/seat/all</property>
+    </or>
+   </condition>
+   <params>
+    <eng-num>/systems/engines/engine[0]/engine-num</eng-num>
+   </params>
+   <x>-30</x>
+   <y>510</y>
+   <w>75</w>
+   <h>25</h>
+  </instrument>
+
+  <instrument include="Instruments/concorde-elec-tru-ammeter.xml">
+   <name>TRU load AC Essential 1</name>
+   <condition>
+    <or>
+     <and>
+      <property>/sim/current-view/internal</property>
+      <property>/systems/seat/engineer</property>
+      <less-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>275</value>
+      </less-than>
+      <greater-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>205</value>
+      </greater-than>
+      <less-than>
+       <property>/sim/current-view/goal-pitch-offset-deg</property>
+       <value>0</value>
+      </less-than>
+     </and>
+     <property>/controls/seat/all</property>
+    </or>
+   </condition>
+   <params>
+    <load-volts>/systems/electrical/outputs/probe/ac-essential[0]</load-volts>
+   </params>
+   <x>30</x>
+   <y>510</y>
+   <w>40</w>
+   <h>60</h>
+  </instrument>
+
+  <instrument include="Instruments/concorde-title-elec-tru-main.xml">
+   <name>Input AC Main 2</name>
+   <condition>
+    <or>
+     <and>
+      <property>/sim/current-view/internal</property>
+      <property>/systems/seat/engineer</property>
+      <less-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>270</value>
+      </less-than>
+      <greater-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>200</value>
+      </greater-than>
+      <less-than>
+       <property>/sim/current-view/goal-pitch-offset-deg</property>
+       <value>0</value>
+      </less-than>
+     </and>
+     <property>/controls/seat/all</property>
+    </or>
+   </condition>
+   <params>
+    <eng-num>/systems/engines/engine[1]/engine-num</eng-num>
+   </params>
+   <x>65</x>
+   <y>510</y>
+   <w>100</w>
+   <h>25</h>
+  </instrument>
+
+  <instrument include="Instruments/concorde-elec-tru-ammeter.xml">
+   <name>TRU load AC Main 2</name>
+   <condition>
+    <or>
+     <and>
+      <property>/sim/current-view/internal</property>
+      <property>/systems/seat/engineer</property>
+      <less-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>270</value>
+      </less-than>
+      <greater-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>200</value>
+      </greater-than>
+      <less-than>
+       <property>/sim/current-view/goal-pitch-offset-deg</property>
+       <value>0</value>
+      </less-than>
+     </and>
+     <property>/controls/seat/all</property>
+    </or>
+   </condition>
+   <params>
+    <load-volts>/systems/electrical/outputs/probe/ac-main[1]</load-volts>
+   </params>
+   <x>140</x>
+   <y>510</y>
+   <w>40</w>
+   <h>60</h>
+  </instrument>
+
+  <instrument include="Instruments/concorde-elec-tru-ammeter.xml">
+   <name>TRU load AC Main 3</name>
+   <condition>
+    <or>
+     <and>
+      <property>/sim/current-view/internal</property>
+      <property>/systems/seat/engineer</property>
+      <less-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>265</value>
+      </less-than>
+      <greater-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>195</value>
+      </greater-than>
+      <less-than>
+       <property>/sim/current-view/goal-pitch-offset-deg</property>
+       <value>0</value>
+      </less-than>
+     </and>
+     <property>/controls/seat/all</property>
+    </or>
+   </condition>
+   <params>
+    <load-volts>/systems/electrical/outputs/probe/ac-main[2]</load-volts>
+   </params>
+   <x>255</x>
+   <y>510</y>
+   <w>40</w>
+   <h>60</h>
+  </instrument>
+
+  <instrument include="Instruments/concorde-title-elec-tru-main.xml">
+   <name>Input AC Main 3</name>
+   <condition>
+    <or>
+     <and>
+      <property>/sim/current-view/internal</property>
+      <property>/systems/seat/engineer</property>
+      <less-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>260</value>
+      </less-than>
+      <greater-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>190</value>
+      </greater-than>
+      <less-than>
+       <property>/sim/current-view/goal-pitch-offset-deg</property>
+       <value>0</value>
+      </less-than>
+     </and>
+     <property>/controls/seat/all</property>
+    </or>
+   </condition>
+   <params>
+    <eng-num>/systems/engines/engine[2]/engine-num</eng-num>
+   </params>
+   <x>280</x>
+   <y>510</y>
+   <w>100</w>
+   <h>25</h>
+  </instrument>
+
+  <instrument include="Instruments/concorde-elec-tru-ammeter.xml">
+   <name>TRU load AC Essential 4</name>
+   <condition>
+    <or>
+     <and>
+      <property>/sim/current-view/internal</property>
+      <property>/systems/seat/engineer</property>
+      <less-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>260</value>
+      </less-than>
+      <greater-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>190</value>
+      </greater-than>
+      <less-than>
+       <property>/sim/current-view/goal-pitch-offset-deg</property>
+       <value>0</value>
+      </less-than>
+     </and>
+     <property>/controls/seat/all</property>
+    </or>
+   </condition>
+   <params>
+    <load-volts>/systems/electrical/outputs/probe/ac-essential[3]</load-volts>
+   </params>
+   <x>355</x>
+   <y>510</y>
+   <w>40</w>
+   <h>60</h>
+  </instrument>
+
+  <instrument include="Instruments/concorde-title-elec-tru-ess.xml">
+   <name>Input AC Essential 4</name>
+   <condition>
+    <or>
+     <and>
+      <property>/sim/current-view/internal</property>
+      <property>/systems/seat/engineer</property>
+      <less-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>255</value>
+      </less-than>
+      <greater-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>190</value>
+      </greater-than>
+      <less-than>
+       <property>/sim/current-view/goal-pitch-offset-deg</property>
+       <value>0</value>
+      </less-than>
+     </and>
+     <property>/controls/seat/all</property>
+    </or>
+   </condition>
+   <params>
+    <eng-num>/systems/engines/engine[3]/engine-num</eng-num>
+   </params>
+   <x>380</x>
+   <y>510</y>
+   <w>75</w>
+   <h>25</h>
+  </instrument>
+
+<!-- TRU OVERHEAT -->
+
+  <instrument include="Instruments/concorde-title-elec-tru.xml">
+   <name>TRU</name>
+   <condition>
+    <or>
+     <and>
+      <property>/sim/current-view/internal</property>
+      <property>/systems/seat/engineer</property>
+      <less-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>280</value>
+      </less-than>
+      <greater-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>205</value>
+      </greater-than>
+      <less-than>
+       <property>/sim/current-view/goal-pitch-offset-deg</property>
+       <value>-5</value>
+      </less-than>
+     </and>
+     <property>/controls/seat/all</property>
+    </or>
+   </condition>
+   <x>-15</x>
+   <y>460</y>
+   <w>40</w>
+   <h>20</h>
+  </instrument>
+
+  <instrument include="Instruments/concorde-yellow-elec-o-heat.xml">
+   <name>TRU 1 Overheat</name>
+   <condition>
+    <or>
+     <and>
+      <property>/sim/current-view/internal</property>
+      <property>/systems/seat/engineer</property>
+       <less-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>275</value>
+      </less-than>
+      <greater-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>205</value>
+      </greater-than>
+      <less-than>
+       <property>/sim/current-view/goal-pitch-offset-deg</property>
+       <value>-5</value>
+      </less-than>
+     </and>
+     <property>/controls/seat/all</property>
+    </or>
+   </condition>
+   <x>30</x>
+   <y>460</y>
+   <w>44</w>
+   <h>22</h>
+  </instrument>
+
+  <instrument include="Instruments/concorde-elec-tru.xml">
+   <name>TRU 1 switch</name>
+   <condition>
+    <or>
+     <and>
+      <property>/sim/current-view/internal</property>
+      <property>/systems/seat/engineer</property>
+      <less-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>275</value>
+      </less-than>
+      <greater-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>200</value>
+      </greater-than>
+      <less-than>
+       <property>/sim/current-view/goal-pitch-offset-deg</property>
+       <value>-5</value>
+      </less-than>
+     </and>
+     <property>/controls/seat/all</property>
+    </or>
+   </condition>
+   <params>
+    <tru-switch>/controls/electric/dc/essential-a</tru-switch>
+   </params>
+   <x>70</x>
+   <y>460</y>
+   <w>30</w>
+   <h>60</h>
+  </instrument>
+
+  <instrument include="Instruments/concorde-yellow-elec-o-heat.xml">
+   <name>TRU 2 Overheat</name>
+   <condition>
+    <or>
+     <and>
+      <property>/sim/current-view/internal</property>
+      <property>/systems/seat/engineer</property>
+      <less-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>270</value>
+      </less-than>
+      <greater-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>200</value>
+      </greater-than>
+      <less-than>
+       <property>/sim/current-view/goal-pitch-offset-deg</property>
+       <value>-5</value>
+      </less-than>
+     </and>
+     <property>/controls/seat/all</property>
+    </or>
+   </condition>
+   <x>140</x>
+   <y>460</y>
+   <w>44</w>
+   <h>22</h>
+  </instrument>
+
+  <instrument include="Instruments/concorde-elec-tru.xml">
+   <name>TRU 2 switch</name>
+   <condition>
+    <or>
+     <and>
+      <property>/sim/current-view/internal</property>
+      <property>/systems/seat/engineer</property>
+      <less-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>265</value>
+      </less-than>
+      <greater-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>195</value>
+      </greater-than>
+      <less-than>
+       <property>/sim/current-view/goal-pitch-offset-deg</property>
+       <value>-5</value>
+      </less-than>
+     </and>
+     <property>/controls/seat/all</property>
+    </or>
+   </condition>
+   <params>
+    <tru-switch>/controls/electric/dc/main-a</tru-switch>
+   </params>
+   <x>180</x>
+   <y>460</y>
+   <w>30</w>
+   <h>60</h>
+  </instrument>
+
+  <instrument include="Instruments/concorde-yellow-elec-o-heat.xml">
+   <name>TRU 3 Overheat</name>
+   <condition>
+    <or>
+     <and>
+      <property>/sim/current-view/internal</property>
+      <property>/systems/seat/engineer</property>
+      <less-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>265</value>
+      </less-than>
+      <greater-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>195</value>
+      </greater-than>
+      <less-than>
+       <property>/sim/current-view/goal-pitch-offset-deg</property>
+       <value>-5</value>
+      </less-than>
+     </and>
+     <property>/controls/seat/all</property>
+    </or>
+   </condition>
+   <x>260</x>
+   <y>460</y>
+   <w>44</w>
+   <h>22</h>
+  </instrument>
+
+  <instrument include="Instruments/concorde-elec-tru.xml">
+   <name>TRU 3 switch</name>
+   <condition>
+    <or>
+     <and>
+      <property>/sim/current-view/internal</property>
+      <property>/systems/seat/engineer</property>
+      <less-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>260</value>
+      </less-than>
+      <greater-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>190</value>
+      </greater-than>
+      <less-than>
+       <property>/sim/current-view/goal-pitch-offset-deg</property>
+       <value>0</value>
+      </less-than>
+     </and>
+     <property>/controls/seat/all</property>
+    </or>
+   </condition>
+   <params>
+    <tru-switch>/controls/electric/dc/main-b</tru-switch>
+   </params>
+   <x>300</x>
+   <y>460</y>
+   <w>30</w>
+   <h>60</h>
+  </instrument>
+
+  <instrument include="Instruments/concorde-yellow-elec-o-heat.xml">
+   <name>TRU 4 Overheat</name>
+   <condition>
+    <or>
+     <and>
+      <property>/sim/current-view/internal</property>
+      <property>/systems/seat/engineer</property>
+      <less-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>260</value>
+      </less-than>
+      <greater-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>190</value>
+      </greater-than>
+      <less-than>
+       <property>/sim/current-view/goal-pitch-offset-deg</property>
+       <value>0</value>
+      </less-than>
+     </and>
+     <property>/controls/seat/all</property>
+    </or>
+   </condition>
+   <x>360</x>
+   <y>460</y>
+   <w>44</w>
+   <h>22</h>
+  </instrument>
+
+  <instrument include="Instruments/concorde-elec-tru.xml">
+   <name>TRU 4 switch</name>
+   <condition>
+    <or>
+     <and>
+      <property>/sim/current-view/internal</property>
+      <property>/systems/seat/engineer</property>
+      <less-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>255</value>
+      </less-than>
+      <greater-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>190</value>
+      </greater-than>
+      <less-than>
+       <property>/sim/current-view/goal-pitch-offset-deg</property>
+       <value>0</value>
+      </less-than>
+     </and>
+     <property>/controls/seat/all</property>
+    </or>
+   </condition>
+   <params>
+    <tru-switch>/controls/electric/dc/essential-b</tru-switch>
+   </params>
+   <x>400</x>
+   <y>460</y>
+   <w>30</w>
+   <h>60</h>
+  </instrument>
+
+  <instrument include="Instruments/concorde-title-elec-tru.xml">
+   <name>TRU</name>
+   <condition>
+    <or>
+     <and>
+      <property>/sim/current-view/internal</property>
+      <property>/systems/seat/engineer</property>
+      <less-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>255</value>
+      </less-than>
+      <greater-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>190</value>
+      </greater-than>
+      <less-than>
+       <property>/sim/current-view/goal-pitch-offset-deg</property>
+       <value>0</value>
+      </less-than>
+     </and>
+     <property>/controls/seat/all</property>
+    </or>
+   </condition>
+   <x>415</x>
+   <y>460</y>
+   <w>40</w>
+   <h>20</h>
+  </instrument>
+
+<!-- DC LIGHTS -->
+
+  <instrument include="Instruments/concorde-red-elec-dc-ess-bus.xml">
+   <name>Alarm on DC Essential A</name>
+   <condition>
+    <or>
+     <and>
+      <property>/sim/current-view/internal</property>
+      <property>/systems/seat/engineer</property>
+      <less-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>275</value>
+      </less-than>
+      <greater-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>200</value>
+      </greater-than>
+      <less-than>
+       <property>/sim/current-view/goal-pitch-offset-deg</property>
+       <value>-5</value>
+      </less-than>
+     </and>
+     <property>/controls/seat/all</property>
+    </or>
+   </condition>
+   <params>
+    <probe-volt>/systems/electrical/outputs/probe/dc-essential-a</probe-volt>
+   </params>
+   <x>30</x>
+   <y>420</y>
+   <w>44</w>
+   <h>22</h>
+  </instrument>
+
+  <instrument include="Instruments/concorde-red-elec-dc-main-bus.xml">
+   <name>Alarm on DC Main A or B</name>
+   <condition>
+    <or>
+     <and>
+      <property>/sim/current-view/internal</property>
+      <property>/systems/seat/engineer</property>
+      <less-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>270</value>
+      </less-than>
+      <greater-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>195</value>
+      </greater-than>
+      <less-than>
+       <property>/sim/current-view/goal-pitch-offset-deg</property>
+       <value>-5</value>
+      </less-than>
+     </and>
+     <property>/controls/seat/all</property>
+    </or>
+   </condition>
+   <x>207</x>
+   <y>420</y>
+   <w>44</w>
+   <h>22</h>
+  </instrument>
+
+  <instrument include="Instruments/concorde-red-elec-dc-ess-bus.xml">
+   <name>Alarm on DC Essential B</name>
+   <condition>
+    <or>
+     <and>
+      <property>/sim/current-view/internal</property>
+      <property>/systems/seat/engineer</property>
+      <less-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>260</value>
+      </less-than>
+      <greater-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>190</value>
+      </greater-than>
+      <less-than>
+       <property>/sim/current-view/goal-pitch-offset-deg</property>
+       <value>-5</value>
+      </less-than>
+     </and>
+     <property>/controls/seat/all</property>
+    </or>
+   </condition>
+   <params>
+    <probe-volt>/systems/electrical/outputs/probe/dc-essential-b</probe-volt>
+   </params>
+   <x>360</x>
+   <y>420</y>
+   <w>44</w>
+   <h>22</h>
+  </instrument>
+
+<!-- DC BUS -->
+
+  <instrument include="Instruments/concorde-connection.xml">
+   <name>Essential/Main Split A</name>
+   <condition>
+    <or>
+     <and>
+      <property>/sim/current-view/internal</property>
+      <property>/systems/seat/engineer</property>
+      <less-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>270</value>
+      </less-than>
+      <greater-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>200</value>
+      </greater-than>
+      <less-than>
+       <property>/sim/current-view/goal-pitch-offset-deg</property>
+       <value>-5</value>
+      </less-than>
+     </and>
+     <property>/controls/seat/all</property>
+    </or>
+   </condition>
+   <params>
+    <connect-status>/controls/electric/dc/ems-a</connect-status>
+   </params>
+   <x>132</x>
+   <y>420</y>
+   <w>18</w>
+   <h>18</h>
+  </instrument>
+
+  <instrument include="Instruments/concorde-connection.xml">
+   <name>Essential/Main Split B</name>
+   <condition>
+    <or>
+     <and>
+      <property>/sim/current-view/internal</property>
+      <property>/systems/seat/engineer</property>
+      <less-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>265</value>
+      </less-than>
+      <greater-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>190</value>
+      </greater-than>
+      <less-than>
+       <property>/sim/current-view/goal-pitch-offset-deg</property>
+       <value>-5</value>
+      </less-than>
+     </and>
+     <property>/controls/seat/all</property>
+    </or>
+   </condition>
+   <params>
+    <connect-status>/controls/electric/dc/ems-b</connect-status>
+   </params>
+   <x>277</x>
+   <y>420</y>
+   <w>18</w>
+   <h>18</h>
+  </instrument>
+
+<!-- BATTERY BUS -->
+
+  <instrument include="Instruments/concorde-connection-vertical.xml">
+   <name>Battery A</name>
+   <condition>
+    <or>
+     <and>
+      <property>/sim/current-view/internal</property>
+      <property>/systems/seat/engineer</property>
+      <less-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>275</value>
+      </less-than>
+      <greater-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>200</value>
+      </greater-than>
+      <less-than>
+       <property>/sim/current-view/goal-pitch-offset-deg</property>
+       <value>-10</value>
+      </less-than>
+     </and>
+     <property>/controls/seat/all</property>
+    </or>
+   </condition>
+   <params>
+    <connect-status>/controls/electric/dc/master-bat[0]</connect-status>
+   </params>
+   <x>35</x>
+   <y>385</y>
+   <w>18</w>
+   <h>18</h>
+  </instrument>
+
+  <instrument include="Instruments/concorde-connection-vertical.xml">
+   <name>Battery B</name>
+   <condition>
+    <or>
+     <and>
+      <property>/sim/current-view/internal</property>
+      <property>/systems/seat/engineer</property>
+      <less-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>260</value>
+      </less-than>
+      <greater-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>190</value>
+      </greater-than>
+      <less-than>
+       <property>/sim/current-view/goal-pitch-offset-deg</property>
+       <value>-5</value>
+      </less-than>
+     </and>
+     <property>/controls/seat/all</property>
+    </or>
+   </condition>
+   <params>
+    <connect-status>/controls/electric/dc/master-bat[1]</connect-status>
+   </params>
+   <x>365</x>
+   <y>385</y>
+   <w>18</w>
+   <h>18</h>
+  </instrument>
+
+<!-- BATTERIES -->
+
+  <instrument include="Instruments/concorde-elec-battery.xml">
+   <name>Battery A selector</name>
+   <condition>
+    <or>
+     <and>
+      <property>/sim/current-view/internal</property>
+      <property>/systems/seat/engineer</property>
+      <less-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>275</value>
+      </less-than>
+      <greater-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>200</value>
+      </greater-than>
+      <less-than>
+       <property>/sim/current-view/goal-pitch-offset-deg</property>
+       <value>-10</value>
+      </less-than>
+     </and>
+     <property>/controls/seat/all</property>
+    </or>
+   </condition>
+   <params>
+    <master-bat>/controls/electric/dc/master-bat[0]</master-bat>
+    <ess-main-split>/controls/electric/dc/ems-a</ess-main-split>
+   </params>
+   <x>80</x>
+   <y>360</y>
+   <w>65</w>
+   <h>91</h>
+  </instrument>
+
+  <instrument include="Instruments/concorde-elec-battery-ammeter.xml">
+   <name>Load Battery A</name>
+   <condition>
+    <or>
+     <and>
+      <property>/sim/current-view/internal</property>
+      <property>/systems/seat/engineer</property>
+      <less-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>270</value>
+      </less-than>
+      <greater-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>195</value>
+      </greater-than>
+      <less-than>
+       <property>/sim/current-view/goal-pitch-offset-deg</property>
+       <value>-5</value>
+      </less-than>
+     </and>
+     <property>/controls/seat/all</property>
+    </or>
+   </condition>
+   <params>
+    <load-amps>/systems/electrical/suppliers/battery-amps[0]</load-amps>
+   </params>
+   <x>140</x>
+   <y>370</y>
+   <w>40</w>
+   <h>80</h>
+  </instrument>
+
+  <instrument include="Instruments/concorde-elec-battery-ammeter.xml">
+   <name>Load Battery B</name>
+   <condition>
+    <or>
+     <and>
+      <property>/sim/current-view/internal</property>
+      <property>/systems/seat/engineer</property>
+      <less-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>265</value>
+      </less-than>
+      <greater-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>190</value>
+      </greater-than>
+      <less-than>
+       <property>/sim/current-view/goal-pitch-offset-deg</property>
+       <value>-5</value>
+      </less-than>
+     </and>
+     <property>/controls/seat/all</property>
+    </or>
+   </condition>
+   <params>
+    <load-amps>/systems/electrical/suppliers/battery-amps[1]</load-amps>
+   </params>
+   <x>260</x>
+   <y>370</y>
+   <w>40</w>
+   <h>80</h>
+  </instrument>
+
+  <instrument include="Instruments/concorde-elec-battery-right.xml">
+   <name>Battery B selector</name>
+   <condition>
+    <or>
+     <and>
+      <property>/sim/current-view/internal</property>
+      <property>/systems/seat/engineer</property>
+      <less-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>260</value>
+      </less-than>
+      <greater-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>190</value>
+      </greater-than>
+      <less-than>
+       <property>/sim/current-view/goal-pitch-offset-deg</property>
+       <value>-5</value>
+      </less-than>
+     </and>
+     <property>/controls/seat/all</property>
+    </or>
+   </condition>
+   <params>
+    <master-bat>/controls/electric/dc/master-bat[1]</master-bat>
+    <ess-main-split>/controls/electric/dc/ems-b</ess-main-split>
+   </params>
+   <x>330</x>
+   <y>360</y>
+   <w>65</w>
+   <h>91</h>
+  </instrument>
+
+<!-- BATTERY ISOLATION -->
+
+  <instrument include="Instruments/concorde-amber-elec-batt-isolate.xml">
+   <name>Fault on Battery A Isolate</name>
+   <condition>
+    <or>
+     <and>
+      <property>/sim/current-view/internal</property>
+      <property>/systems/seat/engineer</property>
+      <less-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>280</value>
+      </less-than>
+      <greater-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>200</value>
+      </greater-than>
+      <less-than>
+       <property>/sim/current-view/goal-pitch-offset-deg</property>
+       <value>-10</value>
+      </less-than>
+     </and>
+     <property>/controls/seat/all</property>
+    </or>
+   </condition>
+   <params>
+    <master-bat>/controls/electric/dc/master-bat[0]</master-bat>
+   </params>
+   <x>35</x>
+   <y>335</y>
+   <w>44</w>
+   <h>22</h>
+  </instrument>
+
+  <instrument include="Instruments/concorde-amber-elec-batt-isolate.xml">
+   <name>Fault on Battery B Isolate</name>
+   <condition>
+    <or>
+     <and>
+      <property>/sim/current-view/internal</property>
+      <property>/systems/seat/engineer</property>
+      <less-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>260</value>
+      </less-than>
+      <greater-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>190</value>
+      </greater-than>
+      <less-than>
+       <property>/sim/current-view/goal-pitch-offset-deg</property>
+       <value>-5</value>
+      </less-than>
+     </and>
+     <property>/controls/seat/all</property>
+    </or>
+   </condition>
+   <params>
+    <master-bat>/controls/electric/dc/master-bat[1]</master-bat>
+   </params>
+   <x>400</x>
+   <y>335</y>
+   <w>44</w>
+   <h>22</h>
+  </instrument>
+
+<!-- VOLTMETERS -->
+
+  <instrument include="Instruments/concorde-elec-dc-voltmeter.xml">
+   <name>DC voltmeter</name>
+   <condition>
+    <or>
+     <and>
+      <property>/sim/current-view/internal</property>
+      <property>/systems/seat/engineer</property>
+      <less-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>280</value>
+      </less-than>
+      <greater-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>200</value>
+      </greater-than>
+      <less-than>
+       <property>/sim/current-view/goal-pitch-offset-deg</property>
+       <value>-10</value>
+      </less-than>
+     </and>
+     <property>/controls/seat/all</property>
+    </or>
+   </condition>
+   <x>35</x>
+   <y>285</y>
+   <w>40</w>
+   <h>60</h>
+  </instrument>
+
+  <instrument include="Instruments/concorde-elec-dc-voltmeter-sel.xml">
+   <name>DC selector</name>
+   <condition>
+    <or>
+     <and>
+      <property>/sim/current-view/internal</property>
+      <property>/systems/seat/engineer</property>
+      <less-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>275</value>
+      </less-than>
+      <greater-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>195</value>
+      </greater-than>
+      <less-than>
+       <property>/sim/current-view/goal-pitch-offset-deg</property>
+       <value>-10</value>
+      </less-than>
+     </and>
+     <property>/controls/seat/all</property>
+    </or>
+   </condition>
+   <x>120</x>
+   <y>280</y>
+   <w>80</w>
+   <h>60</h>
+  </instrument>
+
+  <instrument include="Instruments/concorde-elec-frequencymeter.xml">
+   <name>Frequencymeter</name>
+   <condition>
+    <or>
+     <and>
+      <property>/sim/current-view/internal</property>
+      <property>/systems/seat/engineer</property>
+      <less-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>270</value>
+      </less-than>
+      <greater-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>190</value>
+      </greater-than>
+      <less-than>
+       <property>/sim/current-view/goal-pitch-offset-deg</property>
+       <value>-10</value>
+      </less-than>
+     </and>
+     <property>/controls/seat/all</property>
+    </or>
+   </condition>
+   <x>220</x>
+   <y>290</y>
+   <w>60</w>
+   <h>120</h>
+  </instrument>
+
+  <instrument include="Instruments/concorde-elec-ac-voltmeter-sel.xml">
+   <name>AC selector</name>
+   <condition>
+    <or>
+     <and>
+      <property>/sim/current-view/internal</property>
+      <property>/systems/seat/engineer</property>
+      <less-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>265</value>
+      </less-than>
+      <greater-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>185</value>
+      </greater-than>
+      <less-than>
+       <property>/sim/current-view/goal-pitch-offset-deg</property>
+       <value>-10</value>
+      </less-than>
+     </and>
+     <property>/controls/seat/all</property>
+    </or>
+   </condition>
+   <x>330</x>
+   <y>280</y>
+   <w>100</w>
+   <h>60</h>
+  </instrument>
+
+  <instrument include="Instruments/concorde-elec-ac-voltmeter.xml">
+   <name>AC voltmeter</name>
+   <condition>
+    <or>
+     <and>
+      <property>/sim/current-view/internal</property>
+      <property>/systems/seat/engineer</property>
+      <less-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>260</value>
+      </less-than>
+      <greater-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>185</value>
+      </greater-than>
+      <less-than>
+       <property>/sim/current-view/goal-pitch-offset-deg</property>
+       <value>-10</value>
+      </less-than>
+     </and>
+     <property>/controls/seat/all</property>
+    </or>
+   </condition>
+   <x>400</x>
+   <y>285</y>
+   <w>40</w>
+   <h>60</h>
+  </instrument>
+
+<!-- LIGHTING -->
+
+  <instrument include="Instruments/concorde-test-eng-center.xml">
+   <name>Test center lights</name>
+   <condition>
+    <or>
+     <and>
+      <property>/sim/current-view/internal</property>
+      <property>/systems/seat/engineer</property>
+      <less-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>280</value>
+      </less-than>
+      <greater-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>195</value>
+      </greater-than>
+      <less-than>
+       <property>/sim/current-view/goal-pitch-offset-deg</property>
+       <value>-15</value>
+      </less-than>
+     </and>
+     <property>/controls/seat/all</property>
+    </or>
+   </condition>
+   <x>95</x>
+   <y>225</y>
+   <w>52</w>
+   <h>52</h>
+  </instrument>
+
+  <instrument include="Instruments/concorde-mws-cancel.xml">
+   <name>cancel mws lights</name>
+   <condition>
+    <or>
+     <and>
+      <property>/sim/current-view/internal</property>
+      <property>/systems/seat/engineer</property>
+      <less-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>275</value>
+      </less-than>
+      <greater-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>195</value>
+      </greater-than>
+      <less-than>
+       <property>/sim/current-view/goal-pitch-offset-deg</property>
+       <value>-15</value>
+      </less-than>
+     </and>
+     <property>/controls/seat/all</property>
+    </or>
+   </condition>
+   <x>150</x>
+   <y>222</y>
+   <w>52</w>
+   <h>52</h>
+  </instrument>
+
+  <instrument include="Instruments/concorde-test-eng-aft.xml">
+   <name>Test aft lights</name>
+   <condition>
+    <or>
+     <and>
+      <property>/sim/current-view/internal</property>
+      <property>/systems/seat/engineer</property>
+      <less-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>260</value>
+      </less-than>
+      <greater-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>185</value>
+      </greater-than>
+      <less-than>
+       <property>/sim/current-view/goal-pitch-offset-deg</property>
+       <value>-10</value>
+      </less-than>
+     </and>
+     <property>/controls/seat/all</property>
+    </or>
+   </condition>
+   <x>375</x>
+   <y>225</y>
+   <w>52</w>
+   <h>52</h>
+  </instrument>
+
+<!-- TANK PRESSURE -->
+
+  <instrument include="Instruments/concorde-title-fuel.xml">
+   <name>Fuel</name>
+   <condition>
+    <or>
+     <and>
+      <property>/sim/current-view/internal</property>
+      <property>/systems/seat/engineer</property>
+      <less-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>280</value>
+      </less-than>
+      <greater-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>195</value>
+      </greater-than>
+      <less-than>
+       <property>/sim/current-view/goal-pitch-offset-deg</property>
+       <value>-15</value>
+      </less-than>
+     </and>
+     <property>/controls/seat/all</property>
+    </or>
+   </condition>
+   <x>75</x>
+   <y>150</y>
+   <w>40</w>
+   <h>20</h>
+  </instrument>
+
+  <instrument include="Instruments/concorde-amber-tank-pressure.xml">
+   <name>Alarm on tank pressure</name>
+   <condition>
+    <or>
+     <and>
+      <property>/sim/current-view/internal</property>
+      <property>/systems/seat/engineer</property>
+      <less-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>280</value>
+      </less-than>
+      <greater-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>195</value>
+      </greater-than>
+      <less-than>
+       <property>/sim/current-view/goal-pitch-offset-deg</property>
+       <value>-15</value>
+      </less-than>
+     </and>
+     <property>/controls/seat/all</property>
+    </or>
+   </condition>
+   <x>85</x>
+   <y>135</y>
+   <w>40</w>
+   <h>20</h>
+  </instrument>
+
+  <instrument include="Instruments/concorde-tank-pressure.xml">
+   <name>Tank pressure</name>
+   <condition>
+    <or>
+     <and>
+      <property>/sim/current-view/internal</property>
+      <property>/systems/seat/engineer</property>
+      <less-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>280</value>
+      </less-than>
+      <greater-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>190</value>
+      </greater-than>
+      <less-than>
+       <property>/sim/current-view/goal-pitch-offset-deg</property>
+       <value>-15</value>
+      </less-than>
+     </and>
+     <property>/controls/seat/all</property>
+    </or>
+   </condition>
+   <x>85</x>
+   <y>90</y>
+   <w>52</w>
+   <h>52</h>
+  </instrument>
+
+ </instruments>
+
+</PropertyList>

@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+
+<!-- Alarm on Overspeed :
+
+     - VMO or MMO exceeded.
+     - nose down above 270 kt.
+     - visor not locked up at speed above Mach 0.95.
+     - pitch below minus 6 deg above Mach 1.0.
+     - enough voltage.
+     - no audio cancel.
+-->
+
+<PropertyList>
+
+ <and>
+  <property>/systems/mws/overspeed</property>
+  <not include="concorde-cond-voltage-bulb.xml"/>
+ </and>
+
+</PropertyList>

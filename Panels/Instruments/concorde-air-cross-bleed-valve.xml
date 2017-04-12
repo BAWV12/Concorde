@@ -1,0 +1,159 @@
+<?xml version="1.0"?>
+
+<!-- Cross bleed valve switch :
+
+     - double switch, because text would disturb the 2nd hotspot
+-->
+
+<PropertyList>
+
+ <name>Cross bleed valve switch</name>
+ <w-base>156</w-base>
+ <h-base>78</h-base>
+
+ <params>
+  <cross-valve>/controls/pneumatic/engine[0]/cross-bleed-valve</cross-valve>
+  <cross-valve2>/controls/pneumatic/engine[1]/cross-bleed-valve</cross-valve2>
+ </params>
+
+
+ <layers>
+
+  <layer>
+   <name>valve switch</name>
+   <type>switch</type>
+
+   <layer include="concorde-switch-off.xml">
+    <name>off</name>
+    <condition>
+     <not>
+      <property alias="../../../../../../params/cross-valve"/>
+     </not>
+    </condition>
+   </layer>
+
+   <layer include="concorde-switch-on.xml">
+    <name>on</name>
+   </layer>
+  </layer>
+
+  <layer>
+   <name>Title on</name>
+   <type>text</type>
+   <point-size>10</point-size>
+   <color>
+    <red>1.0</red>
+    <green>1.0</green>
+    <blue>1.0</blue>
+   </color>
+   <chunks>
+    <chunk>
+     <type>literal</type>
+     <text>OPEN</text>
+    </chunk>
+   </chunks>
+   <transformations>
+    <transformation>
+     <type>x-shift</type>
+     <offset>10</offset>
+    </transformation>
+    <transformation>
+     <type>y-shift</type>
+     <offset>25</offset>
+    </transformation>
+   </transformations>
+  </layer>
+
+  <layer>
+   <name>Title off</name>
+   <type>text</type>
+   <point-size>10</point-size>
+   <color>
+    <red>1.0</red>
+    <green>1.0</green>
+    <blue>1.0</blue>
+   </color>
+   <chunks>
+    <chunk>
+     <type>literal</type>
+     <text>SHUT</text>
+    </chunk>
+   </chunks>
+   <transformations>
+    <transformation>
+     <type>x-shift</type>
+     <offset>11</offset>
+    </transformation>
+    <transformation>
+     <type>y-shift</type>
+     <offset>-26</offset>
+    </transformation>
+   </transformations>
+  </layer>
+
+  <layer>
+   <name>valve 2 switch</name>
+   <type>switch</type>
+
+   <layer include="concorde-switch-off.xml">
+    <name>off</name>
+    <condition>
+     <not>
+      <property alias="../../../../../../params/cross-valve2"/>
+     </not>
+    </condition>
+   </layer>
+
+   <layer include="concorde-switch-on.xml">
+    <name>on</name>
+   </layer>
+
+   <transformations>
+    <transformation>
+     <type>x-shift</type>
+     <offset>53</offset>
+    </transformation>
+   </transformations>
+  </layer>
+
+ </layers>
+
+ <actions>
+
+  <action>
+   <name>Toggle valve</name>
+   <button>0</button>
+   <x>-21</x>
+   <y>-21</y>
+   <w>42</w>
+   <h>42</h>
+   <binding>
+    <command>property-toggle</command>
+    <property alias="../../../../params/cross-valve"/>
+   </binding>
+   <binding>
+    <command>property-toggle</command>
+    <property>/instrumentation/generic/click</property>
+   </binding>
+  </action>
+
+  <action>
+   <name>Toggle valve 2</name>
+   <button>0</button>
+   <x>33</x>
+   <y>-21</y>
+   <w>42</w>
+   <h>42</h>
+   <binding>
+    <command>property-toggle</command>
+    <property alias="../../../../params/cross-valve2"/>
+   </binding>
+   <binding>
+    <command>property-toggle</command>
+    <property>/instrumentation/generic/click</property>
+   </binding>
+  </action>
+
+ </actions>
+ 
+</PropertyList>

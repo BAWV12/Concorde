@@ -1,0 +1,124 @@
+<?xml version="1.0"?>
+
+<PropertyList>
+ <name>Fault anti-stall</name>
+ <w-base>52</w-base>
+ <h-base>52</h-base>
+
+ <params>
+  <num>/systems/engines/engine[0]/engine-num</num>
+ </params>
+
+
+ <layers>
+<!-- translucent lens -->  
+  <layer>
+   <name>Alarm light</name>
+   <type>switch</type>
+
+   <layer>
+    <name>off</name>
+    <type>group</type>
+    <condition>
+     <or include="concorde-cond-voltage-bulb.xml">
+      <or include="concorde-cond-test-overhead.xml"/>       <!-- bug -->
+     </or>
+    </condition>
+
+    <layer include="concorde-bulb-off.xml">
+     <w>52</w>
+     <h>52</h>
+    </layer>
+
+    <layer>
+     <name>Background off</name>
+     <type>switch</type>
+
+     <layer>
+      <name>System 1</name>
+      <condition>
+       <equals>
+        <property alias="../../../../../../../../params/num"/>
+        <value>1</value>
+       </equals>
+      </condition>
+      <texture>
+       <path>Aircraft/Concorde/Panels/Instruments/Textures/concorde-amber-syst-1-fail.png</path>
+       <x1>0.0</x1>
+       <y1>0.0</y1>
+       <x2>1.0</x2>
+       <y2>1.0</y2>
+      </texture>
+      <w>52</w>
+      <h>52</h>
+     </layer>
+
+     <layer>
+      <name>System 2</name>
+      <texture>
+       <path>Aircraft/Concorde/Panels/Instruments/Textures/concorde-amber-syst-2-fail.png</path>
+       <x1>0.0</x1>
+       <y1>0.0</y1>
+       <x2>1.0</x2>
+       <y2>1.0</y2>
+      </texture>
+      <w>52</w>
+      <h>52</h>
+     </layer>
+    </layer>
+   </layer>
+
+   <layer>
+    <name>on</name>
+    <type>group</type>
+
+    <layer include="concorde-bulb-on.xml">
+     <condition include="concorde-cond-light-overhead.xml"/>
+     <w>52</w>
+     <h>52</h>
+    </layer>
+
+    <layer>
+     <name>Background on</name>
+     <type>switch</type>
+
+     <layer>
+      <name>System 1</name>
+      <condition>
+       <equals>
+        <property alias="../../../../../../../../params/num"/>
+        <value>1</value>
+       </equals>
+      </condition>
+      <texture>
+       <path>Aircraft/Concorde/Panels/Instruments/Textures/concorde-amber-syst-1-fail.png</path>
+       <x1>0.0</x1>
+       <y1>0.0</y1>
+       <x2>1.0</x2>
+       <y2>1.0</y2>
+      </texture>
+      <w>52</w>
+      <h>52</h>
+      <emissive>true</emissive>
+     </layer>
+
+     <layer>
+      <name>System 2</name>
+      <texture>
+       <path>Aircraft/Concorde/Panels/Instruments/Textures/concorde-amber-syst-2-fail.png</path>
+       <x1>0.0</x1>
+       <y1>0.0</y1>
+       <x2>1.0</x2>
+       <y2>1.0</y2>
+      </texture>
+      <w>52</w>
+      <h>52</h>
+      <emissive>true</emissive>
+     </layer>
+    </layer>
+   </layer>
+  </layer>
+
+ </layers>
+
+</PropertyList>

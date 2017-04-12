@@ -1,0 +1,396 @@
+<?xml version="1.0"?>
+
+<!-- Ditching valves :
+
+     - double switch, because text would disturb the 2nd switch.
+-->
+
+
+<PropertyList>
+
+ <name>Ditching valves</name>
+ <w-base>182</w-base>
+ <h-base>130</h-base>
+
+
+ <layers>
+
+<!-- SYSTEM 1 -->
+
+  <layer>
+   <name>Title system</name>
+   <type>text</type>
+   <point-size>12</point-size>
+   <color>
+    <red>1.0</red>
+    <green>1.0</green>
+    <blue>1.0</blue>
+   </color>
+   <chunks>
+    <chunk>
+     <type>literal</type>
+     <text>SYS 1</text>
+    </chunk>
+   </chunks>
+   <transformations>
+    <transformation>
+     <type>x-shift</type>
+     <offset>-60</offset>
+    </transformation>
+    <transformation>
+     <type>y-shift</type>
+     <offset>40</offset>
+    </transformation>
+   </transformations>
+  </layer>
+
+  <layer>
+   <name>system selector</name>
+   <type>switch</type>
+
+   <layer include="concorde-switch-on.xml">
+    <name>norm</name>
+    <condition>
+     <not>
+      <property>/controls/pressurization/system[0]/ditching</property>
+     </not>
+    </condition>
+   </layer>
+
+   <layer include="concorde-switch-off.xml">
+    <name>shut</name>
+   </layer>
+
+   <transformations>
+    <transformation>
+     <type>x-shift</type>
+     <offset>-39</offset>
+    </transformation>
+    <transformation>
+     <type>y-shift</type>
+     <offset>-21.5</offset>
+    </transformation>
+   </transformations>
+  </layer>
+
+  <layer>
+   <name>guard</name>
+   <type>switch</type>
+
+   <layer>
+    <name>guard on</name>
+    <condition>
+     <property>/controls/pressurization/system[0]/ditching-guard</property>
+    </condition>
+    <texture>
+     <path>Aircraft/Concorde/Panels/Instruments/Textures/concorde-red-guard.png</path>
+     <x1>0.0</x1>
+     <y1>0.0</y1>
+     <x2>1.0</x2>
+     <y2>1.0</y2>
+    </texture>
+    <w>80</w>
+    <h>80</h>
+    <transformations>
+     <transformation>
+      <type>y-shift</type>
+      <offset>5</offset>
+     </transformation>
+    </transformations>
+   </layer>
+
+   <layer>
+    <name>guard off</name>
+    <texture>
+     <path>Aircraft/Concorde/Panels/Instruments/Textures/concorde-red-guard.png</path>
+     <x1>0.0</x1>
+     <y1>0.0</y1>
+     <x2>1.0</x2>
+     <y2>0.25</y2>
+    </texture>
+    <w>80</w>
+    <h>20</h>
+    <transformations>
+     <transformation>
+      <type>y-shift</type>
+      <offset>-40</offset>
+     </transformation>
+    </transformations>
+   </layer>
+   <transformations>
+    <transformation>
+     <type>x-shift</type>
+     <offset>-40</offset>
+    </transformation>
+    <transformation>
+     <type>y-shift</type>
+     <offset>-10</offset>
+    </transformation>
+   </transformations>
+  </layer>
+
+<!-- SYSTEM 2 -->
+
+  <layer>
+   <name>Title system</name>
+   <type>text</type>
+   <point-size>12</point-size>
+   <color>
+    <red>1.0</red>
+    <green>1.0</green>
+    <blue>1.0</blue>
+   </color>
+   <chunks>
+    <chunk>
+     <type>literal</type>
+     <text>SYS 2</text>
+    </chunk>
+   </chunks>
+   <transformations>
+    <transformation>
+     <type>x-shift</type>
+     <offset>50</offset>
+    </transformation>
+    <transformation>
+     <type>y-shift</type>
+     <offset>50</offset>
+    </transformation>
+   </transformations>
+  </layer>
+
+  <layer>
+   <name>system selector</name>
+   <type>switch</type>
+
+   <layer include="concorde-switch-on.xml">
+    <name>norm</name>
+    <condition>
+     <not>
+      <property>/controls/pressurization/system[1]/ditching</property>
+     </not>
+    </condition>
+   </layer>
+
+   <layer include="concorde-switch-off.xml">
+    <name>shut</name>
+   </layer>
+
+   <transformations>
+    <transformation>
+     <type>x-shift</type>
+     <offset>71</offset>
+    </transformation>
+    <transformation>
+     <type>y-shift</type>
+     <offset>-11.5</offset>
+    </transformation>
+   </transformations>
+  </layer>
+
+  <layer>
+   <name>guard</name>
+   <type>switch</type>
+
+   <layer>
+    <name>guard on</name>
+    <condition>
+     <property>/controls/pressurization/system[1]/ditching-guard</property>
+    </condition>
+    <texture>
+     <path>Aircraft/Concorde/Panels/Instruments/Textures/concorde-red-guard.png</path>
+     <x1>0.0</x1>
+     <y1>0.0</y1>
+     <x2>1.0</x2>
+     <y2>1.0</y2>
+    </texture>
+    <w>80</w>
+    <h>80</h>
+    <transformations>
+     <transformation>
+      <type>y-shift</type>
+      <offset>15</offset>
+     </transformation>
+    </transformations>
+   </layer>
+
+   <layer>
+    <name>guard off</name>
+    <texture>
+     <path>Aircraft/Concorde/Panels/Instruments/Textures/concorde-red-guard.png</path>
+     <x1>0.0</x1>
+     <y1>0.0</y1>
+     <x2>1.0</x2>
+     <y2>0.25</y2>
+    </texture>
+    <w>80</w>
+    <h>20</h>
+    <transformations>
+     <transformation>
+      <type>y-shift</type>
+      <offset>-30</offset>
+     </transformation>
+    </transformations>
+   </layer>
+   <transformations>
+    <transformation>
+     <type>x-shift</type>
+     <offset>70</offset>
+    </transformation>
+    <transformation>
+     <type>y-shift</type>
+     <offset>-10</offset>
+    </transformation>
+   </transformations>
+  </layer>
+
+<!-- TEXT -->
+
+  <layer>
+   <name>Title on</name>
+   <type>text</type>
+   <point-size>10</point-size>
+   <color>
+    <red>1.0</red>
+    <green>1.0</green>
+    <blue>1.0</blue>
+   </color>
+   <chunks>
+    <chunk>
+     <type>literal</type>
+     <text>NORM</text>
+    </chunk>
+   </chunks>
+   <transformations>
+    <transformation>
+     <type>x-shift</type>
+     <offset>0</offset>
+    </transformation>
+    <transformation>
+     <type>y-shift</type>
+     <offset>11</offset>
+    </transformation>
+   </transformations>
+  </layer>
+
+  <layer>
+   <name>Title off</name>
+   <type>text</type>
+   <point-size>10</point-size>
+   <color>
+    <red>1.0</red>
+    <green>1.0</green>
+    <blue>1.0</blue>
+   </color>
+   <chunks>
+    <chunk>
+     <type>literal</type>
+     <text>SHUT</text>
+    </chunk>
+   </chunks>
+   <transformations>
+    <transformation>
+     <type>x-shift</type>
+     <offset>3</offset>
+    </transformation>
+    <transformation>
+     <type>y-shift</type>
+     <offset>-43</offset>
+    </transformation>
+   </transformations>
+  </layer>
+
+ </layers>
+
+ <actions>
+
+  <action>
+   <name>Toggle ditching</name>
+   <condition>
+    <not>
+     <property>/controls/pressurization/system[0]/ditching-guard</property>
+    </not>
+   </condition>
+   <button>1</button>
+   <x>-60</x>
+   <y>-41</y>
+   <w>42</w>
+   <h>42</h>
+   <binding>
+    <command>property-toggle</command>
+    <property>/controls/pressurization/system[0]/ditching</property>
+   </binding>
+   <binding>
+    <command>property-toggle</command>
+    <property>/instrumentation/generic/click</property>
+   </binding>
+  </action>
+
+  <action>
+   <name>Toggle guard</name>
+   <condition>
+    <not>
+     <property>/controls/pressurization/system[0]/ditching</property>
+    </not>
+   </condition>
+   <button>0</button>
+   <x>-60</x>
+   <y>-41</y>
+   <w>42</w>
+   <h>42</h>
+   <binding>
+    <command>property-toggle</command>
+    <property>/controls/pressurization/system[0]/ditching-guard</property>
+   </binding>
+   <binding>
+    <command>property-toggle</command>
+    <property>/instrumentation/generic/click</property>
+   </binding>
+  </action>
+
+  <action>
+   <name>Toggle ditching 2</name>
+   <condition>
+    <not>
+     <property>/controls/pressurization/system[1]/ditching-guard</property>
+    </not>
+   </condition>
+   <button>1</button>
+   <x>50</x>
+   <y>-31</y>
+   <w>42</w>
+   <h>42</h>
+   <binding>
+    <command>property-toggle</command>
+    <property>/controls/pressurization/system[1]/ditching</property>
+   </binding>
+   <binding>
+    <command>property-toggle</command>
+    <property>/instrumentation/generic/click</property>
+   </binding>
+  </action>
+
+  <action>
+   <name>Toggle guard 2</name>
+   <condition>
+    <not>
+     <property>/controls/pressurization/system[1]/ditching</property>
+    </not>
+   </condition>
+   <button>0</button>
+   <x>50</x>
+   <y>-31</y>
+   <w>42</w>
+   <h>42</h>
+   <binding>
+    <command>property-toggle</command>
+    <property>/controls/pressurization/system[1]/ditching-guard</property>
+   </binding>
+   <binding>
+    <command>property-toggle</command>
+    <property>/instrumentation/generic/click</property>
+   </binding>
+  </action>
+
+ </actions>
+ 
+</PropertyList>

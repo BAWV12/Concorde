@@ -1,0 +1,109 @@
+<?xml version="1.0"?>
+
+<!-- Concorde alarm on Terrain (vertical) :
+
+     - excessive rate of descent below 2500 ft.
+     - excessive closure rate with ground.
+     - loss of altitude below 700 ft, after takeoff (NOT IMPLEMENTED) or goaround.
+     - gear not locked below 500 ft, or nose not down below 200 ft on approach.
+-->
+
+<PropertyList>
+ <name>Alarm Terrain (VERTICAL)</name>
+ <w-base>52</w-base>
+ <h-base>104</h-base>
+
+
+ <layers>
+<!-- translucent lens -->  
+  <layer>
+   <name>Alarm light</name>
+   <type>switch</type>
+    <layer>
+     <name>off</name>
+     <type>group</type>
+     <condition include="concorde-cond-gpws.xml"/>
+
+     <layer include="concorde-bulb-off.xml">
+      <w>104</w>
+      <h>52</h>
+     </layer>
+     <layer>
+      <name>background off</name>
+      <texture>
+       <path>Aircraft/Concorde/Panels/Instruments/Textures/concorde-red-terrain.png</path>
+       <x1>0.0</x1>
+       <y1>0.28</y1>
+       <x2>1.0</x2>
+       <y2>0.70</y2>
+      </texture>
+      <w>104</w>
+      <h>52</h>
+     </layer>
+    </layer>
+
+    <layer>
+     <name>on</name>
+     <type>group</type>
+
+     <layer include="concorde-bulb-on.xml">
+      <w>104</w>
+      <h>52</h>
+     </layer>
+     <layer>
+      <name>background on</name>
+      <texture>
+       <path>Aircraft/Concorde/Panels/Instruments/Textures/concorde-red-terrain.png</path>
+       <x1>0.0</x1>
+       <y1>0.28</y1>
+       <x2>1.0</x2>
+       <y2>0.70</y2>
+      </texture>
+      <w>104</w>
+      <h>52</h>
+      <emissive>true</emissive>
+     </layer>
+    </layer>
+
+    <transformations>
+     <transformation>
+      <type>rotation</type>
+      <offset>90</offset>
+     </transformation>
+    </transformations>
+  </layer>
+
+ </layers>
+
+
+ <actions>
+
+  <action>
+   <name>Test</name>
+   <button>0</button>
+   <x>-25</x>
+   <y>-52</y>
+   <w>50</w>
+   <h>104</h>
+   <binding>
+    <command>property-assign</command>
+    <property>/systems/gpws/test</property>
+    <value>true</value>
+    <repeatable>true</repeatable>
+   </binding>
+   <mod-up>
+    <binding>
+     <command>property-assign</command>
+     <property>/systems/gpws/test</property>
+     <value>false</value>
+    </binding>
+    <binding>
+     <command>property-toggle</command>
+     <property>/instrumentation/generic/click</property>
+    </binding>
+   </mod-up>
+  </action>
+
+ </actions>
+
+</PropertyList>

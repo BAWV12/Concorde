@@ -1,0 +1,77 @@
+<?xml version="1.0"?>
+
+<!-- Concorde cabin rate of climb.
+
+
+Adapted from Vertical Velocity Indicator from C172-S
+
+Martin Dressler dr@musicabona.cz
+Jan 30 2003
+
+
+-->
+
+<PropertyList>
+
+ <name>Cabin rate of climb</name>
+ <w-base>512</w-base>
+ <h-base>512</h-base>
+ 
+ <layers>
+ 
+  <layer include="concorde-gauge.xml"/>
+
+  <layer>
+   <name>Backplate</name>
+   <w>512</w>
+   <h>512</h>
+   <texture>
+    <path>Aircraft/Concorde/Panels/Instruments/Textures/concorde-cabin-rate-climb.png</path>
+    <x1>0.0</x1>
+    <x2>1.0</x2>
+    <y1>0.0</y1>
+    <y2>1.0</y2>
+   </texture>
+  </layer>
+
+  <layer>
+   <name>Needle</name>
+   <w>24</w>
+   <h>120</h>
+   <texture>
+    <path>Aircraft/Concorde/Panels/Instruments/Textures/misc-1.png</path>
+    <x1>0.8</x1>
+    <y1>0.78125</y1>
+    <x2>0.8375</x2>
+    <y2>1.0</y2>
+   </texture>
+   <transformations>
+    <transformation>
+     <type>rotation</type>
+     <property>/instrumentation/cabin-rate-climb/indicated-speed-fpm</property>
+     <min>-2000.0</min>
+     <max>2000.0</max>
+     <scale>1.0</scale>
+     <offset>-90.0</offset>
+     <interpolation>
+      <entry><ind>  -2000.0</ind><dep>-173.5</dep></entry>
+      <entry><ind>  -1500.0</ind><dep>-131.5</dep></entry>
+      <entry><ind>  -1000.0</ind><dep> -81.5</dep></entry>
+      <entry><ind>   -500.0</ind><dep> -35.3</dep></entry>
+      <entry><ind>      0.0</ind><dep>   0.0</dep></entry>
+      <entry><ind>    500.0</ind><dep>  35.7</dep></entry>
+      <entry><ind>   1000.0</ind><dep>  81.5</dep></entry>
+      <entry><ind>   1500.0</ind><dep> 131.0</dep></entry>
+      <entry><ind>   2000.0</ind><dep> 172.9</dep></entry>
+     </interpolation>     
+    </transformation>
+    <transformation>
+     <type>y-shift</type>
+     <offset>50.0</offset>
+    </transformation>
+   </transformations>
+  </layer>
+
+ </layers>
+
+</PropertyList>

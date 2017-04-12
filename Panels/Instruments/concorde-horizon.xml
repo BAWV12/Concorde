@@ -1,0 +1,674 @@
+<?xml version="1.0"?>
+
+<!-- Concorde artificial horizon :
+
+     - max positive incidence : 16.5 deg.
+     - min positive incidence : 5.5 deg (above Mach 1.0).
+
+
+
+Adapted from Martin Dressler dr@musicabona.cz
+Artificial horizon from C172RG small version
+GPL
+_______________________________________________________________________________
+
+Based on Default by David Megginson, david@megginson.com.
+
+This is an instrument configuration file for the open-source flight
+simulator FlightGear (www.flightgear.org).  The file is an XML-encoded
+FlightGear property list defining the instrument's layers and actions.
+
+Each instrument is composed of layers stacked on top of each other.
+A layer may be a texture (with transparent parts to show the layers
+underneath), text, or a special layer that switches between two
+others (say, to turn an indicator light on or off).  Each layer can
+move independently in proportion to a property value, and text
+can be generated from property values as well: all of the layer's
+movements are defined as transformations.
+
+Actions are hotspots on the instrument that will respond to a mouse
+click.  Actions always modify the values of properties, either by
+adjusting them, toggling them, or swaping them with other
+properties' values.
+-->
+
+<PropertyList>
+
+ <name>Concorde Artifical horizon</name>
+
+ <w-base>128</w-base>
+ <h-base>128</h-base>
+
+ <params>
+  <serviceable>/instrumentation/attitude-indicator[0]/serviceable</serviceable>
+  <roll-deg>/instrumentation/attitude-indicator[0]/indicated-roll-deg</roll-deg>
+  <pitch-deg>/instrumentation/attitude-indicator[0]/indicated-pitch-deg</pitch-deg>
+  <offset-deg>/instrumentation/attitude-indicator[0]/horizon-offset-deg</offset-deg>
+  <fd2>/instrumentation/attitude-indicator[0]/fd2</fd2>
+  <decision-ctrl>/instrumentation/radio-altimeter[0]/decision-height</decision-ctrl>
+  <decision-ft>/instrumentation/radio-altimeter[0]/decision-ft</decision-ft>
+  <ft-sel>/instrumentation/radio-altimeter[0]/indicated-altitude-ft</ft-sel>
+ </params>
+
+
+ <layers>
+
+  <layer>
+   <name>background</name>
+   <texture>
+    <path>Aircraft/Concorde/Panels/Instruments/Textures/concorde-horizon.png</path>
+    <x1>0.01</x1>
+    <y1>0.01</y1>
+    <x2>0.49</x2>
+    <y2>0.49</y2>
+   </texture>
+   <transformations>
+    <transformation>
+     <condition include="concorde-cond-voltage-horizon.xml">
+      <property alias="../../../../../../params/serviceable"/>
+     </condition>
+     <type>rotation</type>
+     <property alias="../../../../../params/roll-deg"/>
+     <min>-360.0</min>
+     <max>360.0</max>
+     <scale>-1</scale>
+    </transformation>
+   </transformations>
+  </layer>
+
+  <layer>
+   <name>pitch</name>
+   <texture>
+    <path>Aircraft/Concorde/Panels/Instruments/Textures/concorde-horizon.png</path>
+    <x1>0.5</x1>
+    <y1>0.0</y1>
+    <x2>0.875</x2>
+    <y2>0.25</y2>
+   </texture>
+   <w>92</w>
+   <h>62</h>
+   <transformations>
+    <transformation>
+     <condition include="concorde-cond-voltage-horizon.xml">
+      <property alias="../../../../../../params/serviceable"/>
+     </condition>
+     <type>rotation</type>
+     <property alias="../../../../../params/roll-deg"/>
+     <min>-360.0</min>
+     <max>360.0</max>
+     <scale>-1</scale>
+    </transformation>
+    <transformation>
+     <condition include="concorde-cond-voltage-horizon.xml">
+      <property alias="../../../../../../params/serviceable"/>
+     </condition>
+     <type>y-shift</type>
+     <property alias="../../../../../params/pitch-deg"/>
+     <min>-20.0</min>
+     <max>20.0</max>
+     <scale>-1.075</scale>
+     <offset>0</offset>
+    </transformation>
+   </transformations>
+  </layer>
+
+  <layer>
+   <name>roll</name>
+   <texture>
+    <path>Aircraft/Concorde/Panels/Instruments/Textures/concorde-horizon.png</path>
+    <x1>0.51</x1>
+    <y1>0.51</y1>
+    <x2>0.99</x2>
+    <y2>0.99</y2>
+   </texture>
+   <transformations>
+    <transformation>
+     <condition include="concorde-cond-voltage-horizon.xml">
+      <property alias="../../../../../../params/serviceable"/>
+     </condition>
+     <type>rotation</type>
+     <property alias="../../../../../params/roll-deg"/>
+     <min>-360.0</min>
+     <max>360.0</max>
+     <scale>-1</scale>
+    </transformation>
+   </transformations>
+  </layer>
+
+  <layer>
+   <name>plane</name>
+   <texture>
+    <path>Aircraft/Concorde/Panels/Instruments/Textures/concorde-horizon.png</path>
+    <x1>0.5</x1>
+    <y1>0.25</y1>
+    <x2>0.75</x2>
+    <y2>0.40625</y2>
+   </texture>
+   <h>42</h>
+   <w>66</w>
+   <transformations>
+    <transformation>
+     <type>y-shift</type>
+     <property alias="../../../../../params/offset-deg"/>
+     <offset>-17</offset>
+    </transformation>
+   </transformations>
+  </layer>
+
+  <layer>
+   <name>foreground</name>
+   <texture>
+    <path>Aircraft/Concorde/Panels/Instruments/Textures/concorde-horizon.png</path>
+    <x1>0.0</x1>
+    <y1>0.5</y1>
+    <x2>0.5</x2>
+    <y2>1.0</y2>
+   </texture>
+  </layer>
+
+<!-- VOR -->
+
+  <layer>
+   <name>VOR needle</name>
+   <condition>
+    <and include="concorde-cond-voltage-horizon.xml">
+     <property alias="../../../../../params/serviceable"/>
+     <or>
+      <and>
+       <not>
+        <property alias="../../../../../../../../params/fd2"/>
+       </not>
+       <property>/controls/autoflight/flight-director[0]/engage</property>
+      </and>
+      <and>
+       <property alias="../../../../../../../params/fd2"/>
+       <property>/controls/autoflight/flight-director[1]/engage</property>
+      </and>
+     </or>
+    </and>
+   </condition>
+   <w>5</w>
+   <h>61</h>
+   <texture>
+    <path>Aircraft/Concorde/Panels/Instruments/Textures/hsi2.png</path>
+    <x1>0.801875</x1>
+    <x2>0.8515625</x2>
+    <y1>0.359375</y1>
+    <y2>0.6796875</y2>
+   </texture>
+   <transformations>
+    <transformation>
+     <type>y-shift</type>
+     <offset>-23</offset>
+    </transformation>
+    <transformation>
+     <condition>
+      <not>
+       <property alias="../../../../../../../params/fd2"/>
+      </not>
+     </condition>
+     <type>x-shift</type>
+     <property>/instrumentation/nav[1]/heading-needle-deflection</property>
+     <min>-12.0</min>
+     <max>12.0</max>
+     <scale>4.0</scale>
+    </transformation>
+    <transformation>
+     <condition>
+      <property alias="../../../../../../params/fd2"/>
+     </condition>
+     <type>x-shift</type>
+     <property>/instrumentation/nav[2]/heading-needle-deflection</property>
+     <min>-12.0</min>
+     <max>12.0</max>
+     <scale>4.0</scale>
+    </transformation>
+    <transformation>
+     <type>y-shift</type>
+     <offset>20</offset>
+    </transformation>
+    <transformation>
+     <type>x-shift</type>
+     <offset>1</offset>
+    </transformation>
+   </transformations>
+  </layer>
+
+<!-- glide slope -->
+
+  <layer>
+   <name>GS needle left</name>
+   <condition>
+    <and include="concorde-cond-voltage-horizon.xml">
+     <property alias="../../../../../params/serviceable"/>
+     <or>
+      <and>
+       <not>
+        <property alias="../../../../../../../../params/fd2"/>
+       </not>
+       <property>/instrumentation/nav[1]/has-gs</property>
+       <property>/controls/autoflight/flight-director[0]/engage</property>
+      </and>
+      <and>
+       <property alias="../../../../../../../params/fd2"/>
+       <property>/instrumentation/nav[2]/has-gs</property>
+       <property>/controls/autoflight/flight-director[1]/engage</property>
+      </and>
+     </or>
+    </and>
+   </condition>
+   <w>10</w>
+   <h>10</h>
+   <texture>
+    <path>Aircraft/Concorde/Panels/Instruments/Textures/hsi2.png</path>
+    <x1>0.796875</x1>
+    <x2>0.875</x2>
+    <y1>0.6796875</y1>
+    <y2>0.765625</y2>
+   </texture>
+   <transformations>
+    <transformation>
+     <type>x-shift</type>
+     <offset>-40</offset>
+    </transformation>
+    <transformation>
+     <condition>
+      <not>
+       <property alias="../../../../../../../params/fd2"/>
+      </not>
+     </condition>
+     <type>y-shift</type>
+     <property>/instrumentation/nav[1]/gs-needle-deflection</property>
+     <min>-10.0</min>
+     <max>10.0</max>
+     <scale>3.7</scale>
+     <offset>-1</offset>
+    </transformation>
+    <transformation>
+     <condition>
+      <property alias="../../../../../../params/fd2"/>
+     </condition>
+     <type>y-shift</type>
+     <property>/instrumentation/nav[2]/gs-needle-deflection</property>
+     <min>-10.0</min>
+     <max>10.0</max>
+     <scale>3.7</scale>
+     <offset>-1</offset>
+    </transformation>
+   </transformations>
+  </layer>
+				  
+  <layer>
+   <name>GS needle right</name>
+   <condition>
+    <and include="concorde-cond-voltage-horizon.xml">
+     <property alias="../../../../../params/serviceable"/>
+     <or>
+      <and>
+       <not>
+        <property alias="../../../../../../../../params/fd2"/>
+       </not>
+       <property>/instrumentation/nav[1]/has-gs</property>
+       <property>/controls/autoflight/flight-director[0]/engage</property>
+      </and>
+      <and>
+       <property alias="../../../../../../../params/fd2"/>
+       <property>/instrumentation/nav[2]/has-gs</property>
+       <property>/controls/autoflight/flight-director[1]/engage</property>
+      </and>
+     </or>
+    </and>
+   </condition>
+   <w>10</w>
+   <h>10</h>
+   <texture>
+    <path>Aircraft/Concorde/Panels/Instruments/Textures/hsi2.png</path>
+    <x1>0.875</x1>
+    <x2>0.953125</x2>
+    <y1>0.6796875</y1>
+    <y2>0.765625</y2>
+   </texture>
+   <transformations>
+    <transformation>
+     <type>x-shift</type>
+     <offset>40</offset>
+    </transformation>
+    <transformation>
+     <condition>
+      <not>
+       <property alias="../../../../../../../params/fd2"/>
+      </not>
+     </condition>
+     <type>y-shift</type>
+     <property>/instrumentation/nav[1]/gs-needle-deflection</property>
+     <min>-10.0</min>
+     <max>10.0</max>
+     <scale>3.7</scale>
+     <offset>-1</offset>
+    </transformation>
+    <transformation>
+     <condition>
+      <property alias="../../../../../../params/fd2"/>
+     </condition>
+     <type>y-shift</type>
+     <property>/instrumentation/nav[2]/gs-needle-deflection</property>
+     <min>-10.0</min>
+     <max>10.0</max>
+     <scale>3.7</scale>
+     <offset>-1</offset>
+    </transformation>
+   </transformations>
+  </layer>
+
+<!-- Out of range -->
+
+  <layer>
+   <name>NAV OFF</name>
+   <condition>
+    <or>
+     <not include="concorde-cond-voltage-horizon.xml"/>
+     <not>
+      <property alias="../../../../../../params/serviceable"/>
+     </not>
+     <and>
+      <not>
+       <property alias="../../../../../../../params/fd2"/>
+      </not>
+      <not>
+       <property>/instrumentation/nav[1]/in-range</property>
+      </not>
+      <property>/controls/autoflight/flight-director[0]/engage</property>
+     </and>
+     <and>
+      <property alias="../../../../../../params/fd2"/>
+      <not>
+       <property>/instrumentation/nav[2]/in-range</property>
+      </not>
+      <property>/controls/autoflight/flight-director[1]/engage</property>
+     </and>
+    </or>
+   </condition>
+   <w>26</w>
+   <h>15</h>
+   <texture>
+    <path>Aircraft/Concorde/Panels/Instruments/Textures/hsi2.png</path>
+    <x1>0.796875</x1>
+    <x2>1.0</x2>
+    <y1>0.765625</y1>
+    <y2>0.8828125</y2>
+   </texture>
+   <transformations>
+    <transformation>
+     <type>x-shift</type>
+     <offset>0</offset>
+    </transformation>
+    <transformation>
+     <type>y-shift</type>
+     <offset>-45</offset>
+    </transformation>
+   </transformations>
+  </layer>
+
+<!-- translucent lens -->
+
+  <layer>
+   <name>Attitude amber light</name>
+   <type>switch</type>
+
+   <layer>
+    <name>off</name>
+    <type>group</type>
+    <condition>
+     <or>
+      <not include="concorde-cond-voltage-horizon.xml"/>
+      <and>
+       <less-than-equals>
+        <property>/orientation/pitch-deg</property>
+        <value>16.5</value>
+       </less-than-equals>
+       <greater-than-equals>
+        <property>/orientation/pitch-deg</property>
+        <value>-5.5</value>
+       </greater-than-equals>
+      </and>
+     </or>
+    </condition>
+ 
+    <layer>
+     <name>lamp off</name>
+     <texture>
+      <path>Aircraft/Concorde/Panels/Instruments/Textures/concorde-horizon-att-off.png</path>
+      <x1>0.0</x1>
+      <y1>0.0</y1>
+      <x2>1.0</x2>
+      <y2>1.0</y2>
+     </texture>
+     <w>32</w>
+     <h>32</h>
+    </layer>
+
+    <layer>
+     <name>background off</name>
+     <texture>
+      <path>Aircraft/Concorde/Panels/Instruments/Textures/concorde-amber-horizon-att.png</path>
+      <x1>0.0</x1>
+      <y1>0.0</y1>
+      <x2>1.0</x2>
+      <y2>1.0</y2>
+     </texture>
+     <w>32</w>
+     <h>32</h>
+    </layer>
+   </layer>
+
+   <layer>
+    <name>on</name>
+    <type>group</type>
+ 
+    <layer>
+     <name>lamp on</name>
+     <texture>
+      <path>Aircraft/Concorde/Panels/Instruments/Textures/concorde-horizon-att-on.png</path>
+      <x1>0.0</x1>
+      <y1>0.0</y1>
+      <x2>1.0</x2>
+      <y2>1.0</y2>
+     </texture>
+     <emissive>true</emissive>
+     <w>32</w>
+     <h>32</h>
+    </layer>
+    
+    <layer>
+     <name>background on</name>
+     <texture>
+      <path>Aircraft/Concorde/Panels/Instruments/Textures/concorde-amber-horizon-att.png</path>
+      <x1>0.0</x1>
+      <y1>0.0</y1>
+      <x2>1.0</x2>
+      <y2>1.0</y2>
+     </texture>
+     <w>32</w>
+     <h>32</h>
+     <emissive>true</emissive>
+    </layer>
+   </layer>
+   <transformations>
+    <transformation>
+     <type>x-shift</type>
+     <offset>-38</offset>
+    </transformation>
+    <transformation>
+     <type>y-shift</type>
+     <offset>50</offset>
+    </transformation>
+   </transformations>
+  </layer>
+  
+<!-- translucent lens -->
+
+  <layer>
+   <name>Decision amber light</name>
+   <type>switch</type>
+
+   <layer>
+    <name>off</name>
+    <type>group</type>
+    <condition>
+     <or>
+      <not include="concorde-cond-voltage-horizon.xml"/>
+      <not>
+       <property alias="../../../../../../../params/decision-ctrl"/>
+      </not>
+      <greater-than-equals>
+       <property alias="../../../../../../../params/ft-sel"/>
+       <property n="1" alias="../../../../../../../params/decision-ft"/>
+      </greater-than-equals>
+     </or>
+    </condition>
+
+    <layer>
+    <name>lamp off</name>
+    <texture>
+     <path>Aircraft/Concorde/Panels/Instruments/Textures/concorde-horizon-dh-off.png</path>
+     <x1>0.0</x1>
+     <y1>0.0</y1>
+     <x2>1.0</x2>
+     <y2>1.0</y2>
+     </texture>
+     <w>32</w>
+     <h>32</h>
+    </layer>
+    
+    <layer>
+     <name>background off</name>
+     <texture>
+      <path>Aircraft/Concorde/Panels/Instruments/Textures/concorde-amber-horizon-dh.png</path>
+      <x1>0.0</x1>
+      <y1>0.0</y1>
+      <x2>1.0</x2>
+      <y2>1.0</y2>
+     </texture>
+     <h>32</h>
+     <w>32</w>
+    </layer>
+   </layer>
+
+   <layer>
+    <name>on</name>
+    <type>group</type>
+
+    <layer>
+     <name>lamp on</name>
+     <texture>
+      <path>Aircraft/Concorde/Panels/Instruments/Textures/concorde-horizon-dh-on.png</path>
+      <x1>0.0</x1>
+      <y1>0.0</y1>
+      <x2>1.0</x2>
+      <y2>1.0</y2>
+     </texture>
+     <emissive>true</emissive>
+     <w>32</w>
+     <h>32</h>
+    </layer>
+    
+    <layer>
+     <name>background on</name>
+     <texture>
+      <path>Aircraft/Concorde/Panels/Instruments/Textures/concorde-amber-horizon-dh.png</path>
+      <x1>0.0</x1>
+      <y1>0.0</y1>
+      <x2>1.0</x2>
+      <y2>1.0</y2>
+     </texture>
+     <h>32</h>
+     <w>32</w>
+     <emissive>true</emissive>
+    </layer>
+   </layer>
+   <transformations>
+    <transformation>
+     <type>x-shift</type>
+     <offset>35</offset>
+    </transformation>
+    <transformation>
+     <type>y-shift</type>
+     <offset>50</offset>
+    </transformation>
+   </transformations>
+  </layer>
+
+ </layers>
+
+ <actions>
+  <action>
+   <name>fine lower</name>
+   <button>0</button>
+   <x>-11</x>
+   <y>-62</y>
+   <w>11</w>
+   <h>22</h>
+   <binding>
+    <command>property-adjust</command>
+    <property alias="../../../../params/offset-deg"/>
+    <step>-0.5</step>
+    <min>-5</min>
+    <max>5</max>
+    <wrap>false</wrap>
+   </binding>
+  </action>
+
+  <action>
+   <name>coarse lower</name>
+   <button>1</button>
+   <x>-11</x>
+   <y>-62</y>
+   <w>11</w>
+   <h>22</h>
+   <binding>
+   <command>property-adjust</command>
+    <property alias="../../../../params/offset-deg"/>
+    <step>-5</step>
+    <min>-5</min>
+    <max>5</max>
+    <wrap>false</wrap>
+   </binding>
+  </action>
+
+  <action>
+   <name>fine raise</name>
+   <button>0</button>
+   <x>0</x>
+   <y>-62</y>
+   <w>11</w>
+   <h>22</h>
+   <binding>
+   <command>property-adjust</command>
+    <property alias="../../../../params/offset-deg"/>
+    <step>0.5</step>
+    <min>-5</min>
+    <max>5</max>
+    <wrap>false</wrap>
+   </binding>
+  </action>
+
+  <action>
+   <name>coarse raise</name>
+   <button>1</button>
+   <x>0</x>
+   <y>-62</y>
+   <w>11</w>
+   <h>22</h>
+   <binding>
+    <command>property-adjust</command>
+    <property alias="../../../../params/offset-deg"/>
+    <step>5</step>
+    <min>-5</min>
+    <max>5</max>
+    <wrap>false</wrap>
+   </binding>
+  </action>
+
+ </actions>
+
+</PropertyList>

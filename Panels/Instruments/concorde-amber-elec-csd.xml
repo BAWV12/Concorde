@@ -1,0 +1,214 @@
+<?xml version="1.0"?>
+
+<!-- Fault on Constant Speed Drive :
+
+     - low oil pressure (30 PSI not real).
+-->
+
+<PropertyList>
+ <name>Fault CSD</name>
+ <w-base>104</w-base>
+ <h-base>26</h-base>
+
+ <params>
+  <eng-num>/systems/engines/engine[0]/engine-num</eng-num>
+  <oil-select>/systems/engines/engine[0]/csd-oil-psi</oil-select>
+ </params>
+
+
+ <layers>
+<!-- translucent lens -->  
+  <layer>
+   <name>Fault light</name>
+   <type>switch</type>
+
+   <layer>
+    <name>off</name>
+    <type>group</type>
+    <condition>
+     <or include="concorde-cond-voltage-bulb.xml">
+      <and>
+       <or include="concorde-cond-test-eng-aft.xml"/> <!-- bug -->
+       <greater-than>
+        <property alias="../../../../../../../../params/oil-select"/>
+        <value>30</value>
+       </greater-than>
+      </and>
+     </or>
+    </condition>
+
+    <layer include="concorde-bulb-off.xml">
+     <w>104</w>
+     <h>26</h>
+    </layer>
+
+    <layer>
+     <name>Background off</name>
+     <type>switch</type>
+
+     <layer>
+      <name>CSD 1</name>
+      <condition>
+       <equals>
+        <property alias="../../../../../../../../params/eng-num"/>
+        <value>1</value>
+       </equals>
+      </condition>
+      <texture>
+       <path>Aircraft/Concorde/Panels/Instruments/Textures/concorde-amber-csd1.png</path>
+       <x1>0.0</x1>
+       <y1>0.25</y1>
+       <x2>1.0</x2>
+       <y2>0.75</y2>
+      </texture>
+      <w>104</w>
+      <h>26</h>
+     </layer>
+
+     <layer>
+      <name>CSD 2</name>
+      <condition>
+       <equals>
+        <property alias="../../../../../../../../params/eng-num"/>
+        <value>2</value>
+       </equals>
+      </condition>
+      <texture>
+       <path>Aircraft/Concorde/Panels/Instruments/Textures/concorde-amber-csd2.png</path>
+       <x1>0.0</x1>
+       <y1>0.25</y1>
+       <x2>1.0</x2>
+       <y2>0.75</y2>
+      </texture>
+      <w>104</w>
+      <h>26</h>
+     </layer>
+
+     <layer>
+      <name>CSD 3</name>
+      <condition>
+       <equals>
+        <property alias="../../../../../../../../params/eng-num"/>
+        <value>3</value>
+       </equals>
+      </condition>
+      <texture>
+       <path>Aircraft/Concorde/Panels/Instruments/Textures/concorde-amber-csd3.png</path>
+       <x1>0.0</x1>
+       <y1>0.25</y1>
+       <x2>1.0</x2>
+       <y2>0.75</y2>
+      </texture>
+      <w>104</w>
+      <h>26</h>
+     </layer>
+
+     <layer>
+      <name>CSD 4</name>
+      <texture>
+       <path>Aircraft/Concorde/Panels/Instruments/Textures/concorde-amber-csd4.png</path>
+       <x1>0.0</x1>
+       <y1>0.25</y1>
+       <x2>1.0</x2>
+       <y2>0.75</y2>
+      </texture>
+      <w>104</w>
+      <h>26</h>
+     </layer>
+    </layer>
+   </layer>
+
+   <layer>
+    <name>on</name>
+    <type>group</type>
+
+    <layer include="concorde-bulb-on.xml">
+     <condition include="concorde-cond-light-eng-aft.xml"/>
+     <w>104</w>
+     <h>26</h>
+    </layer>
+
+    <layer>
+     <name>Background on</name>
+     <type>switch</type>
+
+     <layer>
+      <name>CSD 1</name>
+      <condition>
+       <equals>
+        <property alias="../../../../../../../../params/eng-num"/>
+        <value>1</value>
+       </equals>
+      </condition>
+      <texture>
+       <path>Aircraft/Concorde/Panels/Instruments/Textures/concorde-amber-csd1.png</path>
+       <x1>0.0</x1>
+       <y1>0.25</y1>
+       <x2>1.0</x2>
+       <y2>0.75</y2>
+      </texture>
+      <w>104</w>
+      <h>26</h>
+      <emissive>true</emissive>
+     </layer>
+
+     <layer>
+      <name>CSD 2</name>
+      <condition>
+       <equals>
+        <property alias="../../../../../../../../params/eng-num"/>
+        <value>2</value>
+       </equals>
+      </condition>
+      <texture>
+       <path>Aircraft/Concorde/Panels/Instruments/Textures/concorde-amber-csd2.png</path>
+       <x1>0.0</x1>
+       <y1>0.25</y1>
+       <x2>1.0</x2>
+       <y2>0.75</y2>
+      </texture>
+      <w>104</w>
+      <h>26</h>
+      <emissive>true</emissive>
+     </layer>
+
+     <layer>
+      <name>CSD 3</name>
+      <condition>
+       <equals>
+        <property alias="../../../../../../../../params/eng-num"/>
+        <value>3</value>
+       </equals>
+      </condition>
+      <texture>
+       <path>Aircraft/Concorde/Panels/Instruments/Textures/concorde-amber-csd3.png</path>
+       <x1>0.0</x1>
+       <y1>0.25</y1>
+       <x2>1.0</x2>
+       <y2>0.75</y2>
+      </texture>
+      <w>104</w>
+      <h>26</h>
+      <emissive>true</emissive>
+     </layer>
+
+     <layer>
+      <name>CSD 4</name>
+      <texture>
+       <path>Aircraft/Concorde/Panels/Instruments/Textures/concorde-amber-csd4.png</path>
+       <x1>0.0</x1>
+       <y1>0.25</y1>
+       <x2>1.0</x2>
+       <y2>0.75</y2>
+      </texture>
+      <w>104</w>
+      <h>26</h>
+      <emissive>true</emissive>
+     </layer>
+    </layer>
+   </layer>
+  </layer>
+
+ </layers>
+
+</PropertyList>

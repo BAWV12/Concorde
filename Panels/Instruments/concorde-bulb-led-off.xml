@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+
+<!-- - caller must provide <w> and <h>.
+     - dark background, because layer over has some transparency.
+     - circular shape.
+-->
+
+<PropertyList>
+
+   <name>lamp off</name>
+   <texture>
+    <path>Aircraft/Concorde/Panels/Instruments/Textures/led.png</path>
+    <x1>0.25</x1>
+    <y1>0.75</y1>
+    <x2>0.5</x2>
+    <y2>1.0</y2>
+   </texture>
+
+</PropertyList>

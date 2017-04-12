@@ -1,0 +1,61 @@
+<?xml version="1.0"?>
+
+<!-- Hydraulical pump status :
+
+     - pump off load.
+     - pump valve off.
+-->
+
+<PropertyList>
+ <name>Pump status</name>
+ <w-base>28</w-base>
+ <h-base>28</h-base>
+
+ <params>
+  <onload-pump>/controls/hydraulic/circuit[0]/onload[0]</onload-pump>
+  <shut-pump>/controls/hydraulic/circuit[0]/valve[0]</shut-pump>
+ </params>
+
+
+ <layers>
+
+  <layer>
+   <name>status</name>
+   <type>switch</type>
+
+   <layer>
+    <name>on</name>
+    <condition>
+     <and>
+      <property alias="../../../../../../params/onload-pump"/>
+      <property alias="../../../../../../params/shut-pump"/>
+     </and>
+    </condition>
+    <texture>
+    <path>Aircraft/Concorde/Panels/Instruments/Textures/concorde-white-on.png</path>
+     <x1>0.0</x1>
+     <y1>0.0</y1>
+     <x2>1.0</x2>
+     <y2>1.0</y2>
+    </texture>
+    <w>28</w>
+    <h>28</h>
+   </layer>
+
+   <layer>
+    <name>off</name>
+    <texture>
+     <path>Aircraft/Concorde/Panels/Instruments/Textures/concorde-black-off.png</path>
+     <x1>0.0</x1>
+     <y1>0.0</y1>
+     <x2>1.0</x2>
+     <y2>1.0</y2>
+    </texture>
+    <w>28</w>
+    <h>28</h>
+   </layer>
+  </layer>
+
+ </layers>
+
+</PropertyList>

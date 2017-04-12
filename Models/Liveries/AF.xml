@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+
+<!--
+
+     Path must be from calling .xml.
+
+-->
+
+<PropertyList>
+  <sim>
+    <model>
+     <livery>
+      <name type="string">Air France</name>
+      <index type="int">3</index>
+      <texture>Liveries/AF.png</texture>
+      <texture-seat>../../Models/Liveries/concorde-seat-AF.png</texture-seat>
+     </livery>
+    </model>
+  </sim>
+</PropertyList>

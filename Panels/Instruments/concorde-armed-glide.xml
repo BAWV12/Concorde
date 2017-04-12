@@ -1,0 +1,74 @@
+<?xml version="1.0"?>
+
+<!-- Glide slope mode armed -->
+
+<PropertyList>
+ <name>Glide slope armed</name>
+ <w-base>110</w-base>
+ <h-base>30</h-base>
+
+
+ <layers>
+
+<!-- translucent lens -->  
+  <layer>
+   <name>Alarm light</name>
+   <type>switch</type>
+
+   <layer>
+    <name>off</name>
+    <type>group</type>
+    <condition>
+     <or include="concorde-cond-glideslope.xml">
+      <not-equals>
+       <property>/controls/autoflight/altitude</property>
+       <value>gs1-hold</value>
+      </not-equals>
+     </or>
+    </condition>
+
+    <layer include="concorde-bulb-white-off.xml">
+     <w>110</w>
+     <h>30</h>
+    </layer>
+    <layer>
+     <name>background</name>
+     <texture>
+      <path>Aircraft/Concorde/Panels/Instruments/Textures/concorde-white-bulb-flat.png</path>
+      <x1>0.7</x1>
+      <y1>0.8</y1>
+      <x2>1.0</x2>
+      <y2>0.9</y2>
+     </texture>
+     <w>110</w>
+     <h>30</h>
+    </layer>
+   </layer>
+
+   <layer>
+    <name>on</name>
+    <type>group</type>
+
+    <layer include="concorde-bulb-white-on.xml">
+     <w>110</w>
+     <h>30</h>
+    </layer>
+    <layer>
+     <name>background lighted</name>
+     <texture>
+      <path>Aircraft/Concorde/Panels/Instruments/Textures/concorde-white-bulb-flat.png</path>
+      <x1>0.7</x1>
+      <y1>0.8</y1>
+      <x2>1.0</x2>
+      <y2>0.9</y2>
+     </texture>
+     <w>110</w>
+     <h>30</h>
+     <emissive>true</emissive>
+    </layer>
+   </layer>
+  </layer>
+
+ </layers>
+
+</PropertyList>

@@ -1,0 +1,146 @@
+<?xml version="1.0"?>
+
+<PropertyList>
+  <name>Concorde-environment2</name>
+  <layout>vbox</layout>
+  <width>450</width>
+
+  <text>
+    <label>Concorde environment 2</label>
+  </text>
+
+  <hrule><dummy/></hrule>
+
+  <group>
+    <layout>vbox</layout>
+    <halign>center</halign>
+
+    <text>
+      <label>Icing  ~</label>
+    </text>
+
+    <text>
+      <label></label>
+    </text>
+
+    <text>
+      <label></label>
+    </text>
+
+    <group>
+      <layout>hbox</layout>
+
+      <group>
+       <layout>vbox</layout>
+       <halign>left</halign>
+
+       <text>
+         <label>Cloud (minutes)</label>
+       </text>
+
+       <input>
+         <halign>left</halign>
+         <label>Few</label>
+         <property>/controls/anti-ice/icing-model/duration/few-min</property>
+       </input>
+
+       <input>
+         <halign>left</halign>
+         <label>Scattered</label>
+         <property>/controls/anti-ice/icing-model/duration/scattered-min</property>
+       </input>
+
+       <input>
+         <halign>left</halign>
+         <label>Broken</label>
+         <property>/controls/anti-ice/icing-model/duration/broken-min</property>
+       </input>
+
+       <input>
+         <halign>left</halign>
+         <label>Overcast</label>
+         <property>/controls/anti-ice/icing-model/duration/overcast-min</property>
+       </input>
+
+       <input>
+         <halign>left</halign>
+         <label>Clear</label>
+         <property>/controls/anti-ice/icing-model/duration/clear-min</property>
+       </input>
+      </group>
+
+      <group>
+       <layout>vbox</layout>
+       <halign>right</halign>
+
+       <text>
+         <label>Outside air temperature (deg C)</label>
+       </text>
+
+       <input>
+         <label>Maximum</label>
+         <property>/controls/anti-ice/icing-model/temperature/max-degc</property>
+       </input>
+
+       <input>
+         <label>Minimum</label>
+         <property>/controls/anti-ice/icing-model/temperature/min-degc</property>
+       </input>
+      </group>
+
+    </group>
+
+  </group>
+
+  <text>
+    <label></label>
+  </text>
+
+  <text>
+   <label>not supported by FDM</label>
+   <color>
+    <red>0.5</red>
+    <green>0.5</green>
+    <blue>0.5</blue>
+   </color>
+  </text>
+
+  <text>
+    <label></label>
+  </text>
+
+  <text>
+    <label></label>
+  </text>
+
+  <group>
+   <layout>hbox</layout>
+
+   <button>
+    <legend>Back</legend>
+    <key>b</key>
+    <binding>
+      <command>dialog-apply</command>
+    </binding>
+    <binding>
+     <command>dialog-show</command>
+     <dialog-name>Concorde-environment</dialog-name>
+    </binding>
+    <binding>
+      <command>dialog-close</command>
+    </binding>
+   </button>
+
+   <button>
+    <legend>Close</legend>
+    <default>true</default>
+    <key>Esc</key>
+    <binding>
+      <command>dialog-apply</command>
+    </binding>
+    <binding>
+      <command>dialog-close</command>
+    </binding>
+   </button>
+  </group>
+</PropertyList>

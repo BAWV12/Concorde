@@ -1,0 +1,81 @@
+<?xml version="1.0"?>
+
+<!-- Forward cabin group :
+
+     - feeds right, is default.
+     - feeds right, if group 1 failed.
+     - disconnected, if group 2 failed.
+     - feeds right, if group 3 or 4 failed.
+-->
+
+<PropertyList>
+ <name>Forward cabin group</name>
+ <w-base>25</w-base>
+ <h-base>25</h-base>
+
+ <params>
+  <connect1-status>/controls/temperature/group[0]/on</connect1-status>
+  <connect-status>/controls/temperature/group[1]/on</connect-status>
+  <connect3-status>/controls/temperature/group[2]/on</connect3-status>
+  <defined-status>/systems/electrical/power/specific</defined-status>
+ </params>
+
+
+ <layers>
+  <layer>
+   <name>Connection flag</name>
+   <type>switch</type>
+
+   <layer>
+    <name>undefined</name>
+    <condition>
+     <not>
+      <property alias="../../../../../../params/defined-status"/>
+     </not>
+    </condition>
+    <texture>
+     <path>Aircraft/Concorde/Panels/Instruments/Textures/concorde-hatched-bg.png</path>
+    </texture>
+    <w>25</w>
+    <h>25</h>
+   </layer>
+
+   <layer>
+    <name>off</name>
+    <condition>
+     <not>
+      <property alias="../../../../../../params/connect-status"/>
+     </not>
+    </condition>
+    <texture>
+     <path>Aircraft/Concorde/Panels/Instruments/Textures/concorde-hatched-bg.png</path>
+    </texture>
+    <w>25</w>
+    <h>25</h>
+   </layer>
+
+   <layer>
+    <name>on 2</name>
+    <condition>
+     <not>
+      <property alias="../../../../../../params/connect1-status"/>
+     </not>
+    </condition>
+    <texture>
+     <path>Aircraft/Concorde/Panels/Instruments/Textures/concorde-bar-top-left-bg.png</path>
+    </texture>
+    <w>25</w>
+    <h>25</h>
+   </layer>
+   <layer>
+    <name>on</name>
+    <texture>
+     <path>Aircraft/Concorde/Panels/Instruments/Textures/concorde-bar-top-right-bg.png</path>
+    </texture>
+    <w>25</w>
+    <h>25</h>
+   </layer>
+  </layer>
+ </layers>
+
+</PropertyList>

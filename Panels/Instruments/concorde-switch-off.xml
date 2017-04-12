@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+
+<!-- - switch down.
+     - makes the reading easier.
+-->
+
+<PropertyList>
+
+    <name>off</name>
+    <texture>
+     <path>Aircraft/Concorde/Panels/Instruments/Textures/switches.png</path>
+     <x1>0.0</x1>
+     <y1>0.0</y1>
+     <x2>0.25</x2>
+     <y2>0.31</y2>
+    </texture>
+    <w>40</w>
+    <h>47</h>
+
+</PropertyList>

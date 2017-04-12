@@ -1,0 +1,97 @@
+<?xml version="1.0"?>
+
+<!-- Concorde alarm on wheel overheat :
+
+     - brake over 220 deg.
+-->
+
+<PropertyList>
+ <name>Alarm wheel overheat</name>
+ <w-base>60</w-base>
+ <h-base>208</h-base>
+
+
+ <layers>
+
+
+<!-- translucent lens -->  
+  <layer>
+   <name>Alarm light</name>
+   <type>switch</type>
+    <layer>
+     <name>off</name>
+     <type>group</type>
+     <condition>
+	<or>
+	   <less-than>
+	    <property>/systems/electrical/outputs/bulb</property>
+	    <value>20.0</value>
+	   </less-than>
+	   <and>
+	   	<less-than>
+            		<property>/systems/brakes/temperature-degc</property>
+            		<value>220</value>
+           	</less-than>
+		<not>		
+			<property>/controls/lighting/crew/copilot/test</property>
+		</not>
+		<not>
+			<property>/controls/hydraulic/brake-test</property>
+		</not>
+	   </and>
+	</or>
+     </condition>
+
+     <layer include="concorde-bulb-off.xml">
+      <w>104</w>
+      <h>52</h>
+     </layer>
+     <layer>
+      <name>background off</name>
+      <texture>
+       <path>Aircraft/Concorde/Panels/Instruments/Textures/concorde-red-wheel.png</path>
+       <x1>0.0</x1>
+       <y1>0.28</y1>
+       <x2>1.0</x2>
+       <y2>0.70</y2>
+      </texture>
+      <w>104</w>
+      <h>52</h>
+     </layer>
+    </layer>
+
+    <layer>
+     <name>on</name>
+     <type>group</type>
+
+     <layer include="concorde-bulb-on.xml">
+      <condition include="concorde-cond-light-copilot.xml"/>
+      <w>104</w>
+      <h>52</h>
+     </layer>
+     <layer>
+      <name>background on</name>
+      <texture>
+       <path>Aircraft/Concorde/Panels/Instruments/Textures/concorde-red-wheel.png</path>
+       <x1>0.0</x1>
+       <y1>0.28</y1>
+       <x2>1.0</x2>
+       <y2>0.70</y2>
+      </texture>
+      <w>104</w>
+      <h>52</h>
+      <emissive>true</emissive>
+     </layer>
+    </layer>
+
+    <transformations>
+     <transformation>
+      <type>rotation</type>
+      <offset>90</offset>
+     </transformation>
+    </transformations>
+  </layer>
+
+ </layers>
+
+</PropertyList>

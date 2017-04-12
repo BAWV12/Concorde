@@ -1,0 +1,37 @@
+<?xml version="1.0"?>
+
+<!-- INS 2 button -->
+
+<PropertyList>
+ <name>INS 5</name>
+ <w-base>52</w-base>
+ <h-base>26</h-base>
+
+
+ <layers>
+
+  <layer>
+   <name>background</name>
+   <texture>
+    <path>Aircraft/Concorde/Panels/Instruments/Textures/concorde-white-button.png</path>
+   </texture>
+   <w>52</w>
+   <h>26</h>
+  </layer>
+
+  <layer>
+   <name>number</name>
+   <texture>
+    <path>Aircraft/Concorde/Panels/Instruments/Textures/concorde-2-black.png</path>
+     <x1>0.0</x1>
+     <y1>0.0</y1>
+     <x2>1.0</x2>
+     <y2>1.0</y2>
+   </texture>
+   <w>52</w>
+   <h>26</h>
+  </layer>
+
+ </layers>
+
+</PropertyList>

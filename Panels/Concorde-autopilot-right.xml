@@ -1,0 +1,223 @@
+<?xml version="1.0"?>
+
+<!-- Concorde 3D panel : autopilot right side, avoiding automatic clipping because too large.
+
+Organized like the real one at http://www.concordesst.com/.
+See also pictures at http://www.airliners.net/info/.
+
+ALIGNMENT :
+- position of autopilot buttons seems independent of Concorde version.
+- but their alignment with the instruments of Captain/Center/Copilot is more or less to the left or right.
+- the choiced alignment has the most buttons visible by the Captain (left).
+- reference is http://www.airliners.net/open.file/373509/L/ (Air France F-BVFB, Markus Mosshamer).
+
+WARNING : a button not working by click, means that it is too close of another button (eventually hidden);
+even if both click areas (ctrl-C) don't overlap. Changing internal geometry of button avoids this drawback.
+
+_______________________________________________________________________
+
+This is a panel configuration file for the open-source flight
+simulator FlightGear (www.flightgear.org).  The file is an XML-encoded
+FlightGear property list defining the panel's background texture and
+the location (and optionally, size) of the instruments that will
+appear on the panel.
+
+Each instrument is, itself, defined in an XML-encoded property list
+in a separate file.
+
+Co-ordinates are relative to the *bottom* left corner of the screen
+(as in OpenGL).  The total FlightGear window is always considered to
+be 1024x768, whatever its actual display size on the screen.  All
+paths are relative to $FG_ROOT.
+
+Note that the name of the element defining each instrument must be
+different, or else instrument definitions will be overwritten:
+that's not particularly XML-ish, but that's how property lists
+work in FlightGear right now.
+
+Each instrument has its own preferred width and height, but you can
+override those by providing <w>..</w> and <h>..</h> properties with the
+<x>...</x> and <y>...</y> properties.
+
+-->
+
+<!-- Concorde autopilot like the real one : http://www.concordesst.com
+
+     MH  IH     | IN  TH  |  HH  TU  PH  |  MP  CL  IP  AH
+         IA     | BB  VL  |      GA  LA  |  GL  CR  VS  AA
+     AT1 AT2 SS | FD1 HT1      VR1  AP1 AP2 HT2    VR2  FD2 AS
+
+MH : Mach Hold (current)
+AT : Autothrottle; default to IH.
+IH : Indicated Air Speed Hold (current); default when autothrottle enabled.
+IA : Indicated Air Speed Acquire (dial).
+SS : Speed Select.
+IN : Inertial Navigation System mode : track between 2 points beeing fed from the INS.
+BB : Back Beam is a flight director mode, not an autopilot mode. It will only operate with autopilot disengaged, and
+     permits tracking of a back beam localizer.
+FD : Flight Director.
+TH : Track or Heading (dial) : heading mode follows the compass direction, while track mode will follow the direct route,
+     taking into account wind speeds.
+VL : VOR 1 or Localiser lock.
+HT : Heading or Track.
+HH : Heading Hold (current); default when autopilot engaged.
+TU : Turbulence mode, only used in moderate to severe turbulence. It holds the existing pitch and heading, and reduces
+     the trim rate to smoothen the ride.
+GA : An automatic go around is initiated when 2 throttles have been moved forward in autoland or glide mode.
+     Holds pitch at 15 deg.
+VR : VOR loc or Ref.
+PH : Pitch Hold; default when autopilot engaged.
+LA : Autoland : glide slope 1 + Nav 1 Loc
+AP : Autopilot; default to HH and PH.
+MP : Mach Hold (current), with pitch. If the autothrottle is engaged, it will take precedence, and the autopilot will
+     default to Pitch Hold.
+GL : Glide : glide slope 1 + Nav 1 Lock
+CL : max CLimb sets speed at Vmo; once reached, holds it with pitch.  
+CR : max CRuise engaged shortly after Mach 2, is an extension of Max Climb. If the aircraft begins to overspeed due to
+     temperature changes, the autothrottle will slow the aircraft down. Once at the correct speed, Mach Hold will
+     disengage, and Max Cruise will re-engage. It also prevents the aircraft exceeding the maximum operating temperature
+     (TMO) of 127 deg Celsius on the tip of the nose. 
+IP : Indicated Air Speed Hold (current), with pitch
+VS : Vertical Speed Hold.
+AH : Altitude Hold (current)
+AA : Altitude Acquire (dial)
+AS : Altitude Select.
+
+BB is not implemented.
+
+
+Acquired modes have a light.
+During the capture, a triangle lights below VO, LA, GL and AA, until the acquisition.
+
+-->
+
+<!DOCTYPE PropertyList SYSTEM "panel.dtd">
+
+<PropertyList>
+
+ <name>Concorde Autopilot (right side) Panel</name>
+ <background>Aircraft/Concorde/Panels/Textures/transparent-bg.png</background>
+ <w>1024</w>
+ <h>512</h>
+ <y-offset>0</y-offset>
+ <view-height>500</view-height>
+
+ <instruments>
+
+<!-- AUTOPILOT -->
+
+<!-- frequencies -->
+
+  <instrument include="Instruments/concorde-hsi-source.xml">
+   <name>HSI source (copilot)</name>
+   <condition>
+    <or>
+     <and>
+      <property>/sim/current-view/internal</property>
+      <property>/systems/seat/captain</property>
+      <less-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>335</value>
+      </less-than>
+      <greater-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>275</value>
+      </greater-than>
+      <greater-than>
+       <property>/sim/current-view/goal-pitch-offset-deg</property>
+       <value>-45</value>
+      </greater-than>
+      <less-than>
+       <property>/sim/current-view/goal-pitch-offset-deg</property>
+       <value>15</value>
+      </less-than>
+     </and>
+     <property>/controls/seat/all</property>
+    </or>
+   </condition>
+   <params>
+    <ins-source>/instrumentation/hsi[1]/ins-source</ins-source>
+   </params>
+   <x>-15</x>
+   <y>518</y>
+   <w>50</w>
+   <h>50</h>
+  </instrument>
+
+  <instrument include="Instruments/concorde-ap-nav.xml">
+   <name>NAV 2 dial</name>
+   <condition>
+    <or>
+     <and>
+      <property>/sim/current-view/internal</property>
+      <property>/systems/seat/captain</property>
+      <less-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>335</value>
+      </less-than>
+      <greater-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>270</value>
+      </greater-than>
+      <greater-than>
+       <property>/sim/current-view/goal-pitch-offset-deg</property>
+       <value>-40</value>
+      </greater-than>
+      <less-than>
+       <property>/sim/current-view/goal-pitch-offset-deg</property>
+       <value>15</value>
+      </less-than>
+     </and>
+     <property>/controls/seat/all</property>
+    </or>
+   </condition>
+   <params>
+    <frq-disp>/instrumentation/nav[2]/frequencies/selected-mhz</frq-disp>
+    <frq-ctrl>/instrumentation/nav[2]/frequencies/selected-mhz</frq-ctrl>
+    <selector-ctrl>/instrumentation/dme[1]/selector</selector-ctrl>
+   </params>
+   <x>47</x>
+   <y>418</y>
+   <w>170</w>
+   <h>140</h>
+  </instrument>
+
+  <instrument include="Instruments/concorde-red-land.xml">
+   <name>Alarm autoland (copilot)</name>
+   <condition>
+    <or>
+     <and>
+      <property>/sim/current-view/internal</property>
+      <property>/systems/seat/captain</property>
+      <less-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>330</value>
+      </less-than>
+      <greater-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>270</value>
+      </greater-than>
+      <greater-than>
+       <property>/sim/current-view/goal-pitch-offset-deg</property>
+       <value>-40</value>
+      </greater-than>
+      <less-than>
+       <property>/sim/current-view/goal-pitch-offset-deg</property>
+       <value>15</value>
+      </less-than>
+     </and>
+     <property>/controls/seat/all</property>
+    </or>
+   </condition>
+   <params>
+    <test>/controls/autoflight/autopilot[1]/test-land</test>
+   </params>
+   <x>205</x>
+   <y>403</y>
+   <w>56</w>
+   <h>28</h>
+  </instrument>
+
+ </instruments>
+
+</PropertyList>

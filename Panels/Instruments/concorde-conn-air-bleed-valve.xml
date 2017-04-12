@@ -1,0 +1,120 @@
+<?xml version="1.0"?>
+
+<!-- Opened bleed valve, with engine number above  -->
+
+
+<PropertyList>
+ <name>Bleed valve</name>
+ <w-base>50</w-base>
+ <h-base>100</h-base>
+
+ <params>
+  <running-status>/controls/engines/engine[0]/running</running-status>
+  <engine-num>/systems/engines/engine[0]/engine-num</engine-num>
+  <bleed-valve>/controls/pneumatic/engine[0]/bleed-valve</bleed-valve>
+  <defined-status>/systems/electrical/power/specific</defined-status>
+ </params>
+
+
+ <layers>
+  <layer>
+   <name>Connection flag</name>
+   <type>switch</type>
+
+   <layer>
+    <name>undefined</name>
+    <condition>
+     <not>
+      <property alias="../../../../../../params/defined-status"/>
+     </not>
+    </condition>
+    <texture>
+     <path>Aircraft/Concorde/Panels/Instruments/Textures/concorde-hatched-bg.png</path>
+    </texture>
+    <w>25</w>
+    <h>25</h>
+   </layer>
+
+   <layer>
+    <name>on</name>
+    <condition>
+     <and>
+      <property alias="../../../../../../params/running-status"/>
+      <property alias="../../../../../../params/bleed-valve"/>
+     </and>
+    </condition>
+    <texture>
+     <path>Aircraft/Concorde/Panels/Instruments/Textures/concorde-bar-vertical-bg.png</path>
+    </texture>
+    <w>25</w>
+    <h>25</h>
+   </layer>
+
+   <layer>
+    <name>off</name>
+    <texture>
+     <path>Aircraft/Concorde/Panels/Instruments/Textures/concorde-bar-horizontal-bg.png</path>
+    </texture>
+    <w>25</w>
+    <h>25</h>
+   </layer>
+  </layer>
+
+  <layer>
+   <name>Title engine</name>
+   <type>text</type>
+   <point-size>12</point-size>
+   <color>
+    <red>1.0</red>
+    <green>1.0</green>
+    <blue>1.0</blue>
+   </color>
+   <chunks>
+    <chunk>
+     <type>literal</type>
+     <text>ENG</text>
+    </chunk>
+   </chunks>
+   <transformations>
+    <transformation>
+     <type>x-shift</type>
+     <offset>-17</offset>
+    </transformation>
+    <transformation>
+     <type>y-shift</type>
+     <offset>38</offset>
+    </transformation>
+   </transformations>
+  </layer>
+
+  <layer>
+   <name>Title engine number</name>
+   <type>text</type>
+   <point-size>12</point-size>
+   <color>
+    <red>1.0</red>
+    <green>1.0</green>
+    <blue>1.0</blue>
+   </color>
+   <chunks>
+    <chunk>
+     <type>number-value</type>
+     <property alias="../../../../../params/engine-num"/>
+     <format>%1.f</format>
+    </chunk>
+   </chunks>
+   <transformations>
+    <transformation>
+     <type>x-shift</type>
+     <offset>16</offset>
+    </transformation>
+    <transformation>
+     <type>y-shift</type>
+     <offset>38</offset>
+    </transformation>
+   </transformations>
+  </layer>
+
+ </layers>
+
+</PropertyList>

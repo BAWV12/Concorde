@@ -1,0 +1,127 @@
+<?xml version="1.0"?>
+
+<PropertyList>
+
+ <name>Engineer Machmeter</name>
+ <w-base>128</w-base>
+ <h-base>128</h-base>
+
+ <layers>
+
+  <layer include="concorde-gauge.xml"/>
+
+  <layer>
+   <name>background</name>
+   <texture>
+    <path>Aircraft/Concorde/Panels/Instruments/Textures/concorde-black-bg.png</path>
+   </texture>
+    <w>95</w>
+    <h>45</h>
+  </layer>
+
+  <layer>
+   <name>Title</name>
+   <type>text</type>
+   <point-size>9</point-size>
+   <color>
+    <red>1.0</red>
+    <green>1.0</green>
+    <blue>1.0</blue>
+   </color>
+   <chunks>
+    <chunk>
+     <type>literal</type>
+     <text>MACH</text>
+    </chunk>
+   </chunks>
+   <transformations>
+    <transformation>
+     <type>x-shift</type>
+     <offset>-14</offset>
+    </transformation>
+    <transformation>
+     <type>y-shift</type>
+     <offset>-15</offset>
+    </transformation>
+   </transformations>
+  </layer>
+
+  <layer>
+   <name>Power management</name>
+   <type>switch</type>
+
+   <layer>
+    <name>Mach display</name>
+    <type>switch</type>
+    <condition>
+     <not>
+      <property>/instrumentation/mach-indicator[2]/failure-flag</property>
+     </not>
+    </condition>
+
+<!-- the Mach 0.45 limitation is to match the Captain's machmeter -->
+
+    <layer>
+     <name>Mach</name>
+     <condition>
+      <greater-than-equals>
+       <property>/instrumentation/mach-indicator[2]/indicated-mach</property>
+       <value>0.45</value>
+      </greater-than-equals>
+     </condition>
+     <type>text</type>
+    <font>led</font>
+     <point-size>8</point-size>
+     <color>
+      <red>1.0</red>
+      <green>1.0</green>
+      <blue>1.0</blue>
+     </color>
+     <chunks>
+      <chunk>
+       <type>number-value</type>
+       <property>/velocities/mach</property>
+       <min>0.45</min>
+       <format>%1.2f</format>
+      </chunk>
+     </chunks>
+     <transformations>
+      <transformation>
+       <type>x-shift</type>
+       <offset>-17</offset>
+      </transformation>
+     </transformations>
+    </layer>
+   </layer>
+
+   <layer>
+    <name>OFF flag</name>
+    <texture>
+     <path>Aircraft/Concorde/Panels/Instruments/Textures/misc-1.png</path>
+     <x1>0.9375</x1>
+     <y1>0.5</y1>
+     <x2>1.0</x2>
+     <y2>0.546875</y2>
+    </texture>
+    <w>40</w>
+    <h>15</h>
+    <transformations>
+     <transformation>
+      <type>x-shift</type>
+      <offset>-11</offset>
+     </transformation>
+     <transformation>
+      <type>y-shift</type>
+      <offset>1</offset>
+     </transformation>
+     <transformation>
+      <type>rotation</type>
+      <offset>45</offset>
+     </transformation>
+    </transformations>
+   </layer>
+  </layer>
+
+ </layers>
+
+</PropertyList>

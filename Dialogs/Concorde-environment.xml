@@ -1,0 +1,140 @@
+<?xml version="1.0"?>
+
+<PropertyList>
+  <name>Concorde-environment</name>
+  <layout>vbox</layout>
+  <width>500</width>
+
+  <text>
+    <label>Concorde environment</label>
+  </text>
+
+  <hrule><dummy/></hrule>
+
+  <group>
+    <layout>vbox</layout>
+    <halign>center</halign>
+
+    <text>
+      <label>Visual effects  ~</label>
+    </text>
+
+    <text>
+      <label></label>
+    </text>
+
+    <group>
+      <layout>hbox</layout>
+
+      <checkbox>
+        <halign>left</halign>
+        <label>smoke</label>
+        <property>/controls/environment/smoke</property>
+        <binding>
+         <command>property-toggle</command>
+         <property>/controls/environment/smoke</property>
+        </binding>
+      </checkbox>
+
+      <group>
+        <layout>vbox</layout>
+
+        <checkbox>
+          <halign>left</halign>
+          <label>rain visible from cockpit</label>
+          <property>/controls/environment/rain</property>
+          <binding>
+           <command>property-toggle</command>
+           <property>/controls/environment/rain</property>
+          </binding>
+        </checkbox>
+
+        <text>
+         <label>(restart after toggle)</label>
+         <color>
+          <red>0.5</red>
+          <green>0.5</green>
+          <blue>0.5</blue>
+         </color>
+        </text>
+      </group>
+
+      <button>
+       <enabled alias="/sim/rendering/shaders/skydome"/>
+       <legend>ALS</legend>
+       <key>a</key>
+       <binding>
+       <command>dialog-show</command>
+        <dialog-name>Concorde-environment3</dialog-name>
+       </binding>
+       <binding>
+        <command>dialog-close</command>
+       </binding>
+      </button>
+    </group>
+
+   <text>
+    <label></label>
+   </text>
+
+   <text>
+    <label></label>
+   </text>
+
+   <group>
+    <layout>hbox</layout>
+
+    <button>
+     <legend>Icing</legend>
+     <key>i</key>
+     <binding>
+      <command>dialog-show</command>
+      <dialog-name>Concorde-environment2</dialog-name>
+     </binding>
+     <binding>
+      <command>dialog-close</command>
+      </binding>
+     </button>
+   </group>
+
+  </group>
+
+  <text>
+    <label></label>
+  </text>
+
+  <text>
+    <label></label>
+  </text>
+
+  <group>
+   <layout>hbox</layout>
+
+   <button>
+    <legend>Back</legend>
+    <key>b</key>
+    <binding>
+      <command>dialog-apply</command>
+    </binding>
+    <binding>
+     <command>dialog-show</command>
+     <dialog-name>Concorde-menu</dialog-name>
+    </binding>
+    <binding>
+      <command>dialog-close</command>
+    </binding>
+   </button>
+
+   <button>
+    <legend>Close</legend>
+    <default>true</default>
+    <key>Esc</key>
+    <binding>
+      <command>dialog-apply</command>
+    </binding>
+    <binding>
+      <command>dialog-close</command>
+    </binding>
+   </button>
+  </group>
+</PropertyList>

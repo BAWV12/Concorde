@@ -1,0 +1,38 @@
+<?xml version="1.0" ?> 
+
+<PropertyList> 
+ <path>steering.ac</path> 
+
+ <animation>
+  <type>rotate</type>
+  <object-name>Steering</object-name>
+  <property>controls/flight/rudder</property>
+  <factor>-15</factor>
+  <offset-deg>0</offset-deg>   
+  <condition>
+   <property>controls/crew/steering/wheel</property>
+  </condition>
+  <center>
+   <x-m>0.0</x-m>
+   <y-m>0.0</y-m>
+   <z-m>0.0</z-m>
+  </center>
+  <axis>
+   <x>1.0</x>
+   <y>0.0</y>
+   <z>0.0</z>
+  </axis>
+ </animation>
+
+ <animation>
+  <type>material</type>
+  <object-name>Steering</object-name>
+  <emission>
+   <red>0.66</red>
+   <green>0.68</green>
+   <blue>0.64</blue>
+   <factor-prop>systems/lighting/level/roof</factor-prop>
+  </emission> 
+ </animation> 
+
+</PropertyList>

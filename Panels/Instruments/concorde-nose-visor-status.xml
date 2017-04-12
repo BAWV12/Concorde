@@ -1,0 +1,365 @@
+<?xml version="1.0"?>
+
+<PropertyList>
+
+ <name>Nose / Visor status</name>
+ <w-base>107</w-base>
+ <h-base>150</h-base>
+
+ <layers>
+
+
+
+<!-- VISOR -->
+
+  <layer>
+   <name>background</name>
+   <type>switch</type>
+
+   <layer>
+    <name>Visor down</name>
+    <condition>
+     <and include="concorde-cond-voltage-nose.xml">
+      <greater-than-equals>
+       <property>/instrumentation/nose-visor/pos-norm</property>
+       <property n="1">/sim/flaps/setting[1]</property>
+      </greater-than-equals>
+     </and>
+    </condition>
+    <texture>
+     <path>Aircraft/Concorde/Panels/Instruments/Textures/concorde-black-down.png</path>
+    </texture>
+    <x1>0.0</x1>
+    <y1>0.40</y1>
+    <x2>1.0</x2>
+    <y2>0.60</y2>
+    <w>30</w>
+    <h>30</h>
+   </layer>
+
+   <layer>
+    <name>Visor up</name>
+    <condition>
+     <and include="concorde-cond-voltage-nose.xml">
+      <equals>
+       <property>/instrumentation/nose-visor/pos-norm</property>
+       <property n="1">/sim/flaps/setting[0]</property>
+      </equals>
+     </and>
+    </condition>
+    <texture>
+     <path>Aircraft/Concorde/Panels/Instruments/Textures/concorde-black-up.png</path>
+    </texture>
+    <x1>0.0</x1>
+    <y1>0.40</y1>
+    <x2>1.0</x2>
+    <y2>0.60</y2>
+    <w>30</w>
+    <h>30</h>
+   </layer>
+
+   <layer>
+    <name>background transit</name>
+    <texture>
+     <path>Aircraft/Concorde/Panels/Instruments/Textures/concorde-hatched-bg.png</path>
+    </texture>
+    <w>30</w>
+    <h>30</h>
+   </layer>
+
+   <transformations>
+    <transformation>
+     <type>x-shift</type>
+     <offset>-15</offset>
+    </transformation>
+    <transformation>
+     <type>y-shift</type>
+     <offset>40</offset>
+    </transformation>
+   </transformations>
+  </layer>
+
+  <layer>
+   <name>Title</name>
+   <type>text</type>
+   <point-size>10</point-size>
+   <color>
+    <red>1.0</red>
+    <green>1.0</green>
+    <blue>1.0</blue>
+   </color>
+   <chunks>
+    <chunk>
+     <type>literal</type>
+     <text>VISOR</text>
+    </chunk>
+   </chunks>
+   <transformations>
+    <transformation>
+     <type>x-shift</type>
+     <offset>-32</offset>
+    </transformation>
+    <transformation>
+     <type>y-shift</type>
+     <offset>15</offset>
+    </transformation>
+   </transformations>
+  </layer>
+
+<!-- NOSE -->
+
+  <layer>
+   <name>background</name>
+   <type>switch</type>
+
+   <layer>
+    <name>Nose down</name>
+    <condition>
+     <and include="concorde-cond-voltage-nose.xml">
+      <equals>
+       <property>/instrumentation/nose-visor/pos-norm</property>
+       <property n="1">/sim/flaps/setting[3]</property>
+      </equals>
+     </and>
+    </condition>
+    <texture>
+     <path>Aircraft/Concorde/Panels/Instruments/Textures/concorde-black-down.png</path>
+    </texture>
+    <x1>0.0</x1>
+    <y1>0.0</y1>
+    <x2>1.0</x2>
+    <y2>1.0</y2>
+    <w>40</w>
+    <h>40</h>
+   </layer>
+
+   <layer>
+    <name>Nose 5 deg</name>
+    <condition>
+     <and include="concorde-cond-voltage-nose.xml">
+      <equals>
+       <property>/instrumentation/nose-visor/pos-norm</property>
+       <property n="1">/sim/flaps/setting[2]</property>
+      </equals>
+     </and>
+    </condition>
+    <texture>
+     <path>Aircraft/Concorde/Panels/Instruments/Textures/concorde-black-5-deg.png</path>
+    </texture>
+    <x1>0.0</x1>
+    <y1>0.0</y1>
+    <x2>1.0</x2>
+    <y2>1.0</y2>
+    <w>37</w>
+    <h>37</h>
+   </layer>
+
+   <layer>
+    <name>Nose up</name>
+    <condition>
+     <and include="concorde-cond-voltage-nose.xml">
+      <less-than-equals>
+       <property>/instrumentation/nose-visor/pos-norm</property>
+       <property n="1">/sim/flaps/setting[1]</property>
+      </less-than-equals>
+     </and>
+    </condition>
+    <texture>
+     <path>Aircraft/Concorde/Panels/Instruments/Textures/concorde-black-up.png</path>
+    </texture>
+    <x1>0.0</x1>
+    <y1>0.0</y1>
+    <x2>1.0</x2>
+    <y2>1.0</y2>
+    <w>37</w>
+    <h>37</h>
+   </layer>
+
+   <layer>
+    <name>background transit</name>
+    <texture>
+     <path>Aircraft/Concorde/Panels/Instruments/Textures/concorde-hatched-bg.png</path>
+    </texture>
+    <w>37</w>
+    <h>37</h>
+   </layer>
+
+   <transformations>
+    <transformation>
+     <type>x-shift</type>
+     <offset>-15</offset>
+    </transformation>
+    <transformation>
+     <type>y-shift</type>
+     <offset>-25</offset>
+    </transformation>
+   </transformations>
+  </layer>
+
+  <layer>
+   <name>Title</name>
+   <type>text</type>
+   <point-size>10</point-size>
+   <color>
+    <red>1.0</red>
+    <green>1.0</green>
+    <blue>1.0</blue>
+   </color>
+   <chunks>
+    <chunk>
+     <type>literal</type>
+     <text>NOSE</text>
+    </chunk>
+   </chunks>
+   <transformations>
+    <transformation>
+     <type>x-shift</type>
+     <offset>-29</offset>
+    </transformation>
+    <transformation>
+     <type>y-shift</type>
+     <offset>-53</offset>
+    </transformation>
+   </transformations>
+  </layer>
+
+<!-- WIPER -->
+
+  <layer>
+   <name></name>
+   <type>switch</type>
+
+   <layer include="concorde-switch-on.xml">
+    <name>on</name>
+    <condition>
+     <not>
+      <property>/controls/nose-visor/wiper-override</property>
+     </not>
+    </condition>
+    <w>30</w>
+    <h>30</h>
+   </layer>
+
+   <layer include="concorde-switch-off.xml">
+    <name>off</name>
+    <w>30</w>
+    <h>30</h>
+   </layer>
+
+   <transformations>
+    <transformation>
+     <type>x-shift</type>
+     <offset>25</offset>
+    </transformation>
+    <transformation>
+     <type>y-shift</type>
+     <offset>35</offset>
+    </transformation>
+   </transformations>
+  </layer>
+
+  <layer>
+   <name>On Title</name>
+   <type>text</type>
+   <point-size>8</point-size>
+   <color>
+    <red>1.0</red>
+    <green>1.0</green>
+    <blue>1.0</blue>
+   </color>
+   <chunks>
+    <chunk>
+     <type>literal</type>
+     <text>NORMAL</text>
+    </chunk>
+   </chunks>
+   <transformations>
+    <transformation>
+     <type>x-shift</type>
+     <offset>6</offset>
+    </transformation>
+    <transformation>
+     <type>y-shift</type>
+     <offset>57</offset>
+    </transformation>
+   </transformations>
+  </layer>
+
+  <layer>
+   <name>Off Title</name>
+   <type>text</type>
+   <point-size>8</point-size>
+   <color>
+    <red>1.0</red>
+    <green>1.0</green>
+    <blue>1.0</blue>
+   </color>
+   <chunks>
+    <chunk>
+     <type>literal</type>
+     <text>WIPER</text>
+    </chunk>
+   </chunks>
+   <transformations>
+    <transformation>
+     <type>x-shift</type>
+     <offset>10</offset>
+    </transformation>
+    <transformation>
+     <type>y-shift</type>
+     <offset>15</offset>
+    </transformation>
+   </transformations>
+  </layer>
+
+  <layer>
+   <name>Off Title 2</name>
+   <type>text</type>
+   <point-size>8</point-size>
+   <color>
+    <red>1.0</red>
+    <green>1.0</green>
+    <blue>1.0</blue>
+   </color>
+   <chunks>
+    <chunk>
+     <type>literal</type>
+     <text>O/RIDE</text>
+    </chunk>
+   </chunks>
+   <transformations>
+    <transformation>
+     <type>x-shift</type>
+     <offset>9</offset>
+    </transformation>
+    <transformation>
+     <type>y-shift</type>
+     <offset>5</offset>
+    </transformation>
+   </transformations>
+  </layer>
+
+ </layers>
+
+ <actions>
+
+  <action>
+   <name>toggle switch</name>
+   <button>0</button>
+   <x>10</x>
+   <y>23</y>
+   <w>30</w>
+   <h>30</h>
+   <binding>
+    <command>property-toggle</command>
+    <property>/controls/nose-visor/wiper-override</property>
+   </binding>
+   <binding>
+    <command>property-toggle</command>
+    <property>/instrumentation/generic/click</property>
+   </binding>
+  </action>
+
+ </actions>
+
+</PropertyList>

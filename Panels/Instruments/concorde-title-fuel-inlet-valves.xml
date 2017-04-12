@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+
+<PropertyList>
+ <name>Inlet valves</name>
+ <w-base>140</w-base>
+ <h-base>28</h-base>
+
+
+ <layers>
+
+  <layer>
+   <name>Title</name>
+   <type>text</type>
+   <point-size>7</point-size>
+   <color>
+    <red>1.0</red>
+    <green>1.0</green>
+    <blue>1.0</blue>
+   </color>
+   <chunks>
+    <chunk>
+     <type>literal</type>
+     <text>INLET     VALVES</text>
+    </chunk>
+   </chunks>
+  </layer>
+
+ </layers>
+
+</PropertyList>

@@ -1,0 +1,265 @@
+<PropertyList>
+
+ <name>Gear</name>
+ <w-base>32</w-base>
+ <h-base>160</h-base>
+
+ <layers>
+
+
+
+  <layer>
+   <name>background</name>
+   <texture>
+    <path>Aircraft/Concorde/Panels/Instruments/Textures/flaps.png</path>
+    <x1>0.988</x1>
+    <y1>0.25</y1>
+    <x2>.99</x2>
+    <y2>0.62</y2>
+   </texture>    
+   <w>5</w>
+   <h>70</h>
+   <transformations>
+    <transformation>
+     <type>x-shift</type>
+     <offset>-5</offset>
+    </transformation>
+    <transformation>
+     <type>y-shift</type>
+     <offset>-10</offset>
+    </transformation>
+   </transformations>
+  </layer> 
+
+  <layer>
+   <name>Landing Gear</name>
+   <type>text</type>
+   <point-size>5</point-size>
+   <color>
+    <red>1.0</red>
+    <green>1.0</green>
+    <blue>1.0</blue>
+   </color>
+   <chunks>
+    <chunk>
+     <type>literal</type>
+     <text>L/GEAR</text>
+    </chunk>
+   </chunks>
+   <transformations>
+    <transformation>
+     <type>x-shift</type>
+     <offset>-13</offset>
+    </transformation>
+    <transformation>
+     <type>y-shift</type>
+     <offset>48</offset>
+    </transformation>
+   </transformations>
+  </layer>
+
+  <layer>
+   <name>Up</name>
+   <type>text</type>
+   <point-size>5</point-size>
+   <color>
+    <red>1.0</red>
+    <green>1.0</green>
+    <blue>1.0</blue>
+   </color>
+   <chunks>
+    <chunk>
+     <type>literal</type>
+     <text>UP</text>
+    </chunk>
+   </chunks>
+   <transformations>
+    <transformation>
+     <type>x-shift</type>
+     <offset>-7</offset>
+    </transformation>
+    <transformation>
+     <type>y-shift</type>
+     <offset>40</offset>
+    </transformation>
+   </transformations>
+  </layer>
+
+  <layer>
+   <name>Handle</name>
+   <texture>
+    <path>Aircraft/Concorde/Panels/Instruments/Textures/handles.png</path>
+    <x1>0.387</x1>
+    <x2>0.525</x2>
+    <y1>0.5</y1>
+    <y2>1.0</y2>
+   </texture>
+   <w>15</w>
+   <h>41</h>
+   <transformations>
+    <transformation>
+     <type>y-shift</type>
+     <condition>
+      <not>
+       <property>/controls/gear/hydraulic</property>
+      </not>
+     </condition>
+     <offset>-25</offset>
+    </transformation>
+    <transformation>
+     <type>y-shift</type>
+     <condition>
+      <and>
+       <property>/controls/gear/gear-down</property>
+       <property>/controls/gear/hydraulic</property>
+      </and>
+     </condition>
+     <offset>-55</offset>
+    </transformation>
+    <transformation>
+     <type>x-shift</type>
+     <offset>-5</offset>
+    </transformation>
+    <transformation>
+     <type>y-shift</type>
+     <offset>25</offset>
+    </transformation>
+    <transformation>
+    <type>rotation</type>
+    <offset>180</offset>
+    </transformation>
+   </transformations>     
+  </layer>
+
+  <layer>
+   <name>Neutral</name>
+   <type>text</type>
+   <point-size>5</point-size>
+   <color>
+    <red>1.0</red>
+    <green>1.0</green>
+    <blue>1.0</blue>
+   </color>
+   <chunks>
+    <chunk>
+     <type>literal</type>
+     <text>N</text>
+    </chunk>
+   </chunks>
+   <transformations>
+    <transformation>
+     <type>x-shift</type>
+     <offset>5</offset>
+    </transformation>
+    <transformation>
+     <type>y-shift</type>
+     <offset>0</offset>
+    </transformation>
+   </transformations>
+  </layer>
+
+  <layer>
+   <name>Down</name>
+   <type>text</type>
+   <point-size>5</point-size>
+   <color>
+    <red>1.0</red>
+    <green>1.0</green>
+    <blue>1.0</blue>
+   </color>
+   <chunks>
+    <chunk>
+     <type>literal</type>
+     <text>DOWN</text>
+    </chunk>
+   </chunks>
+   <transformations>
+    <transformation>
+     <type>x-shift</type>
+     <offset>-11</offset>
+    </transformation>
+    <transformation>
+     <type>y-shift</type>
+     <offset>-55</offset>
+    </transformation>
+   </transformations>
+  </layer>
+
+ </layers>
+
+ <actions>
+
+<!-- - green hydraulics.
+     - not neutral.
+-->
+
+  <action>
+   <name>extend</name>
+   <condition>
+    <and include="concorde-cond-voltage-gear.xml">
+     <property>/systems/hydraulic/power/gear</property>
+     <not>
+      <property>/controls/gear/gear-down</property>
+     </not>
+    </and>
+   </condition>
+   <button>0</button>
+   <x>-7</x>
+   <y>-50</y>
+   <w>14</w>
+   <h>96</h>
+   <binding>
+    <command>nasal</command>
+    <script>controls.gearToggle()</script>
+   </binding>
+  </action> 
+
+<!-- - green hydraulics.
+     - prevents retract on ground.
+     - not neutral.
+-->
+
+  <action>
+   <name>retract</name>
+   <condition>
+    <and include="concorde-cond-voltage-gear.xml">
+     <property>/systems/hydraulic/power/gear</property>
+     <greater-than>
+      <property>/position/altitude-agl-ft</property>
+      <value>20.0</value>
+     </greater-than>
+     <property>/controls/gear/gear-down</property>
+    </and>
+   </condition>
+   <button>0</button>
+   <x>-7</x>
+   <y>-50</y>
+   <w>14</w>
+   <h>96</h>
+   <binding>
+    <command>nasal</command>
+    <script>controls.gearToggle()</script>
+   </binding>
+  </action> 
+
+  <action>
+   <name>neutral</name>
+   <condition>
+    <not>
+     <property>/controls/gear/gear-down</property>
+    </not>
+   </condition>
+   <button>1</button>
+   <x>-7</x>
+   <y>-50</y>
+   <w>14</w>
+   <h>96</h>
+   <binding>
+    <command>property-toggle</command>
+    <property>/controls/gear/hydraulic</property>
+   </binding>
+  </action> 
+
+ </actions>
+
+</PropertyList>

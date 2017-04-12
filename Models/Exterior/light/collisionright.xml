@@ -1,0 +1,134 @@
+<?xml version="1.0"?>
+
+<!-- The external lights must :
+     - be centered at the model origin, where the billboard rotation happen (also required by scaling).
+     - have the surface vertical, oriented to the left of aircraft (otherwise billboard makes
+     the object disappear !).
+
+
+     Animation :
+     - translation must happen before the billboard.
+     - unit (meter) is the same than Blender (add 0.2 in length to the landing light cone).
+     - white material makes them visible at night.
+     - scaling makes them more visible at night.
+
+
+     References
+     ==========
+     http://fr.wikipedia.org/wiki/Concorde : anti-collision lights are red.
+
+
+     Credits
+     .......
+     Light texture from bo105 (M. Franz).
+
+-->
+ 
+<PropertyList>
+  <path>collision.ac</path>
+
+ <animation>
+  <type>noshadow</type>
+  <object-name>Collision</object-name>
+ </animation>
+
+ <animation>
+  <type>select</type>
+  <object-name>Collision</object-name>
+  <condition>
+   <and include="../../../Panels/Instruments/concorde-cond-voltage-light.xml">
+    <property>controls/lighting/external/strobe/state</property>
+   </and>
+  </condition>
+ </animation>
+
+ <animation>
+  <type>material</type>
+  <object-name>Collision</object-name>
+  <emission>
+   <red>1.0</red>
+   <green>1.0</green>
+   <blue>1.0</blue>
+   <factor-prop>instrumentation/generic/factor</factor-prop>
+  </emission> 
+ </animation>
+
+ <animation>
+  <type>translate</type>
+  <object-name>Collision</object-name>
+  <offset-m>6.951</offset-m>
+  <axis>
+   <x>1.0</x>
+   <y>0.0</y>
+   <z>0.0</z>
+  </axis>
+ </animation>
+
+ <animation>
+  <type>translate</type>
+  <object-name>Collision</object-name>
+  <offset-m>9.498</offset-m>
+  <axis>
+   <x>0.0</x>
+   <y>1.0</y>
+   <z>0.0</z>
+  </axis>
+ </animation>
+
+ <animation>
+  <type>translate</type>
+  <object-name>Collision</object-name>
+  <offset-m>-0.459</offset-m>
+  <axis>
+   <x>0.0</x>
+   <y>0.0</y>
+   <z>1.0</z>
+  </axis>
+ </animation>
+
+ <animation>
+  <type>billboard</type>
+  <object-name>Collision</object-name>
+ </animation>
+
+ <animation>
+  <type>scale</type>
+  <object-name>Collision</object-name>
+  <property>sim/time/sun-angle-rad</property>
+  <x-min>1</x-min>
+  <y-min>1</y-min>
+  <z-min>1</z-min>
+  <x-offset>-1.4</x-offset>
+  <y-offset>-1.4</y-offset>
+  <z-offset>-1.4</z-offset>
+  <x-factor>2</x-factor>
+  <y-factor>2</y-factor>
+  <z-factor>2</z-factor>
+ </animation>
+
+ <animation>
+  <type>dist-scale</type>
+  <object-name>Collision</object-name>
+  <condition>
+   <greater-than>
+    <property>sim/time/sun-angle-rad</property>
+    <value>1.57</value>
+   </greater-than>
+  </condition>
+  <interpolation>
+   <entry>
+    <ind>0</ind>
+    <dep>1</dep>
+   </entry>
+   <entry>
+    <ind>20</ind>
+    <dep>1</dep>
+   </entry>
+   <entry>
+    <ind>1500</ind>
+    <dep>5</dep>
+   </entry>
+  </interpolation>
+ </animation>
+
+</PropertyList>

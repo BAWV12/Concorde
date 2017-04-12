@@ -1,0 +1,189 @@
+<?xml version="1.0"?>
+
+<PropertyList>
+
+ <name>Directional Gyro / Magnetic switch</name>
+ <w-base>51</w-base>
+ <h-base>153</h-base>
+
+ <params>
+  <mode-sel>/instrumentation/compass[0]/mode-dg</mode-sel>
+ </params>
+
+
+ <layers>
+
+<!-- translucent lens -->  
+  <layer>
+   <name>Slaving cut-out indicator light</name>
+   <type>switch</type>
+
+   <layer>
+    <name>off</name>
+    <type>group</type>
+    <condition>
+     <or>
+      <not>
+       <property alias="../../../../../../../params/mode-sel"/>
+      </not>
+      <not include="concorde-cond-voltage-inst.xml"/>
+     </or>
+    </condition>
+
+    <layer include="concorde-bulb-led-off.xml">
+     <w>20</w>
+     <h>20</h>
+    </layer>
+    <layer>
+     <name>background off</name>
+     <texture>
+      <path>Aircraft/Concorde/Panels/Instruments/Textures/concorde-yellow-led.png</path>
+      <x1>0.0</x1>
+      <y1>0.0</y1>
+      <x2>1.0</x2>
+      <y2>1.0</y2>
+     </texture>
+     <w>20</w>
+     <h>20</h>
+    </layer>
+   </layer>
+
+   <layer>
+    <name>on</name>
+    <type>group</type>
+
+    <layer include="concorde-bulb-led-on.xml">
+     <w>20</w>
+     <h>20</h>
+    </layer>
+    <layer>
+     <name>background on</name>
+     <texture>
+      <path>Aircraft/Concorde/Panels/Instruments/Textures/concorde-yellow-led.png</path>
+      <x1>0.0</x1>
+      <y1>0.0</y1>
+      <x2>1.0</x2>
+      <y2>1.0</y2>
+     </texture>
+     <w>20</w>
+     <h>20</h>
+     <emissive>true</emissive>
+    </layer>
+   </layer>
+   <transformations>
+    <transformation>
+     <type>x-shift</type>
+     <offset>-5</offset>
+    </transformation>
+    <transformation>
+     <type>y-shift</type>
+     <offset>63</offset>
+    </transformation>
+   </transformations>
+  </layer>
+
+  <layer>
+   <name>Heading select</name>
+   <type>switch</type>
+
+   <layer include="concorde-switch-on.xml">
+    <name>Directional Gyro</name>
+    <condition>
+      <property alias="../../../../../params/mode-sel"/>
+    </condition>
+   </layer>
+
+   <layer include="concorde-switch-off.xml">
+    <name>Magnetic</name>
+   </layer>
+
+   <transformations>
+    <transformation>
+     <type>y-shift</type>
+     <offset>-3</offset>
+    </transformation>
+   </transformations>
+  </layer>
+
+  <layer>
+   <name>Title on</name>
+   <type>text</type>
+   <point-size>10</point-size>
+   <color>
+    <red>1.0</red>
+    <green>1.0</green>
+    <blue>1.0</blue>
+   </color>
+   <chunks>
+    <chunk>
+     <type>literal</type>
+     <text>DG</text>
+    </chunk>
+   </chunks>
+   <transformations>
+    <transformation>
+     <type>x-shift</type>
+     <offset>-11</offset>
+    </transformation>
+    <transformation>
+     <type>y-shift</type>
+     <offset>35</offset>
+    </transformation>
+   </transformations>
+  </layer>
+
+  <layer>
+   <name>Title off</name>
+   <type>text</type>
+   <point-size>10</point-size>
+   <color>
+    <red>1.0</red>
+    <green>1.0</green>
+    <blue>1.0</blue>
+   </color>
+   <chunks>
+    <chunk>
+     <type>literal</type>
+     <text>MAG</text>
+    </chunk>
+   </chunks>
+   <transformations>
+    <transformation>
+     <type>x-shift</type>
+     <offset>-10</offset>
+    </transformation>
+    <transformation>
+     <type>y-shift</type>
+     <offset>-42</offset>
+    </transformation>
+   </transformations>
+  </layer>
+
+ </layers>
+
+ <actions>
+
+  <action>
+   <name>Toggle</name>
+   <button>0</button>
+   <x>-21</x>
+   <y>-21</y>
+   <w>42</w>
+   <h>42</h>
+   <binding>
+    <command>property-toggle</command>
+    <property alias="../../../../params/mode-sel"/>
+   </binding>
+   <binding>
+    <command>nasal</command>
+    <script>globals.Concorde.Compassinstrument.toggleexport();</script>
+   </binding>
+   <binding>
+    <command>property-toggle</command>
+    <property>/instrumentation/generic/click</property>
+   </binding>
+  </action>
+
+ </actions>
+ 
+</PropertyList>

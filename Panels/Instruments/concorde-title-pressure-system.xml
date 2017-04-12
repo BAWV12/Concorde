@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+
+<!-- system block -->
+
+<PropertyList>
+ <name>System select</name>
+ <w-base>196</w-base>
+ <h-base>28</h-base>
+
+ <layers>
+
+  <layer>
+   <name>Title</name>
+   <type>text</type>
+   <point-size>10</point-size>
+   <color>
+    <red>1.0</red>
+    <green>1.0</green>
+    <blue>1.0</blue>
+   </color>
+   <chunks>
+    <chunk>
+     <type>literal</type>
+     <text>SYSTEM SELECT</text>
+    </chunk>
+   </chunks>
+  </layer>
+
+ </layers>
+
+</PropertyList>

@@ -1,0 +1,139 @@
+<?xml version="1.0"?>
+
+<!-- Thrust recuperator
+-->
+
+<PropertyList>
+ <name>Thrust recuperator</name>
+ <w-base>140</w-base>
+ <h-base>112</h-base>
+
+
+ <layers>
+
+  <layer>
+   <name>valve</name>
+   <type>switch</type>
+
+   <layer>
+    <name>close</name>
+    <condition>
+     <and>
+      <not>
+       <property>/systems/pressurization/valve/thrust</property>
+      </not>
+      <not>
+       <property>/systems/pressurization/valve/thrust-recuperator</property>
+      </not>
+      <property>/systems/electrical/power/specific</property>
+     </and>
+    </condition>
+    <texture>
+     <path>Aircraft/Concorde/Panels/Instruments/Textures/concorde-black-off.png</path>
+     <x1>0.0</x1>
+     <y1>0.0</y1>
+     <x2>1.0</x2>
+     <y2>1.0</y2>
+    </texture>
+    <w>28</w>
+    <h>28</h>
+   </layer>
+
+   <layer>
+    <name>open</name>
+    <condition>
+     <and>
+      <property>/systems/pressurization/valve/thrust</property>
+      <property>/systems/pressurization/valve/thrust-recuperator</property>
+      <property>/systems/electrical/power/specific</property>
+     </and>
+    </condition>
+    <texture>
+     <path>Aircraft/Concorde/Panels/Instruments/Textures/concorde-white-on.png</path>
+     <x1>0.0</x1>
+     <y1>0.0</y1>
+     <x2>1.0</x2>
+     <y2>1.0</y2>
+    </texture>
+    <w>28</w>
+    <h>28</h>
+   </layer>
+
+   <layer>
+    <name>undefined</name>
+    <texture>
+     <path>Aircraft/Concorde/Panels/Instruments/Textures/concorde-hatched-bg.png</path>
+     <x1>0.0</x1>
+     <y1>0.0</y1>
+     <x2>1.0</x2>
+     <y2>1.0</y2>
+    </texture>
+    <w>28</w>
+    <h>28</h>
+   </layer>
+
+   <transformations>
+    <transformation>
+     <type>x-shift</type>
+     <offset>-10</offset>
+    </transformation>
+   </transformations>
+  </layer>
+
+  <layer>
+   <name>Title</name>
+   <type>text</type>
+   <point-size>12</point-size>
+   <color>
+    <red>1.0</red>
+    <green>1.0</green>
+    <blue>1.0</blue>
+   </color>
+   <chunks>
+    <chunk>
+     <type>literal</type>
+     <text>THRUST</text>
+    </chunk>
+   </chunks>
+   <transformations>
+    <transformation>
+     <type>x-shift</type>
+     <offset>-55</offset>
+    </transformation>
+    <transformation>
+     <type>y-shift</type>
+     <offset>45</offset>
+    </transformation>
+   </transformations>
+  </layer>
+
+  <layer>
+   <name>Title 2</name>
+   <type>text</type>
+   <point-size>12</point-size>
+   <color>
+    <red>1.0</red>
+    <green>1.0</green>
+    <blue>1.0</blue>
+   </color>
+   <chunks>
+    <chunk>
+     <type>literal</type>
+     <text>RECUPERATOR</text>
+    </chunk>
+   </chunks>
+   <transformations>
+    <transformation>
+     <type>x-shift</type>
+     <offset>-65</offset>
+    </transformation>
+    <transformation>
+     <type>y-shift</type>
+     <offset>30</offset>
+    </transformation>
+   </transformations>
+  </layer>
+
+ </layers>
+
+</PropertyList>

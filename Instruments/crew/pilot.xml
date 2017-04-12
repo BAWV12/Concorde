@@ -1,0 +1,132 @@
+<?xml version="1.0" ?> 
+
+<!--
+     - visible with night lighting (feedback).
+     
+
+     TO DO :
+     =====
+     - improve the human shape (heavier mesh).
+
+
+     Credits :
+     =======
+     - initial 70 kb model by S. Buchanan.
+-->
+
+
+<PropertyList> 
+ <path>pilot.ac</path> 
+
+ <animation>
+  <name>TheHead</name>
+  <object-name>Head</object-name>
+  <object-name>Eyes</object-name>
+  <object-name>Eyelid</object-name>
+  <object-name>Mooth</object-name>
+  <object-name>Teeth</object-name>
+  <object-name>Headset</object-name>
+ </animation>
+
+ <animation>
+  <name>AllPilot</name>
+  <object-name>TheHead</object-name>
+  <object-name>Body</object-name>
+ </animation>
+
+ <animation>
+  <type>rotate</type>
+  <object-name>TheHead</object-name>
+  <property>systems/human/copilot/heading-deg</property>
+  <axis>
+   <x>0.0</x>
+   <y>0.0</y>
+   <z>1.0</z>
+  </axis>
+ </animation>
+
+ <animation>
+  <type>rotate</type>
+  <object-name>TheHead</object-name>
+  <property>systems/human/copilot/pitch-deg</property>
+  <center>
+   <x-m>0.0</x-m>
+   <y-m>0.0</y-m>
+   <z-m>0.320</z-m>
+  </center>
+  <axis>
+   <x>0.0</x>
+   <y>1.0</y>
+   <z>0.0</z>
+  </axis>
+ </animation>
+    
+ <animation>
+  <type>select</type>
+  <object-name>Headset</object-name>
+  <condition>
+   <property>systems/human/copilot/headset</property>
+  </condition>
+ </animation>
+    
+ <animation>
+  <type>select</type>
+  <object-name>Eyes</object-name>
+  <condition>
+   <property>systems/human/copilot/eyes</property>
+  </condition>
+ </animation>
+    
+ <animation>
+  <type>select</type>
+  <object-name>Eyelid</object-name>
+  <condition>
+   <not>
+    <property>systems/human/copilot/eyes</property>
+   </not>
+  </condition>
+ </animation>
+    
+ <animation>
+  <type>select</type>
+  <object-name>Mooth</object-name>
+  <condition>
+   <not>
+    <property>systems/human/copilot/teeth</property>
+   </not>
+  </condition>
+ </animation>
+    
+ <animation>
+  <type>select</type>
+  <object-name>Teeth</object-name>
+  <condition>
+   <property>systems/human/copilot/teeth</property>
+  </condition>
+ </animation>
+
+ <animation>
+  <type>material</type>
+  <object-name>AllPilot</object-name>
+  <emission>
+   <red>0.53</red>
+   <green>0.44</green>
+   <blue>0.08</blue>
+   <factor-prop>systems/lighting/level/human/copilot</factor-prop>
+  </emission> 
+ </animation> 
+
+ <animation>
+  <type>pick</type>
+  <object-name>AllPilot</object-name>
+  <action>
+   <button>0</button>
+   <repeatable>false</repeatable>
+   <binding>
+    <command>nasal</command>
+    <script>globals.Concorde.crewscreen.minimizeexport();</script>
+   </binding>
+  </action>
+ </animation>
+
+</PropertyList>

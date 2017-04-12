@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+
+<PropertyList>
+ <name>Anti-stall block</name>
+ <w-base>168</w-base>
+ <h-base>28</h-base>
+
+ <layers>
+
+  <layer>
+   <name>Title</name>
+   <type>text</type>
+   <point-size>6</point-size>
+   <color>
+    <red>1.0</red>
+    <green>1.0</green>
+    <blue>1.0</blue>
+   </color>
+   <chunks>
+    <chunk>
+     <type>literal</type>
+     <text>ANTI STALL SYSTEM</text>
+    </chunk>
+   </chunks>
+  </layer>
+
+ </layers>
+
+</PropertyList>

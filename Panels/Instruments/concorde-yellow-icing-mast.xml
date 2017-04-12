@@ -1,0 +1,165 @@
+<?xml version="1.0"?>
+
+<PropertyList>
+ <name>Drain mast heater warning</name>
+ <w-base>104</w-base>
+ <h-base>26</h-base>
+
+ <params>
+  <eng-num>/systems/engines/engine[0]/engine-num</eng-num>
+ </params>
+
+
+ <layers>
+<!-- translucent lens -->  
+  <layer>
+   <name>Alarm light</name>
+   <type>switch</type>
+
+   <layer>
+    <name>off</name>
+    <type>group</type>
+    <condition>
+     <or include="concorde-cond-voltage-bulb.xml">
+      <and>
+       <or include="concorde-cond-test-overhead.xml"/>          <!-- bug -->
+      </and>
+     </or>
+    </condition>
+
+    <layer include="concorde-bulb-off.xml">
+     <w>104</w>
+     <h>26</h>
+    </layer>
+
+    <layer>
+     <name>Background off</name>
+     <type>switch</type>
+
+     <layer>
+      <name>Mast 1</name>
+      <condition>
+       <equals>
+        <property alias="../../../../../../../../params/eng-num"/>
+        <value>1</value>
+       </equals>
+      </condition>
+      <texture>
+       <path>Aircraft/Concorde/Panels/Instruments/Textures/concorde-yellow-mast1.png</path>
+       <x1>0.0</x1>
+       <y1>0.25</y1>
+       <x2>1.0</x2>
+       <y2>0.75</y2>
+      </texture>
+      <w>104</w>
+      <h>26</h>
+     </layer>
+
+     <layer>
+      <name>Mast 2</name>
+      <condition>
+       <equals>
+        <property alias="../../../../../../../../params/eng-num"/>
+        <value>2</value>
+       </equals>
+      </condition>
+      <texture>
+       <path>Aircraft/Concorde/Panels/Instruments/Textures/concorde-yellow-mast2.png</path>
+       <x1>0.0</x1>
+       <y1>0.25</y1>
+       <x2>1.0</x2>
+       <y2>0.75</y2>
+      </texture>
+      <w>104</w>
+      <h>26</h>
+     </layer>
+
+     <layer>
+      <name>Mast 3</name>
+      <texture>
+       <path>Aircraft/Concorde/Panels/Instruments/Textures/concorde-yellow-mast3.png</path>
+       <x1>0.0</x1>
+       <y1>0.25</y1>
+       <x2>1.0</x2>
+       <y2>0.75</y2>
+      </texture>
+      <w>104</w>
+      <h>26</h>
+     </layer>
+    </layer>
+   </layer>
+
+   <layer>
+    <name>on</name>
+    <type>group</type>
+
+    <layer include="concorde-bulb-on.xml">
+     <condition include="concorde-cond-light-overhead.xml"/>
+     <w>104</w>
+     <h>26</h>
+    </layer>
+
+    <layer>
+     <name>Background on</name>
+     <type>switch</type>
+
+     <layer>
+      <name>Mast 1</name>
+      <condition>
+       <equals>
+        <property alias="../../../../../../../../params/eng-num"/>
+        <value>1</value>
+       </equals>
+      </condition>
+      <texture>
+       <path>Aircraft/Concorde/Panels/Instruments/Textures/concorde-yellow-mast1.png</path>
+       <x1>0.0</x1>
+       <y1>0.25</y1>
+       <x2>1.0</x2>
+       <y2>0.75</y2>
+      </texture>
+      <w>104</w>
+      <h>26</h>
+      <emissive>true</emissive>
+     </layer>
+
+     <layer>
+      <name>Mast 2</name>
+      <condition>
+       <equals>
+        <property alias="../../../../../../../../params/eng-num"/>
+        <value>2</value>
+       </equals>
+      </condition>
+      <texture>
+       <path>Aircraft/Concorde/Panels/Instruments/Textures/concorde-yellow-mast2.png</path>
+       <x1>0.0</x1>
+       <y1>0.25</y1>
+       <x2>1.0</x2>
+       <y2>0.75</y2>
+      </texture>
+      <w>104</w>
+      <h>26</h>
+      <emissive>true</emissive>
+     </layer>
+
+     <layer>
+      <name>Mast 3</name>
+      <texture>
+       <path>Aircraft/Concorde/Panels/Instruments/Textures/concorde-yellow-mast3.png</path>
+       <x1>0.0</x1>
+       <y1>0.25</y1>
+       <x2>1.0</x2>
+       <y2>0.75</y2>
+      </texture>
+      <w>104</w>
+      <h>26</h>
+      <emissive>true</emissive>
+     </layer>
+    </layer>
+   </layer>
+  </layer>
+
+ </layers>
+
+</PropertyList>

@@ -1,0 +1,177 @@
+<?xml version="1.0"?>
+
+<PropertyList>
+ <name>R Nav indicator</name>
+ <w-base>572</w-base>
+ <h-base>26</h-base>
+
+ <params>
+  <test>/controls/lighting/crew/captain/test</test>
+  <low>/controls/lighting/crew/captain/low</low>
+  <aligned-select>/instrumentation/ins[0]/msu/aligned</aligned-select>
+  <dme-select>/instrumentation/dme[0]/in-range</dme-select>
+ </params>
+
+
+ <layers>
+
+
+<!-- INS update from DME -->
+
+<!-- translucent lens -->  
+  <layer>
+   <name>R Nav light</name>
+   <type>switch</type>
+ 
+   <layer>
+    <name>off</name>
+    <type>group</type>
+    <condition>
+     <or>
+      <or include="concorde-cond-voltage-bulb.xml"/>
+      <and>
+       <not>
+        <property alias="../../../../../../../../params/test"/>
+       </not>
+       <or>
+        <not>
+         <property alias="../../../../../../../../../params/aligned-select"/>
+        </not>
+        <not>
+         <property alias="../../../../../../../../../params/dme-select"/>
+        </not>
+       </or>
+      </and>
+     </or>
+    </condition>
+
+    <layer include="concorde-bulb-off.xml">
+     <w>104</w>
+     <h>26</h>
+    </layer>
+    <layer>
+     <name>background off</name>
+     <texture>
+      <path>Aircraft/Concorde/Panels/Instruments/Textures/concorde-yellow-r-nav.png</path>
+      <x1>0.0</x1>
+      <y1>0.0</y1>
+      <x2>1.0</x2>
+      <y2>1.0</y2>
+     </texture>
+     <w>104</w>
+     <h>26</h>
+    </layer>
+   </layer>
+
+   <layer>
+    <name>on</name>
+    <type>group</type>
+
+    <layer include="concorde-bulb-on.xml">
+     <condition>
+      <not>
+       <property alias="../../../../../../../params/low"/>
+      </not>
+     </condition>
+     <w>104</w>
+     <h>26</h>
+    </layer>
+    <layer>
+     <name>background on</name>
+     <texture>
+      <path>Aircraft/Concorde/Panels/Instruments/Textures/concorde-yellow-r-nav.png</path>
+      <x1>0.0</x1>
+      <x1>0.0</x1>
+      <y1>0.0</y1>
+      <x2>1.0</x2>
+      <y2>1.0</y2>
+     </texture>
+     <w>104</w>
+     <h>26</h>
+     <emissive>true</emissive>
+    </layer>
+   </layer>
+   <transformations>
+    <transformation>
+     <type>x-shift</type>
+     <offset>-156</offset>
+    </transformation>
+   </transformations>
+  </layer>
+  
+<!-- Weather radar receipt -->
+
+<!-- translucent lens -->  
+  <layer>
+   <name>Warning light</name>
+   <type>switch</type>
+ 
+   <layer>
+    <name>off</name>
+    <type>group</type>
+    <condition>
+     <or>
+      <or include="concorde-cond-voltage-bulb.xml"/>
+      <not>
+       <property alias="../../../../../../../params/test"/>
+      </not>
+     </or>
+    </condition>
+
+    <layer include="concorde-bulb-off.xml">
+     <w>104</w>
+     <h>26</h>
+    </layer>
+    <layer>
+     <name>background off</name>
+     <texture>
+      <path>Aircraft/Concorde/Panels/Instruments/Textures/concorde-yellow-wx-rdr.png</path>
+      <x1>0.0</x1>
+      <y1>0.0</y1>
+      <x2>1.0</x2>
+      <y2>1.0</y2>
+     </texture>
+     <w>104</w>
+     <h>26</h>
+    </layer>
+   </layer>
+
+   <layer>
+    <name>on</name>
+    <type>group</type>
+
+    <layer include="concorde-bulb-on.xml">
+     <condition>
+      <not>
+       <property alias="../../../../../../../params/low"/>
+      </not>
+     </condition>
+     <w>104</w>
+     <h>26</h>
+    </layer>
+    <layer>
+     <name>background on</name>
+     <texture>
+      <path>Aircraft/Concorde/Panels/Instruments/Textures/concorde-yellow-wx-rdr.png</path>
+      <x1>0.0</x1>
+      <x1>0.0</x1>
+      <y1>0.0</y1>
+      <x2>1.0</x2>
+      <y2>1.0</y2>
+     </texture>
+     <w>104</w>
+     <h>26</h>
+     <emissive>true</emissive>
+    </layer>
+   </layer>
+   <transformations>
+    <transformation>
+     <type>x-shift</type>
+     <offset>156</offset>
+    </transformation>
+   </transformations>
+  </layer>
+
+ </layers>
+
+</PropertyList>

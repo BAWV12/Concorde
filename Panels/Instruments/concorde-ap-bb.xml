@@ -1,0 +1,57 @@
+<?xml version="1.0"?>
+
+<!-- Back Beam :
+
+     - not implemented.
+-->
+
+<PropertyList>
+ <name>Back Beam</name>
+ <w-base>104</w-base>
+ <h-base>26</h-base>
+
+
+ <layers>
+
+  <layer include="concorde-bulb-white-off.xml">
+   <w>104</w>
+   <h>26</h>
+  </layer>
+  <layer>
+   <name>background</name>
+   <texture>
+    <path>Aircraft/Concorde/Panels/Instruments/Textures/concorde-white-bulb.png</path>
+   </texture>
+   <w>104</w>
+   <h>26</h>
+  </layer>
+
+  <layer>
+   <name>Title</name>
+   <type>text</type>
+   <point-size>46</point-size>
+   <color>
+    <red>0.0</red>
+    <green>0.0</green>
+    <blue>0.0</blue>
+   </color>
+   <chunks>
+    <chunk>
+     <type>literal</type>
+     <text>BB</text>
+    </chunk>
+   </chunks>
+   <transformations>
+    <transformation>
+     <type>x-shift</type>
+     <offset>-35</offset>
+    </transformation>
+    <transformation>
+     <type>y-shift</type>
+     <offset>-6</offset>
+    </transformation>
+   </transformations>
+  </layer>
+ </layers>
+
+</PropertyList>

@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+
+<!-- Cavalry charge :
+
+     - autopilot failure.
+-->
+
+<PropertyList>
+
+ <and>
+  <property>/systems/mws/cavalry</property>
+  <not include="concorde-cond-voltage-bulb.xml"/>
+  <not>
+   <property>/controls/audio/cancel</property>
+  </not>
+ </and>
+
+</PropertyList>

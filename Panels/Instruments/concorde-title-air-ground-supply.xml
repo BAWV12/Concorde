@@ -1,0 +1,32 @@
+<?xml version="1.0"?>
+
+<!-- Ground supply  -->
+
+<PropertyList>
+ <name>Ground supply</name>
+ <w-base>140</w-base>
+ <h-base>28</h-base>
+
+
+ <layers>
+
+  <layer>
+   <name>Title</name>
+   <type>text</type>
+   <point-size>7</point-size>
+   <color>
+    <red>1.0</red>
+    <green>1.0</green>
+    <blue>1.0</blue>
+   </color>
+   <chunks>
+    <chunk>
+     <type>literal</type>
+     <text>GRND SUPPLY</text>
+    </chunk>
+   </chunks>
+  </layer>
+
+ </layers>
+
+</PropertyList>

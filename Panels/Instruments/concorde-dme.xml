@@ -1,0 +1,209 @@
+<?xml version="1.0"?>
+
+<!-- Concorde DME :
+
+     - 2 frequencies, displayed at the same time (no knob).
+-->
+
+<PropertyList>
+
+ <name>Concorde DME</name>
+ <w-base>200</w-base>
+ <h-base>100</h-base>
+
+ <layers>
+
+
+  <layer>
+   <name>background</name>
+   <texture>
+    <path>Aircraft/Concorde/Panels/Instruments/Textures/concorde-dme.png</path>
+   </texture>
+   <x1>0.0</x1>
+   <y1>0.25</y1>
+   <x2>1.0</x2>
+   <y2>0.75</y2>
+   <w>200</w>
+   <h>200</h>
+  </layer>
+
+<!-- DME 1 -->
+
+  <layer>
+   <name>DME 1</name>
+   <type>switch</type>
+   <condition>
+    <greater-than>
+     <property>/systems/electrical/outputs/dme</property>
+     <value>20.0</value>
+    </greater-than>
+   </condition>
+
+   <layer>
+    <name>DME 1 in range</name>
+    <type>text</type>
+    <condition>
+     <and>
+      <property>/instrumentation/dme[0]/in-range</property>
+      <or>
+       <and>
+        <equals>
+         <property>/instrumentation/dme[0]/selector</property>
+         <value>0</value>
+        </equals>
+        <less-than-equals>
+         <property>/instrumentation/dme[0]/indicated-distance-nm</property>
+         <value type="double">200.0</value>
+        </less-than-equals>
+       </and>
+       <and>
+        <equals>
+         <property>/instrumentation/dme[0]/selector</property>
+         <value>1</value>
+        </equals>
+        <less-than-equals>
+         <property>/instrumentation/dme[0]/indicated-distance-nm</property>
+         <value type="double">399.0</value>
+        </less-than-equals>
+       </and>
+      </or>
+     </and>
+    </condition>
+    <font>led</font>
+    <point-size>12</point-size>
+    <color>
+     <red>1.0</red>
+     <green>0.5</green>
+     <blue>0.0</blue>
+    </color>
+    <chunks>
+     <chunk>
+      <type>number-value</type>
+      <property>/instrumentation/dme[0]/indicated-distance-nm</property>
+      <format>%5.1f</format>
+     </chunk>
+    </chunks>
+   </layer>
+
+   <layer>
+    <name>DME 1 not in range</name>
+    <type>text</type>
+    <font>led</font>
+    <point-size>12</point-size>
+    <color>
+     <red>1.0</red>
+     <green>0.5</green>
+     <blue>0.0</blue>
+    </color>
+    <chunks>
+     <chunk>
+      <type>literal</type>
+      <text>---.-</text>
+     </chunk>
+    </chunks>
+   </layer>
+
+   <transformations>
+    <transformation>
+     <type>x-shift</type>
+     <offset>-83</offset>
+    </transformation>
+    <transformation>
+     <type>y-shift</type>
+     <offset>-13</offset>
+    </transformation>
+   </transformations>
+  </layer>
+
+
+<!-- DME 2 -->
+
+  <layer>
+   <name>DME 2</name>
+   <type>switch</type>
+   <condition>
+    <greater-than>
+     <property>/systems/electrical/outputs/dme</property>
+     <value>20.0</value>
+    </greater-than>
+   </condition>
+
+   <layer>
+    <name>DME 2 in range</name>
+    <type>text</type>
+    <condition>
+     <and>
+      <property>/instrumentation/dme[1]/in-range</property>
+      <or>
+       <and>
+        <equals>
+         <property>/instrumentation/dme[1]/selector</property>
+         <value>0</value>
+        </equals>
+        <less-than-equals>
+         <property>/instrumentation/dme[1]/indicated-distance-nm</property>
+         <value type="double">200.0</value>
+        </less-than-equals>
+       </and>
+       <and>
+        <equals>
+         <property>/instrumentation/dme[1]/selector</property>
+         <value>1</value>
+        </equals>
+        <less-than-equals>
+         <property>/instrumentation/dme[1]/indicated-distance-nm</property>
+         <value type="double">399.0</value>
+        </less-than-equals>
+       </and>
+      </or>
+     </and>
+    </condition>
+    <font>led</font>
+    <point-size>12</point-size>
+    <color>
+     <red>1.0</red>
+     <green>0.5</green>
+     <blue>0.0</blue>
+    </color>
+    <chunks>
+     <chunk>
+      <type>number-value</type>
+      <property>/instrumentation/dme[1]/indicated-distance-nm</property>
+      <format>%5.1f</format>
+     </chunk>
+    </chunks>
+   </layer>
+
+   <layer>
+    <name>DME 2 not in range</name>
+    <type>text</type>
+    <font>led</font>
+    <point-size>12</point-size>
+    <color>
+     <red>1.0</red>
+     <green>0.5</green>
+     <blue>0.0</blue>
+    </color>
+    <chunks>
+     <chunk>
+      <type>literal</type>
+      <text>---.-</text>
+     </chunk>
+    </chunks>
+   </layer>
+
+   <transformations>
+    <transformation>
+     <type>x-shift</type>
+     <offset>12</offset>
+    </transformation>
+    <transformation>
+     <type>y-shift</type>
+     <offset>-13</offset>
+    </transformation>
+   </transformations>
+  </layer>
+
+ </layers>
+
+</PropertyList>

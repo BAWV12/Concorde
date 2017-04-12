@@ -1,0 +1,996 @@
+<!-- Concorde gear lights :
+
+     - the constants match the animation of the model.
+
+     Light meaning :
+     - yellow : lock released or closed during the gear operation
+     (shortening lock for main gear, and upper lock for nose gear).
+     - red : gear door is opened, or tail gear in motion.
+     - green : gear down and locked.
+
+
+     Reference :
+     =========
+     - http://www.concordesst.com/
+-->
+
+<PropertyList>
+ <name>gear lights</name>
+ <w-base>225</w-base>
+ <h-base>141</h-base>
+
+
+ <layers>
+
+<!-- ==== -->
+<!-- LOCK -->
+<!-- ==== -->
+
+
+
+<!-- LEFT SHORT -->
+
+ <layer>
+  <name>left short light</name>
+  <type>switch</type>
+
+  <layer>
+   <name>On</name>
+   <type>group</type>
+   <condition>
+    <or>
+     <not include="concorde-cond-test-copilot.xml"/>
+     <and>
+      <or include="concorde-cond-voltage-gear.xml"/> <!-- bug -->
+      <property>/controls/gear/gear-down</property>
+      <greater-than>
+       <property>/gear/gear[1]/position-norm</property>
+       <value>0.0</value>
+      </greater-than>
+      <less-than>
+       <property>/gear/gear[1]/position-norm</property>
+       <property n="1">/controls/gear/time/main/gear-locked</property>
+      </less-than>
+     </and>
+    </or>
+   </condition>
+
+   <layer include="concorde-bulb-on.xml">
+    <condition include="concorde-cond-light-copilot.xml"/>
+    <w>36</w>
+    <h>26</h>
+   </layer>
+   <layer>
+    <name>background left short</name>
+    <texture>
+     <path>Aircraft/Concorde/Panels/Instruments/Textures/concorde-yellow-warning.png</path>
+    </texture>
+    <w>36</w>
+    <h>26</h>
+    <emissive>true</emissive>
+   </layer>
+  </layer>
+
+  <layer>
+   <name>Off</name>
+   <type>group</type>
+
+   <layer include="concorde-bulb-off.xml">
+    <w>36</w>
+    <h>26</h>
+   </layer>
+   <layer>
+    <name>background left short</name>
+    <texture>
+     <path>Aircraft/Concorde/Panels/Instruments/Textures/concorde-yellow-warning.png</path>
+    </texture>
+    <w>36</w>
+    <h>26</h>
+   </layer>
+  </layer>
+  <transformations>
+   <transformation>
+    <type>x-shift</type>
+    <offset>-40</offset>
+   </transformation>
+   <transformation>
+    <type>y-shift</type>
+    <offset>35</offset>
+   </transformation>
+  </transformations>
+ </layer>
+
+  <layer>
+   <name>Title left short</name>
+   <type>text</type>
+   <point-size>11</point-size>
+   <color>
+    <red>0.0</red>
+    <green>0.0</green>
+    <blue>0.0</blue>
+   </color>
+   <chunks>
+    <chunk>
+     <type>literal</type>
+     <text>L SH</text>
+    </chunk>
+   </chunks>
+   <transformations>
+    <transformation>
+     <type>x-shift</type>
+     <offset>-54</offset>
+    </transformation>
+    <transformation>
+     <type>y-shift</type>
+     <offset>30</offset>
+    </transformation>
+   </transformations>
+  </layer>
+
+<!-- UPPER LOCKS -->
+
+ <layer>
+  <name>upper locks light</name>
+  <type>switch</type>
+
+  <layer>
+   <name>On</name>
+   <type>group</type>
+   <condition>
+    <or>
+     <not include="concorde-cond-test-copilot.xml"/>
+     <and>
+      <or include="concorde-cond-voltage-gear.xml"/> <!-- bug -->
+      <or>
+       <and>
+        <not>
+         <property>/controls/gear/gear-down</property>
+        </not>
+        <greater-than>
+         <property>/gear/gear[0]/position-norm</property>
+         <property n="1">/controls/gear/time/main/lower-gear</property>
+        </greater-than>
+        <less-than>
+         <property>/gear/gear[0]/position-norm</property>
+         <property n="1">/controls/gear/time/main/gear-locked</property>
+        </less-than>
+       </and>
+       <and>
+        <property>/controls/gear/gear-down</property>
+        <greater-than>
+         <property>/gear/gear[0]/position-norm</property>
+         <value>0.0</value>
+        </greater-than>
+        <less-than>
+         <property>/gear/gear[0]/position-norm</property>
+         <property n="1">/controls/gear/time/main/lower-gear</property>
+        </less-than>
+       </and>
+      </or>
+     </and>
+    </or>
+   </condition>
+
+   <layer include="concorde-bulb-on.xml">
+    <condition include="concorde-cond-light-copilot.xml"/>
+    <w>36</w>
+    <h>26</h>
+   </layer>
+   <layer>
+    <name>background upper locks</name>
+    <texture>
+     <path>Aircraft/Concorde/Panels/Instruments/Textures/concorde-yellow-warning.png</path>
+    </texture>
+    <w>36</w>
+    <h>26</h>
+    <emissive>true</emissive>
+   </layer>
+  </layer>
+
+  <layer>
+   <name>Off</name>
+   <type>group</type>
+
+   <layer include="concorde-bulb-off.xml">
+    <w>36</w>
+    <h>26</h>
+   </layer>
+   <layer>
+    <name>background upper locks</name>
+    <texture>
+     <path>Aircraft/Concorde/Panels/Instruments/Textures/concorde-yellow-warning.png</path>
+    </texture>
+    <w>36</w>
+    <h>26</h>
+   </layer>
+  </layer>
+  <transformations>
+   <transformation>
+    <type>y-shift</type>
+    <offset>35</offset>
+   </transformation>
+  </transformations>
+ </layer>
+
+  <layer>
+   <name>Title upper locks</name>
+   <type>text</type>
+   <point-size>11</point-size>
+   <color>
+    <red>0.0</red>
+    <green>0.0</green>
+    <blue>0.0</blue>
+   </color>
+   <chunks>
+    <chunk>
+     <type>literal</type>
+     <text>UP L</text>
+    </chunk>
+   </chunks>
+   <transformations>
+    <transformation>
+     <type>x-shift</type>
+     <offset>-14</offset>
+    </transformation>
+    <transformation>
+     <type>y-shift</type>
+     <offset>30</offset>
+    </transformation>
+   </transformations>
+  </layer>
+
+<!-- RIGHT SHORT -->
+
+ <layer>
+  <name>right short light</name>
+  <type>switch</type>
+
+  <layer>
+   <name>On</name>
+   <type>group</type>
+   <condition>
+    <or>
+     <not include="concorde-cond-test-copilot.xml"/>
+     <and>
+      <or include="concorde-cond-voltage-gear.xml"/> <!-- bug -->
+      <property>/controls/gear/gear-down</property>
+      <greater-than>
+       <property>/gear/gear[2]/position-norm</property>
+       <value>0.0</value>
+      </greater-than>
+      <less-than>
+       <property>/gear/gear[2]/position-norm</property>
+       <property n="1">/controls/gear/time/main/gear-locked</property>
+      </less-than>
+     </and>
+    </or>
+   </condition>
+
+   <layer include="concorde-bulb-on.xml">
+    <condition include="concorde-cond-light-copilot.xml"/>
+    <w>36</w>
+    <h>26</h>
+   </layer>
+   <layer>
+    <name>background right short</name>
+    <texture>
+     <path>Aircraft/Concorde/Panels/Instruments/Textures/concorde-yellow-warning.png</path>
+    </texture>
+    <w>36</w>
+    <h>26</h>
+    <emissive>true</emissive>
+   </layer>
+  </layer>
+
+  <layer>
+   <name>Off</name>
+   <type>group</type>
+
+   <layer include="concorde-bulb-off.xml">
+    <w>36</w>
+    <h>26</h>
+   </layer>
+   <layer>
+    <name>background right short</name>
+    <texture>
+     <path>Aircraft/Concorde/Panels/Instruments/Textures/concorde-yellow-warning.png</path>
+    </texture>
+    <w>36</w>
+    <h>26</h>
+   </layer>
+  </layer>
+  <transformations>
+   <transformation>
+    <type>x-shift</type>
+    <offset>40</offset>
+   </transformation>
+   <transformation>
+    <type>y-shift</type>
+    <offset>35</offset>
+   </transformation>
+  </transformations>
+ </layer>
+
+  <layer>
+   <name>Title left short</name>
+   <type>text</type>
+   <point-size>11</point-size>
+   <color>
+    <red>0.0</red>
+    <green>0.0</green>
+    <blue>0.0</blue>
+   </color>
+   <chunks>
+    <chunk>
+     <type>literal</type>
+     <text>R SH</text>
+    </chunk>
+   </chunks>
+   <transformations>
+    <transformation>
+     <type>x-shift</type>
+     <offset>26</offset>
+    </transformation>
+    <transformation>
+     <type>y-shift</type>
+     <offset>30</offset>
+    </transformation>
+   </transformations>
+  </layer>
+
+<!-- ==== -->
+<!-- DOOR -->
+<!-- ==== -->
+
+<!-- LEFT DOOR -->
+
+ <layer>
+  <name>left door light</name>
+  <type>switch</type>
+
+  <layer>
+   <name>On</name>
+   <type>group</type>
+   <condition>
+    <or>
+     <not include="concorde-cond-test-copilot.xml"/>
+     <and>
+      <or include="concorde-cond-voltage-gear.xml"/> <!-- bug -->
+      <greater-than>
+       <property>/gear/gear[1]/position-norm</property>
+       <value>0.0</value>
+      </greater-than>
+      <less-than>
+       <property>/gear/gear[1]/position-norm</property>
+       <value>1.0</value>
+      </less-than>
+     </and>
+    </or>
+   </condition>
+
+   <layer include="concorde-bulb-on.xml">
+    <condition include="concorde-cond-light-copilot.xml"/>
+    <w>26</w>
+    <h>26</h>
+   </layer>
+   <layer>
+    <name>background left door</name>
+    <texture>
+     <path>Aircraft/Concorde/Panels/Instruments/Textures/concorde-red-alarm.png</path>
+    </texture>
+    <w>26</w>
+    <h>26</h>
+    <emissive>true</emissive>
+   </layer>
+  </layer>
+
+  <layer>
+   <name>Off</name>
+   <type>group</type>
+
+   <layer include="concorde-bulb-off.xml">
+    <w>26</w>
+    <h>26</h>
+   </layer>
+   <layer>
+    <name>background left door</name>
+    <texture>
+     <path>Aircraft/Concorde/Panels/Instruments/Textures/concorde-red-alarm.png</path>
+    </texture>
+    <w>26</w>
+    <h>26</h>
+   </layer>
+  </layer>
+  <transformations>
+   <transformation>
+    <type>x-shift</type>
+    <offset>-45</offset>
+   </transformation>
+  </transformations>
+ </layer>
+
+<!-- NOSE DOOR -->
+
+ <layer>
+  <name>nose door light</name>
+  <type>switch</type>
+
+  <layer>
+   <name>On</name>
+   <type>group</type>
+   <condition>
+    <or>
+     <not include="concorde-cond-test-copilot.xml"/>
+     <and>
+      <or include="concorde-cond-voltage-gear.xml"/> <!-- bug -->
+      <greater-than>
+       <property>/gear/gear[0]/position-norm</property>
+       <value>0.0</value>
+      </greater-than>
+      <less-than>
+       <property>/gear/gear[0]/position-norm</property>
+       <value>1.0</value>
+      </less-than>
+     </and>
+    </or>
+   </condition>
+
+   <layer include="concorde-bulb-on.xml">
+    <condition include="concorde-cond-light-copilot.xml"/>
+    <w>26</w>
+    <h>26</h>
+   </layer>
+   <layer>
+    <name>background nose door</name>
+    <texture>
+     <path>Aircraft/Concorde/Panels/Instruments/Textures/concorde-red-alarm.png</path>
+    </texture>
+    <w>26</w>
+    <h>26</h>
+    <emissive>true</emissive>
+   </layer>
+  </layer>
+
+  <layer>
+   <name>Off</name>
+   <type>group</type>
+
+   <layer include="concorde-bulb-off.xml">
+    <w>26</w>
+    <h>26</h>
+   </layer>
+   <layer>
+    <name>background nose door</name>
+    <texture>
+     <path>Aircraft/Concorde/Panels/Instruments/Textures/concorde-red-alarm.png</path>
+    </texture>
+    <w>26</w>
+    <h>26</h>
+   </layer>
+  </layer>
+  <transformations>
+   <transformation>
+    <type>x-shift</type>
+    <offset>-15</offset>
+   </transformation>
+  </transformations>
+ </layer>
+
+<!-- TAIL DOOR -->
+
+ <layer>
+  <name>tail door light</name>
+  <type>switch</type>
+
+  <layer>
+   <name>On</name>
+   <type>group</type>
+   <condition>
+    <or>
+     <not include="concorde-cond-test-copilot.xml"/>
+     <and>
+      <or include="concorde-cond-voltage-gear.xml"/> <!-- bug -->
+      <greater-than>
+       <property>/gear/gear[3]/position-norm</property>
+       <property n="1">/controls/gear/time/tail/open-door</property> <!-- no need to open it -->
+      </greater-than>
+      <less-than>
+       <property>/gear/gear[3]/position-norm</property>
+       <property n="1">/controls/gear/time/tail/gear-locked</property> <!-- no need to close it -->
+      </less-than>
+     </and>
+    </or>
+   </condition>
+
+   <layer include="concorde-bulb-on.xml">
+    <condition include="concorde-cond-light-copilot.xml"/>
+    <w>26</w>
+    <h>26</h>
+   </layer>
+   <layer>
+    <name>background tail door</name>
+    <texture>
+     <path>Aircraft/Concorde/Panels/Instruments/Textures/concorde-red-alarm.png</path>
+    </texture>
+    <w>26</w>
+    <h>26</h>
+    <emissive>true</emissive>
+   </layer>
+  </layer>
+
+  <layer>
+   <name>Off</name>
+   <type>group</type>
+
+   <layer include="concorde-bulb-off.xml">
+    <w>26</w>
+    <h>26</h>
+   </layer>
+   <layer>
+    <name>background tail door</name>
+    <texture>
+     <path>Aircraft/Concorde/Panels/Instruments/Textures/concorde-red-alarm.png</path>
+    </texture>
+    <w>26</w>
+    <h>26</h>
+   </layer>
+  </layer>
+  <transformations>
+   <transformation>
+    <type>x-shift</type>
+    <offset>15</offset>
+   </transformation>
+  </transformations>
+ </layer>
+
+<!-- RIGHT DOOR -->
+
+ <layer>
+  <name>right door light</name>
+  <type>switch</type>
+
+  <layer>
+   <name>On</name>
+   <type>group</type>
+   <condition>
+    <or>
+     <not include="concorde-cond-test-copilot.xml"/>
+     <and>
+      <or include="concorde-cond-voltage-gear.xml"/> <!-- bug -->
+      <greater-than>
+       <property>/gear/gear[2]/position-norm</property>
+       <value>0.0</value>
+      </greater-than>
+      <less-than>
+       <property>/gear/gear[2]/position-norm</property>
+       <value>1.0</value>
+      </less-than>
+     </and>
+    </or>
+   </condition>
+
+   <layer include="concorde-bulb-on.xml">
+    <condition include="concorde-cond-light-copilot.xml"/>
+    <w>26</w>
+    <h>26</h>
+   </layer>
+   <layer>
+    <name>background right door</name>
+    <texture>
+     <path>Aircraft/Concorde/Panels/Instruments/Textures/concorde-red-alarm.png</path>
+    </texture>
+    <w>26</w>
+    <h>26</h>
+    <emissive>true</emissive>
+   </layer>
+  </layer>
+
+  <layer>
+   <name>Off</name>
+   <type>group</type>
+
+   <layer include="concorde-bulb-off.xml">
+    <w>26</w>
+    <h>26</h>
+   </layer>
+   <layer>
+    <name>background right door</name>
+    <texture>
+     <path>Aircraft/Concorde/Panels/Instruments/Textures/concorde-red-alarm.png</path>
+    </texture>
+    <w>26</w>
+    <h>26</h>
+   </layer>
+  </layer>
+  <transformations>
+   <transformation>
+    <type>x-shift</type>
+    <offset>45</offset>
+   </transformation>
+  </transformations>
+ </layer>
+
+<!-- ==== -->
+<!-- DOWN -->
+<!-- ==== -->
+
+<!-- LEFT DOWN -->
+
+  <layer>
+   <name>left down light</name>
+   <type>switch</type>
+
+   <layer>
+    <name>On</name>
+    <type>group</type>
+    <condition>
+     <or>
+      <not include="concorde-cond-test-copilot.xml"/>
+      <and>
+       <or include="concorde-cond-voltage-gear.xml"/> <!-- bug -->
+       <greater-than>
+        <property>/gear/gear[1]/position-norm</property>
+        <property n="1">/controls/gear/time/main/gear-locked</property>
+       </greater-than>
+      </and>
+     </or>
+    </condition>
+
+    <layer include="concorde-bulb-on.xml">
+     <condition include="concorde-cond-light-copilot.xml"/>
+     <w>20</w>
+     <h>40</h>
+    </layer>
+    <layer>
+     <name>background left down</name>
+     <texture>
+      <path>Aircraft/Concorde/Panels/Instruments/Textures/concorde-green-warning.png</path>
+     </texture>
+     <w>20</w>
+     <h>40</h>
+     <emissive>true</emissive>
+    </layer>
+   </layer>
+
+   <layer>
+    <name>Off</name>
+    <type>group</type>
+
+    <layer include="concorde-bulb-off.xml">
+     <w>20</w>
+     <h>40</h>
+    </layer>
+    <layer>
+     <name>background left down</name>
+     <texture>
+      <path>Aircraft/Concorde/Panels/Instruments/Textures/concorde-green-warning.png</path>
+     </texture>
+     <w>20</w>
+     <h>40</h>
+    </layer>
+   </layer>
+   <transformations>
+    <transformation>
+     <type>x-shift</type>
+     <offset>-45</offset>
+    </transformation>
+    <transformation>
+     <type>y-shift</type>
+     <offset>-40</offset>
+    </transformation>
+   </transformations>
+  </layer>
+
+  <layer>
+   <name>Title left down</name>
+   <type>text</type>
+   <point-size>11</point-size>
+   <color>
+    <red>0.0</red>
+    <green>0.0</green>
+    <blue>0.0</blue>
+   </color>
+   <chunks>
+    <chunk>
+     <type>literal</type>
+     <text>L</text>
+    </chunk>
+   </chunks>
+   <transformations>
+    <transformation>
+     <type>x-shift</type>
+     <offset>-48</offset>
+    </transformation>
+    <transformation>
+     <type>y-shift</type>
+     <offset>-40</offset>
+    </transformation>
+   </transformations>
+  </layer>
+
+<!-- NOSE DOWN -->
+
+  <layer>
+   <name>nose down light</name>
+   <type>switch</type>
+
+   <layer>
+    <name>On</name>
+    <type>group</type>
+    <condition>
+     <or>
+      <not include="concorde-cond-test-copilot.xml"/>
+      <and>
+       <or include="concorde-cond-voltage-gear.xml"/> <!-- bug -->
+       <greater-than>
+        <property>/gear/gear[0]/position-norm</property>
+        <property n="1">/controls/gear/time/main/gear-locked</property>
+       </greater-than>
+      </and>
+     </or>
+    </condition>
+
+    <layer include="concorde-bulb-on.xml">
+     <condition include="concorde-cond-light-copilot.xml"/>
+     <w>20</w>
+     <h>40</h>
+    </layer>
+    <layer>
+     <name>background nose down</name>
+     <texture>
+      <path>Aircraft/Concorde/Panels/Instruments/Textures/concorde-green-warning.png</path>
+     </texture>
+     <w>20</w>
+     <h>40</h>
+     <emissive>true</emissive>
+    </layer>
+   </layer>
+
+   <layer>
+    <name>Off</name>
+    <type>group</type>
+
+    <layer include="concorde-bulb-off.xml">
+     <w>20</w>
+     <h>40</h>
+    </layer>
+    <layer>
+     <name>background nose down</name>
+     <texture>
+      <path>Aircraft/Concorde/Panels/Instruments/Textures/concorde-green-warning.png</path>
+     </texture>
+     <w>20</w>
+     <h>40</h>
+    </layer>
+   </layer>
+   <transformations>
+    <transformation>
+     <type>x-shift</type>
+     <offset>-15</offset>
+    </transformation>
+    <transformation>
+     <type>y-shift</type>
+     <offset>-40</offset>
+    </transformation>
+   </transformations>
+  </layer>
+
+  <layer>
+   <name>Title nose down</name>
+   <type>text</type>
+   <point-size>11</point-size>
+   <color>
+    <red>0.0</red>
+    <green>0.0</green>
+    <blue>0.0</blue>
+   </color>
+   <chunks>
+    <chunk>
+     <type>literal</type>
+     <text>N</text>
+    </chunk>
+   </chunks>
+   <transformations>
+    <transformation>
+     <type>x-shift</type>
+     <offset>-18</offset>
+    </transformation>
+    <transformation>
+     <type>y-shift</type>
+     <offset>-40</offset>
+    </transformation>
+   </transformations>
+  </layer>
+
+<!-- TAIL DOWN -->
+
+ <layer>
+  <name>tail down light</name>
+  <type>switch</type>
+
+  <layer>
+   <name>On</name>
+   <type>group</type>
+   <condition>
+    <or>
+     <not include="concorde-cond-test-copilot.xml"/>
+     <and>
+      <or include="concorde-cond-voltage-gear.xml"/> <!-- bug -->
+      <greater-than>
+       <property>/gear/gear[3]/position-norm</property>
+       <property n="1">/controls/gear/time/tail/gear-locked</property>
+      </greater-than>
+     </and>
+    </or>
+   </condition>
+
+   <layer include="concorde-bulb-on.xml">
+    <condition include="concorde-cond-light-copilot.xml"/>
+    <w>20</w>
+    <h>30</h>
+   </layer>
+   <layer>
+    <name>background tail down</name>
+    <texture>
+     <path>Aircraft/Concorde/Panels/Instruments/Textures/concorde-green-warning.png</path>
+    </texture>
+    <w>20</w>
+    <h>30</h>
+    <emissive>true</emissive>
+   </layer>
+  </layer>
+
+  <layer>
+   <name>Off</name>
+   <type>group</type>
+
+   <layer include="concorde-bulb-off.xml">
+    <w>20</w>
+    <h>30</h>
+   </layer>
+   <layer>
+    <name>background tail down</name>
+    <texture>
+     <path>Aircraft/Concorde/Panels/Instruments/Textures/concorde-green-warning.png</path>
+    </texture>
+    <w>20</w>
+    <h>30</h>
+   </layer>
+  </layer>
+  <transformations>
+   <transformation>
+    <type>x-shift</type>
+    <offset>15</offset>
+   </transformation>
+   <transformation>
+    <type>y-shift</type>
+    <offset>-45</offset>
+   </transformation>
+  </transformations>
+ </layer>
+
+  <layer>
+   <name>Title tail down</name>
+   <type>text</type>
+   <point-size>11</point-size>
+   <color>
+    <red>0.0</red>
+    <green>0.0</green>
+    <blue>0.0</blue>
+   </color>
+   <chunks>
+    <chunk>
+     <type>literal</type>
+     <text>T</text>
+    </chunk>
+   </chunks>
+   <transformations>
+    <transformation>
+     <type>x-shift</type>
+     <offset>12</offset>
+    </transformation>
+    <transformation>
+     <type>y-shift</type>
+     <offset>-50</offset>
+    </transformation>
+   </transformations>
+  </layer>
+
+<!-- RIGHT DOWN -->
+
+ <layer>
+  <name>right down light</name>
+  <type>switch</type>
+
+  <layer>
+   <name>On</name>
+   <type>group</type>
+   <condition>
+    <or>
+     <not include="concorde-cond-test-copilot.xml"/>
+     <and>
+      <or include="concorde-cond-voltage-gear.xml"/> <!-- bug -->
+      <greater-than>
+       <property>/gear/gear[2]/position-norm</property>
+       <property n="1">/controls/gear/time/main/gear-locked</property>
+      </greater-than>
+     </and>
+    </or>
+   </condition>
+
+   <layer include="concorde-bulb-on.xml">
+    <condition include="concorde-cond-light-copilot.xml"/>
+    <w>20</w>
+    <h>40</h>
+   </layer>
+   <layer>
+    <name>background right down</name>
+    <texture>
+     <path>Aircraft/Concorde/Panels/Instruments/Textures/concorde-green-warning.png</path>
+    </texture>
+    <w>20</w>
+    <h>40</h>
+    <emissive>true</emissive>
+   </layer>
+  </layer>
+
+  <layer>
+   <name>Off</name>
+   <type>group</type>
+
+   <layer include="concorde-bulb-off.xml">
+    <w>20</w>
+    <h>40</h>
+   </layer>
+   <layer>
+    <name>background right down</name>
+    <texture>
+     <path>Aircraft/Concorde/Panels/Instruments/Textures/concorde-green-warning.png</path>
+    </texture>
+    <w>20</w>
+    <h>40</h>
+   </layer>
+  </layer>
+  <transformations>
+   <transformation>
+    <type>x-shift</type>
+    <offset>45</offset>
+   </transformation>
+   <transformation>
+    <type>y-shift</type>
+    <offset>-40</offset>
+   </transformation>
+  </transformations>
+ </layer>
+
+  <layer>
+   <name>Title right down</name>
+   <type>text</type>
+   <point-size>11</point-size>
+   <color>
+    <red>0.0</red>
+    <green>0.0</green>
+    <blue>0.0</blue>
+   </color>
+   <chunks>
+    <chunk>
+     <type>literal</type>
+     <text>R</text>
+    </chunk>
+   </chunks>
+   <transformations>
+    <transformation>
+     <type>x-shift</type>
+     <offset>42</offset>
+    </transformation>
+    <transformation>
+     <type>y-shift</type>
+     <offset>-40</offset>
+    </transformation>
+   </transformations>
+  </layer>
+
+ </layers>
+
+</PropertyList>
+   

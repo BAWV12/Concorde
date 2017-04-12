@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+
+<!-- Voltage condition for Horizon.
+-->
+
+<PropertyList>
+
+   <greater-than>
+    <property>/systems/electrical/outputs/specific</property>
+    <value>20.0</value>
+   </greater-than>
+
+</PropertyList>

@@ -1,0 +1,83 @@
+<?xml version="1.0"?>
+
+<PropertyList>
+ <name>Flight reverse arm push button</name>
+ <w-base>120</w-base>
+ <h-base>120</h-base>
+
+
+ <layers>
+
+  <layer>
+   <name>background</name>
+   <texture>
+    <path>Aircraft/Concorde/Panels/Instruments/Textures/bezel1.png</path>
+    <x1>0.5</x1>
+    <y1>0.0</y1>
+    <x2>1.0</x2>
+    <y2>0.5</y2>
+   </texture>
+   <w>120</w>
+   <h>120</h>
+  </layer>
+
+  <layer>
+   <name>button</name>
+   <type>switch</type>
+
+   <layer>
+    <name>pull</name>
+    <condition>
+     <not>
+      <property>/controls/engines/flight-reverse</property>
+     </not>
+    </condition>
+    <texture>
+     <path>Aircraft/Concorde/Panels/Instruments/Textures/concorde-white-knob.png</path>
+     <x1>0.0</x1>
+      <y1>0.0</y1>
+     <x2>1.0</x2>
+     <y2>1.0</y2>
+    </texture>
+    <w>104</w>
+    <h>104</h>
+   </layer>
+
+   <layer>
+    <name>push</name>
+    <texture>
+     <path>Aircraft/Concorde/Panels/Instruments/Textures/concorde-white-knob.png</path>
+     <x1>0.0</x1>
+      <y1>0.0</y1>
+     <x2>1.0</x2>
+     <y2>1.0</y2>
+    </texture>
+    <w>92</w>
+    <h>92</h>
+   </layer>
+  </layer>
+
+ </layers>
+ 
+ <actions>
+
+  <action>
+   <desc>push</desc>
+   <button>0</button>
+   <x>-48</x>
+   <y>-48</y>
+   <w>96</w>
+   <h>96</h>
+   <binding>
+    <command>property-toggle</command>
+    <property>/controls/engines/flight-reverse</property>
+   </binding>
+   <binding>
+    <command>property-toggle</command>
+    <property>/instrumentation/generic/click</property>
+   </binding>
+  </action>
+
+ </actions>
+
+</PropertyList>

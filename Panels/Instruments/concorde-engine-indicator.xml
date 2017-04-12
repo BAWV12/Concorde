@@ -1,0 +1,247 @@
+<?xml version="1.0"?>
+
+<!-- Engine indicator lights :
+
+     - green : takeoff monitor armed, secondary nozzle buckets within limits, and fuel flow above bug.
+     - blue : reversed thrust, flashing during the bucket transit.
+-->
+
+<PropertyList>
+
+ <name>Engine indicator lights</name>
+ <w-base>100</w-base>
+ <h-base>20</h-base>
+
+ <params>
+  <running-select>/engines/engine[0]/running</running-select>
+  <bucket-select>/systems/engines/engine[0]/bucket-deg</bucket-select>
+  <fuel-select>/engines/engine[0]/fuel-flow_pph</fuel-select>
+  <bug-select>/controls/engines/engine[0]/bug_pph</bug-select>
+  <configuration-select>/systems/engines/engine[0]/configuration</configuration-select>
+ </params>
+
+
+ <layers>
+
+
+
+<!-- GO LIGHT -->
+
+ <layer>
+  <name>go light</name>
+   <type>switch</type>
+
+   <layer>
+    <name>Off</name>
+    <type>group</type>
+    <condition>
+     <or include="concorde-cond-voltage-bulb.xml">
+      <and>
+       <or include="concorde-cond-test-center.xml"/> <!-- bug -->
+       <or>
+        <not>
+         <property alias="../../../../../../../../../params/running-select"/>
+        </not>
+        <less-than>
+         <property alias="../../../../../../../../../params/bucket-select"/>
+         <value>21.0</value>
+        </less-than>
+        <less-than>
+         <property alias="../../../../../../../../../params/fuel-select"/>
+         <property n="1" alias="../../../../../../../../../params/bug-select"/>
+        </less-than>
+        <not>
+         <property>/instrumentation/takeoff-monitor/armed</property>
+        </not>
+       </or>
+      </and>
+     </or>
+    </condition>
+
+    <layer include="concorde-bulb-off.xml">
+     <w>25</w>
+     <h>19</h>
+    </layer>
+    <layer>
+     <name>background go</name>
+     <texture>
+      <path>Aircraft/Concorde/Panels/Instruments/Textures/concorde-green-warning.png</path>
+     </texture>
+     <w>25</w>
+     <h>19</h>
+    </layer>
+   </layer>
+
+   <layer>
+    <name>On</name>
+    <type>group</type>
+
+    <layer include="concorde-bulb-on.xml">
+     <w>25</w>
+     <h>19</h>
+    </layer>
+    <layer>
+     <name>background go</name>
+     <texture>
+      <path>Aircraft/Concorde/Panels/Instruments/Textures/concorde-green-warning.png</path>
+     </texture>
+     <w>25</w>
+     <h>19</h>
+     <emissive>true</emissive>
+    </layer>
+   </layer>
+  <transformations>
+   <transformation>
+    <type>x-shift</type>
+    <offset>-25</offset>
+   </transformation>
+  </transformations>
+  </layer>
+
+<!-- CONFIGURATION -->
+
+ <layer>
+  <name>configuration light</name>
+  <type>switch</type>
+
+  <layer>
+   <name>Off</name>
+   <type>group</type>
+   <condition>
+    <or include="concorde-cond-voltage-bulb.xml">
+     <and>
+      <or include="concorde-cond-test-center.xml"/> <!-- bug -->
+      <not>
+       <property alias="../../../../../../../../params/configuration-select"/>
+      </not>
+     </and>
+    </or>
+   </condition>
+
+   <layer include="concorde-bulb-off.xml">
+    <w>25</w>
+    <h>19</h>
+   </layer>
+   <layer>
+    <name>background configuration</name>
+    <texture>
+     <path>Aircraft/Concorde/Panels/Instruments/Textures/concorde-amber-con.png</path>
+     <x1>0.0</x1>
+     <y1>0.1</y1>
+     <x2>1.0</x2>
+     <y2>0.9</y2>
+    </texture>
+    <w>25</w>
+    <h>19</h>
+   </layer>
+  </layer>
+
+  <layer>
+   <name>On</name>
+   <type>group</type>
+
+   <layer include="concorde-bulb-on.xml">
+    <w>25</w>
+    <h>19</h>
+   </layer>
+   <layer>
+    <name>background configuration</name>
+    <texture>
+     <path>Aircraft/Concorde/Panels/Instruments/Textures/concorde-amber-con.png</path>
+     <x1>0.0</x1>
+     <y1>0.1</y1>
+     <x2>1.0</x2>
+     <y2>0.9</y2>
+    </texture>
+    <w>25</w>
+    <h>19</h>
+    <emissive>true</emissive>
+   </layer>
+  </layer>
+ </layer>
+
+<!-- REVERSER -->
+
+ <layer>
+  <name>reverser light</name>
+  <type>switch</type>
+
+  <layer>
+   <name>Off</name>
+   <type>group</type>
+   <condition>
+    <or include="concorde-cond-voltage-bulb.xml">
+     <and>
+      <or include="concorde-cond-test-center.xml"/> <!-- bug -->
+      <and>
+       <or>
+        <or include="concorde-cond-flashing-light.xml"/>  <!-- bug -->
+        <greater-than-equals>
+         <property alias="../../../../../../../../../../params/bucket-select"/>
+         <value>73.0</value>
+        </greater-than-equals>
+        <less-than-equals>
+         <property alias="../../../../../../../../../../params/bucket-select"/>
+         <value>21.0</value>
+        </less-than-equals>
+       </or>
+       <less-than>
+        <property alias="../../../../../../../../../params/bucket-select"/>
+        <value>73.0</value>
+       </less-than>
+      </and>
+     </and>
+    </or>
+   </condition>
+
+   <layer include="concorde-bulb-off.xml">
+    <w>25</w>
+    <h>19</h>
+   </layer>
+   <layer>
+    <name>background reverser</name>
+    <texture>
+     <path>Aircraft/Concorde/Panels/Instruments/Textures/concorde-blue-rev.png</path>
+     <x1>0.0</x1>
+     <y1>0.1</y1>
+     <x2>1.0</x2>
+     <y2>0.9</y2>
+    </texture>
+    <w>25</w>
+    <h>19</h>
+   </layer>
+  </layer>
+
+  <layer>
+   <name>On</name>
+   <type>group</type>
+
+   <layer include="concorde-bulb-on.xml">
+    <w>25</w>
+    <h>19</h>
+   </layer>
+   <layer>
+    <name>background reverser</name>
+    <texture>
+     <path>Aircraft/Concorde/Panels/Instruments/Textures/concorde-blue-rev.png</path>
+     <x1>0.0</x1>
+     <y1>0.1</y1>
+     <x2>1.0</x2>
+     <y2>0.9</y2>
+    </texture>
+    <w>25</w>
+    <h>19</h>
+    <emissive>true</emissive>
+   </layer>
+  </layer>
+  <transformations>
+   <transformation>
+    <type>x-shift</type>
+    <offset>25</offset>
+   </transformation>
+  </transformations>
+ </layer>
+
+ </layers>
+
+</PropertyList>

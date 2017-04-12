@@ -1,0 +1,38 @@
+<?xml version="1.0" ?> 
+
+<!-- auto smooth is disabled. -->
+
+<PropertyList> 
+ <path>seat-observer2.ac</path> 
+
+ <nasal>
+  <load>
+   var livery_update = aircraft.livery_update.new(
+   "Aircraft/Concorde/Models/Liveries", 10,
+   func { print("Concorde livery update (observer 2 seat)") });
+  </load>
+
+  <unload>
+   livery_update.stop();
+  </unload>
+ </nasal>
+
+ <animation>
+  <type>material</type>
+  <object-name>Seat</object-name>
+  <property-base>sim/model/livery/</property-base>
+  <texture-prop>texture-seat</texture-prop>
+ </animation>
+
+ <animation>
+  <type>material</type>
+  <object-name>Seat</object-name>
+  <emission>
+   <red>0.66</red>
+   <green>0.68</green>
+   <blue>0.64</blue>
+   <factor-prop>systems/lighting/level/roof</factor-prop>
+  </emission> 
+ </animation> 
+
+</PropertyList>

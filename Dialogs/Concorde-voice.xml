@@ -1,0 +1,461 @@
+<?xml version="1.0"?>
+
+<PropertyList>
+  <name>Concorde-voice</name>
+  <layout>vbox</layout>
+
+  <text>
+    <label>Concorde voices</label>
+  </text>
+
+  <hrule><dummy/></hrule>
+
+  <group>
+    <layout>vbox</layout>
+    <halign>center</halign>
+
+    <text>
+      <label>Voice</label>
+    </text>
+
+    <text>
+      <label>(0 virtual crew member required)</label>
+      <color>
+        <red>0.5</red>
+        <green>0.5</green>
+        <blue>0.5</blue>
+      </color>
+    </text>
+
+    <text>
+      <label></label>
+    </text>
+
+    <text>
+      <label></label>
+    </text>
+
+    <group>
+     <layout>hbox</layout>
+
+     <text>
+       <label>callout :</label>
+     </text>
+
+     <text>
+      <live>true</live>
+      <property>/systems/voice/callout</property>
+      <halign>left</halign>
+      <color>
+       <red>0.2</red>
+       <green>0.8</green>
+       <blue>0.2</blue>
+      </color>
+     </text>
+    </group>
+
+    <text>
+      <label></label>
+    </text>
+
+    <group>
+     <layout>hbox</layout>
+
+     <text>
+       <label>captain :</label>
+     </text>
+
+     <text>
+      <live>true</live>
+      <property>/systems/voice/display/captain</property>
+      <halign>left</halign>
+      <color>
+       <red>0.8</red>
+       <green>0.8</green>
+       <blue>0.2</blue>
+      </color>
+     </text>
+    </group>
+
+    <group>
+     <layout>hbox</layout>
+
+     <text>
+       <label>copilot :</label>
+     </text>
+
+     <text>
+      <live>true</live>
+      <property>/systems/voice/display/copilot</property>
+      <halign>left</halign>
+      <color>
+       <red>0.2</red>
+       <green>0.8</green>
+       <blue>0.2</blue>
+      </color>
+     </text>
+    </group>
+
+    <group>
+     <layout>hbox</layout>
+
+     <text>
+       <label>engineer :</label>
+     </text>
+
+     <text>
+      <live>true</live>
+      <property>/systems/voice/display/engineer</property>
+      <halign>left</halign>
+      <color>
+       <red>0.2</red>
+       <green>0.8</green>
+       <blue>0.8</blue>
+      </color>
+     </text>
+    </group>
+
+    <text>
+      <label></label>
+    </text>
+
+    <text>
+      <label></label>
+    </text>
+
+    <group>
+     <layout>hbox</layout>
+
+     <group>
+      <layout>vbox</layout>
+
+      <text>
+        <label>takeoff</label>
+        <color>
+          <red>0.5</red>
+          <green>0.5</green>
+          <blue>0.5</blue>
+        </color>
+      </text>
+
+      <text>
+        <label>Parking brake on</label>
+      </text>
+
+      <text>
+        <label>|</label>
+      </text>
+
+      <text>
+        <label>v</label>
+      </text>
+
+      <text>
+        <label>holding (optional)</label>
+        <color>
+          <red>0.5</red>
+          <green>0.5</green>
+          <blue>0.5</blue>
+        </color>
+      </text>
+
+      <text>
+        <label>Parking brake off</label>
+      </text>
+
+      <text>
+        <label>|</label>
+      </text>
+
+      <text>
+        <label>v</label>
+      </text>
+
+      <text>
+        <label>takeoff</label>
+        <color>
+          <red>0.5</red>
+          <green>0.5</green>
+          <blue>0.5</blue>
+        </color>
+      </text>
+
+      <text>
+        <label>1000 ft</label>
+      </text>
+
+      <text>
+        <label>|</label>
+      </text>
+
+      <text>
+        <label>v</label>
+      </text>
+
+      <text>
+        <label>flight</label>
+        <color>
+          <red>0.5</red>
+          <green>0.5</green>
+          <blue>0.5</blue>
+        </color>
+      </text>
+     </group>
+
+     <group>
+      <layout>vbox</layout>
+
+      <text>
+        <label>flight</label>
+        <color>
+          <red>0.5</red>
+          <green>0.5</green>
+          <blue>0.5</blue>
+        </color>
+      </text>
+
+      <text>
+        <label>10000 ft</label>
+      </text>
+
+      <text>
+        <label>|</label>
+      </text>
+
+      <text>
+        <label>v</label>
+      </text>
+
+      <text>
+        <label>landing</label>
+        <color>
+          <red>0.5</red>
+          <green>0.5</green>
+          <blue>0.5</blue>
+        </color>
+      </text>
+
+      <text>
+        <label>Full throttle</label>
+      </text>
+
+      <text>
+        <label>(aborted landing)</label>
+      </text>
+
+      <text>
+        <label>|</label>
+      </text>
+
+      <text>
+        <label>v</label>
+      </text>
+
+      <text>
+        <label>goaround</label>
+        <color>
+          <red>0.5</red>
+          <green>0.5</green>
+          <blue>0.5</blue>
+        </color>
+      </text>
+
+      <text>
+        <label>Positiv climb</label>
+      </text>
+
+      <text>
+        <label>|</label>
+      </text>
+
+      <text>
+        <label>v</label>
+      </text>
+
+      <text>
+        <label>flight</label>
+        <color>
+          <red>0.5</red>
+          <green>0.5</green>
+          <blue>0.5</blue>
+        </color>
+      </text>
+    </group>
+
+    <group>
+      <layout>vbox</layout>
+
+      <button>
+       <legend>flight</legend>
+       <binding>
+         <command>nasal</command>
+         <script>globals.Concorde.voicecrew.flightexport();</script>
+       </binding>
+      </button>
+
+      <text>
+        <label>10000 ft</label>
+      </text>
+
+      <text>
+        <label>|</label>
+      </text>
+
+      <text>
+        <label>v</label>
+      </text>
+
+      <button>
+       <legend>landing</legend>
+       <binding>
+         <command>nasal</command>
+         <script>globals.Concorde.voicecrew.landingexport();</script>
+       </binding>
+      </button>
+
+      <text>
+        <label>20 kt</label>
+      </text>
+
+      <text>
+        <label>|</label>
+      </text>
+
+      <text>
+        <label>v</label>
+      </text>
+
+      <text>
+        <label>taxiway</label>
+        <color>
+          <red>0.5</red>
+          <green>0.5</green>
+          <blue>0.5</blue>
+        </color>
+      </text>
+    </group>
+
+    <group>
+      <layout>vbox</layout>
+
+      <button>
+       <legend>taxiway</legend>
+       <binding>
+         <command>nasal</command>
+         <script>globals.Concorde.voicecrew.taxiwayexport();</script>
+       </binding>
+      </button>
+
+      <text>
+        <label>Shutdown engines 2 and 3</label>
+      </text>
+
+      <text>
+        <label>(optional)</label>
+      </text>
+
+      <text>
+        <label>|</label>
+      </text>
+
+      <text>
+        <label>v</label>
+      </text>
+
+      <button>
+       <legend>terminal</legend>
+       <binding>
+         <command>nasal</command>
+         <script>globals.Concorde.voicecrew.terminalexport();</script>
+       </binding>
+      </button>
+
+      <text>
+        <label>Shutdown 4 engines</label>
+      </text>
+
+      <text>
+        <label>|</label>
+      </text>
+
+      <text>
+        <label>v</label>
+      </text>
+
+      <button>
+       <legend>gate</legend>
+       <binding>
+         <command>nasal</command>
+         <script>globals.Concorde.voicecrew.gateexport();</script>
+       </binding>
+      </button>
+
+      <text>
+        <label>Start 4 engines</label>
+      </text>
+
+      <text>
+        <label>|</label>
+      </text>
+
+      <text>
+        <label>v</label>
+      </text>
+
+      <button>
+       <legend>takeoff</legend>
+       <binding>
+         <command>nasal</command>
+         <script>globals.Concorde.voicecrew.takeoffexport();</script>
+       </binding>
+      </button>
+     </group>
+    
+    </group>
+  </group>
+
+  <text>
+    <label></label>
+  </text>
+
+  <text>
+    <label></label>
+  </text>
+
+  <group>
+   <layout>hbox</layout>
+
+   <button>
+    <legend>Back</legend>
+    <key>b</key>
+    <binding>
+     <command>dialog-show</command>
+     <dialog-name>Concorde-menu</dialog-name>
+    </binding>
+    <binding>
+      <command>dialog-close</command>
+    </binding>
+   </button>
+
+   <button>
+    <legend>Close</legend>
+    <default>true</default>
+    <key>Esc</key>
+    <binding>
+      <command>dialog-close</command>
+    </binding>
+   </button>
+
+   <button>
+    <legend>Settings</legend>
+    <key>s</key>
+    <binding>
+     <command>dialog-show</command>
+     <dialog-name>Concorde-voice2</dialog-name>
+    </binding>
+    <binding>
+     <command>dialog-close</command>
+    </binding>
+   </button>
+  </group>
+</PropertyList>

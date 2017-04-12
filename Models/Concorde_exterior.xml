@@ -1,0 +1,266 @@
+<?xml version="1.0"?>
+
+<PropertyList>
+
+<!-- wipers -->
+
+  <model>
+   <name>Left Wiper</name>
+   <path>Aircraft/Concorde/Models/Exterior/wiper/left-wiper.xml</path>
+   <offsets>
+    <x-m>-23.949</x-m>
+    <y-m>-0.654</y-m>
+    <z-m> 1.204</z-m>
+    <heading-deg>23</heading-deg>
+    <pitch-deg>43</pitch-deg>
+   </offsets>
+  </model>
+
+  <model>
+   <name>Right Wiper</name>
+   <path>Aircraft/Concorde/Models/Exterior/wiper/right-wiper.xml</path>
+   <offsets>
+    <x-m>-23.949</x-m>
+    <y-m> 0.654</y-m>
+    <z-m> 1.204</z-m>
+    <heading-deg>-23</heading-deg>
+    <pitch-deg>43</pitch-deg>
+   </offsets>
+  </model>
+
+<!-- lights -->
+
+  <model>
+   <name>Taxi turn left</name>
+   <path>Aircraft/Concorde/Models/Exterior/light/taxiturnleft.xml</path>
+   <offsets>
+    <x-m>0.0</x-m>
+    <y-m>0.0</y-m>
+    <z-m>0.0</z-m>
+   </offsets>
+  </model>
+
+  <model>
+   <name>Taxi turn right</name>
+   <path>Aircraft/Concorde/Models/Exterior/light/taxiturnright.xml</path>
+   <offsets>
+    <x-m>0.0</x-m>
+    <y-m>0.0</y-m>
+    <z-m>0.0</z-m>
+   </offsets>
+  </model>
+
+  <model>
+   <name>Navigation left</name>
+   <path>Aircraft/Concorde/Models/Exterior/light/navigationleft.xml</path>
+   <offsets>
+    <x-m>0.0</x-m>
+    <y-m>0.0</y-m>
+    <z-m>0.0</z-m>
+   </offsets>
+  </model>
+
+  <model>
+   <name>Navigation right</name>
+   <path>Aircraft/Concorde/Models/Exterior/light/navigationright.xml</path>
+   <offsets>
+    <x-m>0.0</x-m>
+    <y-m>0.0</y-m>
+    <z-m>0.0</z-m>
+   </offsets>
+  </model>
+
+  <model>
+   <name>Navigation tail</name>
+   <path>Aircraft/Concorde/Models/Exterior/light/navigationtail.xml</path>
+   <offsets>
+    <x-m>0.0</x-m>
+    <y-m>0.0</y-m>
+    <z-m>0.0</z-m>
+   </offsets>
+  </model>
+
+  <model>
+   <name>Collision left</name>
+   <path>Aircraft/Concorde/Models/Exterior/light/collisionleft.xml</path>
+   <offsets>
+    <x-m>0.0</x-m>
+    <y-m>0.0</y-m>
+    <z-m>0.0</z-m>
+   </offsets>
+  </model>
+
+  <model>
+   <name>Collision right</name>
+   <path>Aircraft/Concorde/Models/Exterior/light/collisionright.xml</path>
+   <offsets>
+    <x-m>0.0</x-m>
+    <y-m>0.0</y-m>
+    <z-m>0.0</z-m>
+   </offsets>
+  </model>
+
+  <model>
+   <name>Collision tail</name>
+   <path>Aircraft/Concorde/Models/Exterior/light/collisiontail.xml</path>
+   <offsets>
+    <x-m>0.0</x-m>
+    <y-m>0.0</y-m>
+    <z-m>0.0</z-m>
+   </offsets>
+  </model>
+
+  <model>
+   <name>Taxi left</name>
+   <path>Aircraft/Concorde/Models/Exterior/light/taxileft.xml</path>
+   <offsets>
+    <x-m>0.0</x-m>
+    <y-m>0.0</y-m>
+    <z-m>0.0</z-m>
+   </offsets>
+  </model>
+
+  <model>
+   <name>Taxi cone left</name>
+   <path>Aircraft/Concorde/Models/Exterior/light/taxiconeleft.xml</path>
+   <offsets>
+    <x-m>-13.335</x-m>
+    <y-m>-0.386</y-m>
+    <z-m>-1.056</z-m>
+   </offsets>
+  </model>
+
+  <model>
+   <name>Taxi right</name>
+   <path>Aircraft/Concorde/Models/Exterior/light/taxiright.xml</path>
+   <offsets>
+    <x-m>0.0</x-m>
+    <y-m>0.0</y-m>
+    <z-m>0.0</z-m>
+   </offsets>
+  </model>
+
+  <model>
+   <name>Taxi cone right</name>
+   <path>Aircraft/Concorde/Models/Exterior/light/taxiconeright.xml</path>
+   <offsets>
+    <x-m>-13.335</x-m>
+    <y-m> 0.386</y-m>
+    <z-m>-1.056</z-m>
+   </offsets>
+  </model>
+
+  <model>
+   <name>Landing left</name>
+   <path>Aircraft/Concorde/Models/Exterior/light/landingleft.xml</path>
+   <offsets>
+    <x-m>0.0</x-m>
+    <y-m>0.0</y-m>
+    <z-m>0.0</z-m>
+   </offsets>
+  </model>
+
+  <model>
+   <name>Landing cone left</name>
+   <path>Aircraft/Concorde/Models/Exterior/light/landingconeleft.xml</path>
+   <offsets>
+    <x-m>-10.659</x-m>
+    <y-m>-1.553</y-m>
+    <z-m>-0.272</z-m>
+   </offsets>
+  </model>
+
+  <model>
+   <name>Landing right</name>
+   <path>Aircraft/Concorde/Models/Exterior/light/landingright.xml</path>
+   <offsets>
+    <x-m>0.0</x-m>
+    <y-m>0.0</y-m>
+    <z-m>0.0</z-m>
+   </offsets>
+  </model>
+
+  <model>
+   <name>Landing cone right</name>
+   <path>Aircraft/Concorde/Models/Exterior/light/landingconeright.xml</path>
+   <offsets>
+    <x-m>-10.659</x-m>
+    <y-m> 1.553</y-m>
+    <z-m>-0.272</z-m>
+   </offsets>
+  </model>
+
+
+<!-- wheel chocks -->
+
+  <model>
+   <name>Front chock 1</name>
+   <path>Aircraft/Concorde/Models/Exterior/chock/wheel-chock.xml</path>
+   <offsets>
+    <x-m>-12.493</x-m>
+    <y-m>0</y-m>
+    <z-m>-3.891</z-m>
+   </offsets>
+  </model>
+
+  <model>
+   <name>Front chock 2</name>
+   <path>Aircraft/Concorde/Models/Exterior/chock/wheel-chock.xml</path>
+   <offsets>
+    <x-m>-11.753</x-m>
+    <y-m>0</y-m>
+    <z-m>-3.891</z-m>
+   </offsets>
+  </model>
+
+  <model>
+   <name>Left chock 1</name>
+   <path>Aircraft/Concorde/Models/Exterior/chock/wheel-chock2.xml</path>
+   <offsets>
+    <x-m>4.020</x-m>
+    <y-m>-3.727</y-m>
+    <z-m>-3.891</z-m>
+   </offsets>
+  </model>
+
+  <model>
+   <name>Right chock 1</name>
+   <path>Aircraft/Concorde/Models/Exterior/chock/wheel-chock2.xml</path>
+   <offsets>
+    <x-m>4.010</x-m>
+    <y-m>3.727</y-m>
+    <z-m>-3.891</z-m>
+   </offsets>
+  </model>
+
+  <model>
+   <name>Left chock 2</name>
+   <path>Aircraft/Concorde/Models/Exterior/chock/wheel-chock2.xml</path>
+   <overlay>
+    <params>
+     <height>/systems/gear/gear[2]/chock-z-m</height>
+    </params>
+   </overlay>
+   <offsets>
+    <x-m>6.743</x-m>
+    <y-m>-3.727</y-m>
+    <z-m>-3.891</z-m>
+   </offsets>
+  </model>
+
+  <model>
+   <name>Right chock 2</name>
+   <path>Aircraft/Concorde/Models/Exterior/chock/wheel-chock2.xml</path>
+   <overlay>
+    <params>
+     <height>/systems/gear/gear[2]/chock-z-m</height>
+    </params>
+   </overlay>
+   <offsets>
+    <x-m>6.763</x-m>
+    <y-m>3.727</y-m>
+    <z-m>-3.891</z-m>
+   </offsets>
+  </model>
+
+</PropertyList>

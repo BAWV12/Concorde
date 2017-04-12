@@ -1,0 +1,171 @@
+<?xml version="1.0"?>
+
+<!-- Transfer valve connecting an auxilliary tank. -->
+
+
+<PropertyList>
+ <name>Transfert valve</name>
+ <w-base>50</w-base>
+ <h-base>150</h-base>
+
+ <params>
+  <trans-valve>/controls/fuel/tank[11]/trans-valve</trans-valve>
+  <engine-num>/systems/engines/engine[0]/engine-num</engine-num>
+  <defined-status>/systems/electrical/power/specific</defined-status>
+ </params>
+
+
+ <layers>
+  <layer>
+   <name>Connection flag</name>
+   <type>switch</type>
+
+   <layer>
+    <name>undefined</name>
+    <condition>
+     <not>
+      <property alias="../../../../../../params/defined-status"/>
+     </not>
+    </condition>
+    <texture>
+     <path>Aircraft/Concorde/Panels/Instruments/Textures/concorde-hatched-bg.png</path>
+    </texture>
+    <w>25</w>
+    <h>25</h>
+   </layer>
+
+   <layer>
+    <name>on</name>
+    <condition>
+     <property alias="../../../../../params/trans-valve"/>
+    </condition>
+    <texture>
+     <path>Aircraft/Concorde/Panels/Instruments/Textures/concorde-bar-horizontal-bg.png</path>
+    </texture>
+    <w>25</w>
+    <h>25</h>
+   </layer>
+
+   <layer>
+    <name>off</name>
+    <texture>
+     <path>Aircraft/Concorde/Panels/Instruments/Textures/concorde-bar-vertical-bg.png</path>
+    </texture>
+    <w>25</w>
+    <h>25</h>
+   </layer>
+  </layer>
+
+  <layer>
+   <name>Title</name>
+   <type>text</type>
+   <point-size>9</point-size>
+   <color>
+    <red>1.0</red>
+    <green>1.0</green>
+    <blue>1.0</blue>
+   </color>
+   <chunks>
+    <chunk>
+     <type>literal</type>
+     <text>TRANS</text>
+    </chunk>
+   </chunks>
+   <transformations>
+    <transformation>
+     <type>x-shift</type>
+     <offset>-17</offset>
+    </transformation>
+    <transformation>
+     <type>y-shift</type>
+     <offset>46</offset>
+    </transformation>
+   </transformations>
+  </layer>
+
+  <layer>
+   <name>Title line 2</name>
+   <type>text</type>
+   <point-size>9</point-size>
+   <color>
+    <red>1.0</red>
+    <green>1.0</green>
+    <blue>1.0</blue>
+   </color>
+   <chunks>
+    <chunk>
+     <type>literal</type>
+     <text>VALVE</text>
+    </chunk>
+   </chunks>
+   <transformations>
+    <transformation>
+     <type>x-shift</type>
+     <offset>-17</offset>
+    </transformation>
+    <transformation>
+     <type>y-shift</type>
+     <offset>31</offset>
+    </transformation>
+   </transformations>
+  </layer>
+
+  <layer>
+   <name>Title valve</name>
+   <type>switch</type>
+
+   <layer>
+    <name>Title 5A - 5</name>
+    <condition>
+     <equals>
+      <property alias="../../../../../../params/engine-num"/>
+      <value>1</value>
+     </equals>
+    </condition>
+    <type>text</type>
+    <point-size>9</point-size>
+    <color>
+     <red>1.0</red>
+     <green>1.0</green>
+     <blue>1.0</blue>
+    </color>
+    <chunks>
+     <chunk>
+      <type>literal</type>
+      <text>5A - 5</text>
+     </chunk>
+    </chunks>
+   </layer>
+
+   <layer>
+    <name>Title 7A - 7</name>
+    <type>text</type>
+    <point-size>9</point-size>
+    <color>
+     <red>1.0</red>
+     <green>1.0</green>
+     <blue>1.0</blue>
+    </color>
+    <chunks>
+     <chunk>
+      <type>literal</type>
+      <text>7A - 7</text>
+     </chunk>
+    </chunks>
+   </layer>
+
+   <transformations>
+    <transformation>
+     <type>x-shift</type>
+     <offset>-16</offset>
+    </transformation>
+    <transformation>
+     <type>y-shift</type>
+     <offset>18</offset>
+    </transformation>
+   </transformations>
+  </layer>
+
+ </layers>
+
+</PropertyList>

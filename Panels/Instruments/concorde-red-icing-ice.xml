@@ -1,0 +1,105 @@
+<?xml version="1.0"?>
+
+<!-- Alarm on Ice :
+
+     - not anti-icing with ice condition.
+-->
+
+<PropertyList>
+ <name>Ice alert</name>
+ <w-base>52</w-base>
+ <h-base>104</h-base>
+
+
+ <layers>
+
+<!-- translucent lens -->  
+  <layer>
+   <name>Warning light</name>
+   <type>switch</type>
+
+   <layer>
+    <name>lamp off</name>
+    <type>group</type>
+    <condition>
+     <or include="concorde-cond-voltage-bulb.xml">
+      <and>
+       <or include="concorde-cond-test-overhead.xml"/>  <!-- bug -->
+       <or>
+        <not>
+         <property>/systems/anti-icing/warning</property>
+        </not>
+        <and>
+         <property>/controls/anti-ice/engine[0]/inlet-vane</property>
+         <property>/controls/anti-ice/engine[1]/inlet-vane</property>
+         <property>/controls/anti-ice/engine[2]/inlet-vane</property>
+         <property>/controls/anti-ice/engine[3]/inlet-vane</property>
+         <or>
+          <greater-than>
+           <property>/controls/anti-ice/wing/main-selector</property>
+           <value>0</value>
+          </greater-than>
+          <greater-than>
+           <property>/controls/anti-ice/wing/alternate-selector</property>
+           <value>0</value>
+          </greater-than>
+         </or>
+        </and>
+       </or>
+      </and>
+     </or>
+    </condition>
+
+    <layer include="concorde-bulb-off.xml">
+     <w>104</w>
+     <h>52</h>
+    </layer>
+    <layer>
+     <name>background off</name>
+     <texture>
+      <path>Aircraft/Concorde/Panels/Instruments/Textures/concorde-red-ice.png</path>
+      <x1>0.0</x1>
+      <y1>0.2</y1>
+      <x2>1.0</x2>
+      <y2>0.8</y2>
+     </texture>
+     <w>104</w>
+     <h>52</h>
+    </layer>
+   </layer>
+
+   <layer>
+    <name>lamp on</name>
+    <type>group</type>
+
+    <layer include="concorde-bulb-on.xml">
+     <condition include="concorde-cond-light-overhead.xml"/>
+     <w>104</w>
+     <h>52</h>
+    </layer>
+    <layer>
+     <name>background on</name>
+     <texture>
+      <path>Aircraft/Concorde/Panels/Instruments/Textures/concorde-red-ice.png</path>
+      <x1>0.0</x1>
+      <y1>0.2</y1>
+      <x2>1.0</x2>
+      <y2>0.8</y2>
+     </texture>
+     <w>104</w>
+     <h>52</h>
+     <emissive>true</emissive>
+    </layer>
+   </layer>
+
+   <transformations>
+    <transformation>
+     <type>rotation</type>
+     <offset>90</offset>
+    </transformation>
+   </transformations>
+  </layer>
+
+ </layers>
+
+</PropertyList>

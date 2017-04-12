@@ -1,0 +1,58 @@
+<?xml version="1.0"?>
+
+<!-- windshield wiper block -->
+
+<PropertyList>
+ <name>Windshield wiper</name>
+ <w-base>30</w-base>
+ <h-base>15</h-base>
+
+ <layers>
+
+  <layer>
+   <name>Title</name>
+   <type>text</type>
+   <point-size>6</point-size>
+   <color>
+    <red>1.0</red>
+    <green>1.0</green>
+    <blue>1.0</blue>
+   </color>
+   <chunks>
+    <chunk>
+     <type>literal</type>
+     <text>W/S</text>
+    </chunk>
+   </chunks>
+  </layer>
+
+  <layer>
+   <name>Title 2</name>
+   <type>text</type>
+   <point-size>6</point-size>
+   <color>
+    <red>1.0</red>
+    <green>1.0</green>
+    <blue>1.0</blue>
+   </color>
+   <chunks>
+    <chunk>
+     <type>literal</type>
+     <text>WIPERS</text>
+    </chunk>
+   </chunks>
+   <transformations>
+    <transformation>
+     <type>x-shift</type>
+     <offset>-6</offset>
+    </transformation>
+    <transformation>
+     <type>y-shift</type>
+     <offset>-7</offset>
+    </transformation>
+   </transformations>
+  </layer>
+
+ </layers>
+
+</PropertyList>

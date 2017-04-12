@@ -1,0 +1,99 @@
+<?xml version="1.0"?>
+
+<!-- Alarm on Air Data Computer :
+
+-->
+
+<PropertyList>
+ <name>Alarm on ADC</name>
+ <w-base>104</w-base>
+ <h-base>26</h-base>
+
+
+ <layers>
+<!-- translucent lens -->  
+  <layer>
+   <name>Alarm light</name>
+   <type>switch</type>
+
+   <layer>
+    <name>off</name>
+    <type>group</type>
+    <condition>
+     <or include="concorde-cond-voltage-bulb.xml">
+      <and>
+       <or include="concorde-cond-test-mws.xml"/>           <!-- bug -->
+       <not>
+        <property>/systems/mws/red/ads</property>
+       </not>
+      </and>
+     </or>
+    </condition>
+
+    <layer include="concorde-bulb-off.xml">
+     <w>104</w>
+     <h>26</h>
+    </layer>
+    <layer>
+     <name>background off</name>
+     <texture>
+      <path>Aircraft/Concorde/Panels/Instruments/Textures/concorde-red-ads.png</path>
+      <x1>0.0</x1>
+      <y1>0.20</y1>
+      <x2>1.0</x2>
+      <y2>0.80</y2>
+     </texture>
+     <w>104</w>
+     <h>26</h>
+    </layer>
+   </layer>
+
+   <layer>
+    <name>on</name>
+    <type>group</type>
+
+    <layer include="concorde-bulb-on.xml">
+     <w>104</w>
+     <h>26</h>
+    </layer>
+    <layer>
+     <name>background on</name>
+     <texture>
+      <path>Aircraft/Concorde/Panels/Instruments/Textures/concorde-red-ads.png</path>
+      <x1>0.0</x1>
+      <y1>0.20</y1>
+      <x2>1.0</x2>
+      <y2>0.80</y2>
+     </texture>
+     <w>104</w>
+     <h>26</h>
+     <emissive>true</emissive>
+    </layer>
+   </layer>
+  </layer>
+
+ </layers>
+
+ <actions>
+
+  <action>
+   <name>Cancel</name>
+   <button>0</button>
+   <x>-52</x>
+   <y>-15</y>
+   <w>104</w>
+   <h>26</h>
+   <binding>
+    <command>property-assign</command>
+    <property>/systems/mws/red/ads</property>
+    <value>false</value>
+   </binding>
+   <binding>
+    <command>property-toggle</command>
+    <property>/instrumentation/generic/click</property>
+   </binding>
+  </action>
+
+ </actions>
+
+</PropertyList>

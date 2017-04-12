@@ -1,0 +1,500 @@
+<?xml version="1.0"?>
+
+<!-- Concorde 3D Overhead channel panel.
+
+
+WARNING : a button not working by click, means that it is too close of another button (eventually hidden);
+even if both click areas (ctrl-C) don't overlap. Changing internal geometry of button avoids this drawback.
+
+_______________________________________________________________________
+
+This is a panel configuration file for the open-source flight
+simulator FlightGear (www.flightgear.org).  The file is an XML-encoded
+FlightGear property list defining the panel's background texture and
+the location (and optionally, size) of the instruments that will
+appear on the panel.
+
+Each instrument is, itself, defined in an XML-encoded property list
+in a separate file.
+
+Co-ordinates are relative to the *bottom* left corner of the screen
+(as in OpenGL).  The total FlightGear window is always considered to
+be 1024x768, whatever its actual display size on the screen.  All
+paths are relative to $FG_ROOT.
+
+Note that the name of the element defining each instrument must be
+different, or else instrument definitions will be overwritten:
+that's not particularly XML-ish, but that's how property lists
+work in FlightGear right now.
+
+Each instrument has its own preferred width and height, but you can
+override those by providing <w>..</w> and <h>..</h> properties with the
+<x>...</x> and <y>...</y> properties.
+
+-->
+
+<!DOCTYPE PropertyList SYSTEM "panel.dtd">
+
+<PropertyList>
+
+ <name>Concorde Overhead channel panel</name>
+ <background>Aircraft/Concorde/Panels/Textures/transparent-bg.png</background>
+ <w>1024</w>
+ <h>512</h>
+ <y-offset>0</y-offset>
+ <view-height>500</view-height>
+
+ <instruments>
+
+<!-- INVERTERS -->
+
+  <instrument include="Instruments/concorde-flight-inverter-blue.xml">
+   <name>Blue inverter selector</name>
+   <condition>
+    <or>
+     <and>
+      <property>/sim/current-view/internal</property>
+      <property>/systems/seat/captain</property>
+      <greater-than>
+       <property>/sim/current-view/goal-pitch-offset-deg</property>
+       <value>10</value>
+      </greater-than>
+     </and>
+     <property>/controls/seat/all</property>
+    </or>
+   </condition>
+   <x>45</x>
+   <y>-5</y>
+   <w>62</w>
+   <h>62</h>
+  </instrument>
+
+  <instrument include="Instruments/concorde-red-flight-fail-blue.xml">
+   <name>Blue inverter failure</name>
+   <condition>
+    <or>
+     <and>
+      <property>/sim/current-view/internal</property>
+      <property>/systems/seat/captain</property>
+      <greater-than>
+       <property>/sim/current-view/goal-pitch-offset-deg</property>
+       <value>5</value>
+      </greater-than>
+     </and>
+     <property>/controls/seat/all</property>
+    </or>
+   </condition>
+   <x>100</x>
+   <y>-7</y>
+   <w>55</w>
+   <h>55</h>
+  </instrument>
+
+  <instrument include="Instruments/concorde-red-flight-fail-green.xml">
+   <name>Green inverter failure</name>
+   <condition>
+    <or>
+     <and>
+      <property>/sim/current-view/internal</property>
+      <property>/systems/seat/captain</property>
+      <greater-than>
+       <property>/sim/current-view/goal-pitch-offset-deg</property>
+       <value>5</value>
+      </greater-than>
+     </and>
+     <property>/controls/seat/all</property>
+    </or>
+   </condition>
+   <x>165</x>
+   <y>-7</y>
+   <w>55</w>
+   <h>55</h>
+  </instrument>
+
+  <instrument include="Instruments/concorde-flight-inverter-green.xml">
+   <name>Green inverter selector</name>
+   <condition>
+    <or>
+     <and>
+      <property>/sim/current-view/internal</property>
+      <property>/systems/seat/captain</property>
+      <greater-than>
+       <property>/sim/current-view/goal-pitch-offset-deg</property>
+       <value>0</value>
+      </greater-than>
+     </and>
+     <property>/controls/seat/all</property>
+    </or>
+   </condition>
+   <x>230</x>
+   <y>-5</y>
+   <w>62</w>
+   <h>62</h>
+  </instrument>
+
+<!-- FLIGHT CHANNELS -->
+
+<!-- outer elevons -->
+
+  <instrument include="Instruments/concorde-title-flight-channel-outer.xml">
+   <name>Title</name>
+   <condition>
+    <or>
+     <and>
+      <property>/sim/current-view/internal</property>
+      <property>/systems/seat/captain</property>
+      <greater-than>
+       <property>/sim/current-view/goal-pitch-offset-deg</property>
+       <value>0</value>
+      </greater-than>
+     </and>
+     <property>/controls/seat/all</property>
+    </or>
+   </condition>
+   <x>275</x>
+   <y>20</y>
+   <w>160</w>
+   <h>40</h>
+  </instrument>
+
+  <instrument include="Instruments/concorde-flight-channel.xml">
+   <name>Outer and middle elevons</name>
+   <condition>
+    <or>
+     <and>
+      <property>/sim/current-view/internal</property>
+      <property>/systems/seat/captain</property>
+      <greater-than>
+       <property>/sim/current-view/goal-pitch-offset-deg</property>
+       <value>-5</value>
+      </greater-than>
+     </and>
+     <property>/controls/seat/all</property>
+    </or>
+   </condition>
+   <params>
+    <blue-sel>/controls/flight/channel/outer-blue</blue-sel>
+    <mechanical-sel>/controls/flight/channel/outer-mechanical</mechanical-sel>
+   </params>
+   <x>290</x>
+   <y>-5</y>
+   <w>65</w>
+   <h>65</h>
+  </instrument>
+
+  <instrument include="Instruments/concorde-flight-channel-reset.xml">
+   <name>Reset</name>
+   <condition>
+    <or>
+     <and>
+      <property>/sim/current-view/internal</property>
+      <property>/systems/seat/captain</property>
+      <greater-than>
+       <property>/sim/current-view/goal-pitch-offset-deg</property>
+       <value>-5</value>
+      </greater-than>
+     </and>
+     <property>/controls/seat/all</property>
+    </or>
+   </condition>
+   <params>
+    <blue-sel>/controls/flight/channel/outer-blue</blue-sel>
+    <mechanical-sel>/controls/flight/channel/outer-mechanical</mechanical-sel>
+   </params>
+   <x>355</x>
+   <y>-5</y>
+   <w>22</w>
+   <h>44</h>
+  </instrument>
+
+  <instrument include="Instruments/concorde-red-flight-mecha-jam.xml">
+   <name>Alarm on mechanical jam</name>
+   <condition>
+    <or>
+     <and>
+      <property>/sim/current-view/internal</property>
+      <property>/systems/seat/captain</property>
+      <greater-than>
+       <property>/sim/current-view/goal-pitch-offset-deg</property>
+       <value>-5</value>
+      </greater-than>
+     </and>
+     <property>/controls/seat/all</property>
+    </or>
+   </condition>
+   <x>410</x>
+   <y>0</y>
+   <w>25</w>
+   <h>50</h>
+  </instrument>
+
+<!-- inner elevons -->
+
+  <instrument include="Instruments/concorde-title-flight-channel-inner.xml">
+   <name>Title</name>
+   <condition>
+    <or>
+     <and>
+      <property>/sim/current-view/internal</property>
+      <property>/systems/seat/captain</property>
+      <greater-than>
+       <property>/sim/current-view/goal-pitch-offset-deg</property>
+       <value>-5</value>
+      </greater-than>
+     </and>
+     <property>/controls/seat/all</property>
+    </or>
+   </condition>
+   <x>495</x>
+   <y>20</y>
+   <w>160</w>
+   <h>40</h>
+  </instrument>
+
+  <instrument include="Instruments/concorde-flight-channel.xml">
+   <name>Inner elevons</name>
+   <condition>
+    <or>
+     <and>
+      <property>/sim/current-view/internal</property>
+      <property>/systems/seat/captain</property>
+      <greater-than>
+       <property>/sim/current-view/goal-pitch-offset-deg</property>
+       <value>-5</value>
+      </greater-than>
+     </and>
+     <property>/controls/seat/all</property>
+    </or>
+   </condition>
+   <params>
+    <blue-sel>/controls/flight/channel/inner-blue</blue-sel>
+    <mechanical-sel>/controls/flight/channel/inner-mechanical</mechanical-sel>
+   </params>
+   <x>480</x>
+   <y>-5</y>
+   <w>65</w>
+   <h>65</h>
+  </instrument>
+
+  <instrument include="Instruments/concorde-flight-channel-reset.xml">
+   <name>Reset</name>
+   <condition>
+    <or>
+     <and>
+      <property>/sim/current-view/internal</property>
+      <property>/systems/seat/captain</property>
+      <greater-than>
+       <property>/sim/current-view/goal-pitch-offset-deg</property>
+       <value>-5</value>
+      </greater-than>
+     </and>
+     <property>/controls/seat/all</property>
+    </or>
+   </condition>
+   <params>
+    <blue-sel>/controls/flight/channel/inner-blue</blue-sel>
+    <mechanical-sel>/controls/flight/channel/inner-mechanical</mechanical-sel>
+   </params>
+   <x>565</x>
+   <y>-5</y>
+   <w>22</w>
+   <h>44</h>
+  </instrument>
+
+<!-- rudder -->
+
+  <instrument include="Instruments/concorde-title-flight-channel-rudder.xml">
+   <name>Title</name>
+   <condition>
+    <or>
+     <and>
+      <property>/sim/current-view/internal</property>
+      <property>/systems/seat/captain</property>
+      <greater-than>
+       <property>/sim/current-view/goal-pitch-offset-deg</property>
+       <value>-10</value>
+      </greater-than>
+     </and>
+     <property>/controls/seat/all</property>
+    </or>
+   </condition>
+   <x>670</x>
+   <y>20</y>
+   <w>80</w>
+   <h>40</h>
+  </instrument>
+
+  <instrument include="Instruments/concorde-flight-channel.xml">
+   <name>Rudder</name>
+   <condition>
+    <or>
+     <and>
+      <property>/sim/current-view/internal</property>
+      <property>/systems/seat/captain</property>
+      <greater-than>
+       <property>/sim/current-view/goal-pitch-offset-deg</property>
+       <value>-10</value>
+      </greater-than>
+     </and>
+     <property>/controls/seat/all</property>
+    </or>
+   </condition>
+   <params>
+    <blue-sel>/controls/flight/channel/rudder-blue</blue-sel>
+    <mechanical-sel>/controls/flight/channel/rudder-mechanical</mechanical-sel>
+   </params>
+   <x>660</x>
+   <y>-5</y>
+   <w>65</w>
+   <h>65</h>
+  </instrument>
+
+  <instrument include="Instruments/concorde-flight-channel-reset.xml">
+   <name>Reset</name>
+   <condition>
+    <or>
+     <and>
+      <property>/sim/current-view/internal</property>
+      <property>/systems/seat/captain</property>
+      <greater-than>
+       <property>/sim/current-view/goal-pitch-offset-deg</property>
+       <value>-10</value>
+      </greater-than>
+     </and>
+     <property>/controls/seat/all</property>
+    </or>
+   </condition>
+   <params>
+    <blue-sel>/controls/flight/channel/rudder-blue</blue-sel>
+    <mechanical-sel>/controls/flight/channel/rudder-mechanical</mechanical-sel>
+   </params>
+   <x>725</x>
+   <y>-5</y>
+   <w>22</w>
+   <h>44</h>
+  </instrument>
+
+<!-- ANTI-STALL -->
+
+  <instrument include="Instruments/concorde-title-flight-anti-stall.xml">
+   <name>Title</name>
+   <condition>
+    <or>
+     <and>
+      <property>/sim/current-view/internal</property>
+      <property>/systems/seat/captain</property>
+      <greater-than>
+       <property>/sim/current-view/goal-pitch-offset-deg</property>
+       <value>-15</value>
+      </greater-than>
+     </and>
+     <property>/controls/seat/all</property>
+    </or>
+   </condition>
+   <x>810</x>
+   <y>20</y>
+   <w>240</w>
+   <h>40</h>
+  </instrument>
+
+  <instrument include="Instruments/concorde-flight-anti-stall.xml">
+   <name>Anti-stall system 1</name>
+   <condition>
+    <or>
+     <and>
+      <property>/sim/current-view/internal</property>
+      <property>/systems/seat/captain</property>
+      <greater-than>
+       <property>/sim/current-view/goal-pitch-offset-deg</property>
+       <value>-15</value>
+      </greater-than>
+     </and>
+     <property>/controls/seat/all</property>
+    </or>
+   </condition>
+   <params>
+    <system-sel>/controls/flight/anti-stall/system[0]</system-sel>
+    <num>/systems/engines/engine[0]/engine-num</num>
+   </params>
+   <x>810</x>
+   <y>-5</y>
+   <w>65</w>
+   <h>65</h>
+  </instrument>
+
+  <instrument include="Instruments/concorde-amber-flight-anti-stall.xml">
+   <name>Fault anti-stall 1</name>
+   <condition>
+    <or>
+     <and>
+      <property>/sim/current-view/internal</property>
+      <property>/systems/seat/captain</property>
+      <greater-than>
+       <property>/sim/current-view/goal-pitch-offset-deg</property>
+       <value>-15</value>
+      </greater-than>
+     </and>
+     <property>/controls/seat/all</property>
+    </or>
+   </condition>
+   <params>
+    <num>/systems/engines/engine[0]/engine-num</num>
+   </params>
+   <x>845</x>
+   <y>-7</y>
+   <w>25</w>
+   <h>25</h>
+  </instrument>
+
+  <instrument include="Instruments/concorde-amber-flight-anti-stall.xml">
+   <name>Fault anti-stall 2</name>
+   <condition>
+    <or>
+     <and>
+      <property>/sim/current-view/internal</property>
+      <property>/systems/seat/captain</property>
+      <greater-than>
+       <property>/sim/current-view/goal-pitch-offset-deg</property>
+       <value>-15</value>
+      </greater-than>
+     </and>
+     <property>/controls/seat/all</property>
+    </or>
+   </condition>
+   <params>
+    <num>/systems/engines/engine[1]/engine-num</num>
+   </params>
+   <x>875</x>
+   <y>-7</y>
+   <w>25</w>
+   <h>25</h>
+  </instrument>
+
+  <instrument include="Instruments/concorde-flight-anti-stall.xml">
+   <name>Anti-stall system 2</name>
+   <condition>
+    <or>
+     <and>
+      <property>/sim/current-view/internal</property>
+      <property>/systems/seat/captain</property>
+      <greater-than>
+       <property>/sim/current-view/goal-pitch-offset-deg</property>
+       <value>-15</value>
+      </greater-than>
+     </and>
+     <property>/controls/seat/all</property>
+    </or>
+   </condition>
+   <params>
+    <system-sel>/controls/flight/anti-stall/system[1]</system-sel>
+    <num>/systems/engines/engine[1]/engine-num</num>
+   </params>
+   <x>910</x>
+   <y>-5</y>
+   <w>65</w>
+   <h>65</h>
+  </instrument>
+
+ </instruments>
+
+</PropertyList>

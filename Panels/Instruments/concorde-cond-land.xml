@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+
+<!-- disable lights when autoland.
+-->
+
+<PropertyList>
+
+   <equals>
+    <property>/controls/autoflight/vertical</property>
+    <value>autoland</value>
+   </equals>
+
+</PropertyList>

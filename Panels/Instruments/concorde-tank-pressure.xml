@@ -1,0 +1,117 @@
+<!-- Concorde tank presure :
+
+     - 0 PSI on ground.
+     - until 1.5 PSI at high altitude.
+     - supposed to be not electrical (no voltage).
+-->
+
+
+<PropertyList>
+ <name>Tank pressure</name>
+ <w-base>128</w-base>
+ <h-base>128</h-base>
+
+
+ <layers>
+
+  <layer include="concorde-gauge.xml"/>
+
+  <layer>
+   <name>background</name>
+   <w>110</w>
+   <h>110</h>
+   <texture>
+    <path>Aircraft/Concorde/Panels/Instruments/Textures/concorde-tank-pressure.png</path>
+    <x1>0</x1>
+    <y1>0</y1>
+    <x2>1</x2>
+    <y2>1</y2>
+   </texture>
+  </layer>
+
+  <layer>
+   <name>OFF flag</name>
+   <condition>
+    <not>
+     <property>/instrumentation/tank-pressure/serviceable</property>
+    </not>
+   </condition>
+   <texture>
+    <path>Aircraft/Concorde/Panels/Instruments/Textures/misc-1.png</path>
+    <x1>0.9375</x1>
+    <y1>0.5</y1>
+    <x2>1.0</x2>
+    <y2>0.546875</y2>
+   </texture>
+   <w>25</w>
+   <h>8</h>
+   <transformations>
+    <transformation>
+     <type>x-shift</type>
+     <offset>-40</offset>
+    </transformation>
+    <transformation>
+     <type>y-shift</type>
+     <offset>20</offset>
+    </transformation>
+    <transformation>
+     <type>rotation</type>
+     <offset>30</offset>
+    </transformation>
+   </transformations>
+  </layer>
+
+  <layer>
+   <name>needle</name>
+   <w>6</w>
+   <h>48</h>
+   <texture>
+    <path>Aircraft/Concorde/Panels/Instruments/Textures/misc-1.png</path>
+    <x1>0.8</x1>
+    <y1>0.78125</y1>
+    <x2>0.8375</x2>
+    <y2>1.0</y2>
+   </texture>
+   <transformations>
+    <transformation>
+     <type>rotation</type>
+      <condition>
+       <property>/instrumentation/tank-pressure/serviceable</property>
+      </condition>
+      <property>/instrumentation/tank-pressure/differential-psi</property>
+      <min>-3.0</min>
+      <max>7.0</max>
+      <scale>36.0</scale>
+    </transformation>
+    <transformation>
+     <type>y-shift</type>
+     <offset>20.0</offset>
+    </transformation>
+   </transformations>
+  </layer>
+
+  <layer>
+   <name>glare shield</name>
+   <texture>
+    <path>Aircraft/Concorde/Panels/Instruments/Textures/bezel1.png</path>
+    <x1>0.5</x1>
+    <y1>0.0</y1>
+    <x2>1.0</x2>
+    <y2>0.5</y2>
+   </texture>
+   <w>128</w>
+   <h>128</h>
+   <transformations>
+    <transformation>
+     <type>x-shift</type>
+     <offset>3</offset>
+    </transformation>
+    <transformation>
+     <type>y-shift</type>
+     <offset>-3</offset>
+    </transformation>
+   </transformations>
+  </layer>
+
+ </layers>
+</PropertyList>

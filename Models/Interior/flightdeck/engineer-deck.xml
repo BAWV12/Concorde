@@ -1,0 +1,54 @@
+<?xml version="1.0" ?> 
+
+<PropertyList> 
+ <path>deck.ac</path> 
+
+ <animation>
+  <type>material</type>
+  <object-name>EngineerDeck</object-name>
+  <emission>
+   <red>0.83</red>
+   <green>0.74</green>
+   <blue>0.38</blue>
+   <factor-prop>systems/lighting/level/engineer/deck</factor-prop>
+  </emission> 
+ </animation> 
+
+ <animation>
+  <type>translate</type>
+  <object-name>EngineerDeck</object-name>
+  <property>controls/doors/engineer-deck/position-norm</property>
+  <interpolation>
+   <entry>
+     <ind>0.0</ind>
+     <dep>0.0</dep>
+   </entry>
+   <entry>
+     <ind>1.0</ind>
+     <dep>0.16</dep>
+   </entry>
+  </interpolation>   
+  <axis>
+   <x>0.0</x>
+   <y>1.0</y>
+   <z>0.0</z>
+  </axis>
+ </animation>
+
+ <animation>
+  <type>pick</type>
+  <object-name>EngineerDeck</object-name>
+  <action>
+   <button>0</button>
+   <binding>
+    <command>nasal</command>
+    <script>globals.Concorde.doorsystem.engineerdeckexport();</script>
+   </binding>
+   <binding>
+    <command>property-toggle</command>
+    <property>/controls/doors/engineer-deck/out</property>
+   </binding>
+  </action>
+ </animation>
+
+</PropertyList>

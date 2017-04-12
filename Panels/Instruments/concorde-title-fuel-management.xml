@@ -1,0 +1,54 @@
+<?xml version="1.0"?>
+
+<!-- Fuel management block -->
+
+<PropertyList>
+ <name>Fuel management</name>
+ <w-base>336</w-base>
+ <h-base>28</h-base>
+
+ <layers>
+
+  <layer>
+   <name>Title</name>
+   <type>text</type>
+   <point-size>8</point-size>
+   <color>
+    <red>1.0</red>
+    <green>1.0</green>
+    <blue>1.0</blue>
+   </color>
+   <chunks>
+    <chunk>
+     <type>literal</type>
+     <text>FUEL</text>
+    </chunk>
+   </chunks>
+  </layer>
+
+  <layer>
+   <name>Title (2nd part)</name>
+   <type>text</type>
+   <point-size>8</point-size>
+   <color>
+    <red>1.0</red>
+    <green>1.0</green>
+    <blue>1.0</blue>
+   </color>
+   <chunks>
+    <chunk>
+     <type>literal</type>
+     <text>MANAGEMENT</text>
+    </chunk>
+   </chunks>
+   <transformations>
+    <transformation>
+     <type>x-shift</type>
+     <offset>60</offset>
+    </transformation>
+   </transformations>
+  </layer>
+
+ </layers>
+
+</PropertyList>

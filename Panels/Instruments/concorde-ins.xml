@@ -1,0 +1,670 @@
+<?xml version="1.0"?>
+
+<!-- Concorde Inertial Navigation System :
+
+     - red like 747.
+-->
+
+<PropertyList>
+ <name>INS Computer</name>
+ <w-base>350</w-base>
+ <h-base>50</h-base>
+
+ <params>
+  <data-left>/instrumentation/ins[0]/data/left</data-left>
+  <data-right>/instrumentation/ins[0]/data/right</data-right>
+  <mode-ctrl>/instrumentation/ins[0]/msu/mode</mode-ctrl>
+  <selector-ctrl>/instrumentation/ins[0]/control/selector</selector-ctrl>
+  <wpt-ctrl>/instrumentation/ins[0]/control/waypoint</wpt-ctrl>
+  <service-select>/instrumentation/ins[0]/serviceable</service-select>
+ </params>
+
+
+ <layers>
+
+  <layer>
+   <name>background left led</name>
+   <texture>
+    <path>Aircraft/Concorde/Panels/Instruments/Textures/concorde-black-bg.png</path>
+     <x1>0.7</x1>
+     <y1>0.8</y1>
+     <x2>1.0</x2>
+     <y2>0.9</y2>
+   </texture>
+   <w>100</w>
+   <h>46</h>
+  </layer>
+
+  <layer>
+   <name>background right led</name>
+   <texture>
+    <path>Aircraft/Concorde/Panels/Instruments/Textures/concorde-black-bg.png</path>
+     <x1>0.7</x1>
+     <y1>0.8</y1>
+     <x2>1.0</x2>
+     <y2>0.9</y2>
+   </texture>
+   <w>120</w>
+   <h>46</h>
+   <transformations>
+    <transformation>
+     <type>x-shift</type>
+     <offset>115</offset>
+    </transformation>
+   </transformations>
+  </layer>
+
+<!-- ========= -->
+<!-- == INS == -->
+<!-- ========= -->
+
+ <layer>
+  <name>INS</name>
+  <type>group</type>
+  <condition>
+   <and include="concorde-cond-voltage-inst.xml">
+    <not-equals>
+     <property alias="../../../../../../params/mode-ctrl"/>
+     <value>-2</value>
+    </not-equals>
+    <property alias="../../../../../params/service-select"/>
+   </and>
+  </condition>
+
+<!-- TRACK / GROUND SPEED -->
+<!-- HEADING / DRIFT ANGLE -->
+<!-- CROSS TRACK DISTANCE / TRACK ERROR -->
+
+  <layer>
+   <name>Cross track distance / track error</name>
+   <type>group</type>
+   <condition>
+    <and>
+     <greater-than-equals>
+      <property alias="../../../../../../../params/selector-ctrl"/>
+      <value>-3</value>
+     </greater-than-equals>
+     <less-than-equals>
+      <property alias="../../../../../../../params/selector-ctrl"/>
+      <value>-1</value>
+     </less-than-equals>
+    </and>
+   </condition>
+
+   <layer>
+    <name>cross track distance</name>
+    <condition>
+     <not-equals>
+      <property alias="../../../../../../../params/data-left"/>
+      <value>-999</value>
+     </not-equals>
+    </condition>
+    <type>text</type>
+    <font>led</font>
+    <point-size>9</point-size>
+    <color>
+     <red>1.0</red>
+     <green>0.7</green>
+     <blue>0.0</blue>
+    </color>
+    <chunks>
+     <chunk>
+      <type>number-value</type>
+      <property alias="../../../../../../../params/data-left"/>
+      <format>%5.2f</format>
+     </chunk>
+    </chunks>
+   </layer>
+
+   <layer>
+    <name>track error</name>
+    <condition>
+     <not-equals>
+      <property alias="../../../../../../../params/data-right"/>
+      <value>-999</value>
+     </not-equals>
+    </condition>
+    <type>text</type>
+    <font>led</font>
+    <point-size>9</point-size>
+    <color>
+     <red>1.0</red>
+     <green>0.7</green>
+     <blue>0.0</blue>
+    </color>
+    <chunks>
+     <chunk>
+      <type>number-value</type>
+      <property alias="../../../../../../../params/data-right"/>
+      <format>%5.2f</format>
+     </chunk>
+    </chunks>
+    <transformations>
+     <transformation>
+      <type>x-shift</type>
+      <offset>105</offset>
+     </transformation>
+    </transformations>
+   </layer>
+  </layer> <!-- group -->
+
+<!-- POSITION -->
+
+  <layer>
+   <name>Position</name>
+   <type>group</type>
+   <condition>
+    <and>
+     <greater-than-equals>
+      <property alias="../../../../../../../params/selector-ctrl"/>
+      <value>0</value>
+     </greater-than-equals>
+     <less-than-equals>
+      <property alias="../../../../../../../params/selector-ctrl"/>
+      <value>1</value>
+     </less-than-equals>
+    </and>
+   </condition>
+
+   <layer>
+    <name>Latitude</name>
+    <type>switch</type>
+    <condition>
+     <not-equals>
+      <property alias="../../../../../../../params/data-left"/>
+      <value>-999</value>
+     </not-equals>
+    </condition>
+
+    <layer>
+     <name>Latitude positiv</name>
+     <condition>
+      <greater-than>
+       <property alias="../../../../../../../../params/data-left"/>
+       <value>0.0</value>
+      </greater-than>
+     </condition>
+     <type>text</type>
+     <font>led</font>
+     <point-size>9</point-size>
+     <color>
+      <red>1.0</red>
+      <green>0.7</green>
+      <blue>0.0</blue>
+     </color>
+     <chunks>
+      <chunk>
+       <type>number-value</type>
+       <property alias="../../../../../../../../params/data-left"/>
+       <format>%2.2f</format>
+      </chunk>
+     </chunks>
+    </layer>
+    <layer>
+     <name>Latitude negativ</name>
+     <type>text</type>
+     <font>led</font>
+     <point-size>9</point-size>
+     <color>
+      <red>1.0</red>
+      <green>0.7</green>
+      <blue>0.0</blue>
+     </color>
+     <chunks>
+      <chunk>
+       <type>number-value</type>
+       <property alias="../../../../../../../../params/data-left"/>
+       <scale>-1</scale>
+       <format>%2.2f</format>
+      </chunk>
+     </chunks>
+    </layer>
+    <transformations>
+     <transformation>
+      <type>x-shift</type>
+      <offset>-10</offset>
+     </transformation>
+    </transformations>
+   </layer> <!-- switch -->
+
+   <layer>
+    <name>Longitude</name>
+    <type>switch</type>
+    <condition>
+     <not-equals>
+      <property alias="../../../../../../../params/data-right"/>
+      <value>-999</value>
+     </not-equals>
+    </condition>
+
+    <layer>
+     <name>Longitude positiv</name>
+     <condition>
+      <greater-than>
+       <property alias="../../../../../../../../params/data-right"/>
+       <value>0.0</value>
+      </greater-than>
+     </condition>
+     <type>text</type>
+     <font>led</font>
+     <point-size>9</point-size>
+     <color>
+      <red>1.0</red>
+      <green>0.7</green>
+      <blue>0.0</blue>
+     </color>
+     <chunks>
+      <chunk>
+       <type>number-value</type>
+       <property alias="../../../../../../../../params/data-right"/>
+       <format>%3.2f</format>
+      </chunk>
+     </chunks>
+    </layer>
+    <layer>
+     <name>Longitude negativ</name>
+     <type>text</type>
+     <font>led</font>
+     <point-size>9</point-size>
+     <color>
+      <red>1.0</red>
+      <green>0.7</green>
+      <blue>0.0</blue>
+     </color>
+     <chunks>
+      <chunk>
+       <type>number-value</type>
+       <property alias="../../../../../../../../params/data-right"/>
+       <scale>-1</scale>
+       <format>%3.2f</format>
+      </chunk>
+     </chunks>
+    </layer>
+    <transformations>
+     <transformation>
+      <type>x-shift</type>
+      <offset>105</offset>
+     </transformation>
+    </transformations>
+   </layer> <!-- switch -->
+
+   <layer>
+    <name>Latitude cardinal</name>
+    <type>switch</type>
+    <condition>
+     <not-equals>
+      <property alias="../../../../../../../params/data-left"/>
+      <value>-999</value>
+     </not-equals>
+    </condition>
+
+    <layer>
+     <name>North</name>
+     <condition>
+      <greater-than>
+       <property alias="../../../../../../../../params/data-left"/>
+       <value>0.0</value>
+      </greater-than>
+     </condition>
+     <type>text</type>
+     <point-size>16</point-size>
+     <color>
+      <red>1.0</red>
+      <green>0.7</green>
+      <blue>0.0</blue>
+     </color>
+     <chunks>
+      <chunk>
+       <type>literal</type>
+       <text>N</text>
+      </chunk>
+     </chunks>
+     <transformations>
+      <transformation>
+       <type>y-shift</type>
+       <offset>13</offset>
+      </transformation>
+     </transformations>
+    </layer>
+    <layer>
+     <name>South</name>
+     <type>text</type>
+     <point-size>16</point-size>
+     <color>
+      <red>1.0</red>
+      <green>0.7</green>
+      <blue>0.0</blue>
+     </color>
+     <chunks>
+      <chunk>
+       <type>literal</type>
+       <text>S</text>
+      </chunk>
+     </chunks>
+     <transformations>
+      <transformation>
+       <type>y-shift</type>
+       <offset>-5</offset>
+      </transformation>
+     </transformations>
+    </layer>
+    <transformations>
+     <transformation>
+      <type>x-shift</type>
+      <offset>-35</offset> <!-- cursor at longitude -->
+     </transformation>
+    </transformations>
+   </layer> <!-- switch -->
+
+   <layer>
+    <name>Longitude cardinal</name>
+    <type>switch</type>
+    <condition>
+     <not-equals>
+      <property alias="../../../../../../../params/data-right"/>
+      <value>-999</value>
+     </not-equals>
+    </condition>
+
+    <layer>
+     <name>East</name>
+     <condition>
+      <greater-than>
+       <property alias="../../../../../../../../params/data-right"/>
+       <value>0.0</value>
+      </greater-than>
+     </condition>
+     <type>text</type>
+     <point-size>16</point-size>
+     <color>
+      <red>1.0</red>
+      <green>0.7</green>
+      <blue>0.0</blue>
+     </color>
+     <chunks>
+      <chunk>
+       <type>literal</type>
+       <text>E</text>
+      </chunk>
+     </chunks>
+     <transformations>
+      <transformation>
+       <condition>
+        <less-than-equals>
+         <property alias="../../../../../../../../../../params/data-left"/>
+         <value>0.0</value>
+        </less-than-equals> <!-- cursor at South -->
+       </condition>
+       <type>y-shift</type>
+       <offset>18</offset>
+      </transformation>
+     </transformations>
+    </layer>
+    <layer>
+     <name>West</name>
+     <type>text</type>
+     <point-size>16</point-size>
+     <color>
+      <red>1.0</red>
+      <green>0.7</green>
+      <blue>0.0</blue>
+     </color>
+     <chunks>
+      <chunk>
+       <type>literal</type>
+       <text>W</text>
+      </chunk>
+     </chunks>
+     <transformations>
+      <transformation>
+       <condition>
+        <greater-than>
+         <property alias="../../../../../../../../../../params/data-left"/>
+         <value>0.0</value>
+        </greater-than> <!-- cursor at North -->
+       </condition>
+       <type>y-shift</type>
+       <offset>-19</offset>
+      </transformation>
+     </transformations>
+    </layer>
+    <transformations>
+     <transformation>
+      <type>x-shift</type>
+      <offset>120</offset> <!-- cursor at latitude cardinal -->
+     </transformation>
+     <transformation>
+      <type>y-shift</type>
+      <offset>1</offset>
+     </transformation>
+    </transformations>
+   </layer> <!-- switch -->
+
+  </layer> <!-- group -->
+
+<!-- WAYPOINT DISTANCE & TIME -->
+
+  <layer>
+   <name>Waypoint</name>
+   <type>group</type>
+   <condition>
+    <equals>
+     <property alias="../../../../../../params/selector-ctrl"/>
+     <value>2</value>
+    </equals>
+   </condition>
+
+   <layer>
+    <name>Left LED</name>
+    <condition>
+     <not-equals>
+      <property alias="../../../../../../../params/data-left"/>
+      <value>-999</value>
+     </not-equals>
+    </condition>
+    <type>text</type>
+    <font>led</font>
+    <point-size>9</point-size>
+    <color>
+     <red>1.0</red>
+     <green>0.7</green>
+     <blue>0.0</blue>
+    </color>
+    <chunks>
+     <chunk>
+      <type>number-value</type>
+      <property alias="../../../../../../../params/data-left"/>
+      <format>%4.0f</format>
+     </chunk>
+    </chunks>
+   </layer>
+
+   <layer>
+    <name>Right LED</name>
+    <condition>
+     <not-equals>
+      <property alias="../../../../../../../params/data-right"/>
+      <value>-999</value>
+     </not-equals>
+    </condition>
+    <type>text</type>
+    <font>led</font>
+    <point-size>9</point-size>
+    <color>
+     <red>1.0</red>
+     <green>0.7</green>
+     <blue>0.0</blue>
+    </color>
+    <chunks>
+     <chunk>
+      <type>text-value</type>
+      <property alias="../../../../../../../params/data-right"/>
+     </chunk>
+    </chunks>
+    <transformations>
+     <transformation>
+      <type>x-shift</type>
+      <offset>105</offset>
+     </transformation>
+    </transformations>
+   </layer>
+  </layer> <!-- group -->
+
+<!-- WIND -->
+
+  <layer>
+   <name>Wind</name>
+   <type>group</type>
+   <condition>
+    <equals>
+     <property alias="../../../../../../params/selector-ctrl"/>
+     <value>3</value>
+    </equals>
+   </condition>
+
+   <layer>
+    <name>Direction</name>
+    <condition>
+     <not-equals>
+      <property alias="../../../../../../../params/data-left"/>
+      <value>-999</value>
+     </not-equals>
+    </condition>
+    <type>text</type>
+    <font>led</font>
+    <point-size>9</point-size>
+    <color>
+     <red>1.0</red>
+     <green>0.7</green>
+     <blue>0.0</blue>
+    </color>
+    <chunks>
+     <chunk>
+      <type>number-value</type>
+      <property alias="../../../../../../../params/data-left"/>
+      <format>%03.0f</format>
+     </chunk>
+    </chunks>
+   </layer>
+
+ <!-- works only with flight -->
+
+   <layer>
+    <name>Wind speed</name>
+    <condition>
+     <not-equals>
+      <property alias="../../../../../../../params/data-right"/>
+      <value>-999</value>
+     </not-equals>
+    </condition>
+    <type>text</type>
+    <font>led</font>
+    <point-size>9</point-size>
+    <color>
+     <red>1.0</red>
+     <green>0.7</green>
+     <blue>0.0</blue>
+    </color>
+    <chunks>
+     <chunk>
+      <type>number-value</type>
+      <property alias="../../../../../../../params/data-right"/>
+      <format>%3.0f</format>
+     </chunk>
+    </chunks>
+    <transformations>
+     <transformation>
+      <type>x-shift</type>
+      <offset>105</offset>
+     </transformation>
+    </transformations>
+   </layer> <!-- switch -->
+
+  </layer> <!-- group -->
+
+<!-- DESIRED TRACK / STATUS -->
+
+  <layer>
+   <name>Desired track / status</name>
+   <type>group</type>
+   <condition>
+    <equals>
+     <property alias="../../../../../../params/selector-ctrl"/>
+     <value>4</value>
+    </equals>
+   </condition>
+
+   <layer>
+    <name>desired track</name>
+    <condition>
+     <not-equals>
+      <property alias="../../../../../../../params/data-left"/>
+      <value>-999</value>
+     </not-equals>
+    </condition>
+    <type>text</type>
+    <font>led</font>
+    <point-size>9</point-size>
+    <color>
+     <red>1.0</red>
+     <green>0.7</green>
+     <blue>0.0</blue>
+    </color>
+    <chunks>
+     <chunk>
+      <type>number-value</type>
+      <property alias="../../../../../../../params/data-left"/>
+      <format>%5.2f</format>
+     </chunk>
+    </chunks>
+   </layer>
+
+   <layer>
+    <name>status</name>
+    <condition>
+     <not-equals>
+      <property alias="../../../../../../../params/data-right"/>
+      <value>-999</value>
+     </not-equals>
+    </condition>
+    <type>text</type>
+    <font>led</font>
+    <point-size>9</point-size>
+    <color>
+     <red>1.0</red>
+     <green>0.7</green>
+     <blue>0.0</blue>
+    </color>
+    <chunks>
+     <chunk>
+      <type>number-value</type>
+      <property alias="../../../../../../../params/data-right"/>
+      <format>%06.0f</format>
+     </chunk>
+    </chunks>
+    <transformations>
+     <transformation>
+      <type>x-shift</type>
+      <offset>105</offset>
+     </transformation>
+    </transformations>
+   </layer>
+  </layer> <!-- group -->
+
+<!-- END INS -->
+
+  <transformations>
+   <transformation>
+    <type>x-shift</type>
+    <offset>-27</offset>
+   </transformation>
+   <transformation>
+    <type>y-shift</type>
+    <offset>-9</offset>
+   </transformation>
+  </transformations>
+ </layer>
+
+ </layers>
+
+</PropertyList>

@@ -1,0 +1,65 @@
+<PropertyList>
+  <path>landingcone.ac</path>
+
+ <animation>
+  <type>select</type>
+  <object-name>LandingCone</object-name>
+  <condition>
+   <greater-than>
+    <property>controls/lighting/external/main-landing[0]/norm</property>
+    <property n="1">/controls/lighting/external/interpolate/off</property>
+   </greater-than>
+  </condition>
+ </animation>
+
+ <animation>
+  <type>translate</type>
+  <object-name>LandingCone</object-name>
+  <property>controls/lighting/external/main-landing[0]/norm</property>
+  <interpolation>
+   <entry>
+     <ind>0.0</ind>
+     <dep>0.55</dep>
+   </entry>
+   <entry>
+     <ind>0.4</ind>
+     <dep>0.0</dep>
+   </entry>
+  </interpolation>
+  <axis>
+   <x>0</x>
+   <y>0</y>
+   <z>1</z>
+  </axis>
+ </animation>
+
+ <animation>
+  <type>rotate</type>
+  <object-name>LandingCone</object-name>
+  <property>controls/lighting/external/main-landing[0]/norm</property>
+  <interpolation>
+   <entry>
+     <ind>0.0</ind>
+     <dep>-90.0</dep>
+   </entry>
+   <entry>
+     <ind>0.4</ind>
+     <dep>-90.0</dep>
+   </entry>
+   <entry>
+     <ind>1.0</ind>
+     <dep>0.0</dep>
+   </entry>
+   <entry>
+     <ind>1.2</ind>
+     <dep>-10.0</dep>
+   </entry>
+  </interpolation>   
+  <axis>
+   <x>0</x>
+   <y>1</y>
+   <z>0</z>
+  </axis>
+ </animation>
+
+</PropertyList>

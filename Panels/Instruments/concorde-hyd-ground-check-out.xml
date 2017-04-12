@@ -1,0 +1,714 @@
+<?xml version="1.0"?>
+
+<!-- Concorde ground hydraulics check out.
+
+-->
+
+<PropertyList>
+ <name>Ground hydraulics check out</name>
+ <w-base>325</w-base>
+ <h-base>130</h-base>
+
+
+ <layers>
+
+  <layer include="concorde-gauge.xml"/>
+
+<!-- TITLE -->
+
+  <layer>
+   <name>Title</name>
+   <type>text</type>
+   <point-size>10</point-size>
+   <color>
+    <red>1.0</red>
+    <green>1.0</green>
+    <blue>1.0</blue>
+   </color>
+   <chunks>
+    <chunk>
+     <type>literal</type>
+     <text>GROUND HYD</text>
+    </chunk>
+   </chunks>
+   <transformations>
+    <transformation>
+     <type>x-shift</type>
+     <offset>-85</offset>
+    </transformation>
+    <transformation>
+     <type>y-shift</type>
+     <offset>50</offset>
+    </transformation>
+   </transformations>
+  </layer>
+
+  <layer>
+   <name>Title 2nd part</name>
+   <type>text</type>
+   <point-size>10</point-size>
+   <color>
+    <red>1.0</red>
+    <green>1.0</green>
+    <blue>1.0</blue>
+   </color>
+   <chunks>
+    <chunk>
+     <type>literal</type>
+     <text>CHECK OUT</text>
+    </chunk>
+   </chunks>
+   <transformations>
+    <transformation>
+     <type>x-shift</type>
+     <offset>20</offset>
+    </transformation>
+    <transformation>
+     <type>y-shift</type>
+     <offset>50</offset>
+    </transformation>
+   </transformations>
+  </layer>
+
+<!-- YELLOW YELLOW (bottom left) -->
+
+  <layer>
+   <name>Title YY</name>
+   <type>text</type>
+   <point-size>8</point-size>
+   <color>
+    <red>1.0</red>
+    <green>1.0</green>
+    <blue>1.0</blue>
+   </color>
+   <chunks>
+    <chunk>
+     <type>literal</type>
+     <text>YELLOW</text>
+    </chunk>
+   </chunks>
+   <transformations>
+    <transformation>
+     <type>x-shift</type>
+     <offset>-65</offset>
+    </transformation>
+    <transformation>
+     <type>y-shift</type>
+     <offset>-45</offset>
+    </transformation>
+   </transformations>
+  </layer>
+
+  <layer>
+   <name>Title YY line 2</name>
+   <type>text</type>
+   <point-size>8</point-size>
+   <color>
+    <red>1.0</red>
+    <green>1.0</green>
+    <blue>1.0</blue>
+   </color>
+   <chunks>
+    <chunk>
+     <type>literal</type>
+     <text>YELLOW</text>
+    </chunk>
+   </chunks>
+   <transformations>
+    <transformation>
+     <type>x-shift</type>
+     <offset>-65</offset>
+    </transformation>
+    <transformation>
+     <type>y-shift</type>
+     <offset>-54</offset>
+    </transformation>
+   </transformations>
+  </layer>
+
+<!-- GREEN BLUE -->
+
+  <layer>
+   <name>Title GB</name>
+   <type>text</type>
+   <point-size>8</point-size>
+   <color>
+    <red>1.0</red>
+    <green>1.0</green>
+    <blue>1.0</blue>
+   </color>
+   <chunks>
+    <chunk>
+     <type>literal</type>
+     <text>GREEN</text>
+    </chunk>
+   </chunks>
+   <transformations>
+    <transformation>
+     <type>x-shift</type>
+     <offset>-86</offset>
+    </transformation>
+    <transformation>
+     <type>y-shift</type>
+     <offset>-8</offset>
+    </transformation>
+   </transformations>
+  </layer>
+
+  <layer>
+   <name>Title GB line 2</name>
+   <type>text</type>
+   <point-size>8</point-size>
+   <color>
+    <red>1.0</red>
+    <green>1.0</green>
+    <blue>1.0</blue>
+   </color>
+   <chunks>
+    <chunk>
+     <type>literal</type>
+     <text>BLUE</text>
+    </chunk>
+   </chunks>
+   <transformations>
+    <transformation>
+     <type>x-shift</type>
+     <offset>-78</offset>
+    </transformation>
+    <transformation>
+     <type>y-shift</type>
+     <offset>-17</offset>
+    </transformation>
+   </transformations>
+  </layer>
+
+<!-- BLUE YELLOW -->
+
+  <layer>
+   <name>Title BY</name>
+   <type>text</type>
+   <point-size>8</point-size>
+   <color>
+    <red>1.0</red>
+    <green>1.0</green>
+    <blue>1.0</blue>
+   </color>
+   <chunks>
+    <chunk>
+     <type>literal</type>
+     <text>BLUE</text>
+    </chunk>
+   </chunks>
+   <transformations>
+    <transformation>
+     <type>x-shift</type>
+     <offset>-51</offset>
+    </transformation>
+    <transformation>
+     <type>y-shift</type>
+     <offset>34</offset>
+    </transformation>
+   </transformations>
+  </layer>
+
+  <layer>
+   <name>Title BY line 2</name>
+   <type>text</type>
+   <point-size>8</point-size>
+   <color>
+    <red>1.0</red>
+    <green>1.0</green>
+    <blue>1.0</blue>
+   </color>
+   <chunks>
+    <chunk>
+     <type>literal</type>
+     <text>YELLOW</text>
+    </chunk>
+   </chunks>
+   <transformations>
+    <transformation>
+     <type>x-shift</type>
+     <offset>-65</offset>
+    </transformation>
+    <transformation>
+     <type>y-shift</type>
+     <offset>25</offset>
+    </transformation>
+   </transformations>
+  </layer>
+
+<!-- YELLOW YELLOW -->
+
+  <layer>
+   <name>Title YY</name>
+   <type>text</type>
+   <point-size>8</point-size>
+   <color>
+    <red>1.0</red>
+    <green>1.0</green>
+    <blue>1.0</blue>
+   </color>
+   <chunks>
+    <chunk>
+     <type>literal</type>
+     <text>YELLOW</text>
+    </chunk>
+   </chunks>
+   <transformations>
+    <transformation>
+     <type>x-shift</type>
+     <offset>30</offset>
+    </transformation>
+    <transformation>
+     <type>y-shift</type>
+     <offset>34</offset>
+    </transformation>
+   </transformations>
+  </layer>
+
+  <layer>
+   <name>Title YY line 2</name>
+   <type>text</type>
+   <point-size>8</point-size>
+   <color>
+    <red>1.0</red>
+    <green>1.0</green>
+    <blue>1.0</blue>
+   </color>
+   <chunks>
+    <chunk>
+     <type>literal</type>
+     <text>YELLOW</text>
+    </chunk>
+   </chunks>
+   <transformations>
+    <transformation>
+     <type>x-shift</type>
+     <offset>30</offset>
+    </transformation>
+    <transformation>
+     <type>y-shift</type>
+     <offset>25</offset>
+    </transformation>
+   </transformations>
+  </layer>
+
+<!-- GREEN YELLOW -->
+
+  <layer>
+   <name>Title GB</name>
+   <type>text</type>
+   <point-size>8</point-size>
+   <color>
+    <red>1.0</red>
+    <green>1.0</green>
+    <blue>1.0</blue>
+   </color>
+   <chunks>
+    <chunk>
+     <type>literal</type>
+     <text>GREEN</text>
+    </chunk>
+   </chunks>
+   <transformations>
+    <transformation>
+     <type>x-shift</type>
+     <offset>50</offset>
+    </transformation>
+    <transformation>
+     <type>y-shift</type>
+     <offset>-8</offset>
+    </transformation>
+   </transformations>
+  </layer>
+
+  <layer>
+   <name>Title GB line 2</name>
+   <type>text</type>
+   <point-size>8</point-size>
+   <color>
+    <red>1.0</red>
+    <green>1.0</green>
+    <blue>1.0</blue>
+   </color>
+   <chunks>
+    <chunk>
+     <type>literal</type>
+     <text>YELLOW</text>
+    </chunk>
+   </chunks>
+   <transformations>
+    <transformation>
+     <type>x-shift</type>
+     <offset>50</offset>
+    </transformation>
+    <transformation>
+     <type>y-shift</type>
+     <offset>-17</offset>
+    </transformation>
+   </transformations>
+  </layer>
+
+<!-- YELLOW YELLOW (bottom right) -->
+
+  <layer>
+   <name>Title YY</name>
+   <type>text</type>
+   <point-size>8</point-size>
+   <color>
+    <red>1.0</red>
+    <green>1.0</green>
+    <blue>1.0</blue>
+   </color>
+   <chunks>
+    <chunk>
+     <type>literal</type>
+     <text>YELLOW</text>
+    </chunk>
+   </chunks>
+   <transformations>
+    <transformation>
+     <type>x-shift</type>
+     <offset>30</offset>
+    </transformation>
+    <transformation>
+     <type>y-shift</type>
+     <offset>-45</offset>
+    </transformation>
+   </transformations>
+  </layer>
+
+  <layer>
+   <name>Title YY line 2</name>
+   <type>text</type>
+   <point-size>8</point-size>
+   <color>
+    <red>1.0</red>
+    <green>1.0</green>
+    <blue>1.0</blue>
+   </color>
+   <chunks>
+    <chunk>
+     <type>literal</type>
+     <text>YELLOW</text>
+    </chunk>
+   </chunks>
+   <transformations>
+    <transformation>
+     <type>x-shift</type>
+     <offset>30</offset>
+    </transformation>
+    <transformation>
+     <type>y-shift</type>
+     <offset>-54</offset>
+    </transformation>
+   </transformations>
+  </layer>
+
+<!-- knob -->
+
+  <layer>
+   <name>knob rotation</name>
+   <texture>
+    <path>Aircraft/Concorde/Panels/Instruments/Textures/navcom-radios.png</path>
+    <x1>0.53125</x1>
+    <x2>0.59765625</x2>
+    <y1>0.05859375</y1>
+    <y2>0.1484375</y2>
+   </texture>
+   <w>48</w>
+   <h>60</h>
+   <transformations>
+    <transformation>
+     <type>y-shift</type>
+     <offset>-4</offset>
+    </transformation>
+    <transformation>
+     <type>rotation</type>
+     <condition>
+      <less-than>
+       <property>/controls/hydraulic/ground/selector</property>
+       <value>3</value>
+      </less-than>
+     </condition>
+     <property>/controls/hydraulic/ground/selector</property>
+     <scale>60</scale>
+     <offset>-150</offset>
+    </transformation>
+    <transformation>
+     <type>rotation</type>
+     <condition>
+      <greater-than>
+       <property>/controls/hydraulic/ground/selector</property>
+       <value>2</value>
+      </greater-than>
+     </condition>
+     <property>/controls/hydraulic/ground/selector</property>
+     <scale>60</scale>
+     <offset>-150</offset>
+    </transformation>
+    <transformation>
+    <type>y-shift</type>
+    <offset>1</offset>
+    </transformation>
+   </transformations>
+  </layer>
+
+<!-- PUMP 1 -->
+
+  <layer>
+   <name>Pump switch</name>
+   <type>switch</type>
+
+   <layer include="concorde-switch-on.xml">
+    <name>on</name>
+    <condition>
+     <property>/controls/hydraulic/ground/pump[0]/switch</property>
+    </condition>
+    <w>20</w>
+    <h>20</h>
+   </layer>
+
+   <layer include="concorde-switch-off.xml">
+    <name>off</name>
+    <w>20</w>
+    <h>20</h>
+   </layer>
+   
+   <transformations>
+    <transformation>
+     <type>x-shift</type>
+     <offset>-100</offset>
+    </transformation>
+    <transformation>
+     <type>y-shift</type>
+     <offset>-30</offset>
+    </transformation>
+   </transformations>
+  </layer>
+
+  <layer>
+   <name>Title on</name>
+   <type>text</type>
+   <point-size>5</point-size>
+   <color>
+    <red>1.0</red>
+    <green>1.0</green>
+    <blue>1.0</blue>
+   </color>
+   <chunks>
+    <chunk>
+     <type>literal</type>
+     <text>ON</text>
+    </chunk>
+   </chunks>
+   <transformations>
+    <transformation>
+     <type>x-shift</type>
+     <offset>-124</offset>
+    </transformation>
+    <transformation>
+     <type>y-shift</type>
+     <offset>-18</offset>
+    </transformation>
+   </transformations>
+  </layer>
+
+  <layer>
+   <name>Title off</name>
+   <type>text</type>
+   <point-size>5</point-size>
+   <color>
+    <red>1.0</red>
+    <green>1.0</green>
+    <blue>1.0</blue>
+   </color>
+   <chunks>
+    <chunk>
+     <type>literal</type>
+     <text>OFF</text>
+    </chunk>
+   </chunks>
+   <transformations>
+    <transformation>
+     <type>x-shift</type>
+     <offset>-127</offset>
+    </transformation>
+    <transformation>
+     <type>y-shift</type>
+     <offset>-43</offset>
+    </transformation>
+   </transformations>
+  </layer>
+
+<!-- PUMP 2 -->
+
+  <layer>
+   <name>Pump switch</name>
+   <type>switch</type>
+
+   <layer include="concorde-switch-on.xml">
+    <name>on</name>
+    <condition>
+     <property>/controls/hydraulic/ground/pump[1]/switch</property>
+    </condition>
+    <w>20</w>
+    <h>20</h>
+   </layer>
+
+   <layer include="concorde-switch-off.xml">
+    <name>off</name>
+    <w>20</w>
+    <h>20</h>
+   </layer>
+   
+   <transformations>
+    <transformation>
+     <type>x-shift</type>
+     <offset>100</offset>
+    </transformation>
+    <transformation>
+     <type>y-shift</type>
+     <offset>-30</offset>
+    </transformation>
+   </transformations>
+  </layer>
+
+  <layer>
+   <name>Title on</name>
+   <type>text</type>
+   <point-size>5</point-size>
+   <color>
+    <red>1.0</red>
+    <green>1.0</green>
+    <blue>1.0</blue>
+   </color>
+   <chunks>
+    <chunk>
+     <type>literal</type>
+     <text>ON</text>
+    </chunk>
+   </chunks>
+   <transformations>
+    <transformation>
+     <type>x-shift</type>
+     <offset>117</offset>
+    </transformation>
+    <transformation>
+     <type>y-shift</type>
+     <offset>-18</offset>
+    </transformation>
+   </transformations>
+  </layer>
+
+  <layer>
+   <name>Title off</name>
+   <type>text</type>
+   <point-size>5</point-size>
+   <color>
+    <red>1.0</red>
+    <green>1.0</green>
+    <blue>1.0</blue>
+   </color>
+   <chunks>
+    <chunk>
+     <type>literal</type>
+     <text>OFF</text>
+    </chunk>
+   </chunks>
+   <transformations>
+    <transformation>
+     <type>x-shift</type>
+     <offset>117</offset>
+    </transformation>
+    <transformation>
+     <type>y-shift</type>
+     <offset>-43</offset>
+    </transformation>
+   </transformations>
+  </layer>
+
+ </layers>
+
+ <actions>
+
+  <action>
+   <name>selector left</name>
+   <button>0</button>
+   <x>-50</x>
+   <y>-55</y>
+   <w>50</w>
+   <h>100</h>
+   <binding>
+    <command>property-adjust</command>
+    <property>/controls/hydraulic/ground/selector</property>
+    <step>-1</step>
+    <min>0</min>
+    <max>5</max>
+    <wrap>0</wrap>
+   </binding>
+   <binding>
+    <command>property-toggle</command>
+    <property>/instrumentation/generic/click</property>
+   </binding>
+  </action>
+
+  <action>
+   <name>selector right</name>
+   <button>0</button>
+   <x>0</x>
+   <y>-55</y>
+   <w>50</w>
+   <h>100</h>
+   <binding>
+    <command>property-adjust</command>
+    <property>/controls/hydraulic/ground/selector</property>
+    <step>1</step>
+    <min>0</min>
+    <max>5</max>
+    <wrap>0</wrap>
+   </binding>
+   <binding>
+    <command>property-toggle</command>
+    <property>/instrumentation/generic/click</property>
+   </binding>
+  </action>
+  
+  <action>
+   <name>Toggle pump 1</name>
+   <button>0</button>
+   <x>-111</x>
+   <y>-40</y>
+   <w>21</w>
+   <h>21</h>
+   <binding>
+    <command>property-toggle</command>
+    <property>/controls/hydraulic/ground/pump[0]/switch</property>
+   </binding>
+   <binding>
+    <command>property-toggle</command>
+    <property>/instrumentation/generic/click</property>
+   </binding>
+  </action>
+  
+  <action>
+   <name>Toggle pump 2</name>
+   <button>0</button>
+   <x>91</x>
+   <y>-40</y>
+   <w>21</w>
+   <h>21</h>
+   <binding>
+    <command>property-toggle</command>
+    <property>/controls/hydraulic/ground/pump[1]/switch</property>
+   </binding>
+   <binding>
+    <command>property-toggle</command>
+    <property>/instrumentation/generic/click</property>
+   </binding>
+  </action>
+
+ </actions>
+
+</PropertyList>

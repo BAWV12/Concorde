@@ -1,0 +1,182 @@
+<?xml version="1.0" ?> 
+
+<!-- - the engineer seat must match the engineer view (rotation).
+     - auto smooth is disabled (except rail).
+-->
+
+
+<PropertyList> 
+ <path>seat-engineer.ac</path> 
+
+ <nasal>
+  <load>
+   var livery_update = aircraft.livery_update.new(
+   "Aircraft/Concorde/Models/Liveries", 10,
+   func { print("Concorde livery update (engineer seat)") });
+  </load>
+
+  <unload>
+   livery_update.stop();
+  </unload>
+ </nasal>
+
+ <animation>
+  <name>unused</name>
+  <object-name>RailObserver</object-name>
+ </animation>
+
+ <animation>
+  <type>select</type>
+  <object-name>unused</object-name>
+  <condition>
+    <equals>
+     <value>1</value>
+     <value>0</value>
+   </equals>
+  </condition>
+ </animation>
+
+ <animation>
+  <name>TopSeat</name>
+  <object-name>Seat</object-name>
+  <object-name>Armrest</object-name>
+ </animation>
+
+ <animation>
+  <name>MovingSeat</name>
+  <object-name>TopSeat</object-name>
+  <object-name>Boggie</object-name>
+ </animation>
+
+ <animation>
+  <name>AllSeat</name>
+  <object-name>MovingSeat</object-name>
+  <object-name>RailEngineer</object-name>
+ </animation>
+
+ <animation>
+  <type>material</type>
+  <object-name>MovingSeat</object-name>
+  <property-base>sim/model/livery/</property-base>
+  <texture-prop>texture-seat</texture-prop>
+ </animation>
+
+ <animation>
+  <type>material</type>
+  <object-name>AllSeat</object-name>
+  <emission>
+   <red>0.66</red>
+   <green>0.68</green>
+   <blue>0.64</blue>
+   <factor-prop>systems/lighting/level/roof</factor-prop>
+  </emission> 
+ </animation> 
+
+<!-- the condition rotates once -->
+
+ <animation>
+  <type>rotate</type>
+  <object-name>TopSeat</object-name>
+  <property>sim/current-view/goal-heading-offset-deg</property>
+  <offset-deg>90</offset-deg>
+  <condition>
+   <and>
+    <property>systems/seat/engineer</property>
+    <equals>
+     <property>systems/human/engineer/seat-deg</property>
+     <value>0.0</value>
+    </equals>
+    <equals>
+     <property>systems/human/engineer/seat-x-m</property>
+     <value>0.0</value>
+    </equals>
+    <equals>
+     <property>systems/human/engineer/stowe-norm</property>
+     <value>0.0</value>
+    </equals>
+   </and>
+  </condition>
+  <center>
+   <x-m>0.0</x-m>
+   <y-m>0.0</y-m>
+   <z-m>0.0</z-m>
+  </center>
+  <axis>
+   <x>0.0</x>
+   <y>0.0</y>
+   <z>1.0</z>
+  </axis>
+ </animation>
+
+<!-- stowing -->
+
+ <animation>
+  <type>rotate</type>
+  <object-name>Armrest</object-name>
+  <property>systems/human/engineer/stowe-norm</property>
+  <factor>80</factor>
+  <center>
+   <x-m>0.0</x-m>
+   <y-m>-0.213</y-m>
+   <z-m>0.684</z-m>
+  </center>
+  <axis>
+   <x>1.0</x>
+   <y>0.0</y>
+   <z>0.0</z>
+  </axis>
+ </animation>
+ 
+ <animation>
+  <type>translate</type>
+  <object-name>MovingSeat</object-name>
+  <property>systems/human/engineer/stowe-norm</property>
+  <factor>0.5</factor>
+  <axis>
+   <x>0.0</x>
+   <y>1.0</y>
+   <z>0.0</z>
+  </axis>
+ </animation>
+ 
+ <animation>
+  <type>rotate</type>
+  <object-name>TopSeat</object-name>
+  <property>systems/human/engineer/seat-deg</property>
+  <center>
+   <x-m>0.0</x-m>
+   <y-m>0.0</y-m>
+   <z-m>0.0</z-m>
+  </center>
+  <axis>
+   <x>0.0</x>
+   <y>0.0</y>
+   <z>1.0</z>
+  </axis>
+ </animation>
+ 
+ <animation>
+  <type>translate</type>
+  <object-name>MovingSeat</object-name>
+  <property>systems/human/engineer/seat-x-m</property>
+  <axis>
+   <x>-1.0</x>
+   <y>0.0</y>
+   <z>0.0</z>
+  </axis>
+ </animation>
+
+ <animation>
+  <type>pick</type>
+  <object-name>TopSeat</object-name>
+  <action>
+   <button>0</button>
+   <repeatable>false</repeatable>
+   <binding>
+    <command>nasal</command>
+    <script>globals.Concorde.seatsystem.railexport("engineer");</script>
+   </binding>
+  </action>
+ </animation>
+
+</PropertyList>

@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+
+<!-- BA livery of original model. -->
+
+<PropertyList>
+  <sim>
+    <model>
+     <livery>
+      <name type="string">British Airways</name>
+      <index type="int">0</index>
+      <texture>concorde.png</texture>
+      <texture-seat>concorde-seat2.png</texture-seat>
+     </livery>
+    </model>
+  </sim>
+</PropertyList>

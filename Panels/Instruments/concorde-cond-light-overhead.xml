@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+
+<!-- Overhead warning lights at hight level.
+-->
+
+<PropertyList>
+
+   <not>
+    <property>/controls/lighting/crew/overhead/low</property>
+   </not>
+
+</PropertyList>

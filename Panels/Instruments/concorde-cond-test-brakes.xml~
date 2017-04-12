@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+
+<!-- Test brakes temperature.
+-->
+
+<PropertyList>
+
+
+    <property>/controls/hydraulic/brake-test</property>
+
+
+</PropertyList>

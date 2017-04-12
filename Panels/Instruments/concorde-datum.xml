@@ -1,0 +1,314 @@
+<?xml version="1.0"?>
+
+<!-- Concorde datum adjust unit
+
+http://www.concordesst.com/ :
+
+- autothrottle speed setting : +/-22 kt, +/-0.06 Mach.
+- autopilot turn : this will turn aircraft at a roll rate of 5 deg per second. This is HDG/TRK mode will cause a revision
+in the basic heading mode.
+- various settings for pitch, depending of mode, e.g. ALT HOLD or MACH HOLD.
+
+-->
+
+<PropertyList>
+
+ <name>Datum adjust unit</name>
+ <w-base>320</w-base>
+ <h-base>128</h-base>
+
+ <layers>
+
+  <layer include="concorde-gauge-horizontal.xml"/>
+
+<!-- autothrottle -->
+
+  <layer>
+   <name>Ajust autothrottle</name>
+   <texture>
+    <path>Aircraft/Concorde/Panels/Instruments/Textures/concorde-black-bg.png</path>
+   </texture>
+    <w>60</w>
+    <h>30</h>
+   <transformations>
+    <transformation>
+     <type>x-shift</type>
+     <offset>-75</offset>
+    </transformation>
+    <transformation>
+     <type>y-shift</type>
+     <property>/controls/autoflight/datum/speed</property>
+     <scale>2.0</scale>
+    </transformation>
+   </transformations>
+  </layer>
+
+  <layer>
+   <name>Title autothrottle</name>
+   <type>text</type>
+   <point-size>10</point-size>
+   <color>
+    <red>1.0</red>
+    <green>1.0</green>
+    <blue>1.0</blue>
+   </color>
+   <chunks>
+    <chunk>
+     <type>literal</type>
+     <text>AT</text>
+    </chunk>
+   </chunks>
+   <transformations>
+    <transformation>
+     <type>x-shift</type>
+     <offset>-133</offset>
+    </transformation>
+    <transformation>
+     <type>y-shift</type>
+     <offset>-5</offset>
+    </transformation>
+   </transformations>
+  </layer>
+
+  <layer>
+   <name>Increment</name>
+   <type>text</type>
+   <point-size>10</point-size>
+   <color>
+    <red>1.0</red>
+    <green>1.0</green>
+    <blue>1.0</blue>
+   </color>
+   <chunks>
+    <chunk>
+     <type>literal</type>
+     <text>INCREMENT</text>
+    </chunk>
+   </chunks>
+   <transformations>
+    <transformation>
+     <type>x-shift</type>
+     <offset>-107</offset>
+    </transformation>
+    <transformation>
+     <type>y-shift</type>
+     <offset>25</offset>
+    </transformation>
+   </transformations>
+  </layer>
+
+  <layer>
+   <name>Decrement</name>
+   <type>text</type>
+   <point-size>10</point-size>
+   <color>
+    <red>1.0</red>
+    <green>1.0</green>
+    <blue>1.0</blue>
+   </color>
+   <chunks>
+    <chunk>
+     <type>literal</type>
+     <text>DECREMENT</text>
+    </chunk>
+   </chunks>
+   <transformations>
+    <transformation>
+     <type>x-shift</type>
+     <offset>-110</offset>
+    </transformation>
+    <transformation>
+     <type>y-shift</type>
+     <offset>-35</offset>
+    </transformation>
+   </transformations>
+  </layer>
+
+<!-- autopilot -->
+
+  <layer>
+   <name>Ajust autopilot</name>
+   <texture>
+    <path>Aircraft/Concorde/Panels/Instruments/Textures/concorde-black-bg.png</path>
+   </texture>
+    <w>60</w>
+    <h>30</h>
+   <transformations>
+    <transformation>
+     <type>x-shift</type>
+     <offset>90</offset>
+    </transformation>
+    <transformation>
+     <type>y-shift</type>
+     <property>/controls/autoflight/datum/altitude</property>
+     <scale>-2.0</scale>
+    </transformation>
+   </transformations>
+  </layer>
+
+  <layer>
+   <name>Title autopilot</name>
+   <type>text</type>
+   <point-size>10</point-size>
+   <color>
+    <red>1.0</red>
+    <green>1.0</green>
+    <blue>1.0</blue>
+   </color>
+   <chunks>
+    <chunk>
+     <type>literal</type>
+     <text>AP</text>
+    </chunk>
+   </chunks>
+   <transformations>
+    <transformation>
+     <type>x-shift</type>
+     <offset>32</offset>
+    </transformation>
+    <transformation>
+     <type>y-shift</type>
+     <offset>-5</offset>
+    </transformation>
+   </transformations>
+  </layer>
+
+  <layer>
+   <name>Nose down</name>
+   <type>text</type>
+   <point-size>10</point-size>
+   <color>
+    <red>1.0</red>
+    <green>1.0</green>
+    <blue>1.0</blue>
+   </color>
+   <chunks>
+    <chunk>
+     <type>literal</type>
+     <text>NOSE DOWN</text>
+    </chunk>
+   </chunks>
+   <transformations>
+    <transformation>
+     <type>x-shift</type>
+     <offset>55</offset>
+    </transformation>
+    <transformation>
+     <type>y-shift</type>
+     <offset>25</offset>
+    </transformation>
+   </transformations>
+  </layer>
+
+  <layer>
+   <name>Nose up</name>
+   <type>text</type>
+   <point-size>10</point-size>
+   <color>
+    <red>1.0</red>
+    <green>1.0</green>
+    <blue>1.0</blue>
+   </color>
+   <chunks>
+    <chunk>
+     <type>literal</type>
+     <text>NOSE UP</text>
+    </chunk>
+   </chunks>
+   <transformations>
+    <transformation>
+     <type>x-shift</type>
+     <offset>63</offset>
+    </transformation>
+    <transformation>
+     <type>y-shift</type>
+     <offset>-35</offset>
+    </transformation>
+   </transformations>
+  </layer>
+
+ </layers>
+
+ <actions>
+
+  <action>
+   <name>Plus 1 kt / 0.01 Mach</name>
+   <button>0</button>
+   <x>-110</x>
+   <y>20</y>
+   <w>70</w>
+   <h>17</h>
+   <binding>
+    <command>nasal</command>
+    <script>globals.Concorde.autothrottlesystem.datumatexport(1.0);</script>
+   </binding>
+  </action>
+
+  <action>
+   <name>Minus 1 kt / 0.01 Mach</name>
+   <button>0</button>
+   <x>-110</x>
+   <y>-39</y>
+   <w>70</w>
+   <h>17</h>
+   <binding>
+    <command>nasal</command>
+    <script>globals.Concorde.autothrottlesystem.datumatexport(-1.0);</script>
+   </binding>
+  </action>
+
+  <action>
+   <name>Minus altitude</name>
+   <button>0</button>
+   <x>54</x>
+   <y>20</y>
+   <w>33</w>
+   <h>17</h>
+   <binding>
+    <command>nasal</command>
+    <script>globals.Concorde.autopilotsystem.datumapexport(-1.0);</script>
+   </binding>
+  </action>
+
+  <action>
+   <name>Minus altitude (slow)</name>
+   <button>0</button>
+   <x>91</x>
+   <y>20</y>
+   <w>33</w>
+   <h>17</h>
+   <binding>
+    <command>nasal</command>
+    <script>globals.Concorde.autopilotsystem.datumapexport(-0.1);</script>
+   </binding>
+  </action>
+
+  <action>
+   <name>Plus altitude</name>
+   <button>0</button>
+   <x>54</x>
+   <y>-39</y>
+   <w>33</w>
+   <h>17</h>
+   <binding>
+    <command>nasal</command>
+    <script>globals.Concorde.autopilotsystem.datumapexport(1.0);</script>
+   </binding>
+  </action>
+
+  <action>
+   <name>Plus altitude (slow)</name>
+   <button>0</button>
+   <x>91</x>
+   <y>-39</y>
+   <w>33</w>
+   <h>17</h>
+   <binding>
+    <command>nasal</command>
+    <script>globals.Concorde.autopilotsystem.datumapexport(0.1);</script>
+   </binding>
+  </action>
+
+ </actions>
+
+</PropertyList>

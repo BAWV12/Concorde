@@ -1,0 +1,346 @@
+<?xml version="1.0"?>
+
+<!-- Tank 9 inlet valve 2 :
+
+     - double switch, because text would disturb the 2nd switch.
+-->
+
+<PropertyList>
+
+ <name>Tank 9 inlet valve 2</name>
+ <w-base>260</w-base>
+ <h-base>104</h-base>
+
+ <params>
+  <inlet-main>/controls/fuel/tank[8]/inlet-main[1]</inlet-main>
+  <inlet-auto>/controls/fuel/tank[8]/inlet-auto[1]</inlet-auto>
+  <inlet-override>/controls/fuel/tank[8]/inlet-override[1]</inlet-override>
+  <inlet-off>/controls/fuel/tank[8]/inlet-off[1]</inlet-off>
+  <inlet-static>/controls/fuel/tank[8]/inlet-static[1]</inlet-static>
+ </params>
+
+
+ <layers>
+
+  <layer>
+   <name>motor 2</name>
+   <type>switch</type>
+
+   <layer include="concorde-switch-3rd.xml">
+    <name>off</name>
+    <condition>
+     <property alias="../../../../../params/inlet-off"/>
+    </condition>
+   </layer>
+
+   <layer include="concorde-switch-off.xml">
+    <name>shut</name>
+    <condition>
+     <not>
+      <property alias="../../../../../../params/inlet-override"/>
+     </not>
+    </condition>
+   </layer>
+
+   <layer include="concorde-switch-on.xml">
+    <name>override</name>
+   </layer>
+  </layer>
+
+  <layer>
+   <name>Off Title</name>
+   <type>text</type>
+   <point-size>8</point-size>
+   <color>
+    <red>1.0</red>
+    <green>1.0</green>
+    <blue>1.0</blue>
+   </color>
+   <chunks>
+    <chunk>
+     <type>literal</type>
+     <text>OFF</text>
+    </chunk>
+   </chunks>
+   <transformations>
+    <transformation>
+     <type>x-shift</type>
+     <offset>-29</offset>
+    </transformation>
+    <transformation>
+     <type>y-shift</type>
+     <offset>12</offset>
+    </transformation>
+    <transformation>
+     <type>rotation</type>
+     <offset>90</offset>
+    </transformation>
+   </transformations>
+  </layer>
+
+  <layer>
+   <name>Auto Title</name>
+   <type>text</type>
+   <point-size>8</point-size>
+   <color>
+    <red>1.0</red>
+    <green>1.0</green>
+    <blue>1.0</blue>
+   </color>
+   <chunks>
+    <chunk>
+     <type>literal</type>
+     <text>AUTO</text>
+    </chunk>
+   </chunks>
+   <transformations>
+    <transformation>
+     <type>x-shift</type>
+     <offset>38</offset>
+    </transformation>
+    <transformation>
+     <type>y-shift</type>
+     <offset>15</offset>
+    </transformation>
+    <transformation>
+     <type>rotation</type>
+     <offset>90</offset>
+    </transformation>
+   </transformations>
+  </layer>
+
+  <layer>
+   <name>Override Title</name>
+   <type>text</type>
+   <point-size>10</point-size>
+   <color>
+    <red>1.0</red>
+    <green>1.0</green>
+    <blue>1.0</blue>
+   </color>
+   <chunks>
+    <chunk>
+     <type>literal</type>
+     <text>O/RIDE</text>
+    </chunk>
+   </chunks>
+   <transformations>
+    <transformation>
+     <type>x-shift</type>
+     <offset>-20</offset>
+    </transformation>
+    <transformation>
+     <type>y-shift</type>
+     <offset>36</offset>
+    </transformation>
+   </transformations>
+  </layer>
+
+  <layer>
+   <name>Main Title</name>
+   <type>text</type>
+   <point-size>10</point-size>
+   <color>
+    <red>1.0</red>
+    <green>1.0</green>
+    <blue>1.0</blue>
+   </color>
+   <chunks>
+    <chunk>
+     <type>literal</type>
+     <text>MAIN</text>
+    </chunk>
+   </chunks>
+   <transformations>
+    <transformation>
+     <type>x-shift</type>
+     <offset>69</offset>
+    </transformation>
+    <transformation>
+     <type>y-shift</type>
+     <offset>36</offset>
+    </transformation>
+   </transformations>
+  </layer>
+
+  <layer>
+   <name>Open Title</name>
+   <type>text</type>
+   <point-size>8</point-size>
+   <color>
+    <red>1.0</red>
+    <green>1.0</green>
+    <blue>1.0</blue>
+   </color>
+   <chunks>
+    <chunk>
+     <type>literal</type>
+     <text>OPEN</text>
+    </chunk>
+   </chunks>
+   <transformations>
+    <transformation>
+     <type>x-shift</type>
+     <offset>30</offset>
+    </transformation>
+    <transformation>
+     <type>y-shift</type>
+     <offset>23</offset>
+    </transformation>
+   </transformations>
+  </layer>
+
+  <layer>
+   <name>Shut Title</name>
+   <type>text</type>
+   <point-size>8</point-size>
+   <color>
+    <red>1.0</red>
+    <green>1.0</green>
+    <blue>1.0</blue>
+   </color>
+   <chunks>
+    <chunk>
+     <type>literal</type>
+     <text>SHUT</text>
+    </chunk>
+   </chunks>
+   <transformations>
+    <transformation>
+     <type>x-shift</type>
+     <offset>31</offset>
+    </transformation>
+    <transformation>
+     <type>y-shift</type>
+     <offset>-22</offset>
+    </transformation>
+   </transformations>
+  </layer>
+
+  <layer>
+   <name>motor 1</name>
+   <type>switch</type>
+
+   <layer include="concorde-switch-3rd.xml">
+    <name>auto</name>
+    <condition>
+     <property alias="../../../../../params/inlet-auto"/>
+    </condition>
+   </layer>
+
+   <layer include="concorde-switch-off.xml">
+    <name>shut</name>
+    <condition>
+     <not>
+      <property alias="../../../../../../params/inlet-main"/>
+     </not>
+    </condition>
+   </layer>
+
+   <layer include="concorde-switch-on.xml">
+    <name>main</name>
+   </layer>
+
+   <transformations>
+    <transformation>
+     <type>x-shift</type>
+     <offset>83</offset>
+    </transformation>
+   </transformations>
+  </layer>
+
+ </layers>
+
+ <actions>
+
+  <action>
+   <name>toggle override</name>
+   <button>0</button>
+   <condition>
+    <not>
+     <property alias="../../../../../params/inlet-off"/>
+    </not>
+   </condition>
+   <x>-22</x>
+   <y>-19</y>
+   <w>44</w>
+   <h>44</h>
+   <binding>
+    <command>property-toggle</command>
+    <property alias="../../../../params/inlet-override"/>
+   </binding>
+   <binding>
+    <command>property-assign</command>
+    <property alias="../../../../params/inlet-static"/>
+    <value>false</value>
+   </binding>
+   <binding>
+    <command>property-toggle</command>
+    <property>/instrumentation/generic/click</property>
+   </binding>
+  </action>
+
+  <action>
+   <name>toggle off</name>
+   <button>1</button>
+   <x>-22</x>
+   <y>-19</y>
+   <w>44</w>
+   <h>44</h>
+   <binding>
+    <command>property-toggle</command>
+    <property alias="../../../../params/inlet-off"/>
+   </binding>
+   <binding>
+    <command>property-toggle</command>
+    <property>/instrumentation/generic/click</property>
+   </binding>
+  </action>
+
+  <action>
+   <name>toggle valve</name>
+   <button>0</button>
+   <condition>
+    <not>
+     <property alias="../../../../../params/inlet-auto"/>
+    </not>
+   </condition>
+   <x>62</x>
+   <y>-19</y>
+   <w>44</w>
+   <h>44</h>
+   <binding>
+    <command>property-toggle</command>
+    <property alias="../../../../params/inlet-main"/>
+   </binding>
+   <binding>
+    <command>property-assign</command>
+    <property alias="../../../../params/inlet-static"/>
+    <value>false</value>
+   </binding>
+   <binding>
+    <command>property-toggle</command>
+    <property>/instrumentation/generic/click</property>
+   </binding>
+  </action>
+
+  <action>
+   <name>toggle auto</name>
+   <button>1</button>
+   <x>62</x>
+   <y>-19</y>
+   <w>44</w>
+   <h>44</h>
+   <binding>
+    <command>property-toggle</command>
+    <property alias="../../../../params/inlet-auto"/>
+   </binding>
+   <binding>
+    <command>property-toggle</command>
+    <property>/instrumentation/generic/click</property>
+   </binding>
+  </action>
+
+ </actions>
+ 
+</PropertyList>

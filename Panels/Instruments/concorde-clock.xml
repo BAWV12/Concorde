@@ -1,0 +1,120 @@
+<?xml version="1.0"?>
+
+<!-- Concorde clock.
+
+
+Adapted from David Megginson, david@megginson.com.
+
+This is an instrument configuration file for the open-source flight
+simulator FlightGear (www.flightgear.org).  The file is an XML-encoded
+FlightGear property list defining the instrument's layers and actions.
+
+Each instrument is composed of layers stacked on top of each other.
+A layer may be a texture (with transparent parts to show the layers
+underneath), text, or a special layer that switches between two
+others (say, to turn an indicator light on or off).  Each layer can
+move independently in proportion to a property value, and text
+can be generated from property values as well: all of the layer's
+movements are defined as transformations.
+
+Actions are hotspots on the instrument that will respond to a mouse
+click.  Actions always modify the values of properties, either by
+adjusting them, toggling them, or swaping them with other
+properties' values.
+-->
+
+<PropertyList>
+ <name>Digital Clock</name>
+ <w-base>128</w-base>
+ <h-base>128</h-base>
+
+ <layers>
+
+
+
+  <layer>
+   <name>bezel</name>
+   <condition>
+    <equals>
+     <property>/sim/aero</property>
+     <value>c172</value>
+    </equals>
+   </condition>
+   <texture>
+    <path>Aircraft/Concorde/Panels/Instruments/Textures/bezel.png</path>
+    <x1>0.0</x1>
+    <y1>0.0</y1>
+    <x2>1.0</x2>
+    <y2>1.0</y2>
+   </texture>
+   <w>128</w>
+   <h>128</h>
+  </layer>
+
+  <layer>
+   <name>clock background</name>
+   <texture>
+    <path>Aircraft/Concorde/Panels/Instruments/Textures/concorde-clock.png</path>
+    <x1>0.5</x1>
+    <y1>0.0</y1>
+    <x2>1.0</x2>
+    <y2>0.5</y2>
+   </texture>
+   <w>123</w>
+   <h>123</h>
+  </layer>
+
+  <layer>
+   <name>display</name>
+   <type>text</type>
+   <font>led</font>
+   <point-size>6.5</point-size>
+   <color>
+    <red>1.0</red>
+    <green>0.5</green>
+    <blue>0.0</blue>
+   </color>
+   <chunks>
+    <chunk>
+     <type>text-value</type>
+     <property>/instrumentation/clock/indicated-string</property>
+    </chunk>
+   </chunks>
+   <transformations>
+    <transformation>
+     <type>x-shift</type>
+     <offset>-33</offset>
+    </transformation>
+    <transformation>
+     <type>y-shift</type>
+     <offset>-8</offset>
+    </transformation>
+   </transformations>
+  </layer>
+
+  <layer>
+   <name>glare shield</name>
+   <texture>
+    <path>Aircraft/Concorde/Panels/Instruments/Textures/bezel1.png</path>
+    <x1>0.5</x1>
+    <y1>0.0</y1>
+    <x2>1.0</x2>
+    <y2>0.5</y2>
+   </texture>
+   <w>123</w>
+   <h>123</h>
+   <transformations>
+    <transformation>
+     <type>x-shift</type>
+     <offset>2</offset>
+    </transformation>
+    <transformation>
+     <type>y-shift</type>
+     <offset>-2</offset>
+    </transformation>
+   </transformations>
+  </layer>
+
+ </layers>
+
+</PropertyList>

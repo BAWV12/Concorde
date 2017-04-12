@@ -1,0 +1,1342 @@
+<?xml version="1.0"?>
+
+<!-- Concorde HSI :
+
+     - when no more voltage, DME is off, which means that one doesn't need to slave needles to voltage.
+     - but when no more voltage, autopilot is not off : true heading is still correct, if way point.
+
+
+Texture hsi4.png seems useless.
+
+Adapted from Martin Dressler dr@musicabona.cz
+-->
+
+<PropertyList>
+
+ <name>HSI</name>
+ <w-base>512</w-base>
+ <h-base>512</h-base>
+
+ <params>
+  <ins-source>/instrumentation/hsi[0]/ins-source</ins-source>
+  <serviceable>/instrumentation/hsi[0]/serviceable</serviceable>
+  <nav2>/instrumentation/hsi[0]/dev-nav2</nav2>
+  <heading-deg>/instrumentation/hsi[0]/heading-deg</heading-deg>
+  <heading-select>/controls/autoflight/autopilot[0]/heading-select</heading-select>
+  <true-select>/controls/autoflight/autopilot[0]/heading-true-select</true-select>
+ </params>
+ 
+ 
+ <layers>
+ 
+
+
+<!-- darken the white bar -->
+
+  <layer>
+   <name>Black background</name>
+   <w>400</w>
+   <h>220</h>
+   <texture>
+    <path>Aircraft/Concorde/Panels/Instruments/Textures/hsi2.png</path>
+    <x1>0.9375</x1>
+    <x2>1.0</x2>
+    <y1>0.0</y1>
+    <y2>0.0625</y2>
+   </texture>
+   <transformations>
+    <transformation>
+     <type>y-shift</type>
+     <offset>-25</offset>
+    </transformation>
+   </transformations>
+  </layer>
+
+  <layer>
+   <name>VOR background</name>
+   <w>240</w>
+   <h>240</h>
+   <texture>
+    <path>Aircraft/Concorde/Panels/Instruments/Textures/hsi4.png</path>
+    <x1>0.0</x1>
+    <x2>0.46875</x2>
+    <y1>0.53125</y1>
+    <y2>1.0</y2>
+   </texture>
+   <transformations>
+    <transformation>
+     <type>y-shift</type>
+     <offset>-23</offset>
+    </transformation>
+    <transformation>
+     <condition>
+      <and>
+       <not>
+        <property alias="../../../../../../../../params/ins-source"/>
+       </not>
+       <property alias="../../../../../../../params/serviceable"/>
+       <not>
+        <property alias="../../../../../../../../params/nav2"/>
+       </not>
+      </and>
+     </condition>
+     <type>rotation</type>
+     <property>/instrumentation/nav[1]/radials/selected-deg</property>
+     <scale>1</scale>
+     <offset>180</offset>
+    </transformation>
+    <transformation>
+     <condition>
+      <and>
+       <not>
+        <property alias="../../../../../../../../params/ins-source"/>
+       </not>
+       <property alias="../../../../../../../params/serviceable"/>
+       <property alias="../../../../../../../params/nav2"/>
+      </and>
+     </condition>
+     <type>rotation</type>
+     <property>/instrumentation/nav[2]/radials/selected-deg</property>
+     <scale>1</scale>
+     <offset>180</offset>
+    </transformation>
+    <transformation>
+     <condition>
+      <and>
+       <property alias="../../../../../../../params/ins-source"/>
+       <property alias="../../../../../../../params/serviceable"/>
+      </and>
+     </condition>
+     <type>rotation</type>
+     <property>/autopilot/settings/true-heading-deg</property>
+     <scale>1</scale>
+     <offset>180</offset>
+    </transformation>
+    <transformation>
+     <condition>
+      <property alias="../../../../../../params/serviceable"/>
+     </condition>
+     <type>rotation</type>
+     <property alias="../../../../../params/heading-deg"/>
+     <scale>-1</scale>
+    </transformation>
+   </transformations>
+  </layer>
+
+  <layer>
+   <name>VOR TO</name>
+   <condition>
+    <and>
+     <or>
+      <and>
+       <property>/instrumentation/nav[1]/to-flag</property>
+       <not>
+        <property alias="../../../../../../../../params/nav2"/>
+       </not>
+      </and>
+      <and>
+       <property>/instrumentation/nav[2]/to-flag</property>
+       <property alias="../../../../../../../params/nav2"/>
+      </and>
+     </or>
+     <not>
+      <property alias="../../../../../../params/ins-source"/>
+     </not>
+     <property alias="../../../../../params/serviceable"/>
+    </and>
+   </condition>
+   <w>48</w>
+   <h>44</h>
+   <texture>
+    <path>Aircraft/Concorde/Panels/Instruments/Textures/hsi2.png</path>
+    <x1>0.8515625</x1>
+    <x2>0.9453125</x2>
+    <y1>0.4375</y1>
+    <y2>0.5234375</y2>
+   </texture>
+   <transformations>
+    <transformation>
+     <type>y-shift</type>
+     <offset>-23</offset>
+    </transformation>
+    <transformation>
+     <condition>
+      <not>
+       <property alias="../../../../../../../params/nav2"/>
+      </not>
+     </condition>
+     <type>rotation</type>
+     <property>/instrumentation/nav[1]/radials/selected-deg</property>
+     <offset>180</offset>
+     <scale>1</scale>
+    </transformation>
+    <transformation>
+     <condition>
+      <property alias="../../../../../../params/nav2"/>
+     </condition>
+     <type>rotation</type>
+     <property>/instrumentation/nav[2]/radials/selected-deg</property>
+     <offset>180</offset>
+     <scale>1</scale>
+    </transformation>
+    <transformation>
+     <type>rotation</type>
+     <property alias="../../../../../params/heading-deg"/>
+     <scale>-1</scale>
+    </transformation>
+    <transformation>
+     <type>y-shift</type>
+     <offset>-36</offset>
+    </transformation>
+   </transformations>
+  </layer>
+
+  <layer>
+   <name>VOR FROM</name>
+   <condition>
+    <and>
+     <or>
+      <and>
+       <property>/instrumentation/nav[1]/from-flag</property>
+       <not>
+        <property alias="../../../../../../../../params/nav2"/>
+       </not>
+      </and>
+      <and>
+       <property>/instrumentation/nav[2]/from-flag</property>
+       <property alias="../../../../../../../params/nav2"/>
+      </and>
+     </or>
+     <not>
+      <property alias="../../../../../../params/ins-source"/>
+     </not>
+     <property alias="../../../../../params/serviceable"/>
+    </and>
+   </condition>
+   <w>48</w>
+   <h>44</h>
+   <texture>
+    <path>Aircraft/Concorde/Panels/Instruments/Textures/hsi2.png</path>
+    <x1>0.8515625</x1>
+    <x2>0.9453125</x2>
+    <y1>0.4375</y1>
+    <y2>0.5234375</y2>
+   </texture>
+   <transformations>
+    <transformation>
+     <type>y-shift</type>
+     <offset>-23</offset>
+    </transformation>
+    <transformation>
+     <condition>
+      <not>
+       <property alias="../../../../../../../params/nav2"/>
+      </not>
+     </condition>
+     <type>rotation</type>
+     <property>/instrumentation/nav[1]/radials/selected-deg</property>
+     <offset>180</offset>
+     <scale>1</scale>
+    </transformation>
+    <transformation>
+     <condition>
+      <property alias="../../../../../../params/nav2"/>
+     </condition>
+     <type>rotation</type>
+     <property>/instrumentation/nav[2]/radials/selected-deg</property>
+     <offset>180</offset>
+     <scale>1</scale>
+    </transformation>
+    <transformation>
+     <type>rotation</type>
+     <property alias="../../../../../params/heading-deg"/>
+     <scale>-1</scale>
+    </transformation>
+    <transformation>
+     <type>y-shift</type>
+     <offset>36</offset>
+    </transformation>
+    <transformation>
+     <type>rotation</type>
+     <offset>180</offset>
+    </transformation>
+   </transformations>
+  </layer>
+
+  <layer>
+   <name>VOR markings</name>
+   <w>188</w>
+   <h>64</h>
+   <texture>
+    <path>Aircraft/Concorde/Panels/Instruments/Textures/hsi2.png</path>
+    <x1>0.34375</x1>
+    <x2>0.7109375</x2>
+    <y1>0.0</y1>
+    <y2>0.125</y2>
+   </texture>
+   <transformations>
+    <transformation>
+     <type>y-shift</type>
+     <offset>-23</offset>
+    </transformation>
+    <transformation>
+     <condition>
+      <and>
+       <not>
+        <property alias="../../../../../../../../params/ins-source"/>
+       </not>
+       <property alias="../../../../../../../params/serviceable"/>
+       <not>
+        <property alias="../../../../../../../../params/nav2"/>
+       </not>
+      </and>
+     </condition>
+     <type>rotation</type>
+     <property>/instrumentation/nav[1]/radials/selected-deg</property>
+     <scale>1</scale>
+     <offset>180</offset>
+    </transformation>
+    <transformation>
+     <condition>
+      <and>
+       <not>
+        <property alias="../../../../../../../../params/ins-source"/>
+       </not>
+       <property alias="../../../../../../../params/serviceable"/>
+       <property alias="../../../../../../../params/nav2"/>
+      </and>
+     </condition>
+     <type>rotation</type>
+     <property>/instrumentation/nav[2]/radials/selected-deg</property>
+     <scale>1</scale>
+     <offset>180</offset>
+    </transformation>
+    <transformation>
+     <condition>
+      <and>
+       <property alias="../../../../../../../params/ins-source"/>
+       <property alias="../../../../../../../params/serviceable"/>
+      </and>
+     </condition>
+     <type>rotation</type>
+     <property>/autopilot/settings/true-heading-deg</property>
+     <scale>1</scale>
+     <offset>180</offset>
+    </transformation>
+    <transformation>
+     <condition>
+      <property alias="../../../../../../params/serviceable"/>
+     </condition>
+     <type>rotation</type>
+     <property alias="../../../../../params/heading-deg"/>
+     <scale>-1</scale>
+    </transformation>
+   </transformations>
+  </layer>
+
+  <layer>
+   <name>Compas rose shadow</name>
+   <w>240</w>
+   <h>240</h>
+   <texture>
+    <path>Aircraft/Concorde/Panels/Instruments/Textures/hsi4.png</path>
+    <x1>0.46875</x1>
+    <x2>0.9375</x2>
+    <y1>0.53125</y1>
+    <y2>1.0</y2>
+   </texture>
+   <transformations>
+    <transformation>
+     <type>y-shift</type>
+     <offset>-21</offset>
+    </transformation>
+    <transformation>
+     <type>x-shift</type>
+     <offset>-1</offset>
+    </transformation>
+   </transformations>
+  </layer>
+
+  <layer>
+   <name>Compas rose</name>
+   <w>340</w>
+   <h>340</h>
+   <texture>
+    <path>Aircraft/Concorde/Panels/Instruments/Textures/hsi3.png</path>
+    <x1>0.0</x1>
+    <x2>0.640625</x2>
+    <y1>0.359375</y1>
+    <y2>1.0</y2>
+   </texture>
+   <transformations>
+    <transformation>
+     <type>y-shift</type>
+     <offset>-23</offset>
+    </transformation>
+    <transformation>
+     <condition>
+      <property alias="../../../../../../params/serviceable"/>
+     </condition>
+     <type>rotation</type>
+     <property alias="../../../../../params/heading-deg"/>
+     <scale>-1</scale>
+    </transformation>
+   </transformations>
+  </layer>
+  
+  <layer>
+   <name>HDG bug</name>
+   <w>52</w>
+   <h>40</h>
+   <texture>
+    <path>Aircraft/Concorde/Panels/Instruments/Textures/hsi2.png</path>
+    <x1>0.8515625</x1>
+    <x2>0.953125</x2>
+    <y1>0.359375</y1>
+    <y2>0.4375</y2>
+   </texture>
+   <transformations>
+    <transformation>
+     <type>y-shift</type>
+     <offset>-23</offset>
+    </transformation>
+    <transformation>
+     <condition>
+      <and>
+       <not>
+        <property alias="../../../../../../../../params/ins-source"/>
+       </not>
+       <property alias="../../../../../../../params/serviceable"/>
+      </and>
+     </condition>
+     <type>rotation</type>
+     <property alias="../../../../../params/heading-select"/>
+     <scale>1</scale>
+    </transformation>
+    <transformation>
+     <condition>
+      <and>
+       <property alias="../../../../../../../params/ins-source"/>
+       <property alias="../../../../../../../params/serviceable"/>
+      </and>
+     </condition>
+     <type>rotation</type>
+     <property alias="../../../../../params/true-select"/>
+     <scale>1</scale>
+    </transformation>
+    <transformation>
+     <condition>
+      <property alias="../../../../../../params/serviceable"/>
+     </condition>
+     <type>rotation</type>
+     <property alias="../../../../../params/heading-deg"/>
+     <scale>-1</scale>
+    </transformation>
+    <transformation>
+     <type>y-shift</type>
+     <offset>149</offset>
+    </transformation>
+   </transformations>
+  </layer>
+
+  <layer>
+   <name>VOR needle</name>
+   <w>28</w>
+   <h>164</h>
+   <texture>
+    <path>Aircraft/Concorde/Panels/Instruments/Textures/hsi2.png</path>
+    <x1>0.796875</x1>
+    <x2>0.8515625</x2>
+    <y1>0.359375</y1>
+    <y2>0.6796875</y2>
+   </texture>
+   <transformations>
+    <transformation>
+     <type>y-shift</type>
+     <offset>-23</offset>
+    </transformation>
+    <transformation>
+     <condition>
+      <and>
+       <not>
+        <property alias="../../../../../../../../params/ins-source"/>
+       </not>
+       <property alias="../../../../../../../params/serviceable"/>
+       <not>
+        <property alias="../../../../../../../../params/nav2"/>
+       </not>
+      </and>
+     </condition>
+     <type>rotation</type>
+     <property>/instrumentation/nav[1]/radials/selected-deg</property>
+     <offset>180</offset>
+     <scale>1</scale>
+    </transformation>
+    <transformation>
+     <condition>
+      <and>
+       <not>
+        <property alias="../../../../../../../../params/ins-source"/>
+       </not>
+       <property alias="../../../../../../../params/serviceable"/>
+       <property alias="../../../../../../../params/nav2"/>
+      </and>
+     </condition>
+     <type>rotation</type>
+     <property>/instrumentation/nav[2]/radials/selected-deg</property>
+     <offset>180</offset>
+     <scale>1</scale>
+    </transformation>
+    <transformation>
+     <condition>
+      <and>
+       <property alias="../../../../../../../params/ins-source"/>
+       <property alias="../../../../../../../params/serviceable"/>
+      </and>
+     </condition>
+     <type>rotation</type>
+     <property>/autopilot/settings/true-heading-deg</property>
+     <offset>180</offset>
+     <scale>1</scale>
+    </transformation>
+    <transformation>
+     <condition>
+      <property alias="../../../../../../params/serviceable"/>
+     </condition>
+     <type>rotation</type>
+     <property alias="../../../../../params/heading-deg"/>
+     <scale>-1</scale>
+    </transformation>
+    <transformation>
+     <condition>
+      <and>
+       <not>
+        <property alias="../../../../../../../../params/ins-source"/>
+       </not>
+       <property alias="../../../../../../../params/serviceable"/>
+       <not>
+        <property alias="../../../../../../../../params/nav2"/>
+       </not>
+      </and>
+     </condition>
+     <type>x-shift</type>
+     <property>/instrumentation/nav[1]/heading-needle-deflection</property>
+     <min>-12.0</min>
+     <max>12.0</max>
+     <scale>-7.6</scale>
+    </transformation>
+    <transformation>
+     <condition>
+      <and>
+       <not>
+        <property alias="../../../../../../../../params/ins-source"/>
+       </not>
+       <property alias="../../../../../../../params/serviceable"/>
+       <property alias="../../../../../../../params/nav2"/>
+      </and>
+     </condition>
+     <type>x-shift</type>
+     <property>/instrumentation/nav[2]/heading-needle-deflection</property>
+     <min>-12.0</min>
+     <max>12.0</max>
+     <scale>-7.6</scale>
+    </transformation>
+    <transformation>
+     <condition>
+      <and include="concorde-cond-voltage-hsi.xml">
+       <property alias="../../../../../../../params/ins-source"/>
+       <property alias="../../../../../../../params/serviceable"/>
+      </and>
+     </condition>
+     <type>x-shift</type>
+     <property>/autopilot/internal/true-heading-error-deg</property>
+     <min>-12.0</min>
+     <max>12.0</max>
+     <scale>-7.6</scale>
+    </transformation>
+    <transformation>
+     <type>y-shift</type>
+     <offset>-2</offset>
+    </transformation>
+   </transformations>
+  </layer>
+
+  <layer>
+   <name>VOR arrow arrow</name>
+   <w>44</w>
+   <h>72</h>
+   <texture>
+    <path>Aircraft/Concorde/Panels/Instruments/Textures/hsi2.png</path>
+    <x1>0.8515625</x1>
+    <x2>0.9375</x2>
+    <y1>0.5390625</y1>
+    <y2>0.6796875</y2>
+   </texture>
+   <transformations>
+    <transformation>
+     <type>y-shift</type>
+     <offset>-23</offset>
+    </transformation>
+    <transformation>
+     <condition>
+      <and>
+       <not>
+        <property alias="../../../../../../../../params/ins-source"/>
+       </not>
+       <property alias="../../../../../../../params/serviceable"/>
+       <not>
+        <property alias="../../../../../../../../params/nav2"/>
+       </not>
+      </and>
+     </condition>
+     <type>rotation</type>
+     <property>/instrumentation/nav[1]/radials/selected-deg</property>
+     <offset>180</offset>
+     <scale>1</scale>
+    </transformation>
+    <transformation>
+     <condition>
+      <and>
+       <not>
+        <property alias="../../../../../../../../params/ins-source"/>
+       </not>
+       <property alias="../../../../../../../params/serviceable"/>
+       <property alias="../../../../../../../params/nav2"/>
+      </and>
+     </condition>
+     <type>rotation</type>
+     <property>/instrumentation/nav[2]/radials/selected-deg</property>
+     <offset>180</offset>
+     <scale>1</scale>
+    </transformation>
+    <transformation>
+     <condition>
+      <and>
+       <property alias="../../../../../../../params/ins-source"/>
+       <property alias="../../../../../../../params/serviceable"/>
+      </and>
+     </condition>
+     <type>rotation</type>
+     <property>/autopilot/settings/true-heading-deg</property>
+     <offset>180</offset>
+     <scale>1</scale>
+    </transformation>
+    <transformation>
+     <condition>
+      <property alias="../../../../../../params/serviceable"/>
+     </condition>
+     <type>rotation</type>
+     <property alias="../../../../../params/heading-deg"/>
+     <scale>-1</scale>
+    </transformation>
+    <transformation>
+     <type>y-shift</type>
+     <offset>-109</offset>
+    </transformation>
+   </transformations>
+  </layer>
+
+  <layer>
+   <name>VOR arrow tail</name>
+   <w>28</w>
+   <h>80</h>
+   <texture>
+    <path>Aircraft/Concorde/Panels/Instruments/Textures/hsi2.png</path>
+    <x1>0.9375</x1>
+    <x2>0.9921875</x2>
+    <y1>0.5234375</y1>
+    <y2>0.6796875</y2>
+   </texture>
+   <transformations>
+    <transformation>
+     <type>y-shift</type>
+     <offset>-23</offset>
+    </transformation>
+    <transformation>
+     <condition>
+      <and>
+       <not>
+        <property alias="../../../../../../../../params/ins-source"/>
+       </not>
+       <property alias="../../../../../../../params/serviceable"/>
+       <not>
+        <property alias="../../../../../../../../params/nav2"/>
+       </not>
+      </and>
+     </condition>
+     <type>rotation</type>
+     <property>/instrumentation/nav[1]/radials/selected-deg</property>
+     <offset>180</offset>
+     <scale>1</scale>
+    </transformation>
+    <transformation>
+     <condition>
+      <and>
+       <not>
+        <property alias="../../../../../../../../params/ins-source"/>
+       </not>
+       <property alias="../../../../../../../params/serviceable"/>
+       <property alias="../../../../../../../params/nav2"/>
+      </and>
+     </condition>
+     <type>rotation</type>
+     <property>/instrumentation/nav[2]/radials/selected-deg</property>
+     <offset>180</offset>
+     <scale>1</scale>
+    </transformation>
+    <transformation>
+     <condition>
+      <and>
+       <property alias="../../../../../../../params/ins-source"/>
+       <property alias="../../../../../../../params/serviceable"/>
+      </and>
+     </condition>
+     <type>rotation</type>
+     <property>/autopilot/settings/true-heading-deg</property>
+     <offset>180</offset>
+     <scale>1</scale>
+    </transformation>
+    <transformation>
+     <condition>
+      <property alias="../../../../../../params/serviceable"/>
+     </condition>
+     <type>rotation</type>
+     <property alias="../../../../../params/heading-deg"/>
+     <scale>-1</scale>
+    </transformation>
+    <transformation>
+     <type>y-shift</type>
+     <offset>107</offset>
+    </transformation>
+   </transformations>
+  </layer>
+
+  <layer>
+   <name>GS background (top)</name>
+   <w>408</w>
+   <h>293</h>
+   <texture>
+    <path>Aircraft/Concorde/Panels/Instruments/Textures/hsi2.png</path>
+    <x1>0.0</x1>
+    <x2>0.796875</x2>
+    <y1>0.1875</y1>
+    <y2>0.7598</y2>
+   </texture>
+   <transformations>
+    <transformation>
+     <type>y-shift</type>
+     <offset>17</offset>
+    </transformation>
+    <transformation>
+     <type>rotation</type>
+     <offset>180</offset>
+    </transformation>
+   </transformations>
+  </layer>
+
+  <layer>
+   <name>GS background</name>
+   <w>408</w>
+   <h>416</h>
+   <texture>
+    <path>Aircraft/Concorde/Panels/Instruments/Textures/hsi2.png</path>
+    <x1>0.0</x1>
+    <x2>0.796875</x2>
+    <y1>0.1875</y1>
+    <y2>1.0</y2>
+   </texture>
+   <transformations>
+    <transformation>
+     <type>y-shift</type>
+     <offset>-3</offset>
+    </transformation>
+   </transformations>
+  </layer>
+
+  <layer>
+   <name>GS needle right</name>
+   <condition>
+    <and>
+     <or>
+      <and>
+       <property>/instrumentation/nav[1]/has-gs</property>
+       <not>
+        <property alias="../../../../../../../../params/nav2"/>
+       </not>
+      </and>
+      <and>
+       <property>/instrumentation/nav[2]/has-gs</property>
+       <property alias="../../../../../../../params/nav2"/>
+      </and>
+     </or>
+     <not>
+      <property alias="../../../../../../params/ins-source"/>
+     </not>
+     <property alias="../../../../../params/serviceable"/>
+    </and>
+   </condition>
+   <w>40</w>
+   <h>44</h>
+   <texture>
+    <path>Aircraft/Concorde/Panels/Instruments/Textures/hsi2.png</path>
+    <x1>0.875</x1>
+    <x2>0.953125</x2>
+    <y1>0.6796875</y1>
+    <y2>0.765625</y2>
+   </texture>
+   <transformations>
+    <transformation>
+     <type>x-shift</type>
+     <offset>192</offset>
+    </transformation>
+    <transformation>
+     <condition>
+      <not>
+       <property alias="../../../../../../../params/nav2"/>
+      </not>
+     </condition>
+     <type>y-shift</type>
+     <property>/instrumentation/nav[1]/gs-needle-deflection</property>
+     <min>-10.0</min>
+     <max>10.0</max>
+     <scale>8.35</scale>
+     <offset>-24</offset>
+    </transformation>
+    <transformation>
+     <condition>
+      <property alias="../../../../../../params/nav2"/>
+     </condition>
+     <type>y-shift</type>
+     <property>/instrumentation/nav[2]/gs-needle-deflection</property>
+     <min>-10.0</min>
+     <max>10.0</max>
+     <scale>8.35</scale>
+     <offset>-24</offset>
+    </transformation>
+   </transformations>
+  </layer>
+
+  <layer>
+   <name>GS needle left</name>
+   <condition>
+    <and>
+     <or>
+      <and>
+       <property>/instrumentation/nav[1]/has-gs</property>
+       <not>
+        <property alias="../../../../../../../../params/nav2"/>
+       </not>
+      </and>
+      <and>
+       <property>/instrumentation/nav[2]/has-gs</property>
+       <property alias="../../../../../../../params/nav2"/>
+      </and>
+     </or>
+     <not>
+      <property alias="../../../../../../params/ins-source"/>
+     </not>
+     <property alias="../../../../../params/serviceable"/>
+    </and>
+   </condition>
+   <w>40</w>
+   <h>44</h>
+   <texture>
+    <path>Aircraft/Concorde/Panels/Instruments/Textures/hsi2.png</path>
+    <x1>0.796875</x1>
+    <x2>0.875</x2>
+    <y1>0.6796875</y1>
+    <y2>0.765625</y2>
+   </texture>
+   <transformations>
+    <transformation>
+     <type>x-shift</type>
+     <offset>-192</offset>
+    </transformation>
+    <transformation>
+     <condition>
+      <not>
+       <property alias="../../../../../../../params/nav2"/>
+      </not>
+     </condition>
+     <type>y-shift</type>
+     <property>/instrumentation/nav[1]/gs-needle-deflection</property>
+     <min>-10.0</min>
+     <max>10.0</max>
+     <scale>8.35</scale>
+     <offset>-24</offset>
+    </transformation>
+    <transformation>
+     <condition>
+      <property alias="../../../../../../params/nav2"/>
+     </condition>
+     <type>y-shift</type>
+     <property>/instrumentation/nav[2]/gs-needle-deflection</property>
+     <min>-10.0</min>
+     <max>10.0</max>
+     <scale>8.35</scale>
+     <offset>-24</offset>
+    </transformation>
+   </transformations>
+  </layer>
+
+
+  <layer>
+   <name>NAV OFF</name>
+   <condition>
+    <and>
+     <or>
+      <and>
+       <not>
+        <property>/instrumentation/nav[1]/in-range</property>
+       </not>
+       <not>
+        <property alias="../../../../../../../../params/nav2"/>
+       </not>
+      </and>
+      <and>
+       <not>
+        <property>/instrumentation/nav[2]/in-range</property>
+       </not>
+       <property alias="../../../../../../../params/nav2"/>
+      </and>
+      <not>
+       <property alias="../../../../../../../params/serviceable"/>
+      </not>
+     </or>
+     <not>
+      <property alias="../../../../../../params/ins-source"/>
+     </not>
+    </and>
+   </condition>
+   <w>104</w>
+   <h>60</h>
+   <texture>
+    <path>Aircraft/Concorde/Panels/Instruments/Textures/hsi2.png</path>
+    <x1>0.796875</x1>
+    <x2>1.0</x2>
+    <y1>0.765625</y1>
+    <y2>0.8828125</y2>
+   </texture>
+   <transformations>
+    <transformation>
+     <type>x-shift</type>
+     <offset>-142</offset>
+    </transformation>
+    <transformation>
+     <type>y-shift</type>
+     <offset>121</offset>
+    </transformation>
+    <transformation>
+     <type>x-shift</type>
+     <offset>67</offset>
+    </transformation>
+   </transformations>
+  </layer>
+
+<!--
+  <layer>
+   <name>Foreground</name>
+   <w>410</w>
+   <h>410</h>
+   <texture>
+    <path>Aircraft/Concorde/Panels/Instruments/Textures/hsi1.png</path>
+    <x1>0.0</x1>
+    <x2>1.0</x2>
+    <y1>0.0</y1>
+    <y2>1.0</y2>
+   </texture>
+  </layer>
+-->
+
+<!-- REFERENCE -->
+
+  <layer>
+   <name>Title</name>
+   <type>switch</type>
+
+   <layer>
+    <name>Title magnetic</name>
+    <condition>
+     <not>
+      <property alias="../../../../../../params/ins-source"/>
+     </not>
+    </condition>
+    <type>text</type>
+    <point-size>27</point-size>
+    <color>
+     <red>1.0</red>
+     <green>1.0</green>
+     <blue>1.0</blue>
+    </color>
+    <chunks>
+     <chunk>
+      <type>literal</type>
+      <text>MAG</text>
+     </chunk>
+     </chunks>
+    <transformations>
+     <transformation>
+      <type>x-shift</type>
+      <offset>-32</offset>
+     </transformation>
+    </transformations>
+   </layer>
+
+   <layer>
+    <name>Title true</name>
+    <type>text</type>
+    <point-size>27</point-size>
+    <color>
+     <red>1.0</red>
+     <green>1.0</green>
+     <blue>1.0</blue>
+    </color>
+    <chunks>
+     <chunk>
+      <type>literal</type>
+      <text>TRUE</text>
+     </chunk>
+     </chunks>
+    <transformations>
+     <transformation>
+      <type>x-shift</type>
+      <offset>-40</offset>
+     </transformation>
+    </transformations>
+   </layer>
+   <transformations>
+    <transformation>
+     <type>y-shift</type>
+     <offset>172</offset>
+    </transformation>
+   </transformations>
+  </layer>
+
+  <layer>
+   <name>HDG OFF</name>
+   <condition>
+    <or>
+     <not include="concorde-cond-voltage-hsi.xml"/>
+     <not>
+      <property alias="../../../../../../params/serviceable"/>
+     </not>
+    </or>
+   </condition>
+   <w>111</w>
+   <h>64</h>
+   <texture>
+    <path>Aircraft/Concorde/Panels/Instruments/Textures/hsi2.png</path>
+    <x1>0.796875</x1>
+    <x2>1.0</x2>
+    <y1>0.8828125</y1>
+    <y2>1.0</y2>
+   </texture>
+   <transformations>
+    <transformation>
+     <type>y-shift</type>
+     <offset>156</offset>
+    </transformation>
+   </transformations>
+  </layer>
+
+<!-- MILES -->
+
+<!-- translucent lens (partially used) -->  
+  <layer>
+   <name>darken background</name>
+   <type>switch</type>
+    <layer>
+     <name>off</name>
+     <condition>
+      <not-equals>
+       <property>/autopilot/route-manager/wp/id</property>
+       <value>NOT-USED</value>
+      </not-equals>
+     </condition>
+     <texture>
+     <path>Aircraft/Concorde/Panels/Instruments/Textures/warning-lamps.png</path>
+     <x1>0.0</x1>
+     <y1>0.0</y1>
+     <x2>0.25</x2>
+     <y2>0.095</y2>
+     </texture>
+     <w>130</w>
+     <h>49</h>
+    </layer>
+    <layer>
+     <name>on</name>
+     <texture>
+     <path>Aircraft/Concorde/Panels/Instruments/Textures/warning-lamps.png</path>
+     <x1>0.25</x1>
+     <y1>0.0</y1>
+     <x2>0.5</x2>
+     <y2>0.095</y2>
+     </texture>
+     <w>130</w>
+     <h>49</h>
+    </layer>
+    <transformations>
+     <transformation>
+      <type>x-shift</type>
+      <offset>-134</offset>
+     </transformation>
+     <transformation>
+      <type>y-shift</type>
+      <offset>204</offset>
+     </transformation>
+    </transformations>
+  </layer>
+
+  <layer>
+   <name>background</name>
+   <texture>
+    <path>Aircraft/Concorde/Panels/Instruments/Textures/concorde-green-warning.png</path>
+     <x1>0.7</x1>
+     <y1>0.8</y1>
+     <x2>1.0</x2>
+     <y2>0.9</y2>
+   </texture>
+   <w>130</w>
+   <h>49</h>
+   <transformations>
+    <transformation>
+     <type>x-shift</type>
+     <offset>-134</offset>
+    </transformation>
+    <transformation>
+     <type>y-shift</type>
+     <offset>204</offset>
+    </transformation>
+   </transformations>
+  </layer>
+
+  <layer>
+   <name>Title miles</name>
+   <type>text</type>
+   <point-size>20</point-size>
+   <color>
+    <red>1.0</red>
+    <green>1.0</green>
+    <blue>1.0</blue>
+   </color>
+   <chunks>
+    <chunk>
+     <type>literal</type>
+     <text>MILES</text>
+    </chunk>
+   </chunks>
+   <transformations>
+    <transformation>
+     <type>x-shift</type>
+     <offset>-165</offset>
+    </transformation>
+    <transformation>
+     <type>y-shift</type>
+     <offset>234</offset>
+    </transformation>
+   </transformations>
+  </layer>
+
+  <layer>
+    <name>INS</name>
+    <type>switch</type>
+    <condition>
+     <and include="concorde-cond-voltage-hsi.xml">
+      <not-equals>
+       <property>/autopilot/route-manager/wp/id</property>
+       <value></value>
+      </not-equals>
+      <property alias="../../../../../params/serviceable"/>
+     </and>
+    </condition>
+
+    <layer>
+     <name>INS distance</name>
+     <condition>
+      <less-than-equals>
+       <property>/autopilot/route-manager/wp/dist</property>
+       <value type="double">9999.0</value>
+      </less-than-equals>
+     </condition>
+     <type>text</type>
+     <font>led</font>
+     <point-size>18</point-size>
+     <color>
+      <red>0.0</red>
+      <green>0.85</green>
+      <blue>0.0</blue>
+     </color>
+     <chunks>
+      <chunk>
+       <type>number-value</type>
+       <property>/autopilot/route-manager/wp/dist</property>
+       <format>%4.0f</format>
+      </chunk>
+     </chunks>
+    </layer>
+
+    <layer>
+     <name>INS overflow</name>
+     <type>text</type>
+     <font>led</font>
+     <point-size>18</point-size>
+     <color>
+      <red>0.0</red>
+      <green>0.85</green>
+      <blue>0.0</blue>
+     </color>
+     <chunks>
+      <chunk>
+       <type>literal</type>
+       <text>9999</text>
+      </chunk>
+     </chunks>
+    </layer>
+    <transformations>
+     <transformation>
+      <type>x-shift</type>
+      <offset>-182</offset>
+     </transformation>
+     <transformation>
+      <type>y-shift</type>
+      <offset>186</offset>
+     </transformation>
+    </transformations>
+  </layer>
+ 
+<!-- GROUND SPEED -->
+
+<!-- translucent lens (partially used) -->  
+  <layer>
+   <name>darken background</name>
+   <type>switch</type>
+    <layer>
+     <name>off</name>
+     <condition>
+      <not-equals>
+       <property>/autopilot/route-manager/wp/id</property>
+       <value>NOT-USED</value>
+      </not-equals>
+     </condition>
+     <texture>
+     <path>Aircraft/Concorde/Panels/Instruments/Textures/warning-lamps.png</path>
+     <x1>0.0</x1>
+     <y1>0.0</y1>
+     <x2>0.25</x2>
+     <y2>0.095</y2>
+     </texture>
+     <w>130</w>
+     <h>49</h>
+    </layer>
+    <layer>
+     <name>on</name>
+     <texture>
+     <path>Aircraft/Concorde/Panels/Instruments/Textures/warning-lamps.png</path>
+     <x1>0.25</x1>
+     <y1>0.0</y1>
+     <x2>0.5</x2>
+     <y2>0.095</y2>
+     </texture>
+     <w>130</w>
+     <h>49</h>
+    </layer>
+    <transformations>
+     <transformation>
+      <type>x-shift</type>
+      <offset>134</offset>
+     </transformation>
+     <transformation>
+      <type>y-shift</type>
+      <offset>204</offset>
+     </transformation>
+    </transformations>
+  </layer>
+
+  <layer>
+   <name>background</name>
+   <texture>
+    <path>Aircraft/Concorde/Panels/Instruments/Textures/concorde-yellow-warning-flat.png</path>
+     <x1>0.7</x1>
+     <y1>0.8</y1>
+     <x2>1.0</x2>
+     <y2>0.9</y2>
+   </texture>
+   <w>130</w>
+   <h>49</h>
+   <transformations>
+    <transformation>
+     <type>x-shift</type>
+     <offset>134</offset>
+    </transformation>
+    <transformation>
+     <type>y-shift</type>
+     <offset>204</offset>
+    </transformation>
+   </transformations>
+  </layer>
+
+  <layer>
+   <name>Title ground speed</name>
+   <type>text</type>
+   <point-size>20</point-size>
+   <color>
+    <red>1.0</red>
+    <green>1.0</green>
+    <blue>1.0</blue>
+   </color>
+   <chunks>
+    <chunk>
+     <type>literal</type>
+     <text>GND SPD</text>
+    </chunk>
+   </chunks>
+   <transformations>
+    <transformation>
+     <type>x-shift</type>
+     <offset>80</offset>
+    </transformation>
+    <transformation>
+     <type>y-shift</type>
+     <offset>234</offset>
+    </transformation>
+   </transformations>
+  </layer>
+
+  <layer>
+   <name>Ground speed</name>
+   <condition>
+    <and include="concorde-cond-voltage-hsi.xml">
+     <property alias="../../../../../params/serviceable"/>
+    </and>
+   </condition>
+   <type>text</type>
+   <font>led</font>
+   <point-size>18</point-size>
+   <color>
+    <red>0.85</red>
+    <green>0.85</green>
+    <blue>0.0</blue>
+   </color>
+   <chunks>
+    <chunk>
+     <type>number-value</type>
+     <property>/instrumentation/ins[0]/computed/ground-speed-fps</property>
+     <format>%4.0f</format>
+     <scale>0.592484</scale>        <!-- kt -->
+    </chunk>
+   </chunks>
+   <transformations>
+    <transformation>
+     <type>x-shift</type>
+     <offset>89</offset>
+    </transformation>
+    <transformation>
+     <type>y-shift</type>
+     <offset>186</offset>
+    </transformation>
+   </transformations>
+  </layer>
+
+ </layers>
+
+</PropertyList>

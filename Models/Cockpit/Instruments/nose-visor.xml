@@ -1,0 +1,48 @@
+<?xml version="1.0"?>
+<PropertyList>
+  <path>../Models/nosevisor.ac</path>
+  <animation>
+    <type>rotate</type>
+    <object-name>LeverShaft</object-name>
+    <object-name>LeverKnob</object-name>
+    <object-name>LeverLock</object-name>
+    <property>/controls/flight/flaps</property>
+    <factor>82</factor>
+    <offset-deg>-46</offset-deg>
+    <center>
+      <x-m>-0.005</x-m>
+      <y-m>0</y-m>
+      <z-m>0</z-m>
+    </center>
+    <axis>
+      <x>0</x>
+      <y>1</y>
+      <z>0</z>
+    </axis>
+  </animation>
+  <animation>
+    <type>pick</type>
+    <object-name>LeverShaft</object-name>
+    <object-name>LeverKnob</object-name>
+    <object-name>LeverLock</object-name>
+    <action>
+      <name>Flaps Down</name>
+      <button>0</button>
+      <repeatable>false</repeatable>
+      <binding>
+        <command>nasal</command>
+        <script>controls.flapsDown(1)</script>
+      </binding>
+    </action>
+    <action>
+      <name>Flaps Up</name>
+      <button>1</button>
+      <repeatable>false</repeatable>
+      <binding>
+        <command>nasal</command>
+        <script>controls.flapsDown(-1)</script>
+      </binding>
+    </action>
+    </animation>
+  -->
+</PropertyList>

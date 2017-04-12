@@ -1,0 +1,337 @@
+<?xml version="1.0"?>
+
+<PropertyList>
+
+  <name>Concorde-views</name>
+  <layout>vbox</layout>
+  <padding>20</padding>
+
+  <text>
+   <label>Concorde views</label>
+  </text>
+
+  <text>
+    <label></label>
+  </text>
+
+ <!-- Cockpit Views -->
+  
+ <!-- First Row -->
+ 
+  <group>  
+    <stretch>true</stretch>
+    <layout>hbox</layout>
+    <halign>fill</halign>
+    <valign>top</valign>
+    <default-padding>6</default-padding>
+
+    <button>
+     <pref-width>130</pref-width>
+     <desc>Captain view</desc>
+     <legend>v Captain</legend>
+     <equal>true</equal>
+     <repeatable type="bool">false</repeatable>
+     <key>v</key>
+     <binding>
+      <command>nasal</command>
+      <script>globals.Concorde.seatsystem.viewexport("captain");</script>
+     </binding>
+    </button>
+
+    <button>
+     <pref-width>130</pref-width>
+     <desc>Overhead view</desc>
+     <legend>o Overhead</legend>
+     <equal>true</equal>
+     <repeatable type="bool">false</repeatable>
+     <key>o</key>
+     <binding>
+     <command>nasal</command>
+      <script>globals.Concorde.seatsystem.viewexport("overhead");</script>
+     </binding>
+    </button>
+
+    <button>
+     <pref-width>130</pref-width>
+     <desc>Copilot view</desc>
+     <legend>y Copilot</legend>
+     <equal>true</equal>
+     <repeatable type="bool">false</repeatable>
+     <key>y</key>
+     <binding>
+       <command>nasal</command>
+     <script>globals.Concorde.seatsystem.viewexport("copilot");</script>
+     </binding>
+    </button>
+  </group>
+
+  <!-- Second Row -->
+ 
+  <group>  
+    <stretch>true</stretch>
+    <layout>hbox</layout>
+    <halign>fill</halign>
+    <valign>top</valign>
+    <default-padding>6</default-padding>
+
+    <button>
+     <pref-width>130</pref-width>
+     <desc>Observer view</desc>
+     <legend>k Observer *</legend>
+     <equal>true</equal>
+     <repeatable type="bool">false</repeatable>
+     <key>k</key>
+     <binding>
+      <command>nasal</command>
+      <script>globals.Concorde.seatsystem.viewexport("observer");</script>
+     </binding>
+    </button>
+
+    <button>
+     <pref-width>130</pref-width>
+     <desc>Engineer view</desc>
+     <legend>e Engineer</legend>
+     <equal>true</equal>
+     <repeatable type="bool">false</repeatable>
+     <key>e</key>
+     <binding>
+     <command>nasal</command>
+      <script>globals.Concorde.seatsystem.viewexport("engineer");</script>
+     </binding>
+    </button>
+
+    <button>
+     <pref-width>130</pref-width>
+     <desc>Observer 2 view</desc>
+     <legend>l Observer 2 *</legend>
+     <equal>true</equal>
+     <repeatable type="bool">false</repeatable>
+     <key>l</key>
+     <binding>
+     <command>nasal</command>
+      <script>globals.Concorde.seatsystem.viewexport("observer2");</script>
+     </binding>
+    </button>
+  </group>
+  
+  <!-- Third Row --> 
+ 
+  <group>  
+    <stretch>true</stretch>
+    <layout>hbox</layout>
+    <halign>fill</halign>
+    <valign>top</valign>
+    <default-padding>6</default-padding>
+
+    <button>
+     <pref-width>130</pref-width>
+     <desc>Steward view</desc>
+     <legend>w Steward *</legend>
+     <equal>true</equal>
+     <repeatable type="bool">false</repeatable>
+     <key>w</key>
+     <binding>
+     <command>nasal</command>
+      <script>globals.Concorde.seatsystem.viewexport("steward");</script>
+     </binding>
+    </button>
+  </group>
+
+  <!-- External Views -->
+
+  <text>
+    <label></label>
+  </text>
+ 
+  <group>  
+    <stretch>true</stretch>
+    <layout>hbox</layout>
+    <halign>fill</halign>
+    <valign>top</valign>
+    <default-padding>6</default-padding>
+
+    <button>
+     <pref-width>130</pref-width>
+     <desc>Front gear view</desc>
+     <legend>4 Front gear *</legend>
+     <equal>true</equal>
+     <repeatable type="bool">false</repeatable>
+     <key>4</key>
+     <binding>
+      <command>nasal</command>
+      <script>globals.Concorde.seatsystem.viewexport("gear-front");</script>
+     </binding>
+    </button>
+
+    <button>
+     <pref-width>130</pref-width>
+     <desc>Main gear view</desc>
+     <legend>5 Main gear *</legend>
+     <equal>true</equal>
+     <repeatable type="bool">false</repeatable>
+     <key>5</key>
+     <binding>
+     <command>nasal</command>
+      <script>globals.Concorde.seatsystem.viewexport("gear-main");</script>
+     </binding>
+    </button>
+  </group>
+
+  <text>
+    <label></label>
+  </text>
+
+  <text>
+    <label>toggle with letter (* is a floating view)</label>
+    <color>
+      <red>0.5</red>
+      <green>0.5</green>
+      <blue>0.5</blue>
+    </color>
+  </text>
+
+  <text>
+    <label></label>
+  </text>
+
+  <checkbox>
+   <label>Recover position of last session  ~</label>
+   <property>/controls/seat/recover</property>
+   <binding>
+    <command>nasal</command>
+    <script>globals.Concorde.seatsystem.recoverexport();</script>
+   </binding>
+  </checkbox>
+
+  <text>
+    <label></label>
+  </text>
+
+  <hrule><stretch>true</stretch></hrule>
+
+  <text>
+    <label></label>
+  </text>
+
+  <group>
+    <stretch>true</stretch>
+    <layout>hbox</layout>
+    <halign>fill</halign>
+    <valign>top</valign>
+    <default-padding>6</default-padding>
+
+    <button>
+      <pref-width>130</pref-width>
+      <desc>Chase without Yaw view</desc>
+      <legend>3 Chase no Y</legend>
+      <equal>true</equal>
+      <repeatable type="bool">false</repeatable>
+      <key>3</key>
+      <binding>
+       <command>nasal</command>
+       <script>setprop("/sim/current-view/view-number", "5");</script>
+      </binding>
+    </button>
+  </group>
+
+  <text>
+    <label></label>
+  </text>
+
+  <group>
+    <stretch>true</stretch>
+    <layout>hbox</layout>
+    <halign>fill</halign>
+    <valign>top</valign>
+    <default-padding>6</default-padding>
+
+    <button>
+      <pref-width>130</pref-width>
+      <desc>Tower View</desc>
+      <legend>1 Tower</legend>
+      <equal>true</equal>
+      <repeatable type="bool">false</repeatable>
+      <key>1</key>
+      <binding>
+       <command>nasal</command>
+       <script>setprop("/sim/current-view/view-number", "3");</script>
+      </binding>
+    </button>
+
+    <text>
+     <halign>hleft</halign>
+     <property>/sim/tower/airport-id</property>
+     <live>true</live>
+     <color>
+      <red>0.2</red>
+      <green>0.8</green>
+      <blue>0.2</blue>
+     </color>
+    </text>
+
+    <button>
+      <pref-width>130</pref-width>
+      <desc>Tower from view</desc>
+      <legend>2 Tower from</legend>
+      <equal>true</equal>
+      <repeatable type="bool">false</repeatable>
+      <key>2</key>
+      <binding>
+       <command>nasal</command>
+       <script>setprop("/sim/current-view/view-number", "4");</script>
+      </binding>
+    </button>
+  </group>
+
+  <text>
+    <label></label>
+  </text>
+
+  <text>
+    <label>change with number</label>
+    <color>
+      <red>0.5</red>
+      <green>0.5</green>
+      <blue>0.5</blue>
+    </color>
+  </text>
+
+  <text>
+    <label></label>
+  </text>
+
+  <text>
+    <label></label>
+  </text>
+
+  <group>
+   <layout>hbox</layout>
+
+   <button>
+    <legend>Back</legend>
+    <key>b</key>
+    <binding>
+      <command>dialog-apply</command>
+    </binding>
+    <binding>
+     <command>dialog-show</command>
+     <dialog-name>Concorde-menu</dialog-name>
+    </binding>
+    <binding>
+      <command>dialog-close</command>
+    </binding>
+   </button>
+
+   <button>
+    <legend>Close</legend>
+    <default>true</default>
+    <key>Esc</key>
+    <binding>
+      <command>dialog-apply</command>
+    </binding>
+    <binding>
+      <command>dialog-close</command>
+    </binding>
+   </button>
+  </group>
+</PropertyList>

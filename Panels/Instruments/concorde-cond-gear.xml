@@ -1,0 +1,93 @@
+<?xml version="1.0"?>
+
+<!-- Alarm on Gear :
+
+     - test.
+     - gear not locked down, with speed below 180 kt and 2 throttles below 95 percent. 
+     - only if enough voltage.
+     - no audio cancel.
+-->
+
+<PropertyList>
+
+ <and>
+  <or>
+   <property>/controls/gear/test-horn</property>
+   <and>
+    <not-equals>
+     <property>gear/gear[0]/position-norm</property>
+     <value>1.0</value>
+    </not-equals>
+    <less-than>
+     <property>/instrumentation/airspeed-indicator[0]/indicated-speed-kt</property>
+     <value>180</value>
+    </less-than>
+    <or>
+     <and>
+      <less-than>
+       <property>/controls/engines/engine[0]/throttle</property>
+       <value>0.95</value>
+      </less-than>
+      <less-than>
+       <property>/controls/engines/engine[1]/throttle</property>
+       <value>0.95</value>
+      </less-than>
+     </and>
+     <and>
+      <less-than>
+       <property>/controls/engines/engine[0]/throttle</property>
+       <value>0.95</value>
+      </less-than>
+      <less-than>
+       <property>/controls/engines/engine[2]/throttle</property>
+       <value>0.95</value>
+      </less-than>
+     </and>
+     <and>
+      <less-than>
+       <property>/controls/engines/engine[0]/throttle</property>
+       <value>0.95</value>
+      </less-than>
+      <less-than>
+       <property>/controls/engines/engine[3]/throttle</property>
+       <value>0.95</value>
+      </less-than>
+     </and>
+     <and>
+      <less-than>
+       <property>/controls/engines/engine[1]/throttle</property>
+       <value>0.95</value>
+      </less-than>
+      <less-than>
+       <property>/controls/engines/engine[2]/throttle</property>
+       <value>0.95</value>
+      </less-than>
+     </and>
+     <and>
+      <less-than>
+       <property>/controls/engines/engine[1]/throttle</property>
+       <value>0.95</value>
+      </less-than>
+      <less-than>
+       <property>/controls/engines/engine[3]/throttle</property>
+       <value>0.95</value>
+      </less-than>
+     </and>
+     <and>
+      <less-than>
+       <property>/controls/engines/engine[2]/throttle</property>
+       <value>0.95</value>
+      </less-than>
+      <less-than>
+       <property>/controls/engines/engine[3]/throttle</property>
+       <value>0.95</value>
+      </less-than>
+     </and>
+    </or>
+   </and>
+  </or>
+  <not include="concorde-cond-voltage-bulb.xml"/>
+ </and>
+
+
+</PropertyList>

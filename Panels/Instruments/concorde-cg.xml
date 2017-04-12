@@ -1,0 +1,285 @@
+<?xml version="1.0"?>
+
+<!-- Cnocorde center of gravity :
+
+     - red outside the normal limits.
+     - red flashes outside the extreme limits.
+-->
+
+<PropertyList>
+
+ <name>Center of Gravity display</name>
+ <w-base>55</w-base>
+ <h-base>145</h-base>
+
+ <params>
+  <test>/controls/lighting/crew/captain/test</test>
+  <serviceable>/instrumentation/cg[0]/serviceable</serviceable>
+  <cg-sel>/instrumentation/cg[0]/percent</cg-sel>
+  <min-sel>/instrumentation/cg[0]/min-percent</min-sel>
+  <max-sel>/instrumentation/cg[0]/max-percent</max-sel>
+ </params>
+
+
+ <layers>
+
+
+
+  <layer>
+   <name>background</name>
+   <texture>
+    <path>Aircraft/Concorde/Panels/Instruments/Textures/concorde-cg.png</path>
+    <x1>0.32</x1>
+    <y1>0.0</y1>
+    <x2>0.68</x2>
+    <y2>1.0</y2>
+   </texture>
+    <w>25</w>
+    <h>95</h>
+  </layer>
+
+  <layer>
+   <name>Corridor min display (FWD)</name>
+   <texture>
+    <path>Aircraft/Concorde/Panels/Instruments/Textures/misc-1.png</path>
+    <x1>0.6914</x1>
+    <y1>0.78125</y1>
+    <x2>0.7289</x2>
+    <y2>1.0</y2>
+   </texture>
+   <w>4</w>
+   <h>12</h>
+   <transformations>
+    <transformation>
+     <type>rotation</type>
+     <offset>-90</offset>
+    </transformation>
+    <transformation>
+     <type>y-shift</type>
+     <offset>-6.75</offset> <!-- right border -->
+    </transformation>
+    <transformation>
+     <type>x-shift</type>
+     <offset>41.5</offset> <!-- centered at 50.0 -->
+    </transformation>
+    <transformation>
+     <condition>
+      <and include="concorde-cond-voltage-inst.xml">
+       <property alias="../../../../../../../params/serviceable"/>
+      </and>
+     </condition>
+     <type>x-shift</type>
+     <property alias="../../../../../params/min-sel"/>
+     <min>50.0</min>
+     <max>60.5</max>
+     <scale>1.0</scale>
+     <interpolation>
+      <entry><ind>50.0</ind><dep>  0.0</dep></entry>
+      <entry><ind>61.0</ind><dep>-78.0</dep></entry>
+      </interpolation>
+    </transformation>
+   </transformations>
+  </layer> 
+
+  <layer>
+   <name>Center of Gravity</name>
+   <texture>
+    <path>Aircraft/Concorde/Panels/Instruments/Textures/misc-1.png</path>
+    <x1>0.8</x1>
+    <y1>0.78125</y1>
+    <x2>0.8375</x2>
+    <y2>1.0</y2>
+   </texture>
+   <w>4</w>
+   <h>12</h>
+   <transformations>
+    <transformation>
+     <type>rotation</type>
+     <offset>90</offset>
+    </transformation>
+    <transformation>
+     <type>y-shift</type>
+     <offset>-6.25</offset> <!-- left border -->
+    </transformation>
+    <transformation>
+     <type>x-shift</type>
+     <offset>-2</offset> <!-- centered at 55.5 -->
+    </transformation>
+    <transformation>
+     <condition>
+      <and include="concorde-cond-voltage-inst.xml">
+       <property alias="../../../../../../../params/serviceable"/>
+      </and>
+     </condition>
+     <type>x-shift</type>
+     <property alias="../../../../../params/cg-sel"/>
+     <min>50.0</min>
+     <max>60.5</max>
+     <scale>1.0</scale>
+     <interpolation>
+      <entry><ind>50.0</ind><dep>-39.0</dep></entry>
+      <entry><ind>55.5</ind><dep>  0.0</dep></entry>
+      <entry><ind>60.5</ind><dep> 35.0</dep></entry>
+      </interpolation>
+    </transformation>
+   </transformations>
+  </layer> 
+
+  <layer>
+   <name>Corridor max display (AFT)</name>
+   <texture>
+    <path>Aircraft/Concorde/Panels/Instruments/Textures/misc-1.png</path>
+    <x1>0.6914</x1>
+    <y1>0.78125</y1>
+    <x2>0.7289</x2>
+    <y2>1.0</y2>
+   </texture>
+   <w>4</w>
+   <h>12</h>
+   <transformations>
+    <transformation>
+     <type>rotation</type>
+     <offset>-90</offset>
+    </transformation>
+    <transformation>
+     <type>y-shift</type>
+     <offset>-6.75</offset> <!-- start at border -->
+    </transformation>
+    <transformation>
+     <type>x-shift</type>
+     <offset>-35</offset> <!-- centered at 61.0 -->
+    </transformation>
+    <transformation>
+     <condition>
+      <and include="concorde-cond-voltage-inst.xml">
+       <property alias="../../../../../../../params/serviceable"/>
+      </and>
+     </condition>
+     <type>x-shift</type>
+     <property alias="../../../../../params/max-sel"/>
+     <min>50.5</min>
+     <max>61.0</max>
+     <scale>1.0</scale>
+     <interpolation>
+      <entry><ind>50.0</ind><dep> 78.0</dep></entry>
+      <entry><ind>61.0</ind><dep>  0.0</dep></entry>
+      </interpolation>
+    </transformation>
+   </transformations>
+  </layer> 
+
+  <layer>
+   <name>OFF flag</name>
+   <condition>
+    <or>
+     <not include="concorde-cond-voltage-inst.xml"/>
+     <not>
+      <property alias="../../../../../../params/serviceable"/>
+     </not>
+    </or>
+   </condition>
+   <texture>
+    <path>Aircraft/Concorde/Panels/Instruments/Textures/misc-1.png</path>
+    <x1>0.9375</x1>
+    <y1>0.5</y1>
+    <x2>1.0</x2>
+    <y2>0.546875</y2>
+   </texture>
+   <w>20</w>
+   <h>8</h>
+   <transformations>
+    <transformation>
+     <type>x-shift</type>
+     <offset>-4</offset>
+    </transformation>
+    <transformation>
+     <type>y-shift</type>
+     <offset>7</offset>
+    </transformation>
+    <transformation>
+     <type>rotation</type>
+     <offset>45</offset>
+    </transformation>
+   </transformations>
+  </layer>
+
+<!-- red alarm light -->
+
+<!-- translucent lens -->
+  <layer>
+   <name>Alarm light</name>
+   <type>switch</type>
+
+   <layer>
+    <name>off</name>
+    <type>group</type>
+    <condition>
+     <or>
+      <and>
+       <or include="concorde-cond-cg.xml"/>
+       <not>
+        <property alias="../../../../../../../../params/test"/>
+       </not>
+      </and>
+      <not include="concorde-cond-voltage-inst.xml"/>
+      <not>
+       <property alias="../../../../../../../params/serviceable"/>
+      </not>
+     </or>
+    </condition>
+
+    <layer include="concorde-bulb-led-off.xml">
+     <w>8</w>
+     <h>8</h>
+    </layer>
+    <layer>
+     <name>background off</name>
+     <texture>
+      <path>Aircraft/Concorde/Panels/Instruments/Textures/concorde-red-led.png</path>
+      <x1>0.0</x1>
+      <y1>0.0</y1>
+      <x2>1.0</x2>
+      <y2>1.0</y2>
+     </texture>
+     <w>8</w>
+     <h>8</h>
+    </layer>
+   </layer>
+
+   <layer>
+    <name>on</name>
+    <type>group</type>
+
+    <layer include="concorde-bulb-led-on.xml">
+     <w>8</w>
+     <h>8</h>
+    </layer>
+    <layer>
+     <name>background on</name>
+     <texture>
+      <path>Aircraft/Concorde/Panels/Instruments/Textures/concorde-red-led.png</path>
+      <x1>0.0</x1>
+      <y1>0.0</y1>
+      <x2>1.0</x2>
+      <y2>1.0</y2>
+     </texture>
+     <w>8</w>
+     <h>8</h>
+     <emissive>true</emissive>
+    </layer>
+   </layer>
+   <transformations>
+    <transformation>
+     <type>x-shift</type>
+     <offset>1</offset>
+    </transformation>
+    <transformation>
+     <type>y-shift</type>
+     <offset>57</offset>
+    </transformation>
+   </transformations>
+  </layer>
+
+ </layers>
+
+</PropertyList>

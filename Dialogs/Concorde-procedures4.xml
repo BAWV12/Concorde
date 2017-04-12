@@ -1,0 +1,303 @@
+<?xml version="1.0"?>
+
+<PropertyList>
+  <name>Concorde-procedures4</name>
+  <layout>vbox</layout>
+
+  <text>
+    <label>Concorde procedures 2</label>
+  </text>
+
+  <hrule><dummy/></hrule>
+
+  <group>
+    <layout>vbox</layout>
+    <halign>center</halign>
+
+    <text>
+      <label>Settings  ~</label>
+    </text>
+
+    <text>
+      <label></label>
+    </text>
+
+    <text>
+      <label></label>
+    </text>
+
+    <group>
+     <layout>hbox</layout>
+
+     <group>
+      <layout>vbox</layout>
+
+      <checkbox>
+        <label>Copilot</label>
+        <halign>left</halign>
+        <property>/controls/copilot/activ</property>
+        <binding>
+         <command>nasal</command>
+         <script>globals.Concorde.copilotcrew.toggleexport();</script>
+        </binding>
+        <binding>
+         <command>nasal</command>
+         <script>globals.Concorde.copilothuman.wakeupexport();</script>
+        </binding>
+      </checkbox>
+
+      <checkbox>
+        <label>Engineer</label>
+        <halign>left</halign>
+        <property>/controls/engineer/activ</property>
+        <binding>
+         <command>nasal</command>
+         <script>globals.Concorde.engineercrew.toggleexport();</script>
+        </binding>
+        <binding>
+         <command>nasal</command>
+         <script>globals.Concorde.engineerhuman.wakeupexport();</script>
+        </binding>
+      </checkbox>
+     </group>
+
+     <group>
+      <layout>vbox</layout>
+
+      <text>
+       <label>Include in checklist</label>
+      </text>
+
+      <text>
+       <label></label>
+      </text>
+
+      <text>
+       <label></label>
+      </text>
+
+      <text>
+       <label></label>
+      </text>
+
+      <checkbox>
+        <label>landing lights</label>
+        <halign>left</halign>
+        <property>/controls/crew/landing-lights</property>
+        <binding>
+         <command>property-toggle</command>
+         <property>/controls/crew/landing-lights</property>
+        </binding>
+      </checkbox>
+
+      <text>
+       <label></label>
+      </text>
+
+      <text>
+       <label></label>
+      </text>
+
+      <text>
+       <label></label>
+      </text>
+
+      <checkbox>
+        <label>stop engines 2 and 3</label>
+        <halign>left</halign>
+        <property>/controls/crew/stop-engine23</property>
+        <binding>
+         <command>property-toggle</command>
+         <property>/controls/crew/stop-engine23</property>
+        </binding>
+      </checkbox>
+
+      <text>
+       <label>(after landing)</label>
+       <color>
+        <red>0.5</red>
+        <green>0.5</green>
+        <blue>0.5</blue>
+       </color>
+      </text>
+
+      <text>
+       <label></label>
+      </text>
+
+      <text>
+       <label></label>
+      </text>
+
+      <text>
+       <label></label>
+      </text>
+     </group>
+     
+     <group>
+      <layout>vbox</layout>
+
+      <text>
+       <label>Virtual crew</label>
+      </text>
+
+      <text>
+       <label></label>
+      </text>
+
+      <input>
+       <halign>left</halign>
+       <property>/controls/tractor/distance-m</property>
+       <label>Pushback distance (m)</label>
+       <binding>
+        <command>dialog-apply</command>
+       </binding>
+      </input>
+
+      <text>
+       <label></label>
+      </text>
+
+      <checkbox>
+        <label>adjusts night lighting</label>
+        <halign>left</halign>
+        <property>/controls/crew/night-lighting</property>
+        <binding>
+         <command>property-toggle</command>
+         <property>/controls/crew/night-lighting</property>
+        </binding>
+      </checkbox>
+
+      <text>
+       <label>(only day/night transition)</label>
+       <color>
+        <red>0.5</red>
+        <green>0.5</green>
+        <blue>0.5</blue>
+       </color>
+      </text>
+
+      <checkbox>
+        <label>adjusts VOR and ADF to nearest airport</label>
+        <halign>left</halign>
+        <property>/controls/crew/radio</property>
+        <binding>
+         <command>property-toggle</command>
+         <property>/controls/crew/radio</property>
+        </binding>
+      </checkbox>
+
+      <text>
+        <label>(in Nasal/Concorde-route.xml)</label>
+        <color>
+         <red>0.5</red>
+         <green>0.5</green>
+         <blue>0.5</blue>
+        </color>
+      </text>
+
+      <text>
+        <label>only ground and above FL 100</label>
+        <color>
+         <red>0.5</red>
+         <green>0.5</green>
+         <blue>0.5</blue>
+        </color>
+      </text>
+
+      <checkbox>
+        <label>performs Captain checks (not real)</label>
+        <halign>left</halign>
+        <property>/controls/crew/captain-busy</property>
+        <binding>
+         <command>property-toggle</command>
+         <property>/controls/crew/captain-busy</property>
+        </binding>
+      </checkbox>
+
+      <checkbox>
+        <label>triggers flight checklists</label>
+        <halign>left</halign>
+        <property>/controls/crew/checklist</property>
+        <binding>
+         <command>property-toggle</command>
+         <property>/controls/crew/checklist</property>
+        </binding>
+      </checkbox>
+
+      <text>
+       <label></label>
+      </text>
+
+      <group>
+        <layout>hbox</layout>
+
+       <text>
+        <label>starts from</label>
+       </text>
+
+       <combo>
+        <pref-width>200</pref-width>
+        <property>/systems/crew/dialog</property>
+        <value>takeoff</value>
+        <value>taxi</value>
+        <value>stopover</value>
+       </combo>
+      </group>
+
+      <checkbox>
+        <label>activ on startup</label>
+        <halign>left</halign>
+        <property>/controls/crew/startup</property>
+        <binding>
+         <command>property-toggle</command>
+         <property>/controls/crew/startup</property>
+        </binding>
+      </checkbox>
+
+     </group>
+
+    </group>
+  </group>
+
+  <text>
+    <label></label>
+  </text>
+
+  <text>
+    <label></label>
+  </text>
+
+  <group>
+   <layout>hbox</layout>
+
+   <button>
+    <legend>Back</legend>
+    <key>b</key>
+    <binding>
+     <command>dialog-show</command>
+     <dialog-name>Concorde-procedures</dialog-name>
+    </binding>
+    <binding>
+     <command>dialog-close</command>
+    </binding>
+   </button>
+
+   <button>
+    <legend>Close</legend>
+    <default>true</default>
+    <key>Esc</key>
+    <binding>
+      <command>dialog-apply</command>
+    </binding>
+    <binding>
+      <command>nasal</command>
+      <script>globals.Concorde.voicecrew.menuexport();</script>
+    </binding>
+    <binding>
+      <command>dialog-close</command>
+    </binding>
+   </button>
+
+  </group>
+</PropertyList>

@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+
+<PropertyList>
+
+  <params>
+    <n2>engines/engine[1]/n2</n2>
+  </params>
+
+  <particlesystem include="smoke.xml"/>
+</PropertyList>

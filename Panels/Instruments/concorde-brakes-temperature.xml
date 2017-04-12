@@ -1,0 +1,1148 @@
+<!-- Brakes temperature :
+
+     - highest temperature.
+     - brake temperature, by pressing red light.
+     - test : highest temperature + 270 deg.
+
+     - heat provides the energy.
+     
+     
+     Brakes overheat :
+
+     - more than 220 deg.
+     - test sends highest brake temperature.
+     
+     
+     Test of brakes temperature warning lights :
+
+     - adds 270 to the highest brakes temperature.
+-->
+
+<PropertyList>
+ <name>Brakes temperature</name>
+ <w-base>384</w-base>
+ <h-base>192</h-base>
+
+ <layers>
+
+  <layer include="concorde-gauge.xml"/>
+
+  <layer>
+   <name>Title</name>
+   <type>text</type>
+   <point-size>12</point-size>
+   <color>
+    <red>1.0</red>
+    <green>1.0</green>
+    <blue>1.0</blue>
+   </color>
+   <chunks>
+    <chunk>
+     <type>literal</type>
+     <text>BRAKES TEMP</text>
+    </chunk>
+   </chunks>
+   <transformations>
+    <transformation>
+     <type>x-shift</type>
+     <offset>-50</offset>
+    </transformation>
+    <transformation>
+     <type>y-shift</type>
+     <offset>80</offset>
+    </transformation>
+   </transformations>
+  </layer>
+
+  <layer>
+   <name>background</name>
+   <w>110</w>
+   <h>110</h>
+   <texture>
+    <path>Aircraft/Concorde/Panels/Instruments/Textures/concorde-brakes-temp.png</path>
+    <x1>0</x1>
+    <y1>0</y1>
+    <x2>1</x2>
+    <y2>1</y2>
+   </texture>
+  </layer>
+
+  <layer>
+   <name>needle</name>
+   <w>6</w>
+   <h>48</h>
+   <texture>
+    <path>Aircraft/Concorde/Panels/Instruments/Textures/misc-1.png</path>
+    <x1>0.8</x1>
+    <y1>0.78125</y1>
+    <x2>0.8375</x2>
+    <y2>1.0</y2>
+   </texture>
+   <transformations>
+    <transformation>
+     <type>rotation</type>
+     <offset>-126.0</offset>         <!-- default 0 deg C -->
+    </transformation>
+    <transformation>
+     <type>rotation</type>
+     <condition>
+      <not include="concorde-cond-test-brakes.xml"/>
+     </condition>
+     <offset>97.2</offset>           <!-- + 270 deg C -->
+    </transformation>
+    <transformation>
+     <type>rotation</type>
+     <property>/systems/brakes/test-degc</property>
+     <min>0</min>
+     <max>900</max>
+     <scale>0.36</scale>
+    </transformation>
+    <transformation>
+     <type>y-shift</type>
+     <offset>20.0</offset>
+    </transformation>
+   </transformations>
+  </layer>
+
+  <layer>
+   <name>glare shield</name>
+   <texture>
+    <path>Aircraft/Concorde/Panels/Instruments/Textures/bezel1.png</path>
+    <x1>0.5</x1>
+    <y1>0.0</y1>
+    <x2>1.0</x2>
+    <y2>0.5</y2>
+   </texture>
+   <w>128</w>
+   <h>128</h>
+   <transformations>
+    <transformation>
+     <type>x-shift</type>
+     <offset>3</offset>
+    </transformation>
+    <transformation>
+     <type>y-shift</type>
+     <offset>-3</offset>
+    </transformation>
+   </transformations>
+  </layer>
+
+  <layer>
+   <name>Title temperature</name>
+   <type>text</type>
+   <point-size>10</point-size>
+   <color>
+    <red>1.0</red>
+    <green>1.0</green>
+    <blue>1.0</blue>
+   </color>
+   <chunks>
+    <chunk>
+     <type>literal</type>
+     <text>220 C</text>
+    </chunk>
+   </chunks>
+   <transformations>
+    <transformation>
+     <type>x-shift</type>
+     <offset>-60</offset>
+    </transformation>
+    <transformation>
+     <type>y-shift</type>
+     <offset>-75</offset>
+    </transformation>
+   </transformations>
+  </layer>
+
+<!-- RED FORWARD 1 -->
+
+<!-- translucent lens -->  
+  <layer>
+   <name>Red forward 1 light</name>
+   <type>switch</type>
+    <layer>
+     <name>off</name>
+     <type>group</type>
+     <condition>
+      <or include="concorde-cond-voltage-bulb.xml">
+       <and>
+        <or include="concorde-cond-test-brakes.xml"/>        <!-- bug ? -->
+        <less-than>
+         <property>/systems/brakes/temperature-degc</property>
+         <value>220</value>
+        </less-than>
+       </and>
+      </or>
+     </condition>
+
+     <layer include="concorde-bulb-off.xml">
+      <w>60</w>
+      <h>30</h>
+     </layer>
+     <layer>
+      <name>background off</name>
+      <texture>
+       <path>Aircraft/Concorde/Panels/Instruments/Textures/concorde-red-fwd.png</path>
+       <x1>0.0</x1>
+       <y1>0.28</y1>
+       <x2>1.0</x2>
+       <y2>0.70</y2>
+      </texture>
+      <w>60</w>
+      <h>30</h>
+     </layer>
+    </layer>
+
+    <layer>
+     <name>on</name>
+     <type>group</type>
+
+     <layer include="concorde-bulb-on.xml">
+      <w>60</w>
+      <h>30</h>
+     </layer>
+     <layer>
+      <name>background on</name>
+      <texture>
+       <path>Aircraft/Concorde/Panels/Instruments/Textures/concorde-red-fwd.png</path>
+       <x1>0.0</x1>
+       <y1>0.28</y1>
+       <x2>1.0</x2>
+       <y2>0.70</y2>
+      </texture>
+      <w>60</w>
+      <h>30</h>
+      <emissive>true</emissive>
+     </layer>
+    </layer>
+
+    <transformations>
+    <transformation>
+     <type>x-shift</type>
+     <offset>-154</offset>
+    </transformation>
+    <transformation>
+     <type>y-shift</type>
+     <offset>28</offset>
+    </transformation>
+     <transformation>
+      <type>rotation</type>
+      <offset>90</offset>
+     </transformation>
+   </transformations>
+  </layer>
+
+<!-- RED FORWARD 2 -->
+
+<!-- translucent lens -->  
+  <layer>
+   <name>Red forward 2 light</name>
+   <type>switch</type>
+    <layer>
+     <name>off</name>
+     <type>group</type>
+     <condition>
+      <or include="concorde-cond-voltage-bulb.xml">
+       <and>
+        <or include="concorde-cond-test-brakes.xml"/>        <!-- bug ? -->
+        <less-than>
+         <property>/systems/brakes/temperature-degc</property>
+         <value>220</value>
+        </less-than>
+       </and>
+      </or>
+     </condition>
+
+     <layer include="concorde-bulb-off.xml">
+      <w>60</w>
+      <h>30</h>
+     </layer>
+     <layer>
+      <name>background off</name>
+      <texture>
+       <path>Aircraft/Concorde/Panels/Instruments/Textures/concorde-red-fwd.png</path>
+       <x1>0.0</x1>
+       <y1>0.28</y1>
+       <x2>1.0</x2>
+       <y2>0.70</y2>
+      </texture>
+      <w>60</w>
+      <h>30</h>
+     </layer>
+    </layer>
+
+    <layer>
+     <name>on</name>
+     <type>group</type>
+
+     <layer include="concorde-bulb-on.xml">
+      <w>60</w>
+      <h>30</h>
+     </layer>
+     <layer>
+      <name>background on</name>
+      <texture>
+       <path>Aircraft/Concorde/Panels/Instruments/Textures/concorde-red-fwd.png</path>
+       <x1>0.0</x1>
+       <y1>0.28</y1>
+       <x2>1.0</x2>
+       <y2>0.70</y2>
+      </texture>
+      <w>60</w>
+      <h>30</h>
+      <emissive>true</emissive>
+     </layer>
+    </layer>
+
+    <transformations>
+    <transformation>
+     <type>x-shift</type>
+     <offset>-113</offset>
+    </transformation>
+    <transformation>
+     <type>y-shift</type>
+     <offset>28</offset>
+    </transformation>
+     <transformation>
+      <type>rotation</type>
+      <offset>90</offset>
+     </transformation>
+   </transformations>
+  </layer>
+
+<!-- RED FORWARD 2 -->
+
+<!-- translucent lens -->  
+  <layer>
+   <name>Red forward 3 light</name>
+   <type>switch</type>
+    <layer>
+     <name>off</name>
+     <type>group</type>
+     <condition>
+      <or include="concorde-cond-voltage-bulb.xml">
+       <and>
+        <or include="concorde-cond-test-brakes.xml"/>        <!-- bug ? -->
+        <less-than>
+         <property>/systems/brakes/temperature-degc</property>
+         <value>220</value>
+        </less-than>
+       </and>
+      </or>
+     </condition>
+
+     <layer include="concorde-bulb-off.xml">
+      <w>60</w>
+      <h>30</h>
+     </layer>
+     <layer>
+      <name>background off</name>
+      <texture>
+       <path>Aircraft/Concorde/Panels/Instruments/Textures/concorde-red-fwd.png</path>
+       <x1>0.0</x1>
+       <y1>0.28</y1>
+       <x2>1.0</x2>
+       <y2>0.70</y2>
+      </texture>
+      <w>60</w>
+      <h>30</h>
+     </layer>
+    </layer>
+
+    <layer>
+     <name>on</name>
+     <type>group</type>
+
+     <layer include="concorde-bulb-on.xml">
+      <w>60</w>
+      <h>30</h>
+     </layer>
+     <layer>
+      <name>background on</name>
+      <texture>
+       <path>Aircraft/Concorde/Panels/Instruments/Textures/concorde-red-fwd.png</path>
+       <x1>0.0</x1>
+       <y1>0.28</y1>
+       <x2>1.0</x2>
+       <y2>0.70</y2>
+      </texture>
+      <w>60</w>
+      <h>30</h>
+      <emissive>true</emissive>
+     </layer>
+    </layer>
+
+    <transformations>
+    <transformation>
+     <type>x-shift</type>
+     <offset>113</offset>
+    </transformation>
+    <transformation>
+     <type>y-shift</type>
+     <offset>28</offset>
+    </transformation>
+     <transformation>
+      <type>rotation</type>
+      <offset>90</offset>
+     </transformation>
+   </transformations>
+  </layer>
+
+<!-- RED FORWARD 4 -->
+
+<!-- translucent lens -->  
+  <layer>
+   <name>Red forward 4 light</name>
+   <type>switch</type>
+    <layer>
+     <name>off</name>
+     <type>group</type>
+     <condition>
+      <or include="concorde-cond-voltage-bulb.xml">
+       <and>
+        <or include="concorde-cond-test-brakes.xml"/>        <!-- bug ? -->
+        <less-than>
+         <property>/systems/brakes/temperature-degc</property>
+         <value>220</value>
+        </less-than>
+       </and>
+      </or>
+     </condition>
+
+     <layer include="concorde-bulb-off.xml">
+      <w>60</w>
+      <h>30</h>
+     </layer>
+     <layer>
+      <name>background off</name>
+      <texture>
+       <path>Aircraft/Concorde/Panels/Instruments/Textures/concorde-red-fwd.png</path>
+       <x1>0.0</x1>
+       <y1>0.28</y1>
+       <x2>1.0</x2>
+       <y2>0.70</y2>
+      </texture>
+      <w>60</w>
+      <h>30</h>
+     </layer>
+    </layer>
+
+    <layer>
+     <name>on</name>
+     <type>group</type>
+
+     <layer include="concorde-bulb-on.xml">
+      <w>60</w>
+      <h>30</h>
+     </layer>
+     <layer>
+      <name>background on</name>
+      <texture>
+       <path>Aircraft/Concorde/Panels/Instruments/Textures/concorde-red-fwd.png</path>
+       <x1>0.0</x1>
+       <y1>0.28</y1>
+       <x2>1.0</x2>
+       <y2>0.70</y2>
+      </texture>
+      <w>60</w>
+      <h>30</h>
+      <emissive>true</emissive>
+     </layer>
+    </layer>
+
+    <transformations>
+    <transformation>
+     <type>x-shift</type>
+     <offset>154</offset>
+    </transformation>
+    <transformation>
+     <type>y-shift</type>
+     <offset>28</offset>
+    </transformation>
+     <transformation>
+      <type>rotation</type>
+      <offset>90</offset>
+     </transformation>
+   </transformations>
+  </layer>
+
+<!-- RED REAR 1 -->
+
+<!-- translucent lens -->  
+  <layer>
+   <name>Red rear 1 light</name>
+   <type>switch</type>
+    <layer>
+     <name>off</name>
+     <type>group</type>
+     <condition>
+      <or include="concorde-cond-voltage-bulb.xml">
+       <and>
+        <or include="concorde-cond-test-brakes.xml"/>        <!-- bug ? -->
+        <less-than>
+         <property>/systems/brakes/temperature-degc</property>
+         <value>220</value>
+        </less-than>
+       </and>
+      </or>
+     </condition>
+
+     <layer include="concorde-bulb-off.xml">
+      <w>60</w>
+      <h>30</h>
+     </layer>
+     <layer>
+      <name>background off</name>
+      <texture>
+       <path>Aircraft/Concorde/Panels/Instruments/Textures/concorde-red-rear.png</path>
+       <x1>0.0</x1>
+       <y1>0.28</y1>
+       <x2>1.0</x2>
+       <y2>0.70</y2>
+      </texture>
+      <w>60</w>
+      <h>30</h>
+     </layer>
+    </layer>
+
+    <layer>
+     <name>on</name>
+     <type>group</type>
+
+     <layer include="concorde-bulb-on.xml">
+      <w>60</w>
+      <h>30</h>
+     </layer>
+     <layer>
+      <name>background on</name>
+      <texture>
+       <path>Aircraft/Concorde/Panels/Instruments/Textures/concorde-red-rear.png</path>
+       <x1>0.0</x1>
+       <y1>0.28</y1>
+       <x2>1.0</x2>
+       <y2>0.70</y2>
+      </texture>
+      <w>60</w>
+      <h>30</h>
+      <emissive>true</emissive>
+     </layer>
+    </layer>
+
+    <transformations>
+    <transformation>
+     <type>x-shift</type>
+     <offset>-154</offset>
+    </transformation>
+    <transformation>
+     <type>y-shift</type>
+     <offset>-40</offset>
+    </transformation>
+     <transformation>
+      <type>rotation</type>
+      <offset>90</offset>
+     </transformation>
+   </transformations>
+  </layer>
+
+<!-- RED REAR 2 -->
+
+<!-- translucent lens -->  
+  <layer>
+   <name>Red rear 2 light</name>
+   <type>switch</type>
+    <layer>
+     <name>off</name>
+     <type>group</type>
+     <condition>
+      <or include="concorde-cond-voltage-bulb.xml">
+       <and>
+        <or include="concorde-cond-test-brakes.xml"/>        <!-- bug ? -->
+        <less-than>
+         <property>/systems/brakes/temperature-degc</property>
+         <value>220</value>
+        </less-than>
+       </and>
+      </or>
+     </condition>
+
+     <layer include="concorde-bulb-off.xml">
+      <w>60</w>
+      <h>30</h>
+     </layer>
+     <layer>
+      <name>background off</name>
+      <texture>
+       <path>Aircraft/Concorde/Panels/Instruments/Textures/concorde-red-rear.png</path>
+       <x1>0.0</x1>
+       <y1>0.28</y1>
+       <x2>1.0</x2>
+       <y2>0.70</y2>
+      </texture>
+      <w>60</w>
+      <h>30</h>
+     </layer>
+    </layer>
+
+    <layer>
+     <name>on</name>
+     <type>group</type>
+
+     <layer include="concorde-bulb-on.xml">
+      <w>60</w>
+      <h>30</h>
+     </layer>
+     <layer>
+      <name>background on</name>
+      <texture>
+       <path>Aircraft/Concorde/Panels/Instruments/Textures/concorde-red-rear.png</path>
+       <x1>0.0</x1>
+       <y1>0.28</y1>
+       <x2>1.0</x2>
+       <y2>0.70</y2>
+      </texture>
+      <w>60</w>
+      <h>30</h>
+      <emissive>true</emissive>
+     </layer>
+    </layer>
+
+    <transformations>
+    <transformation>
+     <type>x-shift</type>
+     <offset>-113</offset>
+    </transformation>
+    <transformation>
+     <type>y-shift</type>
+     <offset>-40</offset>
+    </transformation>
+     <transformation>
+      <type>rotation</type>
+      <offset>90</offset>
+     </transformation>
+   </transformations>
+  </layer>
+
+<!-- RED REAR 3 -->
+
+<!-- translucent lens -->  
+  <layer>
+   <name>Red rear 3 light</name>
+   <type>switch</type>
+    <layer>
+     <name>off</name>
+     <type>group</type>
+     <condition>
+      <or include="concorde-cond-voltage-bulb.xml">
+       <and>
+        <or include="concorde-cond-test-brakes.xml"/>        <!-- bug ? -->
+        <less-than>
+         <property>/systems/brakes/temperature-degc</property>
+         <value>220</value>
+        </less-than>
+       </and>
+      </or>
+     </condition>
+
+     <layer include="concorde-bulb-off.xml">
+      <w>60</w>
+      <h>30</h>
+     </layer>
+     <layer>
+      <name>background off</name>
+      <texture>
+       <path>Aircraft/Concorde/Panels/Instruments/Textures/concorde-red-rear.png</path>
+       <x1>0.0</x1>
+       <y1>0.28</y1>
+       <x2>1.0</x2>
+       <y2>0.70</y2>
+      </texture>
+      <w>60</w>
+      <h>30</h>
+     </layer>
+    </layer>
+
+    <layer>
+     <name>on</name>
+     <type>group</type>
+
+     <layer include="concorde-bulb-on.xml">
+      <w>60</w>
+      <h>30</h>
+     </layer>
+     <layer>
+      <name>background on</name>
+      <texture>
+       <path>Aircraft/Concorde/Panels/Instruments/Textures/concorde-red-rear.png</path>
+       <x1>0.0</x1>
+       <y1>0.28</y1>
+       <x2>1.0</x2>
+       <y2>0.70</y2>
+      </texture>
+      <w>60</w>
+      <h>30</h>
+      <emissive>true</emissive>
+     </layer>
+    </layer>
+
+    <transformations>
+    <transformation>
+     <type>x-shift</type>
+     <offset>113</offset>
+    </transformation>
+    <transformation>
+     <type>y-shift</type>
+     <offset>-40</offset>
+    </transformation>
+     <transformation>
+      <type>rotation</type>
+      <offset>90</offset>
+     </transformation>
+   </transformations>
+  </layer>
+
+<!-- RED REAR 4 -->
+
+<!-- translucent lens -->  
+  <layer>
+   <name>Red rear 4 light</name>
+   <type>switch</type>
+    <layer>
+     <name>off</name>
+     <type>group</type>
+     <condition>
+      <or include="concorde-cond-voltage-bulb.xml">
+       <and>
+        <or include="concorde-cond-test-brakes.xml"/>        <!-- bug ? -->
+        <less-than>
+         <property>/systems/brakes/temperature-degc</property>
+         <value>220</value>
+        </less-than>
+       </and>
+      </or>
+     </condition>
+
+     <layer include="concorde-bulb-off.xml">
+      <w>60</w>
+      <h>30</h>
+     </layer>
+     <layer>
+      <name>background off</name>
+      <texture>
+       <path>Aircraft/Concorde/Panels/Instruments/Textures/concorde-red-rear.png</path>
+       <x1>0.0</x1>
+       <y1>0.28</y1>
+       <x2>1.0</x2>
+       <y2>0.70</y2>
+      </texture>
+      <w>60</w>
+      <h>30</h>
+     </layer>
+    </layer>
+
+    <layer>
+     <name>on</name>
+     <type>group</type>
+
+     <layer include="concorde-bulb-on.xml">
+      <w>60</w>
+      <h>30</h>
+     </layer>
+     <layer>
+      <name>background on</name>
+      <texture>
+       <path>Aircraft/Concorde/Panels/Instruments/Textures/concorde-red-rear.png</path>
+       <x1>0.0</x1>
+       <y1>0.28</y1>
+       <x2>1.0</x2>
+       <y2>0.70</y2>
+      </texture>
+      <w>60</w>
+      <h>30</h>
+      <emissive>true</emissive>
+     </layer>
+    </layer>
+
+    <transformations>
+    <transformation>
+     <type>x-shift</type>
+     <offset>154</offset>
+    </transformation>
+    <transformation>
+     <type>y-shift</type>
+     <offset>-40</offset>
+    </transformation>
+     <transformation>
+      <type>rotation</type>
+      <offset>90</offset>
+     </transformation>
+   </transformations>
+  </layer>
+
+<!-- TEST -->
+
+  <layer>
+   <name>background</name>
+   <texture>
+    <path>Aircraft/Concorde/Panels/Instruments/Textures/concorde-black-knob.png</path>
+     <x1>0.0</x1>
+     <y1>0.0</y1>
+     <x2>1.0</x2>
+     <y2>1.0</y2>
+   </texture>
+   <w>23</w>
+   <h>23</h>
+   <transformations>
+    <transformation>
+     <type>x-shift</type>
+     <offset>75</offset>
+    </transformation>
+    <transformation>
+     <type>y-shift</type>
+     <offset>-75</offset>
+    </transformation>
+   </transformations>
+  </layer>
+
+  <layer>
+   <name>Title</name>
+   <type>text</type>
+   <point-size>10</point-size>
+   <color>
+    <red>1.0</red>
+    <green>1.0</green>
+    <blue>1.0</blue>
+   </color>
+   <chunks>
+    <chunk>
+     <type>literal</type>
+     <text>TEST</text>
+    </chunk>
+   </chunks>
+   <transformations>
+    <transformation>
+     <type>x-shift</type>
+     <offset>25</offset>
+    </transformation>
+    <transformation>
+     <type>y-shift</type>
+     <offset>-80</offset>
+    </transformation>
+   </transformations>
+  </layer>
+
+ </layers>
+ 
+
+ <actions>
+
+<!-- RED FORWARD 1 -->
+
+  <action>
+   <name>Highest temperature forward 1</name>
+   <button>0</button>
+   <x>-170</x>
+   <y>-2</y>
+   <w>30</w>
+   <h>60</h>
+   <binding>
+    <command>property-assign</command>
+    <property>/systems/brakes/test-degc</property>
+    <property>/systems/brakes/temperature-degc</property>
+   </binding>
+   <binding>
+    <command>property-toggle</command>
+    <property>/systems/brakes/test</property>
+   </binding>
+   <mod-up>
+    <binding>
+     <command>property-assign</command>
+     <property>/systems/brakes/test-degc</property>
+     <property>/systems/brakes/temp-max-degc</property>
+    </binding>
+    <binding>
+     <command>property-toggle</command>
+     <property>/systems/brakes/test</property>
+    </binding>
+    <binding>
+     <command>property-toggle</command>
+     <property>/instrumentation/generic/click</property>
+    </binding>
+   </mod-up>
+  </action>
+
+<!-- RED FORWARD 2 -->
+
+  <action>
+   <name>Highest temperature forward 2</name>
+   <button>0</button>
+   <x>-130</x>
+   <y>-2</y>
+   <w>30</w>
+   <h>60</h>
+   <binding>
+    <command>property-assign</command>
+    <property>/systems/brakes/test-degc</property>
+    <property>/systems/brakes/temperature-degc</property>
+   </binding>
+   <binding>
+    <command>property-toggle</command>
+    <property>/systems/brakes/test</property>
+   </binding>
+   <mod-up>
+    <binding>
+     <command>property-assign</command>
+     <property>/systems/brakes/test-degc</property>
+     <property>/systems/brakes/temp-max-degc</property>
+    </binding>
+    <binding>
+     <command>property-toggle</command>
+     <property>/systems/brakes/test</property>
+    </binding>
+    <binding>
+     <command>property-toggle</command>
+     <property>/instrumentation/generic/click</property>
+    </binding>
+   </mod-up>
+  </action>
+
+<!-- RED FORWARD 3 -->
+
+  <action>
+   <name>Highest temperature forward 3</name>
+   <button>0</button>
+   <x>100</x>
+   <y>-2</y>
+   <w>30</w>
+   <h>60</h>
+   <binding>
+    <command>property-assign</command>
+    <property>/systems/brakes/test-degc</property>
+    <property>/systems/brakes/temperature-degc</property>
+   </binding>
+   <binding>
+    <command>property-toggle</command>
+    <property>/systems/brakes/test</property>
+   </binding>
+   <mod-up>
+    <binding>
+     <command>property-assign</command>
+     <property>/systems/brakes/test-degc</property>
+     <property>/systems/brakes/temp-max-degc</property>
+    </binding>
+    <binding>
+     <command>property-toggle</command>
+     <property>/systems/brakes/test</property>
+    </binding>
+    <binding>
+     <command>property-toggle</command>
+     <property>/instrumentation/generic/click</property>
+    </binding>
+   </mod-up>
+  </action>
+
+<!-- RED FORWARD 4 -->
+
+  <action>
+   <name>Highest temperature forward 4</name>
+   <button>0</button>
+   <x>140</x>
+   <y>-2</y>
+   <w>30</w>
+   <h>60</h>
+   <binding>
+    <command>property-assign</command>
+    <property>/systems/brakes/test-degc</property>
+    <property>/systems/brakes/temperature-degc</property>
+   </binding>
+   <binding>
+    <command>property-toggle</command>
+    <property>/systems/brakes/test</property>
+   </binding>
+   <mod-up>
+    <binding>
+     <command>property-assign</command>
+     <property>/systems/brakes/test-degc</property>
+     <property>/systems/brakes/temp-max-degc</property>
+    </binding>
+    <binding>
+     <command>property-toggle</command>
+     <property>/systems/brakes/test</property>
+    </binding>
+    <binding>
+     <command>property-toggle</command>
+     <property>/instrumentation/generic/click</property>
+    </binding>
+   </mod-up>
+  </action>
+
+<!-- RED REAR 1 -->
+
+  <action>
+   <name>Highest temperature rear 1</name>
+   <button>0</button>
+   <x>-170</x>
+   <y>-70</y>
+   <w>30</w>
+   <h>60</h>
+   <binding>
+    <command>property-assign</command>
+    <property>/systems/brakes/test-degc</property>
+    <property>/systems/brakes/temperature-degc</property>
+   </binding>
+   <binding>
+    <command>property-toggle</command>
+    <property>/systems/brakes/test</property>
+   </binding>
+   <mod-up>
+    <binding>
+     <command>property-assign</command>
+     <property>/systems/brakes/test-degc</property>
+     <property>/systems/brakes/temp-max-degc</property>
+    </binding>
+    <binding>
+     <command>property-toggle</command>
+     <property>/systems/brakes/test</property>
+    </binding>
+    <binding>
+     <command>property-toggle</command>
+     <property>/instrumentation/generic/click</property>
+    </binding>
+   </mod-up>
+  </action>
+
+<!-- RED REAR 2 -->
+
+  <action>
+   <name>Highest temperature rear 2</name>
+   <button>0</button>
+   <x>-130</x>
+   <y>-70</y>
+   <w>30</w>
+   <h>60</h>
+   <binding>
+    <command>property-assign</command>
+    <property>/systems/brakes/test-degc</property>
+    <property>/systems/brakes/temperature-degc</property>
+   </binding>
+   <binding>
+    <command>property-toggle</command>
+    <property>/systems/brakes/test</property>
+   </binding>
+   <mod-up>
+    <binding>
+     <command>property-assign</command>
+     <property>/systems/brakes/test-degc</property>
+     <property>/systems/brakes/temp-max-degc</property>
+    </binding>
+    <binding>
+     <command>property-toggle</command>
+     <property>/systems/brakes/test</property>
+    </binding>
+    <binding>
+     <command>property-toggle</command>
+     <property>/instrumentation/generic/click</property>
+    </binding>
+   </mod-up>
+  </action>
+
+<!-- RED REAR 3 -->
+
+  <action>
+   <name>Highest temperature rear 3</name>
+   <button>0</button>
+   <x>100</x>
+   <y>-70</y>
+   <w>30</w>
+   <h>60</h>
+   <binding>
+    <command>property-assign</command>
+    <property>/systems/brakes/test-degc</property>
+    <property>/systems/brakes/temperature-degc</property>
+   </binding>
+   <binding>
+    <command>property-toggle</command>
+    <property>/systems/brakes/test</property>
+   </binding>
+   <mod-up>
+    <binding>
+     <command>property-assign</command>
+     <property>/systems/brakes/test-degc</property>
+     <property>/systems/brakes/temp-max-degc</property>
+    </binding>
+    <binding>
+     <command>property-toggle</command>
+     <property>/systems/brakes/test</property>
+    </binding>
+    <binding>
+     <command>property-toggle</command>
+     <property>/instrumentation/generic/click</property>
+    </binding>
+   </mod-up>
+  </action>
+
+<!-- RED REAR 4 -->
+
+  <action>
+   <name>Highest temperature rear 4</name>
+   <button>0</button>
+   <x>140</x>
+   <y>-70</y>
+   <w>30</w>
+   <h>60</h>
+   <binding>
+    <command>property-assign</command>
+    <property>/systems/brakes/test-degc</property>
+    <property>/systems/brakes/temperature-degc</property>
+   </binding>
+   <binding>
+    <command>property-toggle</command>
+    <property>/systems/brakes/test</property>
+   </binding>
+   <mod-up>
+    <binding>
+     <command>property-assign</command>
+     <property>/systems/brakes/test-degc</property>
+     <property>/systems/brakes/temp-max-degc</property>
+    </binding>
+    <binding>
+     <command>property-toggle</command>
+     <property>/systems/brakes/test</property>
+    </binding>
+    <binding>
+     <command>property-toggle</command>
+     <property>/instrumentation/generic/click</property>
+    </binding>
+   </mod-up>
+  </action>
+
+<!-- TEST -->
+
+  <action>
+   <desc>Test</desc>
+   <button>0</button>
+   <x>64</x>
+   <y>-87</y>
+   <w>23</w>
+   <h>23</h>
+   <binding>
+    <command>property-assign</command>
+    <property>/controls/hydraulic/brake-test</property>
+    <value>true</value>
+    <repeatable>true</repeatable>
+   </binding>
+   <mod-up>
+    <binding>
+     <command>property-assign</command>
+     <property>/controls/hydraulic/brake-test</property>
+     <value>false</value>
+    </binding>
+    <binding>
+     <command>property-toggle</command>
+     <property>/instrumentation/generic/click</property>
+    </binding>
+   </mod-up>
+  </action>
+
+ </actions>
+
+</PropertyList>

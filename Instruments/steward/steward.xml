@@ -1,0 +1,41 @@
+<?xml version="1.0" ?> 
+
+<PropertyList> 
+ <path>steward.ac</path> 
+
+ 
+ <animation>
+  <type>rotate</type>
+  <object-name>GroundService</object-name>
+  <property>/controls/electric/ac/ground</property>
+  <factor>54</factor>
+  <offset-deg>-27</offset-deg>   
+  <center>
+   <x-m>-0.00351</x-m>
+   <y-m> 0.02345</y-m>
+   <z-m>-0.02190</z-m>
+  </center>
+  <axis>
+   <x> 0.0</x>
+   <y> 1.0</y>
+   <z> 0.0</z>
+  </axis>
+ </animation>
+
+ <animation>
+  <type>pick</type>
+  <object-name>GroundService</object-name>
+  <action>
+   <button>0</button>
+   <binding>
+    <command>property-toggle</command>
+    <property>/controls/electric/ac/ground</property>
+   </binding>
+   <binding>
+    <command>property-toggle</command>
+    <property>/instrumentation/generic/click</property>
+   </binding>
+  </action>
+ </animation>
+
+</PropertyList>

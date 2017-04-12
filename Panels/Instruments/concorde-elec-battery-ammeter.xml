@@ -1,0 +1,115 @@
+<?xml version="1.0"?>
+
+<!-- Battery ammeter :
+
+     - scale plus/minus 200 A.
+-->
+
+<PropertyList>
+
+ <name>Battery load</name>
+ <w-base>40</w-base>
+ <h-base>80</h-base>
+
+ <params>
+  <load-amps>/systems/electrical/suppliers/battery-amps[0]</load-amps>
+ </params>
+
+
+ <layers>
+
+  <layer>
+   <name>background</name>
+   <texture>
+    <path>Aircraft/Concorde/Panels/Instruments/Textures/concorde-black-knob.png</path>
+   </texture>
+   <w>40</w>
+   <h>40</h>
+  </layer>
+
+  <layer>
+   <name>Load</name>
+   <type>text</type>
+   <font>led</font>
+   <point-size>6</point-size>
+   <color>
+    <red>1.0</red>
+    <green>1.0</green>
+    <blue>1.0</blue>
+   </color>
+   <chunks>
+    <chunk>
+     <type>number-value</type>
+     <property alias="../../../../../params/load-amps"/>
+     <format>%2.f</format> <!-- 160 A -->
+    </chunk>
+   </chunks>
+   <transformations>
+    <transformation>
+     <type>x-shift</type>
+     <offset>-13</offset>
+    </transformation>
+    <transformation>
+     <type>y-shift</type>
+     <offset>-6</offset>
+    </transformation>
+   </transformations>
+  </layer>
+
+  <layer>
+   <name>Battery</name>
+   <type>text</type>
+   <point-size>8</point-size>
+   <color>
+    <red>1.0</red>
+    <green>1.0</green>
+    <blue>1.0</blue>
+   </color>
+   <chunks>
+    <chunk>
+     <type>literal</type>
+     <text>BATT</text>
+    </chunk>
+   </chunks>
+   <transformations>
+    <transformation>
+     <type>x-shift</type>
+     <offset>-9</offset>
+    </transformation>
+    <transformation>
+     <type>y-shift</type>
+     <offset>-26</offset>
+    </transformation>
+   </transformations>
+  </layer>
+
+  <layer>
+   <name>Unit</name>
+   <type>text</type>
+   <point-size>8</point-size>
+   <color>
+    <red>1.0</red>
+    <green>1.0</green>
+    <blue>1.0</blue>
+   </color>
+   <chunks>
+    <chunk>
+     <type>literal</type>
+     <text>AMPS</text>
+    </chunk>
+   </chunks>
+   <transformations>
+    <transformation>
+     <type>x-shift</type>
+     <offset>-9</offset>
+    </transformation>
+    <transformation>
+     <type>y-shift</type>
+     <offset>-38</offset>
+    </transformation>
+   </transformations>
+  </layer>
+
+ </layers>
+
+</PropertyList>

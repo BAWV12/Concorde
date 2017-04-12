@@ -1,0 +1,17 @@
+<?xml version="1.0" ?> 
+
+<PropertyList> 
+ <path>outlet.ac</path> 
+
+ <animation>
+  <type>material</type>
+  <object-name>ColdAirOutlet</object-name>
+  <emission>
+   <red>0.83</red>
+   <green>0.74</green>
+   <blue>0.38</blue>
+   <factor-prop>systems/lighting/level/engineer/panel</factor-prop>
+  </emission> 
+ </animation> 
+
+</PropertyList>

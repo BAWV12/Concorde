@@ -1,0 +1,119 @@
+<?xml version="1.0" ?> 
+
+<PropertyList> 
+ <path>yoke.ac</path> 
+
+ <params>
+  <seat>systems/seat/captain</seat>
+ </params>
+
+
+ <animation>
+  <name>YokePillar</name>
+  <object-name>Yoke</object-name>
+  <object-name>Pillar</object-name>
+ </animation>
+
+ <animation>
+  <name>AllYoke</name>
+  <object-name>YokePillar</object-name>
+  <object-name>Bellows</object-name>
+ </animation>
+
+ <animation>
+  <type>select</type>
+  <object-name>AllYoke</object-name>
+  <condition>
+   <or>
+    <property>controls/seat/yoke</property>
+    <not>
+     <property alias="../../../../../params/seat"/>      <!-- bug -->
+    </not>
+   </or>
+  </condition>
+ </animation>
+
+ <animation>
+  <type>material</type>
+  <object-name>AllYoke</object-name>
+  <emission>
+   <red>0.66</red>
+   <green>0.68</green>
+   <blue>0.64</blue>
+   <factor-prop>systems/lighting/level/roof</factor-prop>
+  </emission>
+ </animation>
+
+ <animation>
+  <type>rotate</type>
+  <object-name>YokePillar</object-name>
+  <property>controls/flight/elevator-trim</property>
+  <factor>-5</factor>
+  <offset-deg>-10</offset-deg>
+  <center>
+   <x-m>0.0</x-m>
+   <y-m>0.0</y-m>
+   <z-m>0.0</z-m>
+  </center>
+  <axis>
+   <x>0.0</x>
+   <y>1.0</y>
+   <z>0.0</z>
+  </axis>
+ </animation>
+
+ <animation>
+  <type>rotate</type>
+  <object-name>YokePillar</object-name>
+  <property>controls/flight/elevator</property>
+  <factor>-5</factor>
+  <offset-deg>0</offset-deg>
+  <center>
+   <x-m>0.0</x-m>
+   <y-m>0.0</y-m>
+   <z-m>0.0</z-m>
+  </center>
+  <axis>
+   <x>0.0</x>
+   <y>1.0</y>
+   <z>0.0</z>
+  </axis>
+ </animation>
+
+ <animation>
+  <type>rotate</type>
+  <object-name>Yoke</object-name>
+  <property>controls/flight/aileron-trim</property>
+  <factor>-45</factor>
+  <offset-deg>0</offset-deg>   
+  <center>
+   <x-m>0.0</x-m>
+   <y-m>0.0</y-m>
+   <z-m>0.616</z-m>
+  </center>
+  <axis>
+   <x>1.0</x>
+   <y>0.0</y>
+   <z>0.0</z>
+  </axis>
+ </animation>
+
+ <animation>
+  <type>rotate</type>
+  <object-name>Yoke</object-name>
+  <property>controls/flight/aileron</property>
+  <factor>-45</factor>
+  <offset-deg>0</offset-deg>   
+  <center>
+   <x-m>0.0</x-m>
+   <y-m>0.0</y-m>
+   <z-m>0.616</z-m>
+  </center>
+  <axis>
+   <x>1.0</x>
+   <y>0.0</y>
+   <z>0.0</z>
+  </axis>
+ </animation>
+
+</PropertyList>

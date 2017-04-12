@@ -1,0 +1,187 @@
+<?xml version="1.0"?>
+
+<PropertyList>
+  <name>Concorde-autopilot</name>
+  <layout>vbox</layout>
+
+  <text>
+    <label>Concorde autopilot</label>
+  </text>
+
+  <hrule><dummy/></hrule>
+
+  <group>
+    <layout>vbox</layout>
+    <halign>center</halign>
+
+    <text>
+      <label>INS</label>
+    </text>
+
+    <group>
+     <layout>vbox</layout>
+     <halign>left</halign>
+
+     <checkbox>
+       <halign>left</halign>
+       <label>Route activation toggles autopilot (not real)  ~</label>
+       <property>/controls/autoflight/fg-waypoint</property>
+       <binding>
+        <command>property-toggle</command>
+        <property>/controls/autoflight/fg-waypoint</property>
+       </binding>
+     </checkbox>
+
+     <checkbox>
+       <label>Fast alignment (not real)  ~</label>
+       <halign>left</halign>
+       <property>/controls/crew/ins-alignment</property>
+       <binding>
+        <command>property-toggle</command>
+        <property>/controls/crew/ins-alignment</property>
+       </binding>
+     </checkbox>
+    </group>
+
+    <text>
+      <label></label>
+    </text>
+
+    <text>
+      <label>Autoland</label>
+    </text>
+
+    <checkbox>
+      <halign>left</halign>
+      <label>Nav accurate until 0 ft AGL (real)  ~</label>
+      <property>/controls/autoflight/real-nav</property>
+      <binding>
+       <command>property-toggle</command>
+       <property>/controls/autoflight/real-nav</property>
+      </binding>
+    </checkbox>
+
+    <text>
+      <label></label>
+    </text>
+
+    <text>
+      <label>IVSI emulation</label>
+    </text>
+
+    <text>
+      <label>Vertical speed may vary slowly during cruise at Mach 2</label>
+      <color>
+       <red>0.5</red>
+       <green>0.5</green>
+       <blue>0.5</blue>
+      </color>
+    </text>
+
+    <text>
+      <label>As work around, changes of atmospheric pressure emulates an IVSI</label>
+      <color>
+       <red>0.5</red>
+       <green>0.5</green>
+       <blue>0.5</blue>
+      </color>
+    </text>
+
+    <group>
+     <layout>hbox</layout>
+
+     <group>
+      <layout>vbox</layout>
+
+      <checkbox>
+        <halign>left</halign>
+        <label>IVSI 1 from 0 ft  ~</label>
+        <color>
+         <red>0.5</red>
+         <green>0.5</green>
+         <blue>0.5</blue>
+        </color>
+        <property>/controls/adc/system[0]/ivsi-emulated</property>
+        <binding>
+         <command>property-toggle</command>
+         <property>/controls/adc/system[0]/ivsi-emulated</property>
+        </binding>
+      </checkbox>
+
+      <checkbox>
+        <halign>left</halign>
+        <label>IVSI 2 from 0 ft  ~</label>
+        <color>
+         <red>0.5</red>
+         <green>0.5</green>
+         <blue>0.5</blue>
+        </color>
+        <property>/controls/adc/system[1]/ivsi-emulated</property>
+        <binding>
+         <command>property-toggle</command>
+         <property>/controls/adc/system[1]/ivsi-emulated</property>
+        </binding>
+      </checkbox>
+     </group>
+
+     <group>
+      <layout>vbox</layout>
+
+      <checkbox>
+        <halign>left</halign>
+        <label>Above 50000 ft (recommended)  ~</label>
+        <property>/controls/adc/ivsi-in-cruise</property>
+        <binding>
+         <command>property-toggle</command>
+         <property>/controls/adc/ivsi-in-cruise</property>
+        </binding>
+      </checkbox>
+
+      <checkbox>
+        <halign>left</halign>
+        <label>Log instrument toggles</label>
+        <color>
+         <red>0.5</red>
+         <green>0.5</green>
+         <blue>0.5</blue>
+        </color>
+        <property>/controls/adc/ivsi-log</property>
+        <binding>
+         <command>property-toggle</command>
+         <property>/controls/adc/ivsi-log</property>
+        </binding>
+      </checkbox>
+     </group>
+    </group>
+
+  </group>
+
+  <text>
+    <label></label>
+  </text>
+
+  <group>
+   <layout>hbox</layout>
+
+   <button>
+    <legend>Back</legend>
+    <key>b</key>
+    <binding>
+     <command>dialog-show</command>
+     <dialog-name>Concorde-menu</dialog-name>
+    </binding>
+    <binding>
+      <command>dialog-close</command>
+    </binding>
+   </button>
+
+   <button>
+    <legend>Close</legend>
+    <default>true</default>
+    <key>Esc</key>
+    <binding>
+      <command>dialog-close</command>
+    </binding>
+   </button>
+  </group>
+</PropertyList>

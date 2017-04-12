@@ -1,0 +1,80 @@
+<?xml version="1.0"?>
+
+<PropertyList>
+ <name>Low control schedule</name>
+ <w-base>52</w-base>
+ <h-base>26</h-base>
+
+ <params>
+  <schedule-ctrl>/systems/engines/engine[0]/schedule</schedule-ctrl>
+ </params>
+
+
+ <layers>
+
+<!-- translucent lens -->  
+  <layer>
+   <name>indicator light</name>
+   <type>switch</type>
+
+   <layer>
+    <name>off</name>
+    <type>group</type>
+    <condition>
+     <or include="concorde-cond-voltage-bulb.xml">
+      <and>
+       <or include="concorde-cond-test-eng-forward.xml"/>
+       <not-equals>
+        <property alias="../../../../../../../../params/schedule-ctrl"/>
+        <value>low</value>
+       </not-equals>
+      </and>
+     </or>
+    </condition>
+
+    <layer include="concorde-bulb-off.xml">
+     <w>52</w>
+     <h>26</h>
+    </layer>
+    <layer>
+     <name>background</name>
+     <texture>
+      <path>Aircraft/Concorde/Panels/Instruments/Textures/concorde-green-lo.png</path>
+      <x1>0.0</x1>
+      <y1>0.1</y1>
+      <x2>1.0</x2>
+      <y2>0.9</y2>
+     </texture>
+     <w>52</w>
+     <h>26</h>
+    </layer>
+   </layer>
+
+   <layer>
+    <name>on</name>
+    <type>group</type>
+
+    <layer include="concorde-bulb-on.xml">
+     <condition include="concorde-cond-light-eng-forward.xml"/>
+     <w>52</w>
+     <h>26</h>
+    </layer>
+    <layer>
+     <name>background lighted</name>
+     <texture>
+      <path>Aircraft/Concorde/Panels/Instruments/Textures/concorde-green-lo.png</path>
+      <x1>0.0</x1>
+      <y1>0.1</y1>
+      <x2>1.0</x2>
+      <y2>0.9</y2>
+     </texture>
+     <w>52</w>
+     <h>26</h>
+     <emissive>true</emissive>
+    </layer>
+   </layer>
+  </layer>
+
+ </layers>
+
+</PropertyList>

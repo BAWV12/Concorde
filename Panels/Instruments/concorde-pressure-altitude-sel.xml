@@ -1,0 +1,482 @@
+<?xml version="1.0"?>
+
+
+<!-- The knobs are vertical for the default values :
+     - 8000 ft.
+     - 1013 mbar.
+     - 18 mbar / minute.
+-->
+
+<PropertyList>
+
+ <name>System altitude selector</name>
+ <w-base>50</w-base>
+ <h-base>50</h-base>
+
+ <params>
+  <datum-sel>/systems/pressurization/system[0]/datum-mbar</datum-sel>
+  <cabin-sel>/systems/pressurization/system[0]/cabin-alt-ft</cabin-sel>
+  <rate-sel>/systems/pressurization/system[0]/mbar-per-min</rate-sel>
+  <altitude-sel>/systems/pressurization/system[0]/max-diff-ft</altitude-sel>
+ </params>
+
+
+ <layers>
+
+  <layer include="concorde-gauge.xml"/>
+
+  <layer>
+   <name>background</name>
+   <texture>
+    <path>Aircraft/Concorde/Panels/Instruments/Textures/concorde-altitude-selector.png</path>
+   </texture>
+   <w>50</w>
+   <h>50</h>
+  </layer>
+
+<!-- RATE OF CHANGE -->
+
+  <layer>
+   <name>rate knob</name>
+   <w>8</w>
+   <h>8</h>
+   <texture>
+    <path>Aircraft/Concorde/Panels/Instruments/Textures/concorde-knob-R.png</path>
+    <x1>0.0</x1>
+    <x2>1.0</x2>
+    <y1>0.0</y1>
+    <y2>1.0</y2>
+   </texture>
+   <transformations>
+    <transformation>
+     <type>x-shift</type>
+     <offset>19</offset>
+    </transformation>
+    <transformation>
+     <type>y-shift</type>
+     <offset>18</offset>
+    </transformation>
+    <transformation>
+     <type>rotation</type>
+     <property alias="../../../../../params/rate-sel"/>
+     <scale>10</scale>
+     <offset>-180</offset>
+    </transformation>
+   </transformations>
+  </layer>
+
+<!-- DATUM -->
+
+  <layer>
+   <name>mbar</name>
+   <type>text</type>
+   <point-size>3</point-size>
+   <color>
+    <red>1.0</red>
+    <green>1.0</green>
+    <blue>1.0</blue>
+   </color>
+   <chunks>
+    <chunk>
+     <type>literal</type>
+     <text>MB</text>
+    </chunk>
+   </chunks>
+   <transformations>
+    <transformation>
+     <type>x-shift</type>
+     <offset>-12</offset>
+    </transformation>
+    <transformation>
+     <type>y-shift</type>
+     <offset>12</offset>
+    </transformation>
+   </transformations>
+  </layer>
+
+  <layer>
+   <name>Datum</name>
+   <type>text</type>
+   <font>led</font>
+   <point-size>2</point-size>
+   <color>
+    <red>1.0</red>
+    <green>1.0</green>
+    <blue>1.0</blue>
+   </color>
+   <chunks>
+    <chunk>
+     <type>number-value</type>
+     <property alias="../../../../../params/datum-sel"/>
+     <format>%4.0f</format>
+    </chunk>
+   </chunks>
+   <transformations>
+    <transformation>
+     <type>x-shift</type>
+     <offset>-6</offset>
+    </transformation>
+    <transformation>
+     <type>y-shift</type>
+     <offset>14</offset>
+    </transformation>
+   </transformations>
+  </layer>
+
+  <layer>
+   <name>datum knob</name>
+   <w>8</w>
+   <h>8</h>
+   <texture>
+    <path>Aircraft/Concorde/Panels/Instruments/Textures/concorde-knob-B.png</path>
+    <x1>0.0</x1>
+    <x2>1.0</x2>
+    <y1>0.0</y1>
+    <y2>1.0</y2>
+   </texture>
+   <transformations>
+    <transformation>
+     <type>x-shift</type>
+     <offset>19</offset>
+    </transformation>
+    <transformation>
+     <type>y-shift</type>
+     <offset>-18</offset>
+    </transformation>
+    <transformation>
+     <type>rotation</type>
+     <property alias="../../../../../params/datum-sel"/>
+     <scale>10</scale>
+     <offset>-50</offset>
+    </transformation>
+   </transformations>
+  </layer>
+
+<!-- CABIN ALTITUDE -->
+
+  <layer>
+   <name>cabin altitude</name>
+   <type>text</type>
+   <font>led</font>
+   <point-size>2</point-size>
+   <color>
+    <red>1.0</red>
+    <green>1.0</green>
+    <blue>1.0</blue>
+   </color>
+   <chunks>
+    <chunk>
+     <type>number-value</type>
+     <property alias="../../../../../params/cabin-sel"/>
+     <format>%1.1f</format>
+     <scale>0.001</scale>
+    </chunk>
+   </chunks>
+   <transformations>
+    <transformation>
+     <type>x-shift</type>
+     <offset>-3</offset>
+    </transformation>
+    <transformation>
+     <type>y-shift</type>
+     <offset>6</offset>
+    </transformation>
+   </transformations>
+  </layer>
+
+  <layer>
+   <name>title</name>
+   <type>text</type>
+   <point-size>3</point-size>
+   <color>
+    <red>1.0</red>
+    <green>1.0</green>
+    <blue>1.0</blue>
+   </color>
+   <chunks>
+    <chunk>
+     <type>literal</type>
+     <text>CABIN ALT</text>
+    </chunk>
+   </chunks>
+   <transformations>
+    <transformation>
+     <type>x-shift</type>
+     <offset>-9</offset>
+    </transformation>
+    <transformation>
+     <type>y-shift</type>
+     <offset>1</offset>
+    </transformation>
+   </transformations>
+  </layer>
+
+  <layer>
+   <name>unit</name>
+   <type>text</type>
+   <point-size>3</point-size>
+   <color>
+    <red>1.0</red>
+    <green>1.0</green>
+    <blue>1.0</blue>
+   </color>
+   <chunks>
+    <chunk>
+     <type>literal</type>
+     <text>x1000 ft</text>
+    </chunk>
+   </chunks>
+   <transformations>
+    <transformation>
+     <type>x-shift</type>
+     <offset>-7</offset>
+    </transformation>
+    <transformation>
+     <type>y-shift</type>
+     <offset>-3</offset>
+    </transformation>
+   </transformations>
+  </layer>
+
+  <layer>
+   <name>cabin altitude knob</name>
+   <w>8</w>
+   <h>8</h>
+   <texture>
+    <path>Aircraft/Concorde/Panels/Instruments/Textures/concorde-knob-A.png</path>
+    <x1>0.0</x1>
+    <x2>1.0</x2>
+    <y1>0.0</y1>
+    <y2>1.0</y2>
+   </texture>
+   <transformations>
+    <transformation>
+     <type>x-shift</type>
+     <offset>-19</offset>
+    </transformation>
+    <transformation>
+     <type>y-shift</type>
+     <offset>-18</offset>
+    </transformation>
+    <transformation>
+     <type>rotation</type>
+     <property alias="../../../../../params/cabin-sel"/>
+     <scale>0.1</scale>
+     <offset>-80</offset>
+    </transformation>
+   </transformations>
+  </layer>
+
+<!-- MAX DIFFERENTIAL ALTITUDE -->
+
+  <layer>
+   <name>altitude</name>
+   <type>text</type>
+   <font>led</font>
+   <point-size>2</point-size>
+   <color>
+    <red>1.0</red>
+    <green>1.0</green>
+    <blue>1.0</blue>
+   </color>
+   <chunks>
+    <chunk>
+     <type>number-value</type>
+     <property alias="../../../../../params/altitude-sel"/>
+     <format>%2.1f</format>
+     <scale>0.001</scale>
+    </chunk>
+   </chunks>
+   <transformations>
+    <transformation>
+     <type>x-shift</type>
+     <offset>-6</offset>
+    </transformation>
+    <transformation>
+     <type>y-shift</type>
+     <offset>-10</offset>
+    </transformation>
+   </transformations>
+  </layer>
+
+  <layer>
+   <name>title</name>
+   <type>text</type>
+   <point-size>2</point-size>
+   <color>
+    <red>1.0</red>
+    <green>1.0</green>
+    <blue>1.0</blue>
+   </color>
+   <chunks>
+    <chunk>
+     <type>literal</type>
+     <text>A/C ALT AT MAX DIFF</text>
+    </chunk>
+   </chunks>
+   <transformations>
+    <transformation>
+     <type>x-shift</type>
+     <offset>-13</offset>
+    </transformation>
+    <transformation>
+     <type>y-shift</type>
+     <offset>-14</offset>
+    </transformation>
+   </transformations>
+  </layer>
+
+  <layer>
+   <name>unit</name>
+   <type>text</type>
+   <point-size>3</point-size>
+   <color>
+    <red>1.0</red>
+    <green>1.0</green>
+    <blue>1.0</blue>
+   </color>
+   <chunks>
+    <chunk>
+     <type>literal</type>
+     <text>x1000 ft</text>
+    </chunk>
+   </chunks>
+   <transformations>
+    <transformation>
+     <type>x-shift</type>
+     <offset>-7</offset>
+    </transformation>
+    <transformation>
+     <type>y-shift</type>
+     <offset>-18</offset>
+    </transformation>
+   </transformations>
+  </layer>
+
+ </layers>
+
+ <actions>
+
+  <action>
+   <name>Minus 100 ft</name>
+   <button>0</button>
+   <x>-22</x>
+   <y>-21</y>
+   <w>3</w>
+   <h>6</h>
+   <binding>
+    <command>property-adjust</command>
+    <property alias="../../../../params/cabin-sel"/>
+    <step>-100</step>
+    <min>7000</min>
+    <max>10000</max>
+   </binding>
+   <binding>
+    <command>nasal</command>
+    <script>globals.Concorde.pressuresystem.altitudeselectorexport();</script>
+   </binding>
+  </action>
+
+  <action>
+   <name>Plus 100 ft</name>
+   <button>0</button>
+   <x>-19</x>
+   <y>-21</y>
+   <w>3</w>
+   <h>6</h>
+   <binding>
+    <command>property-adjust</command>
+    <property alias="../../../../params/cabin-sel"/>
+    <step>100</step>
+    <min>7000</min>
+    <max>10000</max>
+   </binding>
+   <binding>
+    <command>nasal</command>
+    <script>globals.Concorde.pressuresystem.altitudeselectorexport();</script>
+   </binding>
+  </action>
+
+  <action>
+   <name>Minus 1 mbar</name>
+   <button>0</button>
+   <x>16</x>
+   <y>-21</y>
+   <w>3</w>
+   <h>6</h>
+   <binding>
+    <command>property-adjust</command>
+    <property alias="../../../../params/datum-sel"/>
+    <step>-1</step>
+    <min>950</min>
+    <max>1100</max>
+   </binding>
+   <binding>
+    <command>nasal</command>
+    <script>globals.Concorde.pressuresystem.altitudeselectorexport();</script>
+   </binding>
+  </action>
+
+  <action>
+   <name>Plus 1 mbar</name>
+   <button>0</button>
+   <x>19</x>
+   <y>-21</y>
+   <w>3</w>
+   <h>6</h>
+   <binding>
+    <command>property-adjust</command>
+    <property alias="../../../../params/datum-sel"/>
+    <step>1</step>
+    <min>950</min>
+    <max>1100</max>
+   </binding>
+   <binding>
+    <command>nasal</command>
+    <script>globals.Concorde.pressuresystem.altitudeselectorexport();</script>
+   </binding>
+  </action>
+
+  <action>
+   <name>Minus 1 mbar/min</name>
+   <button>0</button>
+   <x>16</x>
+   <y>15</y>
+   <w>3</w>
+   <h>6</h>
+   <binding>
+    <command>property-adjust</command>
+    <property alias="../../../../params/rate-sel"/>
+    <step>-1</step>
+    <min>0</min>
+    <max>36</max>
+   </binding>
+   <binding>
+    <command>nasal</command>
+    <script>globals.Concorde.pressuresystem.altitudeselectorexport();</script>
+   </binding>
+  </action>
+
+  <action>
+   <name>Plus 1 mbar/min</name>
+   <button>0</button>
+   <x>19</x>
+   <y>15</y>
+   <w>3</w>
+   <h>6</h>
+   <binding>
+    <command>property-adjust</command>
+    <property alias="../../../../params/rate-sel"/>
+    <step>1</step>
+    <min>0</min>
+    <max>36</max>
+   </binding>
+   <binding>
+    <command>nasal</command>
+    <script>globals.Concorde.pressuresystem.altitudeselectorexport();</script>
+   </binding>
+  </action>
+
+ </actions>
+
+</PropertyList>

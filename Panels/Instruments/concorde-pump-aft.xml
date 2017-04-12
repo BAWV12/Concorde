@@ -1,0 +1,109 @@
+<?xml version="1.0"?>
+
+<!-- Aft pump -->
+
+<PropertyList>
+ <name>Aft Pump</name>
+ <w-base>104</w-base>
+ <h-base>26</h-base>
+
+
+ <layers>
+<!-- translucent lens -->  
+  <layer>
+   <name>Pump light</name>
+   <type>switch</type>
+   <layer>
+    <name>off</name>
+    <condition>
+     <not>
+      <property>/controls/fuel/pumps/aft</property>
+     </not>
+    </condition>
+    <texture>
+     <path>Aircraft/Concorde/Panels/Instruments/Textures/warning-lamps.png</path>
+     <x1>0.0</x1>
+     <y1>0.0</y1>
+     <x2>0.25</x2>
+     <y2>0.095</y2>
+    </texture>
+    <w>104</w>
+    <h>26</h>
+   </layer>
+   <layer>
+    <name>on</name>
+    <texture>
+     <path>Aircraft/Concorde/Panels/Instruments/Textures/warning-lamps.png</path>
+     <x1>0.25</x1>
+     <y1>0.0</y1>
+     <x2>0.5</x2>
+     <y2>0.095</y2>
+    </texture>
+    <w>104</w>
+    <h>26</h>
+   </layer>
+  </layer>
+
+  <layer>
+   <name>background</name>
+   <texture>
+    <path>Aircraft/Concorde/Panels/Instruments/Textures/warning-lamps.png</path>
+     <x1>0.7</x1>
+     <y1>0.8</y1>
+     <x2>1.0</x2>
+     <y2>0.9</y2>
+   </texture>
+   <w>104</w>
+   <h>26</h>
+  </layer>
+
+  <layer>
+   <name>Title</name>
+   <type>text</type>
+   <point-size>32</point-size>
+   <color>
+    <red>1.0</red>
+    <green>1.0</green>
+    <blue>1.0</blue>
+   </color>
+   <chunks>
+    <chunk>
+     <type>literal</type>
+     <text>Aft</text>
+    </chunk>
+   </chunks>
+   <transformations>
+    <transformation>
+     <type>x-shift</type>
+     <offset>-21</offset>
+    </transformation>
+    <transformation>
+     <type>y-shift</type>
+     <offset>-6</offset>
+    </transformation>
+   </transformations>
+  </layer>
+ </layers>
+ 
+ <actions>
+
+  <action>
+   <desc>Toggle Aft Pump</desc>
+   <button>0</button>
+   <x>-52</x>
+   <y>-13</y>
+   <w>104</w>
+   <h>26</h>
+   <binding>
+    <command>nasal</command>
+    <script>globals.Concorde.fuelsystem.aftexport();</script>
+   </binding>
+   <binding>
+    <command>property-toggle</command>
+    <property>/instrumentation/generic/click</property>
+   </binding>
+  </action>
+
+ </actions>
+
+</PropertyList>

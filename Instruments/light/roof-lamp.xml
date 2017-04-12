@@ -1,0 +1,17 @@
+<?xml version="1.0" ?> 
+
+<PropertyList> 
+ <path>roof-lamp.ac</path> 
+
+ <animation>
+  <type>material</type>
+  <object-name>Lamp</object-name>
+  <emission>
+   <red>1.0</red>
+   <green>0.95</green>
+   <blue>0.73</blue>
+   <factor-prop>systems/lighting/level/roof</factor-prop>
+  </emission>
+ </animation> 
+
+</PropertyList>

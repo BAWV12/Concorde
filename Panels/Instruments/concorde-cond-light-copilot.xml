@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+
+<!-- Copilot warning lights at hight level.
+-->
+
+<PropertyList>
+
+   <not>
+    <property>/controls/lighting/crew/copilot/low</property>
+   </not>
+
+</PropertyList>

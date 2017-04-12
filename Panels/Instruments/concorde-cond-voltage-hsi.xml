@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+
+<!-- Voltage condition for HSI.
+-->
+
+<PropertyList>
+
+   <greater-than>
+    <property>/systems/electrical/outputs/hsi</property>
+    <value>20.0</value>
+   </greater-than>
+
+</PropertyList>

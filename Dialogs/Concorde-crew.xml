@@ -1,0 +1,202 @@
+<?xml version="1.0"?>
+
+<PropertyList>
+  <name>Concorde-crew</name>
+  <layout>vbox</layout>
+  <width>450</width>
+  
+  <text>
+    <label>Concorde crew</label>
+  </text>
+
+  <hrule><dummy/></hrule>
+
+  <group>
+    <layout>vbox</layout>
+
+    <text>
+      <label>Status</label>
+    </text>
+
+    <group>
+     <layout>vbox</layout>
+     <halign>left</halign>
+
+     <group>
+      <layout>hbox</layout>
+
+      <group>
+       <layout>vbox</layout>
+       <halign>left</halign>
+
+       <checkbox>
+         <label>Timeout of display  ~</label>
+         <property>/controls/crew/timeout</property>
+         <binding>
+          <command>property-toggle</command>
+          <property>/controls/crew/timeout</property>
+         </binding>
+         <binding>
+          <command>nasal</command>
+          <script>globals.Concorde.crewscreen.wakeupexport();</script>
+         </binding>
+       </checkbox>
+      </group>
+
+      <group>
+       <layout>vbox</layout>
+       <halign>left</halign>
+
+       <input>
+         <property>/controls/crew/timeout-s</property>
+         <label>seconds  ~</label>
+       </input>
+      </group>
+     </group>
+
+     <text>
+      <label></label>
+     </text>
+
+     <checkbox>
+      <halign>left</halign>
+      <label>3D  ~</label>
+      <property>/systems/human/serviceable</property>
+      <binding>
+       <command>property-toggle</command>
+       <property>/systems/human/serviceable</property>
+      </binding>
+      <binding>
+       <command>nasal</command>
+       <script>globals.Concorde.crewscreen.wakeupexport();</script>
+      </binding>
+      <binding>
+       <command>nasal</command>
+       <script>globals.Concorde.copilothuman.wakeupexport();</script>
+      </binding>
+      <binding>
+       <command>nasal</command>
+       <script>globals.Concorde.engineerhuman.wakeupexport();</script>
+      </binding>
+     </checkbox>
+    </group>
+
+    <text>
+      <label></label>
+    </text>
+
+    <text>
+      <label>Views</label>
+    </text>
+
+    <group>
+     <layout>hbox</layout>
+
+     <checkbox>
+       <halign>left</halign>
+       <label>Show yoke ~</label>
+       <property>/controls/seat/yoke</property>
+       <binding>
+        <command>property-toggle</command>
+        <property>/controls/seat/yoke</property>
+       </binding>
+     </checkbox>
+    </group>
+
+    <text>
+      <label></label>
+    </text>
+
+    <text>
+      <label>Stowe seat</label>
+    </text>
+
+    <group>
+      <layout>hbox</layout>
+
+      <group>
+       <layout>vbox</layout>
+
+       <checkbox>
+         <halign>left</halign>
+         <label>Captain</label>
+         <property>/systems/human/captain/stowe-norm</property>
+         <binding>
+          <command>nasal</command>
+          <script>globals.Concorde.seatsystem.railexport("captain");</script>
+         </binding>
+       </checkbox>
+
+       <checkbox>
+         <halign>left</halign>
+         <label>Engineer</label>
+         <property>/systems/human/engineer/stowe-norm</property>
+         <binding>
+          <command>nasal</command>
+          <script>globals.Concorde.seatsystem.railexport("engineer");</script>
+         </binding>
+       </checkbox>
+
+       <checkbox>
+         <halign>left</halign>
+         <label>Copilot</label>
+         <property>/systems/human/copilot/stowe-norm</property>
+         <binding>
+          <command>nasal</command>
+          <script>globals.Concorde.seatsystem.railexport("copilot");</script>
+         </binding>
+       </checkbox>
+      </group>
+
+      <group>
+       <layout>vbox</layout>
+       <halign>left</halign>
+
+       <text>
+        <label>(only if engineer at 3 o'clock)</label>
+        <color>
+         <red>0.5</red>
+         <green>0.5</green>
+         <blue>0.5</blue>
+        </color>
+       </text>
+      </group>
+    </group>
+
+  </group>
+
+  <text>
+    <label></label>
+  </text>
+
+  <group>
+   <layout>hbox</layout>
+
+   <button>
+    <legend>Back</legend>
+    <key>b</key>
+    <binding>
+     <command>dialog-apply</command>
+    </binding>
+    <binding>
+     <command>dialog-show</command>
+     <dialog-name>Concorde-menu</dialog-name>
+    </binding>
+    <binding>
+      <command>dialog-close</command>
+    </binding>
+   </button>
+
+   <button>
+    <legend>Close</legend>
+    <default>true</default>
+    <key>Esc</key>
+    <binding>
+     <command>dialog-apply</command>
+    </binding>
+    <binding>
+      <command>dialog-close</command>
+    </binding>
+   </button>
+  </group>
+</PropertyList>

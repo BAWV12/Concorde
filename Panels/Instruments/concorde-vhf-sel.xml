@@ -1,0 +1,173 @@
+<?xml version="1.0"?>
+
+<!-- Updates the standby frequency, if not selected. -->
+
+<PropertyList>
+
+ <name>VHF selector</name>
+ <w-base>70</w-base>
+ <h-base>70</h-base>
+
+ <params>
+  <frq-disp>/instrumentation/comm[0]/frequencies/selected-mhz</frq-disp>
+  <stdby-disp>/instrumentation/comm[0]/frequencies/standby-mhz</stdby-disp>
+  <selected>/controls/audio/comm[0]/selected</selected>
+ </params>
+
+
+ <layers>
+
+  <layer>
+   <name>knob</name>
+   <texture>
+    <path>Aircraft/Concorde/Panels/Instruments/Textures/concorde-white-knob.png</path>
+   </texture>
+    <w>40</w>
+    <h>40</h>
+   <transformations>
+    <transformation>
+     <type>x-shift</type>
+     <offset>16</offset>
+    </transformation>
+   </transformations>
+  </layer>
+
+ </layers>
+
+ <actions>
+
+  <action>
+   <name>Minus 1</name>
+   <button>0</button>
+   <x>2</x>
+   <y>-19</y>
+   <w>14</w>
+   <h>18</h>
+   <binding>
+    <condition>
+     <property alias="../../../../../params/selected"/>
+    </condition>
+    <command>property-adjust</command>
+    <property alias="../../../../params/frq-disp"/>
+    <step>-1</step>
+    <min>100</min>
+    <max>400</max>
+    <wrap>0</wrap>
+   </binding>
+   <binding>
+    <condition>
+     <not>
+      <property alias="../../../../../../params/selected"/>
+     </not>
+    </condition>
+    <command>property-adjust</command>
+    <property alias="../../../../params/stdby-disp"/>
+    <step>-1</step>
+    <min>100</min>
+    <max>400</max>
+    <wrap>0</wrap>
+   </binding>
+  </action>
+
+  <action>
+   <name>Plus 1</name>
+   <button>0</button>
+   <x>2</x>
+   <y>1</y>
+   <w>14</w>
+   <h>18</h>
+   <binding>
+    <condition>
+     <property alias="../../../../../params/selected"/>
+    </condition>
+    <command>property-adjust</command>
+    <property alias="../../../../params/frq-disp"/>
+    <step>1</step>
+    <min>100</min>
+    <max>400</max>
+    <wrap>0</wrap>
+   </binding>
+   <binding>
+    <condition>
+     <not>
+      <property alias="../../../../../../params/selected"/>
+     </not>
+    </condition>
+    <command>property-adjust</command>
+    <property alias="../../../../params/stdby-disp"/>
+    <step>1</step>
+    <min>100</min>
+    <max>400</max>
+    <wrap>0</wrap>
+   </binding>
+  </action>
+
+  <action>
+   <name>Minus 1/100</name>
+   <button>0</button>
+   <x>16</x>
+   <y>-19</y>
+   <w>14</w>
+   <h>18</h>
+   <binding>
+    <condition>
+     <property alias="../../../../../params/selected"/>
+    </condition>
+    <command>property-adjust</command>
+    <property alias="../../../../params/frq-disp"/>
+    <step>-0.01</step>
+    <min>100</min>
+    <max>400</max>
+    <wrap>0</wrap>
+   </binding>
+   <binding>
+    <condition>
+     <not>
+      <property alias="../../../../../../params/selected"/>
+     </not>
+    </condition>
+    <command>property-adjust</command>
+    <property alias="../../../../params/stdby-disp"/>
+    <step>-0.01</step>
+    <min>100</min>
+    <max>400</max>
+    <wrap>0</wrap>
+   </binding>
+  </action>
+
+  <action>
+   <name>Plus 1/100</name>
+   <button>0</button>
+   <x>16</x>
+   <y>1</y>
+   <w>14</w>
+   <h>18</h>
+   <binding>
+    <condition>
+     <property alias="../../../../../params/selected"/>
+    </condition>
+    <command>property-adjust</command>
+    <property alias="../../../../params/frq-disp"/>
+    <step>0.01</step>
+    <min>100</min>
+    <max>400</max>
+    <wrap>0</wrap>
+   </binding>
+   <binding>
+    <condition>
+     <not>
+      <property alias="../../../../../../params/selected"/>
+     </not>
+    </condition>
+    <command>property-adjust</command>
+    <property alias="../../../../params/stdby-disp"/>
+    <step>0.01</step>
+    <min>100</min>
+    <max>400</max>
+    <wrap>0</wrap>
+   </binding>
+  </action>
+
+ </actions>
+
+</PropertyList>

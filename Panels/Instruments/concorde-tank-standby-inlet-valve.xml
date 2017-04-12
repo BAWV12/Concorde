@@ -1,0 +1,68 @@
+<?xml version="1.0"?>
+
+<PropertyList>
+ <name>Standby inlet Valve</name>
+ <w-base>28</w-base>
+ <h-base>28</h-base>
+
+ <params>
+  <inlet-valve>/controls/fuel/tank[0]/inlet-standby</inlet-valve>
+  <defined-status>/systems/electrical/power/specific</defined-status>
+ </params>
+
+
+ <layers>
+
+  <layer>
+   <name>valve</name>
+   <type>switch</type>
+
+   <layer>
+    <name>undefined</name>
+    <condition>
+     <not>
+      <property alias="../../../../../../params/defined-status"/>
+     </not>
+    </condition>
+    <texture>
+     <path>Aircraft/Concorde/Panels/Instruments/Textures/concorde-hatched-bg.png</path>
+    </texture>
+    <w>25</w>
+    <h>25</h>
+   </layer>
+
+   <layer>
+    <name>shut</name>
+    <condition>
+     <not>
+      <property alias="../../../../../../params/inlet-valve"/>
+     </not>
+    </condition>
+    <texture>
+     <path>Aircraft/Concorde/Panels/Instruments/Textures/concorde-black-shut.png</path>
+     <x1>0.0</x1>
+     <y1>0.0</y1>
+     <x2>1.0</x2>
+     <y2>1.0</y2>
+    </texture>
+    <w>28</w>
+    <h>28</h>
+   </layer>
+
+   <layer>
+    <name>open</name>
+    <texture>
+    <path>Aircraft/Concorde/Panels/Instruments/Textures/concorde-white-open.png</path>
+     <x1>0.0</x1>
+     <y1>0.0</y1>
+     <x2>1.0</x2>
+     <y2>1.0</y2>
+    </texture>
+    <w>28</w>
+    <h>28</h>
+   </layer>
+  </layer>
+
+ </layers>
+
+</PropertyList>

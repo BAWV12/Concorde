@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+
+
+
+<PropertyList>
+  <sim>
+    <model>
+     <livery>
+      <name type="string">British Airways Landor</name>
+      <index type="int">5</index>
+      <texture>Liveries/BAL.png</texture>
+     </livery>
+    </model>
+  </sim>
+</PropertyList>

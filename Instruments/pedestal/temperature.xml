@@ -1,0 +1,264 @@
+<?xml version="1.0" ?> 
+
+<!-- TMO:
+
+     - width is the same than INS.
+     - by day, digits are visible without internal lighting.
+     - by night, internal lighting of digits is lightly red.
+
+
+     Known problems :
+     ==============
+     - if no voltage, off light becomes less darker.
+-->
+
+<PropertyList> 
+ <path>temperature.ac</path> 
+
+ <params>
+  <failure-flag>/instrumentation/temperature[0]/failure-flag</failure-flag>
+  <isa-failure-flag>/instrumentation/temperature[0]/isa-failure-flag</isa-failure-flag>
+  <tmo-sel>/instrumentation/temperature[0]/indicated-tmo-degc</tmo-sel>
+  <static-sel>/instrumentation/temperature[0]/indicated-static-degc</static-sel>
+  <isa-sel>/instrumentation/temperature[0]/isa-degc</isa-sel>
+  <center-light>/controls/lighting/instrument-lights</center-light>
+ </params>
+
+
+<!-- ROOF FLUORESCENT LIGHTING -->
+
+ <animation>
+  <name>Temperature</name>
+  <object-name>Plate</object-name>
+  <object-name>Frame</object-name>
+  <object-name>Instrument</object-name>
+  <object-name>Total</object-name>
+  <object-name>Static</object-name>
+  <object-name>ISA</object-name>
+ </animation>
+
+ <animation>
+  <type>material</type>
+  <object-name>Temperature</object-name>
+  <emission>
+   <red>0.71</red>
+   <green>0.79</green>
+   <blue>0.87</blue>
+   <factor-prop>systems/lighting/level/roof</factor-prop>
+  </emission> 
+ </animation> 
+
+
+ <!-- TMO DISPLAY -->
+ 
+ <text>
+  <name>Total display</name>
+  <type type="string">number-value</type>
+  <property alias="../../params/tmo-sel"/>
+  <format type="string">%+02.0f</format>
+  <draw-text type="bool">true</draw-text>
+  <font>lucida.txf</font>
+  <character-size type="double">0.007</character-size>
+  <character-aspect-ratio type="double">1.0</character-aspect-ratio>
+  <font-resolution>
+   <width type="int">32</width>
+   <height type="int">32</height>
+  </font-resolution>
+  <alignment>left-center</alignment>
+  <axis-alignment>yz-plane</axis-alignment>
+  <offsets>
+   <pitch-deg>-90</pitch-deg>
+   <x-m>-0.0295</x-m>
+   <y-m> 0.005</y-m>
+   <z-m> 0.010</z-m>
+  </offsets>
+ </text>
+
+ <animation>
+  <type>material</type>
+  <object-name>Total display</object-name>
+  <emission>
+   <red>1.0</red>
+   <green>0.7</green>
+   <blue>0.5</blue>
+   <factor-prop alias="../../../params/center-light"/>
+  </emission>
+  <ambient>
+   <red>1.0</red>
+   <green>1.0</green>
+   <blue>1.0</blue>
+   <offset-prop>systems/lighting/level/roof-ambient</offset-prop>
+  </ambient>
+ </animation>
+
+ <animation>
+  <type>select</type>
+  <object-name>Total display</object-name>
+  <condition>
+   <not>
+    <property alias="../../../../params/failure-flag"/>
+   </not>
+  </condition>
+ </animation>
+
+ <animation>
+  <type>rotate</type>
+  <object-name>Total</object-name>
+  <property alias="../../params/failure-flag"/>
+  <factor>180</factor>
+  <offset-deg>180</offset-deg>   
+  <center>
+   <x-m>-0.02945</x-m>
+   <y-m> 0.0</y-m>
+   <z-m> 0.00896</z-m>
+  </center>
+  <axis>
+   <x> 0.0</x>
+   <y> 1.0</y>
+   <z> 0.0</z>
+  </axis>
+ </animation>
+
+
+ <!-- OAT DISPLAY -->
+
+ <text>
+  <name>Static display</name>
+  <type type="string">number-value</type>
+  <property alias="../../params/static-sel"/>
+  <format type="string">%+02.0f</format>
+  <draw-text type="bool">true</draw-text>
+  <font>lucida.txf</font>
+  <character-size type="double">0.007</character-size>
+  <character-aspect-ratio type="double">1.0</character-aspect-ratio>
+  <font-resolution>
+   <width type="int">32</width>
+   <height type="int">32</height>
+  </font-resolution>
+  <alignment>left-center</alignment>
+  <axis-alignment>yz-plane</axis-alignment>
+  <offsets>
+   <pitch-deg>-90</pitch-deg>
+   <x-m> 0.000</x-m>
+   <y-m> 0.005</y-m>
+   <z-m> 0.010</z-m>
+  </offsets>
+ </text>
+
+ <animation>
+  <type>material</type>
+  <object-name>Static display</object-name>
+  <emission>
+   <red>1.0</red>
+   <green>0.7</green>
+   <blue>0.5</blue>
+   <factor-prop alias="../../../params/center-light"/>
+  </emission>
+  <ambient>
+   <red>1.0</red>
+   <green>1.0</green>
+   <blue>1.0</blue>
+   <offset-prop>systems/lighting/level/roof-ambient</offset-prop>
+  </ambient>
+ </animation>
+
+ <animation>
+  <type>select</type>
+  <object-name>Static display</object-name>
+  <condition>
+   <not>
+    <property alias="../../../../params/failure-flag"/>
+   </not>
+  </condition>
+ </animation>
+
+ <animation>
+  <type>rotate</type>
+  <object-name>Static</object-name>
+  <property alias="../../params/failure-flag"/>
+  <factor>180</factor>
+  <offset-deg>180</offset-deg>   
+  <center>
+   <x-m> 0.0</x-m>
+   <y-m> 0.0</y-m>
+   <z-m> 0.00896</z-m>
+  </center>
+  <axis>
+   <x> 0.0</x>
+   <y> 1.0</y>
+   <z> 0.0</z>
+  </axis>
+ </animation>
+
+ 
+ <!-- ISA DISPLAY -->
+ 
+ <text>
+  <name>ISA display</name>
+  <type type="string">number-value</type>
+  <property alias="../../params/isa-sel"/>
+  <format type="string">%+02.0f</format>
+  <draw-text type="bool">true</draw-text>
+  <font>lucida.txf</font>
+  <character-size type="double">0.007</character-size>
+  <character-aspect-ratio type="double">1.0</character-aspect-ratio>
+  <font-resolution>
+   <width type="int">32</width>
+   <height type="int">32</height>
+  </font-resolution>
+  <alignment>left-center</alignment>
+  <axis-alignment>yz-plane</axis-alignment>
+  <offsets>
+   <pitch-deg>-90</pitch-deg>
+   <x-m> 0.0295</x-m>
+   <y-m> 0.005</y-m>
+   <z-m> 0.010</z-m>
+  </offsets>
+ </text>
+
+ <animation>
+  <type>material</type>
+  <object-name>ISA display</object-name>
+  <emission>
+   <red>1.0</red>
+   <green>0.7</green>
+   <blue>0.5</blue>
+   <factor-prop alias="../../../params/center-light"/>
+  </emission>
+  <ambient>
+   <red>1.0</red>
+   <green>1.0</green>
+   <blue>1.0</blue>
+   <offset-prop>systems/lighting/level/roof-ambient</offset-prop>
+  </ambient>
+ </animation>
+
+ <animation>
+  <type>select</type>
+  <object-name>ISA display</object-name>
+  <condition>
+   <not>
+    <property alias="../../../../params/isa-failure-flag"/>
+   </not>
+  </condition>
+ </animation>
+
+ <animation>
+  <type>rotate</type>
+  <object-name>ISA</object-name>
+  <property alias="../../params/isa-failure-flag"/>
+  <factor>180</factor>
+  <offset-deg>180</offset-deg>   
+  <center>
+   <x-m> 0.02945</x-m>
+   <y-m> 0.0</y-m>
+   <z-m> 0.00896</z-m>
+  </center>
+  <axis>
+   <x> 0.0</x>
+   <y> 1.0</y>
+   <z> 0.0</z>
+  </axis>
+ </animation>
+
+</PropertyList>

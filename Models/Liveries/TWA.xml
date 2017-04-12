@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+
+
+
+<PropertyList>
+  <sim>
+    <model>
+     <livery>
+      <name type="string">Trans World Airlines</name>
+      <index type="int">15</index>
+      <texture>Liveries/TWA.png</texture>
+     </livery>
+    </model>
+  </sim>
+</PropertyList>

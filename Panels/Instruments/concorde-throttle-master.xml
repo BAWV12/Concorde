@@ -1,0 +1,618 @@
+<?xml version="1.0"?>
+
+<!-- Throttle master selector :
+
+     - double switch, because text would disturb the 2nd switch.
+-->
+
+<PropertyList>
+
+ <name>Throttle master selector</name>
+ <w-base>156</w-base>
+ <h-base>78</h-base>
+
+ <params>
+  <main-select>/controls/throttles/throttle[0]/master</main-select>
+  <off-select>/controls/throttles/throttle[0]/off</off-select>
+  <main-select2>/controls/throttles/throttle[1]/master</main-select2>
+  <off-select2>/controls/throttles/throttle[1]/off</off-select2>
+ </params>
+
+
+ <layers>
+
+<!-- translucent lens -->  
+  <layer>
+   <name>switch 1</name>
+   <type>switch</type>
+
+   <layer>
+    <name>on</name>
+    <type>switch</type>
+    <condition>
+     <and>
+      <property alias="../../../../../../params/main-select"/>
+      <not>
+       <property alias="../../../../../../../params/off-select"/>
+      </not>
+     </and>
+    </condition>
+
+    <layer>
+     <name>background on</name>
+     <type>group</type>
+     <condition>
+      <or include="concorde-cond-voltage-bulb.xml">
+       <or include="concorde-cond-test-overhead.xml"/>
+      </or>
+     </condition>
+
+     <layer include="concorde-bulb-led-off.xml">
+      <w>40</w>
+      <h>40</h>
+     </layer>
+     <layer>
+      <name>on</name>
+      <texture>
+       <path>Aircraft/Concorde/Panels/Instruments/Textures/concorde-red-led.png</path>
+       <x1>0.0</x1>
+       <y1>0.0</y1>
+       <x2>1.0</x2>
+       <y2>1.0</y2>
+      </texture>
+      <w>40</w>
+      <h>40</h>
+     </layer>
+    </layer>
+
+    <layer>
+     <name>background on tested</name>
+     <type>group</type>
+
+     <layer include="concorde-bulb-led-on.xml">
+      <condition include="concorde-cond-light-overhead.xml"/>
+      <w>40</w>
+      <h>40</h>
+     </layer>
+     <layer>
+      <name>on lighted</name>
+      <texture>
+       <path>Aircraft/Concorde/Panels/Instruments/Textures/concorde-red-led.png</path>
+       <x1>0.0</x1>
+       <y1>0.0</y1>
+       <x2>1.0</x2>
+       <y2>1.0</y2>
+      </texture>
+      <w>40</w>
+      <h>40</h>
+      <emissive>true</emissive>
+     </layer>
+    </layer>
+
+    <transformations>
+     <transformation>
+      <type>y-shift</type>
+      <offset>-10</offset>
+     </transformation>
+    </transformations>
+   </layer>
+
+   <layer>
+    <name>3rd state</name>
+    <type>switch</type>
+    <condition>
+     <and>
+      <not>
+       <property alias="../../../../../../../params/main-select"/>
+      </not>
+      <not>
+       <property alias="../../../../../../../params/off-select"/>
+      </not>
+     </and>
+    </condition>
+
+    <layer>
+     <name>background 3rd</name>
+     <type>group</type>
+     <condition>
+       <or include="concorde-cond-voltage-bulb.xml">
+        <or include="concorde-cond-test-overhead.xml"/>
+       </or>
+     </condition>
+
+     <layer include="concorde-bulb-led-off.xml">
+      <w>40</w>
+      <h>40</h>
+     </layer>
+     <layer>
+      <name>3rd state</name>
+      <texture>
+       <path>Aircraft/Concorde/Panels/Instruments/Textures/concorde-red-led.png</path>
+       <x1>0.0</x1>
+       <y1>0.0</y1>
+       <x2>1.0</x2>
+       <y2>1.0</y2>
+      </texture>
+      <w>40</w>
+      <h>40</h>
+     </layer>
+    </layer>
+
+    <layer>
+     <name>background 3rd tested</name>
+     <type>group</type>
+
+     <layer include="concorde-bulb-led-on.xml">
+      <condition include="concorde-cond-light-overhead.xml"/>
+      <w>40</w>
+      <h>40</h>
+     </layer>
+     <layer>
+      <name>3rd lighted</name>
+      <texture>
+       <path>Aircraft/Concorde/Panels/Instruments/Textures/concorde-red-led.png</path>
+       <x1>0.0</x1>
+       <y1>0.0</y1>
+       <x2>1.0</x2>
+       <y2>1.0</y2>
+      </texture>
+      <w>40</w>
+      <h>40</h>
+      <emissive>true</emissive>
+     </layer>
+    </layer>
+
+    <transformations>
+     <transformation>
+      <type>y-shift</type>
+      <offset>10</offset>
+     </transformation>
+    </transformations>
+   </layer>
+
+   <layer>
+    <name>off</name>
+    <type>switch</type>
+
+    <layer>
+     <name>background off</name>
+     <type>group</type>
+     <condition>
+      <or include="concorde-cond-voltage-bulb.xml">
+       <or include="concorde-cond-test-overhead.xml"/>
+      </or>
+     </condition>
+
+     <layer include="concorde-bulb-led-off.xml">
+      <w>40</w>
+      <h>40</h>
+     </layer>
+     <layer>
+      <name>off</name>
+      <texture>
+       <path>Aircraft/Concorde/Panels/Instruments/Textures/concorde-red-led.png</path>
+       <x1>0.0</x1>
+       <y1>0.0</y1>
+       <x2>1.0</x2>
+       <y2>1.0</y2>
+      </texture>
+      <w>40</w>
+      <h>40</h>
+     </layer>
+    </layer>
+
+    <layer>
+     <name>background off tested</name>
+     <type>group</type>
+
+     <layer include="concorde-bulb-led-on.xml">
+      <condition include="concorde-cond-light-overhead.xml"/>
+      <w>40</w>
+      <h>40</h>
+     </layer>
+     <layer>
+      <name>off lighted</name>
+      <texture>
+       <path>Aircraft/Concorde/Panels/Instruments/Textures/concorde-red-led.png</path>
+       <x1>0.0</x1>
+       <y1>0.0</y1>
+       <x2>1.0</x2>
+       <y2>1.0</y2>
+      </texture>
+      <w>40</w>
+      <h>40</h>
+      <emissive>true</emissive>
+     </layer>
+    </layer>
+   </layer>
+
+   <transformations>
+    <transformation>
+     <type>x-shift</type>
+     <offset>-10</offset>
+    </transformation>
+   </transformations>
+  </layer>
+
+  <layer>
+   <name>3rd Title</name>
+   <type>text</type>
+   <point-size>10</point-size>
+   <color>
+    <red>1.0</red>
+    <green>1.0</green>
+    <blue>1.0</blue>
+   </color>
+   <chunks>
+    <chunk>
+     <type>literal</type>
+     <text>ALTERN</text>
+    </chunk>
+   </chunks>
+   <transformations>
+    <transformation>
+     <type>x-shift</type>
+     <offset>-2</offset>
+    </transformation>
+    <transformation>
+     <type>y-shift</type>
+     <offset>30</offset>
+    </transformation>
+   </transformations>
+  </layer>
+
+  <layer>
+   <name>Off Title</name>
+   <type>text</type>
+   <point-size>8</point-size>
+   <color>
+    <red>1.0</red>
+    <green>1.0</green>
+    <blue>1.0</blue>
+   </color>
+   <chunks>
+    <chunk>
+     <type>literal</type>
+     <text>OFF</text>
+    </chunk>
+   </chunks>
+   <transformations>
+    <transformation>
+     <type>x-shift</type>
+     <offset>18</offset>
+    </transformation>
+    <transformation>
+     <type>y-shift</type>
+     <offset>13</offset>
+    </transformation>
+    <transformation>
+     <type>rotation</type>
+     <offset>90</offset>
+    </transformation>
+   </transformations>
+  </layer>
+
+  <layer>
+   <name>On Title</name>
+   <type>text</type>
+   <point-size>10</point-size>
+   <color>
+    <red>1.0</red>
+    <green>1.0</green>
+    <blue>1.0</blue>
+   </color>
+   <chunks>
+    <chunk>
+     <type>literal</type>
+     <text>MAIN</text>
+    </chunk>
+   </chunks>
+   <transformations>
+    <transformation>
+     <type>x-shift</type>
+     <offset>9</offset>
+    </transformation>
+    <transformation>
+     <type>y-shift</type>
+     <offset>-34</offset>
+    </transformation>
+   </transformations>
+  </layer>
+
+  <layer>
+   <name>switch 2</name>
+   <type>switch</type>
+
+   <layer>
+    <name>on</name>
+    <type>switch</type>
+    <condition>
+     <and>
+      <property alias="../../../../../../params/main-select2"/>
+      <not>
+       <property alias="../../../../../../../params/off-select2"/>
+      </not>
+     </and>
+    </condition>
+
+    <layer>
+     <name>background on</name>
+     <type>group</type>
+     <condition>
+      <or include="concorde-cond-voltage-bulb.xml">
+       <or include="concorde-cond-test-overhead.xml"/>
+      </or>
+     </condition>
+
+     <layer include="concorde-bulb-led-off.xml">
+      <w>40</w>
+      <h>40</h>
+     </layer>
+     <layer>
+      <name>on</name>
+      <texture>
+       <path>Aircraft/Concorde/Panels/Instruments/Textures/concorde-red-led.png</path>
+       <x1>0.0</x1>
+       <y1>0.0</y1>
+       <x2>1.0</x2>
+       <y2>1.0</y2>
+      </texture>
+      <w>40</w>
+      <h>40</h>
+     </layer>
+    </layer>
+
+    <layer>
+     <name>background on tested</name>
+     <type>group</type>
+
+     <layer include="concorde-bulb-led-on.xml">
+      <condition include="concorde-cond-light-overhead.xml"/>
+      <w>40</w>
+      <h>40</h>
+     </layer>
+     <layer>
+      <name>on lighted</name>
+      <texture>
+       <path>Aircraft/Concorde/Panels/Instruments/Textures/concorde-red-led.png</path>
+       <x1>0.0</x1>
+       <y1>0.0</y1>
+       <x2>1.0</x2>
+       <y2>1.0</y2>
+      </texture>
+      <w>40</w>
+      <h>40</h>
+      <emissive>true</emissive>
+     </layer>
+    </layer>
+
+    <transformations>
+     <transformation>
+      <type>y-shift</type>
+      <offset>-10</offset>
+     </transformation>
+    </transformations>
+   </layer>
+
+   <layer>
+    <name>3rd state</name>
+    <type>switch</type>
+    <condition>
+     <and>
+      <not>
+       <property alias="../../../../../../../params/main-select2"/>
+      </not>
+      <not>
+       <property alias="../../../../../../../params/off-select2"/>
+      </not>
+     </and>
+    </condition>
+
+    <layer>
+     <name>background 3rd</name>
+     <type>group</type>
+     <condition>
+       <or include="concorde-cond-voltage-bulb.xml">
+        <or include="concorde-cond-test-overhead.xml"/>
+       </or>
+     </condition>
+
+     <layer include="concorde-bulb-led-off.xml">
+      <w>40</w>
+      <h>40</h>
+     </layer>
+     <layer>
+      <name>3rd state</name>
+      <texture>
+       <path>Aircraft/Concorde/Panels/Instruments/Textures/concorde-red-led.png</path>
+       <x1>0.0</x1>
+       <y1>0.0</y1>
+       <x2>1.0</x2>
+       <y2>1.0</y2>
+      </texture>
+      <w>40</w>
+      <h>40</h>
+     </layer>
+    </layer>
+
+    <layer>
+     <name>background 3rd tested</name>
+     <type>group</type>
+
+     <layer include="concorde-bulb-led-on.xml">
+      <condition include="concorde-cond-light-overhead.xml"/>
+      <w>40</w>
+      <h>40</h>
+     </layer>
+     <layer>
+      <name>3rd lighted</name>
+      <texture>
+       <path>Aircraft/Concorde/Panels/Instruments/Textures/concorde-red-led.png</path>
+       <x1>0.0</x1>
+       <y1>0.0</y1>
+       <x2>1.0</x2>
+       <y2>1.0</y2>
+      </texture>
+      <w>40</w>
+      <h>40</h>
+      <emissive>true</emissive>
+     </layer>
+    </layer>
+
+    <transformations>
+     <transformation>
+      <type>y-shift</type>
+      <offset>10</offset>
+     </transformation>
+    </transformations>
+   </layer>
+
+   <layer>
+    <name>off</name>
+    <type>switch</type>
+
+    <layer>
+     <name>background off</name>
+     <type>group</type>
+     <condition>
+      <or include="concorde-cond-voltage-bulb.xml">
+       <or include="concorde-cond-test-overhead.xml"/>
+      </or>
+     </condition>
+
+     <layer include="concorde-bulb-led-off.xml">
+      <w>40</w>
+      <h>40</h>
+     </layer>
+     <layer>
+      <name>off</name>
+      <texture>
+       <path>Aircraft/Concorde/Panels/Instruments/Textures/concorde-red-led.png</path>
+       <x1>0.0</x1>
+       <y1>0.0</y1>
+       <x2>1.0</x2>
+       <y2>1.0</y2>
+      </texture>
+      <w>40</w>
+      <h>40</h>
+     </layer>
+    </layer>
+
+    <layer>
+     <name>background off tested</name>
+     <type>group</type>
+
+     <layer include="concorde-bulb-led-on.xml">
+      <condition include="concorde-cond-light-overhead.xml"/>
+      <w>40</w>
+      <h>40</h>
+     </layer>
+     <layer>
+      <name>off lighted</name>
+      <texture>
+       <path>Aircraft/Concorde/Panels/Instruments/Textures/concorde-red-led.png</path>
+       <x1>0.0</x1>
+       <y1>0.0</y1>
+       <x2>1.0</x2>
+       <y2>1.0</y2>
+      </texture>
+      <w>40</w>
+      <h>40</h>
+      <emissive>true</emissive>
+     </layer>
+    </layer>
+   </layer>
+
+   <transformations>
+    <transformation>
+     <type>x-shift</type>
+     <offset>53</offset>
+    </transformation>
+   </transformations>
+  </layer>
+
+ </layers>
+
+ <actions>
+
+  <action>
+   <name>toggle throttle 1</name>
+   <button>0</button>
+   <condition>
+    <not>
+     <property alias="../../../../../params/off-select"/>
+    </not>
+   </condition>
+   <x>-32</x>
+   <y>-26</y>
+   <w>44</w>
+   <h>54</h>
+   <binding>
+    <command>property-toggle</command>
+    <property alias="../../../../params/main-select"/>
+   </binding>
+   <binding>
+    <command>property-toggle</command>
+    <property>/instrumentation/generic/click</property>
+   </binding>
+  </action>
+
+  <action>
+   <name>disable throttle 1</name>
+   <button>1</button>
+   <x>-32</x>
+   <y>-26</y>
+   <w>44</w>
+   <h>54</h>
+   <binding>
+    <command>property-toggle</command>
+    <property alias="../../../../params/off-select"/>
+   </binding>
+   <binding>
+    <command>property-toggle</command>
+    <property>/instrumentation/generic/click</property>
+   </binding>
+  </action>
+
+  <action>
+   <name>toggle throttle 2</name>
+   <button>0</button>
+   <condition>
+    <not>
+     <property alias="../../../../../params/off-select2"/>
+    </not>
+   </condition>
+   <x>32</x>
+   <y>-26</y>
+   <w>44</w>
+   <h>54</h>
+   <binding>
+    <command>property-toggle</command>
+    <property alias="../../../../params/main-select2"/>
+   </binding>
+   <binding>
+    <command>property-toggle</command>
+    <property>/instrumentation/generic/click</property>
+   </binding>
+  </action>
+
+  <action>
+   <name>disable throttle 2</name>
+   <button>1</button>
+   <x>32</x>
+   <y>-26</y>
+   <w>44</w>
+   <h>54</h>
+   <binding>
+    <command>property-toggle</command>
+    <property alias="../../../../params/off-select2"/>
+   </binding>
+   <binding>
+    <command>property-toggle</command>
+    <property>/instrumentation/generic/click</property>
+   </binding>
+  </action>
+
+ </actions>
+ 
+</PropertyList>

@@ -1,0 +1,132 @@
+<?xml version="1.0"?>
+
+<PropertyList>
+
+ <name>Transponder identification</name>
+ <w-base>70</w-base>
+ <h-base>70</h-base>
+
+ <params>
+  <id-ctrl>/instrumentation/transponder/id-code</id-ctrl>
+ </params>
+
+
+ <layers>
+
+  <layer>
+   <name>knob</name>
+   <texture>
+    <path>Aircraft/Concorde/Panels/Instruments/Textures/concorde-white-knob.png</path>
+   </texture>
+    <w>40</w>
+    <h>40</h>
+   <transformations>
+    <transformation>
+     <type>x-shift</type>
+     <offset>16</offset>
+    </transformation>
+   </transformations>
+  </layer>
+
+  <layer>
+   <name>Title</name>
+   <type>text</type>
+   <point-size>8</point-size>
+   <color>
+    <red>0.0</red>
+    <green>0.0</green>
+    <blue>0.0</blue>
+   </color>
+   <chunks>
+    <chunk>
+     <type>literal</type>
+     <text>IDEN</text>
+    </chunk>
+   </chunks>
+   <transformations>
+    <transformation>
+     <type>x-shift</type>
+     <offset>5</offset>
+    </transformation>
+    <transformation>
+     <type>y-shift</type>
+     <offset>-3</offset>
+    </transformation>
+   </transformations>
+  </layer>
+
+ </layers>
+
+ <actions>
+
+  <action>
+   <name>Minus 1000</name>
+   <button>0</button>
+   <x>2</x>
+   <y>-19</y>
+   <w>14</w>
+   <h>18</h>
+   <binding>
+    <command>property-adjust</command>
+    <property alias="../../../../params/id-ctrl"/>
+    <step>-1000</step>
+    <min>0</min>
+    <max>9999</max>
+    <wrap>0</wrap>
+   </binding>
+  </action>
+
+  <action>
+   <name>Plus 1000</name>
+   <button>0</button>
+   <x>2</x>
+   <y>1</y>
+   <w>14</w>
+   <h>18</h>
+   <binding>
+    <command>property-adjust</command>
+    <property alias="../../../../params/id-ctrl"/>
+    <step>1000</step>
+    <min>0</min>
+    <max>9999</max>
+    <wrap>0</wrap>
+   </binding>
+  </action>
+
+  <action>
+   <name>Minus 100</name>
+   <button>0</button>
+   <x>16</x>
+   <y>-19</y>
+   <w>14</w>
+   <h>18</h>
+   <binding>
+    <command>property-adjust</command>
+    <property alias="../../../../params/id-ctrl"/>
+    <step>-100</step>
+    <min>0</min>
+    <max>9999</max>
+    <wrap>0</wrap>
+   </binding>
+  </action>
+
+  <action>
+   <name>Plus 100</name>
+   <button>0</button>
+   <x>16</x>
+   <y>1</y>
+   <w>14</w>
+   <h>18</h>
+   <binding>
+    <command>property-adjust</command>
+    <property alias="../../../../params/id-ctrl"/>
+    <step>100</step>
+    <min>0</min>
+    <max>9999</max>
+    <wrap>0</wrap>
+   </binding>
+  </action>
+
+ </actions>
+
+</PropertyList>

@@ -1,0 +1,19 @@
+- after cold start nose wheel steering didn't work, there was a logical error in the file Concorde-hydraulic.nas
+- fixed bad working G meter
+- changed maximum frequency of ADF receivers to 500 kHz
+- removed ceiling hardcap at 109k feets, now with slow climb is maximum altitude around 70k feets without lost of speed, with zoom climb can do 80k feets for short time, then stall and go down
+- bug in the fuel management - when turn on pumps on tank 9 or 11 and open inlet valves for that tanks, fuel amount rise until tanks are full, there was a logical error in the NASAL code for fuel management
+- fixed engine overheat red light on engineer's panel, light go to red when exhaust gas temperature is over 840 deg C
+- MACH cone added, used particle system
+- added vapor over the wings in high AoA based on the work of Fabrizio Fracaroli (F-22).
+- added Save Concorde Group livery for G-BOAE if RTF project will be successull :)
+- added wingtips vortexes
+- new dynamic contrails - size based on throttles, no contrails, when engine flame out (bugfix)
+- fixed T/O monitor, now when armed, N2 can go over 100%, when inhibited, only 100% N2 allowed
+- modified smoke, base engine smoke unmodified, but added more smoke with reheaters engaged
+- added N1 autoreduce function - when speed is over 2 M, autoreducer will automaticaly lower N1 to prevent overspeed and dramatic overheat aircraft's nose (TMO shouldn't rise over 127 degree C)
+- fixed nozzle bucket animation, they was overlaped for reversers
+- fixed ATIS, now You can hear spoken information
+- INS waypoints increased from 9 to 99
+- brake overheat warning light fixed, now works correctly
+- cockpit remap and retexture

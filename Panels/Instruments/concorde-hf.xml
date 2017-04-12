@@ -1,0 +1,112 @@
+<?xml version="1.0"?>
+
+<PropertyList>
+
+ <name>Dial HF</name>
+ <w-base>80</w-base>
+ <h-base>80</h-base>
+
+ <params>
+  <frq-disp>/instrumentation/hf[0]/frequencies/selected-khz</frq-disp>
+  <num>/systems/engines/engine[0]/engine-num</num>
+ </params>
+
+
+ <layers>
+
+  <layer>
+   <name>background</name>
+   <texture>
+    <path>Aircraft/Concorde/Panels/Instruments/Textures/concorde-black-bg.png</path>
+   </texture>
+    <w>80</w>
+    <h>40</h>
+  </layer>
+
+  <layer>
+   <name>Title</name>
+   <type>text</type>
+   <point-size>16</point-size>
+   <color>
+    <red>1.0</red>
+    <green>1.0</green>
+    <blue>1.0</blue>
+   </color>
+   <chunks>
+    <chunk>
+     <type>literal</type>
+     <text>HF-</text>
+    </chunk>
+   </chunks>
+   <transformations>
+    <transformation>
+     <type>x-shift</type>
+     <offset>-21</offset>
+    </transformation>
+    <transformation>
+     <type>y-shift</type>
+     <offset>28</offset>
+    </transformation>
+   </transformations>
+  </layer>
+
+  <layer>
+   <name>Title 2</name>
+   <type>text</type>
+   <point-size>16</point-size>
+   <color>
+    <red>1.0</red>
+    <green>1.0</green>
+    <blue>1.0</blue>
+   </color>
+   <chunks>
+    <chunk>
+     <type>number-value</type>
+     <property alias="../../../../../params/num"/>
+     <format>%1.f</format>
+    </chunk>
+   </chunks>
+   <transformations>
+    <transformation>
+     <type>x-shift</type>
+     <offset>18</offset>
+    </transformation>
+    <transformation>
+     <type>y-shift</type>
+     <offset>28</offset>
+    </transformation>
+   </transformations>
+  </layer>
+
+  <layer>
+   <name>HF frequency display</name>
+   <type>text</type>
+   <font>led</font>
+   <point-size>8</point-size>
+   <color>
+    <red>1.0</red>
+    <green>1.0</green>
+    <blue>1.0</blue>
+   </color>
+   <chunks>
+    <chunk>
+     <type>number-value</type>
+     <property alias="../../../../../params/frq-disp"/>
+     <format>%1.4f</format>
+    </chunk>
+   </chunks>
+   <transformations>
+    <transformation>
+     <type>x-shift</type>
+     <offset>-29</offset>
+    </transformation>
+    <transformation>
+     <type>y-shift</type>
+     <offset>-8</offset>
+    </transformation>
+   </transformations>
+  </layer>
+
+ </layers>
+
+</PropertyList>

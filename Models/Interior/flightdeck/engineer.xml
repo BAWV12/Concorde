@@ -1,0 +1,40 @@
+<?xml version="1.0" ?> 
+
+<!-- Concorde engineer panel at scale.
+
+
+     Not smoothed (solid).
+-->
+
+<PropertyList> 
+ <path>engineer.ac</path> 
+
+
+<!-- FLOOD LIGHTING (only if no roof light) -->
+
+<!-- OSG lighting :
+
+     - only 1 material per object (child included).
+     - groups are allowed.
+-->
+
+ <animation>
+  <name>EngineerPanel</name> 
+  <object-name>EngineerLeft</object-name>
+  <object-name>EngineerRight</object-name>
+  <object-name>Engineer</object-name>
+  <object-name>EngineerAft</object-name>
+ </animation>
+
+ <animation>
+  <type>material</type>
+  <object-name>EngineerPanel</object-name>
+  <emission>
+   <red>0.83</red>
+   <green>0.74</green>
+   <blue>0.38</blue>
+   <factor-prop>systems/lighting/level/engineer/panel</factor-prop>
+  </emission> 
+ </animation> 
+
+</PropertyList>

@@ -1,0 +1,82 @@
+<?xml version="1.0"?>
+
+<!-- Inertial Navigation System selector :
+
+     - LED supposed green.
+-->
+
+<PropertyList>
+ <name>INS selector</name>
+ <w-base>50</w-base>
+ <h-base>50</h-base>
+
+ <params>
+  <mode-ctrl>/instrumentation/ins[0]/msu/mode</mode-ctrl>
+  <selector-ctrl>/instrumentation/ins[0]/control/selector</selector-ctrl>
+  <test-ctrl>/instrumentation/ins[0]/control/test</test-ctrl>
+  <wpt-ctrl>/instrumentation/ins[0]/control/waypoint</wpt-ctrl>
+ </params>
+
+
+ <layers>
+
+  <layer>
+   <name>background led</name>
+   <texture>
+    <path>Aircraft/Concorde/Panels/Instruments/Textures/concorde-black-bg.png</path>
+     <x1>0.7</x1>
+     <y1>0.8</y1>
+     <x2>1.0</x2>
+     <y2>0.9</y2>
+   </texture>
+   <w>50</w>
+   <h>50</h>
+  </layer>
+
+  <layer>
+   <name>Title waypoint</name>
+   <condition>
+    <and include="concorde-cond-voltage-inst.xml">
+     <not-equals>
+      <property alias="../../../../../../params/mode-ctrl"/>
+      <value>-2</value>
+     </not-equals>
+     <greater-than-equals>
+      <property alias="../../../../../../params/selector-ctrl"/>
+      <value>1</value>
+     </greater-than-equals>
+     <less-than-equals>
+      <property alias="../../../../../../params/selector-ctrl"/>
+      <value>2</value>
+     </less-than-equals>
+    </and>
+   </condition>
+   <type>text</type>
+   <font>led</font>
+   <point-size>12</point-size>
+   <color>
+    <red>0.0</red>
+    <green>0.85</green>
+    <blue>0.0</blue>
+   </color>
+   <chunks>
+    <chunk>
+     <type>text-value</type>
+     <property alias="../../../../../params/wpt-ctrl"/>
+    </chunk>
+   </chunks>
+   <transformations>
+    <transformation>
+     <type>x-shift</type>
+     <offset>-5</offset>
+    </transformation>
+    <transformation>
+     <type>y-shift</type>
+     <offset>-10</offset>
+    </transformation>
+   </transformations>
+  </layer>
+
+ </layers>
+
+</PropertyList>

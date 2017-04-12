@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+
+<!-- Super optimization of captain view for landing :
+
+     - within plus/minus 7 deg, the number of instrument is minimum.
+     - outside, the pitch is lower, because of the rotation of the view.
+-->
+
+<PropertyList>
+
+<!-- outside the forward view = less pitch allowed. -->
+
+ <and>
+  <less-than>
+   <property>/sim/current-view/goal-heading-offset-deg</property>
+   <value>353</value>
+  </less-than>
+  <greater-than>
+   <property>/sim/current-view/goal-heading-offset-deg</property>
+   <value>7</value>
+  </greater-than>
+ </and>
+
+</PropertyList>

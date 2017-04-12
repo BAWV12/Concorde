@@ -1,0 +1,120 @@
+<?xml version="1.0"?>
+
+<!-- Attitude indicator FD computer -->
+
+<PropertyList>
+
+ <name>ADI FD computer</name>
+ <w-base>156</w-base>
+ <h-base>52</h-base>
+
+ <params>
+  <fd2>/instrumentation/attitude-indicator[0]/fd2</fd2>
+ </params>
+
+
+ <layers>
+
+  <layer>
+   <name>ADI FD switch</name>
+   <type>switch</type>
+
+   <layer include="concorde-switch-off.xml">
+    <name>flight director 1</name>
+    <condition>
+     <not>
+      <property alias="../../../../../../params/fd2"/>
+     </not>
+    </condition>
+   </layer>
+
+   <layer include="concorde-switch-on.xml">
+    <name>flight director 2</name>
+   </layer>
+
+   <transformations>
+    <transformation>
+     <type>rotation</type>
+     <offset>90</offset>
+    </transformation>
+   </transformations>
+  </layer>
+
+  <layer>
+   <name>Title on</name>
+   <type>text</type>
+   <point-size>12</point-size>
+   <color>
+    <red>1.0</red>
+    <green>1.0</green>
+    <blue>1.0</blue>
+   </color>
+   <chunks>
+    <chunk>
+     <type>literal</type>
+     <text>FD1</text>
+    </chunk>
+   </chunks>
+   <transformations>
+    <transformation>
+     <type>x-shift</type>
+     <offset>-40</offset>
+    </transformation>
+    <transformation>
+     <type>y-shift</type>
+     <offset>20</offset>
+    </transformation>
+   </transformations>
+  </layer>
+
+  <layer>
+   <name>Title off</name>
+   <type>text</type>
+   <point-size>12</point-size>
+   <color>
+    <red>1.0</red>
+    <green>1.0</green>
+    <blue>1.0</blue>
+   </color>
+   <chunks>
+    <chunk>
+     <type>literal</type>
+     <text>FD2</text>
+    </chunk>
+   </chunks>
+   <transformations>
+    <transformation>
+     <type>x-shift</type>
+     <offset>20</offset>
+    </transformation>
+    <transformation>
+     <type>y-shift</type>
+     <offset>20</offset>
+    </transformation>
+   </transformations>
+  </layer>
+
+ </layers>
+
+ <actions>
+
+  <action>
+   <name>Toggle</name>
+   <button>0</button>
+   <x>-21</x>
+   <y>-21</y>
+   <w>42</w>
+   <h>42</h>
+   <binding>
+    <command>property-toggle</command>
+    <property alias="../../../../params/fd2"/>
+   </binding>
+   <binding>
+    <command>property-toggle</command>
+    <property>/instrumentation/generic/click</property>
+   </binding>
+  </action>
+
+ </actions>
+ 
+</PropertyList>

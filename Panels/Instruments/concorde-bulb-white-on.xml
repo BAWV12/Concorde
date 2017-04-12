@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+
+<!-- - caller must provide <w> and<h>.
+-->
+
+<PropertyList>
+
+   <name>lamp on</name>
+   <texture>
+    <path>Aircraft/Concorde/Panels/Instruments/Textures/concorde-orange-bulb.png</path>
+    <x1>0.15</x1>
+    <y1>0.47</y1>
+    <x2>0.35</x2>
+    <y2>1.0</y2>
+   </texture>
+   <emissive>true</emissive>
+
+</PropertyList>

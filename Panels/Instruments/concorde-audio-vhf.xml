@@ -1,0 +1,423 @@
+<?xml version="1.0"?>
+
+<!-- Concorde VHF audio :
+
+     - push (3rd button) the knob, which lights, to adjust (1st button) the volume.
+     - not yet implemented by FG.
+     - 2 knobs, because label disturbs the 2nd button.
+-->
+
+<PropertyList>
+
+ <name>VHF volume</name>
+ <w-base>240</w-base>
+ <h-base>80</h-base>
+
+ <params>
+  <vol-ctrl>/controls/audio/crew/captain/comm[0]/volume</vol-ctrl>
+  <vol-push>/controls/audio/crew/captain/comm[0]/volume-push</vol-push>
+  <vol-ctrl2>/controls/audio/crew/captain/comm[1]/volume</vol-ctrl2>
+  <vol-push2>/controls/audio/crew/captain/comm[1]/volume-push</vol-push2>
+ </params>
+
+
+ <layers>
+
+  <layer>
+   <name>lamp</name>
+   <type>switch</type>
+
+   <layer>
+    <name>on</name>
+    <type>group</type>
+    <condition>
+     <and>
+      <not include="concorde-cond-voltage-bulb.xml"/>
+      <property alias="../../../../../../params/vol-push"/>
+     </and>
+    </condition>
+
+    <layer include="concorde-bulb-led-on.xml">
+     <w>40</w>
+     <h>40</h>
+    </layer>
+    <layer>
+     <name>knob on</name>
+     <texture>
+      <path>Aircraft/Concorde/Panels/Instruments/Textures/led.png</path>
+      <x1>0.75</x1>
+      <y1>0.0</y1>
+      <x2>1.0</x2>
+      <y2>0.25</y2>
+     </texture>
+     <w>40</w>
+     <h>40</h>
+     <emissive>true</emissive>
+    </layer>
+   </layer>
+
+   <layer>
+    <name>off</name>
+    <type>group</type>
+
+    <layer include="concorde-bulb-led-off.xml">
+     <w>40</w>
+     <h>40</h>
+    </layer>
+   <layer>
+     <name>knob off</name>
+     <texture>
+      <path>Aircraft/Concorde/Panels/Instruments/Textures/led.png</path>
+      <x1>0.75</x1>
+      <y1>0.0</y1>
+      <x2>1.0</x2>
+      <y2>0.25</y2>
+     </texture>
+     <w>40</w>
+     <h>40</h>
+    </layer>
+   </layer>
+   <transformations>
+    <transformation>
+    <type>x-shift</type>
+     <offset>15</offset>
+    </transformation>
+   </transformations>
+  </layer>
+
+  <layer>
+   <name>knob pointer</name>
+   <texture>
+    <path>Aircraft//Concorde/Panels/Instruments/Textures/concorde-white-button.png</path>
+    <x1>0.0</x1>
+    <y1>0.0</y1>
+    <x2>1.0</x2>
+    <y2>1.0</y2>
+   </texture>
+   <w>5</w>
+   <h>16</h>
+   <transformations>
+    <transformation>
+    <type>x-shift</type>
+     <offset>15</offset>
+    </transformation>
+    <transformation>
+     <type>rotation</type>
+     <property alias="../../../../../params/vol-ctrl"/>
+     <min>0</min>
+     <max>1.0</max>
+     <scale>180</scale>
+     <offset>90</offset>
+    </transformation>
+    <transformation>
+    <type>y-shift</type>
+     <offset>-3</offset>
+    </transformation>
+   </transformations>
+  </layer>
+
+  <layer>
+   <name>Title</name>
+   <type>text</type>
+   <point-size>16</point-size>
+   <color>
+    <red>1.0</red>
+    <green>1.0</green>
+    <blue>1.0</blue>
+   </color>
+   <chunks>
+    <chunk>
+     <type>literal</type>
+     <text>1</text>
+    </chunk>
+   </chunks>
+   <transformations>
+    <transformation>
+     <type>x-shift</type>
+     <offset>13</offset>
+    </transformation>
+    <transformation>
+     <type>y-shift</type>
+     <offset>30</offset>
+    </transformation>
+   </transformations>
+  </layer>
+
+  <layer>
+   <name>Title VHF</name>
+   <type>text</type>
+   <point-size>16</point-size>
+   <color>
+    <red>1.0</red>
+    <green>1.0</green>
+    <blue>1.0</blue>
+   </color>
+   <chunks>
+    <chunk>
+     <type>literal</type>
+     <text>VHF</text>
+    </chunk>
+   </chunks>
+   <transformations>
+    <transformation>
+     <type>x-shift</type>
+     <offset>28</offset>
+    </transformation>
+    <transformation>
+     <type>y-shift</type>
+     <offset>30</offset>
+    </transformation>
+   </transformations>
+  </layer>
+
+<!-- 2nd frequency -->
+
+  <layer>
+   <name>lamp 2</name>
+   <type>switch</type>
+
+   <layer>
+    <name>on</name>
+    <type>group</type>
+    <condition>
+     <and>
+      <not include="concorde-cond-voltage-bulb.xml"/>
+      <property alias="../../../../../../params/vol-push2"/>
+     </and>
+    </condition>
+
+    <layer include="concorde-bulb-led-on.xml">
+     <w>40</w>
+     <h>40</h>
+    </layer>
+    <layer>
+     <name>knob on</name>
+     <texture>
+      <path>Aircraft/Concorde/Panels/Instruments/Textures/led.png</path>
+      <x1>0.75</x1>
+      <y1>0.0</y1>
+      <x2>1.0</x2>
+      <y2>0.25</y2>
+     </texture>
+     <w>40</w>
+     <h>40</h>
+     <emissive>true</emissive>
+    </layer>
+   </layer>
+
+   <layer>
+    <name>off</name>
+    <type>group</type>
+
+    <layer include="concorde-bulb-led-off.xml">
+     <w>40</w>
+     <h>40</h>
+    </layer>
+   <layer>
+     <name>knob off</name>
+     <texture>
+      <path>Aircraft/Concorde/Panels/Instruments/Textures/led.png</path>
+      <x1>0.75</x1>
+      <y1>0.0</y1>
+      <x2>1.0</x2>
+      <y2>0.25</y2>
+     </texture>
+     <w>40</w>
+     <h>40</h>
+    </layer>
+   </layer>
+   <transformations>
+    <transformation>
+    <type>x-shift</type>
+     <offset>71</offset>
+    </transformation>
+   </transformations>
+  </layer>
+
+  <layer>
+   <name>knob 2 pointer</name>
+   <texture>
+    <path>Aircraft//Concorde/Panels/Instruments/Textures/concorde-white-button.png</path>
+    <x1>0.0</x1>
+    <y1>0.0</y1>
+    <x2>1.0</x2>
+    <y2>1.0</y2>
+   </texture>
+   <w>5</w>
+   <h>16</h>
+   <transformations>
+    <transformation>
+    <type>x-shift</type>
+     <offset>71</offset>
+    </transformation>
+    <transformation>
+     <type>rotation</type>
+     <property alias="../../../../../params/vol-ctrl2"/>
+     <min>0</min>
+     <max>1.0</max>
+     <scale>180</scale>
+     <offset>90</offset>
+    </transformation>
+    <transformation>
+    <type>y-shift</type>
+     <offset>-3</offset>
+    </transformation>
+   </transformations>
+  </layer>
+
+  <layer>
+   <name>Title 2</name>
+   <type>text</type>
+   <point-size>16</point-size>
+   <color>
+    <red>1.0</red>
+    <green>1.0</green>
+    <blue>1.0</blue>
+   </color>
+   <chunks>
+    <chunk>
+     <type>literal</type>
+     <text>2</text>
+    </chunk>
+   </chunks>
+   <transformations>
+    <transformation>
+     <type>x-shift</type>
+     <offset>69</offset>
+    </transformation>
+    <transformation>
+     <type>y-shift</type>
+     <offset>30</offset>
+    </transformation>
+   </transformations>
+  </layer>
+
+ </layers>
+
+ <actions>
+
+  <action>
+   <name>Minus</name>
+   <condition>
+    <property alias="../../../../params/vol-push"/>
+   </condition>
+   <button>0</button>
+   <x>-4</x>
+   <y>-20</y>
+   <w>19</w>
+   <h>38</h>
+   <binding>
+    <command>property-adjust</command>
+    <property alias="../../../../params/vol-ctrl"/>
+    <step>-0.1</step>
+    <min>0</min>
+    <max>1</max>
+    <wrap>0</wrap>
+   </binding>
+   <binding>
+    <command>nasal</command>
+    <script>globals.Concorde.seatsystem.audioexport();</script>
+   </binding>
+  </action>
+
+  <action>
+   <name>Plus</name>
+   <condition>
+    <property alias="../../../../params/vol-push"/>
+   </condition>
+   <button>0</button>
+   <x>17</x>
+   <y>-20</y>
+   <w>19</w>
+   <h>38</h>
+   <binding>
+    <command>property-adjust</command>
+    <property alias="../../../../params/vol-ctrl"/>
+    <step>0.1</step>
+    <min>0</min>
+    <max>1</max>
+    <wrap>0</wrap>
+   </binding>
+   <binding>
+    <command>nasal</command>
+    <script>globals.Concorde.seatsystem.audioexport();</script>
+   </binding>
+  </action>
+
+  <action>
+   <name>Toggle</name>
+   <button>1</button>
+   <x>-4</x>
+   <y>-20</y>
+   <w>38</w>
+   <h>38</h>
+   <binding>
+    <command>property-toggle</command>
+    <property alias="../../../../params/vol-push"/>
+   </binding>
+  </action>
+
+  <action>
+   <name>Minus 2</name>
+   <condition>
+    <property alias="../../../../params/vol-push2"/>
+   </condition>
+   <button>0</button>
+   <x>53</x>
+   <y>-20</y>
+   <w>19</w>
+   <h>38</h>
+   <binding>
+    <command>property-adjust</command>
+    <property alias="../../../../params/vol-ctrl2"/>
+    <step>-0.1</step>
+    <min>0</min>
+    <max>1</max>
+    <wrap>0</wrap>
+   </binding>
+   <binding>
+    <command>nasal</command>
+    <script>globals.Concorde.seatsystem.audioexport();</script>
+   </binding>
+  </action>
+
+  <action>
+   <name>Plus 2</name>
+   <condition>
+    <property alias="../../../../params/vol-push2"/>
+   </condition>
+   <button>0</button>
+   <x>72</x>
+   <y>-20</y>
+   <w>19</w>
+   <h>38</h>
+   <binding>
+    <command>property-adjust</command>
+    <property alias="../../../../params/vol-ctrl2"/>
+    <step>0.1</step>
+    <min>0</min>
+    <max>1</max>
+    <wrap>0</wrap>
+   </binding>
+   <binding>
+    <command>nasal</command>
+    <script>globals.Concorde.seatsystem.audioexport();</script>
+   </binding>
+  </action>
+
+  <action>
+   <name>Toggle 2</name>
+   <button>1</button>
+   <x>53</x>
+   <y>-20</y>
+   <w>38</w>
+   <h>38</h>
+   <binding>
+    <command>property-toggle</command>
+    <property alias="../../../../params/vol-push2"/>
+   </binding>
+  </action>
+
+ </actions>
+
+</PropertyList>

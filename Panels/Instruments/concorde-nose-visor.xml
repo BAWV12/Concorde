@@ -1,0 +1,936 @@
+<?xml version="1.0"?>
+
+<!-- Concorde Nose / Visor command.
+
+
+Adapted from John Check, j4strngs@rockfish.net
+
+This is an instrument configuration file for the open-source flight
+simulator FlightGear (www.flightgear.org).  The file is an XML-encoded
+FlightGear property list defining the instrument's layers and actions.
+
+Each instrument is composed of layers stacked on top of each other.
+A layer may be a texture (with transparent parts to show the layers
+underneath), text, or a special layer that switches between two
+others (say, to turn an indicator light on or off).  Each layer can
+move independently in proportion to a property value, and text
+can be generated from property values as well: all of the layer's
+movements are defined as transformations.
+
+Actions are hotspots on the instrument that will respond to a mouse
+click.  Actions always modify the values of properties, either by
+adjusting them, toggling them, or swaping them with other
+properties' values.
+
+Hacked to create a three step flap quadrant - the flaps are
+extended/retracted in three steps.
+
+2003/01 Lee Elliott
+-->
+
+<PropertyList>
+
+ <name>Nose/visor quadrant</name>
+ <w-base>136</w-base>
+ <h-base>150</h-base>
+
+
+ <layers>
+
+
+
+  <layer>
+   <name>cylinder</name>
+   <texture>
+    <path>Aircraft/Concorde/Panels/Instruments/Textures/concorde-black-bg.png</path>
+    <x1>0.0</x1>
+    <x2>1.0</x2>
+    <y1>0.0</y1>
+    <y2>1.0</y2>
+   </texture>
+   <w>130</w>
+   <h>115</h>
+  </layer>
+
+  <layer>
+   <name>backplate</name>
+   <texture>
+    <path>Aircraft/Concorde/Panels/Instruments/Textures/faces-LE-misc1.png</path>
+    <x1>0.0</x1>
+    <x2>0.125</x2>
+    <y1>0.75</y1>
+    <y2>1.0</y2>
+   </texture>
+   <w>32</w>
+   <h>110</h>
+  </layer>
+
+<!-- flap -->
+
+  <layer>
+   <name>flap handle </name>
+   <texture>
+    <path>Aircraft/Concorde/Panels/Instruments/Textures/handles.png</path>
+    <x1>0.410</x1>
+    <x2>0.510</x2>
+    <y1>0.61</y1>
+    <y2>0.99</y2>
+   </texture>
+   <w>30</w>
+   <h>30</h>
+   <transformations>
+    <transformation>
+     <type>y-shift</type>
+     <property>/controls/nose-visor/pos-norm</property>
+     <min>0.0</min>
+     <max>1.0</max>
+     <scale>-80</scale>
+     <offset>40</offset>
+    </transformation>
+   </transformations>
+  </layer>
+
+  <layer>
+   <name>Title</name>
+   <type>text</type>
+   <point-size>11</point-size>
+   <color>
+    <red>1.0</red>
+    <green>1.0</green>
+    <blue>1.0</blue>
+   </color>
+   <chunks>
+    <chunk>
+     <type>literal</type>
+     <text>VISOR / NOSE</text>
+    </chunk>
+   </chunks>
+   <transformations>
+    <transformation>
+     <type>x-shift</type>
+     <offset>-43</offset>
+    </transformation>
+    <transformation>
+     <type>y-shift</type>
+     <offset>-68</offset>
+    </transformation>
+   </transformations>
+  </layer>
+
+<!-- === -->
+<!-- LED -->
+<!-- === -->
+
+<!-- visor up left -->
+
+  <layer>
+   <name>Title up</name>
+   <type>text</type>
+   <point-size>6</point-size>
+   <color>
+    <red>1.0</red>
+    <green>1.0</green>
+    <blue>1.0</blue>
+   </color>
+   <chunks>
+    <chunk>
+     <type>literal</type>
+     <text>UP</text>
+    </chunk>
+   </chunks>
+   <transformations>
+    <transformation>
+     <type>x-shift</type>
+     <offset>-55</offset>
+    </transformation>
+    <transformation>
+     <type>y-shift</type>
+     <offset>37</offset>
+    </transformation>
+   </transformations>
+  </layer>
+
+ <layer>
+  <name>visor up left led</name>
+  <type>switch</type>
+
+  <layer>
+   <name>Off</name>
+   <type>group</type>
+   <condition>
+    <or>
+     <and>
+      <not-equals>
+       <property>/controls/nose-visor/pos-norm</property>
+       <property n="1">/sim/flaps/setting[0]</property>
+      </not-equals>
+      <not>
+       <property>/controls/lighting/crew/copilot/test</property>
+      </not>
+     </and>
+     <not include="concorde-cond-voltage-nose.xml"/>
+    </or>
+   </condition>
+
+   <layer include="concorde-bulb-led-off.xml">
+    <w>14</w>
+    <h>14</h>
+   </layer>
+   <layer>
+    <name>background visor up left</name>
+    <texture>
+     <path>Aircraft/Concorde/Panels/Instruments/Textures/concorde-green-led.png</path>
+    </texture>
+    <w>14</w>
+    <h>14</h>
+   </layer>
+  </layer>
+
+  <layer>
+   <name>On</name>
+   <type>group</type>
+
+   <layer include="concorde-bulb-led-on.xml">
+    <w>14</w>
+    <h>14</h>
+   </layer>
+   <layer>
+    <name>background visor up left</name>
+    <texture>
+     <path>Aircraft/Concorde/Panels/Instruments/Textures/concorde-green-led.png</path>
+    </texture>
+    <w>14</w>
+    <h>14</h>
+    <emissive>true</emissive>
+   </layer>
+  </layer>
+  <transformations>
+   <transformation>
+    <type>x-shift</type>
+    <offset>-27</offset>
+   </transformation>
+   <transformation>
+    <type>y-shift</type>
+    <offset>40</offset>
+   </transformation>
+  </transformations>
+ </layer>
+
+<!-- visor up right -->
+
+  <layer>
+   <name>Title up</name>
+   <type>text</type>
+   <point-size>6</point-size>
+   <color>
+    <red>1.0</red>
+    <green>1.0</green>
+    <blue>1.0</blue>
+   </color>
+   <chunks>
+    <chunk>
+     <type>literal</type>
+     <text>UP</text>
+    </chunk>
+   </chunks>
+   <transformations>
+    <transformation>
+     <type>x-shift</type>
+     <offset>45</offset>
+    </transformation>
+    <transformation>
+     <type>y-shift</type>
+     <offset>37</offset>
+    </transformation>
+   </transformations>
+  </layer>
+
+ <layer>
+  <name>visor up right led</name>
+  <type>switch</type>
+
+  <layer>
+   <name>Off</name>
+   <type>group</type>
+   <condition>
+    <or>
+     <and>
+      <not-equals>
+       <property>/controls/nose-visor/pos-norm</property>
+       <property n="1">/sim/flaps/setting[0]</property>
+      </not-equals>
+      <not>
+       <property>/controls/lighting/crew/copilot/test</property>
+      </not>
+     </and>
+     <not include="concorde-cond-voltage-nose.xml"/>
+    </or>
+   </condition>
+
+   <layer include="concorde-bulb-led-off.xml">
+    <w>14</w>
+    <h>14</h>
+   </layer>
+   <layer>
+    <name>background visor up right</name>
+    <texture>
+     <path>Aircraft/Concorde/Panels/Instruments/Textures/concorde-green-led.png</path>
+    </texture>
+    <w>14</w>
+    <h>14</h>
+   </layer>
+  </layer>
+
+  <layer>
+   <name>On</name>
+   <type>group</type>
+
+   <layer include="concorde-bulb-led-on.xml">
+    <w>14</w>
+    <h>14</h>
+   </layer>
+   <layer>
+    <name>background visor up right</name>
+    <texture>
+     <path>Aircraft/Concorde/Panels/Instruments/Textures/concorde-green-led.png</path>
+    </texture>
+    <w>14</w>
+    <h>14</h>
+    <emissive>true</emissive>
+   </layer>
+  </layer>
+  <transformations>
+   <transformation>
+    <type>x-shift</type>
+    <offset>27</offset>
+   </transformation>
+   <transformation>
+    <type>y-shift</type>
+    <offset>40</offset>
+   </transformation>
+  </transformations>
+ </layer>
+
+<!-- visor down left -->
+
+  <layer>
+   <name>Title visor 0 deg</name>
+   <type>text</type>
+   <point-size>6</point-size>
+   <color>
+    <red>1.0</red>
+    <green>1.0</green>
+    <blue>1.0</blue>
+   </color>
+   <chunks>
+    <chunk>
+     <type>literal</type>
+     <text>VIS/0</text>
+    </chunk>
+   </chunks>
+   <transformations>
+    <transformation>
+     <type>x-shift</type>
+     <offset>-60</offset>
+    </transformation>
+    <transformation>
+     <type>y-shift</type>
+     <offset>10</offset>
+    </transformation>
+   </transformations>
+  </layer>
+
+ <layer>
+  <name>visor down left led</name>
+  <type>switch</type>
+
+  <layer>
+   <name>Off</name>
+   <type>group</type>
+   <condition>
+    <or>
+     <and>
+      <not-equals>
+       <property>/controls/nose-visor/pos-norm</property>
+       <property n="1">/sim/flaps/setting[1]</property>
+      </not-equals>
+      <not>
+       <property>/controls/lighting/crew/copilot/test</property>
+      </not>
+     </and>
+     <not include="concorde-cond-voltage-nose.xml"/>
+    </or>
+   </condition>
+
+   <layer include="concorde-bulb-led-off.xml">
+    <w>14</w>
+    <h>14</h>
+   </layer>
+   <layer>
+    <name>background visor down left</name>
+    <texture>
+     <path>Aircraft/Concorde/Panels/Instruments/Textures/concorde-green-led.png</path>
+    </texture>
+    <w>14</w>
+    <h>14</h>
+   </layer>
+  </layer>
+
+  <layer>
+   <name>On</name>
+   <type>group</type>
+
+   <layer include="concorde-bulb-led-on.xml">
+    <w>14</w>
+    <h>14</h>
+   </layer>
+   <layer>
+    <name>background visor down left</name>
+    <texture>
+     <path>Aircraft/Concorde/Panels/Instruments/Textures/concorde-green-led.png</path>
+    </texture>
+    <w>14</w>
+    <h>14</h>
+    <emissive>true</emissive>
+   </layer>
+  </layer>
+  <transformations>
+   <transformation>
+    <type>x-shift</type>
+    <offset>-27</offset>
+   </transformation>
+   <transformation>
+    <type>y-shift</type>
+    <offset>13</offset>
+   </transformation>
+  </transformations>
+ </layer>
+
+<!-- visor down right -->
+
+  <layer>
+   <name>Title visor 0 deg</name>
+   <type>text</type>
+   <point-size>6</point-size>
+   <color>
+    <red>1.0</red>
+    <green>1.0</green>
+    <blue>1.0</blue>
+   </color>
+   <chunks>
+    <chunk>
+     <type>literal</type>
+     <text>VIS/0</text>
+    </chunk>
+   </chunks>
+   <transformations>
+    <transformation>
+     <type>x-shift</type>
+     <offset>40</offset>
+    </transformation>
+    <transformation>
+     <type>y-shift</type>
+     <offset>10</offset>
+    </transformation>
+   </transformations>
+  </layer>
+
+ <layer>
+  <name>visor down right led</name>
+  <type>switch</type>
+
+  <layer>
+   <name>Off</name>
+   <type>group</type>
+   <condition>
+    <or>
+     <and>
+      <not-equals>
+       <property>/controls/nose-visor/pos-norm</property>
+       <property n="1">/sim/flaps/setting[1]</property>
+      </not-equals>
+      <not>
+       <property>/controls/lighting/crew/copilot/test</property>
+      </not>
+     </and>
+     <not include="concorde-cond-voltage-nose.xml"/>
+    </or>
+   </condition>
+
+   <layer include="concorde-bulb-led-off.xml">
+    <w>14</w>
+    <h>14</h>
+   </layer>
+   <layer>
+    <name>background visor down right</name>
+    <texture>
+     <path>Aircraft/Concorde/Panels/Instruments/Textures/concorde-green-led.png</path>
+    </texture>
+    <w>14</w>
+    <h>14</h>
+   </layer>
+  </layer>
+
+  <layer>
+   <name>On</name>
+   <type>group</type>
+
+   <layer include="concorde-bulb-led-on.xml">
+    <w>14</w>
+    <h>14</h>
+   </layer>
+   <layer>
+    <name>background visor down right</name>
+    <texture>
+     <path>Aircraft/Concorde/Panels/Instruments/Textures/concorde-green-led.png</path>
+    </texture>
+    <w>14</w>
+    <h>14</h>
+    <emissive>true</emissive>
+   </layer>
+  </layer>
+  <transformations>
+   <transformation>
+    <type>x-shift</type>
+    <offset>27</offset>
+   </transformation>
+   <transformation>
+    <type>y-shift</type>
+    <offset>13</offset>
+   </transformation>
+  </transformations>
+ </layer>
+
+<!-- 5 deg left -->
+
+  <layer>
+   <name>Title 5 deg</name>
+   <type>text</type>
+   <point-size>6</point-size>
+   <color>
+    <red>1.0</red>
+    <green>1.0</green>
+    <blue>1.0</blue>
+   </color>
+   <chunks>
+    <chunk>
+     <type>literal</type>
+     <text>5</text>
+    </chunk>
+   </chunks>
+   <transformations>
+    <transformation>
+     <type>x-shift</type>
+     <offset>-52</offset>
+    </transformation>
+    <transformation>
+     <type>y-shift</type>
+     <offset>-17</offset>
+    </transformation>
+   </transformations>
+  </layer>
+
+ <layer>
+  <name>5 deg left led</name>
+  <type>switch</type>
+
+  <layer>
+   <name>Off</name>
+   <type>group</type>
+   <condition>
+    <or>
+     <and>
+      <not-equals>
+       <property>/controls/nose-visor/pos-norm</property>
+       <property n="1">/sim/flaps/setting[2]</property>
+      </not-equals>
+      <not>
+       <property>/controls/lighting/crew/copilot/test</property>
+      </not>
+     </and>
+     <not include="concorde-cond-voltage-nose.xml"/>
+    </or>
+   </condition>
+
+   <layer include="concorde-bulb-led-off.xml">
+    <w>14</w>
+    <h>14</h>
+   </layer>
+   <layer>
+    <name>background 5 deg left</name>
+    <texture>
+     <path>Aircraft/Concorde/Panels/Instruments/Textures/concorde-green-led.png</path>
+    </texture>
+    <w>14</w>
+    <h>14</h>
+   </layer>
+  </layer>
+
+  <layer>
+   <name>On</name>
+   <type>group</type>
+
+   <layer include="concorde-bulb-led-on.xml">
+    <w>14</w>
+    <h>14</h>
+   </layer>
+   <layer>
+    <name>background 5 deg left</name>
+    <texture>
+     <path>Aircraft/Concorde/Panels/Instruments/Textures/concorde-green-led.png</path>
+    </texture>
+    <w>14</w>
+    <h>14</h>
+    <emissive>true</emissive>
+   </layer>
+  </layer>
+  <transformations>
+   <transformation>
+    <type>x-shift</type>
+    <offset>-27</offset>
+   </transformation>
+   <transformation>
+    <type>y-shift</type>
+    <offset>-15</offset>
+   </transformation>
+  </transformations>
+ </layer>
+
+<!-- 5 deg right -->
+
+  <layer>
+   <name>Title 5 deg</name>
+   <type>text</type>
+   <point-size>6</point-size>
+   <color>
+    <red>1.0</red>
+    <green>1.0</green>
+    <blue>1.0</blue>
+   </color>
+   <chunks>
+    <chunk>
+     <type>literal</type>
+     <text>5</text>
+    </chunk>
+   </chunks>
+   <transformations>
+    <transformation>
+     <type>x-shift</type>
+     <offset>47</offset>
+    </transformation>
+    <transformation>
+     <type>y-shift</type>
+     <offset>-17</offset>
+    </transformation>
+   </transformations>
+  </layer>
+
+ <layer>
+  <name>5 deg right led</name>
+  <type>switch</type>
+
+  <layer>
+   <name>Off</name>
+   <type>group</type>
+   <condition>
+    <or>
+     <and>
+      <not-equals>
+       <property>/controls/nose-visor/pos-norm</property>
+       <property n="1">/sim/flaps/setting[2]</property>
+      </not-equals>
+      <not>
+       <property>/controls/lighting/crew/copilot/test</property>
+      </not>
+     </and>
+     <not include="concorde-cond-voltage-nose.xml"/>
+    </or>
+   </condition>
+
+   <layer include="concorde-bulb-led-off.xml">
+    <w>14</w>
+    <h>14</h>
+   </layer>
+   <layer>
+    <name>background 5 deg right</name>
+    <texture>
+     <path>Aircraft/Concorde/Panels/Instruments/Textures/concorde-green-led.png</path>
+    </texture>
+    <w>14</w>
+    <h>14</h>
+   </layer>
+  </layer>
+
+  <layer>
+   <name>On</name>
+   <type>group</type>
+
+   <layer include="concorde-bulb-led-on.xml">
+    <w>14</w>
+    <h>14</h>
+   </layer>
+   <layer>
+    <name>background 5 deg right</name>
+    <texture>
+     <path>Aircraft/Concorde/Panels/Instruments/Textures/concorde-green-led.png</path>
+    </texture>
+    <w>14</w>
+    <h>14</h>
+    <emissive>true</emissive>
+   </layer>
+  </layer>
+  <transformations>
+   <transformation>
+    <type>x-shift</type>
+    <offset>27</offset>
+   </transformation>
+   <transformation>
+    <type>y-shift</type>
+    <offset>-15</offset>
+   </transformation>
+  </transformations>
+ </layer>
+
+<!-- nose down left -->
+
+  <layer>
+   <name>Title down</name>
+   <type>text</type>
+   <point-size>6</point-size>
+   <color>
+    <red>1.0</red>
+    <green>1.0</green>
+    <blue>1.0</blue>
+   </color>
+   <chunks>
+    <chunk>
+     <type>literal</type>
+     <text>DOWN</text>
+    </chunk>
+   </chunks>
+   <transformations>
+    <transformation>
+     <type>x-shift</type>
+     <offset>-60</offset>
+    </transformation>
+    <transformation>
+     <type>y-shift</type>
+     <offset>-45</offset>
+    </transformation>
+   </transformations>
+  </layer>
+
+ <layer>
+  <name>nose down left led</name>
+  <type>switch</type>
+
+  <layer>
+   <name>On</name>
+   <type>group</type>
+   <condition>
+    <and include="concorde-cond-voltage-nose.xml">
+     <or>
+      <equals>
+       <property>/controls/nose-visor/pos-norm</property>
+       <property n="1">/sim/flaps/setting[3]</property>
+      </equals>
+      <property>/controls/lighting/crew/copilot/test</property>
+     </or>
+    </and>
+   </condition>
+
+   <layer include="concorde-bulb-led-on.xml">
+    <w>14</w>
+    <h>14</h>
+   </layer>
+   <layer>
+    <name>background nose down left</name>
+    <texture>
+     <path>Aircraft/Concorde/Panels/Instruments/Textures/concorde-green-led.png</path>
+    </texture>
+    <w>14</w>
+    <h>14</h>
+    <emissive>true</emissive>
+   </layer>
+  </layer>
+
+  <layer>
+   <name>Off</name>
+   <type>group</type>
+
+   <layer include="concorde-bulb-led-off.xml">
+    <w>14</w>
+    <h>14</h>
+   </layer>
+   <layer>
+    <name>background nose down left</name>
+    <texture>
+     <path>Aircraft/Concorde/Panels/Instruments/Textures/concorde-green-led.png</path>
+    </texture>
+    <w>14</w>
+    <h>14</h>
+   </layer>
+  </layer>
+  <transformations>
+   <transformation>
+    <type>x-shift</type>
+    <offset>-27</offset>
+   </transformation>
+   <transformation>
+    <type>y-shift</type>
+    <offset>-43</offset>
+   </transformation>
+  </transformations>
+ </layer>
+
+<!-- nose down right -->
+
+  <layer>
+   <name>Title down</name>
+   <type>text</type>
+   <point-size>6</point-size>
+   <color>
+    <red>1.0</red>
+    <green>1.0</green>
+    <blue>1.0</blue>
+   </color>
+   <chunks>
+    <chunk>
+     <type>literal</type>
+     <text>DOWN</text>
+    </chunk>
+   </chunks>
+   <transformations>
+    <transformation>
+     <type>x-shift</type>
+     <offset>40</offset>
+    </transformation>
+    <transformation>
+     <type>y-shift</type>
+     <offset>-45</offset>
+    </transformation>
+   </transformations>
+  </layer>
+
+ <layer>
+  <name>nose down right led</name>
+  <type>switch</type>
+
+  <layer>
+   <name>On</name>
+   <type>group</type>
+   <condition>
+    <and include="concorde-cond-voltage-nose.xml">
+     <or>
+      <equals>
+       <property>/controls/nose-visor/pos-norm</property>
+       <property n="1">/sim/flaps/setting[3]</property>
+      </equals>
+      <property>/controls/lighting/crew/copilot/test</property>
+     </or>
+    </and>
+   </condition>
+
+   <layer include="concorde-bulb-led-on.xml">
+    <w>14</w>
+    <h>14</h>
+   </layer>
+   <layer>
+    <name>background nose down right</name>
+    <texture>
+     <path>Aircraft/Concorde/Panels/Instruments/Textures/concorde-green-led.png</path>
+    </texture>
+    <w>14</w>
+    <h>14</h>
+    <emissive>true</emissive>
+   </layer>
+  </layer>
+
+  <layer>
+   <name>Off</name>
+   <type>group</type>
+
+   <layer include="concorde-bulb-led-off.xml">
+    <w>14</w>
+    <h>14</h>
+   </layer>
+   <layer>
+    <name>background nose down right</name>
+    <texture>
+     <path>Aircraft/Concorde/Panels/Instruments/Textures/concorde-green-led.png</path>
+    </texture>
+    <w>14</w>
+    <h>14</h>
+   </layer>
+  </layer>
+  <transformations>
+   <transformation>
+    <type>x-shift</type>
+    <offset>27</offset>
+   </transformation>
+   <transformation>
+    <type>y-shift</type>
+    <offset>-43</offset>
+   </transformation>
+  </transformations>
+ </layer>
+
+ </layers>
+
+ <actions>
+
+  <action>
+   <name>Flap Retract</name>
+   <button>0</button>
+   <condition>
+    <and>
+     <property>/systems/hydraulic/power/green</property>
+     <not-equals>
+      <property>/controls/nose-visor/pos-norm</property>
+      <property n="1">/sim/flaps/setting[0]</property>
+     </not-equals>
+    </and>
+   </condition>
+   <x>-24.5</x>
+   <y>7</y>
+   <w>48</w>
+   <h>48</h>
+   <binding>
+    <command>nasal</command>
+    <script>controls.flapsDown(-1)</script>
+   </binding>
+   <binding>
+    <command>property-toggle</command>
+    <property>/instrumentation/generic/click</property>
+   </binding>
+  </action>
+
+  <action>
+   <name>Flap Extend</name>
+   <button>0</button>
+   <condition>
+    <and>
+     <property>/systems/hydraulic/power/green</property>
+     <not-equals>
+      <property>/controls/nose-visor/pos-norm</property>
+      <property n="1">/sim/flaps/setting[3]</property>
+     </not-equals>
+    </and>
+   </condition>
+   <x>-24.5</x>
+   <y>-55</y>
+   <w>48</w>
+   <h>48</h>
+   <binding>
+    <command>nasal</command>
+    <script>controls.flapsDown(1)</script>
+   </binding>
+   <binding>
+    <command>property-toggle</command>
+    <property>/instrumentation/generic/click</property>
+   </binding>
+  </action>
+
+ </actions>
+
+</PropertyList>

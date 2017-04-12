@@ -1,0 +1,170 @@
+<?xml version="1.0" ?> 
+
+<!-- the seats stop at window bottom, and pilot shoulder (A).
+
+
+
+     References
+     ==========
+     (A) http://www.airliners.net/open.file/0024969/L/ :
+         by Richard Paul.
+
+-->
+
+
+<PropertyList> 
+ <path>seat.ac</path> 
+
+ <nasal>
+  <load>
+   var livery_update = aircraft.livery_update.new(
+   "Aircraft/Concorde/Models/Liveries", 10,
+   func { print("Concorde livery update (copilot seat)") });
+  </load>
+
+  <unload>
+   livery_update.stop();
+  </unload>
+ </nasal>
+
+ <animation>
+  <name>unused</name>
+  <object-name>RailCaptain</object-name>
+ </animation>
+
+ <animation>
+  <type>select</type>
+  <object-name>unused</object-name>
+  <condition>
+    <equals>
+     <value>1</value>
+     <value>0</value>
+   </equals>
+  </condition>
+ </animation>
+
+ <animation>
+  <name>Seat</name>
+  <object-name>Seat_0</object-name>
+  <object-name>Seat_1</object-name>
+ </animation>
+
+ <animation>
+  <name>MovingSeat</name>
+  <object-name>Seat</object-name>
+  <object-name>ArmrestLeft</object-name>
+  <object-name>ArmrestRight</object-name>
+  <object-name>Boggie</object-name>
+ </animation>
+
+ <animation>
+  <name>AllSeat</name>
+  <object-name>MovingSeat</object-name>
+  <object-name>RailCopilot</object-name>
+ </animation>
+
+ <animation>
+  <type>material</type>
+  <object-name>MovingSeat</object-name>
+  <property-base>sim/model/livery/</property-base>
+  <texture-prop>texture-seat</texture-prop>
+ </animation>
+
+ <animation>
+  <type>material</type>
+  <object-name>AllSeat</object-name>
+  <emission>
+   <red>0.66</red>
+   <green>0.68</green>
+   <blue>0.64</blue>
+   <factor-prop>systems/lighting/level/roof</factor-prop>
+  </emission> 
+ </animation> 
+
+<!-- raises the armrest to reach the pedestal -->
+
+ <animation>
+  <type>rotate</type>
+  <object-name>ArmrestLeft</object-name>
+  <offset-deg>80</offset-deg>   
+  <condition>
+   <property>systems/seat/copilot</property>
+  </condition>
+  <center>
+   <x-m>0.255</x-m>
+   <y-m>0.0</y-m>
+   <z-m>0.756</z-m>
+  </center>
+  <axis>
+   <x>0.0</x>
+   <y>1.0</y>
+   <z>0.0</z>
+  </axis>
+ </animation>
+ 
+ <animation>
+  <type>translate</type>
+  <object-name>MovingSeat</object-name>
+  <property>systems/human/copilot/stowe-norm</property>
+  <interpolation>
+   <entry>
+     <ind>0.0</ind>
+     <dep>0.0</dep>
+   </entry>
+   <entry>
+     <ind>0.7</ind>
+     <dep>0.22</dep>
+   </entry>
+   <entry>
+     <ind>1.0</ind>
+     <dep>0.22</dep>
+   </entry>
+  </interpolation>   
+  <axis>
+   <x>1.0</x>
+   <y>0.0</y>
+   <z>0.0</z>
+  </axis>
+ </animation>
+
+<!-- stowing -->
+
+ <animation>
+  <type>translate</type>
+  <object-name>MovingSeat</object-name>
+  <property>systems/human/copilot/stowe-norm</property>
+  <interpolation>
+   <entry>
+     <ind>0.0</ind>
+     <dep>0.0</dep>
+   </entry>
+   <entry>
+     <ind>0.7</ind>
+     <dep>0.0</dep>
+   </entry>
+   <entry>
+     <ind>1.0</ind>
+     <dep>0.08</dep>
+   </entry>
+  </interpolation>   
+  <axis>
+   <x>0.0</x>
+   <y>1.0</y>
+   <z>0.0</z>
+  </axis>
+ </animation>
+
+ <animation>
+  <type>pick</type>
+  <object-name>Seat</object-name>
+  <action>
+   <button>0</button>
+   <repeatable>false</repeatable>
+   <binding>
+    <command>nasal</command>
+    <script>globals.Concorde.seatsystem.railexport("copilot");</script>
+   </binding>
+  </action>
+ </animation>
+
+</PropertyList>

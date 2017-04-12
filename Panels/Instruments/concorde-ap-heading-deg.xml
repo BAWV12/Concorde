@@ -1,0 +1,389 @@
+<?xml version="1.0"?>
+
+<!-- - the magnetic heading dial is dissociated from its autopilot bug;
+     as heading hold is pressed, the current heading is supposed not echoed on the dial.
+
+     - the true heading dial is also dissociated from its autopilot bug;
+     but the value is always mirrored to the autopilot, for the HSI, except if INS, because
+     true heading hold and waypoint hold are not dissociated by the autopilot.
+
+     - mouse 3rd button toggles track / heading.
+-->
+
+<PropertyList>
+
+ <name>Dial heading</name>
+ <w-base>100</w-base>
+ <h-base>100</h-base>
+
+ <params>
+  <hdg-ctrl>/controls/autoflight/autopilot[0]/heading-select</hdg-ctrl>
+  <true-hdg-ctrl>/controls/autoflight/autopilot[0]/heading-true-select</true-hdg-ctrl>
+  <track-ctrl>/controls/autoflight/autopilot[0]/track-push</track-ctrl>
+ </params>
+
+ <layers>
+
+  <layer>
+   <name>background</name>
+   <texture>
+    <path>Aircraft/Concorde/Panels/Instruments/Textures/concorde-black-bg.png</path>
+   </texture>
+    <w>70</w>
+    <h>35</h>
+   <transformations>
+    <transformation>
+     <type>x-shift</type>
+     <offset>13</offset>
+    </transformation>
+    <transformation>
+     <type>y-shift</type>
+     <offset>4</offset>
+    </transformation>
+   </transformations>
+  </layer>
+
+  <layer>
+   <name>heading display</name>
+   <type>switch</type>
+
+   <layer>
+    <name>magnetic heading display</name>
+    <condition>
+     <not>
+      <property alias="../../../../../../params/track-ctrl"/>
+     </not>
+    </condition>
+    <type>text</type>
+    <font>led</font>
+    <point-size>7.5</point-size>
+    <color>
+     <red>1.0</red>
+     <green>1.0</green>
+     <blue>1.0</blue>
+    </color>
+    <chunks>
+     <chunk>
+      <type>number-value</type>
+      <property alias="../../../../../../params/hdg-ctrl"/>
+      <format>%03.0f</format>
+     </chunk>
+    </chunks>
+   </layer>
+
+   <layer>
+    <name>true heading display</name>
+    <type>text</type>
+    <font>led</font>
+    <point-size>7.5</point-size>
+    <color>
+     <red>1.0</red>
+     <green>1.0</green>
+     <blue>1.0</blue>
+    </color>
+    <chunks>
+     <chunk>
+      <type>number-value</type>
+      <property alias="../../../../../../params/true-hdg-ctrl"/>
+      <format>%03.0f</format>
+     </chunk>
+    </chunks>
+   </layer>
+
+   <transformations>
+    <transformation>
+     <type>x-shift</type>
+     <offset>-2</offset>
+    </transformation>
+    <transformation>
+     <type>y-shift</type>
+     <offset>-2</offset>
+    </transformation>
+   </transformations>
+  </layer>
+
+<!-- selector -->
+
+  <layer>
+   <name>knob</name>
+   <type>switch</type>
+
+   <layer>
+    <name>knob left</name>
+    <condition>
+     <not>
+      <property alias="../../../../../../params/track-ctrl"/>
+     </not>
+    </condition>
+    <texture>
+     <path>Aircraft/Concorde/Panels/Instruments/Textures/navcom-radios.png</path>
+     <x1>0.53125</x1>
+     <x2>0.59765625</x2>
+     <y1>0.05859375</y1>
+     <y2>0.1484375</y2>
+    </texture>
+    <w>25</w>
+    <h>25</h>
+    <transformations>
+     <transformation>
+      <type>rotation</type>
+      <offset>-90</offset>
+     </transformation>
+    </transformations>
+   </layer>
+
+   <layer>
+    <name>knob right</name>
+    <texture>
+     <path>Aircraft/Concorde/Panels/Instruments/Textures/navcom-radios.png</path>
+     <x1>0.53125</x1>
+     <x2>0.59765625</x2>
+     <y1>0.05859375</y1>
+     <y2>0.1484375</y2>
+    </texture>
+    <w>25</w>
+    <h>25</h>
+    <transformations>
+     <transformation>
+      <type>rotation</type>
+      <offset>90</offset>
+     </transformation>
+    </transformations>
+   </layer>
+
+   <transformations>
+    <transformation>
+     <type>x-shift</type>
+     <offset>15</offset>
+    </transformation>
+    <transformation>
+     <type>y-shift</type>
+     <offset>-27</offset>
+    </transformation>
+   </transformations>
+  </layer>
+
+  <layer>
+   <name>Heading Pull Title</name>
+   <type>text</type>
+   <point-size>10</point-size>
+   <color>
+    <red>1.0</red>
+    <green>1.0</green>
+    <blue>1.0</blue>
+   </color>
+   <chunks>
+    <chunk>
+     <type>literal</type>
+     <text>HDG</text>
+    </chunk>
+   </chunks>
+   <transformations>
+    <transformation>
+     <type>x-shift</type>
+     <offset>-26</offset>
+    </transformation>
+    <transformation>
+     <type>y-shift</type>
+     <offset>-31</offset>
+    </transformation>
+   </transformations>
+  </layer>
+
+  <layer>
+   <name>Track Push Title</name>
+   <type>text</type>
+   <point-size>10</point-size>
+   <color>
+    <red>1.0</red>
+    <green>1.0</green>
+    <blue>1.0</blue>
+   </color>
+   <chunks>
+    <chunk>
+     <type>literal</type>
+     <text>TRK</text>
+    </chunk>
+   </chunks>
+   <transformations>
+    <transformation>
+     <type>x-shift</type>
+     <offset>30</offset>
+    </transformation>
+    <transformation>
+     <type>y-shift</type>
+     <offset>-31</offset>
+    </transformation>
+   </transformations>
+  </layer>
+
+ </layers>
+
+ <actions>
+
+  <action>
+   <name>Plus 10</name>
+   <button>0</button>
+   <x>1</x>
+   <y>-28</y>
+   <w>14</w>
+   <h>14</h>
+   <binding>
+    <condition>
+     <property alias="../../../../../params/track-ctrl"/>
+    </condition>
+    <command>property-adjust</command>
+    <property alias="../../../../params/true-hdg-ctrl"/>
+    <step>10</step>
+    <min>0</min>
+    <max>360</max>
+    <wrap>1</wrap>
+   </binding>
+   <binding>
+    <condition>
+     <not>
+      <property alias="../../../../../../params/track-ctrl"/>
+     </not>
+    </condition>
+    <command>property-adjust</command>
+    <property alias="../../../../params/hdg-ctrl"/>
+    <step>10</step>
+    <min>0</min>
+    <max>360</max>
+    <wrap>1</wrap>
+   </binding>
+   <binding>
+    <command>nasal</command>
+    <script>globals.Concorde.autopilotsystem.apsendheadingexport();</script>
+   </binding>
+  </action>
+
+  <action>
+   <name>Minus 10</name>
+   <button>0</button>
+   <x>1</x>
+   <y>-40</y>
+   <w>14</w>
+   <h>14</h>
+   <binding>
+    <condition>
+     <property alias="../../../../../params/track-ctrl"/>
+    </condition>
+    <command>property-adjust</command>
+    <property alias="../../../../params/true-hdg-ctrl"/>
+    <step>-10</step>
+    <min>0</min>
+    <max>360</max>
+    <wrap>1</wrap>
+   </binding>
+   <binding>
+    <condition>
+     <not>
+      <property alias="../../../../../../params/track-ctrl"/>
+     </not>
+    </condition>
+    <command>property-adjust</command>
+    <property alias="../../../../params/hdg-ctrl"/>
+    <step>-10</step>
+    <min>0</min>
+    <max>360</max>
+    <wrap>1</wrap>
+   </binding>
+   <binding>
+    <command>nasal</command>
+    <script>globals.Concorde.autopilotsystem.apsendheadingexport();</script>
+   </binding>
+  </action>
+
+  <action>
+   <name>Plus 1</name>
+   <button>0</button>
+   <x>14</x>
+   <y>-28</y>
+   <w>14</w>
+   <h>14</h>
+   <binding>
+    <condition>
+     <property alias="../../../../../params/track-ctrl"/>
+    </condition>
+    <command>property-adjust</command>
+    <property alias="../../../../params/true-hdg-ctrl"/>
+    <step>1</step>
+    <min>0</min>
+    <max>360</max>
+    <wrap>1</wrap>
+   </binding>
+   <binding>
+    <condition>
+     <not>
+      <property alias="../../../../../../params/track-ctrl"/>
+     </not>
+    </condition>
+    <command>property-adjust</command>
+    <property alias="../../../../params/hdg-ctrl"/>
+    <step>1</step>
+    <min>0</min>
+    <max>360</max>
+    <wrap>1</wrap>
+   </binding>
+   <binding>
+    <command>nasal</command>
+    <script>globals.Concorde.autopilotsystem.apsendheadingexport();</script>
+   </binding>
+  </action>
+
+  <action>
+   <name>Minus 1</name>
+   <button>0</button>
+   <x>14</x>
+   <y>-40</y>
+   <w>14</w>
+   <h>14</h>
+   <binding>
+    <condition>
+     <property alias="../../../../../params/track-ctrl"/>
+    </condition>
+    <command>property-adjust</command>
+    <property alias="../../../../params/true-hdg-ctrl"/>
+    <step>-1</step>
+    <min>0</min>
+    <max>360</max>
+    <wrap>1</wrap>
+   </binding>
+   <binding>
+    <condition>
+     <not>
+      <property alias="../../../../../../params/track-ctrl"/>
+     </not>
+    </condition>
+    <command>property-adjust</command>
+    <property alias="../../../../params/hdg-ctrl"/>
+    <step>-1</step>
+    <min>0</min>
+    <max>360</max>
+    <wrap>1</wrap>
+   </binding>
+   <binding>
+    <command>nasal</command>
+    <script>globals.Concorde.autopilotsystem.apsendheadingexport();</script>
+   </binding>
+  </action>
+
+<!-- selector -->
+
+  <action>
+   <name>Heading Pull / Track push</name>
+   <button>1</button>
+   <x>1</x>
+   <y>-41</y>
+   <w>26</w>
+   <h>26</h>
+   <binding>
+    <command>property-toggle</command>
+    <property alias="../../../../params/track-ctrl"/>
+   </binding>
+  </action>
+
+ </actions>
+
+</PropertyList>

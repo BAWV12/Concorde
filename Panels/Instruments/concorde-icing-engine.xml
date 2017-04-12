@@ -1,0 +1,78 @@
+<?xml version="1.0"?>
+
+<!-- Engine anti-icing switch -->
+
+<PropertyList>
+
+ <name>Engine anti-icing switch</name>
+ <w-base>52</w-base>
+ <h-base>78</h-base>
+
+ <params>
+  <engine-switch>/controls/anti-ice/engine[0]/inlet-vane</engine-switch>
+ </params>
+
+
+ <layers>
+
+  <layer>
+   <name>background</name>
+   <texture>
+    <path>Aircraft/Concorde/Panels/Instruments/Textures/concorde-fuel-pump.png</path>
+    <x1>0.0</x1>
+    <y1>0.0</y1>
+    <x2>1.0</x2>
+    <y2>1.0</y2>
+   </texture>
+   <w>75</w>
+   <h>75</h>
+   <transformations>
+    <transformation>
+     <type>y-shift</type>
+     <offset>3</offset>
+    </transformation>
+   </transformations>
+  </layer>
+
+  <layer>
+   <name>Anti-icing</name>
+   <type>switch</type>
+
+   <layer include="concorde-switch-off.xml">
+    <name>off</name>
+    <condition>
+     <not>
+      <property alias="../../../../../../params/engine-switch"/>
+     </not>
+    </condition>
+   </layer>
+
+   <layer include="concorde-switch-on.xml">
+    <name>on</name>
+   </layer>
+  </layer>
+
+ </layers>
+
+ <actions>
+
+  <action>
+   <name>Toggle anti-icing</name>
+   <button>0</button>
+   <x>-21</x>
+   <y>-21</y>
+   <w>42</w>
+   <h>42</h>
+   <binding>
+    <command>property-toggle</command>
+    <property alias="../../../../params/engine-switch"/>
+   </binding>
+   <binding>
+    <command>property-toggle</command>
+    <property>/instrumentation/generic/click</property>
+   </binding>
+  </action>
+
+ </actions>
+ 
+</PropertyList>

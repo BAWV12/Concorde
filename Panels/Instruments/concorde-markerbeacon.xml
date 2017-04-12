@@ -1,0 +1,278 @@
+<?xml version="1.0"?>
+
+<!-- Concorde Marker beacon indicator
+
+
+Adapted from John Check <j4strngs@usa.net>
+_____________________________________________________________________
+
+This is an instrument configuration file for the open-source flight
+simulator FlightGear (www.flightgear.org).  The file is an XML-encoded
+FlightGear property list defining the instrument's layers and actions.
+ 
+Each instrument is composed of layers stacked on top of each other.
+A layer may be a texture (with transparent parts to show the layers
+underneath), text, or a special layer that switches between two
+others (say, to turn an indicator light on or off).  Each layer can
+move independently in proportion to a property value, and text
+can be generated from property values as well: all of the layer's
+movements are defined as transformations.
+ 
+Actions are hotspots on the instrument that will respond to a mouse
+click.  Actions always modify the values of properties, either by
+adjusting them, toggling them, or swapping them with other
+properties' values.
+
+-->
+
+<PropertyList>
+ <name>marker beacon</name>
+ <w-base>30</w-base>
+ <h-base>90</h-base>
+
+ <layers>
+
+
+
+<!-- Outer Indicator -->
+  <layer>
+   <name>lamp</name>
+   <type>switch</type>
+
+   <layer>
+    <name>on</name>
+    <type>group</type>
+    <condition>
+     <or>
+      <and include="concorde-cond-voltage-marker.xml">
+       <property>/instrumentation/marker-beacon/test-outer</property>
+      </and>
+      <property>/instrumentation/marker-beacon/outer</property>
+     </or>
+    </condition>
+
+    <layer include="concorde-bulb-led-on.xml">
+     <w>26</w>
+     <h>26</h>
+    </layer>
+    <layer>
+     <name>Lens-Outer on</name>
+     <texture>
+      <path>Aircraft/Concorde/Panels/Instruments/Textures/led.png</path>
+      <x1>0.75</x1>
+      <y1>0.0</y1>
+      <x2>1.0</x2>
+      <y2>0.25</y2>
+     </texture>
+     <w>26</w>
+     <h>26</h>
+     <emissive>true</emissive>
+    </layer>
+   </layer>
+
+   <layer>
+    <name>off</name>
+    <type>group</type>
+
+    <layer include="concorde-bulb-led-off.xml">
+     <w>26</w>
+     <h>26</h>
+    </layer>
+    <layer>
+     <name>Lens-Outer off</name>
+     <texture>
+      <path>Aircraft/Concorde/Panels/Instruments/Textures/led.png</path>
+      <x1>0.75</x1>
+      <y1>0.0</y1>
+      <x2>1.0</x2>
+      <y2>0.25</y2>
+     </texture>
+     <w>26</w>
+     <h>26</h>
+    </layer>
+   </layer>
+   <transformations>
+    <transformation>
+    <type>y-shift</type>
+     <offset>-29</offset>
+    </transformation>
+   </transformations>
+  </layer>
+
+  <layer>
+   <name>Bezel-Outer</name>
+   <texture>
+    <path>Aircraft/Concorde/Panels/Instruments/Textures/led.png</path>
+    <x1>0.0</x1>
+    <y1>0.75</y1>
+    <x2>0.25</x2>
+    <y2>1.0</y2>
+   </texture>
+   <w>26</w>
+   <h>26</h>
+   <transformations>
+    <transformation>
+    <type>y-shift</type>
+     <offset>-29</offset>
+    </transformation>
+   </transformations>
+  </layer>
+
+<!-- Middle Indicator -->
+  <layer>
+   <name>lamp</name>
+   <type>switch</type>
+
+   <layer>
+    <name>on</name>
+    <type>group</type>
+    <condition>
+     <or>
+      <and include="concorde-cond-voltage-marker.xml">
+       <property>/instrumentation/marker-beacon/test-middle</property>
+      </and>
+      <property>/instrumentation/marker-beacon/middle</property> 
+     </or>
+    </condition>
+
+    <layer include="concorde-bulb-led-on.xml">
+     <w>26</w>
+     <h>26</h>
+    </layer>
+    <layer>
+     <name>Lens-Middle on</name>
+     <texture>
+      <path>Aircraft/Concorde/Panels/Instruments/Textures/led.png</path>
+      <x1>0.5</x1>
+      <y1>0.0</y1>
+      <x2>0.75</x2>
+      <y2>0.25</y2>
+     </texture>
+     <w>26</w>
+     <h>26</h>
+     <emissive>true</emissive>
+    </layer>
+   </layer>
+
+   <layer>
+    <name>off</name>
+    <type>group</type>
+
+    <layer include="concorde-bulb-led-off.xml">
+     <w>26</w>
+     <h>26</h>
+    </layer>
+   <layer>
+     <name>Lens-Middle off</name>
+     <texture>
+      <path>Aircraft/Concorde/Panels/Instruments/Textures/led.png</path>
+      <x1>0.5</x1>
+      <y1>0.0</y1>
+      <x2>0.75</x2>
+      <y2>0.25</y2>
+     </texture>
+     <w>26</w>
+     <h>26</h>
+    </layer>
+   </layer>
+  </layer>
+  
+  <layer>
+   <name>Bezel-Middle</name>
+   <texture>
+    <path>Aircraft/Concorde/Panels/Instruments/Textures/led.png</path>
+    <x1>0.0</x1>
+    <y1>0.75</y1>
+    <x2>0.25</x2>
+    <y2>1.0</y2>
+   </texture>
+   <w>26</w>
+   <h>26</h>
+  </layer>
+
+<!-- Inner Indicator -->
+  <layer>
+   <name>lamp</name>
+   <type>switch</type>
+
+   <layer>
+    <name>on</name>
+    <type>group</type>
+    <condition>
+     <or>
+      <and include="concorde-cond-voltage-marker.xml">
+       <property>/instrumentation/marker-beacon/test-inner</property>
+      </and>
+      <property>/instrumentation/marker-beacon/inner</property> 
+     </or>
+    </condition>
+
+    <layer include="concorde-bulb-led-on.xml">
+     <w>26</w>
+     <h>26</h>
+    </layer>
+    <layer>
+     <name>Lens-Inner on</name>
+     <texture>
+      <path>Aircraft/Concorde/Panels/Instruments/Textures/led.png</path>
+      <x1>0.0</x1>
+      <y1>0.25</y1>
+      <x2>0.25</x2>
+      <y2>0.5</y2>
+     </texture>
+     <w>26</w>
+     <h>26</h>
+    <emissive>true</emissive>
+    </layer>
+   </layer>
+
+   <layer>
+    <name>off</name>
+    <type>group</type>
+
+    <layer include="concorde-bulb-led-off.xml">
+     <w>26</w>
+     <h>26</h>
+    </layer>
+    <layer>
+     <name>Lens-Inner off</name>
+     <texture>
+      <path>Aircraft/Concorde/Panels/Instruments/Textures/led.png</path>
+      <x1>0.0</x1>
+      <y1>0.25</y1>
+      <x2>0.25</x2>
+      <y2>0.5</y2>
+     </texture>
+     <w>26</w>
+     <h>26</h>
+   </layer>
+   </layer>
+   <transformations>
+    <transformation>
+     <type>y-shift</type>
+     <offset>29</offset>
+    </transformation>
+   </transformations>
+  </layer>
+
+  <layer>
+   <name>Bezel-Inner</name>
+   <texture>
+    <path>Aircraft/Concorde/Panels/Instruments/Textures/led.png</path>
+    <x1>0.0</x1>
+    <y1>0.75</y1>
+    <x2>0.25</x2>
+    <y2>1.0</y2>
+   </texture>
+   <w>26</w>
+   <h>26</h>
+   <transformations>
+    <transformation>
+     <type>y-shift</type>
+     <offset>29</offset>
+    </transformation>
+   </transformations>
+  </layer>
+
+ </layers>
+</PropertyList>

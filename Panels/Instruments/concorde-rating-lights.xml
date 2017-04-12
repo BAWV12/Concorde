@@ -1,0 +1,435 @@
+<?xml version="1.0"?>
+
+<!-- Concorde engine rating :
+
+     - flashing if automatic selection of contingency = reheat selector + takeoff monitor.
+     - Flightgear doesn't have support for engine rating.
+-->
+
+<PropertyList>
+ <name>Engine rating</name>
+ <w-base>104</w-base>
+ <h-base>156</h-base>
+
+
+ <layers>
+
+
+
+<!-- CONTINGENCY -->
+
+<!-- translucent lens -->  
+  <layer>
+   <name>Contingency light</name>
+   <type>switch</type>
+ 
+   <layer>
+    <name>off</name>
+    <type>group</type>
+    <condition>
+     <or>
+      <and>
+       <or include="concorde-cond-flashing-light.xml">
+        <and>
+         <not>
+          <property>/controls/engines/engine[0]/contingency</property>
+         </not>
+         <not>
+          <property>/controls/engines/engine[1]/contingency</property>
+         </not>
+         <not>
+          <property>/controls/engines/engine[2]/contingency</property>
+         </not>
+         <not>
+          <property>/controls/engines/engine[3]/contingency</property>
+         </not>
+        </and>
+       </or>
+       <or include="concorde-cond-test-captain.xml"/>
+      </and>
+      <or include="concorde-cond-voltage-bulb.xml"/>
+     </or>
+    </condition>
+
+    <layer include="concorde-bulb-off.xml">
+     <w>104</w>
+     <h>26</h>
+    </layer>
+    <layer>
+     <name>background off</name>
+     <texture>
+      <path>Aircraft/Concorde/Panels/Instruments/Textures/concorde-yellow-warning.png</path>
+     </texture>
+     <w>104</w>
+     <h>26</h>
+    </layer>
+   </layer>
+
+   <layer>
+    <name>on</name>
+    <type>group</type>
+
+    <layer include="concorde-bulb-on.xml">
+     <condition include="concorde-cond-light-captain.xml"/>
+     <w>104</w>
+     <h>26</h>
+    </layer>
+    <layer>
+     <name>background on</name>
+     <texture>
+      <path>Aircraft/Concorde/Panels/Instruments/Textures/concorde-yellow-warning.png</path>
+     </texture>
+     <w>104</w>
+     <h>26</h>
+     <emissive>true</emissive>
+    </layer>
+   </layer>
+   <transformations>
+    <transformation>
+     <type>y-shift</type>
+     <offset>39</offset>
+    </transformation>
+   </transformations>
+  </layer>
+
+  <layer>
+   <name>Contingency title</name>
+   <type>text</type>
+   <point-size>40</point-size>
+   <color>
+    <red>0.0</red>
+    <green>0.0</green>
+    <blue>0.0</blue>
+   </color>
+   <chunks>
+    <chunk>
+     <type>literal</type>
+     <text>CTY</text>
+    </chunk>
+   </chunks>
+   <transformations>
+    <transformation>
+     <type>x-shift</type>
+     <offset>-44</offset>
+    </transformation>
+    <transformation>
+     <type>y-shift</type>
+     <offset>33</offset>
+    </transformation>
+   </transformations>
+  </layer>
+
+<!-- TAKEOFF -->
+
+<!-- translucent lens -->  
+  <layer>
+   <name>Takeoff light</name>
+   <type>switch</type>
+
+   <layer>
+    <name>on</name>
+    <type>group</type>
+    <condition>
+     <and>
+      <or>
+       <equals>
+        <property>/systems/engines/engine[0]/rating</property>
+        <value>takeoff</value>
+       </equals>
+       <equals>
+        <property>/systems/engines/engine[1]/rating</property>
+        <value>takeoff</value>
+       </equals>
+       <equals>
+        <property>/systems/engines/engine[2]/rating</property>
+        <value>takeoff</value>
+       </equals>
+       <equals>
+        <property>/systems/engines/engine[3]/rating</property>
+        <value>takeoff</value>
+       </equals>
+       <not include="concorde-cond-test-captain.xml"/>
+      </or>
+      <not include="concorde-cond-voltage-bulb.xml"/>
+     </and>
+    </condition>
+
+    <layer include="concorde-bulb-white-on.xml">
+     <condition include="concorde-cond-light-captain.xml"/>
+     <w>104</w>
+     <h>26</h>
+    </layer>
+    <layer>
+     <name>background lighted</name>
+     <texture>
+      <path>Aircraft/Concorde/Panels/Instruments/Textures/concorde-white-bulb.png</path>
+     </texture>
+     <w>104</w>
+     <h>26</h>
+     <emissive>true</emissive>
+    </layer>
+   </layer>
+
+   <layer>
+    <name>off</name>
+    <type>group</type>
+
+    <layer include="concorde-bulb-white-off.xml">
+     <w>104</w>
+     <h>26</h>
+    </layer>
+    <layer>
+     <name>background</name>
+     <texture>
+      <path>Aircraft/Concorde/Panels/Instruments/Textures/concorde-white-bulb.png</path>
+     </texture>
+     <w>104</w>
+     <h>26</h>
+    </layer>
+   </layer>
+   <transformations>
+    <transformation>
+     <type>y-shift</type>
+     <offset>13</offset>
+    </transformation>
+   </transformations>
+  </layer>
+
+  <layer>
+   <name>Takeoff title</name>
+   <type>text</type>
+   <point-size>40</point-size>
+   <color>
+    <red>0.0</red>
+    <green>0.0</green>
+    <blue>0.0</blue>
+   </color>
+   <chunks>
+    <chunk>
+     <type>literal</type>
+     <text>T/O</text>
+    </chunk>
+   </chunks>
+   <transformations>
+    <transformation>
+     <type>x-shift</type>
+     <offset>-38</offset>
+    </transformation>
+    <transformation>
+     <type>y-shift</type>
+     <offset>7</offset>
+    </transformation>
+   </transformations>
+  </layer>
+
+<!-- CLIMB -->
+
+<!-- translucent lens -->
+
+  <layer>
+   <name>Climb light</name>
+   <type>switch</type>
+
+   <layer>
+    <name>off</name>
+    <type>group</type>
+    <condition>
+     <or>
+      <and>
+       <not-equals>
+        <property>/systems/engines/engine[0]/rating</property>
+        <value>climb</value>
+       </not-equals>
+       <not-equals>
+        <property>/systems/engines/engine[1]/rating</property>
+        <value>climb</value>
+       </not-equals>
+       <not-equals>
+        <property>/systems/engines/engine[2]/rating</property>
+        <value>climb</value>
+       </not-equals>
+       <not-equals>
+        <property>/systems/engines/engine[3]/rating</property>
+        <value>climb</value>
+       </not-equals>
+       <or include="concorde-cond-test-captain.xml"/>
+      </and>
+      <or include="concorde-cond-voltage-bulb.xml"/>
+     </or>
+    </condition>
+
+    <layer include="concorde-bulb-white-off.xml">
+     <w>104</w>
+     <h>26</h>
+    </layer>
+    <layer>
+     <name>background</name>
+     <texture>
+      <path>Aircraft/Concorde/Panels/Instruments/Textures/concorde-white-bulb.png</path>
+     </texture>
+     <w>104</w>
+     <h>26</h>
+    </layer>
+   </layer>
+
+   <layer>
+    <name>on</name>
+    <type>group</type>
+
+    <layer include="concorde-bulb-white-on.xml">
+     <condition include="concorde-cond-light-captain.xml"/>
+     <w>104</w>
+     <h>26</h>
+    </layer>
+    <layer>
+     <name>background lighted</name>
+     <texture>
+      <path>Aircraft/Concorde/Panels/Instruments/Textures/concorde-white-bulb.png</path>
+     </texture>
+     <w>104</w>
+     <h>26</h>
+     <emissive>true</emissive>
+    </layer>
+   </layer>
+   <transformations>
+    <transformation>
+     <type>y-shift</type>
+     <offset>-13</offset>
+    </transformation>
+   </transformations>
+  </layer>
+
+  <layer>
+   <name>Climb title</name>
+   <type>text</type>
+   <point-size>40</point-size>
+   <color>
+    <red>0.0</red>
+    <green>0.0</green>
+    <blue>0.0</blue>
+   </color>
+   <chunks>
+    <chunk>
+     <type>literal</type>
+     <text>CLB</text>
+    </chunk>
+   </chunks>
+   <transformations>
+    <transformation>
+     <type>x-shift</type>
+     <offset>-43</offset>
+    </transformation>
+    <transformation>
+     <type>y-shift</type>
+     <offset>-18</offset>
+    </transformation>
+   </transformations>
+  </layer>
+  
+<!-- CRUISE -->
+
+<!-- translucent lens -->  
+  <layer>
+   <name>Cruise light</name>
+   <type>switch</type>
+
+   <layer>
+    <name>off</name>
+    <type>group</type>
+    <condition>
+     <or>
+      <and>
+       <not-equals>
+        <property>/systems/engines/engine[0]/rating</property>
+        <value>cruise</value>
+       </not-equals>
+       <not-equals>
+        <property>/systems/engines/engine[1]/rating</property>
+        <value>cruise</value>
+       </not-equals>
+       <not-equals>
+        <property>/systems/engines/engine[2]/rating</property>
+        <value>cruise</value>
+       </not-equals>
+       <not-equals>
+        <property>/systems/engines/engine[3]/rating</property>
+        <value>cruise</value>
+       </not-equals>
+       <or include="concorde-cond-test-captain.xml"/>
+      </and>
+      <or include="concorde-cond-voltage-bulb.xml"/>
+     </or>
+    </condition>
+
+    <layer include="concorde-bulb-white-off.xml">
+     <w>104</w>
+     <h>26</h>
+    </layer>
+    <layer>
+     <name>background</name>
+     <texture>
+      <path>Aircraft/Concorde/Panels/Instruments/Textures/concorde-white-bulb.png</path>
+     </texture>
+     <w>104</w>
+     <h>26</h>
+    </layer>
+   </layer>
+
+   <layer>
+    <name>on</name>
+    <type>group</type>
+
+    <layer include="concorde-bulb-white-on.xml">
+     <condition include="concorde-cond-light-captain.xml"/>
+     <w>104</w>
+     <h>26</h>
+     <emissive>true</emissive>
+    </layer>
+    <layer>
+     <name>background lighted</name>
+     <texture>
+      <path>Aircraft/Concorde/Panels/Instruments/Textures/concorde-white-bulb.png</path>
+     </texture>
+     <w>104</w>
+     <h>26</h>
+     <emissive>true</emissive>
+    </layer>
+   </layer>
+   <transformations>
+    <transformation>
+     <type>y-shift</type>
+     <offset>-39</offset>
+    </transformation>
+   </transformations>
+  </layer>
+
+  <layer>
+   <name>Cruise title</name>
+   <type>text</type>
+   <point-size>40</point-size>
+   <color>
+    <red>0.0</red>
+    <green>0.0</green>
+    <blue>0.0</blue>
+   </color>
+   <chunks>
+    <chunk>
+     <type>literal</type>
+     <text>CRS</text>
+    </chunk>
+   </chunks>
+   <transformations>
+    <transformation>
+     <type>x-shift</type>
+     <offset>-46</offset>
+    </transformation>
+    <transformation>
+     <type>y-shift</type>
+     <offset>-44</offset>
+    </transformation>
+   </transformations>
+  </layer>
+
+ </layers>
+
+</PropertyList>

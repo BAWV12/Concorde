@@ -1,0 +1,305 @@
+<?xml version="1.0"?>
+
+<!-- INS failure  :
+
+     - INS not aligned.
+     - not serviceable.
+     - test.
+-->
+
+<PropertyList>
+ <name>INS comparator lights</name>
+ <w-base>612</w-base>
+ <h-base>39</h-base>
+
+
+ <layers>
+
+
+
+<!-- INS 1 failure -->
+
+<!-- translucent lens -->
+
+  <layer>
+   <name>INS 1 light</name>
+   <type>switch</type>
+ 
+   <layer>
+    <name>off</name>
+    <type>group</type>
+    <condition>
+     <or>
+      <or include="concorde-cond-voltage-bulb.xml"/>
+      <and>
+       <or include="concorde-cond-test-captain.xml"/>
+       <not>
+        <property>/instrumentation/ins[0]/light/warning</property>
+       </not>
+      </and>
+     </or>
+    </condition>
+
+    <layer include="concorde-bulb-off.xml">
+     <w>104</w>
+     <h>26</h>
+    </layer>
+    <layer>
+     <name>background off</name>
+     <texture>
+      <path>Aircraft/Concorde/Panels/Instruments/Textures/concorde-red-ins1.png</path>
+      <x1>0.0</x1>
+      <y1>0.0</y1>
+      <x2>1.0</x2>
+      <y2>1.0</y2>
+     </texture>
+     <w>104</w>
+     <h>26</h>
+    </layer>
+   </layer>
+
+   <layer>
+    <name>on</name>
+    <type>group</type>
+
+    <layer include="concorde-bulb-on.xml">
+     <condition include="concorde-cond-light-captain.xml"/>
+     <w>104</w>
+     <h>26</h>
+    </layer>
+    <layer>
+     <name>background on</name>
+     <texture>
+      <path>Aircraft/Concorde/Panels/Instruments/Textures/concorde-red-ins1.png</path>
+      <x1>0.0</x1>
+      <y1>0.0</y1>
+      <x2>1.0</x2>
+      <y2>1.0</y2>
+     </texture>
+     <w>104</w>
+     <h>26</h>
+     <emissive>true</emissive>
+    </layer>
+   </layer>
+   <transformations>
+    <transformation>
+     <type>x-shift</type>
+     <offset>-148</offset>
+    </transformation>
+   </transformations>
+  </layer>
+
+<!-- INS 2 failure -->
+
+<!-- translucent lens -->
+
+  <layer>
+   <name>INS 2 light</name>
+   <type>switch</type>
+ 
+   <layer>
+    <name>off</name>
+    <type>group</type>
+    <condition>
+     <or>
+      <or include="concorde-cond-voltage-bulb.xml"/>
+      <and>
+       <or include="concorde-cond-test-captain.xml"/>
+       <not>
+        <property>/instrumentation/ins[1]/light/warning</property>
+       </not>
+      </and>
+     </or>
+    </condition>
+
+    <layer include="concorde-bulb-off.xml">
+     <w>104</w>
+     <h>26</h>
+    </layer>
+    <layer>
+     <name>background off</name>
+     <texture>
+      <path>Aircraft/Concorde/Panels/Instruments/Textures/concorde-red-ins2.png</path>
+      <x1>0.0</x1>
+      <y1>0.0</y1>
+      <x2>1.0</x2>
+      <y2>1.0</y2>
+     </texture>
+     <w>104</w>
+     <h>26</h>
+    </layer>
+   </layer>
+
+   <layer>
+    <name>on</name>
+    <type>group</type>
+
+    <layer include="concorde-bulb-on.xml">
+     <condition include="concorde-cond-light-captain.xml"/>
+     <w>104</w>
+     <h>26</h>
+    </layer>
+    <layer>
+     <name>background on</name>
+     <texture>
+      <path>Aircraft/Concorde/Panels/Instruments/Textures/concorde-red-ins2.png</path>
+      <x1>0.0</x1>
+      <y1>0.0</y1>
+      <x2>1.0</x2>
+      <y2>1.0</y2>
+     </texture>
+     <w>104</w>
+     <h>26</h>
+     <emissive>true</emissive>
+    </layer>
+   </layer>
+   <transformations>
+    <transformation>
+     <type>x-shift</type>
+     <offset>-48</offset>
+    </transformation>
+   </transformations>
+  </layer>
+
+<!-- INS 3 failure -->
+
+<!-- translucent lens -->
+
+  <layer>
+   <name>INS 3 light</name>
+   <type>switch</type>
+ 
+   <layer>
+    <name>off</name>
+    <type>group</type>
+    <condition>
+     <or>
+      <or include="concorde-cond-voltage-bulb.xml"/>
+      <and>
+       <or include="concorde-cond-test-captain.xml"/>
+       <not>
+        <property>/instrumentation/ins[2]/light/warning</property>
+       </not>
+      </and>
+     </or>
+    </condition>
+
+    <layer include="concorde-bulb-off.xml">
+     <w>104</w>
+     <h>26</h>
+    </layer>
+    <layer>
+     <name>background off</name>
+     <texture>
+      <path>Aircraft/Concorde/Panels/Instruments/Textures/concorde-red-ins3.png</path>
+      <x1>0.0</x1>
+      <y1>0.0</y1>
+      <x2>1.0</x2>
+      <y2>1.0</y2>
+     </texture>
+     <w>104</w>
+     <h>26</h>
+    </layer>
+   </layer>
+
+   <layer>
+    <name>on</name>
+    <type>group</type>
+
+    <layer include="concorde-bulb-on.xml">
+     <condition include="concorde-cond-light-captain.xml"/>
+     <w>104</w>
+     <h>26</h>
+    </layer>
+    <layer>
+     <name>background on</name>
+     <texture>
+      <path>Aircraft/Concorde/Panels/Instruments/Textures/concorde-red-ins3.png</path>
+      <x1>0.0</x1>
+      <y1>0.0</y1>
+      <x2>1.0</x2>
+      <y2>1.0</y2>
+     </texture>
+     <w>104</w>
+     <h>26</h>
+     <emissive>true</emissive>
+    </layer>
+   </layer>
+   <transformations>
+    <transformation>
+     <type>x-shift</type>
+     <offset>48</offset>
+    </transformation>
+   </transformations>
+  </layer>
+
+<!-- INS comparator failure -->
+
+<!-- translucent lens -->  
+
+  <layer>
+   <name>INS comparator light</name>
+   <type>switch</type>
+ 
+   <layer>
+    <name>off</name>
+    <type>group</type>
+    <condition>
+     <or>
+      <or include="concorde-cond-voltage-bulb.xml"/>
+      <or include="concorde-cond-test-captain.xml"/>
+     </or>
+    </condition>
+
+    <layer include="concorde-bulb-off.xml">
+     <w>104</w>
+     <h>26</h>
+    </layer>
+    <layer>
+     <name>background off</name>
+     <texture>
+      <path>Aircraft/Concorde/Panels/Instruments/Textures/concorde-amber-ins-comp.png</path>
+      <x1>0.0</x1>
+      <y1>0.0</y1>
+      <x2>1.0</x2>
+      <y2>1.0</y2>
+     </texture>
+     <w>104</w>
+     <h>26</h>
+    </layer>
+   </layer>
+
+   <layer>
+    <name>on</name>
+    <type>group</type>
+
+    <layer include="concorde-bulb-on.xml">
+     <condition include="concorde-cond-light-captain.xml"/>
+     <w>104</w>
+     <h>26</h>
+    </layer>
+    <layer>
+     <name>background on</name>
+     <texture>
+      <path>Aircraft/Concorde/Panels/Instruments/Textures/concorde-amber-ins-comp.png</path>
+      <x1>0.0</x1>
+      <y1>0.0</y1>
+      <x2>1.0</x2>
+      <y2>1.0</y2>
+     </texture>
+     <w>104</w>
+     <h>26</h>
+     <emissive>true</emissive>
+    </layer>
+   </layer>
+   <transformations>
+    <transformation>
+     <type>x-shift</type>
+     <offset>148</offset>
+    </transformation>
+   </transformations>
+  </layer>
+
+ </layers>
+
+</PropertyList>

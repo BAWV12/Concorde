@@ -1,0 +1,162 @@
+<?xml version="1.0"?>
+
+<!-- Concorde pedestal lighting.
+
+-->
+
+<PropertyList>
+ <name>Pedestal lighting</name>
+ <w-base>156</w-base>
+ <h-base>108</h-base>
+
+
+ <layers>
+
+  <layer>
+   <name>Title off</name>
+   <type>text</type>
+   <point-size>10</point-size>
+   <color>
+    <red>1.0</red>
+    <green>1.0</green>
+    <blue>1.0</blue>
+   </color>
+   <chunks>
+    <chunk>
+     <type>literal</type>
+     <text>OFF</text>
+    </chunk>
+   </chunks>
+   <transformations>
+    <transformation>
+     <type>x-shift</type>
+     <offset>18</offset>
+    </transformation>
+    <transformation>
+     <type>y-shift</type>
+     <offset>-12</offset>
+    </transformation>
+   </transformations>
+  </layer>
+
+  <layer>
+   <name>Title</name>
+   <type>text</type>
+   <point-size>10</point-size>
+   <color>
+    <red>1.0</red>
+    <green>1.0</green>
+    <blue>1.0</blue>
+   </color>
+   <chunks>
+    <chunk>
+     <type>literal</type>
+     <text>CENTRE CONSOLE</text>
+    </chunk>
+   </chunks>
+   <transformations>
+    <transformation>
+     <type>x-shift</type>
+     <offset>-25</offset>
+    </transformation>
+    <transformation>
+     <type>y-shift</type>
+     <offset>-32</offset>
+    </transformation>
+   </transformations>
+  </layer>
+
+  <layer>
+   <name>Title panel</name>
+   <type>text</type>
+   <point-size>10</point-size>
+   <color>
+    <red>1.0</red>
+    <green>1.0</green>
+    <blue>1.0</blue>
+   </color>
+   <chunks>
+    <chunk>
+     <type>literal</type>
+     <text>PANEL</text>
+    </chunk>
+   </chunks>
+   <transformations>
+    <transformation>
+     <type>x-shift</type>
+     <offset>10</offset>
+    </transformation>
+    <transformation>
+     <type>y-shift</type>
+     <offset>-52</offset>
+    </transformation>
+   </transformations>
+  </layer>
+
+  <layer>
+   <name>knob rotation</name>
+   <texture>
+    <path>Aircraft/Concorde/Panels/Instruments/Textures/navcom-radios.png</path>
+    <x1>0.53125</x1>
+    <x2>0.59765625</x2>
+    <y1>0.05859375</y1>
+    <y2>0.1484375</y2>
+   </texture>
+   <w>48</w>
+   <h>60</h>
+   <transformations>
+    <transformation>
+     <type>x-shift</type>
+     <offset>28</offset>
+    </transformation>
+    <transformation>
+     <type>y-shift</type>
+     <offset>29</offset>
+    </transformation>
+    <transformation>
+     <type>rotation</type>
+     <condition>
+      <not>
+       <property>/controls/lighting/instrument-lights</property>
+      </not>
+     </condition>
+     <offset>-180</offset>      <!-- off -->
+    </transformation>
+    <transformation>
+     <type>rotation</type>
+     <condition>
+      <property>/controls/lighting/instrument-lights</property>
+     </condition>
+     <offset>-45</offset>       <!-- maximum -->
+    </transformation>
+    <transformation>
+    <type>y-shift</type>
+    <offset>-4</offset>
+    </transformation>
+   </transformations>
+  </layer>
+
+ </layers>
+
+ <actions>
+
+  <action>
+   <name>toggle lighting</name>
+   <button>0</button>
+   <x>0</x>
+   <y>3</y>
+   <w>50</w>
+   <h>50</h>
+   <binding>
+    <command>property-toggle</command>
+    <property>/controls/lighting/instrument-lights</property>
+   </binding>
+   <binding>
+    <command>property-toggle</command>
+    <property>/instrumentation/generic/click</property>
+   </binding>
+  </action>
+
+ </actions>
+
+</PropertyList>

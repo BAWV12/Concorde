@@ -1,0 +1,208 @@
+<?xml version="1.0"?>
+
+<PropertyList>
+ <name>Engine ground idle switch</name>
+ <w-base>102</w-base>
+ <h-base>102</h-base>
+
+ <params>
+  <engine-sel>/controls/engines/ground-idle14</engine-sel>
+  <num>/systems/engines/engine[0]/engine-num</num>
+ </params>
+
+
+ <layers>
+
+  <layer>
+   <name>Title engine</name>
+   <type>switch</type>
+
+   <layer>
+    <name>Title engine 2-3</name>
+    <condition>
+     <or>
+      <equals>
+       <property alias="../../../../../../../params/num"/>
+       <value>2</value>
+      </equals>
+      <equals>
+       <property alias="../../../../../../../params/num"/>
+       <value>3</value>
+      </equals>
+     </or>
+    </condition>
+    <type>text</type>
+    <point-size>10</point-size>
+    <color>
+     <red>1.0</red>
+     <green>1.0</green>
+     <blue>1.0</blue>
+    </color>
+    <chunks>
+     <chunk>
+      <type>literal</type>
+      <text>ENG 2-3</text>
+     </chunk>
+    </chunks>
+   </layer>
+
+   <layer>
+    <name>Title engine 1-4</name>
+    <type>text</type>
+    <point-size>10</point-size>
+    <color>
+     <red>1.0</red>
+     <green>1.0</green>
+     <blue>1.0</blue>
+    </color>
+    <chunks>
+     <chunk>
+      <type>literal</type>
+      <text>ENG 1-4</text>
+     </chunk>
+    </chunks>
+   </layer>
+
+   <transformations>
+    <transformation>
+     <type>x-shift</type>
+     <offset>-7</offset>
+    </transformation>
+    <transformation>
+     <type>y-shift</type>
+     <offset>32</offset>
+    </transformation>
+   </transformations>
+  </layer>
+
+  <layer>
+   <name>Ground idle switch</name>
+   <type>switch</type>
+
+   <layer include="concorde-switch-on.xml">
+    <name>high</name>
+    <condition>
+     <not>
+      <property alias="../../../../../../params/engine-sel"/>
+     </not>
+    </condition>
+   </layer>
+
+   <layer include="concorde-switch-off.xml">
+    <name>low</name>
+   </layer>
+
+   <transformations>
+    <transformation>
+     <type>x-shift</type>
+     <offset>16</offset>
+    </transformation>
+    <transformation>
+     <type>y-shift</type>
+     <offset>-3</offset>
+    </transformation>
+   </transformations>
+  </layer>
+
+  <layer>
+   <name>Title on</name>
+   <condition>
+    <or>
+     <equals>
+      <property alias="../../../../../../params/num"/>
+      <value>2</value>
+     </equals>
+     <equals>
+      <property alias="../../../../../../params/num"/>
+      <value>3</value>
+     </equals>
+    </or>
+   </condition>
+   <type>text</type>
+   <point-size>10</point-size>
+   <color>
+    <red>1.0</red>
+    <green>1.0</green>
+    <blue>1.0</blue>
+   </color>
+   <chunks>
+    <chunk>
+     <type>literal</type>
+     <text>HI</text>
+    </chunk>
+   </chunks>
+   <transformations>
+    <transformation>
+     <type>x-shift</type>
+     <offset>-41</offset>
+    </transformation>
+    <transformation>
+     <type>y-shift</type>
+     <offset>18</offset>
+    </transformation>
+   </transformations>
+  </layer>
+
+  <layer>
+   <name>Title off</name>
+   <condition>
+    <or>
+     <equals>
+      <property alias="../../../../../../params/num"/>
+      <value>2</value>
+     </equals>
+     <equals>
+      <property alias="../../../../../../params/num"/>
+      <value>3</value>
+     </equals>
+    </or>
+   </condition>
+   <type>text</type>
+   <point-size>10</point-size>
+   <color>
+    <red>1.0</red>
+    <green>1.0</green>
+    <blue>1.0</blue>
+   </color>
+   <chunks>
+    <chunk>
+     <type>literal</type>
+     <text>LO</text>
+    </chunk>
+   </chunks>
+   <transformations>
+    <transformation>
+     <type>x-shift</type>
+     <offset>-44</offset>
+    </transformation>
+    <transformation>
+     <type>y-shift</type>
+     <offset>-32</offset>
+    </transformation>
+   </transformations>
+  </layer>
+
+ </layers>
+
+ <actions>
+
+  <action>
+   <name>Toggle</name>
+   <button>0</button>
+   <x>-5</x>
+   <y>-21</y>
+   <w>42</w>
+   <h>42</h>
+   <binding>
+    <command>property-toggle</command>
+    <property alias="../../../../params/engine-sel"/>
+   </binding>
+   <binding>
+    <command>property-toggle</command>
+    <property>/instrumentation/generic/click</property>
+   </binding>
+  </action>
+
+ </actions>
+
+</PropertyList>

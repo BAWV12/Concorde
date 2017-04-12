@@ -1,0 +1,17 @@
+<?xml version="1.0" ?> 
+
+<PropertyList> 
+ <path>center-flood.ac</path> 
+
+ <animation>
+  <type>material</type>
+  <object-name>Flood</object-name>
+  <emission>
+   <red>1.0</red>
+   <green>1.0</green>
+   <blue>1.0</blue>
+   <factor-prop>systems/lighting/level/flood/center</factor-prop>
+  </emission> 
+ </animation> 
+
+</PropertyList>

@@ -1,0 +1,120 @@
+<?xml version="1.0"?>
+
+<!-- ILS deviation :
+
+     - flashes if missing ILS.
+     - the white bars are not implemented.
+     - flashes on test.
+-->
+
+<PropertyList>
+ <name>ILS deviation</name>
+ <w-base>52</w-base>
+ <h-base>52</h-base>
+
+ <params>
+  <test>/controls/autoflight/autopilot[0]/test-land</test>
+ </params>
+
+
+ <layers>
+<!-- translucent lens -->  
+  <layer>
+   <name>Warning light</name>
+   <type>switch</type>
+
+   <layer>
+    <name>off</name>
+    <type>group</type>
+    <condition>
+     <or include="concorde-cond-voltage-bulb.xml">
+      <and>
+       <or>
+        <or include="concorde-cond-flashing-light.xml"/>    <!-- bug -->
+        <not>
+         <property alias="../../../../../../../../../params/test"/>
+        </not>
+       </or>
+       <or include="concorde-cond-flashing-light.xml">
+        <and>
+         <not include="concorde-cond-land.xml"/>
+         <not-equals>
+          <property>/autopilot/locks/altitude</property>
+          <value>gs1-hold</value>
+         </not-equals>
+        </and>
+        <and>
+         <property>instrumentation/nav[0]/in-range</property>
+         <property>instrumentation/nav[0]/nav-loc</property>
+         <property>instrumentation/nav[0]/has-gs</property>
+        </and>
+       </or>
+      </and>
+     </or>
+    </condition>
+
+    <layer include="concorde-bulb-off.xml">
+     <w>52</w>
+     <h>52</h>
+    </layer>
+    <layer>
+     <name>background</name>
+     <texture>
+      <path>Aircraft/Concorde/Panels/Instruments/Textures/concorde-white-button.png</path>
+     </texture>
+     <w>52</w>
+     <h>52</h>
+    </layer>
+   </layer>
+
+   <layer>
+    <name>on</name>
+    <type>group</type>
+
+    <layer include="concorde-bulb-on.xml">
+     <w>52</w>
+     <h>52</h>
+     <emissive>true</emissive>
+    </layer>
+    <layer>
+     <name>background lighted</name>
+     <texture>
+      <path>Aircraft/Concorde/Panels/Instruments/Textures/concorde-yellow-warning.png</path>
+     </texture>
+     <w>52</w>
+     <h>52</h>
+     <emissive>true</emissive>
+    </layer>
+   </layer>
+
+  </layer>
+
+  <layer>
+   <name>Title</name>
+   <type>text</type>
+   <point-size>25</point-size>
+   <color>
+    <red>0.0</red>
+    <green>0.0</green>
+    <blue>0.0</blue>
+   </color>
+   <chunks>
+    <chunk>
+     <type>literal</type>
+     <text>ILS</text>
+    </chunk>
+   </chunks>
+   <transformations>
+    <transformation>
+     <type>x-shift</type>
+     <offset>-19</offset>
+    </transformation>
+    <transformation>
+     <type>y-shift</type>
+     <offset>-8</offset>
+    </transformation>
+   </transformations>
+  </layer>
+ </layers>
+
+</PropertyList>

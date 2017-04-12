@@ -1,0 +1,62 @@
+<?xml version="1.0" ?> 
+
+<PropertyList> 
+  <path>brake-cylinder.ac</path> 
+
+  <animation>
+   <name>Brake</name>
+   <object-name>BrakeCylinder</object-name>
+   <object-name>BrakeLever</object-name>
+  </animation>
+
+  <animation>
+   <type>material</type>
+   <object-name>Brake</object-name>
+   <emission>
+    <red>0.71</red>
+    <green>0.79</green>
+    <blue>0.87</blue>
+    <factor-prop>systems/lighting/level/roof</factor-prop>
+   </emission>
+  </animation>
+
+  <animation>
+   <type>rotate</type>
+   <object-name>BrakeLever</object-name>
+   <property>controls/gear/brake-pos-norm</property>
+   <factor>50</factor>
+   <offset-deg>-25</offset-deg>
+   <center>
+    <x-m> 0.0</x-m>
+    <y-m> 0.0</y-m>
+    <z-m>-0.11</z-m>
+   </center>
+   <axis>
+    <x>0.0</x>
+    <y>1.0</y>
+    <z>0.0</z>
+   </axis>
+  </animation>
+
+  <animation>
+   <type>pick</type>
+   <object-name>BrakeLever</object-name>
+   <action>
+    <button>0</button>
+    <repeatable>false</repeatable>
+    <binding>
+     <command>nasal</command>
+     <script>controls.applyParkingBrake(1);</script>
+    </binding>
+   </action>
+   <action>
+    <button>1</button>
+    <repeatable>false</repeatable>
+    <binding>
+     <command>nasal</command>
+     <script>globals.Concorde.hydraulicsystem.brakesemergencyexport();</script>
+    </binding>
+   </action>
+  </animation>
+
+</PropertyList>

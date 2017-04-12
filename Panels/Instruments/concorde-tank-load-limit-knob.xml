@@ -1,0 +1,95 @@
+<?xml version="1.0"?>
+
+<PropertyList>
+
+ <name>Tank load limit knob</name>
+ <w-base>40</w-base>
+ <h-base>40</h-base>
+
+ <params>
+  <load-limit>/controls/fuel/tank[10]/limit-kg</load-limit>
+ </params>
+
+
+ <layers>
+
+  <layer>
+   <name>knob</name>
+   <texture>
+    <path>Aircraft/Concorde/Panels/Instruments/Textures/concorde-black-knob.png</path>
+   </texture>
+    <w>40</w>
+    <h>40</h>
+  </layer>
+
+ </layers>
+
+ <actions>
+
+  <action>
+   <name>Minus 1000</name>
+   <button>0</button>
+   <x>-15</x>
+   <y>-19</y>
+   <w>14</w>
+   <h>18</h>
+   <binding>
+    <command>property-adjust</command>
+    <property alias="../../../../params/load-limit"/>
+    <step>-1000</step>
+    <min>0</min>
+    <max>99999</max>
+   </binding>
+  </action>
+
+  <action>
+   <name>Plus 1000</name>
+   <button>0</button>
+   <x>-15</x>
+   <y>1</y>
+   <w>14</w>
+   <h>18</h>
+   <binding>
+    <command>property-adjust</command>
+    <property alias="../../../../params/load-limit"/>
+    <step>1000</step>
+    <min>0</min>
+    <max>99999</max>
+   </binding>
+  </action>
+
+  <action>
+   <name>Minus 100</name>
+   <button>0</button>
+   <x>1</x>
+   <y>-19</y>
+   <w>14</w>
+   <h>18</h>
+   <binding>
+    <command>property-adjust</command>
+    <property alias="../../../../params/load-limit"/>
+    <step>-100</step>
+    <min>0</min>
+    <max>99999</max>
+   </binding>
+  </action>
+
+  <action>
+   <name>Plus 100</name>
+   <button>0</button>
+   <x>1</x>
+   <y>1</y>
+   <w>14</w>
+   <h>18</h>
+   <binding>
+    <command>property-adjust</command>
+    <property alias="../../../../params/load-limit"/>
+    <step>100</step>
+    <min>0</min>
+    <max>99999</max>
+   </binding>
+  </action>
+
+ </actions>
+
+</PropertyList>

@@ -1,0 +1,165 @@
+<?xml version="1.0"?>
+
+<!-- Jettison valve switch -->
+
+<PropertyList>
+
+ <name>Jettison valve switch</name>
+ <w-base>78</w-base>
+ <h-base>78</h-base>
+
+ <params>
+  <jettison-valve>/controls/fuel/tank[0]/jettison</jettison-valve>
+  <engine-num>/systems/engines/engine[0]/engine-num</engine-num>
+ </params>
+
+
+ <layers>
+
+  <layer>
+   <name>Trans valve</name>
+   <type>switch</type>
+
+   <layer include="concorde-switch-on.xml">
+    <name>open</name>
+    <condition>
+     <property alias="../../../../../params/jettison-valve"/>
+    </condition>
+   </layer>
+
+   <layer include="concorde-switch-off.xml">
+    <name>shut</name>
+   </layer>
+  </layer>
+
+  <layer>
+   <name>number</name>
+   <type>switch</type>
+
+   <layer>
+    <name>1</name>
+    <condition>
+     <equals>
+      <property alias="../../../../../../params/engine-num"/>
+      <value>1</value>
+     </equals>
+    </condition>
+    <texture>
+     <path>Aircraft/Concorde/Panels/Instruments/Textures/concorde-1.png</path>
+     <x1>0</x1>
+     <y1>0</y1>
+     <x2>1</x2>
+     <y2>1</y2>
+    </texture>
+    <w>15</w>
+    <h>15</h>
+   </layer>
+
+   <layer>
+    <name>2</name>
+    <condition>
+     <equals>
+      <property alias="../../../../../../params/engine-num"/>
+      <value>2</value>
+     </equals>
+    </condition>
+    <texture>
+     <path>Aircraft/Concorde/Panels/Instruments/Textures/concorde-2.png</path>
+     <x1>0</x1>
+     <y1>0</y1>
+     <x2>1</x2>
+     <y2>1</y2>
+    </texture>
+    <w>15</w>
+    <h>15</h>
+   </layer>
+   <transformations>
+    <transformation>
+     <type>x-shift</type>
+     <offset>30</offset>
+    </transformation>
+    <transformation>
+     <type>y-shift</type>
+     <offset>2</offset>
+    </transformation>
+   </transformations>
+  </layer>
+
+  <layer>
+   <name>Title on</name>
+   <type>text</type>
+   <point-size>9</point-size>
+   <color>
+    <red>1.0</red>
+    <green>1.0</green>
+    <blue>1.0</blue>
+   </color>
+   <chunks>
+    <chunk>
+     <type>literal</type>
+     <text>OPEN</text>
+    </chunk>
+   </chunks>
+   <transformations>
+    <transformation>
+     <type>x-shift</type>
+     <offset>-15</offset>
+    </transformation>
+    <transformation>
+     <type>y-shift</type>
+     <offset>28</offset>
+    </transformation>
+   </transformations>
+  </layer>
+
+  <layer>
+   <name>Title off</name>
+   <type>text</type>
+   <point-size>9</point-size>
+   <color>
+    <red>1.0</red>
+    <green>1.0</green>
+    <blue>1.0</blue>
+   </color>
+   <chunks>
+    <chunk>
+     <type>literal</type>
+     <text>SHUT</text>
+    </chunk>
+   </chunks>
+   <transformations>
+    <transformation>
+     <type>x-shift</type>
+     <offset>-12</offset>
+    </transformation>
+    <transformation>
+     <type>y-shift</type>
+     <offset>-30</offset>
+    </transformation>
+   </transformations>
+  </layer>
+
+ </layers>
+
+ <actions>
+
+  <action>
+   <name>Toggle pump</name>
+   <button>0</button>
+   <x>-21</x>
+   <y>-21</y>
+   <w>42</w>
+   <h>42</h>
+   <binding>
+    <command>property-toggle</command>
+    <property alias="../../../../params/jettison-valve"/>
+   </binding>
+   <binding>
+    <command>property-toggle</command>
+    <property>/instrumentation/generic/click</property>
+   </binding>
+  </action>
+
+ </actions>
+ 
+</PropertyList>

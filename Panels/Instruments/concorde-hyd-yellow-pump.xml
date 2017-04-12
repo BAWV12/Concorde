@@ -1,0 +1,422 @@
+<?xml version="1.0"?>
+
+<!-- Hydraulic pump selector switch :
+
+     - label to the right by default.
+-->
+
+<PropertyList>
+
+ <name>Pump selector</name>
+ <w-base>153</w-base>
+ <h-base>102</h-base>
+
+ <params>
+  <onload-pump>/controls/hydraulic/circuit[1]/onload[1]</onload-pump>
+  <shut-pump>/controls/hydraulic/circuit[1]/valve[1]</shut-pump>
+  <guard-pump>/controls/hydraulic/circuit[1]/guard[1]</guard-pump>
+  <engine-num>/systems/engines/engine[0]/engine-num</engine-num>
+ </params>
+
+
+ <layers>
+
+  <layer>
+   <name>Pump selector</name>
+   <type>switch</type>
+
+   <layer include="concorde-switch-on.xml">
+    <name>on</name>
+    <condition>
+     <and>
+      <property alias="../../../../../../params/onload-pump"/>
+      <property alias="../../../../../../params/shut-pump"/>
+     </and>
+    </condition>
+   </layer>
+
+   <layer include="concorde-switch-off.xml">
+    <name>off</name>
+    <condition>
+     <and>
+      <not>
+       <property alias="../../../../../../../params/onload-pump"/>
+      </not>
+      <not>
+       <property alias="../../../../../../../params/shut-pump"/>
+      </not>
+     </and>
+    </condition>
+   </layer>
+
+   <layer include="concorde-switch-3rd.xml">
+    <name>auto</name>
+   </layer>
+
+   <transformations>
+    <transformation>
+     <type>x-shift</type>
+     <offset>16</offset>
+    </transformation>
+    <transformation>
+     <type>y-shift</type>
+     <offset>-3</offset>
+    </transformation>
+   </transformations>
+  </layer>
+
+  <layer>
+   <name>yellow guard</name>
+   <type>switch</type>
+
+   <layer>
+    <name>guard on</name>
+    <condition>
+     <property alias="../../../../../params/guard-pump"/>
+    </condition>
+    <texture>
+     <path>Aircraft/Concorde/Panels/Instruments/Textures/concorde-yellow-guard-bg.png</path>
+     <x1>0.0</x1>
+     <y1>0.0</y1>
+     <x2>1.0</x2>
+     <y2>1.0</y2>
+    </texture>
+    <w>30</w>
+    <h>20</h>
+    <transformations>
+     <transformation>
+      <type>y-shift</type>
+      <offset>-16</offset>
+     </transformation>
+    </transformations>
+   </layer>
+
+   <layer>
+    <name>guard off</name>
+    <texture>
+     <path>Aircraft/Concorde/Panels/Instruments/Textures/concorde-yellow-guard-bg.png</path>
+     <x1>0.0</x1>
+     <y1>0.0</y1>
+     <x2>1.0</x2>
+     <y2>1.0</y2>
+    </texture>
+    <w>30</w>
+    <h>15</h>
+    <transformations>
+     <transformation>
+      <type>y-shift</type>
+      <offset>-23</offset>
+     </transformation>
+    </transformations>
+   </layer>
+   <transformations>
+    <transformation>
+     <type>x-shift</type>
+     <offset>16</offset>
+    </transformation>
+   </transformations>
+  </layer>
+
+<!-- labels -->
+
+  <layer>
+   <name>Title on</name>
+   <type>switch</type>
+
+   <layer>
+    <name>Title on left</name>
+    <condition>
+     <equals>
+      <property alias="../../../../../../params/engine-num"/>
+      <value>2</value>
+     </equals>
+    </condition>
+    <type>text</type>
+    <point-size>8</point-size>
+    <color>
+     <red>1.0</red>
+      <green>1.0</green>
+     <blue>1.0</blue>
+    </color>
+    <chunks>
+     <chunk>
+      <type>literal</type>
+      <text>ON</text>
+      </chunk>
+    </chunks>
+    <transformations>
+     <transformation>
+      <type>x-shift</type>
+      <offset>-30</offset>
+     </transformation>
+     <transformation>
+      <type>y-shift</type>
+      <offset>14</offset>
+     </transformation>
+    </transformations>
+   </layer>
+
+   <layer>
+    <name>Title on default</name>
+    <type>text</type>
+    <point-size>8</point-size>
+    <color>
+     <red>1.0</red>
+     <green>1.0</green>
+     <blue>1.0</blue>
+    </color>
+    <chunks>
+     <chunk>
+      <type>literal</type>
+       <text>ON</text>
+     </chunk>
+    </chunks>
+    <transformations>
+     <transformation>
+      <type>x-shift</type>
+      <offset>50</offset>
+     </transformation>
+     <transformation>
+      <type>y-shift</type>
+      <offset>14</offset>
+     </transformation>
+    </transformations>
+   </layer>
+  </layer>
+
+  <layer>
+   <name>Title off</name>
+   <type>switch</type>
+
+   <layer>
+    <name>Title off left</name>
+    <condition>
+     <equals>
+      <property alias="../../../../../../params/engine-num"/>
+      <value>2</value>
+     </equals>
+    </condition>
+    <type>text</type>
+    <point-size>8</point-size>
+    <color>
+     <red>1.0</red>
+     <green>1.0</green>
+      <blue>1.0</blue>
+    </color>
+    <chunks>
+     <chunk>
+      <type>literal</type>
+      <text>AUTO</text>
+      </chunk>
+    </chunks>
+    <transformations>
+     <transformation>
+      <type>x-shift</type>
+       <offset>-36</offset>
+     </transformation>
+     <transformation>
+      <type>y-shift</type>
+      <offset>-3</offset>
+     </transformation>
+    </transformations>
+   </layer>
+
+   <layer>
+    <name>Title off default</name>
+    <type>text</type>
+    <point-size>8</point-size>
+    <color>
+     <red>1.0</red>
+     <green>1.0</green>
+     <blue>1.0</blue>
+    </color>
+    <chunks>
+     <chunk>
+      <type>literal</type>
+      <text>AUTO</text>
+     </chunk>
+    </chunks>
+    <transformations>
+     <transformation>
+      <type>x-shift</type>
+      <offset>44</offset>
+     </transformation>
+     <transformation>
+       <type>y-shift</type>
+      <offset>-3</offset>
+     </transformation>
+    </transformations>
+   </layer>
+  </layer>
+
+  <layer>
+   <name>Title 3</name>
+   <type>switch</type>
+
+   <layer>
+    <name>Title 3 left</name>
+    <condition>
+     <equals>
+      <property alias="../../../../../../params/engine-num"/>
+      <value>2</value>
+     </equals>
+    </condition>
+    <type>text</type>
+    <point-size>8</point-size>
+    <color>
+     <red>1.0</red>
+     <green>1.0</green>
+     <blue>1.0</blue>
+    </color>
+    <chunks>
+     <chunk>
+      <type>literal</type>
+      <text>SHUT</text>
+     </chunk>
+    </chunks>
+    <transformations>
+     <transformation>
+      <type>x-shift</type>
+      <offset>-35</offset>
+     </transformation>
+     <transformation>
+      <type>y-shift</type>
+      <offset>-20</offset>
+     </transformation>
+    </transformations>
+   </layer>
+
+   <layer>
+    <name>Title 3 default</name>
+    <type>text</type>
+    <point-size>8</point-size>
+    <color>
+     <red>1.0</red>
+     <green>1.0</green>
+     <blue>1.0</blue>
+    </color>
+    <chunks>
+     <chunk>
+      <type>literal</type>
+      <text>SHUT</text>
+     </chunk>
+    </chunks>
+    <transformations>
+     <transformation>
+      <type>x-shift</type>
+      <offset>45</offset>
+     </transformation>
+     <transformation>
+      <type>y-shift</type>
+      <offset>-20</offset>
+     </transformation>
+    </transformations>
+   </layer>
+  </layer>
+
+  <layer>
+   <name>Number</name>
+   <type>text</type>
+   <point-size>9</point-size>
+   <color>
+    <red>1.0</red>
+    <green>1.0</green>
+    <blue>1.0</blue>
+   </color>
+   <chunks>
+    <chunk>
+     <type>text-value</type>
+     <property alias="../../../../../params/engine-num"/>
+    </chunk>
+   </chunks>
+   <transformations>
+    <transformation>
+     <type>x-shift</type>
+     <offset>-8</offset>
+    </transformation>
+    <transformation>
+     <type>y-shift</type>
+     <offset>17</offset>
+    </transformation>
+   </transformations>
+  </layer>
+
+ </layers>
+
+ <actions>
+
+  <action>
+   <name>Toggle onload</name>
+   <condition>
+    <property alias="../../../../params/guard-pump"/>
+   </condition>
+   <button>0</button>
+   <x>-5</x>
+   <y>-21</y>
+   <w>42</w>
+   <h>42</h>
+   <binding>
+    <command>property-toggle</command>
+    <property alias="../../../../params/onload-pump"/>
+   </binding>
+   <binding>
+    <command>property-assign</command>
+    <property alias="../../../../params/shut-pump"/>
+    <value>true</value>
+   </binding>
+   <binding>
+    <command>property-toggle</command>
+    <property>/instrumentation/generic/click</property>
+   </binding>
+  </action>
+
+  <action>
+   <name>Shut pump</name>
+   <condition>
+    <not>
+     <property alias="../../../../../params/guard-pump"/>
+    </not>
+   </condition>
+   <button>0</button>
+   <x>-5</x>
+   <y>-21</y>
+   <w>42</w>
+   <h>42</h>
+   <binding>
+    <command>property-toggle</command>
+    <property alias="../../../../params/shut-pump"/>
+   </binding>
+   <binding>
+    <command>property-assign</command>
+    <property alias="../../../../params/onload-pump"/>
+    <value>false</value>
+   </binding>
+   <binding>
+    <command>property-toggle</command>
+    <property>/instrumentation/generic/click</property>
+   </binding>
+  </action>
+
+  <action>
+   <name>Toggle guard</name>
+   <condition>
+    <property alias="../../../../params/shut-pump"/>
+   </condition>
+   <button>1</button>
+   <x>-5</x>
+   <y>-21</y>
+   <w>42</w>
+   <h>42</h>
+   <binding>
+    <command>property-toggle</command>
+    <property alias="../../../../params/guard-pump"/>
+   </binding>
+   <binding>
+    <command>property-toggle</command>
+    <property>/instrumentation/generic/click</property>
+   </binding>
+  </action>
+
+ </actions>
+ 
+</PropertyList>

@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+
+<!-- main landing lights block -->
+
+<PropertyList>
+ <name>Main landing lights</name>
+ <w-base>112</w-base>
+ <h-base>28</h-base>
+
+ <layers>
+
+  <layer>
+   <name>Title</name>
+   <type>text</type>
+   <point-size>6</point-size>
+   <color>
+    <red>1.0</red>
+    <green>1.0</green>
+    <blue>1.0</blue>
+   </color>
+   <chunks>
+    <chunk>
+     <type>literal</type>
+     <text>MAIN LANDING</text>
+    </chunk>
+   </chunks>
+  </layer>
+
+ </layers>
+
+</PropertyList>

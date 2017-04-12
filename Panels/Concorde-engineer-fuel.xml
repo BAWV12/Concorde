@@ -1,0 +1,4741 @@
+<?xml version="1.0"?>
+
+<!-- Concorde 3D ENGINEER fuel panel
+
+Like the real panel.
+
+
+WARNING : a button not working by click, means that it is too close of another button (eventually hidden);
+even if both click areas (ctrl-C) don't overlap. Changing internal geometry of button avoids this drawback.
+
+_______________________________________________________________________
+
+This is a panel configuration file for the open-source flight
+simulator FlightGear (www.flightgear.org).  The file is an XML-encoded
+FlightGear property list defining the panel's background texture and
+the location (and optionally, size) of the instruments that will
+appear on the panel.
+
+Each instrument is, itself, defined in an XML-encoded property list
+in a separate file.
+
+Co-ordinates are relative to the *bottom* left corner of the screen
+(as in OpenGL).  The total FlightGear window is always considered to
+be 1024x768, whatever its actual display size on the screen.  All
+paths are relative to $FG_ROOT.
+
+Note that the name of the element defining each instrument must be
+different, or else instrument definitions will be overwritten:
+that's not particularly XML-ish, but that's how property lists
+work in FlightGear right now.
+
+Each instrument has its own preferred width and height, but you can
+override those by providing <w>..</w> and <h>..</h> properties with the
+<x>...</x> and <y>...</y> properties.
+
+-->
+
+<!DOCTYPE PropertyList SYSTEM "panel.dtd">
+
+<PropertyList>
+
+ <name>Concorde Engineer Fuel Panel</name>
+ <background>Aircraft/Concorde/Panels/Textures/transparent-bg.png</background>
+ <w>1024</w>
+ <h>512</h>
+ <y-offset>0</y-offset>
+ <view-height>500</view-height>
+
+ <instruments>
+
+ <instrument include="Instruments/concorde-gauge_inst_v.xml">
+   <condition>
+    <or>
+     <and>
+      <property>/sim/current-view/internal</property>
+      <property>/systems/seat/engineer</property>
+      <less-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>330</value>
+      </less-than>
+      <greater-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>255</value>
+      </greater-than>
+      <less-than>
+       <property>/sim/current-view/goal-pitch-offset-deg</property>
+       <value>0</value>
+      </less-than>
+     </and>
+     <property>/controls/seat/all</property>
+    </or>
+   </condition>
+
+   <x>153</x>
+   <y>542</y>
+   <w>42</w>
+   <h>110</h>
+  </instrument>
+
+  <instrument include="Instruments/concorde-cg.xml">
+   <name>Center of Gravity</name>
+   <condition>
+    <or>
+     <and>
+      <property>/sim/current-view/internal</property>
+      <property>/systems/seat/engineer</property>
+      <less-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>310</value>
+      </less-than>
+      <greater-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>235</value>
+      </greater-than>
+      <less-than>
+       <property>/sim/current-view/goal-pitch-offset-deg</property>
+       <value>5</value>
+      </less-than>
+     </and>
+     <property>/controls/seat/all</property>
+    </or>
+   </condition>
+   <params>
+    <test>/controls/lighting/crew/engineer/center/test</test>
+    <serviceable>/instrumentation/cg[1]/serviceable</serviceable>
+    <cg-sel>/instrumentation/cg[1]/percent</cg-sel>
+    <min-sel>/instrumentation/cg[1]/min-percent</min-sel>
+    <max-sel>/instrumentation/cg[1]/max-percent</max-sel>
+   </params>
+   <x>153</x>
+   <y>542</y>
+   <w>42</w>
+   <h>110</h>
+  </instrument>
+
+<!-- auto trim -->
+
+  <instrument include="Instruments/concorde-pump-trim-auto.xml">
+   <name>Auto trim</name>
+   <condition>
+    <or>
+     <and>
+      <property>/sim/current-view/internal</property>
+      <property>/systems/seat/engineer</property>
+      <less-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>295</value>
+      </less-than>
+      <greater-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>225</value>
+      </greater-than>
+      <less-than>
+       <property>/sim/current-view/goal-pitch-offset-deg</property>
+       <value>0</value>
+      </less-than>
+     </and>
+     <property>/controls/seat/all</property>
+    </or>
+   </condition>
+   <x>260</x>
+   <y>550</y>
+   <w>30</w>
+   <h>45</h>
+  </instrument>
+
+  <instrument include="Instruments/concorde-fuel-aft-trim.xml">
+   <name>Aft trim</name>
+   <condition>
+    <or>
+     <and>
+      <property>/sim/current-view/internal</property>
+      <property>/systems/seat/engineer</property>
+      <less-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>295</value>
+      </less-than>
+      <greater-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>225</value>
+      </greater-than>
+      <less-than>
+       <property>/sim/current-view/goal-pitch-offset-deg</property>
+       <value>5</value>
+      </less-than>
+     </and>
+     <property>/controls/seat/all</property>
+    </or>
+   </condition>
+   <params>
+    <pump-switch>/controls/fuel/tank[4]/pump[0]</pump-switch>
+   </params>
+   <x>285</x>
+   <y>576</y>
+   <w>24</w>
+   <h>24</h>
+  </instrument>
+
+  <instrument include="Instruments/concorde-fuel-aft-trim-switch.xml">
+   <name>Aft trim switch</name>
+   <condition>
+    <or>
+     <and>
+      <property>/sim/current-view/internal</property>
+      <property>/systems/seat/engineer</property>
+      <less-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>295</value>
+      </less-than>
+      <greater-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>225</value>
+      </greater-than>
+      <less-than>
+       <property>/sim/current-view/goal-pitch-offset-deg</property>
+       <value>0</value>
+      </less-than>
+     </and>
+     <property>/controls/seat/all</property>
+    </or>
+   </condition>
+   <params>
+    <pump-switch>/controls/fuel/tank[4]/pump[0]</pump-switch>
+   </params>
+   <x>285</x>
+   <y>550</y>
+   <w>20</w>
+   <h>40</h>
+  </instrument>
+
+<!-- totals -->
+
+ <instrument include="Instruments/concorde-gauge_inst.xml">
+   <condition>
+    <or>
+     <and>
+      <property>/sim/current-view/internal</property>
+      <property>/systems/seat/engineer</property>
+      <less-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>330</value>
+      </less-than>
+      <greater-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>255</value>
+      </greater-than>
+      <less-than>
+       <property>/sim/current-view/goal-pitch-offset-deg</property>
+       <value>0</value>
+      </less-than>
+     </and>
+     <property>/controls/seat/all</property>
+    </or>
+   </condition>
+
+   <x>205</x>
+   <y>475</y>
+   <w>70</w>
+   <h>28</h>
+  </instrument>
+
+  <instrument include="Instruments/concorde-kg.xml">
+   <name>Fuel Total</name>
+   <condition>
+    <or>
+     <and>
+      <property>/sim/current-view/internal</property>
+      <property>/systems/seat/engineer</property>
+      <less-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>305</value>
+      </less-than>
+      <greater-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>230</value>
+      </greater-than>
+      <less-than>
+       <property>/sim/current-view/goal-pitch-offset-deg</property>
+       <value>-5</value>
+      </less-than>
+     </and>
+     <property>/controls/seat/all</property>
+    </or>
+   </condition>
+   <x>205</x>
+   <y>475</y>
+   <w>70</w>
+   <h>28</h>
+  </instrument>
+
+  <instrument include="Instruments/concorde-fuel-ac-weight.xml">
+   <name>Aircraft weight</name>
+   <condition>
+    <or>
+     <and>
+      <property>/sim/current-view/internal</property>
+      <property>/systems/seat/engineer</property>
+      <less-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>300</value>
+      </less-than>
+      <greater-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>220</value>
+      </greater-than>
+      <less-than>
+       <property>/sim/current-view/goal-pitch-offset-deg</property>
+       <value>0</value>
+      </less-than>
+     </and>
+     <property>/controls/seat/all</property>
+    </or>
+   </condition>
+   <x>272</x>
+   <y>493</y>
+   <w>48</w>
+   <h>60</h>
+  </instrument>
+
+<!-- main tanks left -->
+
+  <instrument include="Instruments/concorde-yellow-fuel-o-full.xml">
+   <name>Tank 5 over full</name>
+   <condition>
+    <or>
+     <and>
+      <property>/sim/current-view/internal</property>
+      <property>/systems/seat/engineer</property>
+      <less-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>320</value>
+      </less-than>
+      <greater-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>250</value>
+      </greater-than>
+      <less-than>
+       <property>/sim/current-view/goal-pitch-offset-deg</property>
+       <value>5</value>
+      </less-than>
+     </and>
+     <property>/controls/seat/all</property>
+    </or>
+   </condition>
+   <params>
+    <lbs-select>/consumables/fuel/tank[4]/level-lbs</lbs-select>
+    <over-full-select>/consumables/fuel/tank[4]/over-full-lb</over-full-select>
+   </params>
+   <x>32</x>
+   <y>585</y>
+   <w>28</w>
+   <h>14</h>
+  </instrument>
+
+  <instrument include="Instruments/concorde-conn-fuel-trans-valve.xml">
+   <name>Transfert valve tank 5A</name>
+   <condition>
+    <or>
+     <and>
+      <property>/sim/current-view/internal</property>
+      <property>/systems/seat/engineer</property>
+      <less-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>315</value>
+      </less-than>
+      <greater-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>245</value>
+      </greater-than>
+      <less-than>
+       <property>/sim/current-view/goal-pitch-offset-deg</property>
+       <value>5</value>
+      </less-than>
+     </and>
+     <property>/controls/seat/all</property>
+    </or>
+   </condition>
+   <params>
+    <trans-valve>/controls/fuel/tank[11]/trans-valve</trans-valve>
+    <engine-num>/systems/engines/engine[0]/engine-num</engine-num>
+   </params>
+   <x>65</x>
+   <y>585</y>
+   <w>20</w>
+   <h>60</h>
+  </instrument>
+
+  <instrument include="Instruments/concorde-fuel-trans-valve.xml">
+   <name>Transfert valve switch tank 5A</name>
+   <condition>
+    <or>
+     <and>
+      <property>/sim/current-view/internal</property>
+      <property>/systems/seat/engineer</property>
+      <less-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>310</value>
+      </less-than>
+      <greater-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>245</value>
+      </greater-than>
+      <less-than>
+       <property>/sim/current-view/goal-pitch-offset-deg</property>
+       <value>5</value>
+      </less-than>
+     </and>
+     <property>/controls/seat/all</property>
+    </or>
+   </condition>
+   <params>
+    <trans-valve>/controls/fuel/tank[11]/trans-valve</trans-valve>
+    <engine-num>/systems/engines/engine[0]/engine-num</engine-num>
+   </params>
+   <x>100</x>
+   <y>585</y>
+   <w>40</w>
+   <h>30</h>
+  </instrument>
+
+  <instrument include="Instruments/concorde-title-hyd-pumps.xml">
+   <name>Pumps</name>
+   <condition>
+    <or>
+     <and>
+      <property>/sim/current-view/internal</property>
+      <property>/systems/seat/engineer</property>
+      <less-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>320</value>
+      </less-than>
+      <greater-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>250</value>
+      </greater-than>
+      <less-than>
+       <property>/sim/current-view/goal-pitch-offset-deg</property>
+       <value>0</value>
+      </less-than>
+     </and>
+     <property>/controls/seat/all</property>
+    </or>
+   </condition>
+   <x>-21</x>
+   <y>563</y>
+   <w>40</w>
+   <h>20</h>
+  </instrument>
+
+  <instrument include="Instruments/concorde-yellow-fuel-pressure.xml">
+   <name>Low pressure pump 1 tank 5</name>
+   <condition>
+    <or>
+     <and>
+      <property>/sim/current-view/internal</property>
+      <property>/systems/seat/engineer</property>
+      <less-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>320</value>
+      </less-than>
+      <greater-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>250</value>
+      </greater-than>
+      <less-than>
+       <property>/sim/current-view/goal-pitch-offset-deg</property>
+       <value>5</value>
+      </less-than>
+     </and>
+     <property>/controls/seat/all</property>
+    </or>
+   </condition>
+   <params>
+    <pump-switch>/controls/fuel/tank[4]/pump[0]</pump-switch>
+    <content-select>/consumables/fuel/tank[4]/level-lbs</content-select>
+   </params>
+   <x>-11</x>
+   <y>555</y>
+   <w>26</w>
+   <h>13</h>
+  </instrument>
+
+  <instrument include="Instruments/concorde-fuel-pump.xml">
+   <name>Pump 1 tank 5</name>
+   <condition>
+    <or>
+     <and>
+      <property>/sim/current-view/internal</property>
+      <property>/systems/seat/engineer</property>
+      <less-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>320</value>
+      </less-than>
+      <greater-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>250</value>
+      </greater-than>
+      <less-than>
+       <property>/sim/current-view/goal-pitch-offset-deg</property>
+       <value>0</value>
+      </less-than>
+     </and>
+     <property>/controls/seat/all</property>
+    </or>
+   </condition>
+   <params>
+    <pump-switch>/controls/fuel/tank[4]/pump[0]</pump-switch>
+   </params>
+   <x>-11</x>
+   <y>528</y>
+   <w>26</w>
+   <h>39</h>
+  </instrument>
+
+  <instrument include="Instruments/concorde-tank10.xml">
+   <name>Tank 5 display</name>
+   <condition>
+    <or>
+     <and>
+      <property>/sim/current-view/internal</property>
+      <property>/systems/seat/engineer</property>
+      <less-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>320</value>
+      </less-than>
+      <greater-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>245</value>
+      </greater-than>
+      <less-than>
+       <property>/sim/current-view/goal-pitch-offset-deg</property>
+       <value>5</value>
+      </less-than>
+     </and>
+     <property>/controls/seat/all</property>
+    </or>
+   </condition>
+   <params>
+    <name>/consumables/fuel/tank[4]/name</name>
+    <lbs-select>/consumables/fuel/tank[4]/level-lbs</lbs-select>
+   </params>
+   <x>32</x>
+   <y>550</y>
+   <w>56</w>
+   <h>56</h>
+  </instrument>
+
+  <instrument include="Instruments/concorde-yellow-fuel-pressure.xml">
+   <name>Low pressure pump 2 tank 5</name>
+   <condition>
+    <or>
+     <and>
+      <property>/sim/current-view/internal</property>
+      <property>/systems/seat/engineer</property>
+      <less-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>315</value>
+      </less-than>
+      <greater-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>245</value>
+      </greater-than>
+      <less-than>
+       <property>/sim/current-view/goal-pitch-offset-deg</property>
+       <value>0</value>
+      </less-than>
+     </and>
+     <property>/controls/seat/all</property>
+    </or>
+   </condition>
+   <params>
+    <pump-switch>/controls/fuel/tank[4]/pump[1]</pump-switch>
+    <content-select>/consumables/fuel/tank[4]/level-lbs</content-select>
+   </params>
+   <x>77</x>
+   <y>555</y>
+   <w>26</w>
+   <h>13</h>
+  </instrument>
+
+  <instrument include="Instruments/concorde-fuel-pump.xml">
+   <name>Pump 2 tank 5</name>
+   <condition>
+    <or>
+     <and>
+      <property>/sim/current-view/internal</property>
+      <property>/systems/seat/engineer</property>
+      <less-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>315</value>
+      </less-than>
+      <greater-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>245</value>
+      </greater-than>
+      <less-than>
+       <property>/sim/current-view/goal-pitch-offset-deg</property>
+       <value>0</value>
+      </less-than>
+     </and>
+     <property>/controls/seat/all</property>
+    </or>
+   </condition>
+   <params>
+    <pump-switch>/controls/fuel/tank[4]/pump[1]</pump-switch>
+   </params>
+   <x>77</x>
+   <y>528</y>
+   <w>26</w>
+   <h>39</h>
+  </instrument>
+
+  <instrument include="Instruments/concorde-yellow-fuel-pressure.xml">
+   <name>Low pressure pump 1 tank 6</name>
+   <condition>
+    <or>
+     <and>
+      <property>/sim/current-view/internal</property>
+      <property>/systems/seat/engineer</property>
+      <less-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>325</value>
+      </less-than>
+      <greater-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>250</value>
+      </greater-than>
+      <less-than>
+       <property>/sim/current-view/goal-pitch-offset-deg</property>
+       <value>0</value>
+      </less-than>
+     </and>
+     <property>/controls/seat/all</property>
+    </or>
+   </condition>
+   <params>
+    <pump-switch>/controls/fuel/tank[5]/pump[0]</pump-switch>
+    <content-select>/consumables/fuel/tank[5]/level-lbs</content-select>
+   </params>
+   <x>-11</x>
+   <y>495</y>
+   <w>26</w>
+   <h>13</h>
+  </instrument>
+
+  <instrument include="Instruments/concorde-fuel-pump.xml">
+   <name>Pump 1 tank 6</name>
+   <condition>
+    <or>
+     <and>
+      <property>/sim/current-view/internal</property>
+      <property>/systems/seat/engineer</property>
+      <less-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>325</value>
+      </less-than>
+      <greater-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>250</value>
+      </greater-than>
+      <less-than>
+       <property>/sim/current-view/goal-pitch-offset-deg</property>
+       <value>0</value>
+      </less-than>
+     </and>
+     <property>/controls/seat/all</property>
+    </or>
+   </condition>
+   <params>
+    <pump-switch>/controls/fuel/tank[5]/pump[0]</pump-switch>
+   </params>
+   <x>-11</x>
+   <y>468</y>
+   <w>26</w>
+   <h>39</h>
+  </instrument>
+
+  <instrument include="Instruments/concorde-tank12.xml">
+   <name>Tank 6 display</name>
+   <condition>
+    <or>
+     <and>
+      <property>/sim/current-view/internal</property>
+      <property>/systems/seat/engineer</property>
+      <less-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>320</value>
+      </less-than>
+      <greater-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>245</value>
+      </greater-than>
+      <less-than>
+       <property>/sim/current-view/goal-pitch-offset-deg</property>
+       <value>0</value>
+      </less-than>
+     </and>
+     <property>/controls/seat/all</property>
+    </or>
+   </condition>
+   <params>
+    <name>/consumables/fuel/tank[5]/name</name>
+    <lbs-select>/consumables/fuel/tank[5]/level-lbs</lbs-select>
+   </params>
+   <x>32</x>
+   <y>490</y>
+   <w>56</w>
+   <h>56</h>
+  </instrument>
+
+  <instrument include="Instruments/concorde-yellow-fuel-pressure.xml">
+   <name>Low pressure pump 2 tank 6</name>
+   <condition>
+    <or>
+     <and>
+      <property>/sim/current-view/internal</property>
+      <property>/systems/seat/engineer</property>
+      <less-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>315</value>
+      </less-than>
+      <greater-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>245</value>
+      </greater-than>
+      <less-than>
+       <property>/sim/current-view/goal-pitch-offset-deg</property>
+       <value>-5</value>
+      </less-than>
+     </and>
+     <property>/controls/seat/all</property>
+    </or>
+   </condition>
+   <params>
+    <pump-switch>/controls/fuel/tank[5]/pump[1]</pump-switch>
+    <content-select>/consumables/fuel/tank[5]/level-lbs</content-select>
+   </params>
+   <x>77</x>
+   <y>495</y>
+   <w>26</w>
+   <h>13</h>
+  </instrument>
+
+  <instrument include="Instruments/concorde-fuel-pump.xml">
+   <name>Pump 2 tank 6</name>
+   <condition>
+    <or>
+     <and>
+      <property>/sim/current-view/internal</property>
+      <property>/systems/seat/engineer</property>
+      <less-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>315</value>
+      </less-than>
+      <greater-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>240</value>
+      </greater-than>
+      <less-than>
+       <property>/sim/current-view/goal-pitch-offset-deg</property>
+       <value>-5</value>
+      </less-than>
+     </and>
+     <property>/controls/seat/all</property>
+    </or>
+   </condition>
+   <params>
+    <pump-switch>/controls/fuel/tank[5]/pump[1]</pump-switch>
+   </params>
+   <x>77</x>
+   <y>468</y>
+   <w>26</w>
+   <h>39</h>
+  </instrument>
+
+<!-- inlet valve -->
+
+  <instrument include="Instruments/concorde-conn-tank-inlet-valve.xml">
+   <name>Inlet valve tank 5</name>
+   <condition>
+    <or>
+     <and>
+      <property>/sim/current-view/internal</property>
+      <property>/systems/seat/engineer</property>
+      <less-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>310</value>
+      </less-than>
+      <greater-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>240</value>
+      </greater-than>
+      <less-than>
+       <property>/sim/current-view/goal-pitch-offset-deg</property>
+       <value>0</value>
+      </less-than>
+     </and>
+     <property>/controls/seat/all</property>
+    </or>
+   </condition>
+   <params>
+    <inlet-valve>/controls/fuel/tank[4]/inlet-valve</inlet-valve>
+    <inlet-static>/controls/fuel/tank[4]/inlet-static</inlet-static>
+   </params>
+   <x>121</x>
+   <y>588</y>
+   <w>20</w>
+   <h>40</h>
+  </instrument>
+
+  <instrument include="Instruments/concorde-tank-inlet-selector.xml">
+   <name>Tank 5 inlet valve selector</name>
+   <condition>
+    <or>
+     <and>
+      <property>/sim/current-view/internal</property>
+      <property>/systems/seat/engineer</property>
+      <less-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>310</value>
+      </less-than>
+      <greater-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>240</value>
+      </greater-than>
+      <less-than>
+       <property>/sim/current-view/goal-pitch-offset-deg</property>
+       <value>0</value>
+      </less-than>
+     </and>
+     <property>/controls/seat/all</property>
+    </or>
+   </condition>
+   <params>
+    <inlet-main>/controls/fuel/tank[4]/inlet-main[0]</inlet-main>
+    <inlet-auto>/controls/fuel/tank[4]/inlet-auto[0]</inlet-auto>
+    <inlet-static>/controls/fuel/tank[4]/inlet-static[0]</inlet-static>
+    <name>/consumables/fuel/tank[4]/name</name>
+   </params>
+   <x>115</x>
+   <y>553</y>
+   <w>40</w>
+   <h>30</h>
+  </instrument>
+
+  <instrument include="Instruments/concorde-tank-inlet-override-selector.xml">
+   <name>Tank 5 inlet valve override selector</name>
+   <condition>
+    <or>
+     <and>
+      <property>/sim/current-view/internal</property>
+      <property>/systems/seat/engineer</property>
+      <less-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>310</value>
+      </less-than>
+      <greater-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>240</value>
+      </greater-than>
+      <less-than>
+       <property>/sim/current-view/goal-pitch-offset-deg</property>
+       <value>-5</value>
+      </less-than>
+     </and>
+     <property>/controls/seat/all</property>
+    </or>
+   </condition>
+   <params>
+    <inlet-override>/controls/fuel/tank[4]/inlet-override[0]</inlet-override>
+    <inlet-off>/controls/fuel/tank[4]/inlet-off[0]</inlet-off>
+    <inlet-main>/controls/fuel/tank[4]/inlet-main[0]</inlet-main>
+    <inlet-static>/controls/fuel/tank[4]/inlet-static[0]</inlet-static>
+    <name>/consumables/fuel/tank[4]/name</name>
+   </params>
+   <x>115</x>
+   <y>513</y>
+   <w>40</w>
+   <h>30</h>
+  </instrument>
+
+  <instrument include="Instruments/concorde-conn-tank-inlet-valve.xml">
+   <name>Inlet valve tank 7</name>
+   <condition>
+    <or>
+     <and>
+      <property>/sim/current-view/internal</property>
+      <property>/systems/seat/engineer</property>
+      <less-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>290</value>
+      </less-than>
+      <greater-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>225</value>
+      </greater-than>
+      <less-than>
+       <property>/sim/current-view/goal-pitch-offset-deg</property>
+       <value>0</value>
+      </less-than>
+     </and>
+     <property>/controls/seat/all</property>
+    </or>
+   </condition>
+   <params>
+    <inlet-valve>/controls/fuel/tank[6]/inlet-valve</inlet-valve>
+    <inlet-static>/controls/fuel/tank[6]/inlet-static</inlet-static>
+   </params>
+   <x>308</x>
+   <y>588</y>
+   <w>20</w>
+   <h>40</h>
+  </instrument>
+
+  <instrument include="Instruments/concorde-tank-inlet-selector.xml">
+   <name>Tank 7 inlet valve selector</name>
+   <condition>
+    <or>
+     <and>
+      <property>/sim/current-view/internal</property>
+      <property>/systems/seat/engineer</property>
+      <less-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>290</value>
+      </less-than>
+      <greater-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>220</value>
+      </greater-than>
+      <less-than>
+       <property>/sim/current-view/goal-pitch-offset-deg</property>
+       <value>0</value>
+      </less-than>
+     </and>
+     <property>/controls/seat/all</property>
+    </or>
+   </condition>
+   <params>
+    <inlet-main>/controls/fuel/tank[6]/inlet-main[0]</inlet-main>
+    <inlet-auto>/controls/fuel/tank[6]/inlet-auto[0]</inlet-auto>
+    <inlet-static>/controls/fuel/tank[6]/inlet-static[0]</inlet-static>
+    <name>/consumables/fuel/tank[6]/name</name>
+   </params>
+   <x>308</x>
+   <y>553</y>
+   <w>40</w>
+   <h>30</h>
+  </instrument>
+
+  <instrument include="Instruments/concorde-tank-inlet-override-selector.xml">
+   <name>Tank 7 inlet valve override selector</name>
+   <condition>
+    <or>
+     <and>
+      <property>/sim/current-view/internal</property>
+      <property>/systems/seat/engineer</property>
+      <less-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>295</value>
+      </less-than>
+      <greater-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>220</value>
+      </greater-than>
+      <less-than>
+       <property>/sim/current-view/goal-pitch-offset-deg</property>
+       <value>-5</value>
+      </less-than>
+     </and>
+     <property>/controls/seat/all</property>
+    </or>
+   </condition>
+   <params>
+    <inlet-override>/controls/fuel/tank[6]/inlet-override[0]</inlet-override>
+    <inlet-off>/controls/fuel/tank[6]/inlet-off[0]</inlet-off>
+    <inlet-main>/controls/fuel/tank[6]/inlet-main[0]</inlet-main>
+    <inlet-static>/controls/fuel/tank[6]/inlet-static[0]</inlet-static>
+    <name>/consumables/fuel/tank[6]/name</name>
+   </params>
+   <x>308</x>
+   <y>513</y>
+   <w>40</w>
+   <h>30</h>
+  </instrument>
+
+<!-- interconnect -->
+
+  <instrument include="Instruments/concorde-fuel-interconnect-valve.xml">
+   <name>Interconnect tank 6</name>
+   <condition>
+    <or>
+     <and>
+      <property>/sim/current-view/internal</property>
+      <property>/systems/seat/engineer</property>
+      <less-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>315</value>
+      </less-than>
+      <greater-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>240</value>
+      </greater-than>
+      <less-than>
+       <property>/sim/current-view/goal-pitch-offset-deg</property>
+       <value>-5</value>
+      </less-than>
+     </and>
+     <property>/controls/seat/all</property>
+    </or>
+   </condition>
+   <params>
+    <inter-valve>/controls/fuel/tank[5]/interconnect-valve</inter-valve>
+    <name>/consumables/fuel/tank[5]/name</name>
+   </params>
+   <x>110</x>
+   <y>485</y>
+   <w>50</w>
+   <h>30</h>
+  </instrument>
+
+  <instrument include="Instruments/concorde-fuel-interconnect-switch.xml">
+   <name>Interconnect valve switch tank 6</name>
+   <condition>
+    <or>
+     <and>
+      <property>/sim/current-view/internal</property>
+      <property>/systems/seat/engineer</property>
+      <less-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>315</value>
+      </less-than>
+      <greater-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>240</value>
+      </greater-than>
+      <less-than>
+       <property>/sim/current-view/goal-pitch-offset-deg</property>
+       <value>-10</value>
+      </less-than>
+     </and>
+     <property>/controls/seat/all</property>
+    </or>
+   </condition>
+   <params>
+    <connect-valve>/controls/fuel/tank[5]/interconnect-valve</connect-valve>
+    <name>/consumables/fuel/tank[5]/name</name>
+   </params>
+   <x>110</x>
+   <y>460</y>
+   <w>40</w>
+   <h>30</h>
+  </instrument>
+
+  <instrument include="Instruments/concorde-fuel-interconnect-valve.xml">
+   <name>Interconnect tank 8</name>
+   <condition>
+    <or>
+     <and>
+      <property>/sim/current-view/internal</property>
+      <property>/systems/seat/engineer</property>
+      <less-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>295</value>
+      </less-than>
+      <greater-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>220</value>
+      </greater-than>
+      <less-than>
+       <property>/sim/current-view/goal-pitch-offset-deg</property>
+       <value>-5</value>
+      </less-than>
+     </and>
+     <property>/controls/seat/all</property>
+    </or>
+   </condition>
+   <params>
+    <inter-valve>/controls/fuel/tank[7]/interconnect-valve</inter-valve>
+    <name>/consumables/fuel/tank[7]/name</name>
+   </params>
+   <x>320</x>
+   <y>485</y>
+   <w>50</w>
+   <h>30</h>
+  </instrument>
+
+  <instrument include="Instruments/concorde-fuel-interconnect-switch.xml">
+   <name>Interconnect valve switch tank 8</name>
+   <condition>
+    <or>
+     <and>
+      <property>/sim/current-view/internal</property>
+      <property>/systems/seat/engineer</property>
+      <less-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>295</value>
+      </less-than>
+      <greater-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>220</value>
+      </greater-than>
+      <less-than>
+       <property>/sim/current-view/goal-pitch-offset-deg</property>
+       <value>-10</value>
+      </less-than>
+     </and>
+     <property>/controls/seat/all</property>
+    </or>
+   </condition>
+   <params>
+    <connect-valve>/controls/fuel/tank[7]/interconnect-valve</connect-valve>
+    <name>/consumables/fuel/tank[7]/name</name>
+   </params>
+   <x>320</x>
+   <y>460</y>
+   <w>40</w>
+   <h>30</h>
+  </instrument>
+
+<!-- main tanks right -->
+
+  <instrument include="Instruments/concorde-fuel-trans-valve.xml">
+   <name>Transfert valve switch tank 7A</name>
+   <condition>
+    <or>
+     <and>
+      <property>/sim/current-view/internal</property>
+      <property>/systems/seat/engineer</property>
+      <less-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>290</value>
+      </less-than>
+      <greater-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>220</value>
+      </greater-than>
+      <less-than>
+       <property>/sim/current-view/goal-pitch-offset-deg</property>
+       <value>5</value>
+      </less-than>
+     </and>
+     <property>/controls/seat/all</property>
+    </or>
+   </condition>
+   <params>
+    <trans-valve>/controls/fuel/tank[12]/trans-valve</trans-valve>
+    <engine-num>/systems/engines/engine[3]/engine-num</engine-num>
+   </params>
+   <x>329</x>
+   <y>585</y>
+   <w>40</w>
+   <h>30</h>
+  </instrument>
+
+  <instrument include="Instruments/concorde-conn-fuel-trans-valve.xml">
+   <name>Transfert valve tank 7A</name>
+   <condition>
+    <or>
+     <and>
+      <property>/sim/current-view/internal</property>
+      <property>/systems/seat/engineer</property>
+      <less-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>285</value>
+      </less-than>
+      <greater-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>220</value>
+      </greater-than>
+      <less-than>
+       <property>/sim/current-view/goal-pitch-offset-deg</property>
+       <value>5</value>
+      </less-than>
+     </and>
+     <property>/controls/seat/all</property>
+    </or>
+   </condition>
+   <params>
+    <trans-valve>/controls/fuel/tank[12]/trans-valve</trans-valve>
+    <engine-num>/systems/engines/engine[3]/engine-num</engine-num>
+   </params>
+   <x>364</x>
+   <y>585</y>
+   <w>20</w>
+   <h>60</h>
+  </instrument>
+
+  <instrument include="Instruments/concorde-yellow-fuel-o-full.xml">
+   <name>Tank 7 over full</name>
+   <condition>
+    <or>
+     <and>
+      <property>/sim/current-view/internal</property>
+      <property>/systems/seat/engineer</property>
+      <less-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>285</value>
+      </less-than>
+      <greater-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>215</value>
+      </greater-than>
+      <less-than>
+       <property>/sim/current-view/goal-pitch-offset-deg</property>
+       <value>5</value>
+      </less-than>
+     </and>
+     <property>/controls/seat/all</property>
+    </or>
+   </condition>
+   <params>
+    <lbs-select>/consumables/fuel/tank[6]/level-lbs</lbs-select>
+    <over-full-select>/consumables/fuel/tank[6]/over-full-lb</over-full-select>
+   </params>
+   <x>397</x>
+   <y>585</y>
+   <w>28</w>
+   <h>14</h>
+  </instrument>
+
+  <instrument include="Instruments/concorde-title-hyd-pumps.xml">
+   <name>Pumps</name>
+   <condition>
+    <or>
+     <and>
+      <property>/sim/current-view/internal</property>
+      <property>/systems/seat/engineer</property>
+      <less-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>280</value>
+      </less-than>
+      <greater-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>210</value>
+      </greater-than>
+      <less-than>
+       <property>/sim/current-view/goal-pitch-offset-deg</property>
+       <value>0</value>
+      </less-than>
+     </and>
+     <property>/controls/seat/all</property>
+    </or>
+   </condition>
+   <x>432</x>
+   <y>563</y>
+   <w>40</w>
+   <h>20</h>
+  </instrument>
+
+  <instrument include="Instruments/concorde-yellow-fuel-pressure.xml">
+   <name>Low pressure pump 1 tank 7</name>
+   <condition>
+    <or>
+     <and>
+      <property>/sim/current-view/internal</property>
+      <property>/systems/seat/engineer</property>
+      <less-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>290</value>
+      </less-than>
+      <greater-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>220</value>
+      </greater-than>
+      <less-than>
+       <property>/sim/current-view/goal-pitch-offset-deg</property>
+       <value>5</value>
+      </less-than>
+     </and>
+     <property>/controls/seat/all</property>
+    </or>
+   </condition>
+   <params>
+    <pump-switch>/controls/fuel/tank[6]/pump[0]</pump-switch>
+    <content-select>/consumables/fuel/tank[6]/level-lbs</content-select>
+   </params>
+   <x>354</x>
+   <y>555</y>
+   <w>26</w>
+   <h>13</h>
+  </instrument>
+
+  <instrument include="Instruments/concorde-fuel-pump.xml">
+   <name>Pump 1 tank 7</name>
+   <condition>
+    <or>
+     <and>
+      <property>/sim/current-view/internal</property>
+      <property>/systems/seat/engineer</property>
+      <less-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>290</value>
+      </less-than>
+      <greater-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>220</value>
+      </greater-than>
+      <less-than>
+       <property>/sim/current-view/goal-pitch-offset-deg</property>
+       <value>0</value>
+      </less-than>
+     </and>
+     <property>/controls/seat/all</property>
+    </or>
+   </condition>
+   <params>
+    <pump-switch>/controls/fuel/tank[6]/pump[0]</pump-switch>
+   </params>
+   <x>354</x>
+   <y>528</y>
+   <w>26</w>
+   <h>39</h>
+  </instrument>
+
+  <instrument include="Instruments/concorde-tank10.xml">
+   <name>Tank 7 display</name>
+   <condition>
+    <or>
+     <and>
+      <property>/sim/current-view/internal</property>
+      <property>/systems/seat/engineer</property>
+      <less-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>285</value>
+      </less-than>
+      <greater-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>215</value>
+      </greater-than>
+      <less-than>
+       <property>/sim/current-view/goal-pitch-offset-deg</property>
+       <value>5</value>
+      </less-than>
+     </and>
+     <property>/controls/seat/all</property>
+    </or>
+   </condition>
+   <params>
+    <name>/consumables/fuel/tank[6]/name</name>
+    <lbs-select>/consumables/fuel/tank[6]/level-lbs</lbs-select>
+   </params>
+   <x>397</x>
+   <y>550</y>
+   <w>56</w>
+   <h>56</h>
+  </instrument>
+
+  <instrument include="Instruments/concorde-yellow-fuel-pressure.xml">
+   <name>Low pressure pump 2 tank 7</name>
+   <condition>
+    <or>
+     <and>
+      <property>/sim/current-view/internal</property>
+      <property>/systems/seat/engineer</property>
+      <less-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>280</value>
+      </less-than>
+      <greater-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>210</value>
+      </greater-than>
+      <less-than>
+       <property>/sim/current-view/goal-pitch-offset-deg</property>
+       <value>5</value>
+      </less-than>
+     </and>
+     <property>/controls/seat/all</property>
+    </or>
+   </condition>
+   <params>
+    <pump-switch>/controls/fuel/tank[6]/pump[1]</pump-switch>
+    <content-select>/consumables/fuel/tank[6]/level-lbs</content-select>
+   </params>
+   <x>442</x>
+   <y>555</y>
+   <w>26</w>
+   <h>13</h>
+  </instrument>
+
+  <instrument include="Instruments/concorde-fuel-pump.xml">
+   <name>Pump 2 tank 7</name>
+   <condition>
+    <or>
+     <and>
+      <property>/sim/current-view/internal</property>
+      <property>/systems/seat/engineer</property>
+      <less-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>280</value>
+      </less-than>
+      <greater-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>210</value>
+      </greater-than>
+      <less-than>
+       <property>/sim/current-view/goal-pitch-offset-deg</property>
+       <value>0</value>
+      </less-than>
+     </and>
+     <property>/controls/seat/all</property>
+    </or>
+   </condition>
+   <params>
+    <pump-switch>/controls/fuel/tank[6]/pump[1]</pump-switch>
+   </params>
+   <x>442</x>
+   <y>528</y>
+   <w>26</w>
+   <h>39</h>
+  </instrument>
+
+  <instrument include="Instruments/concorde-yellow-fuel-pressure.xml">
+   <name>Low pressure pump 1 tank 8</name>
+   <condition>
+    <or>
+     <and>
+      <property>/sim/current-view/internal</property>
+      <property>/systems/seat/engineer</property>
+      <less-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>290</value>
+      </less-than>
+      <greater-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>215</value>
+      </greater-than>
+      <less-than>
+       <property>/sim/current-view/goal-pitch-offset-deg</property>
+       <value>-5</value>
+      </less-than>
+     </and>
+     <property>/controls/seat/all</property>
+    </or>
+   </condition>
+   <params>
+    <pump-switch>/controls/fuel/tank[7]/pump[0]</pump-switch>
+    <content-select>/consumables/fuel/tank[7]/level-lbs</content-select>
+   </params>
+   <x>354</x>
+   <y>495</y>
+   <w>26</w>
+   <h>13</h>
+  </instrument>
+
+  <instrument include="Instruments/concorde-fuel-pump.xml">
+   <name>Pump 1 tank 8</name>
+   <condition>
+    <or>
+     <and>
+      <property>/sim/current-view/internal</property>
+      <property>/systems/seat/engineer</property>
+      <less-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>290</value>
+      </less-than>
+      <greater-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>215</value>
+      </greater-than>
+      <less-than>
+       <property>/sim/current-view/goal-pitch-offset-deg</property>
+       <value>-5</value>
+      </less-than>
+     </and>
+     <property>/controls/seat/all</property>
+    </or>
+   </condition>
+   <params>
+    <pump-switch>/controls/fuel/tank[7]/pump[0]</pump-switch>
+   </params>
+   <x>354</x>
+   <y>468</y>
+   <w>26</w>
+   <h>39</h>
+  </instrument>
+
+  <instrument include="Instruments/concorde-tank12.xml">
+   <name>Tank 8 display</name>
+   <condition>
+    <or>
+     <and>
+      <property>/sim/current-view/internal</property>
+      <property>/systems/seat/engineer</property>
+      <less-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>285</value>
+      </less-than>
+      <greater-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>210</value>
+      </greater-than>
+      <less-than>
+       <property>/sim/current-view/goal-pitch-offset-deg</property>
+       <value>0</value>
+      </less-than>
+     </and>
+     <property>/controls/seat/all</property>
+    </or>
+   </condition>
+   <params>
+    <name>/consumables/fuel/tank[7]/name</name>
+    <lbs-select>/consumables/fuel/tank[7]/level-lbs</lbs-select>
+   </params>
+   <x>397</x>
+   <y>490</y>
+   <w>56</w>
+   <h>56</h>
+  </instrument>
+
+  <instrument include="Instruments/concorde-yellow-fuel-pressure.xml">
+   <name>Low pressure pump 2 tank 8</name>
+   <condition>
+    <or>
+     <and>
+      <property>/sim/current-view/internal</property>
+      <property>/systems/seat/engineer</property>
+      <less-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>280</value>
+      </less-than>
+      <greater-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>210</value>
+      </greater-than>
+      <less-than>
+       <property>/sim/current-view/goal-pitch-offset-deg</property>
+       <value>0</value>
+      </less-than>
+     </and>
+     <property>/controls/seat/all</property>
+    </or>
+   </condition>
+   <params>
+    <pump-switch>/controls/fuel/tank[7]/pump[1]</pump-switch>
+    <content-select>/consumables/fuel/tank[7]/level-lbs</content-select>
+   </params>
+   <x>442</x>
+   <y>495</y>
+   <w>26</w>
+   <h>13</h>
+  </instrument>
+
+  <instrument include="Instruments/concorde-fuel-pump.xml">
+   <name>Pump 2 tank 8</name>
+   <condition>
+    <or>
+     <and>
+      <property>/sim/current-view/internal</property>
+      <property>/systems/seat/engineer</property>
+      <less-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>280</value>
+      </less-than>
+      <greater-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>210</value>
+      </greater-than>
+      <less-than>
+       <property>/sim/current-view/goal-pitch-offset-deg</property>
+       <value>-5</value>
+      </less-than>
+     </and>
+     <property>/controls/seat/all</property>
+    </or>
+   </condition>
+   <params>
+    <pump-switch>/controls/fuel/tank[7]/pump[1]</pump-switch>
+   </params>
+   <x>442</x>
+   <y>468</y>
+   <w>26</w>
+   <h>39</h>
+  </instrument>
+
+<!-- engine tanks -->
+
+  <instrument include="Instruments/concorde-tank5.xml">
+   <name>Tank 1 display</name>
+   <condition>
+    <or>
+     <and>
+      <property>/sim/current-view/internal</property>
+       <property>/systems/seat/engineer</property>
+      <less-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>325</value>
+      </less-than>
+      <greater-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>245</value>
+      </greater-than>
+      <less-than>
+       <property>/sim/current-view/goal-pitch-offset-deg</property>
+       <value>-5</value>
+      </less-than>
+     </and>
+     <property>/controls/seat/all</property>
+    </or>
+   </condition>
+   <params>
+    <name>/consumables/fuel/tank[0]/name</name>
+    <lbs-select>/consumables/fuel/tank[0]/level-lbs</lbs-select>
+   </params>
+   <x>-5</x>
+   <y>415</y>
+   <w>56</w>
+   <h>56</h>
+  </instrument>
+
+  <instrument include="Instruments/concorde-yellow-fuel-o-full.xml">
+   <name>Tank 1 over full</name>
+   <condition>
+    <or>
+     <and>
+      <property>/sim/current-view/internal</property>
+      <property>/systems/seat/engineer</property>
+      <less-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>320</value>
+      </less-than>
+      <greater-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>245</value>
+      </greater-than>
+      <less-than>
+       <property>/sim/current-view/goal-pitch-offset-deg</property>
+       <value>-5</value>
+      </less-than>
+     </and>
+     <property>/controls/seat/all</property>
+    </or>
+   </condition>
+   <params>
+    <lbs-select>/consumables/fuel/tank[0]/level-lbs</lbs-select>
+    <over-full-select>/consumables/fuel/tank[0]/over-full-lb</over-full-select>
+   </params>
+   <x>40</x>
+   <y>435</y>
+   <w>28</w>
+   <h>14</h>
+  </instrument>
+
+  <instrument include="Instruments/concorde-yellow-fuel-u-full.xml">
+   <name>Tank 1 under full</name>
+   <condition>
+    <or>
+     <and>
+      <property>/sim/current-view/internal</property>
+      <property>/systems/seat/engineer</property>
+      <less-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>320</value>
+      </less-than>
+      <greater-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>245</value>
+      </greater-than>
+      <less-than>
+       <property>/sim/current-view/goal-pitch-offset-deg</property>
+       <value>-10</value>
+      </less-than>
+     </and>
+     <property>/controls/seat/all</property>
+    </or>
+   </condition>
+   <params>
+    <lbs-select>/consumables/fuel/tank[0]/level-lbs</lbs-select>
+    <under-full-select>/consumables/fuel/tank[0]/under-full-lb</under-full-select>
+    <trim-select>/controls/fuel/tank[0]/aft-trim</trim-select>
+   </params>
+   <x>40</x>
+   <y>415</y>
+   <w>28</w>
+   <h>14</h>
+  </instrument>
+
+  <instrument include="Instruments/concorde-amber-fuel-low-level.xml">
+   <name>Tank 1 low level</name>
+   <condition>
+    <or>
+     <and>
+      <property>/sim/current-view/internal</property>
+      <property>/systems/seat/engineer</property>
+      <less-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>320</value>
+      </less-than>
+      <greater-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>245</value>
+      </greater-than>
+      <less-than>
+       <property>/sim/current-view/goal-pitch-offset-deg</property>
+       <value>-10</value>
+      </less-than>
+     </and>
+     <property>/controls/seat/all</property>
+    </or>
+   </condition>
+   <params>
+    <lbs-select>/consumables/fuel/tank[0]/level-lbs</lbs-select>
+    <low-level-select>/consumables/fuel/tank[0]/low-level-lbs</low-level-select>
+   </params>
+   <x>40</x>
+   <y>395</y>
+   <w>28</w>
+   <h>14</h>
+  </instrument>
+
+  <instrument include="Instruments/concorde-tank5.xml">
+   <name>Tank 2 display</name>
+   <condition>
+    <or>
+     <and>
+      <property>/sim/current-view/internal</property>
+      <property>/systems/seat/engineer</property>
+      <less-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>320</value>
+      </less-than>
+      <greater-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>240</value>
+      </greater-than>
+      <less-than>
+       <property>/sim/current-view/goal-pitch-offset-deg</property>
+       <value>-10</value>
+      </less-than>
+     </and>
+     <property>/controls/seat/all</property>
+    </or>
+   </condition>
+   <params>
+    <name>/consumables/fuel/tank[1]/name</name>
+    <lbs-select>/consumables/fuel/tank[1]/level-lbs</lbs-select>
+   </params>
+   <x>92</x>
+   <y>415</y>
+   <w>56</w>
+   <h>56</h>
+  </instrument>
+
+  <instrument include="Instruments/concorde-yellow-fuel-o-full.xml">
+   <name>Tank 2 over full</name>
+   <condition>
+    <or>
+     <and>
+      <property>/sim/current-view/internal</property>
+      <property>/systems/seat/engineer</property>
+      <less-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>310</value>
+      </less-than>
+      <greater-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>235</value>
+      </greater-than>
+      <less-than>
+       <property>/sim/current-view/goal-pitch-offset-deg</property>
+       <value>-10</value>
+      </less-than>
+     </and>
+     <property>/controls/seat/all</property>
+    </or>
+   </condition>
+   <params>
+    <lbs-select>/consumables/fuel/tank[1]/level-lbs</lbs-select>
+    <over-full-select>/consumables/fuel/tank[1]/over-full-lb</over-full-select>
+   </params>
+   <x>137</x>
+   <y>435</y>
+   <w>28</w>
+   <h>14</h>
+  </instrument>
+
+  <instrument include="Instruments/concorde-yellow-fuel-u-full.xml">
+   <name>Tank 2 under full</name>
+   <condition>
+    <or>
+     <and>
+      <property>/sim/current-view/internal</property>
+      <property>/systems/seat/engineer</property>
+      <less-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>315</value>
+      </less-than>
+      <greater-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>235</value>
+      </greater-than>
+      <less-than>
+       <property>/sim/current-view/goal-pitch-offset-deg</property>
+       <value>-10</value>
+      </less-than>
+     </and>
+     <property>/controls/seat/all</property>
+    </or>
+   </condition>
+   <params>
+    <lbs-select>/consumables/fuel/tank[1]/level-lbs</lbs-select>
+    <under-full-select>/consumables/fuel/tank[1]/under-full-lb</under-full-select>
+    <trim-select>/controls/fuel/tank[1]/aft-trim</trim-select>
+   </params>
+   <x>137</x>
+   <y>415</y>
+   <w>28</w>
+   <h>14</h>
+  </instrument>
+
+  <instrument include="Instruments/concorde-amber-fuel-low-level.xml">
+   <name>Tank 2 low level</name>
+   <condition>
+    <or>
+     <and>
+      <property>/sim/current-view/internal</property>
+      <property>/systems/seat/engineer</property>
+      <less-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>315</value>
+      </less-than>
+      <greater-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>235</value>
+      </greater-than>
+      <less-than>
+       <property>/sim/current-view/goal-pitch-offset-deg</property>
+       <value>-10</value>
+      </less-than>
+     </and>
+     <property>/controls/seat/all</property>
+    </or>
+   </condition>
+   <params>
+    <lbs-select>/consumables/fuel/tank[1]/level-lbs</lbs-select>
+    <low-level-select>/consumables/fuel/tank[1]/low-level-lbs</low-level-select>
+   </params>
+   <x>137</x>
+   <y>395</y>
+   <w>28</w>
+   <h>14</h>
+  </instrument>
+
+  <instrument include="Instruments/concorde-yellow-fuel-o-full.xml">
+   <name>Tank 3 over full</name>
+   <condition>
+    <or>
+     <and>
+      <property>/sim/current-view/internal</property>
+      <property>/systems/seat/engineer</property>
+      <less-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>300</value>
+      </less-than>
+      <greater-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>220</value>
+      </greater-than>
+      <less-than>
+       <property>/sim/current-view/goal-pitch-offset-deg</property>
+       <value>-10</value>
+      </less-than>
+     </and>
+     <property>/controls/seat/all</property>
+    </or>
+   </condition>
+   <params>
+    <lbs-select>/consumables/fuel/tank[2]/level-lbs</lbs-select>
+    <over-full-select>/consumables/fuel/tank[2]/over-full-lb</over-full-select>
+   </params>
+   <x>293</x>
+   <y>435</y>
+   <w>28</w>
+   <h>14</h>
+  </instrument>
+
+  <instrument include="Instruments/concorde-yellow-fuel-u-full.xml">
+   <name>Tank 3 under full</name>
+   <condition>
+    <or>
+     <and>
+      <property>/sim/current-view/internal</property>
+      <property>/systems/seat/engineer</property>
+      <less-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>300</value>
+      </less-than>
+      <greater-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>220</value>
+      </greater-than>
+      <less-than>
+       <property>/sim/current-view/goal-pitch-offset-deg</property>
+       <value>-10</value>
+      </less-than>
+     </and>
+     <property>/controls/seat/all</property>
+    </or>
+   </condition>
+   <params>
+    <lbs-select>/consumables/fuel/tank[2]/level-lbs</lbs-select>
+    <under-full-select>/consumables/fuel/tank[2]/under-full-lb</under-full-select>
+    <trim-select>/controls/fuel/tank[2]/aft-trim</trim-select>
+   </params>
+   <x>293</x>
+   <y>415</y>
+   <w>28</w>
+   <h>14</h>
+  </instrument>
+
+  <instrument include="Instruments/concorde-amber-fuel-low-level.xml">
+   <name>Tank 3 low level</name>
+   <condition>
+    <or>
+     <and>
+      <property>/sim/current-view/internal</property>
+      <property>/systems/seat/engineer</property>
+      <less-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>300</value>
+      </less-than>
+      <greater-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>220</value>
+      </greater-than>
+      <less-than>
+       <property>/sim/current-view/goal-pitch-offset-deg</property>
+       <value>-10</value>
+      </less-than>
+     </and>
+     <property>/controls/seat/all</property>
+    </or>
+   </condition>
+   <params>
+    <lbs-select>/consumables/fuel/tank[2]/level-lbs</lbs-select>
+    <low-level-select>/consumables/fuel/tank[2]/low-level-lbs</low-level-select>
+   </params>
+   <x>293</x>
+   <y>395</y>
+   <w>28</w>
+   <h>14</h>
+  </instrument>
+
+  <instrument include="Instruments/concorde-tank5.xml">
+   <name>Tank 3 display</name>
+   <condition>
+    <or>
+     <and>
+      <property>/sim/current-view/internal</property>
+      <property>/systems/seat/engineer</property>
+      <less-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>295</value>
+      </less-than>
+      <greater-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>215</value>
+      </greater-than>
+      <less-than>
+       <property>/sim/current-view/goal-pitch-offset-deg</property>
+       <value>-10</value>
+      </less-than>
+     </and>
+     <property>/controls/seat/all</property>
+    </or>
+   </condition>
+   <params>
+    <name>/consumables/fuel/tank[2]/name</name>
+    <lbs-select>/consumables/fuel/tank[2]/level-lbs</lbs-select>
+   </params>
+   <x>338</x>
+   <y>415</y>
+   <w>56</w>
+   <h>56</h>
+  </instrument>
+
+  <instrument include="Instruments/concorde-yellow-fuel-o-full.xml">
+   <name>Tank 4 over full</name>
+   <condition>
+    <or>
+     <and>
+      <property>/sim/current-view/internal</property>
+      <property>/systems/seat/engineer</property>
+      <less-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>290</value>
+      </less-than>
+      <greater-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>210</value>
+      </greater-than>
+      <less-than>
+       <property>/sim/current-view/goal-pitch-offset-deg</property>
+       <value>-5</value>
+      </less-than>
+     </and>
+     <property>/controls/seat/all</property>
+    </or>
+   </condition>
+   <params>
+    <lbs-select>/consumables/fuel/tank[3]/level-lbs</lbs-select>
+    <over-full-select>/consumables/fuel/tank[3]/over-full-lb</over-full-select>
+   </params>
+   <x>390</x>
+   <y>435</y>
+   <w>28</w>
+   <h>14</h>
+  </instrument>
+
+  <instrument include="Instruments/concorde-yellow-fuel-u-full.xml">
+   <name>Tank 4 under full</name>
+   <condition>
+    <or>
+     <and>
+      <property>/sim/current-view/internal</property>
+      <property>/systems/seat/engineer</property>
+      <less-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>290</value>
+      </less-than>
+      <greater-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>210</value>
+      </greater-than>
+      <less-than>
+       <property>/sim/current-view/goal-pitch-offset-deg</property>
+       <value>-10</value>
+      </less-than>
+     </and>
+     <property>/controls/seat/all</property>
+    </or>
+   </condition>
+   <params>
+    <lbs-select>/consumables/fuel/tank[3]/level-lbs</lbs-select>
+    <under-full-select>/consumables/fuel/tank[3]/under-full-lb</under-full-select>
+    <trim-select>/controls/fuel/tank[3]/aft-trim</trim-select>
+   </params>
+   <x>390</x>
+   <y>415</y>
+   <w>28</w>
+   <h>14</h>
+  </instrument>
+
+  <instrument include="Instruments/concorde-amber-fuel-low-level.xml">
+   <name>Tank 4 low level</name>
+   <condition>
+    <or>
+     <and>
+      <property>/sim/current-view/internal</property>
+      <property>/systems/seat/engineer</property>
+      <less-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>290</value>
+      </less-than>
+      <greater-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>210</value>
+      </greater-than>
+      <less-than>
+       <property>/sim/current-view/goal-pitch-offset-deg</property>
+       <value>-10</value>
+      </less-than>
+     </and>
+     <property>/controls/seat/all</property>
+    </or>
+   </condition>
+   <params>
+    <lbs-select>/consumables/fuel/tank[3]/level-lbs</lbs-select>
+    <low-level-select>/consumables/fuel/tank[3]/low-level-lbs</low-level-select>
+   </params>
+   <x>390</x>
+   <y>395</y>
+   <w>28</w>
+   <h>14</h>
+  </instrument>
+
+  <instrument include="Instruments/concorde-tank5.xml">
+   <name>Tank 4 display</name>
+   <condition>
+    <or>
+     <and>
+      <property>/sim/current-view/internal</property>
+      <property>/systems/seat/engineer</property>
+      <less-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>285</value>
+      </less-than>
+      <greater-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>205</value>
+      </greater-than>
+      <less-than>
+       <property>/sim/current-view/goal-pitch-offset-deg</property>
+       <value>-5</value>
+      </less-than>
+     </and>
+     <property>/controls/seat/all</property>
+    </or>
+   </condition>
+   <params>
+    <name>/consumables/fuel/tank[3]/name</name>
+    <lbs-select>/consumables/fuel/tank[3]/level-lbs</lbs-select>
+   </params>
+   <x>435</x>
+   <y>415</y>
+   <w>56</w>
+   <h>56</h>
+  </instrument>
+
+<!-- engine feed pumps -->
+
+  <instrument include="Instruments/concorde-title-fuel-engine-feed-pumps.xml">
+   <name>Engine feed pumps</name>
+   <condition>
+    <or>
+     <and>
+      <property>/sim/current-view/internal</property>
+      <property>/systems/seat/engineer</property>
+      <less-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>325</value>
+      </less-than>
+      <greater-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>240</value>
+      </greater-than>
+      <less-than>
+       <property>/sim/current-view/goal-pitch-offset-deg</property>
+       <value>-10</value>
+      </less-than>
+     </and>
+     <property>/controls/seat/all</property>
+    </or>
+   </condition>
+   <x>17</x>
+   <y>380</y>
+   <w>210</w>
+   <h>10.5</h>
+  </instrument>
+
+  <instrument include="Instruments/concorde-fuel-pump.xml">
+   <name>Pump 1 engine 1</name>
+   <condition>
+    <or>
+     <and>
+      <property>/sim/current-view/internal</property>
+      <property>/systems/seat/engineer</property>
+      <less-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>330</value>
+      </less-than>
+      <greater-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>250</value>
+      </greater-than>
+      <less-than>
+       <property>/sim/current-view/goal-pitch-offset-deg</property>
+       <value>-10</value>
+      </less-than>
+     </and>
+     <property>/controls/seat/all</property>
+    </or>
+   </condition>
+   <params>
+    <pump-switch>/controls/fuel/tank[0]/pump[0]</pump-switch>
+   </params>
+   <x>-18</x>
+   <y>365</y>
+   <w>26</w>
+   <h>39</h>
+  </instrument>
+
+  <instrument include="Instruments/concorde-fuel-pump.xml">
+   <name>Pump 2 engine 1</name>
+   <condition>
+    <or>
+     <and>
+      <property>/sim/current-view/internal</property>
+      <property>/systems/seat/engineer</property>
+      <less-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>325</value>
+      </less-than>
+      <greater-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>245</value>
+      </greater-than>
+      <less-than>
+       <property>/sim/current-view/goal-pitch-offset-deg</property>
+       <value>-10</value>
+      </less-than>
+     </and>
+     <property>/controls/seat/all</property>
+    </or>
+   </condition>
+   <params>
+    <pump-switch>/controls/fuel/tank[0]/pump[1]</pump-switch>
+   </params>
+   <x>12</x>
+   <y>365</y>
+   <w>26</w>
+   <h>39</h>
+  </instrument>
+
+  <instrument include="Instruments/concorde-fuel-pump.xml">
+   <name>Pump 3 engine 1</name>
+   <condition>
+    <or>
+     <and>
+      <property>/sim/current-view/internal</property>
+      <property>/systems/seat/engineer</property>
+      <less-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>325</value>
+      </less-than>
+      <greater-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>240</value>
+      </greater-than>
+      <less-than>
+       <property>/sim/current-view/goal-pitch-offset-deg</property>
+       <value>-10</value>
+      </less-than>
+     </and>
+     <property>/controls/seat/all</property>
+    </or>
+   </condition>
+   <params>
+    <pump-switch>/controls/fuel/tank[0]/pump[2]</pump-switch>
+   </params>
+   <x>43</x>
+   <y>365</y>
+   <w>26</w>
+   <h>39</h>
+  </instrument>
+
+  <instrument include="Instruments/concorde-fuel-pump.xml">
+   <name>Pump 1 engine 2</name>
+   <condition>
+    <or>
+     <and>
+      <property>/sim/current-view/internal</property>
+      <property>/systems/seat/engineer</property>
+      <less-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>320</value>
+      </less-than>
+      <greater-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>240</value>
+      </greater-than>
+      <less-than>
+       <property>/sim/current-view/goal-pitch-offset-deg</property>
+       <value>-10</value>
+      </less-than>
+     </and>
+     <property>/controls/seat/all</property>
+    </or>
+   </condition>
+   <params>
+    <pump-switch>/controls/fuel/tank[1]/pump[0]</pump-switch>
+   </params>
+   <x>79</x>
+   <y>365</y>
+   <w>26</w>
+   <h>39</h>
+  </instrument>
+
+  <instrument include="Instruments/concorde-fuel-pump.xml">
+   <name>Pump 2 engine 2</name>
+   <condition>
+    <or>
+     <and>
+      <property>/sim/current-view/internal</property>
+      <property>/systems/seat/engineer</property>
+      <less-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>315</value>
+      </less-than>
+      <greater-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>235</value>
+      </greater-than>
+      <less-than>
+       <property>/sim/current-view/goal-pitch-offset-deg</property>
+       <value>-10</value>
+      </less-than>
+     </and>
+     <property>/controls/seat/all</property>
+    </or>
+   </condition>
+   <params>
+    <pump-switch>/controls/fuel/tank[1]/pump[1]</pump-switch>
+   </params>
+   <x>109</x>
+   <y>365</y>
+   <w>26</w>
+   <h>39</h>
+  </instrument>
+
+  <instrument include="Instruments/concorde-fuel-pump.xml">
+   <name>Pump 3 engine 2</name>
+   <condition>
+    <or>
+     <and>
+      <property>/sim/current-view/internal</property>
+      <property>/systems/seat/engineer</property>
+      <less-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>315</value>
+      </less-than>
+      <greater-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>235</value>
+      </greater-than>
+      <less-than>
+       <property>/sim/current-view/goal-pitch-offset-deg</property>
+       <value>-10</value>
+      </less-than>
+     </and>
+     <property>/controls/seat/all</property>
+    </or>
+   </condition>
+   <params>
+    <pump-switch>/controls/fuel/tank[1]/pump[2]</pump-switch>
+   </params>
+   <x>140</x>
+   <y>365</y>
+   <w>26</w>
+   <h>39</h>
+  </instrument>
+
+  <instrument include="Instruments/concorde-title-fuel-engine-feed-pumps.xml">
+   <name>Engine feed pumps</name>
+   <condition>
+    <or>
+     <and>
+      <property>/sim/current-view/internal</property>
+      <property>/systems/seat/engineer</property>
+      <less-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>295</value>
+      </less-than>
+      <greater-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>210</value>
+      </greater-than>
+      <less-than>
+       <property>/sim/current-view/goal-pitch-offset-deg</property>
+       <value>-10</value>
+      </less-than>
+     </and>
+     <property>/controls/seat/all</property>
+    </or>
+   </condition>
+   <x>325</x>
+   <y>380</y>
+   <w>210</w>
+   <h>10.5</h>
+  </instrument>
+
+  <instrument include="Instruments/concorde-fuel-pump.xml">
+   <name>Pump 1 engine 3</name>
+   <condition>
+    <or>
+     <and>
+      <property>/sim/current-view/internal</property>
+      <property>/systems/seat/engineer</property>
+      <less-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>300</value>
+      </less-than>
+      <greater-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>220</value>
+      </greater-than>
+      <less-than>
+       <property>/sim/current-view/goal-pitch-offset-deg</property>
+       <value>-10</value>
+      </less-than>
+     </and>
+     <property>/controls/seat/all</property>
+    </or>
+   </condition>
+   <params>
+    <pump-switch>/controls/fuel/tank[2]/pump[0]</pump-switch>
+   </params>
+   <x>290</x>
+   <y>365</y>
+   <w>26</w>
+   <h>39</h>
+  </instrument>
+
+  <instrument include="Instruments/concorde-fuel-pump.xml">
+   <name>Pump 2 engine 3</name>
+   <condition>
+    <or>
+     <and>
+      <property>/sim/current-view/internal</property>
+      <property>/systems/seat/engineer</property>
+      <less-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>295</value>
+      </less-than>
+      <greater-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>215</value>
+      </greater-than>
+      <less-than>
+       <property>/sim/current-view/goal-pitch-offset-deg</property>
+       <value>-10</value>
+      </less-than>
+     </and>
+     <property>/controls/seat/all</property>
+    </or>
+   </condition>
+   <params>
+    <pump-switch>/controls/fuel/tank[2]/pump[1]</pump-switch>
+   </params>
+   <x>320</x>
+   <y>365</y>
+   <w>26</w>
+   <h>39</h>
+  </instrument>
+
+  <instrument include="Instruments/concorde-fuel-pump.xml">
+   <name>Pump 3 engine 3</name>
+   <condition>
+    <or>
+     <and>
+      <property>/sim/current-view/internal</property>
+      <property>/systems/seat/engineer</property>
+      <less-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>295</value>
+      </less-than>
+      <greater-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>215</value>
+      </greater-than>
+      <less-than>
+       <property>/sim/current-view/goal-pitch-offset-deg</property>
+       <value>-10</value>
+      </less-than>
+     </and>
+     <property>/controls/seat/all</property>
+    </or>
+   </condition>
+   <params>
+    <pump-switch>/controls/fuel/tank[2]/pump[2]</pump-switch>
+   </params>
+   <x>351</x>
+   <y>365</y>
+   <w>26</w>
+   <h>39</h>
+  </instrument>
+
+  <instrument include="Instruments/concorde-fuel-pump.xml">
+   <name>Pump 1 engine 4</name>
+   <condition>
+    <or>
+     <and>
+      <property>/sim/current-view/internal</property>
+      <property>/systems/seat/engineer</property>
+      <less-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>290</value>
+      </less-than>
+      <greater-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>210</value>
+      </greater-than>
+      <less-than>
+       <property>/sim/current-view/goal-pitch-offset-deg</property>
+       <value>-10</value>
+      </less-than>
+     </and>
+     <property>/controls/seat/all</property>
+    </or>
+   </condition>
+   <params>
+    <pump-switch>/controls/fuel/tank[3]/pump[0]</pump-switch>
+   </params>
+   <x>387</x>
+   <y>365</y>
+   <w>26</w>
+   <h>39</h>
+  </instrument>
+
+  <instrument include="Instruments/concorde-fuel-pump.xml">
+   <name>Pump 2 engine 4</name>
+   <condition>
+    <or>
+     <and>
+      <property>/sim/current-view/internal</property>
+      <property>/systems/seat/engineer</property>
+      <less-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>285</value>
+      </less-than>
+      <greater-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>210</value>
+      </greater-than>
+      <less-than>
+       <property>/sim/current-view/goal-pitch-offset-deg</property>
+       <value>-10</value>
+      </less-than>
+     </and>
+     <property>/controls/seat/all</property>
+    </or>
+   </condition>
+   <params>
+    <pump-switch>/controls/fuel/tank[3]/pump[1]</pump-switch>
+   </params>
+   <x>417</x>
+   <y>365</y>
+   <w>26</w>
+   <h>39</h>
+  </instrument>
+
+  <instrument include="Instruments/concorde-fuel-pump.xml">
+   <name>Pump 3 engine 4</name>
+   <condition>
+    <or>
+     <and>
+      <property>/sim/current-view/internal</property>
+      <property>/systems/seat/engineer</property>
+      <less-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>285</value>
+      </less-than>
+      <greater-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>205</value>
+      </greater-than>
+      <less-than>
+       <property>/sim/current-view/goal-pitch-offset-deg</property>
+       <value>-10</value>
+      </less-than>
+     </and>
+     <property>/controls/seat/all</property>
+    </or>
+   </condition>
+   <params>
+    <pump-switch>/controls/fuel/tank[3]/pump[2]</pump-switch>
+   </params>
+   <x>448</x>
+   <y>365</y>
+   <w>26</w>
+   <h>39</h>
+  </instrument>
+
+<!-- engine pump low pressure -->
+
+  <instrument include="Instruments/concorde-yellow-fuel-pressure-coll.xml">
+   <name>Low pressure pump 1 engine 1</name>
+   <condition>
+    <or>
+     <and>
+      <property>/sim/current-view/internal</property>
+      <property>/systems/seat/engineer</property>
+      <less-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>330</value>
+      </less-than>
+      <greater-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>245</value>
+      </greater-than>
+      <less-than>
+       <property>/sim/current-view/goal-pitch-offset-deg</property>
+       <value>-15</value>
+      </less-than>
+     </and>
+     <property>/controls/seat/all</property>
+    </or>
+   </condition>
+   <params>
+    <pump-switch>/controls/fuel/tank[0]/pump[0]</pump-switch>
+   </params>
+   <x>-18</x>
+   <y>335</y>
+   <w>26</w>
+   <h>13</h>
+  </instrument>
+
+  <instrument include="Instruments/concorde-yellow-fuel-pressure-coll.xml">
+   <name>Low pressure pump 2 engine 1</name>
+   <condition>
+    <or>
+     <and>
+      <property>/sim/current-view/internal</property>
+      <property>/systems/seat/engineer</property>
+      <less-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>325</value>
+      </less-than>
+      <greater-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>245</value>
+      </greater-than>
+      <less-than>
+       <property>/sim/current-view/goal-pitch-offset-deg</property>
+       <value>-15</value>
+      </less-than>
+     </and>
+     <property>/controls/seat/all</property>
+    </or>
+   </condition>
+   <params>
+    <pump-switch>/controls/fuel/tank[0]/pump[1]</pump-switch>
+   </params>
+   <x>12</x>
+   <y>335</y>
+   <w>26</w>
+   <h>13</h>
+  </instrument>
+
+  <instrument include="Instruments/concorde-yellow-fuel-pressure-coll.xml">
+   <name>Low pressure pump 3 engine 1</name>
+   <condition>
+    <or>
+     <and>
+      <property>/sim/current-view/internal</property>
+      <property>/systems/seat/engineer</property>
+      <less-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>325</value>
+      </less-than>
+      <greater-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>240</value>
+      </greater-than>
+      <less-than>
+       <property>/sim/current-view/goal-pitch-offset-deg</property>
+       <value>-15</value>
+      </less-than>
+     </and>
+     <property>/controls/seat/all</property>
+    </or>
+   </condition>
+   <params>
+    <pump-switch>/controls/fuel/tank[0]/pump[2]</pump-switch>
+   </params>
+   <x>43</x>
+   <y>335</y>
+   <w>26</w>
+   <h>13</h>
+  </instrument>
+
+  <instrument include="Instruments/concorde-yellow-fuel-pressure-coll.xml">
+   <name>Low pressure pump 1 engine 2</name>
+   <condition>
+    <or>
+     <and>
+      <property>/sim/current-view/internal</property>
+      <property>/systems/seat/engineer</property>
+      <less-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>320</value>
+      </less-than>
+      <greater-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>240</value>
+      </greater-than>
+      <less-than>
+       <property>/sim/current-view/goal-pitch-offset-deg</property>
+       <value>-15</value>
+      </less-than>
+     </and>
+     <property>/controls/seat/all</property>
+    </or>
+   </condition>
+   <params>
+    <pump-switch>/controls/fuel/tank[1]/pump[0]</pump-switch>
+   </params>
+   <x>79</x>
+   <y>335</y>
+   <w>26</w>
+   <h>13</h>
+  </instrument>
+
+  <instrument include="Instruments/concorde-yellow-fuel-pressure-coll.xml">
+   <name>Low pressure pump 2 engine 2</name>
+   <condition>
+    <or>
+     <and>
+      <property>/sim/current-view/internal</property>
+      <property>/systems/seat/engineer</property>
+      <less-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>320</value>
+      </less-than>
+      <greater-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>235</value>
+      </greater-than>
+      <less-than>
+       <property>/sim/current-view/goal-pitch-offset-deg</property>
+       <value>-15</value>
+      </less-than>
+     </and>
+     <property>/controls/seat/all</property>
+    </or>
+   </condition>
+   <params>
+    <pump-switch>/controls/fuel/tank[1]/pump[1]</pump-switch>
+   </params>
+   <x>109</x>
+   <y>335</y>
+   <w>26</w>
+   <h>13</h>
+  </instrument>
+
+  <instrument include="Instruments/concorde-yellow-fuel-pressure-coll.xml">
+   <name>Low pressure pump 3 engine 2</name>
+   <condition>
+    <or>
+     <and>
+      <property>/sim/current-view/internal</property>
+      <property>/systems/seat/engineer</property>
+      <less-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>315</value>
+      </less-than>
+      <greater-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>230</value>
+      </greater-than>
+      <less-than>
+       <property>/sim/current-view/goal-pitch-offset-deg</property>
+       <value>-15</value>
+      </less-than>
+     </and>
+     <property>/controls/seat/all</property>
+    </or>
+   </condition>
+   <params>
+    <pump-switch>/controls/fuel/tank[1]/pump[2]</pump-switch>
+   </params>
+   <x>140</x>
+   <y>335</y>
+   <w>26</w>
+   <h>13</h>
+  </instrument>
+
+  <instrument include="Instruments/concorde-title-fuel-jettison.xml">
+   <name>Jettison</name>
+   <condition>
+    <or>
+     <and>
+      <property>/sim/current-view/internal</property>
+      <property>/systems/seat/engineer</property>
+      <less-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>325</value>
+      </less-than>
+      <greater-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>240</value>
+      </greater-than>
+      <less-than>
+       <property>/sim/current-view/goal-pitch-offset-deg</property>
+       <value>-15</value>
+      </less-than>
+     </and>
+     <property>/controls/seat/all</property>
+    </or>
+   </condition>
+   <x>47</x>
+   <y>323</y>
+   <w>80</w>
+   <h>20</h>
+  </instrument>
+
+  <instrument include="Instruments/concorde-yellow-fuel-pressure-coll.xml">
+   <name>Low pressure pump 1 engine 3</name>
+   <condition>
+    <or>
+     <and>
+      <property>/sim/current-view/internal</property>
+      <property>/systems/seat/engineer</property>
+      <less-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>300</value>
+      </less-than>
+      <greater-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>220</value>
+      </greater-than>
+      <less-than>
+       <property>/sim/current-view/goal-pitch-offset-deg</property>
+       <value>-15</value>
+      </less-than>
+     </and>
+     <property>/controls/seat/all</property>
+    </or>
+   </condition>
+   <params>
+    <pump-switch>/controls/fuel/tank[2]/pump[0]</pump-switch>
+   </params>
+   <x>290</x>
+   <y>335</y>
+   <w>26</w>
+   <h>13</h>
+  </instrument>
+
+  <instrument include="Instruments/concorde-yellow-fuel-pressure-coll.xml">
+   <name>Low pressure pump 2 engine 3</name>
+   <condition>
+    <or>
+     <and>
+      <property>/sim/current-view/internal</property>
+      <property>/systems/seat/engineer</property>
+      <less-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>300</value>
+      </less-than>
+      <greater-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>215</value>
+      </greater-than>
+      <less-than>
+       <property>/sim/current-view/goal-pitch-offset-deg</property>
+       <value>-15</value>
+      </less-than>
+     </and>
+     <property>/controls/seat/all</property>
+    </or>
+   </condition>
+   <params>
+    <pump-switch>/controls/fuel/tank[2]/pump[1]</pump-switch>
+   </params>
+   <x>320</x>
+   <y>335</y>
+   <w>26</w>
+   <h>13</h>
+  </instrument>
+
+  <instrument include="Instruments/concorde-yellow-fuel-pressure-coll.xml">
+   <name>Low pressure pump 3 engine 3</name>
+   <condition>
+    <or>
+     <and>
+      <property>/sim/current-view/internal</property>
+      <property>/systems/seat/engineer</property>
+      <less-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>295</value>
+      </less-than>
+      <greater-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>210</value>
+      </greater-than>
+      <less-than>
+       <property>/sim/current-view/goal-pitch-offset-deg</property>
+       <value>-15</value>
+      </less-than>
+     </and>
+     <property>/controls/seat/all</property>
+    </or>
+   </condition>
+   <params>
+    <pump-switch>/controls/fuel/tank[2]/pump[2]</pump-switch>
+   </params>
+   <x>351</x>
+   <y>335</y>
+   <w>26</w>
+   <h>13</h>
+  </instrument>
+
+  <instrument include="Instruments/concorde-yellow-fuel-pressure-coll.xml">
+   <name>Low pressure pump 1 engine 4</name>
+   <condition>
+    <or>
+     <and>
+      <property>/sim/current-view/internal</property>
+      <property>/systems/seat/engineer</property>
+      <less-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>290</value>
+      </less-than>
+      <greater-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>210</value>
+      </greater-than>
+      <less-than>
+       <property>/sim/current-view/goal-pitch-offset-deg</property>
+       <value>-15</value>
+      </less-than>
+     </and>
+     <property>/controls/seat/all</property>
+    </or>
+   </condition>
+   <params>
+    <pump-switch>/controls/fuel/tank[3]/pump[0]</pump-switch>
+   </params>
+   <x>387</x>
+   <y>335</y>
+   <w>26</w>
+   <h>13</h>
+  </instrument>
+
+  <instrument include="Instruments/concorde-yellow-fuel-pressure-coll.xml">
+   <name>Low pressure pump 2 engine 4</name>
+   <condition>
+    <or>
+     <and>
+      <property>/sim/current-view/internal</property>
+      <property>/systems/seat/engineer</property>
+      <less-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>290</value>
+      </less-than>
+      <greater-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>205</value>
+      </greater-than>
+      <less-than>
+       <property>/sim/current-view/goal-pitch-offset-deg</property>
+       <value>-15</value>
+      </less-than>
+     </and>
+     <property>/controls/seat/all</property>
+    </or>
+   </condition>
+   <params>
+    <pump-switch>/controls/fuel/tank[3]/pump[1]</pump-switch>
+   </params>
+   <x>417</x>
+   <y>335</y>
+   <w>26</w>
+   <h>13</h>
+  </instrument>
+
+  <instrument include="Instruments/concorde-yellow-fuel-pressure-coll.xml">
+   <name>Low pressure pump 3 engine 4</name>
+   <condition>
+    <or>
+     <and>
+      <property>/sim/current-view/internal</property>
+      <property>/systems/seat/engineer</property>
+      <less-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>285</value>
+      </less-than>
+      <greater-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>205</value>
+      </greater-than>
+      <less-than>
+       <property>/sim/current-view/goal-pitch-offset-deg</property>
+       <value>-15</value>
+      </less-than>
+     </and>
+     <property>/controls/seat/all</property>
+    </or>
+   </condition>
+   <params>
+    <pump-switch>/controls/fuel/tank[3]/pump[2]</pump-switch>
+   </params>
+   <x>448</x>
+   <y>335</y>
+   <w>26</w>
+   <h>13</h>
+  </instrument>
+
+  <instrument include="Instruments/concorde-title-fuel-jettison.xml">
+   <name>Jettison</name>
+   <condition>
+    <or>
+     <and>
+      <property>/sim/current-view/internal</property>
+      <property>/systems/seat/engineer</property>
+      <less-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>295</value>
+      </less-than>
+      <greater-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>210</value>
+      </greater-than>
+      <less-than>
+       <property>/sim/current-view/goal-pitch-offset-deg</property>
+       <value>-15</value>
+      </less-than>
+     </and>
+     <property>/controls/seat/all</property>
+    </or>
+   </condition>
+   <x>352</x>
+   <y>323</y>
+   <w>80</w>
+   <h>20</h>
+  </instrument>
+
+<!-- inlet valve tank 11 -->
+
+  <instrument include="Instruments/concorde-title-fuel-inlet-valves.xml">
+   <name>Inlet valves</name>
+   <condition>
+    <or>
+     <and>
+      <property>/sim/current-view/internal</property>
+      <property>/systems/seat/engineer</property>
+      <less-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>305</value>
+      </less-than>
+      <greater-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>225</value>
+      </greater-than>
+      <less-than>
+       <property>/sim/current-view/goal-pitch-offset-deg</property>
+       <value>-10</value>
+      </less-than>
+     </and>
+     <property>/controls/seat/all</property>
+    </or>
+   </condition>
+   <x>191</x>
+   <y>455</y>
+   <w>100</w>
+   <h>20</h>
+  </instrument>
+
+  <instrument include="Instruments/concorde-connection.xml">
+   <name>Inlet 1 valve</name>
+   <condition>
+    <or>
+     <and>
+      <property>/sim/current-view/internal</property>
+      <property>/systems/seat/engineer</property>
+      <less-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>310</value>
+      </less-than>
+      <greater-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>230</value>
+      </greater-than>
+      <less-than>
+       <property>/sim/current-view/goal-pitch-offset-deg</property>
+       <value>-10</value>
+      </less-than>
+     </and>
+     <property>/controls/seat/all</property>
+    </or>
+   </condition>
+   <params>
+    <connect-status>/controls/fuel/tank[10]/inlet-valve[0]</connect-status>
+    <defined-status>/controls/fuel/tank[10]/inlet-static[0]</defined-status>
+   </params>
+   <x>182</x>
+   <y>451</y>
+   <w>10</w>
+   <h>10</h>
+  </instrument>
+
+  <instrument include="Instruments/concorde-connection.xml">
+   <name>Inlet 2 valve</name>
+   <condition>
+    <or>
+     <and>
+      <property>/sim/current-view/internal</property>
+      <property>/systems/seat/engineer</property>
+      <less-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>300</value>
+      </less-than>
+      <greater-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>225</value>
+      </greater-than>
+      <less-than>
+       <property>/sim/current-view/goal-pitch-offset-deg</property>
+       <value>-10</value>
+      </less-than>
+     </and>
+     <property>/controls/seat/all</property>
+    </or>
+   </condition>
+   <params>
+    <connect-status>/controls/fuel/tank[10]/inlet-valve[1]</connect-status>
+    <defined-status>/controls/fuel/tank[10]/inlet-static[1]</defined-status>
+   </params>
+   <x>250</x>
+   <y>451</y>
+   <w>10</w>
+   <h>10</h>
+  </instrument>
+
+  <instrument include="Instruments/concorde-tank11-inlet-selector.xml">
+   <name>Inlet 1 valve selector</name>
+   <condition>
+    <or>
+     <and>
+      <property>/sim/current-view/internal</property>
+      <property>/systems/seat/engineer</property>
+      <less-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>310</value>
+      </less-than>
+      <greater-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>230</value>
+      </greater-than>
+      <less-than>
+       <property>/sim/current-view/goal-pitch-offset-deg</property>
+       <value>-10</value>
+      </less-than>
+     </and>
+     <property>/controls/seat/all</property>
+    </or>
+   </condition>
+   <x>180</x>
+   <y>417</y>
+   <w>76</w>
+   <h>50.7</h>
+  </instrument>
+
+  <instrument include="Instruments/concorde-tank11-inlet-selector2.xml">
+   <name>Inlet 2 valve selector</name>
+   <condition>
+    <or>
+     <and>
+      <property>/sim/current-view/internal</property>
+      <property>/systems/seat/engineer</property>
+      <less-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>305</value>
+      </less-than>
+      <greater-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>225</value>
+      </greater-than>
+      <less-than>
+       <property>/sim/current-view/goal-pitch-offset-deg</property>
+       <value>-10</value>
+      </less-than>
+     </and>
+     <property>/controls/seat/all</property>
+    </or>
+   </condition>
+   <x>235</x>
+   <y>417</y>
+   <w>76</w>
+   <h>50.7</h>
+  </instrument>
+
+<!-- tank 11 -->
+
+  <instrument include="Instruments/concorde-title-fuel-pump-green.xml">
+   <name>Pump green</name>
+   <condition>
+    <or>
+     <and>
+      <property>/sim/current-view/internal</property>
+      <property>/systems/seat/engineer</property>
+      <less-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>310</value>
+      </less-than>
+      <greater-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>230</value>
+      </greater-than>
+      <less-than>
+       <property>/sim/current-view/goal-pitch-offset-deg</property>
+       <value>-15</value>
+      </less-than>
+     </and>
+     <property>/controls/seat/all</property>
+    </or>
+   </condition>
+   <x>168</x>
+   <y>392</y>
+   <w>40</w>
+   <h>40</h>
+  </instrument>
+
+  <instrument include="Instruments/concorde-yellow-fuel-pressure-vert.xml">
+   <name>Low pressure pump green tank 11</name>
+   <condition>
+    <or>
+     <and>
+      <property>/sim/current-view/internal</property>
+      <property>/systems/seat/engineer</property>
+      <less-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>310</value>
+      </less-than>
+      <greater-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>230</value>
+      </greater-than>
+      <less-than>
+       <property>/sim/current-view/goal-pitch-offset-deg</property>
+       <value>-15</value>
+      </less-than>
+     </and>
+     <property>/controls/seat/all</property>
+    </or>
+   </condition>
+   <params>
+    <pump-switch>/controls/fuel/tank[10]/pump-green</pump-switch>
+    <content-select>/consumables/fuel/tank[10]/level-lbs</content-select>
+   </params>
+   <x>175</x>
+   <y>355</y>
+   <w>13</w>
+   <h>26</h>
+  </instrument>
+
+  <instrument include="Instruments/concorde-tank12.xml">
+   <name>Tank 11 display</name>
+   <condition>
+    <or>
+     <and>
+      <property>/sim/current-view/internal</property>
+      <property>/systems/seat/engineer</property>
+      <less-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>310</value>
+      </less-than>
+      <greater-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>225</value>
+      </greater-than>
+      <less-than>
+       <property>/sim/current-view/goal-pitch-offset-deg</property>
+       <value>-15</value>
+      </less-than>
+     </and>
+     <property>/controls/seat/all</property>
+    </or>
+   </condition>
+   <params>
+    <name>/consumables/fuel/tank[10]/name</name>
+    <lbs-select>/consumables/fuel/tank[10]/level-lbs</lbs-select>
+   </params>
+   <x>215</x>
+   <y>355</y>
+   <w>56</w>
+   <h>56</h>
+  </instrument>
+
+  <instrument include="Instruments/concorde-title-fuel-pump-blue.xml">
+   <name>Pump blue</name>
+   <condition>
+    <or>
+     <and>
+      <property>/sim/current-view/internal</property>
+      <property>/systems/seat/engineer</property>
+      <less-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>300</value>
+      </less-than>
+      <greater-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>220</value>
+      </greater-than>
+      <less-than>
+       <property>/sim/current-view/goal-pitch-offset-deg</property>
+       <value>-15</value>
+      </less-than>
+     </and>
+     <property>/controls/seat/all</property>
+    </or>
+   </condition>
+   <x>248</x>
+   <y>392</y>
+   <w>40</w>
+   <h>40</h>
+  </instrument>
+
+  <instrument include="Instruments/concorde-yellow-fuel-pressure-vert.xml">
+   <name>Low pressure pump blue tank 11</name>
+   <condition>
+    <or>
+     <and>
+      <property>/sim/current-view/internal</property>
+      <property>/systems/seat/engineer</property>
+      <less-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>305</value>
+      </less-than>
+      <greater-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>220</value>
+      </greater-than>
+      <less-than>
+       <property>/sim/current-view/goal-pitch-offset-deg</property>
+       <value>-15</value>
+      </less-than>
+     </and>
+     <property>/controls/seat/all</property>
+    </or>
+   </condition>
+   <params>
+    <pump-switch>/controls/fuel/tank[10]/pump-blue</pump-switch>
+    <content-select>/consumables/fuel/tank[10]/level-lbs</content-select>
+   </params>
+   <x>255</x>
+   <y>355</y>
+   <w>13</w>
+   <h>26</h>
+  </instrument>
+
+  <instrument include="Instruments/concorde-fuel-pump-trim-green.xml">
+   <name>Green pump tank 11</name>
+   <condition>
+    <or>
+     <and>
+      <property>/sim/current-view/internal</property>
+      <property>/systems/seat/engineer</property>
+      <less-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>310</value>
+      </less-than>
+      <greater-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>225</value>
+      </greater-than>
+      <less-than>
+       <property>/sim/current-view/goal-pitch-offset-deg</property>
+       <value>-15</value>
+      </less-than>
+     </and>
+     <property>/controls/seat/all</property>
+    </or>
+   </condition>
+   <x>184</x>
+   <y>308</y>
+   <w>52</w>
+   <h>52</h>
+  </instrument>
+
+  <instrument include="Instruments/concorde-yellow-fuel-o-full.xml">
+   <name>Tank 11 over full</name>
+   <condition>
+    <or>
+     <and>
+      <property>/sim/current-view/internal</property>
+      <property>/systems/seat/engineer</property>
+      <less-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>310</value>
+      </less-than>
+      <greater-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>225</value>
+      </greater-than>
+      <less-than>
+       <property>/sim/current-view/goal-pitch-offset-deg</property>
+       <value>-15</value>
+      </less-than>
+     </and>
+     <property>/controls/seat/all</property>
+    </or>
+   </condition>
+   <params>
+    <lbs-select>/consumables/fuel/tank[10]/level-lbs</lbs-select>
+    <over-full-select>/consumables/fuel/tank[10]/over-full-lb</over-full-select>
+   </params>
+   <x>216</x>
+   <y>315</y>
+   <w>28</w>
+   <h>14</h>
+  </instrument>
+
+  <instrument include="Instruments/concorde-fuel-pump-trim-blue.xml">
+   <name>Blue pump tank 11</name>
+   <condition>
+    <or>
+     <and>
+      <property>/sim/current-view/internal</property>
+      <property>/systems/seat/engineer</property>
+      <less-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>305</value>
+      </less-than>
+      <greater-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>220</value>
+      </greater-than>
+      <less-than>
+       <property>/sim/current-view/goal-pitch-offset-deg</property>
+       <value>-15</value>
+      </less-than>
+     </and>
+     <property>/controls/seat/all</property>
+    </or>
+   </condition>
+   <x>248</x>
+   <y>308</y>
+   <w>52</w>
+   <h>52</h>
+  </instrument>
+
+  <instrument include="Instruments/concorde-tank-load-limit.xml">
+   <name>Tank 11 load limit</name>
+   <condition>
+    <or>
+     <and>
+      <property>/sim/current-view/internal</property>
+      <property>/systems/seat/engineer</property>
+      <less-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>315</value>
+      </less-than>
+      <greater-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>225</value>
+      </greater-than>
+      <less-than>
+       <property>/sim/current-view/goal-pitch-offset-deg</property>
+       <value>-20</value>
+      </less-than>
+     </and>
+     <property>/controls/seat/all</property>
+    </or>
+   </condition>
+   <params>
+    <load-limit>/controls/fuel/tank[10]/limit-kg</load-limit>
+   </params>
+   <x>200</x>
+   <y>269</y>
+   <w>33</w>
+   <h>22</h>
+  </instrument>
+
+  <instrument include="Instruments/concorde-tank-load-limit-knob.xml">
+   <name>Load limit knob</name>
+   <condition>
+    <or>
+     <and>
+      <property>/sim/current-view/internal</property>
+      <property>/systems/seat/engineer</property>
+      <less-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>310</value>
+      </less-than>
+      <greater-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>220</value>
+      </greater-than>
+      <less-than>
+       <property>/sim/current-view/goal-pitch-offset-deg</property>
+       <value>-20</value>
+      </less-than>
+     </and>
+     <property>/controls/seat/all</property>
+    </or>
+   </condition>
+   <params>
+    <load-limit>/controls/fuel/tank[10]/limit-kg</load-limit>
+   </params>
+   <x>233</x>
+   <y>270</y>
+   <w>18</w>
+   <h>18</h>
+  </instrument>
+
+  <instrument include="Instruments/concorde-title-hyd-pumps.xml">
+   <name>Pumps</name>
+   <condition>
+    <or>
+     <and>
+      <property>/sim/current-view/internal</property>
+      <property>/systems/seat/engineer</property>
+      <less-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>310</value>
+      </less-than>
+      <greater-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>220</value>
+      </greater-than>
+      <less-than>
+       <property>/sim/current-view/goal-pitch-offset-deg</property>
+       <value>-20</value>
+      </less-than>
+     </and>
+     <property>/controls/seat/all</property>
+    </or>
+   </condition>
+   <x>207</x>
+   <y>246</y>
+   <w>36</w>
+   <h>18</h>
+  </instrument>
+
+  <instrument include="Instruments/concorde-yellow-fuel-pressure.xml">
+   <name>Low pressure pump 1 tank 11</name>
+   <condition>
+    <or>
+     <and>
+      <property>/sim/current-view/internal</property>
+      <property>/systems/seat/engineer</property>
+      <less-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>315</value>
+      </less-than>
+      <greater-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>225</value>
+      </greater-than>
+      <less-than>
+       <property>/sim/current-view/goal-pitch-offset-deg</property>
+       <value>-20</value>
+      </less-than>
+     </and>
+     <property>/controls/seat/all</property>
+    </or>
+   </condition>
+   <params>
+    <pump-switch>/controls/fuel/tank[10]/pump[0]</pump-switch>
+    <content-select>/consumables/fuel/tank[10]/level-lbs</content-select>
+   </params>
+   <x>185</x>
+   <y>240</y>
+   <w>26</w>
+   <h>13</h>
+  </instrument>
+
+  <instrument include="Instruments/concorde-yellow-fuel-pressure.xml">
+   <name>Low pressure pump 2 tank 11</name>
+   <condition>
+    <or>
+     <and>
+      <property>/sim/current-view/internal</property>
+      <property>/systems/seat/engineer</property>
+      <less-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>310</value>
+      </less-than>
+      <greater-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>220</value>
+      </greater-than>
+      <less-than>
+       <property>/sim/current-view/goal-pitch-offset-deg</property>
+       <value>-20</value>
+      </less-than>
+     </and>
+     <property>/controls/seat/all</property>
+    </or>
+   </condition>
+   <params>
+    <pump-switch>/controls/fuel/tank[10]/pump[1]</pump-switch>
+    <content-select>/consumables/fuel/tank[10]/level-lbs</content-select>
+   </params>
+   <x>245</x>
+   <y>240</y>
+   <w>26</w>
+   <h>13</h>
+  </instrument>
+
+  <instrument include="Instruments/concorde-fuel-pump-trim.xml">
+   <name>Pump 1 tank 11</name>
+   <condition>
+    <or>
+     <and>
+      <property>/sim/current-view/internal</property>
+      <property>/systems/seat/engineer</property>
+      <less-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>320</value>
+      </less-than>
+      <greater-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>225</value>
+      </greater-than>
+      <less-than>
+       <property>/sim/current-view/goal-pitch-offset-deg</property>
+       <value>-20</value>
+      </less-than>
+     </and>
+     <property>/controls/seat/all</property>
+    </or>
+   </condition>
+   <params>
+    <pump-switch>/controls/fuel/tank[10]/pump-on[0]</pump-switch>
+    <auto-switch>/controls/fuel/tank[10]/pump-auto[0]</auto-switch>
+   </params>
+   <x>177</x>
+   <y>215</y>
+   <w>52</w>
+   <h>52</h>
+  </instrument>
+
+  <instrument include="Instruments/concorde-fuel-pump-trim-right.xml">
+   <name>Pump 2 tank 11</name>
+   <condition>
+    <or>
+     <and>
+      <property>/sim/current-view/internal</property>
+      <property>/systems/seat/engineer</property>
+      <less-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>310</value>
+      </less-than>
+      <greater-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>215</value>
+      </greater-than>
+      <less-than>
+       <property>/sim/current-view/goal-pitch-offset-deg</property>
+       <value>-20</value>
+      </less-than>
+     </and>
+     <property>/controls/seat/all</property>
+    </or>
+   </condition>
+   <params>
+    <pump-switch>/controls/fuel/tank[10]/pump-on[1]</pump-switch>
+    <auto-switch>/controls/fuel/tank[10]/pump-auto[1]</auto-switch>
+   </params>
+   <x>262</x>
+   <y>215</y>
+   <w>52</w>
+   <h>52</h>
+  </instrument>
+
+  <instrument include="Instruments/concorde-title-fuel-jettison-valves.xml">
+   <name>Jettison valves</name>
+   <condition>
+    <or>
+     <and>
+      <property>/sim/current-view/internal</property>
+      <property>/systems/seat/engineer</property>
+      <less-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>315</value>
+      </less-than>
+      <greater-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>215</value>
+      </greater-than>
+      <less-than>
+       <property>/sim/current-view/goal-pitch-offset-deg</property>
+       <value>-25</value>
+      </less-than>
+     </and>
+     <property>/controls/seat/all</property>
+    </or>
+   </condition>
+   <x>195</x>
+   <y>185</y>
+   <w>128</w>
+   <h>16</h>
+  </instrument>
+
+<!-- engine cross feed -->
+
+  <instrument include="Instruments/concorde-fuel-cross-feed-selector.xml">
+   <name>Cross feed engine 1</name>
+   <condition>
+    <or>
+     <and>
+      <property>/sim/current-view/internal</property>
+      <property>/systems/seat/engineer</property>
+      <less-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>330</value>
+      </less-than>
+      <greater-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>240</value>
+      </greater-than>
+      <less-than>
+       <property>/sim/current-view/goal-pitch-offset-deg</property>
+       <value>-15</value>
+      </less-than>
+     </and>
+     <property>/controls/seat/all</property>
+    </or>
+   </condition>
+   <params>
+    <engine-select>/controls/fuel/tank[0]/cross-feed-valve</engine-select>
+   </params>
+   <x>28</x>
+   <y>290</y>
+   <w>25</w>
+   <h>25</h>
+  </instrument>
+
+  <instrument include="Instruments/concorde-title-fuel-crossfeed.xml">
+   <name>Crossfeed</name>
+   <condition>
+    <or>
+     <and>
+      <property>/sim/current-view/internal</property>
+      <property>/systems/seat/engineer</property>
+      <less-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>325</value>
+      </less-than>
+      <greater-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>235</value>
+      </greater-than>
+      <less-than>
+       <property>/sim/current-view/goal-pitch-offset-deg</property>
+       <value>-15</value>
+      </less-than>
+     </and>
+     <property>/controls/seat/all</property>
+    </or>
+   </condition>
+   <x>45</x>
+   <y>295</y>
+   <w>80</w>
+   <h>20</h>
+  </instrument>
+
+  <instrument include="Instruments/concorde-fuel-cross-feed-selector.xml">
+   <name>Cross feed engine 2</name>
+   <condition>
+    <or>
+     <and>
+      <property>/sim/current-view/internal</property>
+      <property>/systems/seat/engineer</property>
+      <less-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>325</value>
+      </less-than>
+      <greater-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>235</value>
+      </greater-than>
+      <less-than>
+       <property>/sim/current-view/goal-pitch-offset-deg</property>
+       <value>-20</value>
+      </less-than>
+     </and>
+     <property>/controls/seat/all</property>
+    </or>
+   </condition>
+   <params>
+    <engine-select>/controls/fuel/tank[1]/cross-feed-valve</engine-select>
+   </params>
+   <x>97</x>
+   <y>290</y>
+   <w>25</w>
+   <h>25</h>
+  </instrument>
+
+  <instrument include="Instruments/concorde-connection-vertical.xml">
+   <name>engine 1 cross feed valve</name>
+   <condition>
+    <or>
+     <and>
+      <property>/sim/current-view/internal</property>
+      <property>/systems/seat/engineer</property>
+      <less-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>325</value>
+      </less-than>
+      <greater-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>240</value>
+      </greater-than>
+      <less-than>
+       <property>/sim/current-view/goal-pitch-offset-deg</property>
+       <value>-20</value>
+      </less-than>
+     </and>
+     <property>/controls/seat/all</property>
+    </or>
+   </condition>
+   <params>
+    <connect-status>/controls/fuel/tank[0]/cross-feed-valve</connect-status>
+   </params>
+   <x>50</x>
+   <y>270</y>
+   <w>10</w>
+   <h>10</h>
+  </instrument>
+
+  <instrument include="Instruments/concorde-connection-vertical.xml">
+   <name>engine 2 cross feed valve</name>
+   <condition>
+    <or>
+     <and>
+      <property>/sim/current-view/internal</property>
+      <property>/systems/seat/engineer</property>
+      <less-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>325</value>
+      </less-than>
+      <greater-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>235</value>
+      </greater-than>
+      <less-than>
+       <property>/sim/current-view/goal-pitch-offset-deg</property>
+       <value>-20</value>
+      </less-than>
+     </and>
+     <property>/controls/seat/all</property>
+    </or>
+   </condition>
+   <params>
+    <connect-status>/controls/fuel/tank[1]/cross-feed-valve</connect-status>
+   </params>
+   <x>75</x>
+   <y>270</y>
+   <w>10</w>
+   <h>10</h>
+  </instrument>
+
+  <instrument include="Instruments/concorde-fuel-cross-feed-selector.xml">
+   <name>Cross feed engine 3</name>
+   <condition>
+    <or>
+     <and>
+      <property>/sim/current-view/internal</property>
+      <property>/systems/seat/engineer</property>
+      <less-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>300</value>
+      </less-than>
+      <greater-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>215</value>
+      </greater-than>
+      <less-than>
+       <property>/sim/current-view/goal-pitch-offset-deg</property>
+       <value>-20</value>
+      </less-than>
+     </and>
+     <property>/controls/seat/all</property>
+    </or>
+   </condition>
+   <params>
+    <engine-select>/controls/fuel/tank[2]/cross-feed-valve</engine-select>
+   </params>
+   <x>333</x>
+   <y>290</y>
+   <w>25</w>
+   <h>25</h>
+  </instrument>
+
+  <instrument include="Instruments/concorde-title-fuel-crossfeed.xml">
+   <name>Crossfeed</name>
+   <condition>
+    <or>
+     <and>
+      <property>/sim/current-view/internal</property>
+      <property>/systems/seat/engineer</property>
+      <less-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>300</value>
+      </less-than>
+      <greater-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>210</value>
+      </greater-than>
+      <less-than>
+       <property>/sim/current-view/goal-pitch-offset-deg</property>
+       <value>-15</value>
+      </less-than>
+     </and>
+     <property>/controls/seat/all</property>
+    </or>
+   </condition>
+   <x>350</x>
+   <y>295</y>
+   <w>80</w>
+   <h>20</h>
+  </instrument>
+
+  <instrument include="Instruments/concorde-fuel-cross-feed-selector.xml">
+   <name>Cross feed engine 4</name>
+   <condition>
+    <or>
+     <and>
+      <property>/sim/current-view/internal</property>
+      <property>/systems/seat/engineer</property>
+      <less-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>295</value>
+      </less-than>
+      <greater-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>205</value>
+      </greater-than>
+      <less-than>
+       <property>/sim/current-view/goal-pitch-offset-deg</property>
+       <value>-15</value>
+      </less-than>
+     </and>
+     <property>/controls/seat/all</property>
+    </or>
+   </condition>
+   <params>
+    <engine-select>/controls/fuel/tank[3]/cross-feed-valve</engine-select>
+   </params>
+   <x>402</x>
+   <y>290</y>
+   <w>25</w>
+   <h>25</h>
+  </instrument>
+
+  <instrument include="Instruments/concorde-connection-vertical.xml">
+   <name>engine 3 cross feed valve</name>
+   <condition>
+    <or>
+     <and>
+      <property>/sim/current-view/internal</property>
+      <property>/systems/seat/engineer</property>
+      <less-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>295</value>
+      </less-than>
+      <greater-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>210</value>
+      </greater-than>
+      <less-than>
+       <property>/sim/current-view/goal-pitch-offset-deg</property>
+       <value>-20</value>
+      </less-than>
+     </and>
+     <property>/controls/seat/all</property>
+    </or>
+   </condition>
+   <params>
+    <connect-status>/controls/fuel/tank[2]/cross-feed-valve</connect-status>
+   </params>
+   <x>355</x>
+   <y>270</y>
+   <w>10</w>
+   <h>10</h>
+  </instrument>
+
+  <instrument include="Instruments/concorde-connection-vertical.xml">
+   <name>engine 4 cross feed valve</name>
+   <condition>
+    <or>
+     <and>
+      <property>/sim/current-view/internal</property>
+      <property>/systems/seat/engineer</property>
+      <less-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>295</value>
+      </less-than>
+      <greater-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>210</value>
+      </greater-than>
+      <less-than>
+       <property>/sim/current-view/goal-pitch-offset-deg</property>
+       <value>-20</value>
+      </less-than>
+     </and>
+     <property>/controls/seat/all</property>
+    </or>
+   </condition>
+   <params>
+    <connect-status>/controls/fuel/tank[3]/cross-feed-valve</connect-status>
+   </params>
+   <x>380</x>
+   <y>270</y>
+   <w>10</w>
+   <h>10</h>
+  </instrument>
+
+<!-- LP valve -->
+
+  <instrument include="Instruments/concorde-fuel-lp-valve.xml">
+   <name>engine 1 LP valve selector</name>
+   <condition>
+    <or>
+     <and>
+      <property>/sim/current-view/internal</property>
+      <property>/systems/seat/engineer</property>
+      <less-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>335</value>
+      </less-than>
+      <greater-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>245</value>
+      </greater-than>
+      <less-than>
+       <property>/sim/current-view/goal-pitch-offset-deg</property>
+       <value>-15</value>
+      </less-than>
+     </and>
+     <property>/controls/seat/all</property>
+    </or>
+   </condition>
+   <params>
+    <select-valve>/controls/fuel/tank[0]/lp-valve</select-valve>
+    <select-motor>/controls/fuel/tank[0]/lp-valve-motor</select-motor>
+    <guard-valve>/controls/fuel/tank[0]/lp-valve-guard</guard-valve>
+   </params>
+   <x>-32</x>
+   <y>295</y>
+   <w>60</w>
+   <h>60</h>
+  </instrument>
+
+  <instrument include="Instruments/concorde-connection-vertical.xml">
+   <name>engine 1 LP valve</name>
+   <condition>
+    <or>
+     <and>
+      <property>/sim/current-view/internal</property>
+      <property>/systems/seat/engineer</property>
+      <less-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>330</value>
+      </less-than>
+      <greater-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>245</value>
+      </greater-than>
+      <less-than>
+       <property>/sim/current-view/goal-pitch-offset-deg</property>
+       <value>-20</value>
+      </less-than>
+     </and>
+     <property>/controls/seat/all</property>
+    </or>
+   </condition>
+   <params>
+    <connect-status>/controls/fuel/tank[0]/lp-valve</connect-status>
+   </params>
+   <x>10</x>
+   <y>275</y>
+   <w>10</w>
+   <h>10</h>
+  </instrument>
+
+  <instrument include="Instruments/concorde-connection-vertical.xml">
+   <name>engine 2 LP valve</name>
+   <condition>
+    <or>
+     <and>
+      <property>/sim/current-view/internal</property>
+      <property>/systems/seat/engineer</property>
+      <less-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>320</value>
+      </less-than>
+      <greater-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>230</value>
+      </greater-than>
+      <less-than>
+       <property>/sim/current-view/goal-pitch-offset-deg</property>
+       <value>-20</value>
+      </less-than>
+     </and>
+     <property>/controls/seat/all</property>
+    </or>
+   </condition>
+   <params>
+    <connect-status>/controls/fuel/tank[1]/lp-valve</connect-status>
+   </params>
+   <x>115</x>
+   <y>275</y>
+   <w>10</w>
+   <h>10</h>
+  </instrument>
+
+  <instrument include="Instruments/concorde-fuel-lp-valve-right.xml">
+   <name>engine 2 LP valve selector</name>
+   <condition>
+    <or>
+     <and>
+      <property>/sim/current-view/internal</property>
+      <property>/systems/seat/engineer</property>
+      <less-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>320</value>
+      </less-than>
+      <greater-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>230</value>
+      </greater-than>
+      <less-than>
+       <property>/sim/current-view/goal-pitch-offset-deg</property>
+       <value>-20</value>
+      </less-than>
+     </and>
+     <property>/controls/seat/all</property>
+    </or>
+   </condition>
+   <params>
+    <select-valve>/controls/fuel/tank[1]/lp-valve</select-valve>
+    <select-motor>/controls/fuel/tank[1]/lp-valve-motor</select-motor>
+    <guard-valve>/controls/fuel/tank[1]/lp-valve-guard</guard-valve>
+   </params>
+   <x>135</x>
+   <y>295</y>
+   <w>60</w>
+   <h>60</h>
+  </instrument>
+
+  <instrument include="Instruments/concorde-fuel-lp-valve.xml">
+   <name>engine 3 LP valve selector</name>
+   <condition>
+    <or>
+     <and>
+      <property>/sim/current-view/internal</property>
+      <property>/systems/seat/engineer</property>
+      <less-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>305</value>
+      </less-than>
+      <greater-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>215</value>
+      </greater-than>
+      <less-than>
+       <property>/sim/current-view/goal-pitch-offset-deg</property>
+       <value>-20</value>
+      </less-than>
+     </and>
+     <property>/controls/seat/all</property>
+    </or>
+   </condition>
+   <params>
+    <select-valve>/controls/fuel/tank[2]/lp-valve</select-valve>
+    <select-motor>/controls/fuel/tank[2]/lp-valve-motor</select-motor>
+    <guard-valve>/controls/fuel/tank[2]/lp-valve-guard</guard-valve>
+   </params>
+   <x>278</x>
+   <y>295</y>
+   <w>60</w>
+   <h>60</h>
+  </instrument>
+
+  <instrument include="Instruments/concorde-connection-vertical.xml">
+   <name>engine 3 LP valve</name>
+   <condition>
+    <or>
+     <and>
+      <property>/sim/current-view/internal</property>
+      <property>/systems/seat/engineer</property>
+      <less-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>300</value>
+      </less-than>
+      <greater-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>215</value>
+      </greater-than>
+      <less-than>
+       <property>/sim/current-view/goal-pitch-offset-deg</property>
+       <value>-20</value>
+      </less-than>
+     </and>
+     <property>/controls/seat/all</property>
+    </or>
+   </condition>
+   <params>
+    <connect-status>/controls/fuel/tank[2]/lp-valve</connect-status>
+   </params>
+   <x>315</x>
+   <y>275</y>
+   <w>10</w>
+   <h>10</h>
+  </instrument>
+
+  <instrument include="Instruments/concorde-connection-vertical.xml">
+   <name>engine 4 LP valve</name>
+   <condition>
+    <or>
+     <and>
+      <property>/sim/current-view/internal</property>
+      <property>/systems/seat/engineer</property>
+      <less-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>290</value>
+      </less-than>
+      <greater-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>205</value>
+      </greater-than>
+      <less-than>
+       <property>/sim/current-view/goal-pitch-offset-deg</property>
+       <value>-20</value>
+      </less-than>
+     </and>
+     <property>/controls/seat/all</property>
+    </or>
+   </condition>
+   <params>
+    <connect-status>/controls/fuel/tank[3]/lp-valve</connect-status>
+   </params>
+   <x>420</x>
+   <y>275</y>
+   <w>10</w>
+   <h>10</h>
+  </instrument>
+
+  <instrument include="Instruments/concorde-fuel-lp-valve-right.xml">
+   <name>engine 4 LP valve selector</name>
+   <condition>
+    <or>
+     <and>
+      <property>/sim/current-view/internal</property>
+      <property>/systems/seat/engineer</property>
+      <less-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>285</value>
+      </less-than>
+      <greater-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>200</value>
+      </greater-than>
+      <less-than>
+       <property>/sim/current-view/goal-pitch-offset-deg</property>
+       <value>-15</value>
+      </less-than>
+     </and>
+     <property>/controls/seat/all</property>
+    </or>
+   </condition>
+   <params>
+    <select-valve>/controls/fuel/tank[3]/lp-valve</select-valve>
+    <select-motor>/controls/fuel/tank[3]/lp-valve-motor</select-motor>
+    <guard-valve>/controls/fuel/tank[3]/lp-valve-guard</guard-valve>
+   </params>
+   <x>445</x>
+   <y>295</y>
+   <w>60</w>
+   <h>60</h>
+  </instrument>
+
+<!-- accumulators -->
+
+  <instrument include="Instruments/concorde-yellow-fuel-accumulator.xml">
+   <name>Accumulator engine 1</name>
+   <condition>
+    <or>
+     <and>
+      <property>/sim/current-view/internal</property>
+      <property>/systems/seat/engineer</property>
+      <less-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>335</value>
+      </less-than>
+      <greater-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>245</value>
+      </greater-than>
+      <less-than>
+       <property>/sim/current-view/goal-pitch-offset-deg</property>
+       <value>-15</value>
+      </less-than>
+     </and>
+     <property>/controls/seat/all</property>
+    </or>
+   </condition>
+   <params>
+    <pump-switch>/controls/fuel/tank[0]/pump[0]</pump-switch>
+    <pump2-switch>/controls/fuel/tank[0]/pump[1]</pump2-switch>
+    <pump3-switch>/controls/fuel/tank[0]/pump[2]</pump3-switch>
+   </params>
+   <x>-18</x>
+   <y>246</y>
+   <w>26</w>
+   <h>13</h>
+  </instrument>
+
+  <instrument include="Instruments/concorde-yellow-fuel-accumulator.xml">
+   <name>Accumulator engine 2</name>
+   <condition>
+    <or>
+     <and>
+      <property>/sim/current-view/internal</property>
+      <property>/systems/seat/engineer</property>
+      <less-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>320</value>
+      </less-than>
+      <greater-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>230</value>
+      </greater-than>
+      <less-than>
+       <property>/sim/current-view/goal-pitch-offset-deg</property>
+       <value>-20</value>
+      </less-than>
+     </and>
+     <property>/controls/seat/all</property>
+    </or>
+   </condition>
+   <params>
+    <pump-switch>/controls/fuel/tank[1]/pump[0]</pump-switch>
+    <pump2-switch>/controls/fuel/tank[1]/pump[1]</pump2-switch>
+    <pump3-switch>/controls/fuel/tank[1]/pump[2]</pump3-switch>
+   </params>
+   <x>140</x>
+   <y>246</y>
+   <w>26</w>
+   <h>13</h>
+  </instrument>
+
+  <instrument include="Instruments/concorde-yellow-fuel-accumulator.xml">
+   <name>Accumulator engine 3</name>
+   <condition>
+    <or>
+     <and>
+      <property>/sim/current-view/internal</property>
+      <property>/systems/seat/engineer</property>
+      <less-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>305</value>
+      </less-than>
+      <greater-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>215</value>
+      </greater-than>
+      <less-than>
+       <property>/sim/current-view/goal-pitch-offset-deg</property>
+       <value>-20</value>
+      </less-than>
+     </and>
+     <property>/controls/seat/all</property>
+    </or>
+   </condition>
+   <params>
+    <pump-switch>/controls/fuel/tank[2]/pump[0]</pump-switch>
+    <pump2-switch>/controls/fuel/tank[2]/pump[1]</pump2-switch>
+    <pump3-switch>/controls/fuel/tank[2]/pump[2]</pump3-switch>
+   </params>
+   <x>290</x>
+   <y>246</y>
+   <w>26</w>
+   <h>13</h>
+  </instrument>
+
+  <instrument include="Instruments/concorde-yellow-fuel-accumulator.xml">
+   <name>Accumulator engine 4</name>
+   <condition>
+    <or>
+     <and>
+      <property>/sim/current-view/internal</property>
+      <property>/systems/seat/engineer</property>
+      <less-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>290</value>
+      </less-than>
+      <greater-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>200</value>
+      </greater-than>
+      <less-than>
+       <property>/sim/current-view/goal-pitch-offset-deg</property>
+       <value>-15</value>
+      </less-than>
+     </and>
+     <property>/controls/seat/all</property>
+    </or>
+   </condition>
+   <params>
+    <pump-switch>/controls/fuel/tank[3]/pump[0]</pump-switch>
+    <pump2-switch>/controls/fuel/tank[3]/pump[1]</pump2-switch>
+    <pump3-switch>/controls/fuel/tank[3]/pump[2]</pump3-switch>
+   </params>
+   <x>448</x>
+   <y>246</y>
+   <w>26</w>
+   <h>13</h>
+  </instrument>
+
+<!-- leak -->
+
+  <instrument include="Instruments/concorde-red-engine-leak.xml">
+   <name>Leak engine 1</name>
+   <condition>
+    <or>
+     <and>
+      <property>/sim/current-view/internal</property>
+      <property>/systems/seat/engineer</property>
+      <less-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>335</value>
+      </less-than>
+      <greater-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>245</value>
+      </greater-than>
+      <less-than>
+       <property>/sim/current-view/goal-pitch-offset-deg</property>
+       <value>-20</value>
+      </less-than>
+     </and>
+     <property>/controls/seat/all</property>
+    </or>
+   </condition>
+   <x>-18</x>
+   <y>231</y>
+   <w>26</w>
+   <h>13</h>
+  </instrument>
+
+  <instrument include="Instruments/concorde-red-engine-leak.xml">
+   <name>Leak engine 2</name>
+   <condition>
+    <or>
+     <and>
+      <property>/sim/current-view/internal</property>
+      <property>/systems/seat/engineer</property>
+      <less-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>320</value>
+      </less-than>
+      <greater-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>225</value>
+      </greater-than>
+      <less-than>
+       <property>/sim/current-view/goal-pitch-offset-deg</property>
+       <value>-20</value>
+      </less-than>
+     </and>
+     <property>/controls/seat/all</property>
+    </or>
+   </condition>
+   <x>140</x>
+   <y>231</y>
+   <w>26</w>
+   <h>13</h>
+  </instrument>
+
+  <instrument include="Instruments/concorde-red-engine-leak.xml">
+   <name>Leak engine 3</name>
+   <condition>
+    <or>
+     <and>
+      <property>/sim/current-view/internal</property>
+      <property>/systems/seat/engineer</property>
+      <less-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>305</value>
+      </less-than>
+      <greater-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>215</value>
+      </greater-than>
+      <less-than>
+       <property>/sim/current-view/goal-pitch-offset-deg</property>
+       <value>-20</value>
+      </less-than>
+     </and>
+     <property>/controls/seat/all</property>
+    </or>
+   </condition>
+   <x>290</x>
+   <y>231</y>
+   <w>26</w>
+   <h>13</h>
+  </instrument>
+
+  <instrument include="Instruments/concorde-red-engine-leak.xml">
+   <name>Leak engine 4</name>
+   <condition>
+    <or>
+     <and>
+      <property>/sim/current-view/internal</property>
+      <property>/systems/seat/engineer</property>
+      <less-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>290</value>
+      </less-than>
+      <greater-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>200</value>
+      </greater-than>
+      <less-than>
+       <property>/sim/current-view/goal-pitch-offset-deg</property>
+       <value>-20</value>
+      </less-than>
+     </and>
+     <property>/controls/seat/all</property>
+    </or>
+   </condition>
+   <x>448</x>
+   <y>231</y>
+   <w>26</w>
+   <h>13</h>
+  </instrument>
+
+<!-- fuel pressure -->
+
+  <instrument include="Instruments/concorde-amber-fuel-pressure.xml">
+   <name>Fuel pressure engine 1</name>
+   <condition>
+    <or>
+     <and>
+      <property>/sim/current-view/internal</property>
+      <property>/systems/seat/engineer</property>
+      <less-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>335</value>
+      </less-than>
+      <greater-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>240</value>
+      </greater-than>
+      <less-than>
+       <property>/sim/current-view/goal-pitch-offset-deg</property>
+       <value>-20</value>
+      </less-than>
+     </and>
+     <property>/controls/seat/all</property>
+    </or>
+   </condition>
+   <params>
+    <level-select>/consumables/fuel/tank[13]/level-lbs</level-select>
+   </params>
+   <x>-18</x>
+   <y>216</y>
+   <w>26</w>
+   <h>13</h>
+  </instrument>
+
+  <instrument include="Instruments/concorde-amber-fuel-pressure.xml">
+   <name>Fuel pressure engine 2</name>
+   <condition>
+    <or>
+     <and>
+      <property>/sim/current-view/internal</property>
+      <property>/systems/seat/engineer</property>
+      <less-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>320</value>
+      </less-than>
+      <greater-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>225</value>
+      </greater-than>
+      <less-than>
+       <property>/sim/current-view/goal-pitch-offset-deg</property>
+       <value>-20</value>
+      </less-than>
+     </and>
+     <property>/controls/seat/all</property>
+    </or>
+   </condition>
+   <params>
+    <level-select>/consumables/fuel/tank[14]/level-lbs</level-select>
+   </params>
+   <x>140</x>
+   <y>216</y>
+   <w>26</w>
+   <h>13</h>
+  </instrument>
+
+  <instrument include="Instruments/concorde-amber-fuel-pressure.xml">
+   <name>Fuel pressure engine 3</name>
+   <condition>
+    <or>
+     <and>
+      <property>/sim/current-view/internal</property>
+      <property>/systems/seat/engineer</property>
+      <less-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>305</value>
+      </less-than>
+      <greater-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>215</value>
+      </greater-than>
+      <less-than>
+       <property>/sim/current-view/goal-pitch-offset-deg</property>
+       <value>-20</value>
+      </less-than>
+     </and>
+     <property>/controls/seat/all</property>
+    </or>
+   </condition>
+   <params>
+    <level-select>/consumables/fuel/tank[15]/level-lbs</level-select>
+   </params>
+   <x>290</x>
+   <y>216</y>
+   <w>26</w>
+   <h>13</h>
+  </instrument>
+
+  <instrument include="Instruments/concorde-amber-fuel-pressure.xml">
+   <name>Fuel pressure engine 4</name>
+   <condition>
+    <or>
+     <and>
+      <property>/sim/current-view/internal</property>
+      <property>/systems/seat/engineer</property>
+      <less-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>290</value>
+      </less-than>
+      <greater-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>200</value>
+      </greater-than>
+      <less-than>
+       <property>/sim/current-view/goal-pitch-offset-deg</property>
+       <value>-20</value>
+      </less-than>
+     </and>
+     <property>/controls/seat/all</property>
+    </or>
+   </condition>
+   <params>
+    <level-select>/consumables/fuel/tank[16]/level-lbs</level-select>
+   </params>
+   <x>448</x>
+   <y>216</y>
+   <w>26</w>
+   <h>13</h>
+  </instrument>
+
+<!-- fuel consumed -->
+
+  <instrument include="Instruments/concorde-fuel-consumed.xml">
+   <name>Fuel consumed engine 1</name>
+   <condition>
+    <or>
+     <and>
+      <property>/sim/current-view/internal</property>
+      <property>/systems/seat/engineer</property>
+      <less-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>330</value>
+      </less-than>
+      <greater-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>235</value>
+      </greater-than>
+      <less-than>
+       <property>/sim/current-view/goal-pitch-offset-deg</property>
+       <value>-20</value>
+      </less-than>
+     </and>
+     <property>/controls/seat/all</property>
+    </or>
+   </condition>
+   <params>
+    <fuel-kg>/instrumentation/fuel-consumed[0]/total-kg</fuel-kg>
+    <reset-sel>/instrumentation/fuel-consumed[0]/reset</reset-sel>
+   </params>
+   <x>30</x>
+   <y>222</y>
+   <w>53</w>
+   <h>53</h>
+  </instrument>
+
+  <instrument include="Instruments/concorde-fuel-consumed.xml">
+   <name>Fuel consumed engine 2</name>
+   <condition>
+    <or>
+     <and>
+      <property>/sim/current-view/internal</property>
+      <property>/systems/seat/engineer</property>
+      <less-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>325</value>
+      </less-than>
+      <greater-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>230</value>
+      </greater-than>
+      <less-than>
+       <property>/sim/current-view/goal-pitch-offset-deg</property>
+       <value>-20</value>
+      </less-than>
+     </and>
+     <property>/controls/seat/all</property>
+    </or>
+   </condition>
+   <params>
+    <fuel-kg>/instrumentation/fuel-consumed[1]/total-kg</fuel-kg>
+    <reset-sel>/instrumentation/fuel-consumed[1]/reset</reset-sel>
+   </params>
+   <x>95</x>
+   <y>222</y>
+   <w>53</w>
+   <h>53</h>
+  </instrument>
+
+  <instrument include="Instruments/concorde-fuel-consumed.xml">
+   <name>Fuel consumed engine 3</name>
+   <condition>
+    <or>
+     <and>
+      <property>/sim/current-view/internal</property>
+      <property>/systems/seat/engineer</property>
+      <less-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>300</value>
+      </less-than>
+      <greater-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>210</value>
+      </greater-than>
+      <less-than>
+       <property>/sim/current-view/goal-pitch-offset-deg</property>
+       <value>-20</value>
+      </less-than>
+     </and>
+     <property>/controls/seat/all</property>
+    </or>
+   </condition>
+   <params>
+    <fuel-kg>/instrumentation/fuel-consumed[2]/total-kg</fuel-kg>
+    <reset-sel>/instrumentation/fuel-consumed[2]/reset</reset-sel>
+   </params>
+   <x>338</x>
+   <y>222</y>
+   <w>53</w>
+   <h>53</h>
+  </instrument>
+
+  <instrument include="Instruments/concorde-fuel-consumed.xml">
+   <name>Fuel consumed engine 4</name>
+   <condition>
+    <or>
+     <and>
+      <property>/sim/current-view/internal</property>
+      <property>/systems/seat/engineer</property>
+      <less-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>295</value>
+      </less-than>
+      <greater-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>205</value>
+      </greater-than>
+      <less-than>
+       <property>/sim/current-view/goal-pitch-offset-deg</property>
+       <value>-20</value>
+      </less-than>
+     </and>
+     <property>/controls/seat/all</property>
+    </or>
+   </condition>
+   <params>
+    <fuel-kg>/instrumentation/fuel-consumed[3]/total-kg</fuel-kg>
+    <reset-sel>/instrumentation/fuel-consumed[3]/reset</reset-sel>
+   </params>
+   <x>403</x>
+   <y>222</y>
+   <w>53</w>
+   <h>53</h>
+  </instrument>
+
+ </instruments>
+
+</PropertyList>

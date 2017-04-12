@@ -1,0 +1,237 @@
+<?xml version="1.0"?>
+
+<PropertyList>
+  <name>Concorde-menu</name>
+  <modal>false</modal>
+  <layout>vbox</layout>
+
+  <text>
+    <label>Concorde menu</label>
+  </text>
+
+  <hrule><dummy/></hrule>
+
+  <text>
+    <label></label>
+  </text>
+
+  <group>
+    <layout>hbox</layout>
+
+    <button>
+      <legend>Autopilot</legend>
+      <key>a</key>
+      <binding>
+       <command>dialog-show</command>
+       <dialog-name>Concorde-autopilot</dialog-name>
+      </binding>
+      <binding>
+        <command>dialog-close</command>
+      </binding>
+    </button>
+
+    <button>
+      <legend>Crew</legend>
+      <key>c</key>
+      <binding>
+       <command>dialog-show</command>
+       <dialog-name>Concorde-crew</dialog-name>
+      </binding>
+      <binding>
+        <command>dialog-close</command>
+      </binding>
+    </button>
+
+    <button>
+      <legend>Environment</legend>
+      <key>e</key>
+      <binding>
+       <command>dialog-show</command>
+       <dialog-name>Concorde-environment</dialog-name>
+      </binding>
+      <binding>
+        <command>dialog-close</command>
+      </binding>
+    </button>
+
+    <button>
+      <legend>Fuel</legend>
+      <key>f</key>
+      <binding>
+       <command>dialog-show</command>
+       <dialog-name>Concorde-fuel</dialog-name>
+      </binding>
+      <binding>
+        <command>dialog-close</command>
+      </binding>
+    </button>
+
+    <button>
+      <legend>Ground</legend>
+      <key>g</key>
+      <binding>
+       <command>dialog-show</command>
+       <dialog-name>Concorde-ground</dialog-name>
+      </binding>
+      <binding>
+        <command>dialog-close</command>
+      </binding>
+    </button>
+
+    <button>
+      <legend>Instrument</legend>
+      <key>i</key>
+      <binding>
+       <command>dialog-show</command>
+       <dialog-name>Concorde-instruments</dialog-name>
+      </binding>
+      <binding>
+        <command>dialog-close</command>
+      </binding>
+    </button>
+  </group>
+
+  <text>
+    <label></label>
+  </text>
+
+  <group>
+    <layout>hbox</layout>
+
+    <button>
+      <legend>Navigation</legend>
+      <key>n</key>
+      <binding>
+       <command>dialog-show</command>
+       <dialog-name>Concorde-navigation</dialog-name>
+      </binding>
+      <binding>
+        <command>dialog-close</command>
+      </binding>
+    </button>
+
+    <button>
+      <legend>Procedures</legend>
+      <key>p</key>
+      <binding>
+       <command>dialog-show</command>
+       <dialog-name>Concorde-procedures</dialog-name>
+      </binding>
+      <binding>
+        <command>dialog-close</command>
+      </binding>
+    </button>
+
+    <button>
+      <legend>Radio</legend>
+      <key>r</key>
+      <binding>
+       <command>dialog-show</command>
+       <dialog-name>Concorde-radios</dialog-name>
+      </binding>
+      <binding>
+        <command>dialog-close</command>
+      </binding>
+    </button>
+
+    <button>
+      <legend>System</legend>
+      <key>s</key>
+      <binding>
+       <command>dialog-show</command>
+       <dialog-name>Concorde-systems</dialog-name>
+      </binding>
+      <binding>
+        <command>dialog-close</command>
+      </binding>
+    </button>
+
+    <button>
+      <legend>1 Views</legend>
+      <key>1</key>
+      <binding>
+       <command>dialog-show</command>
+       <dialog-name>Concorde-views</dialog-name>
+      </binding>
+      <binding>
+        <command>dialog-close</command>
+      </binding>
+    </button>
+
+    <button>
+      <legend>Voice</legend>
+     <key>v</key>
+      <binding>
+       <command>dialog-show</command>
+       <dialog-name>Concorde-voice</dialog-name>
+      </binding>
+      <binding>
+        <command>dialog-close</command>
+      </binding>
+    </button>
+
+    <button>
+      <legend>Help</legend>
+      <key>h</key>
+      <binding>
+       <command>nasal</command>
+       <script>gui.showHelpDialog("/sim/help")</script>
+      </binding>
+      <binding>
+        <command>dialog-close</command>
+      </binding>
+    </button>
+
+    <empty><stretch>true</stretch></empty>
+  </group>
+
+  <text>
+    <label></label>
+  </text>
+
+  <text>
+    <label></label>
+  </text>
+
+  <text>
+    <label>press the first letter, or escape/return</label>
+    <color>
+      <red>0.5</red>
+      <green>0.5</green>
+      <blue>0.5</blue>
+    </color>
+  </text>
+
+  <text>
+    <label></label>
+  </text>
+
+  <text>
+    <label>~  fields are saved on exit in aircraft-data</label>
+    <color>
+      <red>0.5</red>
+      <green>0.5</green>
+      <blue>0.5</blue>
+    </color>
+  </text>
+
+  <text>
+    <label></label>
+  </text>
+
+  <group>
+    <layout>hbox</layout>
+    <empty><stretch>true</stretch></empty>
+
+    <button>
+      <legend>Close</legend>
+      <default>true</default>
+      <key>Esc</key>
+      <binding>
+        <command>dialog-close</command>
+      </binding>
+    </button>
+
+    <empty><stretch>true</stretch></empty>
+  </group>
+</PropertyList>

@@ -1,0 +1,106 @@
+<?xml version="1.0"?>
+
+<!-- Alarm on tank pressure :
+
+     - below -1.75 PSI (amber).
+     - above 4.0 PSI (amber).
+     - above 1.5 PSI (yellow) and raising.
+     - below -0.8 PSI (yellow) and falling.
+-->
+
+
+<PropertyList>
+ <name>Alarm on tank pressure</name>
+ <w-base>104</w-base>
+ <h-base>26</h-base>
+
+
+ <layers>
+<!-- translucent lens -->  
+  <layer>
+   <name>alarm light</name>
+   <type>switch</type>
+
+   <layer>
+    <name>off</name>
+    <type>group</type>
+    <condition>
+     <or include="concorde-cond-voltage-bulb.xml">
+      <and>
+       <or include="concorde-cond-test-eng-aft.xml"/> <!-- bug -->
+       <greater-than>
+        <property>/instrumentation/tank-pressure/differential-psi</property>
+        <value>-1.75</value>
+       </greater-than>
+       <or>
+        <greater-than>
+         <property>/instrumentation/tank-pressure/differential-psi</property>
+         <value>-0.8</value>
+        </greater-than>
+        <not>
+         <property>/instrumentation/tank-pressure/falling</property>
+        </not>
+       </or>
+       <or>
+        <less-than-equals>
+         <property>/instrumentation/tank-pressure/differential-psi</property>
+         <value>1.5</value>
+        </less-than-equals>
+        <not>
+         <property>/instrumentation/tank-pressure/raising</property>
+        </not>
+       </or>
+       <less-than-equals>
+        <property>/instrumentation/tank-pressure/differential-psi</property>
+        <value>4.0</value>
+       </less-than-equals>
+      </and>
+     </or>
+    </condition>
+
+    <layer include="concorde-bulb-off.xml">
+     <w>104</w>
+     <h>20</h>
+    </layer>
+    <layer>
+     <name>background off</name>
+     <texture>
+      <path>Aircraft/Concorde/Panels/Instruments/Textures/concorde-amber-tank-press.png</path>
+      <x1>0.0</x1>
+      <y1>0.21</y1>
+      <x2>1.0</x2>
+      <y2>0.81</y2>
+     </texture>
+     <w>104</w>
+     <h>20</h>
+    </layer>
+   </layer>
+
+   <layer>
+    <name>on</name>
+    <type>group</type>
+
+    <layer include="concorde-bulb-on.xml">
+     <condition include="concorde-cond-light-eng-aft.xml"/>
+     <w>104</w>
+     <h>20</h>
+    </layer>
+    <layer>
+     <name>background on</name>
+     <texture>
+      <path>Aircraft/Concorde/Panels/Instruments/Textures/concorde-amber-tank-press.png</path>
+      <x1>0.0</x1>
+      <y1>0.21</y1>
+      <x2>1.0</x2>
+      <y2>0.81</y2>
+     </texture>
+     <w>104</w>
+     <h>20</h>
+     <emissive>true</emissive>
+    </layer>
+   </layer>
+  </layer>
+
+ </layers>
+
+</PropertyList>

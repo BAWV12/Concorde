@@ -1,0 +1,1543 @@
+<?xml version="1.0"?>
+
+<!-- Concorde 3D ENGINEER hydraulic panel
+
+Like the real panel.
+
+WARNING : a button not working by click, means that it is too close of another button (eventually hidden);
+even if both click areas (ctrl-C) don't overlap. Changing internal geometry of button avoids this drawback.
+
+_______________________________________________________________________
+
+This is a panel configuration file for the open-source flight
+simulator FlightGear (www.flightgear.org).  The file is an XML-encoded
+FlightGear property list defining the panel's background texture and
+the location (and optionally, size) of the instruments that will
+appear on the panel.
+
+Each instrument is, itself, defined in an XML-encoded property list
+in a separate file.
+
+Co-ordinates are relative to the *bottom* left corner of the screen
+(as in OpenGL).  The total FlightGear window is always considered to
+be 1024x768, whatever its actual display size on the screen.  All
+paths are relative to $FG_ROOT.
+
+Note that the name of the element defining each instrument must be
+different, or else instrument definitions will be overwritten:
+that's not particularly XML-ish, but that's how property lists
+work in FlightGear right now.
+
+Each instrument has its own preferred width and height, but you can
+override those by providing <w>..</w> and <h>..</h> properties with the
+<x>...</x> and <y>...</y> properties.
+
+-->
+
+<!DOCTYPE PropertyList SYSTEM "panel.dtd">
+
+<PropertyList>
+
+ <name>Concorde Engineer Hydraulic Panel</name>
+ <background>Aircraft/Concorde/Panels/Textures/transparent-bg.png</background>
+ <w>1024</w>
+ <h>512</h>
+ <y-offset>0</y-offset>
+ <view-height>500</view-height>
+
+ <instruments>
+
+  <instrument include="Instruments/concorde-title-hydraulic.xml">
+   <name>Hydraulic management</name>
+   <condition>
+    <or>
+     <and>
+      <property>/sim/current-view/internal</property>
+      <property>/systems/seat/engineer</property>
+      <less-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>260</value>
+      </less-than>
+      <greater-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>180</value>
+      </greater-than>
+      <greater-than>
+       <property>/sim/current-view/goal-pitch-offset-deg</property>
+       <value>0</value>
+      </greater-than>
+     </and>
+     <property>/controls/seat/all</property>
+    </or>
+   </condition>
+   <x>130</x>
+   <y>455</y>
+   <w>330</w>
+   <h>30</h>
+  </instrument>
+
+  <instrument include="Instruments/concorde-title-hyd-green.xml">
+   <name>Green</name>
+   <condition>
+    <or>
+     <and>
+      <property>/sim/current-view/internal</property>
+      <property>/systems/seat/engineer</property>
+      <less-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>260</value>
+      </less-than>
+      <greater-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>190</value>
+      </greater-than>
+      <greater-than>
+       <property>/sim/current-view/goal-pitch-offset-deg</property>
+       <value>5</value>
+      </greater-than>
+     </and>
+     <property>/controls/seat/all</property>
+    </or>
+   </condition>
+   <x>65</x>
+   <y>440</y>
+   <w>60</w>
+   <h>30</h>
+  </instrument>
+
+  <instrument include="Instruments/concorde-title-hyd-yellow.xml">
+   <name>Yellow</name>
+   <condition>
+    <or>
+     <and>
+      <property>/sim/current-view/internal</property>
+      <property>/systems/seat/engineer</property>
+      <less-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>250</value>
+      </less-than>
+      <greater-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>180</value>
+      </greater-than>
+      <greater-than>
+       <property>/sim/current-view/goal-pitch-offset-deg</property>
+       <value>0</value>
+      </greater-than>
+     </and>
+     <property>/controls/seat/all</property>
+    </or>
+   </condition>
+   <x>195</x>
+   <y>440</y>
+   <w>90</w>
+   <h>30</h>
+  </instrument>
+
+  <instrument include="Instruments/concorde-title-hyd-blue.xml">
+   <name>Blue</name>
+   <condition>
+    <or>
+     <and>
+      <property>/sim/current-view/internal</property>
+      <property>/systems/seat/engineer</property>
+      <less-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>245</value>
+      </less-than>
+      <greater-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>175</value>
+      </greater-than>
+      <greater-than>
+       <property>/sim/current-view/goal-pitch-offset-deg</property>
+       <value>0</value>
+      </greater-than>
+     </and>
+     <property>/controls/seat/all</property>
+    </or>
+   </condition>
+   <x>335</x>
+   <y>440</y>
+   <w>60</w>
+   <h>30</h>
+  </instrument>
+
+<!-- RESERVOIR ALARMS -->
+
+  <instrument include="Instruments/concorde-yellow-hyd-low-pressure.xml">
+   <name>Low pressure green reservoir</name>
+   <condition>
+    <or>
+     <and>
+      <property>/sim/current-view/internal</property>
+      <property>/systems/seat/engineer</property>
+      <less-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>260</value>
+      </less-than>
+      <greater-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>190</value>
+      </greater-than>
+      <greater-than>
+       <property>/sim/current-view/goal-pitch-offset-deg</property>
+       <value>5</value>
+      </greater-than>
+     </and>
+     <property>/controls/seat/all</property>
+    </or>
+   </condition>
+   <x>60</x>
+   <y>420</y>
+   <w>15</w>
+   <h>30</h>
+  </instrument>
+
+  <instrument include="Instruments/concorde-amber-hyd-o-heat.xml">
+   <name>Overheat green reservoir</name>
+   <condition>
+    <or>
+     <and>
+      <property>/sim/current-view/internal</property>
+      <property>/systems/seat/engineer</property>
+      <less-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>255</value>
+      </less-than>
+      <greater-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>190</value>
+      </greater-than>
+      <greater-than>
+       <property>/sim/current-view/goal-pitch-offset-deg</property>
+       <value>5</value>
+      </greater-than>
+     </and>
+     <property>/controls/seat/all</property>
+    </or>
+   </condition>
+   <x>80</x>
+   <y>420</y>
+   <w>15</w>
+   <h>30</h>
+  </instrument>
+
+  <instrument include="Instruments/concorde-amber-hyd-low-level.xml">
+   <name>Low level green reservoir</name>
+   <condition>
+    <or>
+     <and>
+      <property>/sim/current-view/internal</property>
+      <property>/systems/seat/engineer</property>
+      <less-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>255</value>
+      </less-than>
+      <greater-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>190</value>
+      </greater-than>
+      <greater-than>
+       <property>/sim/current-view/goal-pitch-offset-deg</property>
+       <value>0</value>
+      </greater-than>
+     </and>
+     <property>/controls/seat/all</property>
+    </or>
+   </condition>
+   <x>100</x>
+   <y>420</y>
+   <w>15</w>
+   <h>30</h>
+  </instrument>
+
+  <instrument include="Instruments/concorde-yellow-hyd-low-pressure.xml">
+   <name>Low pressure yellow reservoir</name>
+   <condition>
+    <or>
+     <and>
+      <property>/sim/current-view/internal</property>
+      <property>/systems/seat/engineer</property>
+      <less-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>250</value>
+      </less-than>
+      <greater-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>185</value>
+      </greater-than>
+      <greater-than>
+       <property>/sim/current-view/goal-pitch-offset-deg</property>
+       <value>0</value>
+      </greater-than>
+     </and>
+     <property>/controls/seat/all</property>
+    </or>
+   </condition>
+   <x>190</x>
+   <y>420</y>
+   <w>15</w>
+   <h>30</h>
+  </instrument>
+
+  <instrument include="Instruments/concorde-amber-hyd-o-heat.xml">
+   <name>Overheat yellow reservoir</name>
+   <condition>
+    <or>
+     <and>
+      <property>/sim/current-view/internal</property>
+      <property>/systems/seat/engineer</property>
+      <less-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>250</value>
+      </less-than>
+      <greater-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>185</value>
+      </greater-than>
+      <greater-than>
+       <property>/sim/current-view/goal-pitch-offset-deg</property>
+       <value>0</value>
+      </greater-than>
+     </and>
+     <property>/controls/seat/all</property>
+    </or>
+   </condition>
+   <x>210</x>
+   <y>420</y>
+   <w>15</w>
+   <h>30</h>
+  </instrument>
+
+  <instrument include="Instruments/concorde-amber-hyd-low-level.xml">
+   <name>Low level yellow reservoir</name>
+   <condition>
+    <or>
+     <and>
+      <property>/sim/current-view/internal</property>
+      <property>/systems/seat/engineer</property>
+      <less-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>250</value>
+      </less-than>
+      <greater-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>180</value>
+      </greater-than>
+      <greater-than>
+       <property>/sim/current-view/goal-pitch-offset-deg</property>
+       <value>0</value>
+      </greater-than>
+     </and>
+     <property>/controls/seat/all</property>
+    </or>
+   </condition>
+   <x>230</x>
+   <y>420</y>
+   <w>15</w>
+   <h>30</h>
+  </instrument>
+
+  <instrument include="Instruments/concorde-yellow-hyd-low-pressure.xml">
+   <name>Low pressure blue reservoir</name>
+   <condition>
+    <or>
+     <and>
+      <property>/sim/current-view/internal</property>
+      <property>/systems/seat/engineer</property>
+      <less-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>245</value>
+      </less-than>
+      <greater-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>180</value>
+      </greater-than>
+      <greater-than>
+       <property>/sim/current-view/goal-pitch-offset-deg</property>
+       <value>-5</value>
+      </greater-than>
+     </and>
+     <property>/controls/seat/all</property>
+    </or>
+   </condition>
+   <x>325</x>
+   <y>420</y>
+   <w>15</w>
+   <h>30</h>
+  </instrument>
+
+  <instrument include="Instruments/concorde-amber-hyd-o-heat.xml">
+   <name>Overheat blue reservoir</name>
+   <condition>
+    <or>
+     <and>
+      <property>/sim/current-view/internal</property>
+      <property>/systems/seat/engineer</property>
+      <less-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>245</value>
+      </less-than>
+      <greater-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>175</value>
+      </greater-than>
+      <greater-than>
+       <property>/sim/current-view/goal-pitch-offset-deg</property>
+       <value>-5</value>
+      </greater-than>
+     </and>
+     <property>/controls/seat/all</property>
+    </or>
+   </condition>
+   <x>345</x>
+   <y>420</y>
+   <w>15</w>
+   <h>30</h>
+  </instrument>
+
+  <instrument include="Instruments/concorde-amber-hyd-low-level.xml">
+   <name>Low level blue reservoir</name>
+   <condition>
+    <or>
+     <and>
+      <property>/sim/current-view/internal</property>
+      <property>/systems/seat/engineer</property>
+      <less-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>245</value>
+      </less-than>
+      <greater-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>180</value>
+      </greater-than>
+      <greater-than>
+       <property>/sim/current-view/goal-pitch-offset-deg</property>
+       <value>-5</value>
+      </greater-than>
+     </and>
+     <property>/controls/seat/all</property>
+    </or>
+   </condition>
+   <x>365</x>
+   <y>420</y>
+   <w>15</w>
+   <h>30</h>
+  </instrument>
+
+<!-- RESERVOIR CONTENT -->
+
+  <instrument include="Instruments/concorde-hyd-reservoir6.xml">
+   <name>Green reservoir content</name>
+   <condition>
+    <or>
+     <and>
+      <property>/sim/current-view/internal</property>
+      <property>/systems/seat/engineer</property>
+      <less-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>260</value>
+      </less-than>
+      <greater-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>190</value>
+      </greater-than>
+      <greater-than>
+       <property>/sim/current-view/goal-pitch-offset-deg</property>
+       <value>-5</value>
+      </greater-than>
+     </and>
+     <property>/controls/seat/all</property>
+    </or>
+   </condition>
+   <x>80</x>
+   <y>360</y>
+   <w>65</w>
+   <h>65</h>
+  </instrument>
+
+  <instrument include="Instruments/concorde-hyd-reservoir8.xml">
+   <name>Yellow reservoir content</name>
+   <condition>
+    <or>
+     <and>
+      <property>/sim/current-view/internal</property>
+      <property>/systems/seat/engineer</property>
+      <less-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>250</value>
+      </less-than>
+      <greater-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>185</value>
+      </greater-than>
+      <greater-than>
+       <property>/sim/current-view/goal-pitch-offset-deg</property>
+       <value>-5</value>
+      </greater-than>
+     </and>
+     <property>/controls/seat/all</property>
+    </or>
+   </condition>
+   <x>210</x>
+   <y>360</y>
+   <w>65</w>
+   <h>65</h>
+  </instrument>
+
+  <instrument include="Instruments/concorde-hyd-reservoir4.xml">
+   <name>Blue reservoir content</name>
+   <condition>
+    <or>
+     <and>
+      <property>/sim/current-view/internal</property>
+      <property>/systems/seat/engineer</property>
+      <less-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>245</value>
+      </less-than>
+      <greater-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>180</value>
+      </greater-than>
+      <greater-than>
+       <property>/sim/current-view/goal-pitch-offset-deg</property>
+       <value>-10</value>
+      </greater-than>
+     </and>
+     <property>/controls/seat/all</property>
+    </or>
+   </condition>
+   <x>345</x>
+   <y>360</y>
+   <w>65</w>
+   <h>65</h>
+  </instrument>
+
+<!-- SHUT OFF VALVE -->
+
+  <instrument include="Instruments/concorde-hyd-shutoff-valve.xml">
+   <name>Shut off valve green engine 1</name>
+   <condition>
+    <or>
+     <and>
+      <property>/sim/current-view/internal</property>
+      <property>/systems/seat/engineer</property>
+      <less-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>260</value>
+      </less-than>
+      <greater-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>195</value>
+      </greater-than>
+      <greater-than>
+       <property>/sim/current-view/goal-pitch-offset-deg</property>
+       <value>-5</value>
+      </greater-than>
+     </and>
+     <property>/controls/seat/all</property>
+    </or>
+   </condition>
+   <params>
+    <control-cutoff>/controls/engines/engine[0]/cutoff</control-cutoff>
+    <shut-pump>/controls/hydraulic/circuit[0]/valve[0]</shut-pump>
+   </params>
+   <x>50</x>
+   <y>305</y>
+   <w>15</w>
+   <h>15</h>
+  </instrument>
+
+  <instrument include="Instruments/concorde-title-hyd-valves.xml">
+   <name>Shut off valves</name>
+   <condition>
+    <or>
+     <and>
+      <property>/sim/current-view/internal</property>
+      <property>/systems/seat/engineer</property>
+      <less-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>260</value>
+      </less-than>
+      <greater-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>190</value>
+      </greater-than>
+      <greater-than>
+       <property>/sim/current-view/goal-pitch-offset-deg</property>
+       <value>-5</value>
+      </greater-than>
+     </and>
+     <property>/controls/seat/all</property>
+    </or>
+   </condition>
+   <x>69</x>
+   <y>303</y>
+   <w>60</w>
+   <h>20</h>
+  </instrument>
+
+  <instrument include="Instruments/concorde-hyd-shutoff-valve.xml">
+   <name>Shut off valve green engine 2</name>
+   <condition>
+    <or>
+     <and>
+      <property>/sim/current-view/internal</property>
+      <property>/systems/seat/engineer</property>
+      <less-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>255</value>
+      </less-than>
+      <greater-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>190</value>
+      </greater-than>
+      <greater-than>
+       <property>/sim/current-view/goal-pitch-offset-deg</property>
+       <value>-5</value>
+      </greater-than>
+     </and>
+     <property>/controls/seat/all</property>
+    </or>
+   </condition>
+   <params>
+    <control-cutoff>/controls/engines/engine[1]/cutoff</control-cutoff>
+    <shut-pump>/controls/hydraulic/circuit[0]/valve[1]</shut-pump>
+   </params>
+   <x>110</x>
+   <y>305</y>
+   <w>15</w>
+   <h>15</h>
+  </instrument>
+
+  <instrument include="Instruments/concorde-hyd-shutoff-valve.xml">
+   <name>Shut off valve yellow engine 2</name>
+   <condition>
+    <or>
+     <and>
+      <property>/sim/current-view/internal</property>
+      <property>/systems/seat/engineer</property>
+      <less-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>255</value>
+      </less-than>
+      <greater-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>185</value>
+      </greater-than>
+      <greater-than>
+       <property>/sim/current-view/goal-pitch-offset-deg</property>
+       <value>-5</value>
+      </greater-than>
+     </and>
+     <property>/controls/seat/all</property>
+    </or>
+   </condition>
+   <params>
+    <control-cutoff>/controls/engines/engine[1]/cutoff</control-cutoff>
+    <shut-pump>/controls/hydraulic/circuit[1]/valve[0]</shut-pump>
+   </params>
+   <x>155</x>
+   <y>305</y>
+   <w>15</w>
+   <h>15</h>
+  </instrument>
+
+  <instrument include="Instruments/concorde-hyd-shutoff-valve.xml">
+   <name>Shut off valve yellow engine 4</name>
+   <condition>
+    <or>
+     <and>
+      <property>/sim/current-view/internal</property>
+      <property>/systems/seat/engineer</property>
+      <less-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>250</value>
+      </less-than>
+      <greater-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>185</value>
+      </greater-than>
+      <greater-than>
+       <property>/sim/current-view/goal-pitch-offset-deg</property>
+       <value>-5</value>
+      </greater-than>
+     </and>
+     <property>/controls/seat/all</property>
+    </or>
+   </condition>
+   <params>
+    <control-cutoff>/controls/engines/engine[3]/cutoff</control-cutoff>
+    <shut-pump>/controls/hydraulic/circuit[1]/valve[1]</shut-pump>
+   </params>
+   <x>255</x>
+   <y>305</y>
+   <w>15</w>
+   <h>15</h>
+  </instrument>
+
+  <instrument include="Instruments/concorde-hyd-shutoff-valve.xml">
+   <name>Shut off valve blue engine 3</name>
+   <condition>
+    <or>
+     <and>
+      <property>/sim/current-view/internal</property>
+      <property>/systems/seat/engineer</property>
+      <less-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>245</value>
+      </less-than>
+      <greater-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>180</value>
+      </greater-than>
+      <greater-than>
+       <property>/sim/current-view/goal-pitch-offset-deg</property>
+       <value>-10</value>
+      </greater-than>
+     </and>
+     <property>/controls/seat/all</property>
+    </or>
+   </condition>
+   <params>
+    <control-cutoff>/controls/engines/engine[2]/cutoff</control-cutoff>
+    <shut-pump>/controls/hydraulic/circuit[2]/valve[0]</shut-pump>
+   </params>
+   <x>310</x>
+   <y>305</y>
+   <w>15</w>
+   <h>15</h>
+  </instrument>
+
+  <instrument include="Instruments/concorde-title-hyd-valves.xml">
+   <name>Shut off valves</name>
+   <condition>
+    <or>
+     <and>
+      <property>/sim/current-view/internal</property>
+      <property>/systems/seat/engineer</property>
+      <less-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>245</value>
+      </less-than>
+      <greater-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>180</value>
+      </greater-than>
+      <greater-than>
+       <property>/sim/current-view/goal-pitch-offset-deg</property>
+       <value>-5</value>
+      </greater-than>
+     </and>
+     <property>/controls/seat/all</property>
+    </or>
+   </condition>
+   <x>329</x>
+   <y>303</y>
+   <w>60</w>
+   <h>20</h>
+  </instrument>
+
+  <instrument include="Instruments/concorde-hyd-shutoff-valve.xml">
+   <name>Shut off valve blue engine 4</name>
+   <condition>
+    <or>
+     <and>
+      <property>/sim/current-view/internal</property>
+      <property>/systems/seat/engineer</property>
+      <less-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>245</value>
+      </less-than>
+      <greater-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>180</value>
+      </greater-than>
+      <greater-than>
+       <property>/sim/current-view/goal-pitch-offset-deg</property>
+       <value>-5</value>
+      </greater-than>
+     </and>
+     <property>/controls/seat/all</property>
+    </or>
+   </condition>
+   <params>
+    <control-cutoff>/controls/engines/engine[3]/cutoff</control-cutoff>
+    <shut-pump>/controls/hydraulic/circuit[2]/valve[1]</shut-pump>
+   </params>
+   <x>370</x>
+   <y>305</y>
+   <w>15</w>
+   <h>15</h>
+  </instrument>
+
+<!-- PUMP STATUS -->
+
+  <instrument include="Instruments/concorde-hyd-pump-status.xml">
+   <name>Pump status green engine 1</name>
+   <condition>
+    <or>
+     <and>
+      <property>/sim/current-view/internal</property>
+      <property>/systems/seat/engineer</property>
+      <less-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>260</value>
+      </less-than>
+      <greater-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>195</value>
+      </greater-than>
+      <greater-than>
+       <property>/sim/current-view/goal-pitch-offset-deg</property>
+       <value>-5</value>
+      </greater-than>
+     </and>
+     <property>/controls/seat/all</property>
+    </or>
+   </condition>
+   <params>
+    <onload-pump>/controls/hydraulic/circuit[0]/onload[0]</onload-pump>
+    <shut-pump>/controls/hydraulic/circuit[0]/valve[0]</shut-pump>
+   </params>
+   <x>50</x>
+   <y>285</y>
+   <w>15</w>
+   <h>15</h>
+  </instrument>
+
+  <instrument include="Instruments/concorde-title-hyd-pumps.xml">
+   <name>Pumps</name>
+   <condition>
+    <or>
+     <and>
+      <property>/sim/current-view/internal</property>
+      <property>/systems/seat/engineer</property>
+      <less-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>260</value>
+      </less-than>
+      <greater-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>190</value>
+      </greater-than>
+      <greater-than>
+       <property>/sim/current-view/goal-pitch-offset-deg</property>
+       <value>-5</value>
+      </greater-than>
+     </and>
+     <property>/controls/seat/all</property>
+    </or>
+   </condition>
+   <x>71</x>
+   <y>283</y>
+   <w>40</w>
+   <h>20</h>
+  </instrument>
+
+  <instrument include="Instruments/concorde-hyd-pump-status.xml">
+   <name>Pump status green engine 2</name>
+   <condition>
+    <or>
+     <and>
+      <property>/sim/current-view/internal</property>
+      <property>/systems/seat/engineer</property>
+      <less-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>255</value>
+      </less-than>
+      <greater-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>190</value>
+      </greater-than>
+      <greater-than>
+       <property>/sim/current-view/goal-pitch-offset-deg</property>
+       <value>-5</value>
+      </greater-than>
+     </and>
+     <property>/controls/seat/all</property>
+    </or>
+   </condition>
+   <params>
+    <onload-pump>/controls/hydraulic/circuit[0]/onload[1]</onload-pump>
+    <shut-pump>/controls/hydraulic/circuit[0]/valve[1]</shut-pump>
+   </params>
+   <x>110</x>
+   <y>285</y>
+   <w>15</w>
+   <h>15</h>
+  </instrument>
+
+  <instrument include="Instruments/concorde-hyd-pump-status.xml">
+   <name>Pump status yellow engine 2</name>
+   <condition>
+    <or>
+     <and>
+      <property>/sim/current-view/internal</property>
+      <property>/systems/seat/engineer</property>
+      <less-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>255</value>
+      </less-than>
+      <greater-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>190</value>
+      </greater-than>
+      <greater-than>
+       <property>/sim/current-view/goal-pitch-offset-deg</property>
+       <value>-5</value>
+      </greater-than>
+     </and>
+     <property>/controls/seat/all</property>
+    </or>
+   </condition>
+   <params>
+    <onload-pump>/controls/hydraulic/circuit[1]/onload[0]</onload-pump>
+    <shut-pump>/controls/hydraulic/circuit[1]/valve[0]</shut-pump>
+   </params>
+   <x>155</x>
+   <y>285</y>
+   <w>15</w>
+   <h>15</h>
+  </instrument>
+
+  <instrument include="Instruments/concorde-hyd-pump-status.xml">
+   <name>Pump status yellow engine 4</name>
+   <condition>
+    <or>
+     <and>
+      <property>/sim/current-view/internal</property>
+      <property>/systems/seat/engineer</property>
+      <less-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>250</value>
+      </less-than>
+      <greater-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>185</value>
+      </greater-than>
+      <greater-than>
+       <property>/sim/current-view/goal-pitch-offset-deg</property>
+       <value>-5</value>
+      </greater-than>
+     </and>
+     <property>/controls/seat/all</property>
+    </or>
+   </condition>
+   <params>
+    <onload-pump>/controls/hydraulic/circuit[1]/onload[1]</onload-pump>
+    <shut-pump>/controls/hydraulic/circuit[1]/valve[1]</shut-pump>
+   </params>
+   <x>255</x>
+   <y>285</y>
+   <w>15</w>
+   <h>15</h>
+  </instrument>
+
+  <instrument include="Instruments/concorde-hyd-pump-status.xml">
+   <name>Pump status blue engine 3</name>
+   <condition>
+    <or>
+     <and>
+      <property>/sim/current-view/internal</property>
+      <property>/systems/seat/engineer</property>
+      <less-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>245</value>
+      </less-than>
+      <greater-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>180</value>
+      </greater-than>
+      <greater-than>
+       <property>/sim/current-view/goal-pitch-offset-deg</property>
+       <value>-10</value>
+      </greater-than>
+     </and>
+     <property>/controls/seat/all</property>
+    </or>
+   </condition>
+   <params>
+    <onload-pump>/controls/hydraulic/circuit[2]/onload[0]</onload-pump>
+    <shut-pump>/controls/hydraulic/circuit[2]/valve[0]</shut-pump>
+   </params>
+   <x>310</x>
+   <y>285</y>
+   <w>15</w>
+   <h>15</h>
+  </instrument>
+
+  <instrument include="Instruments/concorde-title-hyd-pumps.xml">
+   <name>Pumps</name>
+   <condition>
+    <or>
+     <and>
+      <property>/sim/current-view/internal</property>
+      <property>/systems/seat/engineer</property>
+      <less-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>245</value>
+      </less-than>
+      <greater-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>180</value>
+      </greater-than>
+      <greater-than>
+       <property>/sim/current-view/goal-pitch-offset-deg</property>
+       <value>-10</value>
+      </greater-than>
+     </and>
+     <property>/controls/seat/all</property>
+    </or>
+   </condition>
+   <x>331</x>
+   <y>283</y>
+   <w>40</w>
+   <h>20</h>
+  </instrument>
+
+  <instrument include="Instruments/concorde-hyd-pump-status.xml">
+   <name>Pump status blue engine 4</name>
+   <condition>
+    <or>
+     <and>
+      <property>/sim/current-view/internal</property>
+      <property>/systems/seat/engineer</property>
+      <less-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>245</value>
+      </less-than>
+      <greater-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>180</value>
+      </greater-than>
+      <greater-than>
+       <property>/sim/current-view/goal-pitch-offset-deg</property>
+       <value>-10</value>
+      </greater-than>
+     </and>
+     <property>/controls/seat/all</property>
+    </or>
+   </condition>
+   <params>
+    <onload-pump>/controls/hydraulic/circuit[2]/onload[1]</onload-pump>
+    <shut-pump>/controls/hydraulic/circuit[2]/valve[1]</shut-pump>
+   </params>
+   <x>370</x>
+   <y>285</y>
+   <w>15</w>
+   <h>15</h>
+  </instrument>
+
+<!-- PUMP SELECTOR -->
+
+  <instrument include="Instruments/concorde-hyd-pump.xml">
+   <name>Engine 1 selector green</name>
+   <condition>
+    <or>
+     <and>
+      <property>/sim/current-view/internal</property>
+      <property>/systems/seat/engineer</property>
+      <less-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>260</value>
+      </less-than>
+      <greater-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>195</value>
+      </greater-than>
+      <greater-than>
+       <property>/sim/current-view/goal-pitch-offset-deg</property>
+       <value>-5</value>
+      </greater-than>
+     </and>
+     <property>/controls/seat/all</property>
+    </or>
+   </condition>
+   <params>
+    <onload-pump>/controls/hydraulic/circuit[0]/onload[0]</onload-pump>
+    <shut-pump>/controls/hydraulic/circuit[0]/valve[0]</shut-pump>
+    <guard-pump>/controls/hydraulic/circuit[0]/guard[0]</guard-pump>
+    <engine-num>/systems/engines/engine[0]/engine-num</engine-num>
+   </params>
+   <x>40</x>
+   <y>250</y>
+   <w>50</w>
+   <h>50</h>
+  </instrument>
+
+  <instrument include="Instruments/concorde-hyd-pump.xml">
+   <name>Engine 2 selector green</name>
+   <condition>
+    <or>
+     <and>
+      <property>/sim/current-view/internal</property>
+      <property>/systems/seat/engineer</property>
+      <less-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>255</value>
+      </less-than>
+      <greater-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>190</value>
+      </greater-than>
+      <greater-than>
+       <property>/sim/current-view/goal-pitch-offset-deg</property>
+       <value>-10</value>
+      </greater-than>
+     </and>
+     <property>/controls/seat/all</property>
+    </or>
+   </condition>
+   <params>
+    <onload-pump>/controls/hydraulic/circuit[0]/onload[1]</onload-pump>
+    <shut-pump>/controls/hydraulic/circuit[0]/valve[1]</shut-pump>
+    <guard-pump>/controls/hydraulic/circuit[0]/guard[1]</guard-pump>
+    <engine-num>/systems/engines/engine[1]/engine-num</engine-num>
+   </params>
+   <x>100</x>
+   <y>250</y>
+   <w>50</w>
+   <h>50</h>
+  </instrument>
+
+  <instrument include="Instruments/concorde-hyd-yellow-pump.xml">
+   <name>Engine 2 selector yellow</name>
+   <condition>
+    <or>
+     <and>
+      <property>/sim/current-view/internal</property>
+      <property>/systems/seat/engineer</property>
+      <less-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>255</value>
+      </less-than>
+      <greater-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>190</value>
+      </greater-than>
+      <greater-than>
+       <property>/sim/current-view/goal-pitch-offset-deg</property>
+       <value>-10</value>
+      </greater-than>
+     </and>
+     <property>/controls/seat/all</property>
+    </or>
+   </condition>
+   <params>
+    <onload-pump>/controls/hydraulic/circuit[1]/onload[0]</onload-pump>
+    <shut-pump>/controls/hydraulic/circuit[1]/valve[0]</shut-pump>
+    <guard-pump>/controls/hydraulic/circuit[1]/guard[0]</guard-pump>
+    <engine-num>/systems/engines/engine[1]/engine-num</engine-num>
+   </params>
+   <x>145</x>
+   <y>250</y>
+   <w>75</w>
+   <h>50</h>
+  </instrument>
+
+  <instrument include="Instruments/concorde-hyd-yellow-pump.xml">
+   <name>Engine 4 selector yellow</name>
+   <condition>
+    <or>
+     <and>
+      <property>/sim/current-view/internal</property>
+      <property>/systems/seat/engineer</property>
+      <less-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>250</value>
+      </less-than>
+      <greater-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>185</value>
+      </greater-than>
+      <greater-than>
+       <property>/sim/current-view/goal-pitch-offset-deg</property>
+       <value>-10</value>
+      </greater-than>
+     </and>
+     <property>/controls/seat/all</property>
+    </or>
+   </condition>
+   <params>
+    <onload-pump>/controls/hydraulic/circuit[1]/onload[1]</onload-pump>
+    <shut-pump>/controls/hydraulic/circuit[1]/valve[1]</shut-pump>
+    <guard-pump>/controls/hydraulic/circuit[1]/guard[1]</guard-pump>
+    <engine-num>/systems/engines/engine[3]/engine-num</engine-num>
+   </params>
+   <x>245</x>
+   <y>250</y>
+   <w>75</w>
+   <h>50</h>
+  </instrument>
+
+  <instrument include="Instruments/concorde-hyd-pump.xml">
+   <name>Engine 3 selector blue</name>
+   <condition>
+    <or>
+     <and>
+      <property>/sim/current-view/internal</property>
+      <property>/systems/seat/engineer</property>
+      <less-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>250</value>
+      </less-than>
+      <greater-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>185</value>
+      </greater-than>
+      <greater-than>
+       <property>/sim/current-view/goal-pitch-offset-deg</property>
+       <value>-10</value>
+      </greater-than>
+     </and>
+     <property>/controls/seat/all</property>
+    </or>
+   </condition>
+   <params>
+    <onload-pump>/controls/hydraulic/circuit[2]/onload[0]</onload-pump>
+    <shut-pump>/controls/hydraulic/circuit[2]/valve[0]</shut-pump>
+    <guard-pump>/controls/hydraulic/circuit[2]/guard[0]</guard-pump>
+    <engine-num>/systems/engines/engine[2]/engine-num</engine-num>
+   </params>
+   <x>300</x>
+   <y>250</y>
+   <w>50</w>
+   <h>50</h>
+  </instrument>
+
+  <instrument include="Instruments/concorde-hyd-pump.xml">
+   <name>Engine 4 selector blue</name>
+   <condition>
+    <or>
+     <and>
+      <property>/sim/current-view/internal</property>
+      <property>/systems/seat/engineer</property>
+      <less-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>245</value>
+      </less-than>
+      <greater-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>180</value>
+      </greater-than>
+      <greater-than>
+       <property>/sim/current-view/goal-pitch-offset-deg</property>
+       <value>-10</value>
+      </greater-than>
+     </and>
+     <property>/controls/seat/all</property>
+    </or>
+   </condition>
+   <params>
+    <onload-pump>/controls/hydraulic/circuit[2]/onload[1]</onload-pump>
+    <shut-pump>/controls/hydraulic/circuit[2]/valve[1]</shut-pump>
+    <guard-pump>/controls/hydraulic/circuit[2]/guard[1]</guard-pump>
+    <engine-num>/systems/engines/engine[3]/engine-num</engine-num>
+   </params>
+   <x>360</x>
+   <y>250</y>
+   <w>50</w>
+   <h>50</h>
+  </instrument>
+
+<!-- PUMP FAULT -->
+
+  <instrument include="Instruments/concorde-amber-hyd-low-pressure.xml">
+   <name>Fault on green pump engine 1</name>
+   <condition>
+    <or>
+     <and>
+      <property>/sim/current-view/internal</property>
+      <property>/systems/seat/engineer</property>
+      <less-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>260</value>
+      </less-than>
+      <greater-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>195</value>
+      </greater-than>
+      <greater-than>
+       <property>/sim/current-view/goal-pitch-offset-deg</property>
+       <value>-10</value>
+      </greater-than>
+     </and>
+     <property>/controls/seat/all</property>
+    </or>
+   </condition>
+   <params>
+    <pressure-psi>/systems/hydraulic/sensors/green-left</pressure-psi>
+   </params>
+   <x>50</x>
+   <y>210</y>
+   <w>15</w>
+   <h>30</h>
+  </instrument>
+
+  <instrument include="Instruments/concorde-amber-hyd-low-pressure.xml">
+   <name>Fault on green pump engine 2</name>
+   <condition>
+    <or>
+     <and>
+      <property>/sim/current-view/internal</property>
+      <property>/systems/seat/engineer</property>
+      <less-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>260</value>
+      </less-than>
+      <greater-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>190</value>
+      </greater-than>
+      <greater-than>
+       <property>/sim/current-view/goal-pitch-offset-deg</property>
+       <value>-10</value>
+      </greater-than>
+     </and>
+     <property>/controls/seat/all</property>
+    </or>
+   </condition>
+   <params>
+    <pressure-psi>/systems/hydraulic/sensors/green-right</pressure-psi>
+   </params>
+   <x>110</x>
+   <y>210</y>
+   <w>15</w>
+   <h>30</h>
+  </instrument>
+
+  <instrument include="Instruments/concorde-amber-hyd-low-pressure.xml">
+   <name>Fault on yellow pump engine 2</name>
+   <condition>
+    <or>
+     <and>
+      <property>/sim/current-view/internal</property>
+      <property>/systems/seat/engineer</property>
+      <less-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>255</value>
+      </less-than>
+      <greater-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>190</value>
+      </greater-than>
+      <greater-than>
+       <property>/sim/current-view/goal-pitch-offset-deg</property>
+       <value>-10</value>
+      </greater-than>
+     </and>
+     <property>/controls/seat/all</property>
+    </or>
+   </condition>
+   <params>
+    <pressure-psi>/systems/hydraulic/sensors/yellow-left</pressure-psi>
+   </params>
+   <x>155</x>
+   <y>210</y>
+   <w>15</w>
+   <h>30</h>
+  </instrument>
+
+  <instrument include="Instruments/concorde-amber-hyd-low-pressure.xml">
+   <name>Fault on yellow pump engine 4</name>
+   <condition>
+    <or>
+     <and>
+      <property>/sim/current-view/internal</property>
+      <property>/systems/seat/engineer</property>
+      <less-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>250</value>
+      </less-than>
+      <greater-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>185</value>
+      </greater-than>
+      <greater-than>
+       <property>/sim/current-view/goal-pitch-offset-deg</property>
+       <value>-10</value>
+      </greater-than>
+     </and>
+     <property>/controls/seat/all</property>
+    </or>
+   </condition>
+   <params>
+    <pressure-psi>/systems/hydraulic/sensors/yellow-right</pressure-psi>
+   </params>
+   <x>255</x>
+   <y>210</y>
+   <w>15</w>
+   <h>30</h>
+  </instrument>
+
+  <instrument include="Instruments/concorde-amber-hyd-low-pressure.xml">
+   <name>Fault on blue pump engine 3</name>
+   <condition>
+    <or>
+     <and>
+      <property>/sim/current-view/internal</property>
+      <property>/systems/seat/engineer</property>
+      <less-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>250</value>
+      </less-than>
+      <greater-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>185</value>
+      </greater-than>
+      <greater-than>
+       <property>/sim/current-view/goal-pitch-offset-deg</property>
+       <value>-15</value>
+      </greater-than>
+     </and>
+     <property>/controls/seat/all</property>
+    </or>
+   </condition>
+   <params>
+    <pressure-psi>/systems/hydraulic/sensors/blue-left</pressure-psi>
+   </params>
+   <x>310</x>
+   <y>210</y>
+   <w>15</w>
+   <h>30</h>
+  </instrument>
+
+  <instrument include="Instruments/concorde-amber-hyd-low-pressure.xml">
+   <name>Fault on blue pump engine 4</name>
+   <condition>
+    <or>
+     <and>
+      <property>/sim/current-view/internal</property>
+      <property>/systems/seat/engineer</property>
+      <less-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>245</value>
+      </less-than>
+      <greater-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>180</value>
+      </greater-than>
+      <greater-than>
+       <property>/sim/current-view/goal-pitch-offset-deg</property>
+       <value>-15</value>
+      </greater-than>
+     </and>
+     <property>/controls/seat/all</property>
+    </or>
+   </condition>
+   <params>
+    <pressure-psi>/systems/hydraulic/sensors/blue-right</pressure-psi>
+   </params>
+   <x>370</x>
+   <y>210</y>
+   <w>15</w>
+   <h>30</h>
+  </instrument>
+
+<!-- PRESSURE -->
+
+  <instrument include="Instruments/concorde-hyd-pressure.xml">
+   <name>Hydraulic pressure green</name>
+   <condition>
+    <or>
+     <and>
+      <property>/sim/current-view/internal</property>
+      <property>/systems/seat/engineer</property>
+      <less-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>260</value>
+      </less-than>
+      <greater-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>195</value>
+      </greater-than>
+      <greater-than>
+       <property>/sim/current-view/goal-pitch-offset-deg</property>
+       <value>-15</value>
+      </greater-than>
+     </and>
+     <property>/controls/seat/all</property>
+    </or>
+   </condition>
+   <params>
+    <pressure-psi>/systems/hydraulic/sensors/green</pressure-psi>
+    <engine-num>/systems/engines/engine[0]/engine-num</engine-num>
+   </params>
+   <x>70</x>
+   <y>140</y>
+   <w>90</w>
+   <h>60</h>
+  </instrument>
+
+  <instrument include="Instruments/concorde-hyd-pressure.xml">
+   <name>Hydraulic pressure yellow</name>
+   <condition>
+    <or>
+     <and>
+      <property>/sim/current-view/internal</property>
+      <property>/systems/seat/engineer</property>
+      <less-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>255</value>
+      </less-than>
+      <greater-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>190</value>
+      </greater-than>
+      <greater-than>
+       <property>/sim/current-view/goal-pitch-offset-deg</property>
+       <value>-15</value>
+      </greater-than>
+     </and>
+     <property>/controls/seat/all</property>
+    </or>
+   </condition>
+   <params>
+    <pressure-psi>/systems/hydraulic/sensors/yellow</pressure-psi>
+    <engine-num>/systems/engines/engine[1]/engine-num</engine-num>
+   </params>
+   <x>220</x>
+   <y>140</y>
+   <w>90</w>
+   <h>60</h>
+  </instrument>
+
+  <instrument include="Instruments/concorde-hyd-pressure.xml">
+   <name>Hydraulic pressure blue</name>
+   <condition>
+    <or>
+     <and>
+      <property>/sim/current-view/internal</property>
+      <property>/systems/seat/engineer</property>
+      <less-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>250</value>
+      </less-than>
+      <greater-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>185</value>
+      </greater-than>
+      <greater-than>
+       <property>/sim/current-view/goal-pitch-offset-deg</property>
+       <value>-15</value>
+      </greater-than>
+     </and>
+     <property>/controls/seat/all</property>
+    </or>
+   </condition>
+   <params>
+    <pressure-psi>/systems/hydraulic/sensors/blue</pressure-psi>
+    <engine-num>/systems/engines/engine[2]/engine-num</engine-num>
+   </params>
+   <x>340</x>
+   <y>140</y>
+   <w>90</w>
+   <h>60</h>
+  </instrument>
+
+ </instruments>
+
+</PropertyList>

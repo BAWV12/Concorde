@@ -1,0 +1,202 @@
+<?xml version="1.0"?>
+
+<PropertyList>
+  <name>Concorde-ground</name>
+  <layout>vbox</layout>
+  <width>450</width>
+
+  <text>
+    <label>Concorde ground</label>
+  </text>
+
+  <hrule><dummy/></hrule>
+
+  <group>
+    <layout>vbox</layout>
+
+    <text>
+      <label>Ground supply</label>
+    </text>
+
+    <text>
+      <label></label>
+    </text>
+
+    <group>
+      <layout>hbox</layout>
+
+      <group>
+       <layout>vbox</layout>
+       <halign>left</halign>
+
+       <checkbox>
+         <halign>left</halign>
+        <live>true</live>
+         <label>Air bleed</label>
+         <property>/systems/air-bleed/ground-service/door</property>
+         <binding>
+          <command>nasal</command>
+          <script>globals.Concorde.airbleedsystem.groundserviceexport();</script>
+         </binding>
+       </checkbox>
+
+       <checkbox>
+         <halign>left</halign>
+        <live>true</live>
+         <label>Air conditioning</label>
+         <property>/systems/temperature/ground-service/door</property>
+         <binding>
+          <command>nasal</command>
+          <script>globals.Concorde.airbleedsystem.reargroundserviceexport();</script>
+         </binding>
+       </checkbox>
+      </group>
+
+      <group>
+       <layout>vbox</layout>
+       <halign>left</halign>
+
+       <checkbox>
+         <halign>left</halign>
+        <live>true</live>
+         <label>Electrical power</label>
+         <property>/systems/electrical/ground-service/door</property>
+         <binding>
+          <command>nasal</command>
+          <script>globals.Concorde.electricalsystem.groundserviceexport();</script>
+         </binding>
+       </checkbox>
+
+      </group>
+
+    </group>
+
+    <text>
+      <label></label>
+    </text>
+
+    <text>
+      <label>Gear</label>
+    </text>
+
+    <text>
+      <label></label>
+    </text>
+
+    <group>
+      <layout>hbox</layout>
+
+      <checkbox>
+        <label>Test rudder pedal</label>
+        <halign>left</halign>
+        <property>/controls/crew/steering/pedal</property>
+        <binding>
+         <command>property-toggle</command>
+         <property>/controls/crew/steering/pedal</property>
+        </binding>
+        <binding>
+         <command>nasal</command>
+         <script>globals.Concorde.gearsystem.steeringexport();</script>
+        </binding>
+      </checkbox>
+
+      <checkbox>
+        <label>Wheel chocks</label>
+        <live>true</live>
+        <halign>left</halign>
+        <property>/controls/gear/wheel-chocks</property>
+        <binding>
+         <command>property-toggle</command>
+         <property>/controls/gear/wheel-chocks</property>
+        </binding>
+      </checkbox>
+    </group>
+
+    <text>
+      <label></label>
+    </text>
+
+    <text>
+      <label>Pushback</label>
+    </text>
+
+    <text>
+      <label></label>
+    </text>
+
+    <checkbox>
+      <label>Call (release brakes once connected)</label>
+      <halign>left</halign>
+      <property>/controls/tractor/pushback</property>
+      <binding>
+       <command>property-toggle</command>
+       <property>/controls/tractor/pushback</property>
+      </binding>
+    </checkbox>
+
+    <input>
+      <halign>left</halign>
+      <property>/controls/tractor/distance-m</property>
+      <label>Distance (m)  ~</label>
+    </input>
+
+    <text>
+      <halign>left</halign>
+      <live>true</live>
+      <property>/systems/tractor/distance-m</property>
+      <color>
+       <red>0.2</red>
+       <green>0.8</green>
+       <blue>0.2</blue>
+      </color>
+    </text>
+
+    <input>
+     <halign>left</halign>
+     <property>/sim/user/callsign</property>
+     <height>25</height>
+     <pref-width>250</pref-width>
+     <label>Call sign  ~</label>
+    </input>
+
+  </group>
+
+  <text>
+    <label></label>
+  </text>
+
+  <text>
+    <label></label>
+  </text>
+
+  <group>
+   <layout>hbox</layout>
+
+   <button>
+    <legend>Back</legend>
+    <key>b</key>
+    <binding>
+      <command>dialog-apply</command>
+    </binding>
+    <binding>
+     <command>dialog-show</command>
+     <dialog-name>Concorde-menu</dialog-name>
+    </binding>
+    <binding>
+      <command>dialog-close</command>
+    </binding>
+   </button>
+
+   <button>
+    <legend>Close</legend>
+    <default>true</default>
+    <key>Esc</key>
+    <binding>
+      <command>dialog-apply</command>
+    </binding>
+    <binding>
+      <command>dialog-close</command>
+    </binding>
+   </button>
+  </group>
+</PropertyList>

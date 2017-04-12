@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+
+<!-- Air bleed control block -->
+
+<PropertyList>
+ <name>Air bleed control</name>
+ <w-base>280</w-base>
+ <h-base>28</h-base>
+
+ <layers>
+
+  <layer>
+   <name>Title</name>
+   <type>text</type>
+   <point-size>10</point-size>
+   <color>
+    <red>1.0</red>
+    <green>1.0</green>
+    <blue>1.0</blue>
+   </color>
+   <chunks>
+    <chunk>
+     <type>literal</type>
+     <text>AIR BLEED CONTROL</text>
+    </chunk>
+   </chunks>
+  </layer>
+
+ </layers>
+
+</PropertyList>

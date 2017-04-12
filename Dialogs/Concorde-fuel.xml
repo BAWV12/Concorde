@@ -1,0 +1,139 @@
+<?xml version="1.0"?>
+
+<PropertyList>
+  <name>Concorde-fuel</name>
+  <layout>vbox</layout>
+
+  <text>
+    <label>Concorde fuel</label>
+  </text>
+
+  <hrule><dummy/></hrule>
+
+  <text>
+    <label></label>
+  </text>
+
+  <group>
+    <layout>hbox</layout>
+
+    <text>
+      <label>Tanks filling  ~</label>
+    </text>
+
+    <combo>
+      <pref-width>300</pref-width>
+      <property>/systems/fuel/tanks/dialog</property>
+      <value alias="/systems/fuel/tanks/filling[0]/comment"/>
+      <value alias="/systems/fuel/tanks/filling[1]/comment"/>
+      <value alias="/systems/fuel/tanks/filling[2]/comment"/>
+      <value alias="/systems/fuel/tanks/filling[3]/comment"/>
+      <value alias="/systems/fuel/tanks/filling[4]/comment"/>
+      <value alias="/systems/fuel/tanks/filling[5]/comment"/>
+      <value alias="/systems/fuel/tanks/filling[6]/comment"/>
+      <value alias="/systems/fuel/tanks/filling[7]/comment"/>
+      <value alias="/systems/fuel/tanks/filling[8]/comment"/>
+    </combo>
+  </group>
+
+  <text>
+    <label></label>
+  </text>
+
+  <text>
+    <label></label>
+  </text>
+
+  <checkbox>
+    <label>Restore on reinit  ~</label>
+    <halign>left</halign>
+    <property>/controls/fuel/reinit</property>
+    <binding>
+      <command>property-toggle</command>
+      <property>/controls/fuel/reinit</property>
+    </binding>
+  </checkbox>
+
+  <text>
+    <label></label>
+  </text>
+
+  <text>
+    <label></label>
+  </text>
+
+  <text>
+   <label>after change (or use virtual engineer) :</label>
+   <color>
+    <red>0.5</red>
+    <green>0.5</green>
+    <blue>0.5</blue>
+   </color>
+  </text>
+
+  <text>
+   <label>1) reset fuel consumed (X4).</label>
+   <color>
+    <red>0.5</red>
+    <green>0.5</green>
+    <blue>0.5</blue>
+   </color>
+  </text>
+
+  <text>
+   <label>2) reset aircraft weight.</label>
+   <color>
+    <red>0.5</red>
+    <green>0.5</green>
+    <blue>0.5</blue>
+   </color>
+  </text>
+
+  <text>
+    <label></label>
+  </text>
+
+  <text>
+    <label></label>
+  </text>
+
+  <group>
+    <layout>hbox</layout>
+
+    <button>
+      <legend>Back</legend>
+      <key>b</key>
+      <binding>
+       <command>dialog-show</command>
+       <dialog-name>Concorde-menu</dialog-name>
+      </binding>
+      <binding>
+        <command>dialog-close</command>
+      </binding>
+    </button>
+
+    <button>
+      <legend>Close</legend>
+      <default>true</default>
+      <key>Esc</key>
+      <binding>
+        <command>dialog-close</command>
+      </binding>
+    </button>
+
+    <button>
+      <legend>Fill</legend>
+      <key>f</key>
+      <binding>
+        <command>dialog-apply</command>
+      </binding>
+      <binding>
+        <command>nasal</command>
+        <script>globals.Concorde.fuelsystem.menuexport();</script>
+      </binding>
+      <binding>
+        <command>dialog-close</command>
+      </binding>
+    </button>
+  </group>
+</PropertyList>

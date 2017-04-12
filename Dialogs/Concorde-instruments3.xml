@@ -1,0 +1,248 @@
+<?xml version="1.0"?>
+
+<!-- - many instruments are common with engineer or copilot.
+ -->
+
+<PropertyList>
+
+ <name>Concorde-instruments3</name>
+ <width>700</width>
+ <height>600</height>
+ <modal>false</modal>
+
+ <text>
+  <x>10</x>
+  <y>570</y>
+  <label>Concorde Instruments</label>
+ </text>
+
+ <group>
+  <y>540</y>
+
+  <text>
+   <x>100</x>
+   <label>(Uncheck an instrument to fail it.)</label>
+   <color>
+     <red>0.5</red>
+     <green>0.5</green>
+     <blue>0.5</blue>
+   </color>
+  </text>
+
+ </group>
+
+
+<!-- copilot -->
+
+ <text>
+  <x>30</x>
+  <y>470</y>
+  <label>Engineer</label>
+ </text>
+
+
+ <group>
+  <y>400</y>
+
+  <checkbox>
+   <x>470</x>
+   <y>0</y>
+   <width>20</width>
+   <height>20</height>
+   <label>Altimeter 3</label>
+   <property>/instrumentation/altimeter[2]/serviceable</property>
+  </checkbox>
+
+ </group>
+
+
+ <group>
+  <y>370</y>
+
+  <checkbox>
+   <x>10</x>
+   <y>0</y>
+   <width>20</width>
+   <height>20</height>
+   <label>Cabin altitude</label>
+   <property>/instrumentation/cabin-altitude/serviceable</property>
+  </checkbox>
+
+  <checkbox>
+   <x>240</x>
+   <y>0</y>
+   <width>20</width>
+   <height>20</height>
+   <label>Cabin rate of climb</label>
+   <property>/instrumentation/cabin-rate-climb/serviceable</property>
+  </checkbox>
+
+ </group>
+
+
+ <group>
+  <y>340</y>
+
+  <checkbox>
+   <x>10</x>
+   <y>0</y>
+   <width>20</width>
+   <height>20</height>
+   <label>Center of Gravity 2</label>
+   <property>/instrumentation/cg/serviceable</property>
+  </checkbox>
+
+  <checkbox>
+   <x>240</x>
+   <y>0</y>
+   <width>20</width>
+   <height>20</height>
+   <label>Clock</label>
+   <property>/instrumentation/clock/serviceable</property>
+  </checkbox>
+
+  <checkbox>
+   <x>470</x>
+   <y>0</y>
+   <width>20</width>
+   <height>20</height>
+   <label>Differential pressure</label>
+   <property>/instrumentation/differential-pressure/serviceable</property>
+  </checkbox>
+
+ </group>
+
+
+ <group>
+  <y>310</y>
+
+  <checkbox>
+   <x>470</x>
+   <y>0</y>
+   <width>20</width>
+   <height>20</height>
+   <label>Fuel weight</label>
+   <property>/instrumentation/fuel/serviceable</property>
+  </checkbox>
+
+ </group>
+
+
+ <group>
+  <y>280</y>
+
+  <checkbox>
+   <x>470</x>
+   <y>0</y>
+   <width>20</width>
+   <height>20</height>
+   <label>INS 3</label>
+   <property>/instrumentation/ins[2]/serviceable</property>
+  </checkbox>
+
+ </group>
+
+
+ <group>
+  <y>250</y>
+
+  <checkbox>
+   <x>10</x>
+   <y>0</y>
+   <width>20</width>
+   <height>20</height>
+   <label>Mach 3</label>
+   <property>/instrumentation/mach-indicator[2]/serviceable</property>
+  </checkbox>
+
+ </group>
+
+ <group>
+  <y>190</y>
+
+  <checkbox>
+   <x>10</x>
+   <y>0</y>
+   <width>20</width>
+   <height>20</height>
+   <label>Tank pressure</label>
+   <property>/instrumentation/tank-pressure/serviceable</property>
+  </checkbox>
+
+  <checkbox>
+   <x>240</x>
+   <y>0</y>
+   <width>20</width>
+   <height>20</height>
+   <label>Temperature 3</label>
+   <property>/instrumentation/temperature[2]/serviceable</property>
+  </checkbox>
+
+ </group>
+
+
+<!-- buttons -->
+
+ <group>
+  <y>10</y>
+
+  <button>
+   <x>50</x>
+   <y>0</y>
+   <legend>Back</legend>
+   <key>b</key>
+   <binding>
+   <command>dialog-show</command>
+    <dialog-name>Concorde-menu</dialog-name>
+   </binding>
+   <binding>
+    <command>dialog-close</command>
+   </binding>
+  </button>
+
+  <button>
+   <x>200</x>
+   <y>0</y>
+   <legend>Close</legend>
+   <default>true</default>
+   <equal>true</equal>
+   <key>Esc</key>
+   <binding>
+    <command>dialog-apply</command>
+   </binding>
+   <binding>
+    <command>dialog-close</command>
+   </binding>
+  </button>
+
+  <button>
+   <x>450</x>
+   <y>0</y>
+   <legend>Page 1</legend>
+   <key>p</key>
+   <binding>
+    <command>dialog-apply</command>
+   </binding>
+   <binding>
+    <command>dialog-show</command>
+    <dialog-name>Concorde-instruments</dialog-name>
+   </binding>
+   <binding>
+    <command>dialog-close</command>
+   </binding>
+  </button>
+
+  <button>
+   <x>600</x>
+   <y>0</y>
+   <legend>Apply</legend>
+    <key>a</key>
+   <equal>true</equal>
+   <binding>
+    <command>dialog-apply</command>
+   </binding>
+  </button>
+
+ </group>
+
+</PropertyList>

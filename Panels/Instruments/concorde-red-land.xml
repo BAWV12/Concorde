@@ -1,0 +1,173 @@
+<?xml version="1.0"?>
+
+<!-- Alarm on Autoland :
+
+     - excessive ILS deviation below 200 ft for LOC.
+     - excessive ILS deviation between 200 and 100 ft for GLIDE.
+     - ILS failure below 200 ft for LOC.
+     - ILS failure between 200 and 75 ft for GLIDE.
+     - missing autothrottle below 600 ft.
+     - flashes on test.
+
+     Cannot move to nasal, because response time must be instantaneous.
+-->
+
+<PropertyList>
+ <name>Alarm Autoland</name>
+ <w-base>104</w-base>
+ <h-base>26</h-base>
+
+ <params>
+  <test>/controls/autoflight/autopilot[0]/test-land</test>
+ </params>
+
+
+ <layers>
+<!-- translucent lens -->  
+  <layer>
+   <name>Alarm light</name>
+   <type>switch</type>
+
+    <layer>
+     <name>on</name>
+     <type>group</type>
+     <condition>
+      <and>
+       <not include="concorde-cond-voltage-bulb.xml"/>
+       <or>
+        <and>
+         <property alias="../../../../../../../../params/test"/>
+         <not include="concorde-cond-flashing-light.xml"/>
+        </and>
+        <and>
+         <not include="concorde-cond-flashing-light.xml"/>
+         <or include="concorde-cond-land.xml"/>
+         <or>
+          <and>
+           <greater-than>
+            <property>position/altitude-agl-ft</property>
+            <value>14.0</value> <!-- autoland stops below -->
+           </greater-than>
+           <less-than>
+            <property>position/altitude-agl-ft</property>
+            <value>200.0</value>
+           </less-than>
+           <or>
+            <less-than>
+             <property>instrumentation/nav[0]/heading-needle-deflection</property>
+             <value>-0.1</value>
+            </less-than>
+            <greater-than>
+             <property>instrumentation/nav[0]/heading-needle-deflection</property>
+             <value>0.1</value>
+            </greater-than>
+           </or>
+          </and>
+          <and>
+           <greater-than>
+            <property>position/altitude-agl-ft</property>
+            <value>100.0</value>
+           </greater-than>
+           <less-than>
+            <property>position/altitude-agl-ft</property>
+            <value>200.0</value>
+           </less-than>
+           <or>
+            <less-than>
+             <property>instrumentation/nav[0]/gs-needle-deflection</property>
+             <value>-0.8</value>
+            </less-than>
+            <greater-than>
+             <property>instrumentation/nav[0]/gs-needle-deflection</property>
+             <value>0.8</value> <!-- was 0.5 without pitch hold -->
+             </greater-than>
+           </or>
+          </and>
+          <and>
+           <greater-than>
+            <property>position/altitude-agl-ft</property>
+            <value>14.0</value> <!-- autoland stops below -->
+           </greater-than>
+           <less-than>
+            <property>position/altitude-agl-ft</property>
+            <value>200.0</value>
+           </less-than>
+           <or>
+            <not>
+             <property>instrumentation/nav[0]/in-range</property>
+            </not>
+            <not>
+             <property>instrumentation/nav[0]/nav-loc</property>
+            </not>
+           </or>
+          </and>
+          <and>
+           <greater-than>
+            <property>position/altitude-agl-ft</property>
+            <value>75.0</value>
+           </greater-than>
+           <less-than>
+            <property>position/altitude-agl-ft</property>
+            <value>200.0</value>
+           </less-than>
+           <not>
+            <property>instrumentation/nav[0]/has-gs</property>
+           </not>
+          </and>
+          <and>
+           <greater-than>
+            <property>position/altitude-agl-ft</property>
+            <value>14.0</value> <!-- autoland stops below -->
+           </greater-than>
+           <less-than>
+            <property>position/altitude-agl-ft</property>
+            <value>600.0</value>
+           </less-than>
+           <equals>
+            <property>controls/autoflight/speed</property>
+            <value></value>
+           </equals>
+          </and>
+         </or>
+        </and>
+       </or>
+      </and>
+     </condition>
+
+     <layer include="concorde-bulb-on.xml">
+      <w>104</w>
+      <h>26</h>
+     </layer>
+     <layer>
+      <name>background on</name>
+      <texture>
+       <path>Aircraft/Concorde/Panels/Instruments/Textures/concorde-red-auto-land.png</path>
+      </texture>
+      <w>104</w>
+      <h>26</h>
+      <emissive>true</emissive>
+     </layer>
+    </layer>
+
+    <layer>
+     <name>off</name>
+     <type>group</type>
+ 
+     <layer include="concorde-bulb-off.xml">
+      <w>104</w>
+      <h>26</h>
+     </layer>
+     <layer>
+      <name>background off</name>
+      <texture>
+       <path>Aircraft/Concorde/Panels/Instruments/Textures/concorde-red-auto-land.png</path>
+      </texture>
+      <w>104</w>
+     <h>26</h>
+     </layer>
+    </layer>
+  </layer>
+
+ </layers>
+
+</PropertyList>

@@ -1,0 +1,723 @@
+<?xml version="1.0"?>
+
+<!-- Concorde 2D panel (CENTER).
+
+With engineer, overhead and pedestal.
+
+Organized like the real one at http://www.concordesst.com/.
+See also pictures at http://www.airliners.net/info/.
+
+
+WARNING : a button not working by click, means that it is too close of another button (eventually hidden);
+even if both click areas (ctrl-C) don't overlap. Changing internal geometry of button avoids this drawback.
+
+
+_______________________________________________________________________
+
+This is a panel configuration file for the open-source flight
+simulator FlightGear (www.flightgear.org).  The file is an XML-encoded
+FlightGear property list defining the panel's background texture and
+the location (and optionally, size) of the instruments that will
+appear on the panel.
+
+Each instrument is, itself, defined in an XML-encoded property list
+in a separate file.
+
+Co-ordinates are relative to the *bottom* left corner of the screen
+(as in OpenGL).  The total FlightGear window is always considered to
+be 1024x768, whatever its actual display size on the screen.  All
+paths are relative to $FG_ROOT.
+
+Note that the name of the element defining each instrument must be
+different, or else instrument definitions will be overwritten:
+that's not particularly XML-ish, but that's how property lists
+work in FlightGear right now.
+
+Each instrument has its own preferred width and height, but you can
+override those by providing <w>..</w> and <h>..</h> properties with the
+<x>...</x> and <y>...</y> properties.
+
+-->
+
+<!DOCTYPE PropertyList SYSTEM "panel.dtd">
+
+<PropertyList>
+
+ <name>Concorde 2D Panel</name>
+ <background>Aircraft/Concorde/Panels/Textures/concorde-panel-bg.png</background>
+ <w>1140</w>
+ <h>770</h>
+ <y-offset>0</y-offset>
+ <view-height>500</view-height>
+
+ <instruments>
+
+  <instrument include="Instruments/concorde-speed-up.xml">
+   <name>Speed up</name>
+   <x>120</x>
+   <y>550</y>
+   <w>100</w>
+   <h>80</h>
+  </instrument>
+
+<!-- CENTER left -->
+
+  <instrument include="Instruments/concorde-kg.xml">
+   <name>Fuel weight display</name>
+   <x>348</x>
+   <y>492</y>
+   <w>125</w>
+   <h>50</h>
+  </instrument>
+
+<!-- Engine indicators -->
+
+  <instrument include="Instruments/concorde-engine-indicator.xml">
+   <name>Engine 1 indicator</name>
+   <params>
+    <running-select>/engines/engine[0]/running</running-select>
+    <bucket-select>/systems/engines/engine[0]/bucket-deg</bucket-select>
+    <fuel-select>/engines/engine[0]/fuel-flow_pph</fuel-select>
+    <bug-select>/controls/engines/engine[0]/bug_pph</bug-select>
+    <configuration-select>/systems/engines/engine[0]/configuration</configuration-select>
+   </params>
+   <x>54</x>
+   <y>450</y>
+   <w>100</w>
+   <h>20</h>
+  </instrument>
+
+  <instrument include="Instruments/concorde-engine-indicator.xml">
+   <name>Engine 2 indicator</name>
+   <params>
+    <running-select>/engines/engine[1]/running</running-select>
+    <bucket-select>/systems/engines/engine[1]/bucket-deg</bucket-select>
+    <fuel-select>/engines/engine[1]/fuel-flow_pph</fuel-select>
+    <bug-select>/controls/engines/engine[1]/bug_pph</bug-select>
+    <configuration-select>/systems/engines/engine[1]/configuration</configuration-select>
+   </params>
+   <x>156</x>
+   <y>450</y>
+   <w>100</w>
+   <h>20</h>
+  </instrument>
+
+  <instrument include="Instruments/concorde-engine-indicator.xml">
+   <name>Engine 3 indicator</name>
+   <params>
+    <running-select>/engines/engine[2]/running</running-select>
+    <bucket-select>/systems/engines/engine[2]/bucket-deg</bucket-select>
+    <fuel-select>/engines/engine[2]/fuel-flow_pph</fuel-select>
+    <bug-select>/controls/engines/engine[2]/bug_pph</bug-select>
+    <configuration-select>/systems/engines/engine[2]/configuration</configuration-select>
+   </params>
+   <x>258</x>
+   <y>450</y>
+   <w>100</w>
+   <h>20</h>
+  </instrument>
+
+  <instrument include="Instruments/concorde-engine-indicator.xml">
+   <name>Engine 4 indicator</name>
+   <params>
+    <running-select>/engines/engine[3]/running</running-select>
+    <bucket-select>/systems/engines/engine[3]/bucket-deg</bucket-select>
+    <fuel-select>/engines/engine[3]/fuel-flow_pph</fuel-select>
+    <bug-select>/controls/engines/engine[3]/bug_pph</bug-select>
+    <configuration-select>/systems/engines/engine[3]/configuration</configuration-select>
+   </params>
+   <x>360</x>
+   <y>450</y>
+   <w>100</w>
+   <h>20</h>
+  </instrument>
+
+<!-- N2 -->
+
+  <instrument include="Instruments/concorde-engine-n2.xml">
+   <name>Engine 1 N2</name>
+   <params>
+    <n2-select>/engines/engine[0]/n2</n2-select>
+   </params>
+   <x>54</x>
+   <y>382</y>
+   <w>100</w>
+   <h>100</h>
+  </instrument>
+
+  <instrument include="Instruments/concorde-engine-n2.xml">
+   <name>Engine 2 N2</name>
+   <params>
+    <n2-select>/engines/engine[1]/n2</n2-select>
+   </params>
+   <x>156</x>
+   <y>382</y>
+   <w>100</w>
+   <h>100</h>
+  </instrument>
+
+  <instrument include="Instruments/concorde-engine-n2.xml">
+   <name>Engine 3 N2</name>
+   <params>
+    <n2-select>/engines/engine[2]/n2</n2-select>
+   </params>
+   <x>258</x>
+   <y>382</y>
+   <w>100</w>
+   <h>100</h>
+  </instrument>
+
+  <instrument include="Instruments/concorde-engine-n2.xml">
+   <name>Engine 4 N2</name>
+   <params>
+    <n2-select>/engines/engine[3]/n2</n2-select>
+   </params>
+   <x>360</x>
+   <y>382</y>
+   <w>100</w>
+   <h>100</h>
+  </instrument>
+
+<!-- N1 -->
+
+  <instrument include="Instruments/concorde-engine-n1.xml">
+   <name>Engine 1 N1</name>
+   <params>
+    <n1-select>/engines/engine[0]/n1</n1-select>
+   </params>
+   <x>54</x>
+   <y>274</y>
+   <w>100</w>
+   <h>100</h>
+  </instrument>
+
+  <instrument include="Instruments/concorde-engine-n1.xml">
+   <name>Engine 2 N1</name>
+   <params>
+    <n1-select>/engines/engine[1]/n1</n1-select>
+   </params>
+   <x>156</x>
+   <y>274</y>
+   <w>100</w>
+   <h>100</h>
+  </instrument>
+
+  <instrument include="Instruments/concorde-engine-n1.xml">
+   <name>Engine 3 N1</name>
+   <params>
+    <n1-select>/engines/engine[2]/n1</n1-select>
+   </params>
+   <x>258</x>
+   <y>274</y>
+   <w>100</w>
+   <h>100</h>
+  </instrument>
+
+  <instrument include="Instruments/concorde-engine-n1.xml">
+   <name>Engine 4 N1</name>
+   <params>
+    <n1-select>/engines/engine[3]/n1</n1-select>
+   </params>
+   <x>360</x>
+   <y>274</y>
+   <w>100</w>
+   <h>100</h>
+  </instrument>
+
+<!-- Fuel Flow -->
+
+  <instrument include="Instruments/concorde-engine-fuel.xml">
+   <name>Engine 1 fuel flow</name>
+   <params>
+    <ff-select>/engines/engine[0]/fuel-flow_pph</ff-select>
+    <bug-select>/controls/engines/engine[0]/bug_pph</bug-select>
+   </params>
+   <x>57</x>
+   <y>166</y>
+   <w>100</w>
+   <h>100</h>
+  </instrument>
+
+  <instrument include="Instruments/concorde-engine-fuel.xml">
+   <name>Engine 2 fuel flow</name>
+   <params>
+    <ff-select>/engines/engine[1]/fuel-flow_pph</ff-select>
+    <bug-select>/controls/engines/engine[1]/bug_pph</bug-select>
+   </params>
+   <x>159</x>
+   <y>166</y>
+   <w>100</w>
+   <h>100</h>
+  </instrument>
+
+  <instrument include="Instruments/concorde-engine-fuel.xml">
+   <name>Engine 3 fuel flow</name>
+   <params>
+    <ff-select>/engines/engine[2]/fuel-flow_pph</ff-select>
+    <bug-select>/controls/engines/engine[2]/bug_pph</bug-select>
+   </params>
+   <x>261</x>
+   <y>166</y>
+   <w>100</w>
+   <h>100</h>
+  </instrument>
+
+  <instrument include="Instruments/concorde-engine-fuel.xml">
+   <name>Engine 4 fuel flow</name>
+   <params>
+    <ff-select>/engines/engine[3]/fuel-flow_pph</ff-select>
+    <bug-select>/controls/engines/engine[3]/bug_pph</bug-select>
+   </params>
+   <x>363</x>
+   <y>166</y>
+   <w>100</w>
+   <h>100</h>
+  </instrument>
+
+<!-- Nozzle -->
+
+  <instrument include="Instruments/concorde-engine-nozzle.xml">
+   <name>Engine 1 Nozzle</name>
+   <params>
+    <nozzle-select>engines/engine[0]/nozzle-pos-norm</nozzle-select>
+    <reheat-select>/controls/engines/engine[0]/reheat</reheat-select>
+   </params>
+   <x>54</x>
+   <y>58</y>
+   <w>100</w>
+   <h>100</h>
+  </instrument>
+
+  <instrument include="Instruments/concorde-engine-nozzle.xml">
+   <name>Engine 2 Nozzle</name>
+   <params>
+    <nozzle-select>engines/engine[1]/nozzle-pos-norm</nozzle-select>
+    <reheat-select>/controls/engines/engine[1]/reheat</reheat-select>
+   </params>
+   <x>156</x>
+   <y>58</y>
+   <w>100</w>
+   <h>100</h>
+  </instrument>
+
+  <instrument include="Instruments/concorde-engine-nozzle.xml">
+   <name>Engine 3 Nozzle</name>
+   <params>
+    <nozzle-select>engines/engine[2]/nozzle-pos-norm</nozzle-select>
+    <reheat-select>/controls/engines/engine[2]/reheat</reheat-select>
+   </params>
+   <x>258</x>
+   <y>58</y>
+   <w>100</w>
+   <h>100</h>
+  </instrument>
+
+  <instrument include="Instruments/concorde-engine-nozzle.xml">
+   <name>Engine 4 Nozzle</name>
+   <params>
+    <nozzle-select>engines/engine[3]/nozzle-pos-norm</nozzle-select>
+    <reheat-select>/controls/engines/engine[3]/reheat</reheat-select>
+    <engine-num>/systems/engines/engine[3]/engine-num</engine-num>
+   </params>
+   <x>360</x>
+   <y>58</y>
+   <w>100</w>
+   <h>100</h>
+  </instrument>
+
+<!-- CENTER right -->
+
+  <instrument include="Instruments/concorde-nose-visor.xml">
+   <name>Nose/visor selector</name>
+   <x>500</x>
+   <y>455</y>
+   <w>150</w>
+   <h>165</h>
+  </instrument>
+
+  <instrument include="Instruments/concorde-nose-visor-status.xml">
+   <name>Nose/visor status</name>
+   <x>640</x>
+   <y>455</y>
+   <w>118</w>
+   <h>165</h>
+  </instrument>
+
+  <instrument include="Instruments/concorde-nose-visor-lights.xml">
+   <name>Nose/visor lights</name>
+   <x>590</x>
+   <y>460</y>
+   <w>22</w>
+   <h>110</h>
+  </instrument>
+
+  <instrument include="Instruments/concorde-gear-lights.xml">
+   <name>Gear lights</name>
+   <x>610</x>
+   <y>310</y>
+   <w>180</w>
+   <h>113</h>
+  </instrument>
+
+  <instrument include="Instruments/concorde-accl-aoa.xml">
+   <name>g and AoA display</name>
+   <x>470</x>
+   <y>145</y>
+   <w>64</w>
+   <h>280</h>
+  </instrument>
+
+<!-- PEDESTAL -->
+
+  <instrument include="Instruments/concorde-temperature.xml">
+   <name>OAT/TMO temperatures</name>
+   <x>790</x>
+   <y>690</y>
+   <w>120</w>
+   <h>100</h>
+  </instrument>
+
+  <instrument include="Instruments/concorde-controls.xml">
+   <name>Control Position Indicators</name>
+   <x>780</x>
+   <y>515</y>
+   <w>90</w>
+   <h>90</h>
+  </instrument>
+
+  <instrument include="Instruments/concorde-throttle.xml">
+   <name>Engine 0 throttle quadrant</name>
+   <params>
+    <engine-throttle-select>/controls/engines/engine[0]/throttle</engine-throttle-select>
+    <engine-manual-select>/controls/engines/engine[0]/throttle-manual</engine-manual-select>
+   </params>
+   <x>860</x>
+   <y>540</y>
+   <w>20</w>
+   <h>80</h>
+  </instrument>
+
+  <instrument include="Instruments/concorde-throttle.xml">
+   <name>Engine 1 throttle quadrant</name>
+   <params>
+    <engine-throttle-select>/controls/engines/engine[1]/throttle</engine-throttle-select>
+    <engine-manual-select>/controls/engines/engine[1]/throttle-manual</engine-manual-select>
+   </params>
+   <x>890</x>
+   <y>540</y>
+   <w>20</w>
+   <h>80</h>
+  </instrument>
+
+  <instrument include="Instruments/concorde-throttle.xml">
+   <name>Engine 2 throttle quadrant</name>
+   <params>
+    <engine-throttle-select>/controls/engines/engine[2]/throttle</engine-throttle-select>
+    <engine-manual-select>/controls/engines/engine[2]/throttle-manual</engine-manual-select>
+   </params>
+   <x>920</x>
+   <y>540</y>
+   <w>20</w>
+   <h>80</h>
+  </instrument>
+
+  <instrument include="Instruments/concorde-throttle.xml">
+   <name>Engine 3 throttle quadrant</name>
+   <params>
+    <engine-throttle-select>/controls/engines/engine[3]/throttle</engine-throttle-select>
+    <engine-manual-select>/controls/engines/engine[3]/throttle-manual</engine-manual-select>
+   </params>
+   <x>950</x>
+   <y>540</y>
+   <w>20</w>
+   <h>80</h>
+  </instrument>
+
+  <instrument include="Instruments/concorde-throttle-reheat.xml">
+   <name>Engine 0 reheat quadrant</name>
+   <params>
+    <engine-reheat-select>/controls/engines/engine[0]/reheat</engine-reheat-select>
+   </params>
+   <x>860</x>
+   <y>485</y>
+   <w>28</w>
+   <h>38</h>
+  </instrument>
+
+  <instrument include="Instruments/concorde-throttle-reheat.xml">
+   <name>Engine 1 reheat quadrant</name>
+   <params>
+    <engine-reheat-select>/controls/engines/engine[1]/reheat</engine-reheat-select>
+   </params>
+   <x>890</x>
+   <y>485</y>
+   <w>28</w>
+   <h>38</h>
+  </instrument>
+
+  <instrument include="Instruments/concorde-throttle-reheat.xml">
+   <name>Engine 2 reheat quadrant</name>
+   <params>
+    <engine-reheat-select>/controls/engines/engine[2]/reheat</engine-reheat-select>
+   </params>
+   <x>920</x>
+   <y>485</y>
+   <w>28</w>
+   <h>38</h>
+  </instrument>
+
+  <instrument include="Instruments/concorde-throttle-reheat.xml">
+   <name>Engine 3 reheat quadrant</name>
+   <params>
+    <engine-reheat-select>/controls/engines/engine[3]/reheat</engine-reheat-select>
+   </params>
+   <x>950</x>
+   <y>485</y>
+   <w>28</w>
+   <h>38</h>
+  </instrument>
+
+<!-- RADIO  -->
+
+  <instrument include="Instruments/concorde-vhf.xml">
+   <name>VHF 2 dial</name>
+   <params>
+    <frq-disp>/instrumentation/comm[1]/frequencies/selected-mhz</frq-disp>
+    <stdby-disp>/instrumentation/comm[1]/frequencies/standby-mhz</stdby-disp>
+    <selected>/controls/audio/comm[1]/selected</selected>
+   </params>
+   <x>785</x>
+   <y>380</y>
+   <w>75</w>
+   <h>75</h>
+  </instrument>
+
+  <instrument include="Instruments/concorde-vhf-transfer.xml">
+   <name>VHF 2 transfer</name>
+   <params>
+    <frq-disp>/instrumentation/comm[1]/frequencies/selected-mhz</frq-disp>
+    <stdby-disp>/instrumentation/comm[1]/frequencies/standby-mhz</stdby-disp>
+    <selected>/controls/audio/comm[1]/selected</selected>
+    <standby>/controls/audio/comm[1]/standby</standby>
+   </params>
+   <x>850</x>
+   <y>360</y>
+   <w>60</w>
+   <h>120</h>
+  </instrument>
+
+  <instrument include="Instruments/concorde-vhf.xml">
+   <name>standby VHF 2 dial</name>
+   <params>
+    <frq-disp>/instrumentation/comm[1]/frequencies/selected-mhz</frq-disp>
+    <stdby-disp>/instrumentation/comm[1]/frequencies/standby-mhz</stdby-disp>
+    <selected>/controls/audio/comm[1]/standby</selected>
+   </params>
+   <x>915</x>
+   <y>380</y>
+   <w>75</w>
+   <h>75</h>
+  </instrument>
+
+  <instrument include="Instruments/concorde-vhf-sel.xml">
+   <name>VHF 2 knob</name>
+   <params>
+    <frq-disp>/instrumentation/comm[1]/frequencies/selected-mhz</frq-disp>
+    <stdby-disp>/instrumentation/comm[1]/frequencies/standby-mhz</stdby-disp>
+    <selected>/controls/audio/comm[1]/selected</selected>
+   </params>
+   <x>775</x>
+   <y>310</y>
+   <w>40</w>
+   <h>40</h>
+  </instrument>
+
+  <instrument include="Instruments/concorde-vhf-sel.xml">
+   <name>standby VHF 2 knob</name>
+   <params>
+    <frq-disp>/instrumentation/comm[1]/frequencies/selected-mhz</frq-disp>
+    <stdby-disp>/instrumentation/comm[1]/frequencies/standby-mhz</stdby-disp>
+    <selected>/controls/audio/comm[1]/standby</selected>
+   </params>
+   <x>905</x>
+   <y>310</y>
+   <w>40</w>
+   <h>40</h>
+  </instrument>
+
+  <instrument include="Instruments/concorde-vhf.xml">
+   <name>VHF 1 dial</name>
+   <x>785</x>
+   <y>240</y>
+   <w>75</w>
+   <h>75</h>
+  </instrument>
+
+  <instrument include="Instruments/concorde-vhf-transfer.xml">
+   <name>VHF 1 transfer</name>
+   <x>850</x>
+   <y>220</y>
+   <w>60</w>
+   <h>120</h>
+  </instrument>
+
+  <instrument include="Instruments/concorde-vhf.xml">
+   <name>standby VHF 1 dial</name>
+   <params>
+    <frq-disp>/instrumentation/comm[0]/frequencies/selected-mhz</frq-disp>
+    <stdby-disp>/instrumentation/comm[0]/frequencies/standby-mhz</stdby-disp>
+    <selected>/controls/audio/comm[0]/standby</selected>
+   </params>
+   <x>915</x>
+   <y>240</y>
+   <w>75</w>
+   <h>75</h>
+  </instrument>
+
+  <instrument include="Instruments/concorde-vhf-sel.xml">
+   <name>VHF 1 knob</name>
+   <x>775</x>
+   <y>170</y>
+   <w>40</w>
+   <h>40</h>
+  </instrument>
+
+  <instrument include="Instruments/concorde-vhf-sel.xml">
+   <name>standby VHF 1 knob</name>
+   <params>
+    <frq-disp>/instrumentation/comm[0]/frequencies/selected-mhz</frq-disp>
+    <stdby-disp>/instrumentation/comm[0]/frequencies/standby-mhz</stdby-disp>
+    <selected>/controls/audio/comm[0]/standby</selected>
+   </params>
+   <x>905</x>
+   <y>170</y>
+   <w>40</w>
+   <h>40</h>
+  </instrument>
+
+  <instrument include="Instruments/concorde-adf.xml">
+   <name>ADF 1 dial</name>
+   <x>785</x>
+   <y>80</y>
+   <w>75</w>
+   <h>75</h>
+  </instrument>
+
+  <instrument include="Instruments/concorde-adf.xml">
+   <name>ADF 2 dial</name>
+   <params>
+    <frq-disp>/instrumentation/adf[1]/frequencies/selected-khz</frq-disp>
+    <num>/systems/engines/engine[1]/engine-num</num>
+   </params>
+   <x>915</x>
+   <y>80</y>
+   <w>75</w>
+   <h>75</h>
+  </instrument>
+
+  <instrument include="Instruments/concorde-adf-sel.xml">
+   <name>ADF 1 knob</name>
+   <x>775</x>
+   <y>30</y>
+   <w>40</w>
+   <h>40</h>
+  </instrument>
+
+  <instrument include="Instruments/concorde-adf-sel.xml">
+   <name>ADF 2 knob</name>
+   <params>
+    <frq-ctrl>/instrumentation/adf[1]/frequencies/selected-khz</frq-ctrl>
+   </params>
+   <x>905</x>
+   <y>30</y>
+   <w>40</w>
+   <h>40</h>
+  </instrument>
+
+<!-- ENGINEER -->
+
+  <instrument include="Instruments/concorde-cg-max-to.xml">
+   <name>Max Performance TO</name>
+   <x>380</x>
+   <y>600</y>
+   <w>180</w>
+   <h>90</h>
+  </instrument>
+
+  <instrument include="Instruments/concorde-engine-4-to-limiter.xml">
+   <name>Engine 4 TO limiter</name>
+   <x>550</x>
+   <y>600</y>
+   <w>135</w>
+   <h>90</h>
+  </instrument>
+
+<!-- Engine cutoff -->
+
+  <instrument include="Instruments/concorde-title-engine-hp-valve.xml">
+   <name>HP valve</name>
+   <x>144</x>
+   <y>700</y>
+   <w>140</w>
+   <h>35</h>
+  </instrument>
+
+  <instrument include="Instruments/concorde-engine-cutoff.xml">
+   <name>Engine 1 cutoff</name>
+   <params>
+    <eng-num>/systems/engines/engine[0]/engine-num</eng-num>
+    <cutoff>/engines/engine[0]/cutoff</cutoff>
+    <control-cutoff>/controls/engines/engine[0]/cutoff</control-cutoff>
+    <control-starter>/controls/engines/engine[0]/starter</control-starter>
+   </params>
+   <x>122</x>
+   <y>665</y>
+   <w>28</w>
+   <h>28</h>
+  </instrument>
+
+  <instrument include="Instruments/concorde-engine-cutoff.xml">
+   <name>Engine 2 cutoff</name>
+   <params>
+    <eng-num>/systems/engines/engine[1]/engine-num</eng-num>
+    <cutoff>/engines/engine[1]/cutoff</cutoff>
+    <control-cutoff>/controls/engines/engine[1]/cutoff</control-cutoff>
+    <control-starter>/controls/engines/engine[1]/starter</control-starter>
+   </params>
+   <x>160</x>
+   <y>665</y>
+   <w>28</w>
+   <h>28</h>
+  </instrument>
+
+  <instrument include="Instruments/concorde-engine-cutoff.xml">
+   <name>Engine 3 cutoff</name>
+   <params>
+    <eng-num>/systems/engines/engine[2]/engine-num</eng-num>
+    <cutoff>/engines/engine[2]/cutoff</cutoff>
+    <control-cutoff>/controls/engines/engine[2]/cutoff</control-cutoff>
+    <control-starter>/controls/engines/engine[2]/starter</control-starter>
+   </params>
+   <x>198</x>
+   <y>665</y>
+   <w>28</w>
+   <h>28</h>
+  </instrument>
+
+  <instrument include="Instruments/concorde-engine-cutoff.xml">
+   <name>Engine 4 cutoff</name>
+   <params>
+    <eng-num>/systems/engines/engine[3]/engine-num</eng-num>
+    <cutoff>/engines/engine[3]/cutoff</cutoff>
+    <control-cutoff>/controls/engines/engine[3]/cutoff</control-cutoff>
+    <control-starter>/controls/engines/engine[3]/starter</control-starter>
+   </params>
+   <x>236</x>
+   <y>665</y>
+   <w>28</w>
+   <h>28</h>
+  </instrument>
+
+ </instruments>
+
+</PropertyList>

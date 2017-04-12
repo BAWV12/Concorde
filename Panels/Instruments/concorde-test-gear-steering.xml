@@ -1,0 +1,154 @@
+<?xml version="1.0"?>
+
+<!-- resets monitoring too. -->
+
+<PropertyList>
+
+ <name>Nose wheel test selector</name>
+ <w-base>51</w-base>
+ <h-base>102</h-base>
+
+
+ <layers>
+
+  <layer>
+   <name>Channel select</name>
+   <type>switch</type>
+
+   <layer include="concorde-switch-3rd.xml">
+    <name>released</name>
+    <condition>
+     <not>
+      <property>/controls/gear/steering/test</property>
+     </not>
+    </condition>
+   </layer>
+
+   <layer include="concorde-switch-on.xml">
+    <name>channel 1</name>
+    <condition>
+     <property>/controls/gear/steering/channel</property>
+    </condition>
+   </layer>
+
+   <layer include="concorde-switch-off.xml">
+    <name>channel 2</name>
+   </layer>
+
+   <transformations>
+    <transformation>
+     <type>y-shift</type>
+     <offset>-3</offset>
+    </transformation>
+   </transformations>
+  </layer>
+
+  <layer>
+   <name>Title on</name>
+   <type>text</type>
+   <point-size>10</point-size>
+   <color>
+    <red>1.0</red>
+    <green>1.0</green>
+    <blue>1.0</blue>
+   </color>
+   <chunks>
+    <chunk>
+     <type>literal</type>
+     <text>TEST 1</text>
+    </chunk>
+   </chunks>
+   <transformations>
+    <transformation>
+     <type>x-shift</type>
+     <offset>-19</offset>
+    </transformation>
+    <transformation>
+     <type>y-shift</type>
+     <offset>25</offset>
+    </transformation>
+   </transformations>
+  </layer>
+
+  <layer>
+   <name>Title off</name>
+   <type>text</type>
+   <point-size>10</point-size>
+   <color>
+    <red>1.0</red>
+    <green>1.0</green>
+    <blue>1.0</blue>
+   </color>
+   <chunks>
+    <chunk>
+     <type>literal</type>
+     <text>TEST 2</text>
+    </chunk>
+   </chunks>
+   <transformations>
+    <transformation>
+     <type>x-shift</type>
+     <offset>-19</offset>
+    </transformation>
+    <transformation>
+     <type>y-shift</type>
+     <offset>-32</offset>
+    </transformation>
+   </transformations>
+  </layer>
+
+ </layers>
+
+ <actions>
+
+  <action>
+   <name>Test</name>
+   <button>0</button>
+   <x>-21</x>
+   <y>-21</y>
+   <w>42</w>
+   <h>42</h>
+   <binding>
+    <command>property-assign</command>
+    <property>/controls/gear/steering/test</property>
+    <value>true</value>
+    <repeatable>true</repeatable>
+   </binding>
+   <mod-up>
+    <binding>
+     <command>property-assign</command>
+     <property>/controls/gear/steering/test</property>
+     <value>false</value>
+    </binding>
+    <binding>
+     <command>property-assign</command>
+     <property>/controls/gear/steering/hydraulic</property>
+     <value>true</value>
+    </binding>
+    <binding>
+     <command>property-toggle</command>
+     <property>/instrumentation/generic/click</property>
+    </binding>
+   </mod-up>
+  </action>
+
+  <action>
+   <name>Toggle</name>
+   <button>1</button>
+   <x>-21</x>
+   <y>-21</y>
+   <w>42</w>
+   <h>42</h>
+   <binding>
+    <command>property-toggle</command>
+    <property>/controls/gear/steering/channel</property>
+   </binding>
+   <binding>
+    <command>property-toggle</command>
+    <property>/instrumentation/generic/click</property>
+   </binding>
+  </action>
+
+ </actions>
+ 
+</PropertyList>

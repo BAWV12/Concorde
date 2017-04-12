@@ -1,0 +1,237 @@
+<?xml version="1.0"?>
+
+<!-- -->
+
+<PropertyList>
+
+ <name>Dial VOR 1 heading</name>
+ <w-base>100</w-base>
+ <h-base>100</h-base>
+
+ <params>
+  <radial-ctrl>/instrumentation/nav[1]/radials/selected-deg</radial-ctrl>
+ </params>
+
+ <layers>
+
+  <layer>
+   <name>background</name>
+   <texture>
+    <path>Aircraft/Concorde/Panels/Instruments/Textures/concorde-black-bg.png</path>
+   </texture>
+    <w>74</w>
+    <h>35</h>
+   <transformations>
+    <transformation>
+     <type>x-shift</type>
+     <offset>13</offset>
+    </transformation>
+    <transformation>
+     <type>y-shift</type>
+     <offset>4</offset>
+    </transformation>
+   </transformations>
+  </layer>
+
+  <layer>
+   <name>AP heading display</name>
+   <type>text</type>
+   <font>led</font>
+   <point-size>7.5</point-size>
+   <color>
+    <red>1.0</red>
+    <green>1.0</green>
+    <blue>1.0</blue>
+   </color>
+   <chunks>
+    <chunk>
+     <type>number-value</type>
+     <property alias="../../../../../params/radial-ctrl"/>
+     <format>%03.0f</format>
+    </chunk>
+   </chunks>
+   <transformations>
+    <transformation>
+     <type>x-shift</type>
+     <offset>-2</offset>
+    </transformation>
+    <transformation>
+     <type>y-shift</type>
+     <offset>-2</offset>
+    </transformation>
+   </transformations>
+  </layer>
+
+  <layer>
+   <name>Title</name>
+   <type>text</type>
+   <point-size>10</point-size>
+   <color>
+    <red>1.0</red>
+    <green>1.0</green>
+    <blue>1.0</blue>
+   </color>
+   <chunks>
+    <chunk>
+     <type>literal</type>
+     <text>VOR</text>
+    </chunk>
+   </chunks>
+   <transformations>
+    <transformation>
+     <type>x-shift</type>
+     <offset>-26</offset>
+    </transformation>
+    <transformation>
+     <type>y-shift</type>
+     <offset>-31</offset>
+    </transformation>
+   </transformations>
+  </layer>
+
+  <layer>
+   <name>Title right</name>
+   <type>text</type>
+   <point-size>10</point-size>
+   <color>
+    <red>1.0</red>
+    <green>1.0</green>
+    <blue>1.0</blue>
+   </color>
+   <chunks>
+    <chunk>
+     <type>literal</type>
+     <text>REF</text>
+    </chunk>
+   </chunks>
+   <transformations>
+    <transformation>
+     <type>x-shift</type>
+     <offset>30</offset>
+    </transformation>
+    <transformation>
+     <type>y-shift</type>
+     <offset>-31</offset>
+    </transformation>
+   </transformations>
+  </layer>
+
+  <layer>
+   <name>Knob</name>
+   <w>25</w>
+   <h>25</h>
+   <texture>
+    <path>Aircraft/Concorde/Panels/Instruments/Textures/hsi2.png</path>
+    <x1>0.0</x1>
+    <x2>0.171875</x2>
+    <y1>0.0</y1>
+    <y2>0.171875</y2>
+   </texture>
+   <transformations>
+    <transformation>
+     <type>x-shift</type>
+     <offset>13</offset>
+    </transformation>
+    <transformation>
+     <type>y-shift</type>
+     <offset>-27</offset>
+    </transformation>
+    <transformation>
+     <type>rotation</type>
+     <property alias="../../../../../params/radial-ctrl"/>
+     <scale>2</scale>
+    </transformation>
+   </transformations>
+  </layer>
+
+ </layers>
+
+ <actions>
+
+  <action>
+   <name>Minus 10</name>
+   <button>0</button>
+   <x>1</x>
+   <y>-40</y>
+   <w>14</w>
+   <h>14</h>
+   <binding>
+    <command>property-adjust</command>
+    <property alias="../../../../params/radial-ctrl"/>
+    <step>-10</step>
+    <min>0</min>
+    <max>360</max>
+    <wrap>1</wrap>
+   </binding>
+   <binding>
+    <command>nasal</command>
+    <script>globals.Concorde.autopilotsystem.apsendnavexport();</script>
+   </binding>
+  </action>
+
+  <action>
+   <name>Plus 10</name>
+   <button>0</button>
+   <x>1</x>
+   <y>-28</y>
+   <w>14</w>
+   <h>14</h>
+   <binding>
+    <command>property-adjust</command>
+    <property alias="../../../../params/radial-ctrl"/>
+    <step>10</step>
+    <min>0</min>
+    <max>360</max>
+    <wrap>1</wrap>
+   </binding>
+   <binding>
+    <command>nasal</command>
+    <script>globals.Concorde.autopilotsystem.apsendnavexport();</script>
+   </binding>
+  </action>
+
+  <action>
+   <name>Minus 1</name>
+   <button>0</button>
+   <x>15</x>
+   <y>-40</y>
+   <w>14</w>
+   <h>14</h>
+   <binding>
+    <command>property-adjust</command>
+    <property alias="../../../../params/radial-ctrl"/>
+    <step>-1</step>
+    <min>0</min>
+    <max>360</max>
+    <wrap>1</wrap>
+   </binding>
+   <binding>
+    <command>nasal</command>
+    <script>globals.Concorde.autopilotsystem.apsendnavexport();</script>
+   </binding>
+  </action>
+
+  <action>
+   <name>Plus 1</name>
+   <button>0</button>
+   <x>15</x>
+   <y>-28</y>
+   <w>14</w>
+   <h>14</h>
+   <binding>
+    <command>property-adjust</command>
+    <property alias="../../../../params/radial-ctrl"/>
+    <step>1</step>
+    <min>0</min>
+    <max>360</max>
+    <wrap>1</wrap>
+   </binding>
+   <binding>
+    <command>nasal</command>
+    <script>globals.Concorde.autopilotsystem.apsendnavexport();</script>
+   </binding>
+  </action>
+
+ </actions>
+
+</PropertyList>

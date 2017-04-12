@@ -1,0 +1,180 @@
+<?xml version="1.0"?>
+
+<!-- Essential / Emergency switch :
+
+     - optional label to the right.
+-->
+
+<PropertyList>
+
+ <name>Emergency switch</name>
+ <w-base>140</w-base>
+ <h-base>84</h-base>
+
+ <params>
+  <emerg-switch>/controls/electric/ac/emergency/essential[0]</emerg-switch>
+  <essential-switch>/controls/electric/ac/essential[0]</essential-switch>
+  <engine-num>/systems/engines/engine[0]/engine-num</engine-num>
+ </params>
+
+
+ <layers>
+
+  <layer>
+   <name>Emergency switch</name>
+   <type>switch</type>
+
+   <layer include="concorde-switch-on.xml">
+    <name>norm</name>
+    <condition>
+     <not>
+      <property alias="../../../../../../params/emerg-switch"/>
+     </not>
+    </condition>
+   </layer>
+
+   <layer include="concorde-switch-off.xml">
+    <name>emerg</name>
+   </layer>
+  </layer>
+
+  <layer>
+   <name>Title on</name>
+   <condition>
+    <or>
+     <equals>
+      <property alias="../../../../../../params/engine-num"/>
+      <value>1</value>
+     </equals>
+     <equals>
+      <property alias="../../../../../../params/engine-num"/>
+      <value>3</value>
+     </equals>
+    </or>
+   </condition>
+   <type>text</type>
+   <point-size>10</point-size>
+   <color>
+    <red>1.0</red>
+    <green>1.0</green>
+    <blue>1.0</blue>
+   </color>
+   <chunks>
+    <chunk>
+     <type>literal</type>
+     <text>NORM</text>
+    </chunk>
+   </chunks>
+   <transformations>
+    <transformation>
+     <type>x-shift</type>
+     <offset>25</offset>
+    </transformation>
+    <transformation>
+     <type>y-shift</type>
+     <offset>25</offset>
+    </transformation>
+   </transformations>
+  </layer>
+
+  <layer>
+   <name>Title off</name>
+   <condition>
+    <or>
+     <equals>
+      <property alias="../../../../../../params/engine-num"/>
+      <value>1</value>
+     </equals>
+     <equals>
+      <property alias="../../../../../../params/engine-num"/>
+      <value>3</value>
+     </equals>
+    </or>
+   </condition>
+   <type>text</type>
+   <point-size>10</point-size>
+   <color>
+    <red>1.0</red>
+    <green>1.0</green>
+    <blue>1.0</blue>
+   </color>
+   <chunks>
+    <chunk>
+     <type>literal</type>
+     <text>EMERG</text>
+    </chunk>
+   </chunks>
+   <transformations>
+    <transformation>
+     <type>x-shift</type>
+     <offset>26</offset>
+    </transformation>
+    <transformation>
+     <type>y-shift</type>
+     <offset>-26</offset>
+    </transformation>
+   </transformations>
+  </layer>
+
+ </layers>
+
+ <actions>
+
+  <action>
+   <name>Enable emergency</name>
+   <condition>
+    <not>
+     <property alias="../../../../../params/emerg-switch"/>
+    </not>
+   </condition>
+   <button>0</button>
+   <x>-21</x>
+   <y>-21</y>
+   <w>42</w>
+   <h>42</h>
+   <binding>
+    <command>property-toggle</command>
+    <property alias="../../../../params/emerg-switch"/>
+   </binding>
+   <binding>
+    <command>property-toggle</command>
+    <property alias="../../../../params/essential-switch"/>
+   </binding>
+   <binding>
+    <command>property-assign</command>
+    <property>/controls/electric/ac/emergency/generator/selected</property>
+    <value type="bool">true</value>
+   </binding>
+   <binding>
+    <command>property-toggle</command>
+    <property>/instrumentation/generic/click</property>
+   </binding>
+  </action>
+
+  <action>
+   <name>Disable emergency</name>
+   <condition>
+    <property alias="../../../../params/emerg-switch"/>
+   </condition>
+   <button>0</button>
+   <x>-21</x>
+   <y>-21</y>
+   <w>42</w>
+   <h>42</h>
+   <binding>
+    <command>property-toggle</command>
+    <property alias="../../../../params/emerg-switch"/>
+   </binding>
+   <binding>
+    <command>property-toggle</command>
+    <property alias="../../../../params/essential-switch"/>
+   </binding>
+   <binding>
+    <command>property-toggle</command>
+    <property>/instrumentation/generic/click</property>
+   </binding>
+  </action>
+
+ </actions>
+ 
+</PropertyList>

@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+
+<!-- Test on warning lights of copilot panel.
+-->
+
+<PropertyList>
+
+   <not>
+    <property>/controls/lighting/crew/copilot/test</property>
+   </not>
+
+</PropertyList>

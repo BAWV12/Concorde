@@ -1,0 +1,225 @@
+<?xml version="1.0"?>
+
+<!-- Nose visor lights :
+
+-->
+
+<PropertyList>
+
+ <name>Nose/Visor lights</name>
+ <w-base>25</w-base>
+ <h-base>125</h-base>
+
+ <layers>
+
+
+
+ <layer>
+  <name>transit light</name>
+  <type>switch</type>
+
+  <layer>
+   <name>Off</name>
+   <type>group</type>
+   <condition>
+    <or>
+     <not include="concorde-cond-voltage-nose.xml"/>
+     <and>
+      <or include="concorde-cond-test-copilot.xml"/>
+      <or>
+       <equals>
+        <property>/instrumentation/nose-visor/pos-norm</property>
+        <property n="1">/sim/flaps/setting[0]</property>
+       </equals>
+       <equals>
+        <property>/instrumentation/nose-visor/pos-norm</property>
+        <property n="1">/sim/flaps/setting[1]</property>
+       </equals>
+       <equals>
+        <property>/instrumentation/nose-visor/pos-norm</property>
+        <property n="1">/sim/flaps/setting[2]</property>
+       </equals>
+       <equals>
+        <property>/instrumentation/nose-visor/pos-norm</property>
+        <property n="1">/sim/flaps/setting[3]</property>
+       </equals>
+      </or>
+     </and>
+    </or>
+   </condition>
+
+   <layer include="concorde-bulb-off.xml">
+    <w>25</w>
+    <h>30</h>
+   </layer>
+   <layer>
+    <name>background transit off</name>
+    <texture>
+     <path>Aircraft/Concorde/Panels/Instruments/Textures/concorde-red-alarm.png</path>
+    </texture>
+    <w>25</w>
+    <h>30</h>
+   </layer>
+  </layer>
+
+  <layer>
+   <name>On</name>
+   <type>group</type>
+
+   <layer include="concorde-bulb-on.xml">
+    <condition include="concorde-cond-light-copilot.xml"/>
+    <w>25</w>
+    <h>30</h>
+   </layer>
+   <layer>
+    <name>background transit on</name>
+    <texture>
+     <path>Aircraft/Concorde/Panels/Instruments/Textures/concorde-red-alarm.png</path>
+    </texture>
+    <w>25</w>
+    <h>30</h>
+    <emissive>true</emissive>
+   </layer>
+  </layer>
+  <transformations>
+   <transformation>
+    <type>y-shift</type>
+    <offset>30</offset>
+   </transformation>
+  </transformations>
+ </layer>
+
+ <layer>
+  <name>5 deg light</name>
+  <type>switch</type>
+
+  <layer>
+   <name>Off</name>
+   <type>group</type>
+   <condition>
+    <or>
+     <not include="concorde-cond-voltage-nose.xml"/>
+     <and>
+      <or include="concorde-cond-test-copilot.xml"/>
+      <not-equals>
+       <property>/instrumentation/nose-visor/pos-norm</property>
+       <property n="1">/sim/flaps/setting[2]</property>
+      </not-equals>
+     </and>
+    </or>
+   </condition>
+
+   <layer include="concorde-bulb-off.xml">
+    <w>25</w>
+    <h>30</h>
+   </layer>
+   <layer>
+    <name>background 5 deg off</name>
+    <texture>
+     <path>Aircraft/Concorde/Panels/Instruments/Textures/concorde-amber-nose-5-deg.png</path>
+     <x1>0.0</x1>
+     <y1>0.0</y1>
+     <x2>0.95</x2>
+     <y2>1.0</y2>
+    </texture>
+    <w>25</w>
+    <h>30</h>
+   </layer>
+  </layer>
+
+  <layer>
+   <name>On</name>
+   <type>group</type>
+
+   <layer include="concorde-bulb-on.xml">
+    <condition include="concorde-cond-light-copilot.xml"/>
+    <w>25</w>
+    <h>30</h>
+   </layer>
+   <layer>
+    <name>background 5 deg on</name>
+    <texture>
+     <path>Aircraft/Concorde/Panels/Instruments/Textures/concorde-amber-nose-5-deg.png</path>
+     <x1>0.0</x1>
+     <y1>0.0</y1>
+     <x2>0.95</x2>
+     <y2>1.0</y2>
+    </texture>
+    <w>25</w>
+    <h>30</h>
+    <emissive>true</emissive>
+   </layer>
+  </layer>
+ </layer>
+
+ <layer>
+  <name>down light</name>
+  <type>switch</type>
+
+  <layer>
+   <name>On</name>
+   <type>group</type>
+   <condition>
+    <and include="concorde-cond-voltage-nose.xml">
+     <or>
+      <not include="concorde-cond-test-copilot.xml"/>
+      <equals>
+       <property>/instrumentation/nose-visor/pos-norm</property>
+       <property n="1">/sim/flaps/setting[3]</property>
+      </equals>
+     </or>
+    </and>
+   </condition>
+
+   <layer include="concorde-bulb-on.xml">
+    <condition include="concorde-cond-light-copilot.xml"/>
+    <w>25</w>
+    <h>30</h>
+   </layer>
+   <layer>
+    <name>background down on</name>
+    <texture>
+     <path>Aircraft/Concorde/Panels/Instruments/Textures/concorde-green-nose-down.png</path>
+     <x1>0.0</x1>
+     <y1>0.0</y1>
+     <x2>1.0</x2>
+     <y2>1.0</y2>
+    </texture>
+    <w>25</w>
+    <h>30</h>
+    <emissive>true</emissive>
+   </layer>
+  </layer>
+
+  <layer>
+   <name>Off</name>
+   <type>group</type>
+
+   <layer include="concorde-bulb-off.xml">
+    <w>25</w>
+    <h>30</h>
+   </layer>
+   <layer>
+    <name>background down off</name>
+    <texture>
+     <path>Aircraft/Concorde/Panels/Instruments/Textures/concorde-green-nose-down.png</path>
+     <x1>0.0</x1>
+     <y1>0.0</y1>
+     <x2>1.0</x2>
+     <y2>1.0</y2>
+    </texture>
+    <w>25</w>
+    <h>30</h>
+   </layer>
+  </layer>
+  <transformations>
+   <transformation>
+    <type>y-shift</type>
+    <offset>-30</offset>
+   </transformation>
+  </transformations>
+ </layer>
+
+ </layers>
+
+</PropertyList>

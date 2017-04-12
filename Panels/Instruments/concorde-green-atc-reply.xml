@@ -1,0 +1,108 @@
+<?xml version="1.0"?>
+
+<PropertyList>
+
+ <name>Transponder reply</name>
+ <w-base>30</w-base>
+ <h-base>30</h-base>
+
+
+ <layers>
+
+  <layer>
+   <name>Title</name>
+   <type>text</type>
+   <point-size>8</point-size>
+   <color>
+    <red>1.0</red>
+    <green>1.0</green>
+    <blue>1.0</blue>
+   </color>
+   <chunks>
+    <chunk>
+     <type>literal</type>
+     <text>REPLY</text>
+    </chunk>
+   </chunks>
+   <transformations>
+    <transformation>
+     <type>x-shift</type>
+     <offset>-15</offset>
+    </transformation>
+    <transformation>
+     <type>y-shift</type>
+     <offset>6</offset>
+    </transformation>
+   </transformations>
+  </layer>
+
+  <layer>
+   <name>lamp</name>
+   <type>switch</type>
+
+   <layer>
+    <name>off</name>
+    <type>group</type>
+    <condition>
+     <or>
+      <or include="concorde-cond-voltage-bulb.xml"/>
+      <not>
+       <property>/controls/transponder/test</property>
+      </not>
+      <not>
+       <property>/instrumentation/transponder/serviceable</property>
+      </not>
+     </or>
+    </condition>
+
+    <layer include="concorde-bulb-led-off.xml">
+     <w>13</w>
+     <h>13</h>
+    </layer>
+    <layer>
+     <name>knob off</name>
+     <texture>
+      <path>Aircraft/Concorde/Panels/Instruments/Textures/led.png</path>
+      <x1>0.25</x1>
+      <y1>0.0</y1>
+      <x2>0.5</x2>
+      <y2>0.25</y2>
+     </texture>
+     <w>13</w>
+     <h>13</h>
+    </layer>
+   </layer>
+
+   <layer>
+    <name>on</name>
+    <type>group</type>
+
+    <layer include="concorde-bulb-led-on.xml">
+     <w>13</w>
+     <h>13</h>
+    </layer>
+    <layer>
+     <name>knob on</name>
+     <texture>
+      <path>Aircraft/Concorde/Panels/Instruments/Textures/led.png</path>
+      <x1>0.25</x1>
+      <y1>0.0</y1>
+      <x2>0.5</x2>
+      <y2>0.25</y2>
+     </texture>
+     <w>13</w>
+     <h>13</h>
+     <emissive>true</emissive>
+    </layer>
+   </layer>
+   <transformations>
+    <transformation>
+     <type>y-shift</type>
+      <offset>-6</offset>
+    </transformation>
+   </transformations>
+  </layer>
+
+ </layers>
+
+</PropertyList>

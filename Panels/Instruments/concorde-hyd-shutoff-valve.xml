@@ -1,0 +1,63 @@
+<?xml version="1.0"?>
+
+<!-- Hydraulical shut off valve :
+
+     _ engine shut down.
+     - pump valve off.
+-->
+
+<PropertyList>
+ <name>Shut off Valve</name>
+ <w-base>28</w-base>
+ <h-base>28</h-base>
+
+ <params>
+  <control-cutoff>/controls/engines/engine[0]/cutoff</control-cutoff>
+  <shut-pump>/controls/hydraulic/circuit[0]/valve[0]</shut-pump>
+ </params>
+
+
+ <layers>
+
+  <layer>
+   <name>valve</name>
+   <type>switch</type>
+
+   <layer>
+    <name>open</name>
+    <condition>
+     <and>
+      <not>
+       <property alias="../../../../../../../params/control-cutoff"/>
+      </not>
+      <property alias="../../../../../../params/shut-pump"/>
+     </and>
+    </condition>
+    <texture>
+    <path>Aircraft/Concorde/Panels/Instruments/Textures/concorde-white-open.png</path>
+     <x1>0.0</x1>
+     <y1>0.0</y1>
+     <x2>1.0</x2>
+     <y2>1.0</y2>
+    </texture>
+    <w>28</w>
+    <h>28</h>
+   </layer>
+
+   <layer>
+    <name>shut</name>
+    <texture>
+     <path>Aircraft/Concorde/Panels/Instruments/Textures/concorde-black-shut.png</path>
+     <x1>0.0</x1>
+     <y1>0.0</y1>
+     <x2>1.0</x2>
+     <y2>1.0</y2>
+    </texture>
+    <w>28</w>
+    <h>28</h>
+   </layer>
+  </layer>
+
+ </layers>
+
+</PropertyList>

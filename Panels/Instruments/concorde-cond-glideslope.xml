@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+
+<!-- Glide Slope light
+-->
+
+<PropertyList>
+
+  <and>
+   <property>/instrumentation/nav[0]/in-range</property>
+   <property>/instrumentation/nav[0]/has-gs</property>
+  </and>
+
+</PropertyList>

@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+
+<!-- Voltage condition for all warning lights.
+-->
+
+<PropertyList>
+
+   <less-than>
+    <property>/systems/electrical/outputs/bulb</property>
+    <value>20.0</value>
+   </less-than>
+
+</PropertyList>

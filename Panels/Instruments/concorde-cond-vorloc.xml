@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+
+<!-- VOR LOC light
+-->
+
+<PropertyList>
+
+  <and>
+   <property>/instrumentation/nav[0]/in-range</property>
+   <property>/instrumentation/nav[0]/nav-loc</property>
+  </and>
+
+</PropertyList>

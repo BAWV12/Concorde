@@ -1,0 +1,165 @@
+<?xml version="1.0"?>
+
+<!-- Auxilliary tank pumps :
+
+     - simplified button, for 2D panel.
+-->
+
+
+<PropertyList>
+ <name>Auxilliary tank pump</name>
+ <w-base>104</w-base>
+ <h-base>26</h-base>
+
+
+ <layers>
+<!-- translucent lens -->  
+  <layer>
+   <name>Pump light</name>
+   <type>switch</type>
+
+   <layer>
+    <name>off</name>
+    <condition>
+     <and>
+      <not>
+       <property>/controls/fuel/tank[11]/trans-valve</property>
+      </not>
+      <not>
+       <property>/controls/fuel/tank[12]/trans-valve</property>
+      </not>
+     </and>
+    </condition>
+    <texture>
+     <path>Aircraft/Concorde/Panels/Instruments/Textures/warning-lamps.png</path>
+     <x1>0.0</x1>
+     <y1>0.0</y1>
+     <x2>0.25</x2>
+     <y2>0.095</y2>
+     </texture>
+    <w>104</w>
+    <h>26</h>
+   </layer>
+
+   <layer>
+    <name>on</name>
+    <texture>
+     <path>Aircraft/Concorde/Panels/Instruments/Textures/warning-lamps.png</path>
+     <x1>0.25</x1>
+     <y1>0.0</y1>
+     <x2>0.5</x2>
+     <y2>0.095</y2>
+    </texture>
+    <w>104</w>
+    <h>26</h>
+   </layer>
+  </layer>
+
+  <layer>
+   <name>background</name>
+   <texture>
+    <path>Aircraft/Concorde/Panels/Instruments/Textures/warning-lamps.png</path>
+     <x1>0.7</x1>
+     <y1>0.8</y1>
+     <x2>1.0</x2>
+     <y2>0.9</y2>
+   </texture>
+   <w>104</w>
+   <h>26</h>
+  </layer>
+
+  <layer>
+   <name>Title</name>
+   <type>text</type>
+   <point-size>32</point-size>
+   <color>
+    <red>1.0</red>
+    <green>1.0</green>
+    <blue>1.0</blue>
+   </color>
+   <chunks>
+    <chunk>
+     <type>literal</type>
+     <text>Aux</text>
+    </chunk>
+   </chunks>
+   <transformations>
+    <transformation>
+     <type>x-shift</type>
+     <offset>-28</offset>
+    </transformation>
+    <transformation>
+     <type>y-shift</type>
+     <offset>-6</offset>
+    </transformation>
+   </transformations>
+  </layer>
+ </layers>
+ 
+ <actions>
+
+  <action>
+   <desc>Toggle auxilliary Pump</desc>
+   <button>0</button>
+   <condition>
+    <and>
+     <not>
+      <property>/controls/fuel/tank[11]/trans-valve</property>
+     </not>
+     <not>
+      <property>/controls/fuel/tank[12]/trans-valve</property>
+     </not>
+    </and>
+   </condition>
+   <x>-52</x>
+   <y>-13</y>
+   <w>104</w>
+   <h>26</h>
+   <binding>
+    <command>property-assign</command>
+    <property>/controls/fuel/tank[11]/trans-valve</property>
+    <value type="bool">true</value>
+   </binding>
+   <binding>
+    <command>property-assign</command>
+    <property>/controls/fuel/tank[12]/trans-valve</property>
+    <value type="bool">true</value>
+   </binding>
+   <binding>
+    <command>property-toggle</command>
+    <property>/instrumentation/generic/click</property>
+   </binding>
+  </action>
+
+  <action>
+   <desc>Stop auxilliary Pump</desc>
+   <button>0</button>
+   <condition>
+    <or>
+     <property>/controls/fuel/tank[11]/trans-valve</property>
+     <property>/controls/fuel/tank[12]/trans-valve</property>
+    </or>
+   </condition>
+   <x>-52</x>
+   <y>-13</y>
+   <w>104</w>
+   <h>26</h>
+   <binding>
+    <command>property-assign</command>
+    <property>/controls/fuel/tank[11]/trans-valve</property>
+    <value type="bool">false</value>
+   </binding>
+   <binding>
+    <command>property-assign</command>
+    <property>/controls/fuel/tank[12]/trans-valve</property>
+    <value type="bool">false</value>
+   </binding>
+   <binding>
+    <command>property-toggle</command>
+    <property>/instrumentation/generic/click</property>
+   </binding>
+  </action>
+
+ </actions>
+
+</PropertyList>

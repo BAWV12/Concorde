@@ -1,0 +1,149 @@
+<?xml version="1.0"?>
+
+<!-- Simplified engine start for 2D panel :
+
+     - no requirement on voltage or air bleed.
+-->
+
+
+<PropertyList>
+ <name>Engine Cutoff</name>
+ <w-base>28</w-base>
+ <h-base>28</h-base>
+
+ <params>
+  <eng-num>/systems/engines/engine[0]/engine-num</eng-num>
+  <cutoff>/engines/engine[0]/cutoff</cutoff>
+  <control-cutoff>/controls/engines/engine[0]/cutoff</control-cutoff>
+  <control-starter>/controls/engines/engine[0]/starter</control-starter>
+ </params>
+
+
+ <layers>
+<!-- translucent lens -->  
+  <layer>
+   <name>Engine light</name>
+   <type>switch</type>
+   <layer>
+    <name>off</name>
+    <condition>
+     <not>
+      <property alias="../../../../../../params/cutoff"/>
+     </not>
+    </condition>
+    <texture>
+     <path>Aircraft/Concorde/Panels/Instruments/Textures/warning-lamps.png</path>
+     <x1>0.0</x1>
+     <y1>0.0</y1>
+     <x2>0.25</x2>
+     <y2>0.095</y2>
+    </texture>
+    <w>28</w>
+    <h>28</h>
+   </layer>
+   <layer>
+    <name>on</name>
+    <texture>
+     <path>Aircraft/Concorde/Panels/Instruments/Textures/warning-lamps.png</path>
+     <x1>0.3</x1>
+     <y1>0.0</y1>
+     <x2>0.45</x2>
+     <y2>0.095</y2>
+    </texture>
+    <w>28</w>
+    <h>28</h>
+   </layer>
+  </layer>
+
+  <layer>
+   <name>background</name>
+   <texture>
+    <path>Aircraft/Concorde/Panels/Instruments/Textures/warning-lamps.png</path>
+     <x1>0.7</x1>
+     <y1>0.8</y1>
+     <x2>1.0</x2>
+     <y2>0.9</y2>
+   </texture>
+   <w>28</w>
+   <h>28</h>
+  </layer>
+
+  <layer>
+   <name>Title</name>
+   <type>text</type>
+   <point-size>15</point-size>
+   <color>
+    <red>1.0</red>
+    <green>1.0</green>
+    <blue>1.0</blue>
+   </color>
+   <chunks>
+    <chunk>
+     <type>number-value</type>
+     <property alias="../../../../../params/eng-num"/>
+     <format>%1.f</format>
+    </chunk>
+   </chunks>
+   <transformations>
+    <transformation>
+     <type>x-shift</type>
+     <offset>-4</offset>
+    </transformation>
+    <transformation>
+     <type>y-shift</type>
+     <offset>-6</offset>
+    </transformation>
+   </transformations>
+  </layer>
+ </layers>
+ 
+ <actions>
+  <action>
+   <desc>Open valve</desc>
+   <condition>
+    <property alias="../../../../params/cutoff"/>
+   </condition>
+   <button>0</button>
+   <x>-12</x>
+   <y>-13</y>
+   <w>26</w>
+   <h>26</h>
+   <binding>
+    <command>property-assign</command>
+    <property alias="../../../../params/control-starter"/>
+     <value>true</value>
+   </binding>
+   <binding>
+    <command>nasal</command>
+    <script>globals.Concorde.enginesystem.cutoffexport();</script>
+   </binding>
+   <binding>
+    <command>property-toggle</command>
+    <property>/instrumentation/generic/click</property>
+   </binding>
+  </action>
+ 
+  <action>
+   <desc>Shut valve</desc>
+   <condition>
+    <not>
+     <property alias="../../../../../params/cutoff"/>
+    </not>
+   </condition>
+   <button>0</button>
+   <x>-12</x>
+   <y>-13</y>
+   <w>26</w>
+   <h>26</h>
+   <binding>
+    <command>property-toggle</command>
+    <property alias="../../../../params/control-cutoff"/>
+   </binding>
+   <binding>
+    <command>property-toggle</command>
+    <property>/instrumentation/generic/click</property>
+   </binding>
+  </action>
+ </actions>
+
+</PropertyList>

@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+
+<!-- Single gong :
+
+     - red or amber illuminated.
+-->
+
+<PropertyList>
+
+ <and>
+  <property>/systems/mws/single-gong</property>
+  <not include="concorde-cond-voltage-bulb.xml"/>
+ </and>
+
+</PropertyList>

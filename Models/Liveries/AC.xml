@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+
+
+
+<PropertyList>
+  <sim>
+    <model>
+     <livery>
+      <name type="string">Air Canada</name>
+      <index type="int">2</index>
+      <texture>Liveries/AC.png</texture>
+     </livery>
+    </model>
+  </sim>
+</PropertyList>

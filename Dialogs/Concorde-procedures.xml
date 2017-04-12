@@ -1,0 +1,409 @@
+<?xml version="1.0"?>
+
+<PropertyList>
+  <name>Concorde-procedures</name>
+  <layout>vbox</layout>
+
+  <text>
+    <label>Concorde procedures</label>
+  </text>
+
+  <hrule><dummy/></hrule>
+
+  <group>
+    <layout>vbox</layout>
+    <halign>center</halign>
+
+    <text>
+      <label>Ground checklists</label>
+    </text>
+
+    <text>
+      <label>(2 virtual crew members required)</label>
+      <color>
+        <red>0.5</red>
+        <green>0.5</green>
+        <blue>0.5</blue>
+      </color>
+    </text>
+
+    <text>
+      <label></label>
+    </text>
+
+    <group>
+     <layout>hbox</layout>
+
+     <text>
+       <label>processing :</label>
+     </text>
+
+     <text>
+      <live>true</live>
+      <property>/systems/voice/display/processing</property>
+      <halign>left</halign>
+      <color>
+       <red>0.8</red>
+       <green>0.2</green>
+       <blue>0.2</blue>
+      </color>
+     </text>
+    </group>
+
+    <group>
+     <layout>hbox</layout>
+
+     <text>
+       <label>completed :</label>
+     </text>
+
+     <text>
+      <live>true</live>
+      <property>/systems/voice/display/completed</property>
+      <halign>left</halign>
+      <color>
+       <red>0.2</red>
+       <green>0.8</green>
+       <blue>0.2</blue>
+      </color>
+     </text>
+    </group>
+
+    <text>
+      <label></label>
+    </text>
+
+    <group>
+     <layout>hbox</layout>
+
+     <text>
+       <label>copilot :</label>
+     </text>
+
+     <text>
+      <live>true</live>
+      <property>/systems/copilot/state-last</property>
+      <halign>left</halign>
+      <color>
+       <red>0.2</red>
+       <green>0.8</green>
+       <blue>0.2</blue>
+      </color>
+     </text>
+    </group>
+
+    <group>
+     <layout>hbox</layout>
+
+     <text>
+       <label>engineer :</label>
+     </text>
+
+     <text>
+      <live>true</live>
+      <property>/systems/engineer/state-last</property>
+      <halign>left</halign>
+      <color>
+       <red>0.2</red>
+       <green>0.8</green>
+       <blue>0.2</blue>
+      </color>
+     </text>
+    </group>
+
+    <text>
+      <label></label>
+    </text>
+
+    <text>
+      <label></label>
+    </text>
+
+    <group>
+     <layout>hbox</layout>
+
+     <group>
+      <layout>vbox</layout>
+
+      <text>
+       <label>holding or takeoff</label>
+       <color>
+         <red>0.5</red>
+         <green>0.5</green>
+         <blue>0.5</blue>
+       </color>
+      </text>
+
+      <button>
+       <legend>After landing (or aborted takeoff)</legend>
+       <binding>
+         <command>nasal</command>
+         <script>globals.Concorde.voicecrew.afterlandingexport();</script>
+       </binding>
+      </button>
+
+      <text>
+        <label>|</label>
+      </text>
+
+      <text>
+        <label>v</label>
+      </text>
+
+      <text>
+        <label>terminal</label>
+        <color>
+          <red>0.5</red>
+          <green>0.5</green>
+          <blue>0.5</blue>
+        </color>
+      </text>
+
+      <button>
+       <legend>Parking</legend>
+       <binding>
+         <command>nasal</command>
+         <script>globals.Concorde.voicecrew.parkingexport();</script>
+       </binding>
+      </button>
+
+      <text>
+        <label>|</label>
+      </text>
+
+      <text>
+        <label>v</label>
+      </text>
+
+      <text>
+        <label>gate</label>
+        <color>
+          <red>0.5</red>
+          <green>0.5</green>
+          <blue>0.5</blue>
+        </color>
+      </text>
+
+      <button>
+       <legend>Stopover (optional)</legend>
+       <binding>
+         <command>nasal</command>
+         <script>globals.Concorde.voicecrew.stopoverexport();</script>
+       </binding>
+      </button>
+     </group>
+
+     <group>
+      <layout>vbox</layout>
+
+      <text>
+        <label>gate</label>
+        <color>
+          <red>0.5</red>
+          <green>0.5</green>
+          <blue>0.5</blue>
+        </color>
+      </text>
+
+      <button>
+       <legend>External</legend>
+       <binding>
+         <command>nasal</command>
+         <script>globals.Concorde.voicecrew.externalexport();</script>
+       </binding>
+      </button>
+
+      <button>
+       <legend>Preliminary preparation</legend>
+       <binding>
+         <command>nasal</command>
+         <script>globals.Concorde.voicecrew.preliminaryexport();</script>
+       </binding>
+      </button>
+
+      <button>
+       <legend>Crew cockpit preparation</legend>
+       <binding>
+         <command>nasal</command>
+         <script>globals.Concorde.voicecrew.cockpitexport();</script>
+       </binding>
+      </button>
+
+      <button>
+       <legend>Before start</legend>
+       <binding>
+         <command>nasal</command>
+         <script>globals.Concorde.voicecrew.beforestartexport();</script>
+       </binding>
+      </button>
+
+      <group>
+       <layout>hbox</layout>
+
+       <button>
+        <legend>Engine start</legend>
+        <binding>
+          <command>nasal</command>
+          <script>globals.Concorde.voicecrew.enginestartexport();</script>
+        </binding>
+       </button>
+
+       <button>
+        <legend>Pushback</legend>
+        <binding>
+          <command>nasal</command>
+          <script>globals.Concorde.voicecrew.pushbackexport();</script>
+        </binding>
+       </button>
+      </group>
+
+      <text>
+        <label>|</label>
+      </text>
+
+      <text>
+        <label>v</label>
+      </text>
+
+      <text>
+        <label>started</label>
+        <color>
+          <red>0.5</red>
+          <green>0.5</green>
+          <blue>0.5</blue>
+        </color>
+      </text>
+     </group>
+
+     <group>
+      <layout>vbox</layout>
+
+      <text>
+        <label>started</label>
+        <color>
+          <red>0.5</red>
+          <green>0.5</green>
+          <blue>0.5</blue>
+        </color>
+      </text>
+
+      <button>
+       <legend>After start</legend>
+       <binding>
+         <command>nasal</command>
+         <script>globals.Concorde.voicecrew.afterstartexport();</script>
+       </binding>
+      </button>
+
+      <button>
+       <legend>Taxi</legend>
+       <binding>
+         <command>nasal</command>
+         <script>globals.Concorde.voicecrew.taxiexport();</script>
+       </binding>
+      </button>
+
+      <text>
+        <label>|</label>
+      </text>
+
+      <text>
+        <label>v</label>
+      </text>
+
+      <text>
+        <label>runway</label>
+        <color>
+          <red>0.5</red>
+          <green>0.5</green>
+          <blue>0.5</blue>
+        </color>
+      </text>
+
+      <button>
+       <legend>Before takeoff</legend>
+       <binding>
+         <command>nasal</command>
+         <script>globals.Concorde.voicecrew.beforetakeoffexport();</script>
+       </binding>
+      </button>
+
+      <text>
+        <label>|</label>
+      </text>
+
+      <text>
+        <label>v</label>
+      </text>
+
+      <text>
+        <label>takeoff</label>
+        <color>
+          <red>0.5</red>
+          <green>0.5</green>
+          <blue>0.5</blue>
+        </color>
+      </text>
+     </group>
+     
+    </group>
+  </group>
+
+  <text>
+    <label></label>
+  </text>
+
+  <text>
+    <label></label>
+  </text>
+
+  <group>
+   <layout>hbox</layout>
+
+   <button>
+    <legend>Back</legend>
+    <key>b</key>
+    <binding>
+     <command>dialog-show</command>
+     <dialog-name>Concorde-menu</dialog-name>
+    </binding>
+    <binding>
+      <command>dialog-close</command>
+    </binding>
+   </button>
+
+   <button>
+    <legend>Close</legend>
+    <default>true</default>
+    <key>Esc</key>
+    <binding>
+      <command>dialog-close</command>
+    </binding>
+   </button>
+
+   <button>
+    <legend>Settings</legend>
+    <key>s</key>
+    <binding>
+     <command>dialog-show</command>
+     <dialog-name>Concorde-procedures4</dialog-name>
+    </binding>
+    <binding>
+     <command>dialog-close</command>
+    </binding>
+   </button>
+
+   <button>
+    <legend>Page 2</legend>
+    <key>p</key>
+    <binding>
+     <command>dialog-show</command>
+     <dialog-name>Concorde-procedures2</dialog-name>
+    </binding>
+    <binding>
+      <command>dialog-close</command>
+    </binding>
+   </button>
+  </group>
+
+</PropertyList>

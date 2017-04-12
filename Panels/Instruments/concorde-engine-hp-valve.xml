@@ -1,0 +1,51 @@
+<?xml version="1.0"?>
+
+<PropertyList>
+ <name>HP valve</name>
+ <w-base>28</w-base>
+ <h-base>28</h-base>
+
+ <params>
+  <hp-valve>/controls/engines/engine[0]/hp-valve</hp-valve>
+ </params>
+
+
+ <layers>
+
+  <layer>
+   <name>door</name>
+   <type>switch</type>
+
+   <layer>
+    <name>open</name>
+    <condition>
+     <property alias="../../../../../params/hp-valve"/>
+    </condition>
+    <texture>
+    <path>Aircraft/Concorde/Panels/Instruments/Textures/concorde-black-open.png</path>
+     <x1>0.0</x1>
+     <y1>0.0</y1>
+     <x2>1.0</x2>
+     <y2>1.0</y2>
+    </texture>
+    <w>28</w>
+    <h>28</h>
+   </layer>
+
+   <layer>
+    <name>shut</name>
+    <texture>
+     <path>Aircraft/Concorde/Panels/Instruments/Textures/concorde-white-shut.png</path>
+     <x1>0.0</x1>
+     <y1>0.0</y1>
+     <x2>1.0</x2>
+     <y2>1.0</y2>
+    </texture>
+    <w>28</w>
+    <h>28</h>
+   </layer>
+  </layer>
+
+ </layers>
+
+</PropertyList>

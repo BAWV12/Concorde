@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+
+<!-- Alarm on Stall :
+
+     - FDM.
+     - pitch above 16.5 deg. 
+     - extreme AFT M/CG warning.
+     - Vc less than Vla minus 20 kt.
+     - enough voltage.
+-->
+
+<PropertyList>
+
+ <and>
+  <or>
+   <and>
+    <property>/sim/alarms/stall-warning</property>
+    <greater-than> <!-- irritating on ground -->
+     <property>/position/altitude-agl-ft</property>
+     <value>20</value>
+    </greater-than>
+   </and>
+   <property>/systems/mws/stall</property>
+  </or>
+  <not include="concorde-cond-voltage-bulb.xml"/>
+  <not>
+   <property>/controls/audio/cancel</property>
+  </not>
+ </and>
+
+</PropertyList>

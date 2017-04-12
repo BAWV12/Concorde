@@ -1,0 +1,105 @@
+<PropertyList>
+  <path>taxicone.ac</path>
+
+ <animation>
+  <type>select</type>
+  <object-name>TaxiCone</object-name>
+  <condition>
+   <greater-than>
+    <property>controls/lighting/external/landing-taxi[1]/norm</property>
+    <property n="1">/controls/lighting/external/interpolate/off</property>
+   </greater-than>
+  </condition>
+ </animation>
+
+ <animation>
+  <type>translate</type>
+  <object-name>TaxiCone</object-name>
+  <property>controls/lighting/external/landing-taxi[1]/norm</property>
+  <interpolation>
+   <entry>
+     <ind>0.0</ind>
+     <dep>0.6</dep>
+   </entry>
+   <entry>
+     <ind>0.4</ind>
+     <dep>0.0</dep>
+   </entry>
+  </interpolation>
+  <axis>
+   <x>0</x>
+   <y>0</y>
+   <z>1</z>
+  </axis>
+ </animation>
+
+ <animation>
+  <type>rotate</type>
+  <object-name>TaxiCone</object-name>
+  <property>controls/lighting/external/landing-taxi[1]/norm</property>
+  <interpolation>
+   <entry>
+     <ind>0.0</ind>
+     <dep>-90.0</dep>
+   </entry>
+   <entry>
+     <ind>0.4</ind>
+     <dep>-90.0</dep>
+   </entry>
+   <entry>
+     <ind>1.0</ind>
+     <dep>0.0</dep>
+   </entry>
+   <entry>
+     <ind>1.2</ind>
+     <dep>-10.0</dep>
+   </entry>
+  </interpolation>   
+  <axis>
+   <x>0</x>
+   <y>1</y>
+   <z>0</z>
+  </axis>
+ </animation>
+
+<!-- rotation with the gear door -->
+
+  <animation>
+  <type>rotate</type>
+  <object-name>TaxiCone</object-name>
+  <condition>
+   <greater-than-equals>
+    <property>controls/lighting/external/landing-taxi[1]/norm</property>
+    <property n="1">/controls/lighting/external/interpolate/on</property>
+   </greater-than-equals>
+  </condition>
+  <property>gear/gear[0]/position-norm</property>
+   <interpolation>
+    <entry>
+      <ind>0.0</ind>
+      <dep>0.0</dep>
+    </entry>
+    <entry>
+      <ind>0.17</ind>
+      <dep>74.0</dep>
+    </entry>
+    <entry>
+      <ind>0.83</ind>
+      <dep>74.0</dep>
+    </entry>
+    <entry>
+      <ind>1.0</ind>
+      <dep>0.0</dep>
+    </entry>
+  </interpolation>   
+  <axis>
+   <x1-m>-2.8</x1-m>
+   <y1-m> 0.219</y1-m>
+   <z1-m> 0.319</z1-m>
+   <x2-m> 1.036</x2-m>
+   <y2-m> 0.249</y2-m>
+   <z2-m> 0.313</z2-m>
+  </axis>
+ </animation> 
+
+</PropertyList>

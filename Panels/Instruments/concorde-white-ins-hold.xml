@@ -1,0 +1,102 @@
+<?xml version="1.0"?>
+
+<!-- INS insert button -->
+
+<PropertyList>
+ <name>INS insert</name>
+ <w-base>52</w-base>
+ <h-base>26</h-base>
+
+ <params>
+  <mode-ctrl>/instrumentation/ins[0]/msu/mode</mode-ctrl>
+  <test-ctrl>/instrumentation/ins[0]/control/test</test-ctrl>
+ </params>
+
+
+ <layers>
+
+<!-- translucent lens -->  
+  <layer>
+   <name>indicator light</name>
+   <type>switch</type>
+
+   <layer>
+    <name>off</name>
+    <type>group</type>
+    <condition>
+     <or>
+      <not include="concorde-cond-voltage-inst.xml"/>
+      <equals>
+       <property alias="../../../../../../../params/mode-ctrl"/>
+       <value>-2</value>
+      </equals>
+      <not>
+       <property alias="../../../../../../../params/test-ctrl"/>
+      </not>
+     </or>
+    </condition>
+
+    <layer include="concorde-bulb-white-off.xml">
+     <w>52</w>
+     <h>26</h>
+    </layer>
+    <layer>
+     <name>background</name>
+     <texture>
+      <path>Aircraft/Concorde/Panels/Instruments/Textures/concorde-white-button.png</path>
+     </texture>
+     <w>52</w>
+     <h>26</h>
+    </layer>
+   </layer>
+
+   <layer>
+    <name>on</name>
+    <type>group</type>
+
+    <layer include="concorde-bulb-white-on.xml">
+     <w>52</w>
+     <h>26</h>
+    </layer>
+    <layer>
+     <name>background lighted</name>
+     <texture>
+      <path>Aircraft/Concorde/Panels/Instruments/Textures/concorde-white-bulb.png</path>
+     </texture>
+     <w>52</w>
+     <h>26</h>
+     <emissive>true</emissive>
+    </layer>
+   </layer>
+  </layer>
+
+  <layer>
+   <name>Title</name>
+   <type>text</type>
+   <point-size>15</point-size>
+   <color>
+    <red>0.0</red>
+    <green>0.0</green>
+    <blue>0.0</blue>
+   </color>
+   <chunks>
+    <chunk>
+     <type>literal</type>
+     <text>HOLD</text>
+    </chunk>
+   </chunks>
+   <transformations>
+    <transformation>
+     <type>x-shift</type>
+     <offset>-22</offset>
+    </transformation>
+    <transformation>
+     <type>y-shift</type>
+     <offset>-3</offset>
+    </transformation>
+   </transformations>
+  </layer>
+
+ </layers>
+
+</PropertyList>

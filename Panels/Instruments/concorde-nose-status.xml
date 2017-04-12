@@ -1,0 +1,121 @@
+<?xml version="1.0"?>
+
+<!-- Concorde nose status
+
+-->
+
+<PropertyList>
+
+ <name>Nose status</name>
+ <w-base>60</w-base>
+ <h-base>90</h-base>
+
+ <layers>
+
+  <layer>
+   <name>background</name>
+   <type>switch</type>
+
+   <layer>
+    <name>Nose down</name>
+    <condition>
+     <and include="concorde-cond-voltage-nose.xml">
+      <equals>
+       <property>/instrumentation/nose-visor/pos-norm</property>
+       <property n="1">/sim/flaps/setting[3]</property>
+      </equals>
+     </and>
+    </condition>
+    <texture>
+     <path>Aircraft/Concorde/Panels/Instruments/Textures/concorde-black-down.png</path>
+    </texture>
+    <x1>0.0</x1>
+    <y1>0.0</y1>
+    <x2>1.0</x2>
+    <y2>1.0</y2>
+    <w>60</w>
+    <h>50</h>
+   </layer>
+
+   <layer>
+    <name>Nose 5 deg</name>
+    <condition>
+     <and include="concorde-cond-voltage-nose.xml">
+      <equals>
+       <property>/instrumentation/nose-visor/pos-norm</property>
+       <property n="1">/sim/flaps/setting[2]</property>
+      </equals>
+     </and>
+    </condition>
+    <texture>
+     <path>Aircraft/Concorde/Panels/Instruments/Textures/concorde-black-5-deg.png</path>
+    </texture>
+    <x1>0.0</x1>
+    <y1>0.0</y1>
+    <x2>1.0</x2>
+    <y2>1.0</y2>
+    <w>60</w>
+    <h>50</h>
+   </layer>
+
+   <layer>
+    <name>Nose up</name>
+    <condition>
+     <and include="concorde-cond-voltage-nose.xml">
+      <less-than-equals>
+       <property>/instrumentation/nose-visor/pos-norm</property>
+       <property n="1">/sim/flaps/setting[1]</property>
+      </less-than-equals>
+     </and>
+    </condition>
+    <texture>
+     <path>Aircraft/Concorde/Panels/Instruments/Textures/concorde-black-up.png</path>
+    </texture>
+    <x1>0.0</x1>
+    <y1>0.0</y1>
+    <x2>1.0</x2>
+    <y2>1.0</y2>
+    <w>60</w>
+    <h>50</h>
+   </layer>
+
+   <layer>
+    <name>background transit</name>
+    <texture>
+     <path>Aircraft/Concorde/Panels/Instruments/Textures/concorde-hatched-bg.png</path>
+    </texture>
+    <w>60</w>
+    <h>50</h>
+   </layer>
+  </layer>
+
+  <layer>
+   <name>Title</name>
+   <type>text</type>
+   <point-size>17</point-size>
+   <color>
+    <red>1.0</red>
+    <green>1.0</green>
+    <blue>1.0</blue>
+   </color>
+   <chunks>
+    <chunk>
+     <type>literal</type>
+     <text>NOSE</text>
+    </chunk>
+   </chunks>
+   <transformations>
+    <transformation>
+     <type>x-shift</type>
+     <offset>-25</offset>
+    </transformation>
+    <transformation>
+     <type>y-shift</type>
+     <offset>-41</offset>
+    </transformation>
+   </transformations>
+  </layer>
+
+ </layers>
+
+</PropertyList>

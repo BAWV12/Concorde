@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+
+<!-- Concorde alarm on center of gravity :
+
+     - light off.
+     - flashes outside extreme limit.
+-->
+
+<PropertyList>
+
+ <or>
+  <and>
+   <greater-than>
+    <property>instrumentation/cg/percent</property>
+    <property n="1">instrumentation/cg/min-percent</property>
+   </greater-than>
+   <less-than>
+    <property>instrumentation/cg/percent</property>
+    <property n="1">instrumentation/cg/max-percent</property>
+   </less-than>
+  </and>
+  <and include="concorde-cond-flashing-light.xml">
+   <or>
+    <less-than-equals>
+     <property>instrumentation/cg/percent</property>
+     <property n="1">instrumentation/cg/min-extreme-percent</property>
+    </less-than-equals>
+    <greater-than-equals>
+     <property>instrumentation/cg/percent</property>
+     <property n="1">instrumentation/cg/max-extreme-percent</property>
+    </greater-than-equals>
+   </or>
+  </and>
+ </or>
+
+</PropertyList>

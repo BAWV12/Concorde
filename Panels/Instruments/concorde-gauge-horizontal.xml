@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+
+<PropertyList>
+
+   <name>gauge background (horizontal)</name>
+   <texture>
+    <path>Aircraft/Concorde/Panels/Instruments/Textures/concorde-gauge-background-horizontal.png</path>
+    <x1>0.11</x1>
+    <y1>0.4</y1>
+    <x2>0.89</x2>
+    <y2>0.6</y2>
+   </texture>
+
+</PropertyList>

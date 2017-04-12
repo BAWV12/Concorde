@@ -1,0 +1,252 @@
+<?xml version="1.0"?>
+
+<!-- Concorde standby airspeed indicator, with VMO
+
+Adapted from Jim Wilson jimw@kelcomaine.com
+Face and calibration by Andy Ross, andy@plausible.org.
+_______________________________________________________________________________
+
+Based on Default by David Megginson, david@megginson.com.
+
+This is an instrument configuration file for the open-source flight
+simulator FlightGear (www.flightgear.org).  The file is an XML-encoded
+FlightGear property list defining the instrument's layers and actions.
+
+Each instrument is composed of layers stacked on top of each other.
+A layer may be a texture (with transparent parts to show the layers
+underneath), text, or a special layer that switches between two
+others (say, to turn an indicator light on or off).  Each layer can
+move independently in proportion to a property value, and text
+can be generated from property values as well: all of the layer's
+movements are defined as transformations.
+
+Actions are hotspots on the instrument that will respond to a mouse
+click.  Actions always modify the values of properties, either by
+adjusting them, toggling them, or swaping them with other
+properties' values.
+-->
+
+<PropertyList>
+
+ <name>Standby Airspeed Indicator</name>
+ 
+ <w-base>128</w-base>
+ <h-base>128</h-base>
+   
+ <layers>
+
+
+  <layer>
+   <name>gauge face</name>
+   <texture>   
+    <path>Aircraft/Concorde/Panels/Instruments/Textures/asi-590-knot-a4c.png</path>
+    <x1>0.5</x1>
+    <y1>0.5</y1>
+    <x2>1.0</x2>
+    <y2>1.0</y2>
+   </texture>
+   <w>112</w>
+   <h>112</h>
+  </layer>
+
+<!-- the Mach 0.45 limitation is for matching the machmeter -->
+
+  <layer>
+   <name>Digital mach</name>
+   <condition>
+    <and>
+     <greater-than>
+      <property>/systems/electrical/outputs/standby-asi</property>
+      <value>20</value>
+     </greater-than>
+     <greater-than-equals>
+      <property>/velocities/mach</property>
+      <value>0.45</value>
+     </greater-than-equals>
+     <property>/instrumentation/airspeed-standby/serviceable</property>
+    </and>
+   </condition>
+   <type>text</type>
+   <point-size>15</point-size>
+   <color>
+    <red>1.0</red>
+    <green>1.0</green>
+    <blue>1.0</blue>
+   </color>
+   <chunks>
+    <chunk>
+     <type>number-value</type>
+     <property>/velocities/mach</property>
+     <min>0.45</min>
+     <format>%1.2f</format>
+    </chunk>
+   </chunks>
+   <transformations>
+    <transformation>
+     <type>x-shift</type>
+     <offset>-16</offset>
+    </transformation>
+    <transformation>
+     <type>y-shift</type>
+     <offset>10</offset>
+    </transformation>
+   </transformations>
+  </layer>
+
+  <layer>
+   <name>needle</name>
+   <texture>
+    <path>Aircraft/Concorde/Panels/Instruments/Textures/misc-1.png</path>
+    <x1>0.8</x1>
+    <y1>0.78125</y1>
+    <x2>0.8375</x2>
+    <y2>1.0</y2>
+   </texture>
+   <w>5.5</w>
+   <h>44</h>
+   <transformations>
+    <transformation>
+     <type>rotation</type>
+     <condition>
+      <and>
+       <greater-than>
+        <property>/systems/electrical/outputs/standby-asi</property>
+        <value>20</value>
+       </greater-than>
+       <property>/instrumentation/airspeed-standby/serviceable</property>
+      </and>
+     </condition>
+     <property>/instrumentation/airspeed-standby/indicated-speed-kt</property>
+     <min>50.0</min>
+     <max>590.0</max>
+     <scale>1.0</scale>
+     <interpolation>
+      <entry><ind>  50</ind><dep>    0</dep></entry>
+      <entry><ind> 100</ind><dep>   44.8</dep></entry>
+      <entry><ind> 200</ind><dep>   121.9</dep></entry>
+      <entry><ind> 300</ind><dep>   188.1</dep></entry>
+      <entry><ind> 400</ind><dep>   246.9</dep></entry>
+      <entry><ind> 500</ind><dep>   300.5</dep></entry>
+      <entry><ind> 600</ind><dep>   350.0</dep></entry>
+     </interpolation>
+    </transformation>
+    <transformation>
+     <type>y-shift</type>
+     <offset>16</offset>
+    </transformation>
+   </transformations>
+  </layer> 
+
+  <layer>
+   <name>Power mangement VMO</name>
+   <type>switch</type>
+
+   <layer>
+    <name>VMO needle</name>
+    <condition>
+     <and>
+       <greater-than>
+        <property>/systems/electrical/outputs/standby-asi</property>
+        <value>20</value>
+       </greater-than>
+      <property>/instrumentation/airspeed-standby/serviceable</property>
+     </and>
+    </condition>
+    <texture>
+     <path>Aircraft/Concorde/Panels/Instruments/Textures/misc-1.png</path>
+     <x1>0.6914</x1>
+     <y1>0.78125</y1>
+     <x2>0.7289</x2>
+     <y2>1.0</y2>
+    </texture>
+    <w>5.5</w>
+    <h>44</h>
+    <transformations>
+     <transformation>
+      <type>rotation</type>
+      <property>/instrumentation/airspeed-standby/vmo-kt</property>
+      <min>50.0</min>
+      <max>590.0</max>
+      <scale>1.0</scale>
+       <interpolation>
+       <entry><ind>  50</ind><dep>    0</dep></entry>
+       <entry><ind> 100</ind><dep>   44.8</dep></entry>
+       <entry><ind> 200</ind><dep>   121.9</dep></entry>
+       <entry><ind> 300</ind><dep>   188.1</dep></entry>
+       <entry><ind> 400</ind><dep>   246.9</dep></entry>
+       <entry><ind> 500</ind><dep>   300.5</dep></entry>
+       <entry><ind> 600</ind><dep>   350.0</dep></entry>
+       </interpolation>
+     </transformation>
+     <transformation>
+      <type>y-shift</type>
+      <offset>16</offset>
+     </transformation>
+    </transformations>
+   </layer> 
+
+   <layer>
+    <name>VMO off</name>
+    <texture>
+     <path>Aircraft/Concorde/Panels/Instruments/Textures/misc-1.png</path>
+     <x1>0.6914</x1>
+     <y1>0.78125</y1>
+     <x2>0.7289</x2>
+     <y2>1.0</y2>
+    </texture>
+    <w>5.5</w>
+    <h>44</h>
+    <transformations>
+     <transformation>
+      <type>rotation</type>
+      <offset>188.1</offset> <!-- 300 kt -->
+     </transformation>
+     <transformation>
+      <type>y-shift</type>
+      <offset>16</offset>
+     </transformation>
+    </transformations>
+   </layer> 
+  </layer> 
+ 
+  <layer>
+   <name>button</name>
+   <texture>
+    <path>Aircraft/Concorde/Panels/Instruments/Textures/misc-1.png</path>
+    <x1>0.6171875</x1>
+    <y1>0.2421875</y1>
+    <x2>0.7890625</x2>
+    <y2>0.4140625</y2>
+   </texture>
+   <w>14</w>
+   <h>14</h>
+  </layer>
+  
+  <layer>
+   <name>glare shield</name>
+   <texture>
+    <path>Aircraft/Concorde/Panels/Instruments/Textures/bezel1.png</path>
+    <x1>0.5</x1>
+    <y1>0.0</y1>
+    <x2>1.0</x2>
+    <y2>0.5</y2>
+   </texture>
+   <w>128</w>
+   <h>128</h>
+   <transformations>
+    <transformation>
+     <type>x-shift</type>
+     <offset>2</offset>
+    </transformation>
+    <transformation>
+     <type>y-shift</type>
+     <offset>-2</offset>
+    </transformation>
+   </transformations>
+  </layer>
+
+ </layers>
+</PropertyList>
+
+
+

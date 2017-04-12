@@ -1,0 +1,23 @@
+<?xml version="1.0" ?> 
+
+<PropertyList> 
+ <path>wiper.ac</path> 
+
+ <animation>
+  <type>rotate</type>
+  <object-name>Wiper</object-name>
+  <property>controls/wiper/motor[0]/position-norm</property>
+  <factor>90</factor>
+  <center>
+   <x-m>0.0</x-m>
+   <y-m>0.0</y-m>
+   <z-m>0.0</z-m>
+  </center>
+  <axis>
+   <x>1</x>
+   <y>0</y>
+   <z>0</z>
+  </axis>
+ </animation>
+
+</PropertyList>

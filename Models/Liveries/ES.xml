@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+
+
+
+<PropertyList>
+  <sim>
+    <model>
+     <livery>
+      <name type="string">Eastern Airlines</name>
+      <index type="int">9</index>
+      <texture>Liveries/ES.png</texture>
+     </livery>
+    </model>
+  </sim>
+</PropertyList>

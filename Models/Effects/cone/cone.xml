@@ -1,0 +1,131 @@
+<?xml version="1.0"?>
+
+<PropertyList>
+
+  <particlesystem>
+    <type>normal</type>
+    <name>mach cone</name>
+    <texture>cloud.png</texture>
+    <emissive>true</emissive>
+    <lighting>true</lighting>
+
+    <offsets>
+      <x-m>0</x-m>
+      <y-m>0</y-m>
+      <z-m>0</z-m>
+    </offsets>
+
+    <condition>
+         <and>
+            <not>
+                                     <or> 
+               <less-than>
+                  <property>/velocities/mach</property>
+                  <value>0.999</value>
+               </less-than>
+               <greater-than>
+                  <property>/velocities/mach</property>
+                  <value>1.001</value>
+               </greater-than>
+                                     </or> 
+            </not>
+            <less-than>
+               <property>/position/altitude-ft</property>
+               <value>100000.0</value>
+            </less-than>
+         </and>
+    </condition>
+
+    <attach>world</attach>
+
+    <placer>
+      <type>point</type>                                       <!-- exhaust surface -->
+    </placer>
+
+    <shooter>
+	<theta-min-deg>80</theta-min-deg>
+	<theta-max-deg>100</theta-max-deg>
+	<phi-min-deg>-10.0</phi-min-deg>
+	<phi-max-deg>10.0</phi-max-deg>
+
+	<speed-mps>
+		<value>0</value>
+        		<spread>50</spread>                                     <!-- attempt to spread the smoke -->
+      	</speed-mps>
+
+	<rotation-speed>
+		<x-min-deg-sec> -20 </x-min-deg-sec>
+		<y-min-deg-sec> -20 </y-min-deg-sec>
+		<z-min-deg-sec> -20 </z-min-deg-sec>
+		<x-max-deg-sec> 20 </x-max-deg-sec>
+		<y-max-deg-sec> 20 </y-max-deg-sec>
+		<z-max-deg-sec> 20 </z-max-deg-sec>
+	</rotation-speed>
+    </shooter>
+
+    <counter>
+      <particles-per-sec>
+        <value>50</value>
+        <factor>0.1</factor>                                   <!-- light smoke -->
+        <offset>0</offset>
+        <spread>1</spread>                                      <!-- attempt to spread the smoke -->
+      </particles-per-sec>
+    </counter>
+
+    <align>billboard</align>
+
+    <particle>
+      <start>
+        <color>
+          <red>
+            <value>1.0</value>
+          </red>
+          <green>
+            <value>1.0</value>
+          </green>
+          <blue>
+            <value>1.0</value>
+          </blue>
+          <alpha>
+            <value>1</value>                                <!-- light smoke -->
+          </alpha>
+        </color>
+        <size>
+          <value>1</value>
+        </size>
+      </start>
+      <end>
+        <color>
+          <red>
+            <value>1.0</value>                                  <!-- dilution -->
+          </red>
+          <green>
+            <value>1.0</value>
+          </green>
+          <blue>
+            <value>1.0</value>
+          </blue>
+          <alpha>
+            <value>0.00</value>                                <!-- invisible -->
+          </alpha>
+        </color>
+        <size>
+          <value>100</value>                                     <!-- cloud spreading -->
+        </size>
+      </end>
+      <life-sec>
+        <value>0.5</value>                                      <!-- stay a long time over the runway -->
+      </life-sec>
+      <mass-kg>0.14</mass-kg>                                   <!-- lightly lighter than air -->
+      <radius-m>0.3</radius-m>
+    </particle>
+
+    <program>
+      <fluid>air</fluid>
+      <gravity>true</gravity>
+      <wind>true</wind>
+    </program>
+  </particlesystem>
+
+</PropertyList>
+

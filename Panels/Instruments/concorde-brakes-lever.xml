@@ -1,0 +1,87 @@
+<?xml version="1.0"?>
+<!-- Concorde brake lever :
+
+     - can be activated even without hydraulics.
+
+ Adapted from John Check <j4strngs@usa.net>
+-->
+
+<PropertyList>
+ <name>Brake</name>
+ <w-base>64</w-base>
+ <h-base>26</h-base>
+
+ <layers>
+<!-- The "bulb" -->
+ <layer>
+   <name>Brake light</name>
+   <type>switch</type>
+
+   <layer>
+    <condition>
+     <not>
+      <property>/controls/gear/brake-parking-lever</property> <!-- parking brake -->
+     </not>
+    </condition>
+    <name>off</name>
+    <texture>
+    <path>Aircraft/Concorde/Panels/Instruments/Textures/warning-lamps.png</path>
+    <x1>0.0</x1>
+    <y1>0.0</y1>
+    <x2>0.25</x2>
+    <y2>0.095</y2>
+    </texture>
+    <w>64</w>
+    <h>26</h>
+   </layer>
+
+   <layer>
+    <name>on</name>
+    <texture>
+     <path>Aircraft/Concorde/Panels/Instruments/Textures/warning-lamps.png</path>
+    <x1>0.25</x1>
+    <y1>0.0</y1>
+    <x2>0.5</x2>
+    <y2>0.095</y2>
+    </texture>
+    <w>64</w>
+    <h>26</h>
+   </layer>
+  </layer>
+
+<!-- translucent lens -->  
+  <layer>
+   <name>lens</name>
+   <texture>
+    <path>Aircraft/Concorde/Panels/Instruments/Textures/warning-lamps.png</path>
+     <x1>0.495</x1>
+     <y1>0.0875</y1>
+     <x2>0.75</x2>
+     <y2>0.1975</y2>
+   </texture>
+   <transformations>
+    <transformation>
+    <type>y-shift</type>
+    <offset>-2</offset>
+    </transformation>
+   </transformations>
+   <w>64</w>
+   <h>26</h>
+  </layer>
+ </layers>
+
+ <actions>
+  <action>
+   <desc>brake</desc>
+   <button>0</button>
+   <x>-32</x>
+   <y>-13</y>
+   <w>64</w>
+   <h>26</h>
+   <binding>
+    <command>nasal</command>
+    <script>controls.applyParkingBrake(1);</script>
+   </binding>
+  </action>
+ </actions>
+</PropertyList>

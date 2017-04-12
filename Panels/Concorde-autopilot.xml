@@ -1,0 +1,1533 @@
+<?xml version="1.0"?>
+
+<!-- Concorde 3D panel : autopilot
+
+Organized like the real one at http://www.concordesst.com/.
+See also pictures at http://www.airliners.net/info/.
+
+ALIGNMENT :
+- position of autopilot buttons seems independent of Concorde version.
+- but their alignment with the instruments of Captain/Center/Copilot is more or less to the left or right.
+- the choiced alignment has the most buttons visible by the Captain (left).
+- reference is http://www.airliners.net/open.file/373509/L/ (Air France F-BVFB, Markus Mosshamer).
+
+WARNING : a button not working by click, means that it is too close of another button (eventually hidden);
+even if both click areas (ctrl-C) don't overlap. Changing internal geometry of button avoids this drawback.
+
+_______________________________________________________________________
+
+This is a panel configuration file for the open-source flight
+simulator FlightGear (www.flightgear.org).  The file is an XML-encoded
+FlightGear property list defining the panel's background texture and
+the location (and optionally, size) of the instruments that will
+appear on the panel.
+
+Each instrument is, itself, defined in an XML-encoded property list
+in a separate file.
+
+Co-ordinates are relative to the *bottom* left corner of the screen
+(as in OpenGL).  The total FlightGear window is always considered to
+be 1024x768, whatever its actual display size on the screen.  All
+paths are relative to $FG_ROOT.
+
+Note that the name of the element defining each instrument must be
+different, or else instrument definitions will be overwritten:
+that's not particularly XML-ish, but that's how property lists
+work in FlightGear right now.
+
+Each instrument has its own preferred width and height, but you can
+override those by providing <w>..</w> and <h>..</h> properties with the
+<x>...</x> and <y>...</y> properties.
+
+-->
+
+<!-- Concorde autopilot like the real one : http://www.concordesst.com
+
+     MH  IH     | IN  TH  |  HH  TU  PH  |  MP  CL  IP  AH
+         IA     | BB  VL  |      GA  LA  |  GL  CR  VS  AA
+     AT1 AT2 SS | FD1 HT1      VR1  AP1 AP2 HT2    VR2  FD2 AS
+
+MH : Mach Hold (current)
+AT : Autothrottle; default to IH.
+IH : Indicated Air Speed Hold (current); default when autothrottle enabled.
+IA : Indicated Air Speed Acquire (dial).
+SS : Speed Select.
+IN : Inertial Navigation System mode : track between 2 points beeing fed from the INS.
+BB : Back Beam is a flight director mode, not an autopilot mode. It will only operate with autopilot disengaged, and
+     permits tracking of a back beam localizer.
+FD : Flight Director.
+TH : Track or Heading (dial) : heading mode follows the compass direction, while track mode will follow the direct route,
+     taking into account wind speeds.
+VL : VOR 1 or Localiser lock.
+HT : Heading or Track.
+HH : Heading Hold (current); default when autopilot engaged.
+TU : Turbulence mode, only used in moderate to severe turbulence. It holds the existing pitch and heading, and reduces
+     the trim rate to smoothen the ride.
+GA : An automatic go around is initiated when 2 throttles have been moved forward in autoland or glide mode.
+     Holds pitch at 15 deg.
+VR : VOR loc or Ref.
+PH : Pitch Hold; default when autopilot engaged.
+LA : Autoland : glide slope 1 + Nav 1 Loc
+AP : Autopilot; default to HH and PH.
+MP : Mach Hold (current), with pitch. If the autothrottle is engaged, it will take precedence, and the autopilot will
+     default to Pitch Hold.
+GL : Glide : glide slope 1 + Nav 1 Lock
+CL : max CLimb sets speed at Vmo; once reached, holds it with pitch.  
+CR : max CRuise engaged shortly after Mach 2, is an extension of Max Climb. If the aircraft begins to overspeed due to
+     temperature changes, the autothrottle will slow the aircraft down. Once at the correct speed, Mach Hold will
+     disengage, and Max Cruise will re-engage. It also prevents the aircraft exceeding the maximum operating temperature
+     (TMO) of 127 deg Celsius on the tip of the nose. 
+IP : Indicated Air Speed Hold (current), with pitch
+VS : Vertical Speed Hold.
+AH : Altitude Hold (current)
+AA : Altitude Acquire (dial)
+AS : Altitude Select.
+
+BB is not implemented.
+
+
+Acquired modes have a light.
+During the capture, a triangle lights below VO, LA, GL and AA, until the acquisition.
+
+-->
+
+<!DOCTYPE PropertyList SYSTEM "panel.dtd">
+
+<PropertyList>
+
+ <name>Concorde Autopilot Panel</name>
+ <background>Aircraft/Concorde/Panels/Textures/transparent-bg.png</background>
+ <w>1024</w>
+ <h>512</h>
+ <y-offset>0</y-offset>
+ <view-height>500</view-height>
+
+ <instruments>
+
+<!-- AUTOPILOT -->
+
+<!-- AUTOTHROTTLE -->
+
+  <instrument include="Instruments/concorde-ap-mh.xml">
+   <name>Mach Hold</name>
+   <condition>
+    <or>
+     <and>
+      <property>/sim/current-view/internal</property>
+      <property>/systems/seat/captain</property>
+      <or>
+       <less-than>
+        <property>/sim/current-view/goal-heading-offset-deg</property>
+        <value>5</value>
+       </less-than>
+       <greater-than>
+        <property>/sim/current-view/goal-heading-offset-deg</property>
+        <value>300</value>
+       </greater-than>
+      </or>
+      <greater-than>
+       <property>/sim/current-view/goal-pitch-offset-deg</property>
+       <value>-40</value>
+      </greater-than>
+      <less-than>
+       <property>/sim/current-view/goal-pitch-offset-deg</property>
+       <value>15</value>
+      </less-than>
+     </and>
+     <property>/controls/seat/all</property>
+    </or>
+   </condition>
+   <x>245</x>
+   <y>518</y>
+   <w>39</w>
+   <h>26</h>
+  </instrument>
+
+  <instrument include="Instruments/concorde-ap-ih.xml">
+   <name>IAS Hold</name>
+   <condition>
+    <or>
+     <and>
+      <property>/sim/current-view/internal</property>
+      <property>/systems/seat/captain</property>
+      <or>
+       <less-than>
+        <property>/sim/current-view/goal-heading-offset-deg</property>
+        <value>5</value>
+       </less-than>
+       <greater-than>
+        <property>/sim/current-view/goal-heading-offset-deg</property>
+        <value>300</value>
+       </greater-than>
+      </or>
+      <greater-than>
+       <property>/sim/current-view/goal-pitch-offset-deg</property>
+       <value>-40</value>
+      </greater-than>
+      <less-than>
+       <property>/sim/current-view/goal-pitch-offset-deg</property>
+       <value>15</value>
+      </less-than>
+     </and>
+     <property>/controls/seat/all</property>
+    </or>
+   </condition>
+   <x>290</x>
+   <y>518</y>
+   <w>39</w>
+   <h>26</h>
+  </instrument>
+
+  <instrument include="Instruments/concorde-ap-ia.xml">
+   <name>IAS Acquired</name>
+   <condition>
+    <or>
+     <and>
+      <property>/sim/current-view/internal</property>
+      <property>/systems/seat/captain</property>
+      <or>
+       <less-than>
+        <property>/sim/current-view/goal-heading-offset-deg</property>
+        <value>5</value>
+       </less-than>
+       <greater-than>
+        <property>/sim/current-view/goal-heading-offset-deg</property>
+        <value>300</value>
+       </greater-than>
+      </or>
+      <greater-than>
+       <property>/sim/current-view/goal-pitch-offset-deg</property>
+       <value>-40</value>
+      </greater-than>
+      <less-than>
+       <property>/sim/current-view/goal-pitch-offset-deg</property>
+       <value>10</value>
+      </less-than>
+     </and>
+     <property>/controls/seat/all</property>
+    </or>
+   </condition>
+   <x>290</x>
+   <y>479</y>
+   <w>39</w>
+   <h>26</h>
+  </instrument>
+
+<!-- HEADING -->
+
+  <instrument include="Instruments/concorde-ap-in.xml">
+   <name>INS Mode</name>
+   <condition>
+    <or>
+     <and>
+      <property>/sim/current-view/internal</property>
+      <property>/systems/seat/captain</property>
+      <less-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>360</value>
+      </less-than>
+      <greater-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>295</value>
+      </greater-than>
+      <greater-than>
+       <property>/sim/current-view/goal-pitch-offset-deg</property>
+       <value>-40</value>
+      </greater-than>
+      <less-than>
+       <property>/sim/current-view/goal-pitch-offset-deg</property>
+       <value>15</value>
+      </less-than>
+     </and>
+     <property>/controls/seat/all</property>
+    </or>
+   </condition>
+   <x>410</x>
+   <y>518</y>
+   <w>39</w>
+   <h>26</h>
+  </instrument>
+
+  <instrument include="Instruments/concorde-ap-th.xml">
+   <name>Track Heading</name>
+   <condition>
+    <or>
+     <and>
+      <property>/sim/current-view/internal</property>
+      <property>/systems/seat/captain</property>
+      <less-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>360</value>
+      </less-than>
+      <greater-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>290</value>
+      </greater-than>
+      <greater-than>
+       <property>/sim/current-view/goal-pitch-offset-deg</property>
+       <value>-40</value>
+      </greater-than>
+      <less-than>
+       <property>/sim/current-view/goal-pitch-offset-deg</property>
+       <value>15</value>
+      </less-than>
+     </and>
+     <property>/controls/seat/all</property>
+    </or>
+   </condition>
+   <x>465</x>
+   <y>518</y>
+   <w>39</w>
+   <h>26</h>
+  </instrument>
+
+  <instrument include="Instruments/concorde-ap-vl.xml">
+   <name>VOR Lock</name>
+   <condition>
+    <or>
+     <and>
+      <property>/sim/current-view/internal</property>
+      <property>/systems/seat/captain</property>
+      <less-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>360</value>
+      </less-than>
+      <greater-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>290</value>
+      </greater-than>
+      <greater-than>
+       <property>/sim/current-view/goal-pitch-offset-deg</property>
+       <value>-40</value>
+      </greater-than>
+      <less-than>
+       <property>/sim/current-view/goal-pitch-offset-deg</property>
+       <value>10</value>
+      </less-than>
+     </and>
+     <property>/controls/seat/all</property>
+    </or>
+   </condition>
+   <x>465</x>
+   <y>479</y>
+   <w>39</w>
+   <h>26</h>
+  </instrument>
+
+  <instrument include="Instruments/concorde-ap-hh.xml">
+   <name>Heading Hold</name>
+   <condition>
+    <or>
+     <and>
+      <property>/sim/current-view/internal</property>
+      <property>/systems/seat/captain</property>
+      <less-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>355</value>
+      </less-than>
+      <greater-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>290</value>
+      </greater-than>
+      <greater-than>
+       <property>/sim/current-view/goal-pitch-offset-deg</property>
+       <value>-40</value>
+      </greater-than>
+      <less-than>
+       <property>/sim/current-view/goal-pitch-offset-deg</property>
+       <value>15</value>
+      </less-than>
+     </and>
+     <property>/controls/seat/all</property>
+    </or>
+   </condition>
+   <x>520</x>
+   <y>518</y>
+   <w>39</w>
+   <h>26</h>
+  </instrument>
+
+  <instrument include="Instruments/concorde-ap-bb.xml">
+   <name>Back Beam</name>
+   <condition>
+    <or>
+     <and>
+      <property>/sim/current-view/internal</property>
+      <property>/systems/seat/captain</property>
+      <less-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>355</value>
+      </less-than>
+      <greater-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>290</value>
+      </greater-than>
+      <greater-than>
+       <property>/sim/current-view/goal-pitch-offset-deg</property>
+       <value>-40</value>
+      </greater-than>
+      <less-than>
+       <property>/sim/current-view/goal-pitch-offset-deg</property>
+       <value>10</value>
+      </less-than>
+     </and>
+     <property>/controls/seat/all</property>
+    </or>
+   </condition>
+   <x>520</x>
+   <y>479</y>
+   <w>39</w>
+   <h>26</h>
+  </instrument>
+
+<!-- ALTITUDE -->
+
+  <instrument include="Instruments/concorde-ap-tu.xml">
+   <name>Turbulence Mode</name>
+   <condition>
+    <or>
+     <and>
+      <property>/sim/current-view/internal</property>
+      <property>/systems/seat/captain</property>
+      <less-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>355</value>
+      </less-than>
+      <greater-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>290</value>
+      </greater-than>
+      <greater-than>
+       <property>/sim/current-view/goal-pitch-offset-deg</property>
+       <value>-40</value>
+      </greater-than>
+      <less-than>
+       <property>/sim/current-view/goal-pitch-offset-deg</property>
+       <value>15</value>
+      </less-than>
+     </and>
+     <property>/controls/seat/all</property>
+    </or>
+   </condition>
+   <x>575</x>
+   <y>518</y>
+   <w>39</w>
+   <h>26</h>
+  </instrument>
+
+  <instrument include="Instruments/concorde-ap-ga.xml">
+   <name>Go Around Mode</name>
+   <condition>
+    <or>
+     <and>
+      <property>/sim/current-view/internal</property>
+      <property>/systems/seat/captain</property>
+      <less-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>355</value>
+      </less-than>
+      <greater-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>290</value>
+      </greater-than>
+      <greater-than>
+       <property>/sim/current-view/goal-pitch-offset-deg</property>
+       <value>-40</value>
+      </greater-than>
+      <less-than>
+       <property>/sim/current-view/goal-pitch-offset-deg</property>
+       <value>10</value>
+      </less-than>
+     </and>
+     <property>/controls/seat/all</property>
+    </or>
+   </condition>
+   <x>575</x>
+   <y>479</y>
+   <w>39</w>
+   <h>26</h>
+  </instrument>
+
+  <instrument include="Instruments/concorde-ap-ph.xml">
+   <name>Pitch Hold</name>
+   <condition>
+    <or>
+     <and>
+      <property>/sim/current-view/internal</property>
+      <property>/systems/seat/captain</property>
+      <less-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>350</value>
+      </less-than>
+      <greater-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>285</value>
+      </greater-than>
+      <greater-than>
+       <property>/sim/current-view/goal-pitch-offset-deg</property>
+       <value>-40</value>
+      </greater-than>
+      <less-than>
+       <property>/sim/current-view/goal-pitch-offset-deg</property>
+       <value>15</value>
+      </less-than>
+     </and>
+     <property>/controls/seat/all</property>
+    </or>
+   </condition>
+   <x>667.5</x>
+   <y>518</y>
+   <w>39</w>
+   <h>26</h>
+  </instrument>
+
+  <instrument include="Instruments/concorde-ap-la.xml">
+   <name>Autoland Mode</name>
+   <condition>
+    <or>
+     <and>
+      <property>/sim/current-view/internal</property>
+      <property>/systems/seat/captain</property>
+      <less-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>350</value>
+      </less-than>
+      <greater-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>285</value>
+      </greater-than>
+      <greater-than>
+       <property>/sim/current-view/goal-pitch-offset-deg</property>
+       <value>-40</value>
+      </greater-than>
+      <less-than>
+       <property>/sim/current-view/goal-pitch-offset-deg</property>
+       <value>15</value>
+      </less-than>
+     </and>
+     <property>/controls/seat/all</property>
+    </or>
+   </condition>
+   <x>667.5</x>
+   <y>479</y>
+   <w>39</w>
+   <h>26</h>
+  </instrument>
+
+  <instrument include="Instruments/concorde-ap-mp.xml">
+   <name>Mach with Pitch Hold</name>
+   <condition>
+    <or>
+     <and>
+      <property>/sim/current-view/internal</property>
+      <property>/systems/seat/captain</property>
+      <less-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>350</value>
+      </less-than>
+      <greater-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>285</value>
+      </greater-than>
+      <greater-than>
+       <property>/sim/current-view/goal-pitch-offset-deg</property>
+       <value>-40</value>
+      </greater-than>
+      <less-than>
+       <property>/sim/current-view/goal-pitch-offset-deg</property>
+       <value>15</value>
+      </less-than>
+     </and>
+     <property>/controls/seat/all</property>
+    </or>
+   </condition>
+   <x>731</x>
+   <y>518</y>
+   <w>39</w>
+   <h>26</h>
+  </instrument>
+
+  <instrument include="Instruments/concorde-ap-gl.xml">
+   <name>Glide slope mode</name>
+   <condition>
+    <or>
+     <and>
+      <property>/sim/current-view/internal</property>
+      <property>/systems/seat/captain</property>
+      <less-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>350</value>
+      </less-than>
+      <greater-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>285</value>
+      </greater-than>
+      <greater-than>
+       <property>/sim/current-view/goal-pitch-offset-deg</property>
+       <value>-40</value>
+      </greater-than>
+      <less-than>
+       <property>/sim/current-view/goal-pitch-offset-deg</property>
+       <value>15</value>
+      </less-than>
+     </and>
+     <property>/controls/seat/all</property>
+    </or>
+   </condition>
+   <x>731</x>
+   <y>479</y>
+   <w>35</w>
+   <h>26</h>
+  </instrument>
+
+  <instrument include="Instruments/concorde-ap-cl.xml">
+   <name>Max Climb mode</name>
+   <condition>
+    <or>
+     <and>
+      <property>/sim/current-view/internal</property>
+      <property>/systems/seat/captain</property>
+      <less-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>350</value>
+      </less-than>
+      <greater-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>285</value>
+      </greater-than>
+      <greater-than>
+       <property>/sim/current-view/goal-pitch-offset-deg</property>
+       <value>-35</value>
+      </greater-than>
+      <less-than>
+       <property>/sim/current-view/goal-pitch-offset-deg</property>
+       <value>15</value>
+      </less-than>
+     </and>
+     <property>/controls/seat/all</property>
+    </or>
+   </condition>
+   <x>784</x>
+   <y>518</y>
+   <w>35</w>
+   <h>26</h>
+  </instrument>
+
+  <instrument include="Instruments/concorde-ap-cr.xml">
+   <name>Cruise mode</name>
+   <condition>
+    <or>
+     <and>
+      <property>/sim/current-view/internal</property>
+      <property>/systems/seat/captain</property>
+      <less-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>350</value>
+      </less-than>
+      <greater-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>285</value>
+      </greater-than>
+      <greater-than>
+       <property>/sim/current-view/goal-pitch-offset-deg</property>
+       <value>-40</value>
+      </greater-than>
+      <less-than>
+       <property>/sim/current-view/goal-pitch-offset-deg</property>
+       <value>15</value>
+      </less-than>
+     </and>
+     <property>/controls/seat/all</property>
+    </or>
+   </condition>
+   <x>784</x>
+   <y>479</y>
+   <w>35</w>
+   <h>26</h>
+  </instrument>
+
+  <instrument include="Instruments/concorde-ap-ip.xml">
+   <name>IAS with Pitch hold</name>
+   <condition>
+    <or>
+     <and>
+      <property>/sim/current-view/internal</property>
+      <property>/systems/seat/captain</property>
+      <less-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>345</value>
+      </less-than>
+      <greater-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>280</value>
+      </greater-than>
+      <greater-than>
+       <property>/sim/current-view/goal-pitch-offset-deg</property>
+       <value>-40</value>
+      </greater-than>
+      <less-than>
+       <property>/sim/current-view/goal-pitch-offset-deg</property>
+       <value>15</value>
+      </less-than>
+     </and>
+     <property>/controls/seat/all</property>
+    </or>
+   </condition>
+   <x>848</x>
+   <y>518</y>
+   <w>35</w>
+   <h>26</h>
+  </instrument>
+
+  <instrument include="Instruments/concorde-ap-vs.xml">
+   <name>Vertical Speed hold</name>
+   <condition>
+    <or>
+     <and>
+      <property>/sim/current-view/internal</property>
+      <property>/systems/seat/captain</property>
+      <less-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>345</value>
+      </less-than>
+      <greater-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>280</value>
+      </greater-than>
+      <greater-than>
+       <property>/sim/current-view/goal-pitch-offset-deg</property>
+       <value>-40</value>
+      </greater-than>
+      <less-than>
+       <property>/sim/current-view/goal-pitch-offset-deg</property>
+       <value>15</value>
+      </less-than>
+     </and>
+     <property>/controls/seat/all</property>
+    </or>
+   </condition>
+   <x>848</x>
+   <y>479</y>
+   <w>35</w>
+   <h>26</h>
+  </instrument>
+
+  <instrument include="Instruments/concorde-ap-ah.xml">
+   <name>Altitude Hold</name>
+   <condition>
+    <or>
+     <and>
+      <property>/sim/current-view/internal</property>
+      <property>/systems/seat/captain</property>
+      <less-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>345</value>
+      </less-than>
+      <greater-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>280</value>
+      </greater-than>
+      <greater-than>
+       <property>/sim/current-view/goal-pitch-offset-deg</property>
+       <value>-40</value>
+      </greater-than>
+      <less-than>
+       <property>/sim/current-view/goal-pitch-offset-deg</property>
+       <value>15</value>
+      </less-than>
+     </and>
+     <property>/controls/seat/all</property>
+    </or>
+   </condition>
+   <x>920</x>
+   <y>518</y>
+   <w>35</w>
+   <h>26</h>
+  </instrument>
+
+  <instrument include="Instruments/concorde-ap-aa.xml">
+   <name>Altitude Acquire</name>
+   <condition>
+    <or>
+     <and>
+      <property>/sim/current-view/internal</property>
+      <property>/systems/seat/captain</property>
+      <less-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>345</value>
+      </less-than>
+      <greater-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>280</value>
+      </greater-than>
+      <greater-than>
+       <property>/sim/current-view/goal-pitch-offset-deg</property>
+       <value>-40</value>
+      </greater-than>
+      <less-than>
+       <property>/sim/current-view/goal-pitch-offset-deg</property>
+       <value>15</value>
+      </less-than>
+     </and>
+     <property>/controls/seat/all</property>
+    </or>
+   </condition>
+   <x>920</x>
+   <y>479</y>
+   <w>35</w>
+   <h>26</h>
+  </instrument>
+
+<!-- armed lights -->
+
+  <instrument include="Instruments/concorde-armed-vor.xml">
+   <name>VOR armed</name>
+   <condition>
+    <or>
+     <and>
+      <property>/sim/current-view/internal</property>
+      <property>/systems/seat/captain</property>
+      <less-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>360</value>
+      </less-than>
+      <greater-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>290</value>
+      </greater-than>
+      <greater-than>
+       <property>/sim/current-view/goal-pitch-offset-deg</property>
+       <value>-40</value>
+      </greater-than>
+      <less-than>
+       <property>/sim/current-view/goal-pitch-offset-deg</property>
+       <value>10</value>
+      </less-than>
+     </and>
+     <property>/controls/seat/all</property>
+    </or>
+   </condition>
+   <x>465</x>
+   <y>461</y>
+   <w>33</w>
+   <h>9</h>
+  </instrument>
+
+  <instrument include="Instruments/concorde-armed-land.xml">
+   <name>Autoland armed</name>
+   <condition>
+    <or>
+     <and>
+      <property>/sim/current-view/internal</property>
+      <property>/systems/seat/captain</property>
+      <less-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>350</value>
+      </less-than>
+      <greater-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>285</value>
+      </greater-than>
+      <greater-than>
+       <property>/sim/current-view/goal-pitch-offset-deg</property>
+       <value>-40</value>
+      </greater-than>
+      <less-than>
+       <property>/sim/current-view/goal-pitch-offset-deg</property>
+       <value>10</value>
+      </less-than>
+     </and>
+     <property>/controls/seat/all</property>
+    </or>
+   </condition>
+   <x>667.5</x>
+   <y>461</y>
+   <w>33</w>
+   <h>9</h>
+  </instrument>
+
+  <instrument include="Instruments/concorde-armed-glide.xml">
+   <name>Glide armed</name>
+   <condition>
+    <or>
+     <and>
+      <property>/sim/current-view/internal</property>
+      <property>/systems/seat/captain</property>
+      <less-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>350</value>
+      </less-than>
+      <greater-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>285</value>
+      </greater-than>
+      <greater-than>
+       <property>/sim/current-view/goal-pitch-offset-deg</property>
+       <value>-40</value>
+      </greater-than>
+      <less-than>
+       <property>/sim/current-view/goal-pitch-offset-deg</property>
+       <value>10</value>
+      </less-than>
+     </and>
+     <property>/controls/seat/all</property>
+    </or>
+   </condition>
+   <x>731</x>
+   <y>461</y>
+   <w>33</w>
+   <h>9</h>
+  </instrument>
+
+  <instrument include="Instruments/concorde-armed-altitude.xml">
+   <name>Altitude armed</name>
+   <condition>
+    <or>
+     <and>
+      <property>/sim/current-view/internal</property>
+      <property>/systems/seat/captain</property>
+      <less-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>345</value>
+      </less-than>
+      <greater-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>280</value>
+      </greater-than>
+      <greater-than>
+       <property>/sim/current-view/goal-pitch-offset-deg</property>
+       <value>-40</value>
+      </greater-than>
+      <less-than>
+       <property>/sim/current-view/goal-pitch-offset-deg</property>
+       <value>15</value>
+      </less-than>
+     </and>
+     <property>/controls/seat/all</property>
+    </or>
+   </condition>
+   <x>920</x>
+   <y>461</y>
+   <w>33</w>
+   <h>9</h>
+  </instrument>
+
+<!-- frequencies -->
+
+  <instrument include="Instruments/concorde-red-land.xml">
+   <name>Alarm autoland</name>
+   <condition>
+    <or>
+     <and>
+      <property>/sim/current-view/internal</property>
+      <property>/systems/seat/captain</property>
+      <or>
+       <less-than>
+        <property>/sim/current-view/goal-heading-offset-deg</property>
+        <value>20</value>
+       </less-than>
+       <greater-than>
+        <property>/sim/current-view/goal-heading-offset-deg</property>
+        <value>310</value>
+       </greater-than>
+      </or>
+      <greater-than>
+       <property>/sim/current-view/goal-pitch-offset-deg</property>
+       <value>-45</value>
+      </greater-than>
+      <less-than>
+       <property>/sim/current-view/goal-pitch-offset-deg</property>
+       <value>5</value>
+      </less-than>
+     </and>
+     <property>/controls/seat/all</property>
+    </or>
+   </condition>
+   <x>-65</x>
+   <y>403</y>
+   <w>56</w>
+   <h>28</h>
+  </instrument>
+
+  <instrument include="Instruments/concorde-ap-nav.xml">
+   <name>NAV 1 dial</name>
+   <condition>
+    <or>
+     <and>
+      <property>/sim/current-view/internal</property>
+      <property>/systems/seat/captain</property>
+      <or>
+       <less-than>
+        <property>/sim/current-view/goal-heading-offset-deg</property>
+        <value>15</value>
+       </less-than>
+       <greater-than>
+        <property>/sim/current-view/goal-heading-offset-deg</property>
+        <value>305</value>
+       </greater-than>
+      </or>
+      <greater-than>
+       <property>/sim/current-view/goal-pitch-offset-deg</property>
+       <value>-45</value>
+      </greater-than>
+      <less-than>
+       <property>/sim/current-view/goal-pitch-offset-deg</property>
+       <value>5</value>
+      </less-than>
+     </and>
+     <property>/controls/seat/all</property>
+    </or>
+   </condition>
+   <x>112</x>
+   <y>418</y>
+   <w>170</w>
+   <h>140</h>
+  </instrument>
+
+  <instrument include="Instruments/concorde-hsi-source.xml">
+   <name>HSI source</name>
+   <condition>
+    <or>
+     <and>
+      <property>/sim/current-view/internal</property>
+      <property>/systems/seat/captain</property>
+      <or>
+       <less-than>
+        <property>/sim/current-view/goal-heading-offset-deg</property>
+        <value>10</value>
+       </less-than>
+       <greater-than>
+        <property>/sim/current-view/goal-heading-offset-deg</property>
+        <value>305</value>
+       </greater-than>
+      </or>
+      <greater-than>
+       <property>/sim/current-view/goal-pitch-offset-deg</property>
+       <value>-45</value>
+      </greater-than>
+      <less-than>
+       <property>/sim/current-view/goal-pitch-offset-deg</property>
+       <value>15</value>
+      </less-than>
+     </and>
+     <property>/controls/seat/all</property>
+    </or>
+   </condition>
+   <x>160</x>
+   <y>518</y>
+   <w>50</w>
+   <h>50</h>
+  </instrument>
+
+<!-- dials -->
+
+  <instrument include="Instruments/concorde-ap-disable-at.xml">
+   <name>Autothrottle</name>
+   <condition>
+    <or>
+     <and>
+      <property>/sim/current-view/internal</property>
+      <property>/systems/seat/captain</property>
+      <or>
+       <less-than>
+        <property>/sim/current-view/goal-heading-offset-deg</property>
+        <value>5</value>
+       </less-than>
+       <greater-than>
+        <property>/sim/current-view/goal-heading-offset-deg</property>
+        <value>300</value>
+       </greater-than>
+      </or>
+      <greater-than>
+       <property>/sim/current-view/goal-pitch-offset-deg</property>
+       <value>-50</value>
+      </greater-than>
+      <less-than>
+       <property>/sim/current-view/goal-pitch-offset-deg</property>
+       <value>5</value>
+      </less-than>
+     </and>
+     <property>/controls/seat/all</property>
+    </or>
+   </condition>
+   <params>
+    <channel>/controls/autoflight/autothrottle[0]/engage</channel>
+    <voltage>/systems/electrical/outputs/autopilot[1]</voltage>
+   </params>
+   <x>245</x>
+   <y>353</y>
+   <w>39</w>
+   <h>156</h>
+  </instrument>
+
+  <instrument include="Instruments/concorde-ap-disable-at.xml">
+   <name>Autothrottle 2</name>
+   <condition>
+    <or>
+     <and>
+      <property>/sim/current-view/internal</property>
+      <property>/systems/seat/captain</property>
+      <or>
+       <less-than>
+        <property>/sim/current-view/goal-heading-offset-deg</property>
+        <value>5</value>
+       </less-than>
+       <greater-than>
+        <property>/sim/current-view/goal-heading-offset-deg</property>
+        <value>295</value>
+       </greater-than>
+      </or>
+      <greater-than>
+       <property>/sim/current-view/goal-pitch-offset-deg</property>
+       <value>-50</value>
+      </greater-than>
+      <less-than>
+       <property>/sim/current-view/goal-pitch-offset-deg</property>
+       <value>5</value>
+      </less-than>
+     </and>
+     <property>/controls/seat/all</property>
+    </or>
+   </condition>
+   <params>
+    <channel>/controls/autoflight/autothrottle[1]/engage</channel>
+    <voltage>/systems/electrical/outputs/autopilot[2]</voltage>
+   </params>
+   <x>290</x>
+   <y>353</y>
+   <w>39</w>
+   <h>156</h>
+  </instrument>
+
+  <instrument include="Instruments/concorde-ap-speed-kt.xml">
+   <name>Speed dial</name>
+   <condition>
+    <or>
+     <and>
+      <property>/sim/current-view/internal</property>
+      <property>/systems/seat/captain</property>
+      <or>
+       <less-than>
+        <property>/sim/current-view/goal-heading-offset-deg</property>
+        <value>5</value>
+       </less-than>
+       <greater-than>
+        <property>/sim/current-view/goal-heading-offset-deg</property>
+        <value>295</value>
+       </greater-than>
+      </or>
+      <greater-than>
+       <property>/sim/current-view/goal-pitch-offset-deg</property>
+       <value>-45</value>
+      </greater-than>
+      <less-than>
+       <property>/sim/current-view/goal-pitch-offset-deg</property>
+       <value>10</value>
+      </less-than>
+     </and>
+     <property>/controls/seat/all</property>
+    </or>
+   </condition>
+   <x>350</x>
+   <y>470</y>
+   <w>80</w>
+   <h>80</h>
+  </instrument>
+
+  <instrument include="Instruments/concorde-ap-speed.xml">
+   <name>Speed knob</name>
+   <condition>
+    <or>
+     <and>
+      <property>/sim/current-view/internal</property>
+      <property>/systems/seat/captain</property>
+      <or>
+       <less-than>
+        <property>/sim/current-view/goal-heading-offset-deg</property>
+        <value>5</value>
+       </less-than>
+       <greater-than>
+        <property>/sim/current-view/goal-heading-offset-deg</property>
+        <value>295</value>
+       </greater-than>
+      </or>
+      <greater-than>
+       <property>/sim/current-view/goal-pitch-offset-deg</property>
+       <value>-45</value>
+      </greater-than>
+      <less-than>
+       <property>/sim/current-view/goal-pitch-offset-deg</property>
+       <value>10</value>
+      </less-than>
+     </and>
+     <property>/controls/seat/all</property>
+    </or>
+   </condition>
+   <x>335</x>
+   <y>385</y>
+   <w>110</w>
+   <h>110</h>
+  </instrument>
+
+  <instrument include="Instruments/concorde-ap-disable-fd.xml">
+   <name>Flight Director</name>
+   <condition>
+    <or>
+     <and>
+      <property>/sim/current-view/internal</property>
+      <property>/systems/seat/captain</property>
+      <less-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>360</value>
+      </less-than>
+      <greater-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>290</value>
+      </greater-than>
+      <greater-than>
+       <property>/sim/current-view/goal-pitch-offset-deg</property>
+       <value>-50</value>
+      </greater-than>
+      <less-than>
+       <property>/sim/current-view/goal-pitch-offset-deg</property>
+       <value>5</value>
+      </less-than>
+     </and>
+     <property>/controls/seat/all</property>
+    </or>
+   </condition>
+   <params>
+    <flight-director>/controls/autoflight/flight-director[0]/engage</flight-director>
+   </params>
+   <x>410</x>
+   <y>353</y>
+   <w>39</w>
+   <h>156</h>
+  </instrument>
+
+  <instrument include="Instruments/concorde-ap-heading-deg.xml">
+   <name>Heading 1 dial</name>
+   <condition>
+    <or>
+     <and>
+      <property>/sim/current-view/internal</property>
+      <property>/systems/seat/captain</property>
+      <less-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>360</value>
+      </less-than>
+      <greater-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>290</value>
+      </greater-than>
+      <greater-than>
+       <property>/sim/current-view/goal-pitch-offset-deg</property>
+       <value>-45</value>
+      </greater-than>
+      <less-than>
+       <property>/sim/current-view/goal-pitch-offset-deg</property>
+       <value>10</value>
+      </less-than>
+     </and>
+     <property>/controls/seat/all</property>
+    </or>
+   </condition>
+   <x>465</x>
+   <y>395</y>
+   <w>100</w>
+   <h>100</h>
+  </instrument>
+
+  <instrument include="Instruments/concorde-ap-vor1-deg.xml">
+   <name>VOR 1 dial</name>
+   <condition>
+    <or>
+     <and>
+      <property>/sim/current-view/internal</property>
+      <property>/systems/seat/captain</property>
+      <less-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>355</value>
+      </less-than>
+      <greater-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>285</value>
+      </greater-than>
+      <greater-than>
+       <property>/sim/current-view/goal-pitch-offset-deg</property>
+       <value>-45</value>
+      </greater-than>
+      <less-than>
+       <property>/sim/current-view/goal-pitch-offset-deg</property>
+       <value>10</value>
+      </less-than>
+     </and>
+     <property>/controls/seat/all</property>
+    </or>
+   </condition>
+   <params>
+    <radial-ctrl>/instrumentation/nav[1]/radials/selected-deg</radial-ctrl>
+   </params>
+   <x>550</x>
+   <y>395</y>
+   <w>100</w>
+   <h>100</h>
+  </instrument>
+
+  <instrument include="Instruments/concorde-ap-disable.xml">
+   <name>Autopilot</name>
+   <condition>
+    <or>
+     <and>
+      <property>/sim/current-view/internal</property>
+      <property>/systems/seat/captain</property>
+      <less-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>350</value>
+      </less-than>
+      <greater-than>
+        <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>285</value>
+      </greater-than>
+      <greater-than>
+       <property>/sim/current-view/goal-pitch-offset-deg</property>
+       <value>-45</value>
+      </greater-than>
+      <less-than>
+       <property>/sim/current-view/goal-pitch-offset-deg</property>
+       <value>5</value>
+      </less-than>
+     </and>
+     <property>/controls/seat/all</property>
+    </or>
+   </condition>
+   <params>
+    <channel>/controls/autoflight/autopilot[0]/engage</channel>
+    <voltage>/systems/electrical/outputs/autopilot[1]</voltage>
+   </params>
+   <x>645</x>
+   <y>353</y>
+   <w>39</w>
+   <h>156</h>
+  </instrument>
+
+  <instrument include="Instruments/concorde-ap-disable.xml">
+   <name>Autopilot 2</name>
+   <condition>
+    <or>
+     <and>
+      <property>/sim/current-view/internal</property>
+      <property>/systems/seat/captain</property>
+      <less-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>350</value>
+      </less-than>
+      <greater-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>280</value>
+       </greater-than>
+      <greater-than>
+       <property>/sim/current-view/goal-pitch-offset-deg</property>
+       <value>-45</value>
+      </greater-than>
+      <less-than>
+       <property>/sim/current-view/goal-pitch-offset-deg</property>
+       <value>5</value>
+      </less-than>
+     </and>
+     <property>/controls/seat/all</property>
+    </or>
+   </condition>
+   <params>
+    <channel>/controls/autoflight/autopilot[1]/engage</channel>
+    <voltage>/systems/electrical/outputs/autopilot[2]</voltage>
+   </params>
+   <x>694</x>
+   <y>353</y>
+   <w>39</w>
+   <h>156</h>
+  </instrument>
+
+  <instrument include="Instruments/concorde-ap-heading-deg.xml">
+   <name>Heading 2 dial</name>
+   <condition>
+    <or>
+     <and>
+      <property>/sim/current-view/internal</property>
+      <property>/systems/seat/captain</property>
+      <less-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+        <value>345</value>
+      </less-than>
+      <greater-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>280</value>
+      </greater-than>
+       <greater-than>
+       <property>/sim/current-view/goal-pitch-offset-deg</property>
+       <value>-45</value>
+      </greater-than>
+      <greater-than>
+        <property>/sim/current-view/goal-pitch-offset-deg</property>
+      <value>-45</value>
+      </greater-than>
+      <less-than>
+       <property>/sim/current-view/goal-pitch-offset-deg</property>
+       <value>10</value>
+      </less-than>
+     </and>
+     <property>/controls/seat/all</property>
+    </or>
+   </condition>
+   <params>
+    <hdg-ctrl>/controls/autoflight/autopilot[1]/heading-select</hdg-ctrl>
+    <true-hdg-ctrl>/controls/autoflight/autopilot[1]/heading-true-select</true-hdg-ctrl>
+    <track-ctrl>/controls/autoflight/autopilot[1]/track-push</track-ctrl>
+   </params>
+   <x>745</x>
+   <y>395</y>
+   <w>100</w>
+   <h>100</h>
+  </instrument>
+
+  <instrument include="Instruments/concorde-ap-vor1-deg.xml">
+   <name>VOR 2 dial</name>
+   <condition>
+    <or>
+     <and>
+      <property>/sim/current-view/internal</property>
+      <property>/systems/seat/captain</property>
+      <less-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>345</value>
+       </less-than>
+      <greater-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>280</value>
+      </greater-than>
+      <greater-than>
+       <property>/sim/current-view/goal-pitch-offset-deg</property>
+        <value>-45</value>
+      </greater-than>
+      <less-than>
+       <property>/sim/current-view/goal-pitch-offset-deg</property>
+       <value>10</value>
+      </less-than>
+     </and>
+     <property>/controls/seat/all</property>
+    </or>
+   </condition>
+   <params>
+    <radial-ctrl>/instrumentation/nav[2]/radials/selected-deg</radial-ctrl>
+   </params>
+   <x>830</x>
+   <y>395</y>
+   <w>100</w>
+   <h>100</h>
+  </instrument>
+
+  <instrument include="Instruments/concorde-ap-disable-fd.xml">
+   <name>Flight Director 2</name>
+   <condition>
+    <or>
+     <and>
+      <property>/sim/current-view/internal</property>
+      <property>/systems/seat/captain</property>
+      <less-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>340</value>
+      </less-than>
+      <greater-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>275</value>
+      </greater-than>
+      <greater-than>
+        <property>/sim/current-view/goal-pitch-offset-deg</property>
+       <value>-45</value>
+      </greater-than>
+      <less-than>
+       <property>/sim/current-view/goal-pitch-offset-deg</property>
+       <value>10</value>
+      </less-than>
+     </and>
+     <property>/controls/seat/all</property>
+    </or>
+   </condition>
+   <params>
+    <flight-director>/controls/autoflight/flight-director[1]/engage</flight-director>
+   </params>
+   <x>925</x>
+   <y>353</y>
+   <w>39</w>
+   <h>156</h>
+  </instrument>
+
+  <instrument include="Instruments/concorde-ap-altitude-ft.xml">
+   <name>Altitude dial</name>
+   <condition>
+    <or>
+     <and>
+      <property>/sim/current-view/internal</property>
+      <property>/systems/seat/captain</property>
+      <less-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>340</value>
+      </less-than>
+      <greater-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>275</value>
+       </greater-than>
+      <greater-than>
+       <property>/sim/current-view/goal-pitch-offset-deg</property>
+       <value>-40</value>
+      </greater-than>
+      <less-than>
+       <property>/sim/current-view/goal-pitch-offset-deg</property>
+       <value>15</value>
+      </less-than>
+     </and>
+     <property>/controls/seat/all</property>
+    </or>
+   </condition>
+   <x>990</x>
+   <y>469</y>
+   <w>80</w>
+   <h>60</h>
+  </instrument>
+
+  <instrument include="Instruments/concorde-ap-altitude.xml">
+   <name>Altitude knob</name>
+   <condition>
+    <or>
+     <and>
+      <property>/sim/current-view/internal</property>
+      <property>/systems/seat/captain</property>
+      <less-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>340</value>
+      </less-than>
+      <greater-than>
+       <property>/sim/current-view/goal-heading-offset-deg</property>
+       <value>275</value>
+      </greater-than>
+      <greater-than>
+       <property>/sim/current-view/goal-pitch-offset-deg</property>
+       <value>-40</value>
+      </greater-than>
+      <less-than>
+       <property>/sim/current-view/goal-pitch-offset-deg</property>
+       <value>15</value>
+      </less-than>
+     </and>
+     <property>/controls/seat/all</property>
+    </or>
+   </condition>
+   <x>980</x>
+   <y>385</y>
+   <w>110</w>
+   <h>110</h>
+  </instrument>
+
+ </instruments>
+
+</PropertyList>

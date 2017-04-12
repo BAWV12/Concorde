@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+
+<!-- - caller must provide <w> and<h>.
+     - circular shape.
+-->
+
+<PropertyList>
+
+   <name>lamp on</name>
+   <texture>
+    <path>Aircraft/Concorde/Panels/Instruments/Textures/led.png</path>
+    <x1>0.5</x1>
+    <y1>0.75</y1>
+    <x2>0.75</x2>
+    <y2>1.0</y2>
+   </texture>
+   <emissive>true</emissive>
+
+</PropertyList>

@@ -1,0 +1,48 @@
+<?xml version="1.0"?>
+
+<PropertyList>
+ <name>Inhibit MWS</name>
+ <w-base>52</w-base>
+ <h-base>52</h-base>
+
+
+ <layers>
+
+  <layer>
+   <name>background</name>
+   <texture>
+    <path>Aircraft/Concorde/Panels/Instruments/Textures/concorde-white-knob.png</path>
+     <x1>0.0</x1>
+     <y1>0.0</y1>
+     <x2>1.0</x2>
+     <y2>1.0</y2>
+   </texture>
+   <w>26</w>
+   <h>26</h>
+  </layer>
+
+ </layers>
+ 
+ <actions>
+
+  <action>
+   <desc>Inhibit</desc>
+   <button>0</button>
+   <x>-13</x>
+   <y>-14</y>
+   <w>26</w>
+   <h>26</h>
+   <binding>
+    <command>property-assign</command>
+    <property>/controls/mws/inhibit</property>
+    <value>true</value>
+   </binding>
+   <binding>
+    <command>property-toggle</command>
+    <property>/instrumentation/generic/click</property>
+   </binding>
+  </action>
+
+ </actions>
+
+</PropertyList>

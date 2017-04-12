@@ -1,0 +1,663 @@
+<?xml version="1.0"?>
+
+<!-- Alarm on Autopilot :
+
+     - altimeter or IVSI failure on altitude hold.
+     - heading indicator failure on heading/track hold.
+     - radio altimeter failure on autoland.
+     - alpha greater than 17.5 deg, without autoland.
+     - attitude greater than 20 deg, without autoland.
+     - no voltage.
+     - falshes on test.
+     
+     
+     Alarm on Autothrottle :
+
+     - altitude acquired without autothrottle.
+     - glide or autoland without autothrottle.
+     - airspeed indicator out of order.
+     - no voltage.
+     - flashes on test.
+     
+     
+     ILS deviation :
+
+     - flashes if missing ILS.
+     - the white bars are not implemented.
+     - flashes on test.
+     
+
+     Landing display background :
+
+     - Warning on autoland 2 : at least 1 channel.
+     - Warning on autoland 3 : 2 channels.
+     - Warning on Decision height.
+-->
+
+<PropertyList>
+ <name>Landing display</name>
+ <w-base>325</w-base>
+ <h-base>75</h-base>
+ 
+ <params>
+  <test>/controls/autoflight/autopilot[0]/test-land</test>
+  <failure-sel>/systems/autopilot/state/failure[0]</failure-sel>
+  <serviceable-sel>/systems/autothrottle[0]/serviceable</serviceable-sel>
+  <decision-ctrl>/instrumentation/radio-altimeter[0]/decision-height</decision-ctrl>
+  <decision-ft>/instrumentation/radio-altimeter[0]/decision-ft</decision-ft>
+  <ft-sel>/instrumentation/radio-altimeter[0]/indicated-altitude-ft</ft-sel>
+ </params>
+
+
+ <layers>
+
+
+
+<!-- RED AP -->
+
+<!-- translucent lens -->
+  <layer>
+   <name>Alarm light</name>
+   <type>switch</type>
+
+   <layer>
+    <name>on</name>
+    <type>group</type>
+    <condition>
+     <and>
+      <not include="concorde-cond-voltage-bulb.xml"/>
+      <or>
+       <and>
+        <property alias="../../../../../../../../params/test"/>
+        <not include="concorde-cond-flashing-light.xml"/>
+       </and>
+       <and>
+        <not include="concorde-cond-flashing-light.xml"/>
+        <property alias="../../../../../../../../params/failure-sel"/>
+       </and>
+       <not include="concorde-cond-voltage-autopilot.xml"/>
+      </or>
+     </and>
+    </condition>
+
+    <layer include="concorde-bulb-on.xml">
+     <w>26</w>
+     <h>52</h>
+    </layer>
+    <layer>
+     <name>background on</name>
+     <texture>
+      <path>Aircraft/Concorde/Panels/Instruments/Textures/concorde-red-ap.png</path>
+       <x1>0.2</x1>
+       <y1>0.0</y1>
+       <x2>0.8</x2>
+       <y2>1.0</y2>
+     </texture>
+     <w>26</w>
+     <h>52</h>
+     <emissive>true</emissive>
+    </layer>
+  </layer>
+
+   <layer>
+    <name>off</name>
+    <type>group</type>
+
+    <layer include="concorde-bulb-off.xml">
+     <w>26</w>
+     <h>52</h>
+    </layer>
+    <layer>
+     <name>background off</name>
+     <texture>
+      <path>Aircraft/Concorde/Panels/Instruments/Textures/concorde-red-ap.png</path>
+       <x1>0.2</x1>
+       <y1>0.0</y1>
+       <x2>0.8</x2>
+       <y2>1.0</y2>
+     </texture>
+     <w>26</w>
+     <h>52</h>
+    </layer>
+   </layer>
+   <transformations>
+    <transformation>
+     <type>x-shift</type>
+     <offset>-90</offset>
+    </transformation>
+   </transformations>
+  </layer>
+
+<!-- RED AT -->
+
+<!-- translucent lens -->  
+  <layer>
+    <name>Alarm light</name>
+    <type>switch</type>
+
+    <layer>
+     <name>on</name>
+     <type>group</type>
+     <condition>
+      <and>
+       <not include="concorde-cond-voltage-bulb.xml"/>
+       <or>
+        <and>
+         <property alias="../../../../../../../../params/test"/>
+         <not include="concorde-cond-flashing-light.xml"/>
+        </and>
+        <and>
+         <not include="concorde-cond-flashing-light.xml"/>
+         <or>
+          <not>
+           <property alias="../../../../../../../../../../params/serviceable-sel"/>
+          </not>
+          <and>
+           <equals>
+            <property>/autopilot/locks/altitude</property>
+            <value>altitude-hold</value>
+           </equals>
+           <equals>
+            <property>/autopilot/locks/speed</property>
+            <value></value>
+           </equals>
+          </and>
+          <and>
+           <equals>
+            <property>/autopilot/locks/altitude</property>
+            <value>gs1-hold</value>
+           </equals>
+           <equals>
+            <property>/autopilot/locks/speed</property>
+            <value></value>
+           </equals>
+          </and>
+          <and>
+           <or include="concorde-cond-land.xml"/>       <!-- bug -->
+           <greater-than>
+            <property>/position/altitude-agl-ft</property>
+            <value>14</value> <!-- autoland stops below -->
+           </greater-than>
+           <equals>
+            <property>/controls/autoflight/speed</property>
+            <value></value>
+           </equals>
+          </and>
+          <and>
+           <not>
+            <property>/instrumentation/airspeed-indicator[0]/serviceable</property>
+           </not>
+           <not-equals>
+            <property>/autopilot/locks/speed</property>
+            <value></value>
+           </not-equals>
+          </and>
+         </or>
+        </and>
+        <not include="concorde-cond-voltage-autopilot.xml"/>
+       </or>
+      </and>
+     </condition>
+
+     <layer include="concorde-bulb-on.xml">
+      <w>26</w>
+      <h>52</h>
+     </layer>
+     <layer>
+      <name>background on</name>
+      <texture>
+       <path>Aircraft/Concorde/Panels/Instruments/Textures/concorde-red-at.png</path>
+        <x1>0.2</x1>
+        <y1>0.0</y1>
+        <x2>0.8</x2>
+        <y2>1.0</y2>
+      </texture>
+      <w>26</w>
+      <h>52</h>
+      <emissive>true</emissive>
+     </layer>
+    </layer>
+
+    <layer>
+     <name>off</name>
+     <type>group</type>
+ 
+     <layer include="concorde-bulb-off.xml">
+      <w>26</w>
+      <h>52</h>
+     </layer>
+     <layer>
+      <name>background off</name>
+      <texture>
+       <path>Aircraft/Concorde/Panels/Instruments/Textures/concorde-red-at.png</path>
+        <x1>0.2</x1>
+        <y1>0.0</y1>
+        <x2>0.8</x2>
+        <y2>1.0</y2>
+      </texture>
+      <w>26</w>
+      <h>52</h>
+     </layer>
+    </layer>
+   <transformations>
+    <transformation>
+     <type>x-shift</type>
+     <offset>-60</offset>
+    </transformation>
+   </transformations>
+  </layer>
+
+<!-- ILS DEVIATION -->
+
+<!-- translucent lens -->  
+  <layer>
+   <name>Warning light</name>
+   <type>switch</type>
+
+   <layer>
+    <name>off</name>
+    <type>group</type>
+    <condition>
+     <or include="concorde-cond-voltage-bulb.xml">
+      <and>
+       <or>
+        <or include="concorde-cond-flashing-light.xml"/>    <!-- bug -->
+        <not>
+         <property alias="../../../../../../../../../params/test"/>
+        </not>
+       </or>
+       <or include="concorde-cond-flashing-light.xml">
+        <and>
+         <not include="concorde-cond-land.xml"/>
+         <not-equals>
+          <property>/autopilot/locks/altitude</property>
+          <value>gs1-hold</value>
+         </not-equals>
+        </and>
+        <and>
+         <property>instrumentation/nav[0]/in-range</property>
+         <property>instrumentation/nav[0]/nav-loc</property>
+         <property>instrumentation/nav[0]/has-gs</property>
+        </and>
+       </or>
+      </and>
+     </or>
+    </condition>
+
+    <layer include="concorde-bulb-off.xml">
+     <w>52</w>
+     <h>52</h>
+    </layer>
+    <layer>
+     <name>background</name>
+     <texture>
+      <path>Aircraft/Concorde/Panels/Instruments/Textures/concorde-ils.png</path>
+     </texture>
+     <w>52</w>
+     <h>52</h>
+    </layer>
+   </layer>
+
+   <layer>
+    <name>on</name>
+    <type>group</type>
+
+    <layer include="concorde-bulb-on.xml">
+     <w>52</w>
+     <h>52</h>
+     <emissive>true</emissive>
+    </layer>
+    <layer>
+     <name>background lighted</name>
+     <texture>
+      <path>Aircraft/Concorde/Panels/Instruments/Textures/concorde-ils_yellow.png</path>
+     </texture>
+     <w>52</w>
+     <h>52</h>
+     <emissive>true</emissive>
+    </layer>
+   </layer>
+
+   <transformations>
+    <transformation>
+     <type>x-shift</type>
+     <offset>3</offset>
+    </transformation>
+   </transformations>
+  </layer>
+
+
+<!-- LANDING DISPLAY -->
+
+  <layer>
+   <name>background lighted</name>
+   <texture>
+    <path>Aircraft/Concorde/Panels/Instruments/Textures/concorde-black-bg.png</path>
+    <x1>0.7</x1>
+    <y1>0.8</y1>
+    <x2>1.0</x2>
+    <y2>0.9</y2>
+   </texture>
+   <w>52</w>
+   <h>52</h>
+   <transformations>
+    <transformation>
+     <type>x-shift</type>
+     <offset>70</offset>
+    </transformation>
+   </transformations>
+  </layer>
+  
+<!-- LAND 2 -->
+
+<!-- translucent lens -->  
+  <layer>
+    <name>Warning light</name>
+    <type>switch</type>
+
+    <layer>
+     <name>on</name>
+     <type>group</type>
+     <condition>
+      <and>
+       <not include="concorde-cond-voltage-bulb.xml"/>
+       <or>
+        <property alias="../../../../../../../params/test"/>
+        <property>/systems/autopilot/state/land2</property>
+       </or>
+      </and>
+     </condition>
+
+     <layer include="concorde-bulb-on.xml">
+      <w>22</w>
+      <h>22</h>
+     </layer>
+     <layer>
+      <name>background on</name>
+      <texture>
+       <path>Aircraft/Concorde/Panels/Instruments/Textures/concorde-green-land2.png</path>
+       <x1>0.0</x1>
+       <y1>0.0</y1>
+       <x2>1.0</x2>
+       <y2>1.0</y2>
+      </texture>
+      <w>22</w>
+      <h>22</h>
+      <emissive>true</emissive>
+     </layer>
+   </layer>
+
+    <layer>
+     <name>off</name>
+     <type>group</type>
+
+     <layer include="concorde-bulb-off.xml">
+      <w>22</w>
+      <h>22</h>
+     </layer>
+     <layer>
+      <name>background off</name>
+      <texture>
+       <path>Aircraft/Concorde/Panels/Instruments/Textures/concorde-green-land2.png</path>
+       <x1>0.0</x1>
+       <y1>0.0</y1>
+       <x2>1.0</x2>
+       <y2>1.0</y2>
+      </texture>
+      <w>22</w>
+      <h>22</h>
+     </layer>
+    </layer>
+
+   <transformations>
+    <transformation>
+     <type>x-shift</type>
+     <offset>59</offset>
+    </transformation>
+    <transformation>
+     <type>y-shift</type>
+     <offset>14</offset>
+    </transformation>
+   </transformations>
+  </layer>
+
+<!-- LAND 3 -->
+
+<!-- translucent lens -->  
+  <layer>
+    <name>Warning light</name>
+    <type>switch</type>
+
+    <layer>
+     <name>on</name>
+     <type>group</type>
+     <condition>
+      <and>
+       <not include="concorde-cond-voltage-bulb.xml"/>
+       <or>
+        <property alias="../../../../../../../params/test"/>
+        <property>/systems/autopilot/state/land3</property>
+       </or>
+      </and>
+     </condition>
+
+     <layer include="concorde-bulb-on.xml">
+      <w>22</w>
+      <h>22</h>
+     </layer>
+     <layer>
+      <name>background on</name>
+      <texture>
+       <path>Aircraft/Concorde/Panels/Instruments/Textures/concorde-green-land3.png</path>
+       <x1>0.0</x1>
+       <y1>0.0</y1>
+       <x2>1.0</x2>
+       <y2>1.0</y2>
+      </texture>
+      <w>22</w>
+      <h>22</h>
+      <emissive>true</emissive>
+     </layer>
+   </layer>
+
+   <layer>
+     <name>off</name>
+     <type>group</type>
+
+     <layer include="concorde-bulb-off.xml">
+      <w>22</w>
+      <h>22</h>
+     </layer>
+     <layer>
+      <name>background off</name>
+      <texture>
+       <path>Aircraft/Concorde/Panels/Instruments/Textures/concorde-green-land3.png</path>
+       <x1>0.0</x1>
+       <y1>0.0</y1>
+       <x2>1.0</x2>
+       <y2>1.0</y2>
+      </texture>
+      <w>22</w>
+      <h>22</h>
+     </layer>
+   </layer>
+
+   <transformations>
+    <transformation>
+     <type>x-shift</type>
+     <offset>59</offset>
+    </transformation>
+    <transformation>
+     <type>y-shift</type>
+     <offset>-12</offset>
+    </transformation>
+   </transformations>
+  </layer>
+  
+<!-- DECISION HEIGHT -->
+
+<!-- translucent lens -->  
+  <layer>
+    <name>Warning light</name>
+    <type>switch</type>
+
+    <layer>
+     <name>off</name>
+     <type>group</type>
+     <condition>
+      <or include="concorde-cond-voltage-bulb.xml">
+       <and>
+        <not>
+         <property alias="../../../../../../../../params/test"/>
+        </not>
+        <or>
+         <not>
+          <property alias="../../../../../../../../../params/decision-ctrl"/>
+         </not>
+         <greater-than-equals>
+          <property alias="../../../../../../../../../params/ft-sel"/>
+          <property n="1" alias="../../../../../../../../../params/decision-ft"/>
+         </greater-than-equals>
+        </or>
+       </and>
+      </or>
+     </condition>
+
+     <layer include="concorde-bulb-led-off.xml">
+      <w>22</w>
+      <h>22</h>
+     </layer>
+     <layer>
+      <name>background off</name>
+      <texture>
+       <path>Aircraft/Concorde/Panels/Instruments/Textures/concorde-amber-dh.png</path>
+        <x1>0.0</x1>
+        <y1>0.0</y1>
+        <x2>1.0</x2>
+        <y2>1.0</y2>
+       </texture>
+       <w>22</w>
+       <h>22</h>
+      </layer>
+    </layer>
+
+    <layer>
+     <name>on</name>
+     <type>group</type>
+
+     <layer include="concorde-bulb-led-on.xml">
+       <w>22</w>
+       <h>22</h>
+     </layer>
+     <layer>
+      <name>background on</name>
+      <texture>
+       <path>Aircraft/Concorde/Panels/Instruments/Textures/concorde-amber-dh.png</path>
+        <x1>0.0</x1>
+        <y1>0.0</y1>
+        <x2>1.0</x2>
+        <y2>1.0</y2>
+       </texture>
+       <w>22</w>
+       <h>22</h>
+       <emissive>true</emissive>
+      </layer>
+    </layer>
+     
+   <transformations>
+    <transformation>
+     <type>x-shift</type>
+     <offset>85</offset>
+    </transformation>
+    <transformation>
+     <type>y-shift</type>
+     <offset>14</offset>
+    </transformation>
+   </transformations>
+  </layer>
+
+<!-- TEST -->
+
+  <layer>
+   <name>background</name>
+   <texture>
+    <path>Aircraft/Concorde/Panels/Instruments/Textures/concorde-white-knob.png</path>
+     <x1>0.0</x1>
+     <y1>0.0</y1>
+     <x2>1.0</x2>
+     <y2>1.0</y2>
+   </texture>
+   <w>25</w>
+   <h>25</h>
+   <transformations>
+    <transformation>
+     <type>x-shift</type>
+     <offset>114</offset>
+    </transformation>
+    <transformation>
+     <type>y-shift</type>
+     <offset>3</offset>
+    </transformation>
+   </transformations>
+  </layer>
+
+  <layer>
+   <name>Title</name>
+   <type>text</type>
+   <point-size>9</point-size>
+   <color>
+    <red>1.0</red>
+    <green>1.0</green>
+    <blue>1.0</blue>
+   </color>
+   <chunks>
+    <chunk>
+     <type>literal</type>
+     <text>Test</text>
+    </chunk>
+   </chunks>
+   <transformations>
+    <transformation>
+     <type>x-shift</type>
+     <offset>103</offset>
+    </transformation>
+    <transformation>
+     <type>y-shift</type>
+     <offset>-17</offset>
+    </transformation>
+   </transformations>
+  </layer>
+
+ </layers>
+ 
+ <actions>
+
+  <action>
+   <desc>Test lights</desc>
+   <button>0</button>
+   <x>103</x>
+   <y>-7</y>
+   <w>25</w>
+   <h>25</h>
+   <binding>
+    <command>property-assign</command>
+    <property alias="../../../../params/test"/>
+    <value>true</value>
+    <repeatable>true</repeatable>
+   </binding>
+   <mod-up>
+    <binding>
+     <command>property-assign</command>
+     <property alias="../../../../../params/test"/>
+     <value>false</value>
+    </binding>
+    <binding>
+     <command>property-toggle</command>
+     <property>/instrumentation/generic/click</property>
+    </binding>
+   </mod-up>
+  </action>
+
+ </actions>
+
+</PropertyList>

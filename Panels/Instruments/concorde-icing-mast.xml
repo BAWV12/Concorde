@@ -1,0 +1,529 @@
+<?xml version="1.0"?>
+
+<!-- Drain mast heater selector :
+
+     - triple switch, because text would disturb the 2nd switch.
+-->
+
+<PropertyList>
+
+ <name>Drain mast heater selector</name>
+ <w-base>312</w-base>
+ <h-base>156</h-base>
+
+ <params>
+  <heater>/controls/anti-ice/mast/heater[0]</heater>
+  <heater2>/controls/anti-ice/mast/heater[1]</heater2>
+  <heater3>/controls/anti-ice/mast/heater[2]</heater3>
+  <standby>/controls/anti-ice/mast/standby[0]</standby>
+  <standby2>/controls/anti-ice/mast/standby[1]</standby2>
+  <standby3>/controls/anti-ice/mast/standby[2]</standby3>
+ </params>
+
+
+ <layers>
+
+  <layer>
+   <name>Title</name>
+   <type>text</type>
+   <point-size>10</point-size>
+   <color>
+    <red>1.0</red>
+    <green>1.0</green>
+    <blue>1.0</blue>
+   </color>
+   <chunks>
+    <chunk>
+     <type>literal</type>
+     <text>DRAIN  MAST  HTRS</text>
+    </chunk>
+   </chunks>
+   <transformations>
+    <transformation>
+     <type>x-shift</type>
+     <offset>-58</offset>
+    </transformation>
+    <transformation>
+     <type>y-shift</type>
+     <offset>55</offset>
+    </transformation>
+   </transformations>
+  </layer>
+
+  <layer>
+   <name>switch 1</name>
+   <type>switch</type>
+
+   <layer include="concorde-switch-3rd.xml">
+    <name>3rd state</name>
+    <condition>
+     <not>
+      <property alias="../../../../../../params/heater"/>
+     </not>
+    </condition>
+   </layer>
+
+   <layer include="concorde-switch-on.xml">
+    <name>on</name>
+    <condition>
+     <and>
+      <property alias="../../../../../../params/heater"/>
+      <not>
+       <property alias="../../../../../../../params/standby"/>
+      </not>
+     </and>
+    </condition>
+   </layer>
+
+   <layer include="concorde-switch-off.xml">
+    <name>off</name>
+   </layer>
+
+   <transformations>
+    <transformation>
+     <type>x-shift</type>
+     <offset>-48</offset>
+    </transformation>
+   </transformations>
+  </layer>
+
+  <layer>
+   <name>Title 1</name>
+   <type>text</type>
+   <point-size>10</point-size>
+   <color>
+    <red>1.0</red>
+    <green>1.0</green>
+    <blue>1.0</blue>
+   </color>
+   <chunks>
+    <chunk>
+     <type>literal</type>
+     <text>1</text>
+    </chunk>
+   </chunks>
+   <transformations>
+    <transformation>
+     <type>x-shift</type>
+     <offset>-50</offset>
+    </transformation>
+    <transformation>
+     <type>y-shift</type>
+     <offset>40</offset>
+    </transformation>
+   </transformations>
+  </layer>
+
+  <layer>
+   <name>switch 2</name>
+   <type>switch</type>
+
+   <layer include="concorde-switch-3rd.xml">
+    <name>3rd state</name>
+    <condition>
+     <not>
+      <property alias="../../../../../../params/heater2"/>
+     </not>
+    </condition>
+   </layer>
+
+   <layer include="concorde-switch-on.xml">
+    <name>on</name>
+    <condition>
+     <and>
+      <property alias="../../../../../../params/heater2"/>
+      <not>
+       <property alias="../../../../../../../params/standby2"/>
+      </not>
+     </and>
+    </condition>
+   </layer>
+
+   <layer include="concorde-switch-off.xml">
+    <name>off</name>
+   </layer>
+  </layer>
+
+  <layer>
+   <name>Title 2</name>
+   <type>text</type>
+   <point-size>10</point-size>
+   <color>
+    <red>1.0</red>
+    <green>1.0</green>
+    <blue>1.0</blue>
+   </color>
+   <chunks>
+    <chunk>
+     <type>literal</type>
+     <text>2</text>
+    </chunk>
+   </chunks>
+   <transformations>
+    <transformation>
+     <type>x-shift</type>
+     <offset>-2</offset>
+    </transformation>
+    <transformation>
+     <type>y-shift</type>
+     <offset>40</offset>
+    </transformation>
+   </transformations>
+  </layer>
+
+  <layer>
+   <name>switch 3</name>
+   <type>switch</type>
+
+   <layer include="concorde-switch-3rd.xml">
+    <name>3rd state</name>
+    <condition>
+     <not>
+      <property alias="../../../../../../params/heater3"/>
+     </not>
+    </condition>
+   </layer>
+
+   <layer include="concorde-switch-on.xml">
+    <name>on</name>
+    <condition>
+     <and>
+      <property alias="../../../../../../params/heater3"/>
+      <not>
+       <property alias="../../../../../../../params/standby3"/>
+      </not>
+     </and>
+    </condition>
+   </layer>
+
+   <layer include="concorde-switch-off.xml">
+    <name>off</name>
+   </layer>
+
+   <transformations>
+    <transformation>
+     <type>x-shift</type>
+     <offset>48</offset>
+    </transformation>
+   </transformations>
+  </layer>
+
+  <layer>
+   <name>Title 3</name>
+   <type>text</type>
+   <point-size>10</point-size>
+   <color>
+    <red>1.0</red>
+    <green>1.0</green>
+    <blue>1.0</blue>
+   </color>
+   <chunks>
+    <chunk>
+     <type>literal</type>
+     <text>3</text>
+    </chunk>
+   </chunks>
+   <transformations>
+    <transformation>
+     <type>x-shift</type>
+     <offset>45</offset>
+    </transformation>
+    <transformation>
+     <type>y-shift</type>
+     <offset>40</offset>
+    </transformation>
+   </transformations>
+  </layer>
+
+<!-- left title -->
+
+  <layer>
+   <name>On Title</name>
+   <type>text</type>
+   <point-size>10</point-size>
+   <color>
+    <red>1.0</red>
+    <green>1.0</green>
+    <blue>1.0</blue>
+   </color>
+   <chunks>
+    <chunk>
+     <type>literal</type>
+     <text>ON</text>
+    </chunk>
+   </chunks>
+   <transformations>
+    <transformation>
+     <type>x-shift</type>
+     <offset>-88</offset>
+    </transformation>
+    <transformation>
+     <type>y-shift</type>
+     <offset>30</offset>
+    </transformation>
+   </transformations>
+  </layer>
+
+  <layer>
+   <name>Off Title</name>
+   <type>text</type>
+   <point-size>10</point-size>
+   <color>
+    <red>1.0</red>
+    <green>1.0</green>
+    <blue>1.0</blue>
+   </color>
+   <chunks>
+    <chunk>
+     <type>literal</type>
+     <text>OFF</text>
+    </chunk>
+   </chunks>
+   <transformations>
+    <transformation>
+     <type>x-shift</type>
+     <offset>-85</offset>
+    </transformation>
+    <transformation>
+     <type>y-shift</type>
+     <offset>13</offset>
+    </transformation>
+    <transformation>
+     <type>rotation</type>
+     <offset>90</offset>
+    </transformation>
+   </transformations>
+  </layer>
+
+  <layer>
+   <name>On Title</name>
+   <type>text</type>
+   <point-size>10</point-size>
+   <color>
+    <red>1.0</red>
+    <green>1.0</green>
+    <blue>1.0</blue>
+   </color>
+   <chunks>
+    <chunk>
+     <type>literal</type>
+     <text>ON</text>
+    </chunk>
+   </chunks>
+   <transformations>
+    <transformation>
+     <type>x-shift</type>
+     <offset>-88</offset>
+    </transformation>
+    <transformation>
+     <type>y-shift</type>
+     <offset>-34</offset>
+    </transformation>
+   </transformations>
+  </layer>
+
+<!-- right title -->
+
+  <layer>
+   <name>On Title</name>
+   <type>text</type>
+   <point-size>10</point-size>
+   <color>
+    <red>1.0</red>
+    <green>1.0</green>
+    <blue>1.0</blue>
+   </color>
+   <chunks>
+    <chunk>
+     <type>literal</type>
+     <text>ON</text>
+    </chunk>
+   </chunks>
+   <transformations>
+    <transformation>
+     <type>x-shift</type>
+     <offset>73</offset>
+    </transformation>
+    <transformation>
+     <type>y-shift</type>
+     <offset>30</offset>
+    </transformation>
+   </transformations>
+  </layer>
+
+  <layer>
+   <name>Off Title</name>
+   <type>text</type>
+   <point-size>10</point-size>
+   <color>
+    <red>1.0</red>
+    <green>1.0</green>
+    <blue>1.0</blue>
+   </color>
+   <chunks>
+    <chunk>
+     <type>literal</type>
+     <text>OFF</text>
+    </chunk>
+   </chunks>
+   <transformations>
+    <transformation>
+     <type>x-shift</type>
+     <offset>78</offset>
+    </transformation>
+    <transformation>
+     <type>y-shift</type>
+     <offset>13</offset>
+    </transformation>
+    <transformation>
+     <type>rotation</type>
+     <offset>90</offset>
+    </transformation>
+   </transformations>
+  </layer>
+
+  <layer>
+   <name>On Title</name>
+   <type>text</type>
+   <point-size>10</point-size>
+   <color>
+    <red>1.0</red>
+    <green>1.0</green>
+    <blue>1.0</blue>
+   </color>
+   <chunks>
+    <chunk>
+     <type>literal</type>
+     <text>ON</text>
+    </chunk>
+   </chunks>
+   <transformations>
+    <transformation>
+     <type>x-shift</type>
+     <offset>73</offset>
+    </transformation>
+    <transformation>
+     <type>y-shift</type>
+     <offset>-34</offset>
+    </transformation>
+   </transformations>
+  </layer>
+
+ </layers>
+
+ <actions>
+
+  <action>
+   <name>toggle switch</name>
+   <button>0</button>
+   <x>-71</x>
+   <y>-19</y>
+   <w>44</w>
+   <h>44</h>
+   <binding>
+    <command>property-toggle</command>
+    <property alias="../../../../params/heater"/>
+   </binding>
+   <binding>
+    <command>property-toggle</command>
+    <property>/instrumentation/generic/click</property>
+   </binding>
+  </action>
+
+  <action>
+   <name>toggle standby</name>
+   <button>1</button>
+   <condition>
+    <property alias="../../../../params/heater"/>
+   </condition>
+   <x>-71</x>
+   <y>-19</y>
+   <w>44</w>
+   <h>44</h>
+   <binding>
+    <command>property-toggle</command>
+    <property alias="../../../../params/standby"/>
+   </binding>
+   <binding>
+    <command>property-toggle</command>
+    <property>/instrumentation/generic/click</property>
+   </binding>
+  </action>
+
+  <action>
+   <name>toggle switch 2</name>
+   <button>0</button>
+   <x>-22</x>
+   <y>-19</y>
+   <w>44</w>
+   <h>44</h>
+   <binding>
+    <command>property-toggle</command>
+    <property alias="../../../../params/heater2"/>
+   </binding>
+   <binding>
+    <command>property-toggle</command>
+    <property>/instrumentation/generic/click</property>
+   </binding>
+  </action>
+
+  <action>
+   <name>toggle standby 2</name>
+   <button>1</button>
+   <condition>
+    <property alias="../../../../params/heater2"/>
+   </condition>
+   <x>-22</x>
+   <y>-19</y>
+   <w>44</w>
+   <h>44</h>
+   <binding>
+    <command>property-toggle</command>
+    <property alias="../../../../params/standby2"/>
+   </binding>
+   <binding>
+    <command>property-toggle</command>
+    <property>/instrumentation/generic/click</property>
+   </binding>
+  </action>
+
+  <action>
+   <name>toggle switch 3</name>
+   <button>0</button>
+   <x>27</x>
+   <y>-19</y>
+   <w>44</w>
+   <h>44</h>
+   <binding>
+    <command>property-toggle</command>
+    <property alias="../../../../params/heater3"/>
+   </binding>
+   <binding>
+    <command>property-toggle</command>
+    <property>/instrumentation/generic/click</property>
+   </binding>
+  </action>
+
+  <action>
+   <name>toggle standby 3</name>
+   <button>1</button>
+   <condition>
+    <property alias="../../../../params/heater3"/>
+   </condition>
+   <x>27</x>
+   <y>-19</y>
+   <w>44</w>
+   <h>44</h>
+   <binding>
+    <command>property-toggle</command>
+    <property alias="../../../../params/standby3"/>
+   </binding>
+   <binding>
+    <command>property-toggle</command>
+    <property>/instrumentation/generic/click</property>
+   </binding>
+  </action>
+
+ </actions>
+ 
+</PropertyList>

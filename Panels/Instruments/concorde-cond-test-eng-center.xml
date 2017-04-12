@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+
+<!-- Test on warning lights of center engineer panel.
+-->
+
+<PropertyList>
+
+   <not>
+    <property>/controls/lighting/crew/engineer/center/test</property>
+   </not>
+
+</PropertyList>

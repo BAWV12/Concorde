@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+
+
+
+<PropertyList>
+  <sim>
+    <model>
+     <livery>
+      <name type="string">American Airlines</name>
+      <index type="int">1</index>
+      <texture>Liveries/AA.png</texture>
+     </livery>
+    </model>
+  </sim>
+</PropertyList>

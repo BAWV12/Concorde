@@ -1,0 +1,268 @@
+<!-- Fuel tank 5000 kg :
+
+     - collectors 1 to 4.
+     - auxilliary 5A and 7A.
+-->
+
+
+<PropertyList>
+ <name>Fuel Quantity</name>
+ <w-base>160</w-base>
+ <h-base>160</h-base>
+
+ <params>
+  <content-select>/consumables/fuel/tank[0]/level-gal_us</content-select>
+ </params>
+
+ <layers>
+
+  <layer include="concorde-gauge.xml"/>
+
+  <layer>
+   <name>background</name>
+   <w>110</w>
+   <h>110</h>
+   <texture>
+    <path>Aircraft/Concorde/Panels/Instruments/Textures/concorde-tank5.png</path>
+    <x1>0</x1>
+    <y1>0</y1>
+    <x2>1</x2>
+    <y2>1</y2>
+   </texture>
+  </layer>
+
+  <layer>
+   <name>number</name>
+   <type>switch</type>
+
+   <layer>
+    <name>1</name>
+    <condition>
+     <equals>
+      <property alias="../../../../../../params/name"/>
+      <value>1</value>
+     </equals>
+    </condition>
+    <texture>
+     <path>Aircraft/Concorde/Panels/Instruments/Textures/concorde-1.png</path>
+     <x1>0</x1>
+     <y1>0</y1>
+     <x2>1</x2>
+     <y2>1</y2>
+    </texture>
+    <w>25</w>
+    <h>25</h>
+   </layer>
+
+   <layer>
+    <name>2</name>
+    <condition>
+     <equals>
+      <property alias="../../../../../../params/name"/>
+      <value>2</value>
+     </equals>
+    </condition>
+    <texture>
+     <path>Aircraft/Concorde/Panels/Instruments/Textures/concorde-2.png</path>
+     <x1>0</x1>
+     <y1>0</y1>
+     <x2>1</x2>
+     <y2>1</y2>
+    </texture>
+    <w>25</w>
+    <h>25</h>
+   </layer>
+
+   <layer>
+    <name>3</name>
+    <condition>
+     <equals>
+      <property alias="../../../../../../params/name"/>
+      <value>3</value>
+     </equals>
+    </condition>
+    <texture>
+     <path>Aircraft/Concorde/Panels/Instruments/Textures/concorde-3.png</path>
+     <x1>0</x1>
+     <y1>0</y1>
+     <x2>1</x2>
+     <y2>1</y2>
+    </texture>
+    <w>25</w>
+    <h>25</h>
+   </layer>
+
+   <layer>
+    <name>4</name>
+    <condition>
+     <equals>
+      <property alias="../../../../../../params/name"/>
+      <value>4</value>
+     </equals>
+    </condition>
+    <texture>
+     <path>Aircraft/Concorde/Panels/Instruments/Textures/concorde-4.png</path>
+     <x1>0</x1>
+     <y1>0</y1>
+     <x2>1</x2>
+     <y2>1</y2>
+    </texture>
+    <w>25</w>
+    <h>25</h>
+   </layer>
+
+   <layer>
+    <name>5A</name>
+    <condition>
+     <equals>
+      <property alias="../../../../../../params/name"/>
+      <value>5A</value>
+     </equals>
+    </condition>
+    <texture>
+     <path>Aircraft/Concorde/Panels/Instruments/Textures/concorde-5A.png</path>
+     <x1>0</x1>
+     <y1>0</y1>
+     <x2>1</x2>
+     <y2>1</y2>
+    </texture>
+    <w>25</w>
+    <h>25</h>
+   </layer>
+
+   <layer>
+    <name>7A</name>
+    <texture>
+     <path>Aircraft/Concorde/Panels/Instruments/Textures/concorde-7A.png</path>
+     <x1>0</x1>
+     <y1>0</y1>
+     <x2>1</x2>
+     <y2>1</y2>
+    </texture>
+    <w>25</w>
+    <h>25</h>
+   </layer>
+   <transformations>
+    <transformation>
+     <type>x-shift</type>
+     <offset>-53</offset>
+    </transformation>
+    <transformation>
+     <type>y-shift</type>
+     <offset>60</offset>
+    </transformation>
+   </transformations>
+  </layer>
+
+  <layer>
+   <name>Power management</name>
+   <type>switch</type>
+
+   <layer>
+    <name>Level display</name>
+    <condition include="concorde-cond-voltage-inst.xml"/>
+    <type>text</type>
+    <font>led</font>
+    <point-size>5</point-size>
+    <color>
+     <red>1.0</red>
+     <green>1.0</green>
+     <blue>1.0</blue>
+    </color>
+    <chunks>
+     <chunk>
+      <type>number-value</type>
+       <property alias="../../../../../../params/lbs-select"/>
+      <format>%05.0f</format>
+      <scale>0.453592</scale> <!-- kg -->
+     </chunk>
+    </chunks>
+    <transformations>
+     <transformation>
+      <type>x-shift</type>
+      <offset>-16</offset>
+     </transformation>
+      <transformation>
+      <type>y-shift</type>
+      <offset>-49</offset>
+     </transformation>
+    </transformations>
+   </layer>
+
+   <layer>
+    <name>OFF flag</name>
+    <texture>
+     <path>Aircraft/Concorde/Panels/Instruments/Textures/misc-1.png</path>
+     <x1>0.9375</x1>
+     <y1>0.5</y1>
+     <x2>1.0</x2>
+     <y2>0.546875</y2>
+    </texture>
+    <w>25</w>
+    <h>8</h>
+    <transformations>
+     <transformation>
+      <type>x-shift</type>
+      <offset>0</offset>
+     </transformation>
+     <transformation>
+      <type>y-shift</type>
+      <offset>-45</offset>
+     </transformation>
+    </transformations>
+   </layer>
+  </layer>
+
+  <layer>
+   <name>needle</name>
+   <w>6</w>
+   <h>48</h>
+   <texture>
+    <path>Aircraft/Concorde/Panels/Instruments/Textures/misc-1.png</path>
+    <x1>0.8</x1>
+    <y1>0.78125</y1>
+    <x2>0.8375</x2>
+    <y2>1.0</y2>
+   </texture>
+   <transformations>
+    <transformation>
+     <type>rotation</type>
+      <condition include="concorde-cond-voltage-inst.xml"/>
+      <property alias="../../../../../params/lbs-select"/>
+      <min>0</min>
+      <max>16000</max> <!-- 6000 kg -->
+      <scale>0.021552</scale>
+      <offset>216</offset>
+    </transformation>
+    <transformation>
+     <type>y-shift</type>
+     <offset>20.0</offset>
+    </transformation>
+   </transformations>
+  </layer>
+
+  <layer>
+   <name>glare shield</name>
+   <texture>
+    <path>Aircraft/Concorde/Panels/Instruments/Textures/bezel1.png</path>
+    <x1>0.5</x1>
+    <y1>0.0</y1>
+    <x2>1.0</x2>
+    <y2>0.5</y2>
+   </texture>
+   <w>128</w>
+   <h>128</h>
+   <transformations>
+    <transformation>
+     <type>x-shift</type>
+     <offset>3</offset>
+    </transformation>
+    <transformation>
+     <type>y-shift</type>
+     <offset>-3</offset>
+    </transformation>
+   </transformations>
+  </layer>
+
+ </layers>
+</PropertyList>

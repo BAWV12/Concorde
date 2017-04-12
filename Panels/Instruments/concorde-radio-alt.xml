@@ -1,0 +1,265 @@
+<?xml version="1.0"?>
+
+<!-- Concorde radio altimeter :
+
+     - altitude must be offset of 11 ft, because of JSBSim.
+     - the dialed altitude is without offset.
+     - mouse 3rd button cancels decision height.
+-->
+
+<PropertyList>
+
+ <name>Radio altimeter</name>
+ <w-base>128</w-base>
+ <h-base>128</h-base>
+
+ <params>
+  <voltage>/systems/electrical/outputs/standby-radio-alt</voltage>
+  <serviceable>/instrumentation/radio-altimeter[0]/serviceable</serviceable>
+  <dial-ft>/instrumentation/radio-altimeter[0]/dial-decision-ft</dial-ft>
+  <decision-ft>/instrumentation/radio-altimeter[0]/decision-ft</decision-ft>
+  <ft-sel>/instrumentation/radio-altimeter[0]/indicated-altitude-ft</ft-sel>
+  <decision-ctrl>/instrumentation/radio-altimeter[0]/decision-height</decision-ctrl>
+ </params>
+
+
+ <layers>
+
+
+
+  <layer>
+   <name>background altimeter</name>
+   <texture>
+    <path>Aircraft/Concorde/Panels/Instruments/Textures/concorde-radio-alt.png</path>
+   </texture>
+   <w>109</w>
+   <h>109</h>
+  </layer>
+
+  <layer>
+   <name>OFF flag</name>
+   <condition>
+    <or>
+     <less-than-equals>
+      <property alias="../../../../../../params/voltage"/>
+      <value>20.0</value>
+     </less-than-equals>
+     <not>
+      <property alias="../../../../../../params/serviceable"/>
+     </not>
+    </or>
+   </condition>
+   <texture>
+    <path>Aircraft/Concorde/Panels/Instruments/Textures/misc-1.png</path>
+    <x1>0.9375</x1>
+    <y1>0.5</y1>
+    <x2>1.0</x2>
+    <y2>0.546875</y2>
+   </texture>
+   <w>26</w>
+   <h>15</h>
+   <transformations>
+    <transformation>
+     <type>x-shift</type>
+     <offset>30</offset>
+    </transformation>
+    <transformation>
+     <type>y-shift</type>
+     <offset>21</offset>
+    </transformation>
+    <transformation>
+     <type>rotation</type>
+     <offset>-45</offset>
+    </transformation>
+   </transformations>
+  </layer>
+  
+  <layer>
+   <name>DH bug</name>
+   <w>17</w>
+   <h>13</h>
+   <texture>
+    <path>Aircraft/Concorde/Panels/Instruments/Textures/hsi2.png</path>
+    <x1>0.8515625</x1>
+    <x2>0.953125</x2>
+    <y1>0.359375</y1>
+    <y2>0.4375</y2>
+   </texture>
+   <transformations>
+    <transformation>
+     <type>rotation</type>
+     <property alias="../../../../../params/dial-ft"/>
+     <scale>0.36</scale>
+    </transformation>
+    <transformation>
+     <type>y-shift</type>
+     <offset>44</offset>
+    </transformation>
+   </transformations>
+  </layer>
+
+  <layer>
+   <name>needle</name>
+   <texture>
+    <path>Aircraft/Concorde/Panels/Instruments/Textures/misc-1.png</path>
+    <x1>0.8</x1>
+    <y1>0.78125</y1>
+    <x2>0.8375</x2>
+    <y2>1.0</y2>
+   </texture>
+   <w>5</w>
+   <h>26</h>
+   <transformations>
+    <transformation>
+     <condition>
+      <and>
+       <greater-than>
+        <property alias="../../../../../../../../params/voltage"/>
+        <value>20.0</value>
+       </greater-than>
+       <property alias="../../../../../../../params/serviceable"/>
+      </and>
+     </condition>
+     <type>rotation</type>
+     <property alias="../../../../../params/ft-sel"/>
+     <min>11.0</min>
+     <max>2511.0</max>
+     <scale>1.0</scale>
+     <interpolation>
+      <entry><ind>  11</ind><dep>  0</dep></entry> <!-- offset 11 ft because of JSBSim -->
+      <entry><ind> 511</ind><dep>180</dep></entry>
+      <entry><ind>1511</ind><dep>270</dep></entry>
+      <entry><ind>2511</ind><dep>315</dep></entry>
+     </interpolation>
+    </transformation>
+    <transformation>
+     <type>y-shift</type>
+     <offset>29</offset> <!-- needle tail is black -->
+    </transformation>
+   </transformations>
+  </layer> 
+  
+  <layer>
+   <name>glare shield</name>
+   <texture>
+    <path>Aircraft/Concorde/Panels/Instruments/Textures/bezel1.png</path>
+    <x1>0.5</x1>
+    <y1>0.0</y1>
+    <x2>1.0</x2>
+    <y2>0.5</y2>
+   </texture>
+   <w>115</w>
+   <h>115</h>
+   <transformations>
+    <transformation>
+     <type>x-shift</type>
+     <offset>2</offset>
+    </transformation>
+    <transformation>
+     <type>y-shift</type>
+     <offset>-2</offset>
+    </transformation>
+   </transformations>
+  </layer>
+ 
+<!-- decision altitude -->
+
+  <layer>
+   <name>DH Knob</name>
+   <w>27</w>
+   <h>27</h>
+   <texture>
+    <path>Aircraft/Concorde/Panels/Instruments/Textures/hsi2.png</path>
+    <x1>0.0</x1>
+    <x2>0.171875</x2>
+    <y1>0.0</y1>
+    <y2>0.171875</y2>
+   </texture>
+   <transformations>
+    <transformation>
+     <type>x-shift</type>
+     <offset>46</offset>
+    </transformation>
+    <transformation>
+     <type>y-shift</type>
+     <offset>-46</offset>
+    </transformation>
+    <transformation>
+     <type>rotation</type>
+     <property alias="../../../../../params/dial-ft"/>
+     <scale>-5</scale>
+    </transformation>
+   </transformations>
+  </layer>
+
+ </layers>
+
+ <actions>
+
+  <action>
+   <name>Minus 10</name>
+   <button>0</button>
+   <x>36</x>
+   <y>-57</y>
+   <w>11</w>
+   <h>22</h>
+   <binding>
+    <command>property-adjust</command>
+    <property alias="../../../../params/decision-ft"/>
+    <step>-10</step>
+    <min>11</min>
+    <max>511</max>
+   </binding>
+   <binding>
+    <command>property-adjust</command>
+    <property alias="../../../../params/dial-ft"/>
+    <step>-10</step>
+    <min>0</min>
+    <max>500</max>
+   </binding>
+  </action>
+
+  <action>
+   <name>Plus 10</name>
+   <button>0</button>
+   <x>47</x>
+   <y>-57</y>
+   <w>11</w>
+   <h>22</h>
+   <binding>
+    <command>property-adjust</command>
+    <property alias="../../../../params/decision-ft"/>
+    <step>10</step>
+    <min>11</min>
+    <max>511</max>
+   </binding>
+   <binding>
+    <command>property-adjust</command>
+    <property alias="../../../../params/dial-ft"/>
+    <step>10</step>
+    <min>0</min>
+    <max>500</max>
+   </binding>
+  </action>
+
+  <action>
+   <name>Cancel Decision Height warning</name>
+   <button>1</button>
+   <x>36</x>
+   <y>-57</y>
+   <w>22</w>
+   <h>22</h>
+   <binding>
+    <command>property-assign</command>
+    <property alias="../../../../params/decision-ctrl"/>
+    <value>false</value>
+   </binding>
+   <binding>
+    <command>property-toggle</command>
+    <property>/instrumentation/generic/click</property>
+   </binding>
+  </action>
+
+ </actions>
+
+</PropertyList>

@@ -1,0 +1,77 @@
+<?xml version="1.0"?>
+
+<!-- Engine cross feed selector -->
+
+<PropertyList>
+ <name>Cross feed selector</name>
+ <w-base>30</w-base>
+ <h-base>30</h-base>
+
+ <params>
+  <engine-select>/controls/fuel/tank[0]/cross-feed-valve</engine-select>
+ </params>
+
+
+ <layers>
+
+  <layer>
+   <name>knob</name>
+   <texture>
+    <path>Aircraft/Concorde/Panels/Instruments/Textures/concorde-black-bg.png</path>
+     <x1>0.0</x1>
+     <y1>0.0</y1>
+     <x2>1.0</x2>
+     <y2>1.0</y2>
+   </texture>
+   <w>5</w>
+   <h>30</h>
+   <transformations>
+    <transformation>
+     <condition>
+      <property alias="../../../../../../params/engine-select"/>
+     </condition>
+     <type>rotation</type>
+     <offset>90</offset>
+    </transformation>
+   </transformations>
+  </layer>
+
+  <layer>
+   <name>background</name>
+   <texture>
+    <path>Aircraft/Concorde/Panels/Instruments/Textures/concorde-white-knob.png</path>
+     <x1>0.0</x1>
+     <y1>0.0</y1>
+     <x2>1.0</x2>
+     <y2>1.0</y2>
+   </texture>
+   <w>26</w>
+   <h>26</h>
+  </layer>
+
+ </layers>
+ 
+ <actions>
+
+  <action>
+   <desc>Toggle</desc>
+   <button>0</button>
+   <x>-13</x>
+   <y>-13</y>
+   <w>26</w>
+   <h>26</h>
+   <binding>
+    <command>property-toggle</command>
+    <property alias="../../../../params/engine-select"/>
+   </binding>
+   <mod-up>
+    <binding>
+     <command>property-toggle</command>
+     <property>/instrumentation/generic/click</property>
+    </binding>
+   </mod-up>
+  </action>
+
+ </actions>
+
+</PropertyList>
