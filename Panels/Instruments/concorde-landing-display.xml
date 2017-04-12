@@ -46,6 +46,7 @@
   <decision-ctrl>/instrumentation/radio-altimeter[0]/decision-height</decision-ctrl>
   <decision-ft>/instrumentation/radio-altimeter[0]/decision-ft</decision-ft>
   <ft-sel>/instrumentation/radio-altimeter[0]/indicated-altitude-ft</ft-sel>
+  <tmo-sel>/instrumentation/temperature[0]/indicated-tmo-degc</tmo-sel>
  </params>
 
 
@@ -149,6 +150,10 @@
         <and>
          <not include="concorde-cond-flashing-light.xml"/>
          <or>
+	 <greater-than>
+        	<property alias="../../../../../../../../../../params/tmo-sel"/>
+		<value>134</value>
+	 </greater-than>
           <not>
            <property alias="../../../../../../../../../../params/serviceable-sel"/>
           </not>
