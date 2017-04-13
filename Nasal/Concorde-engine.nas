@@ -724,9 +724,6 @@ Rating.autothrottle = func {
 	if (((monitor==0 or (monitor==1 and !me.is_takeoff(i))) and speedmach>n1gov) ) { 
             maxthrottle=( (100-60*(speedmach-n1gov))*0.0090 );
 	}
-        else {
-	  maxthrottle = me.level( i );        
-        }
 
 
          me.dependency["autothrottle"][i].getChild("u_max").setValue( maxthrottle );
