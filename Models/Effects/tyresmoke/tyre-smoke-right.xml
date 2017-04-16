@@ -20,7 +20,7 @@
 			<and>
 				<greater-than>
 					<property>systems/brakes/temperature-degc</property>
-					<value>220</value>
+					<value>500</value>
 				</greater-than>
 				<greater-than>
 					<property>gear/gear[2]/position-norm</property>
