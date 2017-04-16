@@ -807,6 +807,17 @@
 <!-- steering -->
 
   <model>
+   <name>Pedals</name>
+   <path>Aircraft/Concorde/Instruments/yoke/pedals.xml</path>
+   <offsets>
+    <x-m>-23.795</x-m>
+    <y-m>0.0</y-m>
+    <z-m> 0.428</z-m>
+   </offsets>
+  </model>
+
+
+  <model>
    <name>Captain Steering</name>
    <path>Aircraft/Concorde/Instruments/yoke/steering.xml</path>
    <offsets>
