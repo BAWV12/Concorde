@@ -228,7 +228,7 @@
     <independentVar lookup="column">atmosphere/density-altitude</independentVar>
     <independentVar lookup="table">fcs/intake-subsonic-pos</independentVar>
     <tableData breakPoint="0">
-          -10000      0  10000  20000  30000  40000  50000  60000  75000
+          -10000      0  10000  20000  30000  40000  50000  60000  85000
     0.0   1.1816 1.0000 0.8184 0.6627 0.5280 0.3756 0.2327 0.1280   0.01
     0.2   1.1308 0.9599 0.7890 0.6406 0.5116 0.3645 0.2258 0.1242   0.01
     0.4   1.1150 0.9474 0.7798 0.6340 0.5070 0.3615 0.2240 0.1232   0.01
