@@ -78,8 +78,8 @@ Constantaero.new = func {
                LANDINGKT : 190,
                VREMPTYKT : 180,                                  # guess
                V1FULLKT : 165,
-               VREFFULLKT : 162,
-               VREFEMPTYKT : 152,
+               VREFFULLKT : 182,
+               VREFEMPTYKT : 172,
                V1EMPTYKT : 150,                                  # guess
                TAXIKT : 15,
 
