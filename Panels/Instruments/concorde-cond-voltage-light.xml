@@ -9,15 +9,15 @@
 
    <or>
     <greater-than>
-     <property>/systems/electrical/outputs/specific</property>
+     <property>systems/electrical/outputs/specific</property>
      <value>20.0</value>
     </greater-than>
     <greater-than>
-     <property>/systems/electrical/outputs/probe/ac-ground-flight[0]</property>
+     <property>systems/electrical/outputs/probe/ac-ground-flight[0]</property>
      <value>20.0</value>
     </greater-than>
     <greater-than>
-     <property>/systems/electrical/outputs/probe/ac-ground-flight[1]</property>
+     <property>systems/electrical/outputs/probe/ac-ground-flight[1]</property>
      <value>20.0</value>
     </greater-than>
    </or>
