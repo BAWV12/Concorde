@@ -83,6 +83,53 @@
    <callsign type="string">Speedbird Concorde 1</callsign>
   </user>
 
+
+
+    <multiplay>
+        <generic>
+            <int n="0" alias="/controls/lighting/external/strobe/state"/>
+            <int n="1" alias="/engines/engine[0]/augmentation"/>
+            <int n="2" alias="/engines/engine[1]/augmentation"/>
+            <int n="3" alias="/engines/engine[2]/augmentation"/>
+            <int n="4" alias="/engines/engine[3]/augmentation"/>
+            <int n="5" alias="/engines/engine[0]/running"/>
+            <int n="6" alias="/engines/engine[1]/running"/>
+            <int n="7" alias="/engines/engine[2]/running"/>
+            <int n="8" alias="/engines/engine[3]/running"/>
+            <int n="9" alias="/environment/contrail"/>
+            <int n="10" alias="/gear/gear/tyre-smoke"/>
+            <int n="11" alias="/controls/lighting/nav-lights"/>
+            <int n="12" alias="/controls/lighting/external/landing-taxi[0]/on"/>
+            <int n="13" alias="/controls/lighting/external/main-landing[0]/on"/>
+            <int n="14" alias="/controls/lighting/external/landing-taxi[1]/on"/>
+            <int n="15" alias="/controls/lighting/external/main-landing[1]/on"/>
+            <int n="16" alias="/controls/lighting/external/taxi-turn[0]/on"/>
+            <int n="17" alias="/controls/lighting/external/taxi-turn[1]/on"/>
+            <float n="0" alias="/orientation/alpha-deg"/>
+            <float n="1" alias="/systems/brakes/temperature-degc"/>
+            <float n="2" alias="/gear/gear[4]/position-norm"/>
+            <float n="3" alias="/systems/engines/engine[0]/bucket-deg"/>
+            <float n="4" alias="/systems/engines/engine[1]/bucket-deg"/>
+            <float n="5" alias="/systems/engines/engine[2]/bucket-deg"/>
+            <float n="6" alias="/systems/engines/engine[3]/bucket-deg"/>
+            <float n="7" alias="/engines/engine[0]/nozzle-pos-norm"/>
+            <float n="8" alias="/engines/engine[1]/nozzle-pos-norm"/>
+            <float n="9" alias="/engines/engine[2]/nozzle-pos-norm"/>
+            <float n="10" alias="/engines/engine[3]/nozzle-pos-norm"/>
+            <float n="11" alias="/systems/electrical/outputs/specific"/>
+            <float n="12" alias="/systems/electrical/outputs/probe/ac-ground-flight[0]"/>
+            <float n="13" alias="/systems/electrical/outputs/probe/ac-ground-flight[1]"/>
+            <float n="14" alias="/controls/lighting/external/main-landing[0]/norm"/>
+            <float n="15" alias="/controls/lighting/external/main-landing[1]/norm"/>
+            <float n="16" alias="/controls/lighting/external/landing-taxi[0]/norm"/>
+            <float n="17" alias="/controls/lighting/external/landing-taxi[1]/norm"/>
+            <float n="18" alias="/controls/lighting/external/interpolate/on"/>
+<!--            <float n="19" alias="/velocities/airspeed-kt"/>-->
+        </generic>
+    </multiplay>
+
+<flight-recorder include="Systems/flight-recorder.xml"/>
+
  </sim>
 
  <aircraft>
@@ -317,5 +364,10 @@
     <running>true</running>
   </engine>
  </engines>
+
+
+
+
+
 
 </PropertyList>
