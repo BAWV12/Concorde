@@ -72,36 +72,22 @@
 	<lighting type="bool">false</lighting>
 
 	<condition>
-	<and>
+	  <and>
+		<or>
+		<greater-than>
+		<property>velocities/true-airspeed-kt</property>
+		<value>130</value>
+		</greater-than>
 		<greater-than>
 		<property>velocities/airspeed-kt</property>
 		<value>130</value>
 		</greater-than>
-		<less-than>
-		<property>velocities/airspeed-kt</property>
-		<value>450</value>
-		</less-than>
+		</or>
 		<greater-than>
 		<property>orientation/alpha-deg</property>
 		<value>8</value>
 		</greater-than>
-		<greater-than>
-		<property>environment/relative-humidity</property>
-		<value>50</value>
-		</greater-than>
-		<greater-than>
-		<property>position/altitude-agl-ft</property>
-		<value>0</value>
-		</greater-than>
-		<less-than>
-		<property>position/altitude-agl-ft</property>
-		<value>8000</value>
-		</less-than>
-		<less-than>
-		<property>environment/temperature-degc</property>
-		<value>28</value>
-		</less-than>
-	</and>
+	  </and>
 	</condition>
 
 	<attach>world</attach>
