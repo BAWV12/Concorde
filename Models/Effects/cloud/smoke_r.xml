@@ -29,7 +29,7 @@
 
     <condition>
      <and>
-      <property>/controls/environment/smoke</property>
+<!--      <property>/controls/environment/smoke</property>-->
       <property alias="/params/rh"/>
      </and>
     </condition>
