@@ -78,6 +78,9 @@
 
             <signals>
                 <signal>
+                    <type>float</type><property type="string">systems/brakes/temperature-degc</property>
+                </signal>
+	        <signal>
                     <type>float</type><property type="string">controls/lighting/external/interpolate/on</property>
                 </signal>
                 <signal>
