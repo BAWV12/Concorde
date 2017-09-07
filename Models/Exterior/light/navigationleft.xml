@@ -33,7 +33,6 @@
   <object-name>NavigationLeft</object-name>
   <condition>
    <and include="../../../Panels/Instruments/concorde-cond-voltage-light.xml">
-    <property>controls/lighting/nav-lights</property>
    </and>
   </condition>
  </animation>

@@ -35,7 +35,6 @@
   <object-name>NavigationTail</object-name>
   <condition>
    <and include="../../../Panels/Instruments/concorde-cond-voltage-light.xml">
-    <property>controls/lighting/nav-lights</property>
     <not>
      <property>controls/lighting/external/strobe/state</property>
     </not>
