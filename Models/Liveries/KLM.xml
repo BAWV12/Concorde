@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+
+<!-- BA livery of original model. -->
+
+<PropertyList>
+  <sim>
+    <model>
+     <livery>
+      <name type="string">Fictional KLM</name>
+      <index type="int">18</index>
+      <texture>Liveries/KLM.png</texture>
+     </livery>
+    </model>
+  </sim>
+</PropertyList>
