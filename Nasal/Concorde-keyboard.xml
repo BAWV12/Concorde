@@ -15,8 +15,8 @@
     </binding>
    </key>
 
-   <key n="2">
-    <name>Ctrl-B</name>
+   <key n="127">
+    <name>DEL</name>
     <desc>reverse thrust</desc>
     <binding>
      <command>nasal</command>
