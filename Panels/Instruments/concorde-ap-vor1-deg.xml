@@ -62,60 +62,7 @@
    </transformations>
   </layer>
 
-  <layer>
-   <name>Title</name>
-   <type>text</type>
-   <point-size>10</point-size>
-   <color>
-    <red>1.0</red>
-    <green>1.0</green>
-    <blue>1.0</blue>
-   </color>
-   <chunks>
-    <chunk>
-     <type>literal</type>
-     <text>VOR</text>
-    </chunk>
-   </chunks>
-   <transformations>
-    <transformation>
-     <type>x-shift</type>
-     <offset>-26</offset>
-    </transformation>
-    <transformation>
-     <type>y-shift</type>
-     <offset>-31</offset>
-    </transformation>
-   </transformations>
-  </layer>
-
-  <layer>
-   <name>Title right</name>
-   <type>text</type>
-   <point-size>10</point-size>
-   <color>
-    <red>1.0</red>
-    <green>1.0</green>
-    <blue>1.0</blue>
-   </color>
-   <chunks>
-    <chunk>
-     <type>literal</type>
-     <text>REF</text>
-    </chunk>
-   </chunks>
-   <transformations>
-    <transformation>
-     <type>x-shift</type>
-     <offset>30</offset>
-    </transformation>
-    <transformation>
-     <type>y-shift</type>
-     <offset>-31</offset>
-    </transformation>
-   </transformations>
-  </layer>
-
+<!--
   <layer>
    <name>Knob</name>
    <w>25</w>
@@ -143,7 +90,7 @@
     </transformation>
    </transformations>
   </layer>
-
+-->
  </layers>
 
  <actions>
