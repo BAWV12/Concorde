@@ -1,0 +1,272 @@
+<?xml version="1.0"?>
+<PropertyList>
+
+ <params>
+  <hdg-ctrl0>/controls/autoflight/autopilot[0]/heading-select</hdg-ctrl0>
+  <true-hdg-ctrl0>/controls/autoflight/autopilot[0]/heading-true-select</true-hdg-ctrl0>
+  <track-ctrl0>/controls/autoflight/autopilot[0]/track-push</track-ctrl0>
+  <hdg-ctrl1>/controls/autoflight/autopilot[1]/heading-select</hdg-ctrl1>
+  <true-hdg-ctrl1>/controls/autoflight/autopilot[1]/heading-true-select</true-hdg-ctrl1>
+  <track-ctrl1>/controls/autoflight/autopilot[1]/track-push</track-ctrl1>
+ </params>
+
+
+  <path>../Models/autopilot.ac</path>
+  <!-- Heading 1 Select -->
+  <animation>
+    <type>translate</type>
+    <object-name>HDG1Select</object-name>
+    <property>controls/autoflight/autopilot[0]/track-push</property>
+    <factor>-.005</factor>
+    <axis>
+      <x>1</x>
+      <y>0</y>
+      <z>0</z>
+    </axis>
+  </animation>
+  <animation>
+    <type>pick</type>
+    <object-name>HDG1Select</object-name>
+    <action>
+      <name>Heading Track Push</name>
+      <button>1</button>
+      <repeatable>false</repeatable>
+      <binding>
+        <command>property-toggle</command>
+        <property>controls/autoflight/autopilot[0]/track-push</property>
+      </binding>
+    </action>
+    <action>
+      <name>Heading Up</name>
+      <button>3</button>
+      <repeatable>false</repeatable>
+
+   <binding>
+    <condition>
+     <property alias="../../../../../params/track-ctrl0"/>
+    </condition>
+    <command>property-adjust</command>
+    <property alias="../../../../params/true-hdg-ctrl0"/>
+    <step>1</step>
+    <min>0</min>
+    <max>360</max>
+    <wrap>1</wrap>
+   </binding>
+   <binding>
+    <condition>
+     <not>
+      <property alias="../../../../../../params/track-ctrl0"/>
+     </not>
+    </condition>
+    <command>property-adjust</command>
+    <property alias="../../../../params/hdg-ctrl0"/>
+    <step>1</step>
+    <min>0</min>
+    <max>360</max>
+    <wrap>1</wrap>
+   </binding>
+
+      <binding>
+        <command>nasal</command>
+        <script>globals.Concorde.autopilotsystem.apsendheadingexport();</script>
+      </binding>
+    </action>
+    <action>
+      <name>Heading Down</name>
+      <button>4</button>
+      <repeatable>false</repeatable>
+
+   <binding>
+    <condition>
+     <property alias="../../../../../params/track-ctrl0"/>
+    </condition>
+    <command>property-adjust</command>
+    <property alias="../../../../params/true-hdg-ctrl0"/>
+    <step>-1</step>
+    <min>0</min>
+    <max>360</max>
+    <wrap>1</wrap>
+   </binding>
+   <binding>
+    <condition>
+     <not>
+      <property alias="../../../../../../params/track-ctrl0"/>
+     </not>
+    </condition>
+    <command>property-adjust</command>
+    <property alias="../../../../params/hdg-ctrl0"/>
+    <step>-1</step>
+    <min>0</min>
+    <max>360</max>
+    <wrap>1</wrap>
+   </binding>
+
+      <binding>
+        <command>nasal</command>
+        <script>globals.Concorde.autopilotsystem.apsendheadingexport();</script>
+      </binding>
+    </action>
+  </animation>
+  <!-- Heading 2 Select -->
+  <animation>
+    <type>translate</type>
+    <object-name>HDG2Select</object-name>
+    <property>controls/autoflight/autopilot[1]/track-push</property>
+    <factor>-.005</factor>
+    <axis>
+      <x>1</x>
+      <y>0</y>
+      <z>0</z>
+    </axis>
+  </animation>
+  <animation>
+    <type>pick</type>
+    <object-name>HDG2Select</object-name>
+    <action>
+      <name>Heading 2 Track Push</name>
+      <button>1</button>
+      <repeatable>false</repeatable>
+      <binding>
+        <command>property-toggle</command>
+        <property>controls/autoflight/autopilot[1]/track-push</property>
+      </binding>
+    </action>
+  </animation>
+  <animation>
+    <type>pick</type>
+    <object-name>HDG2Select</object-name>
+    <action>
+      <name>Heading Up</name>
+      <button>3</button>
+      <repeatable>false</repeatable>
+
+   <binding>
+    <condition>
+     <property alias="../../../../../params/track-ctrl1"/>
+    </condition>
+    <command>property-adjust</command>
+    <property alias="../../../../params/true-hdg-ctrl1"/>
+    <step>1</step>
+    <min>0</min>
+    <max>360</max>
+    <wrap>1</wrap>
+   </binding>
+   <binding>
+    <condition>
+     <not>
+      <property alias="../../../../../../params/track-ctrl1"/>
+     </not>
+    </condition>
+    <command>property-adjust</command>
+    <property alias="../../../../params/hdg-ctrl1"/>
+    <step>1</step>
+    <min>0</min>
+    <max>360</max>
+    <wrap>1</wrap>
+   </binding>
+
+      <binding>
+        <command>nasal</command>
+        <script>globals.Concorde.autopilotsystem.apsendheadingexport();</script>
+      </binding>
+    </action>
+    <action>
+      <name>Heading Down</name>
+      <button>4</button>
+      <repeatable>false</repeatable>
+
+   <binding>
+    <condition>
+     <property alias="../../../../../params/track-ctrl1"/>
+    </condition>
+    <command>property-adjust</command>
+    <property alias="../../../../params/true-hdg-ctrl1"/>
+    <step>-1</step>
+    <min>0</min>
+    <max>360</max>
+    <wrap>1</wrap>
+   </binding>
+   <binding>
+    <condition>
+     <not>
+      <property alias="../../../../../../params/track-ctrl1"/>
+     </not>
+    </condition>
+    <command>property-adjust</command>
+    <property alias="../../../../params/hdg-ctrl1"/>
+    <step>-1</step>
+    <min>0</min>
+    <max>360</max>
+    <wrap>1</wrap>
+   </binding>
+
+      <binding>
+        <command>nasal</command>
+        <script>globals.Concorde.autopilotsystem.apsendheadingexport();</script>
+      </binding>
+    </action>
+  </animation>
+  <!-- Vor 1 Select -->
+  <animation>
+    <type>pick</type>
+    <object-name>VOR1Select</object-name>
+    <action>
+      <name>VOR Heading Up</name>
+      <button>3</button>
+      <repeatable>false</repeatable>
+      <binding>
+        <command>property-adjust</command>
+        <property>instrumentation/nav[1]/radials/selected-deg</property>
+        <step>1</step>
+        <min>0</min>
+        <max>360</max>
+        <wrap>true</wrap>
+      </binding>
+    </action>
+    <action>
+      <name>VOR Heading Down</name>
+      <button>4</button>
+      <repeatable>false</repeatable>
+      <binding>
+        <command>property-adjust</command>
+        <property>instrumentation/nav[1]/radials/selected-deg</property>
+        <step>-1</step>
+        <min>0</min>
+        <max>360</max>
+        <wrap>true</wrap>
+      </binding>
+    </action>
+  </animation>
+  <!-- Vor 2 Select -->
+  <animation>
+    <type>pick</type>
+    <object-name>VOR2Select</object-name>
+    <action>
+      <name>VOR 2 Heading Up</name>
+      <button>3</button>
+      <repeatable>false</repeatable>
+      <binding>
+        <command>property-adjust</command>
+        <property>instrumentation/nav[2]/radials/selected-deg</property>
+        <step>1</step>
+        <min>0</min>
+        <max>360</max>
+        <wrap>true</wrap>
+      </binding>
+    </action>
+    <action>
+      <name>VOR 2 Heading Down</name>
+      <button>4</button>
+      <repeatable>false</repeatable>
+      <binding>
+        <command>property-adjust</command>
+        <property>instrumentation/nav[2]/radials/selected-deg</property>
+        <step>-1</step>
+        <min>0</min>
+        <max>360</max>
+        <wrap>true</wrap>
+      </binding>
+    </action>
+  </animation>
+
+</PropertyList>
