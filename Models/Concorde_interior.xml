@@ -22,6 +22,18 @@
     </offsets>
   </model>
 
+  <model>
+    <name>Autopilot</name>
+    <path>Aircraft/Concorde/Models/Cockpit/Instruments/autopilot.xml</path>
+    <offsets>
+      <x-m>-23.805</x-m>
+      <y-m>0</y-m>
+      <z-m>1.355</z-m>
+      <pitch-deg>-15</pitch-deg>
+    </offsets>
+  </model>
+
+
 <!--
 
   <model>
