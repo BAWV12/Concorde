@@ -33,6 +33,27 @@
     </offsets>
   </model>
 
+ <model>
+    <name>Radio Selector</name>
+    <path>Aircraft/Concorde/Models/Cockpit/Instruments/nav1.xml</path>
+    <offsets>
+      <x-m>-23.80</x-m>
+      <y-m>-0.2665</y-m>
+      <z-m>1.341</z-m>
+      <pitch-deg>-15</pitch-deg>
+    </offsets>
+  </model>
+
+  <model>
+    <name>Co Radio Selector</name>
+    <path>Aircraft/Concorde/Models/Cockpit/Instruments/nav2.xml</path>
+    <offsets>
+      <x-m>-23.80</x-m>
+      <y-m>0.2665</y-m>
+      <z-m>1.341</z-m>
+      <pitch-deg>-15</pitch-deg>
+    </offsets>
+  </model>
 
 <!--
 
