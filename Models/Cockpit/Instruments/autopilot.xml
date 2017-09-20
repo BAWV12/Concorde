@@ -12,6 +12,279 @@
 
 
   <path>../Models/autopilot.ac</path>
+
+
+  <animation>
+    <type>rotate</type>
+    <object-name>HDG1Select</object-name>
+    <property>controls/autoflight/autopilot[0]/heading-select</property>
+    <factor>15</factor>
+    <condition>
+	<not><property>controls/autoflight/autopilot[0]/track-push</property></not>
+    </condition>
+    <center>
+      <x-m>0.0123</x-m>
+      <y-m>-0.07625</y-m>
+      <z-m>-0.04464</z-m>
+    </center>
+    <axis>
+      <x>-1</x>
+      <y>0</y>
+      <z>0</z>
+    </axis>
+  </animation>
+
+  <animation>
+    <type>rotate</type>
+    <object-name>HDG1Select</object-name>
+    <property>controls/autoflight/autopilot[0]/heading-true-select</property>
+    <factor>15</factor>
+    <condition>
+	<property>controls/autoflight/autopilot[0]/track-push</property>
+    </condition>
+    <center>
+      <x-m>0.0123</x-m>
+      <y-m>-0.07625</y-m>
+      <z-m>-0.04464</z-m>
+    </center>
+    <axis>
+      <x>-1</x>
+      <y>0</y>
+      <z>0</z>
+    </axis>
+  </animation>
+
+  <animation>
+    <type>rotate</type>
+    <object-name>HDG2Select</object-name>
+    <property>controls/autoflight/autopilot[1]/heading-select</property>
+    <factor>15</factor>
+    <condition>
+	<not><property>controls/autoflight/autopilot[1]/track-push</property></not>
+    </condition>
+    <center>
+      <x-m>0.0123</x-m>
+      <y-m>0.06450</y-m>
+      <z-m>-0.04464</z-m>
+    </center>
+    <axis>
+      <x>-1</x>
+      <y>0</y>
+      <z>0</z>
+    </axis>
+  </animation>
+
+  <animation>
+    <type>rotate</type>
+    <object-name>HDG2Select</object-name>
+    <property>controls/autoflight/autopilot[1]/heading-true-select</property>
+    <factor>15</factor>
+    <condition>
+	<property>controls/autoflight/autopilot[1]/track-push</property>
+    </condition>
+    <center>
+      <x-m>0.0123</x-m>
+      <y-m>0.06450</y-m>
+      <z-m>-0.04464</z-m>
+    </center>
+    <axis>
+      <x>-1</x>
+      <y>0</y>
+      <z>0</z>
+    </axis>
+  </animation>
+
+
+  <animation>
+    <type>rotate</type>
+    <object-name>VOR1Select</object-name>
+    <property>instrumentation/nav[1]/radials/selected-deg</property>
+    <factor>-15</factor>
+    <axis>
+
+   <x1-m> -10</x1-m>
+   <y1-m> -0.033</y1-m>
+   <z1-m>-0.0446</z1-m>
+   <x2-m> 10</x2-m>
+   <y2-m>-0.033</y2-m>
+   <z2-m>-0.0446</z2-m>
+
+    </axis>
+  </animation>
+
+  <animation>
+    <type>rotate</type>
+    <object-name>VOR2Select</object-name>
+    <property>instrumentation/nav[2]/radials/selected-deg</property>
+    <factor>-15</factor>
+    <axis>
+
+   <x1-m> -10</x1-m>
+   <y1-m> 0.10471</y1-m>
+   <z1-m>-0.0446</z1-m>
+   <x2-m> 10</x2-m>
+   <y2-m>0.10471</y2-m>
+   <z2-m>-0.0446</z2-m>
+
+    </axis>
+  </animation>
+
+
+
+  <!-- Altitude Select -->
+
+  <animation>
+    <type>rotate</type>
+    <object-name>AltSelect</object-name>
+    <property>controls/autoflight/altitude-select</property>
+    <factor>.01</factor>
+    <center>
+      <x-m>0.145</x-m>
+      <y-m>0.17482</y-m>
+      <z-m>-0.03555</z-m>
+    </center>
+    <axis>
+      <x>-1</x>
+      <y>0</y>
+      <z>0</z>
+    </axis>
+  </animation>
+  <animation>
+    <type>pick</type>
+    <object-name>AltSelect</object-name>
+    <action>
+      <name>Alt 100 Up</name>
+      <button>0</button>
+      <repeatable>false</repeatable>
+      <binding>
+        <command>property-adjust</command>
+        <property>controls/autoflight/altitude-select</property>
+        <step>100</step>
+        <min>0</min>
+        <max>60000</max>
+        <wrap>false</wrap>
+      </binding>
+    </action>
+    <action>
+      <name>Alt 100 Down</name>
+      <button>1</button>
+      <repeatable>false</repeatable>
+      <binding>
+        <command>property-adjust</command>
+        <property>controls/autoflight/altitude-select</property>
+        <step>-100</step>
+        <min>0</min>
+        <max>60000</max>
+        <wrap>false</wrap>
+      </binding>
+    </action>
+    <action>
+      <name>Alt 1000 Up</name>
+      <button>3</button>
+      <repeatable>false</repeatable>
+      <binding>
+        <command>property-adjust</command>
+        <property>controls/autoflight/altitude-select</property>
+        <step>1000</step>
+        <min>0</min>
+        <max>60000</max>
+        <wrap>false</wrap>
+      </binding>
+    </action>
+    <action>
+      <name>Alt 1000 Down</name>
+      <button>4</button>
+      <repeatable>false</repeatable>
+      <binding>
+        <command>property-adjust</command>
+        <property>controls/autoflight/altitude-select</property>
+        <step>-1000</step>
+        <min>0</min>
+        <max>60000</max>
+        <wrap>false</wrap>
+      </binding>
+    </action>
+  </animation>
+
+
+
+  <!-- Speed Select -->
+  <animation>
+    <type>rotate</type>
+    <object-name>SpeedSelect</object-name>
+    <property>controls/autoflight/speed-select</property>
+    <factor>1</factor>
+    <center>
+      <x-m>0.145</x-m>
+      <y-m>-0.13952</y-m>
+      <z-m>-0.03555</z-m>
+    </center>
+    <axis>
+      <x>-1</x>
+      <y>0</y>
+      <z>0</z>
+    </axis>
+  </animation>
+  <animation>
+    <type>pick</type>
+    <object-name>SpeedSelect</object-name>
+    <action>
+      <name>Speed 1 Up</name>
+      <button>0</button>
+      <repeatable>false</repeatable>
+      <binding>
+        <command>property-adjust</command>
+        <property>controls/autoflight/speed-select</property>
+        <step>1</step>
+        <min>120</min>
+        <max>400</max>
+        <wrap>false</wrap>
+      </binding>
+    </action>
+    <action>
+      <name>Speed 1 Down</name>
+      <button>1</button>
+      <repeatable>false</repeatable>
+      <binding>
+        <command>property-adjust</command>
+        <property>controls/autoflight/speed-select</property>
+        <step>-1</step>
+        <min>120</min>
+        <max>400</max>
+        <wrap>false</wrap>
+      </binding>
+    </action>
+    <action>
+      <name>Speed 10 Up</name>
+      <button>3</button>
+      <repeatable>false</repeatable>
+      <binding>
+        <command>property-adjust</command>
+        <property>controls/autoflight/speed-select</property>
+        <step>10</step>
+        <min>120</min>
+        <max>400</max>
+        <wrap>false</wrap>
+      </binding>
+    </action>
+    <action>
+      <name>Speed 10 Down</name>
+      <button>4</button>
+      <repeatable>false</repeatable>
+      <binding>
+        <command>property-adjust</command>
+        <property>controls/autoflight/speed-select</property>
+        <step>-10</step>
+        <min>120</min>
+        <max>400</max>
+        <wrap>false</wrap>
+      </binding>
+    </action>
+  </animation>
+
+
+
+
   <!-- Heading 1 Select -->
   <animation>
     <type>translate</type>

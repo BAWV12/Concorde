@@ -1,0 +1,185 @@
+<?xml version="1.0"?>
+<PropertyList>
+  <path>../Models/radioselector.ac</path>
+
+
+  <animation>
+    <type>rotate</type>
+    <object-name>FreqSelectBig</object-name>
+    <property>instrumentation/nav[1]/frequencies/selected-mhz</property>
+    <factor>-18</factor>
+    <axis>
+
+   <x1-m> -10</x1-m>
+   <y1-m> -0.002</y1-m>
+   <z1-m>-0.02</z1-m>
+   <x2-m> 10</x2-m>
+   <y2-m>-0.002</y2-m>
+   <z2-m>-0.02</z2-m>
+
+    </axis>
+  </animation>
+
+
+  <animation>
+    <type>rotate</type>
+    <object-name>FreqSelectSmall</object-name>
+    <property>instrumentation/nav[1]/frequencies/selected-mhz</property>
+    <factor>-144</factor>
+    <axis>
+
+   <x1-m> -10</x1-m>
+   <y1-m> -0.002</y1-m>
+   <z1-m>-0.02</z1-m>
+   <x2-m> 10</x2-m>
+   <y2-m>-0.002</y2-m>
+   <z2-m>-0.02</z2-m>
+
+    </axis>
+  </animation>
+
+
+
+  <animation>
+    <type>pick</type>
+    <object-name>FreqSelectBig</object-name>
+    <action>
+      <name>Frequency 1 Up</name>
+      <button>3</button>
+      <repeatable>false</repeatable>
+      <binding>
+        <command>property-adjust</command>
+        <property>instrumentation/nav[1]/frequencies/selected-mhz</property>
+        <step>1</step>
+        <min>108</min>
+        <max>117.95</max>
+        <wrap>false</wrap>
+      </binding>
+      <binding>
+        <command>nasal</command>
+        <script>globals.Concorde.autopilotsystem.apsendnavexport();</script>
+      </binding>
+    </action>
+    <action>
+      <name>Frequency 1 Down</name>
+      <button>4</button>
+      <repeatable>false</repeatable>
+      <binding>
+        <command>property-adjust</command>
+        <property>instrumentation/nav[1]/frequencies/selected-mhz</property>
+        <step>-1</step>
+        <min>108</min>
+        <max>117.95</max>
+        <wrap>false</wrap>
+      </binding>
+      <binding>
+        <command>nasal</command>
+        <script>globals.Concorde.autopilotsystem.apsendnavexport();</script>
+      </binding>
+    </action>
+  </animation>
+  <animation>
+    <type>pick</type>
+    <object-name>FreqSelectSmall</object-name>
+    <action>
+      <name>Frequency 0.05 Up</name>
+      <button>3</button>
+      <repeatable>false</repeatable>
+      <binding>
+        <command>property-adjust</command>
+        <property>instrumentation/nav[1]/frequencies/selected-mhz</property>
+        <step>0.05</step>
+        <min>108</min>
+        <max>117.95</max>
+        <wrap>false</wrap>
+      </binding>
+      <binding>
+        <command>nasal</command>
+        <script>globals.Concorde.autopilotsystem.apsendnavexport();</script>
+      </binding>
+    </action>
+    <action>
+      <name>Frequency 0.05 Down</name>
+      <button>4</button>
+      <repeatable>false</repeatable>
+      <binding>
+        <command>property-adjust</command>
+        <property>instrumentation/nav[1]/frequencies/selected-mhz</property>
+        <step>-0.05</step>
+        <min>108</min>
+        <max>117.95</max>
+        <wrap>false</wrap>
+      </binding>
+      <binding>
+        <command>nasal</command>
+        <script>globals.Concorde.autopilotsystem.apsendnavexport();</script>
+      </binding>
+    </action>
+  </animation>
+  <!-- Freq Display -->
+  <animation>
+    <type>textranslate</type>
+    <object-name>Freq1</object-name>
+    <property>instrumentation/nav[1]/frequencies/selected-mhz</property>
+    <bias>0.0001</bias>
+    <factor>.001</factor>
+    <step>100</step>
+    <axis>
+      <x>0</x>
+      <y>1</y>
+      <z>0</z>
+    </axis>
+  </animation>
+  <animation>
+    <type>textranslate</type>
+    <object-name>Freq2</object-name>
+    <property>instrumentation/nav[1]/frequencies/selected-mhz</property>
+    <bias>0.0001</bias>
+    <factor>.01</factor>
+    <step>10</step>
+    <axis>
+      <x>0</x>
+      <y>1</y>
+      <z>0</z>
+    </axis>
+  </animation>
+  <animation>
+    <type>textranslate</type>
+    <object-name>Freq3</object-name>
+    <property>instrumentation/nav[1]/frequencies/selected-mhz</property>
+    <bias>0.0001</bias>
+    <factor>.1</factor>
+    <step>1</step>
+    <axis>
+      <x>0</x>
+      <y>1</y>
+      <z>0</z>
+    </axis>
+  </animation>
+  <animation>
+    <type>textranslate</type>
+    <object-name>Freq4</object-name>
+    <property>instrumentation/nav[1]/frequencies/selected-mhz</property>
+    <bias>0.0001</bias>
+    <factor>1</factor>
+    <step>.1</step>
+    <axis>
+      <x>0</x>
+      <y>1</y>
+      <z>0</z>
+    </axis>
+  </animation>
+  <animation>
+    <type>textranslate</type>
+    <object-name>Freq5</object-name>
+    <property>instrumentation/nav[1]/frequencies/selected-mhz</property>
+    <bias>0.0001</bias>
+    <factor>10</factor>
+    <step>.01</step>
+    <axis>
+      <x>0</x>
+      <y>1</y>
+      <z>0</z>
+    </axis>
+  </animation>
+</PropertyList>
