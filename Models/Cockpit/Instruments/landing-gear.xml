@@ -1,6 +1,36 @@
 <?xml version="1.0"?>
 <PropertyList>
   <path>../Models/landing-gear.ac</path>
+
+
+ <animation>
+  <name>GearBulbs</name>
+  <object-name>GearKnob1.001</object-name>
+  <object-name>GearKnob2.001</object-name>
+ </animation>
+
+
+ <animation>
+  <type>material</type>
+  <object-name>GearBulbs</object-name>
+  <condition>
+  <and>
+   <greater-than>
+    <property>sim/time/sun-angle-rad</property>
+    <value>1.59</value>
+   </greater-than>
+    <property>controls/lighting/instrument-lights</property>
+  </and>
+  </condition>
+
+  <emission>
+   <red>0.7</red>
+   <green>0.2</green>
+   <blue>0.2</blue>
+  </emission>
+ </animation>
+
+
   <animation>
     <type>rotate</type>
     <object-name>GearStick</object-name>
