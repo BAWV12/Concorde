@@ -1,5 +1,6 @@
 AC3Db
 MATERIAL "Black" rgb 0.163 0.163 0.163  amb 0.100 0.100 0.100  emis 0.040 0.040 0.040  spec 0.500 0.500 0.500  shi 32 trans 0.000
+MATERIAL "Lit" rgb 0.163 0.163 0.163  amb 0.100 0.100 0.100  emis 0.1 0.1 0.1  spec 0.500 0.500 0.500  shi 32 trans 0.000
 OBJECT world
 name "Blender_exporter_v2.19__autopilot.ac"
 kids 6
@@ -367,7 +368,7 @@ numvert 4
 0.019 -0.02574 -0.17677
 numsurf 1
 SURF 0X20
-mat 0
+mat 1
 refs 4
 2 0 0
 1 0 0
@@ -950,13 +951,13 @@ numvert 4
 0.019 -0.04337 0.06987
 numsurf 2
 SURF 0X20
-mat 0
+mat 1
 refs 3
 3 0 0
 2 0 0
 1 0 0
 SURF 0X20
-mat 0
+mat 1
 refs 3
 0 0 0
 3 0 0
@@ -1538,13 +1539,13 @@ numvert 4
 0.01901 -0.04337 -0.07088
 numsurf 2
 SURF 0X20
-mat 0
+mat 1
 refs 3
 3 0 0
 2 0 0
 1 0 0
 SURF 0X20
-mat 0
+mat 1
 refs 3
 0 0 0
 3 0 0
@@ -1914,7 +1915,7 @@ numvert 4
 0.019 -0.02574 0.13757
 numsurf 1
 SURF 0X20
-mat 0
+mat 1
 refs 4
 2 0 0
 1 0 0
@@ -2487,25 +2488,25 @@ numvert 6
 0.01937 -0.04337 0.02661
 numsurf 4
 SURF 0X20
-mat 0
+mat 1
 refs 3
 5 0 0
 4 0 0
 3 0 0
 SURF 0X20
-mat 0
+mat 1
 refs 3
 5 0 0
 3 0 0
 2 0 0
 SURF 0X20
-mat 0
+mat 1
 refs 3
 0 0 0
 5 0 0
 2 0 0
 SURF 0X20
-mat 0
+mat 1
 refs 3
 0 0 0
 2 0 0
@@ -3077,25 +3078,25 @@ numvert 6
 0.01926 -0.04337 -0.11109
 numsurf 4
 SURF 0X20
-mat 0
+mat 1
 refs 3
 5 0 0
 4 0 0
 3 0 0
 SURF 0X20
-mat 0
+mat 1
 refs 3
 5 0 0
 3 0 0
 2 0 0
 SURF 0X20
-mat 0
+mat 1
 refs 3
 0 0 0
 5 0 0
 2 0 0
 SURF 0X20
-mat 0
+mat 1
 refs 3
 0 0 0
 2 0 0
