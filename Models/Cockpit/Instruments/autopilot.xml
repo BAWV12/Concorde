@@ -14,6 +14,36 @@
   <path>../Models/autopilot.ac</path>
 
 
+ <animation>
+  <name>APBulbs</name>
+  <object-name>SpeedSelectBulb</object-name>
+  <object-name>AltSelectBulb</object-name>
+  <object-name>HDG1SelectBulb</object-name>
+  <object-name>HDG2SelectBulb</object-name>
+  <object-name>VOR1SelectBulb</object-name>
+  <object-name>VOR2SelectBulb</object-name>
+ </animation>
+
+ <animation>
+  <type>material</type>
+  <object-name>APBulbs</object-name>
+  <condition>
+  <and>
+   <greater-than>
+    <property>sim/time/sun-angle-rad</property>
+    <value>1.59</value>
+   </greater-than>
+    <property>controls/lighting/instrument-lights</property>
+  </and>
+  </condition>
+
+  <emission>
+   <red>0.7</red>
+   <green>0.2</green>
+   <blue>0.2</blue>
+  </emission>
+ </animation>
+
   <animation>
     <type>rotate</type>
     <object-name>HDG1Select</object-name>

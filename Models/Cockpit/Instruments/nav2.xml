@@ -2,6 +2,33 @@
 <PropertyList>
   <path>../Models/radioselector.ac</path>
 
+ <animation>
+  <name>NAV2Bulbs</name>
+  <object-name>FreqSelectBig.001</object-name>
+  <object-name>FreqSelectSmall.001</object-name>
+ </animation>
+
+
+ <animation>
+  <type>material</type>
+  <object-name>NAV2Bulbs</object-name>
+  <condition>
+  <and>
+   <greater-than>
+    <property>sim/time/sun-angle-rad</property>
+    <value>1.59</value>
+   </greater-than>
+    <property>controls/lighting/instrument-lights</property>
+  </and>
+  </condition>
+
+  <emission>
+   <red>0.7</red>
+   <green>0.2</green>
+   <blue>0.2</blue>
+  </emission>
+ </animation>
+
   <animation>
     <type>rotate</type>
     <object-name>FreqSelectBig</object-name>
