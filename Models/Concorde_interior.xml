@@ -11,9 +11,9 @@
 <PropertyList>
 
 <!--
-    <model>
+  <model>
     <name>Captain TCAS</name>
-    <path>Aircraft/Concorde/Models/Cockpit/Instruments/tcas.xml</path>
+    <path>Aircraft/Concorde/Models/Instruments/ND/tcas.xml</path>
     <offsets>
       <x-m>-23.8099</x-m>
       <y-m>-0.095</y-m>
