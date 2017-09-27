@@ -10,6 +10,18 @@
 
 <PropertyList>
 
+<!--
+    <model>
+    <name>Captain TCAS</name>
+    <path>Aircraft/Concorde/Models/Cockpit/Instruments/tcas.xml</path>
+    <offsets>
+      <x-m>-23.8099</x-m>
+      <y-m>-0.095</y-m>
+      <z-m>1.4526</z-m>
+      <pitch-deg>-10</pitch-deg>
+    </offsets>
+  </model>
+-->
 
   <model>
     <name>Landing Gear</name>
