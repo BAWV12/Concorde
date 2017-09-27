@@ -81,7 +81,7 @@ canvas.NDStyles["Airbus"] = {
 			app_mode: 'instrumentation/nd/app-mode',
 			chrono_node: 'instrumentation/chrono',
 			fpln_offset: 'autopilot/route-manager/offset',
-			active_route_color: [0.4,0.7,0.4],
+			active_route_color: [1,0,0],
 			inactive_route_color: [0.95,0.95,0.21]
 		},
 		radio: {
@@ -501,11 +501,11 @@ canvas.NDStyles["Airbus"] = {
 					var is_active = getprop(me.options.fplan_active);
 					(is_active ? me.active_color : me.inactive_color);
 				},
-				color_alternate_active: [0,0.62,0.84],
-				color_missed: [0,0.62,0.84],
+				color_alternate_active: [1,0,0],
+				color_missed: [1,0,0],
 				color_temporary: func me.getStyle('inactive_color', me.getOption('inactive_route_color')),
-				color_secondary: [1,1,1],
-				color_alternate_secondary: [1,1,1],
+				color_secondary: [1,0,0],
+				color_alternate_secondary: [1,0,0],
 				line_dash: func{
 					var lat_ctrl = getprop(me.options.lat_ctrl);
 					var is_managed = (lat_ctrl == me.options.managed_val);
@@ -523,11 +523,11 @@ canvas.NDStyles["Airbus"] = {
 			update_on:['toggle_range','toggle_display_mode', 'toggle_cstr',
 				   'toggle_wpt_idx'],
 			style: {
-				wp_color: [0.4,0.7,0.4],
-				current_wp_color: [1,1,1],
-				constraint_color: [1,1,1],
-				active_constraint_color: [0.69,0,0.39],
-				missed_constraint_color: [1,0.57,0.14]
+				wp_color: [1,0,0],
+				current_wp_color: [1,0,0],
+				constraint_color: [1,0,0],
+				active_constraint_color: [1,0,0],
+				missed_constraint_color: [1,0,0]
 			},
 			predicate: func(nd, layer) {
 				var visible= (nd.in_mode('toggle_display_mode', ['MAP','PLAN']));
