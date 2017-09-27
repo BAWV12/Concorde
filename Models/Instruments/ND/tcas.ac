@@ -1412,7 +1412,7 @@ name "TCAS"
 data 14
 Plane.mesh.001
 crease 40.0
-texture "Concorde-splash.png"
+texture "concorde.png"
 texrep 1 1
 numvert 4
 0.00227 -0.03168 0.03168
