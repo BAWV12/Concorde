@@ -170,6 +170,10 @@
    <unload>
     livery_update.stop();
    </unload>
+
+
+model.getNode("instrumentation/airspeed-indicator/true-speed-kt").alias(model.getNode("instrumentation/airspeed-indicator/indicated-speed-kt"));
+
   </nasal>
 
 
@@ -3282,5 +3286,17 @@
  </condition>
 </animation>
 
+ <animation>
+    <type>translate</type>
+    <object-name>CND</object-name>
+    <property>controls/lighting/crew/overhead/compass-norm</property>
+    <factor>-1</factor>
+    <offset-m>1</offset-m>
+    <axis>
+      <x>-0.0632</x>
+      <y>0</y>
+      <z>-0.07289</z>
+    </axis>
+  </animation>
 
 </PropertyList>
