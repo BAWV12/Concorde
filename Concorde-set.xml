@@ -175,6 +175,8 @@
    <file>Aircraft/Concorde/Nasal/Concorde-interface.nas</file>
    <file>Aircraft/Concorde/Nasal/Concorde-jbsim.nas</file>
    <file>Aircraft/Concorde/Nasal/Concorde-override.nas</file>
+<!--   <file>Aircraft/Concorde/Models/Instruments/ND/canvas/TCAS.nas</file>-->
+   <file>Aircraft/Concorde/Models/Instruments/ND/canvas/CND.nas</file>
   </Concorde>
   <tyresmoke>
     <file>Aircraft/Concorde/Nasal/Concorde-tyre.nas</file>
