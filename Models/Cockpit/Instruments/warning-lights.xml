@@ -1,0 +1,118 @@
+<?xml version="1.0"?>
+<PropertyList>
+  <path>../Models/warninglights.ac</path>
+  <params>
+    <test>/controls/lighting/crew/captain/test</test>
+    <serviceable>/instrumentation/cg[0]/serviceable</serviceable>
+    <cg-sel>/instrumentation/cg[0]/percent</cg-sel>
+    <min-sel>/instrumentation/cg[0]/min-percent</min-sel>
+    <max-sel>/instrumentation/cg[0]/max-percent</max-sel>
+  </params>
+  <animation>
+    <type>material</type>
+    <object-name>Terrain</object-name>
+    <condition>
+      <or>
+        <and>
+          <property>/systems/gpws/serviceable</property>
+          <or>
+            <property>/systems/gpws/test</property>
+            <property>/systems/gpws/terrain</property>
+          </or>
+        </and>
+        <property alias="/params/test"/>
+      </or>
+    </condition>
+    <emission>
+      <red>0.8</red>
+      <green>0</green>
+      <blue>0</blue>
+    </emission>
+  </animation>
+  <!-- JSBsim hasn't had this for years -->
+  <!--
+    <animation>
+    <type>material</type>
+    <object-name>TYRE</object-name>
+    <condition>
+	    <not>
+      <and>
+       <equals>
+        <property>gear/gear[0]/tyre-pressure-norm</property>
+        <value>1.0</value> 
+       </equals>
+       <equals>
+        <property>gear/gear[1]/tyre-pressure-norm</property>
+        <value>1.0</value> 
+       </equals>
+       <equals>
+        <property>gear/gear[2]/tyre-pressure-norm</property>
+        <value>1.0</value> 
+       </equals>
+       <equals>
+        <property>gear/gear[3]/tyre-pressure-norm</property>
+        <value>1.0</value> 
+       </equals>
+       <equals>
+        <property>gear/gear[4]/tyre-pressure-norm</property>
+        <value>1.0</value> 
+       </equals>
+       </and>
+       </not>
+    </condition>
+    <emission>
+      <red>0.8</red>
+      <green>0</green>
+      <blue>0</blue>
+    </emission>
+  </animation>
+  -->
+  <animation>
+    <type>material</type>
+    <object-name>TYRE</object-name>
+    <condition>
+      <property alias="/params/test"/>
+    </condition>
+    <emission>
+      <red>0.8</red>
+      <green>0</green>
+      <blue>0</blue>
+    </emission>
+  </animation>
+  <animation>
+    <type>material</type>
+    <object-name>MCG</object-name>
+    <condition>
+      <or>
+        <property alias="/params/test"/>
+        <not>
+          <property alias="/params/serviceable"/>
+        </not>
+        <less-than>
+          <property alias="/params/cg-sel"/>
+          <property alias="/params/min-sel"/>
+        </less-than>
+        <greater-than>
+          <property alias="/params/cg-sel"/>
+          <property alias="/params/max-sel"/>
+        </greater-than>
+      </or>
+    </condition>
+    <emission>
+      <red>0.8</red>
+      <green>0</green>
+      <blue>0</blue>
+    </emission>
+  </animation>
+  <!--Default Lighting-->
+  <animation>
+    <type>material</type>
+    <object-name>Frame</object-name>
+    <emission>
+      <red>0.01</red>
+      <green>0.005</green>
+      <blue>0.005</blue>
+      <factor-prop>controls/lighting/panel-norm</factor-prop>
+    </emission>
+  </animation>
+</PropertyList>

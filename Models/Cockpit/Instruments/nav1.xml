@@ -7,6 +7,11 @@
   <name>NAV1Bulbs</name>
   <object-name>FreqSelectBig.001</object-name>
   <object-name>FreqSelectSmall.001</object-name>
+  <object-name>Freq1</object-name>
+  <object-name>Freq2</object-name>
+  <object-name>Freq3</object-name>
+  <object-name>Freq4</object-name>
+  <object-name>Freq5</object-name>
  </animation>
 
 
@@ -36,16 +41,16 @@
     <type>rotate</type>
     <object-name>FreqSelectBig</object-name>
     <property>instrumentation/nav[1]/frequencies/selected-mhz</property>
-    <factor>-18</factor>
+    <factor>18</factor>
+    <center>
+      <x-m>0.00850</x-m>
+      <y-m>-0.01378</y-m>
+      <z-m>-0.0200</z-m>
+    </center>
     <axis>
-
-   <x1-m> -10</x1-m>
-   <y1-m> -0.002</y1-m>
-   <z1-m>-0.02</z1-m>
-   <x2-m> 10</x2-m>
-   <y2-m>-0.002</y2-m>
-   <z2-m>-0.02</z2-m>
-
+      <x>-1</x>
+      <y>0</y>
+      <z>0</z>
     </axis>
   </animation>
 
@@ -54,16 +59,16 @@
     <type>rotate</type>
     <object-name>FreqSelectSmall</object-name>
     <property>instrumentation/nav[1]/frequencies/selected-mhz</property>
-    <factor>-144</factor>
+    <factor>144</factor>
+    <center>
+      <x-m>0.00850</x-m>
+      <y-m>-0.01378</y-m>
+      <z-m>-0.0200</z-m>
+    </center>
     <axis>
-
-   <x1-m> -10</x1-m>
-   <y1-m> -0.002</y1-m>
-   <z1-m>-0.02</z1-m>
-   <x2-m> 10</x2-m>
-   <y2-m>-0.002</y2-m>
-   <z2-m>-0.02</z2-m>
-
+      <x>-1</x>
+      <y>0</y>
+      <z>0</z>
     </axis>
   </animation>
 

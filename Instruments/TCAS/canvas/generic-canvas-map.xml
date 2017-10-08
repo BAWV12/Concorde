@@ -1,0 +1,118 @@
+<?xml version="1.0"?>
+<!--
+ generic-canvas.map XML: 
+	- to be used by dialogs and instruments to add a generic map (navaids, fixes, airports etc)
+	- with each feature put on a separate layer (canvas group)
+	- each layer being controllable via a boolean property
+	
+NOTE: This is still work in progress, and will be significantly refactored in the time to come
+
+Current requirements: (these are subject to change)
+
+Dialogs wanting to use this, MUST:
+
+	- set DIALOG_CANVAS in open block
+	- provide a helper function dialog_property(p) to return a property appended to the dialog root in /sim/gui/dialogs/FOO/ 
+	- to set up layer-checkboxes automatically, use canvas.GenericMap.setupGUICheckboxes(DIALOG_CANVAS, gui_group)
+
+For example, add this to your dialogs Nasal/open block in "foo.xml":
+	var dialog_name = "foo";
+	var dialog_property = func(p) return "/sim/gui/dialogs/foo/"~p; 	
+	var DIALOG_CANVAS = gui.findElementByName(cmdarg(), "airport-selection"); 
+	canvas.GenericMap.setupGUICheckboxes(DIALOG_CANVAS, "canvas-control");
+
+TODO: use a single "InitCanvasMapSupport();" helper
+
+In the close block, you'll want to call "map.cleanup_listeners()" at the moment
+
+-->
+<PropertyList>
+	<!--FIXME: move somewhere else, this is GUI specific and not useful for canvas maps shown as instruments! -->
+	<checkbox-toggle-template>
+              <name></name>
+              <label></label>
+              <property></property>
+              <binding>
+                <command>dialog-apply</command>
+                <object-name></object-name>
+              </binding>
+        </checkbox-toggle-template>
+
+	<!-- will be procedurally added to the dialog -->
+	<zoom-template>
+          <button>
+              <name>zoomout</name>
+              <legend>-</legend>
+              <pref-width>22</pref-width>
+              <pref-height>22</pref-height>
+
+              <binding>
+                  <command>property-adjust</command>
+                  <property></property>
+                  <min>0</min>
+                  <step>-1</step>
+              </binding>
+          </button>
+
+          <text>
+              <label>MMMM</label>
+              <halign>center</halign>
+              <format>Zoom %d</format>
+              <property></property>
+              <live>true</live>
+          </text>
+
+	<button>
+              <name>zoomin</name>
+              <legend>+</legend>
+              <pref-width>22</pref-width>
+              <pref-height>22</pref-height>
+
+              <binding>
+                  <command>property-adjust</command>
+                  <property></property>
+                  <step>1</step>
+                  <max></max> <!-- FIXME: compute dynamically via Nasal size() or just a property-->
+              </binding>
+          </button>
+
+          <empty><stretch>true</stretch></empty>
+	
+	</zoom-template>
+
+        <nasal>      
+        <load><![CDATA[
+          var my_canvas = canvas.get(cmdarg());
+          my_canvas.setColorBackground(0.2, 0.5, 0.2, 0.5); #TODO: support customization in XML
+
+          var root = my_canvas.createGroup();
+	  # the top level AirportMap element uses a "GenericMap" now:
+
+	  #TODO: features should be procedurally enabled via params (WIP)
+	  #TODO: use generic Map and instantiate via XML
+          var map = canvas.GenericMap.new(parent:root, name:dialog_name) 	# FIXME: We shouldn't be using AirportMap here:
+										# we need a high level wrapper that can instantiate
+										# all sorts of maps, not just AirportMaps
+                        .setTranslation(300, 200) # TODO: move to Map class ctor!
+			.setupZoom( dialog:DIALOG_CANVAS ) 			# TODO: make zooming configurable for non GUI use
+			.pickupFeatures (DIALOG_CANVAS);			# set up the features specified in the XML file
+
+	  var offset = [0,0];
+	  my_canvas.addEventListener("drag", func(e)
+          {
+            offset[0] += e.deltaX;
+            offset[1] += e.deltaY;
+            map.setTranslation(300 + offset[0], 200 + offset[1]);
+          });
+
+          my_canvas.addEventListener("wheel", func(e)
+          {
+            map.zoom_property.setIntValue(map.zoom_property.getValue() + e.deltaY );
+          });
+
+	canvas.run_callbacks(); # WORKAROUND to run dialog-specific init code - 
+				# must be set up via register_callback() in the dialog's open block currently 
+          ]]>
+          </load>
+        </nasal>
+</PropertyList>

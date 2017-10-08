@@ -1,0 +1,58 @@
+# See: http://wiki.flightgear.org/MapStructure
+# Class things:
+var name = 'FLT';
+var parents = [SymbolLayer.Controller];
+var __self__ = caller(0)[0];
+SymbolLayer.Controller.add(name, __self__);
+SymbolLayer.add(name, {
+	parents: [MultiSymbolLayer],
+	append: func(idx, item, model) {
+		while (size(me.list) <= idx) {
+			append(me.list, nil);
+		} if (me.list[idx] == nil) {
+			me.list[idx] = me.add_sym(model);
+		}
+		append(model, item);
+		var pos = me.controller.getpos(item);
+		var cmd = me.list[idx].element._last_cmd == -1 ? canvas.Path.VG_MOVE_TO : canvas.Path.VG_LINE_TO;
+		me.list[idx].element.addSegmentGeo(cmd, ["N"~pos[0],"E"~pos[1]]);
+		#props.dump(me.list[idx].element._node);
+	},
+	type: name, # Symbol type
+	df_controller: __self__, # controller to use by default -- this one
+	add_sym: func(model) {
+		return Symbol.new(me.type, me.group, me, model);
+	},
+});
+var new = func(layer) {
+	var m = {
+		parents: [__self__],
+		layer: layer,
+		listeners: [],
+		models: [],
+		active_path: 0,
+	};
+	layer.searcher._equals = func(a,b) a == b;
+	m.addVisibilityListener();
+
+	return m;
+};
+var del = func() {
+	foreach (var l; me.listeners)
+		removelistener(l);
+};
+
+var searchCmd = func() {
+	printlog(_MP_dbg_lvl, "Running query: FLT");
+	var hist = aircraft.history();
+	var path = hist.pathForHistory(1000);
+	printlog(_MP_dbg_lvl, "FLT size: "~size(path));
+	while (size(me.models) <= me.active_path) append(me.models, []);
+	for (var i=size(me.models[me.active_path]); i<size(path); i+=1)
+		me.layer.append(me.active_path, path[i], me.models[me.active_path]);
+	# TODO: filter by in_range()?
+	#debug.dump(me.models);
+	return me.models;
+};
+var getpos = Symbol.Controller.getpos;
+

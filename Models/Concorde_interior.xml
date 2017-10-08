@@ -10,36 +10,69 @@
 
 <PropertyList>
 
-<!--
+
   <model>
-    <name>Captain TCAS</name>
-    <path>Aircraft/Concorde/Models/Instruments/ND/tcas.xml</path>
+    <name>Captain WXR</name>
+    <path>Aircraft/Concorde/Models/Cockpit/Instruments/cnd.xml</path>
     <offsets>
-      <x-m>-23.8099</x-m>
-      <y-m>-0.095</y-m>
-      <z-m>1.4526</z-m>
+      <x-m>-23.47</x-m>
+      <y-m>-0.74</y-m>
+      <z-m>0.86</z-m>
+      <pitch-deg>-87</pitch-deg>
+    </offsets>
+  </model>
+
+  <model>
+    <name>FO WXR</name>
+    <path>Aircraft/Concorde/Models/Cockpit/Instruments/cnd.xml</path>
+    <offsets>
+      <x-m>-23.47</x-m>
+      <y-m>0.75</y-m>
+      <z-m>0.86</z-m>
+      <pitch-deg>-87</pitch-deg>
+    </offsets>
+  </model>
+
+  <model>
+    <name>ABS</name>
+    <path>Aircraft/Concorde/Models/Cockpit/Instruments/abs.xml</path>
+    <offsets>
+      <x-m>-23.78</x-m>
+      <y-m>0.188</y-m>
+      <z-m>0.915</z-m>
       <pitch-deg>-10</pitch-deg>
     </offsets>
   </model>
--->
 
   <model>
-    <name>Landing Gear</name>
-    <path>Aircraft/Concorde/Models/Cockpit/Instruments/landing-gear.xml</path>
+    <name>Controls</name>
+    <path>Aircraft/Concorde/Models/Cockpit/Instruments/ctrl.xml</path>
     <offsets>
-      <x-m>-23.82</x-m>
-      <y-m>0.1489</y-m>
-      <z-m>1.0116</z-m>
+      <x-m>-23.803</x-m>
+      <y-m>0.262</y-m>
+      <z-m>1.05</z-m>
+      <pitch-deg>-10</pitch-deg>
+    </offsets>
+  </model>
+
+
+  <model>
+    <name>Gear light</name>
+    <path>Aircraft/Concorde/Models/Cockpit/Instruments/gearlight.xml</path>
+    <offsets>
+      <x-m>-23.815</x-m>
+      <y-m>0.278</y-m>
+      <z-m>1.13</z-m>
       <pitch-deg>-10</pitch-deg>
     </offsets>
   </model>
 
   <model>
     <name>Autopilot</name>
-    <path>Aircraft/Concorde/Models/Cockpit/Instruments/autopilot.xml</path>
+    <path>Aircraft/Concorde/Models/Cockpit/Instruments/autopilot2.xml</path>
     <offsets>
-      <x-m>-23.805</x-m>
-      <y-m>0</y-m>
+      <x-m>-23.80</x-m>
+      <y-m>0.01</y-m>
       <z-m>1.355</z-m>
       <pitch-deg>-15</pitch-deg>
     </offsets>
@@ -49,9 +82,9 @@
     <name>Radio Selector</name>
     <path>Aircraft/Concorde/Models/Cockpit/Instruments/nav1.xml</path>
     <offsets>
-      <x-m>-23.80</x-m>
-      <y-m>-0.2665</y-m>
-      <z-m>1.341</z-m>
+      <x-m>-23.793</x-m>
+      <y-m>-0.2411</y-m>
+      <z-m>1.3415</z-m>
       <pitch-deg>-15</pitch-deg>
     </offsets>
   </model>
@@ -60,14 +93,1518 @@
     <name>Co Radio Selector</name>
     <path>Aircraft/Concorde/Models/Cockpit/Instruments/nav2.xml</path>
     <offsets>
-      <x-m>-23.80</x-m>
-      <y-m>0.2665</y-m>
-      <z-m>1.341</z-m>
+      <x-m>-23.793</x-m>
+      <y-m>0.2611</y-m>
+      <z-m>1.3415</z-m>
       <pitch-deg>-15</pitch-deg>
     </offsets>
   </model>
 
-<!--
+  <model>
+    <name>Captain RAD/INS Switch</name>
+    <path>Aircraft/Concorde/Models/Cockpit/Instruments/rad-ins-switch.xml</path>
+    <offsets>
+      <x-m>-23.798</x-m>
+      <y-m>-0.231</y-m>
+      <z-m>1.389</z-m>
+      <pitch-deg>-10</pitch-deg>
+    </offsets>
+  </model>
+
+  <model>
+    <name>Copilot RAD/INS Switch</name>
+    <path>Aircraft/Concorde/Models/Cockpit/Instruments/crad-ins-switch.xml</path>
+    <offsets>
+      <x-m>-23.798</x-m>
+      <y-m>0.251</y-m>
+      <z-m>1.389</z-m>
+      <pitch-deg>-10</pitch-deg>
+    </offsets>
+  </model>
+
+
+    <model>
+    <name>Wheel Overheat</name>
+    <path>Aircraft/Concorde/Models/Cockpit/Instruments/wheel-overheat.xml</path>
+    <offsets>
+      <x-m>-23.818</x-m>
+      <y-m>0.1489</y-m>
+      <z-m>1.1297</z-m>
+      <pitch-deg>-10</pitch-deg>
+    </offsets>
+  </model>
+
+
+  <model>
+    <name>Emergency Brakes Pressure</name>
+    <path>Aircraft/Concorde/Models/Cockpit/Instruments/brake-pressure.xml</path>
+    <offsets>
+      <x-m>-23.835</x-m>
+      <y-m>-0.115</y-m>
+      <z-m>1.233</z-m>
+      <pitch-deg>-10</pitch-deg>
+    </offsets>
+  </model>
+  <model>
+    <name>Emergency Brakes Indicator</name>
+    <path>Aircraft/Concorde/Models/Cockpit/Instruments/brake-indicator.xml</path>
+    <offsets>
+      <x-m>-23.837</x-m>
+      <y-m>-0.06</y-m>
+      <z-m>1.233</z-m>
+      <pitch-deg>-10</pitch-deg>
+    </offsets>
+  </model>
+  <model>
+    <name>Takeoff Monitor</name>
+    <path>Aircraft/Concorde/Models/Cockpit/Instruments/takeoff-monitor.xml</path>
+    <offsets>
+      <x-m>-23.837</x-m>
+      <y-m>-0.028</y-m>
+      <z-m>1.233</z-m>
+      <pitch-deg>-10</pitch-deg>
+    </offsets>
+  </model>
+    <model>
+    <name>AFCS Lighting</name>
+    <path>Aircraft/Concorde/Models/Cockpit/Instruments/afcs-lighting.xml</path>
+    <offsets>
+      <x-m>-23.837</x-m>
+      <y-m>0.0115</y-m>
+      <z-m>1.233</z-m>
+      <pitch-deg>-10</pitch-deg>
+    </offsets>
+  </model>
+  <model>
+    <name>Fuel Remaining Indicator</name>
+    <path>Aircraft/Concorde/Models/Cockpit/Instruments/fuel-remain.xml</path>
+    <offsets>
+      <x-m>-23.835</x-m>
+      <y-m>0.098</y-m>
+      <z-m>1.222</z-m>
+      <pitch-deg>-10</pitch-deg>
+    </offsets>
+  </model>
+
+
+
+  <model>
+    <name>FO swfrm</name>
+    <path>Aircraft/Concorde/Models/Cockpit/Instruments/frm_fo.xml</path>
+    <offsets>
+      <x-m>-23.826</x-m>
+      <y-m>0.646</y-m>
+      <z-m>1.166</z-m>
+      <pitch-deg>-10</pitch-deg>
+    </offsets>
+  </model>
+
+  <model>
+    <name>Copilot INS Source Label</name>
+    <path>Aircraft/Concorde/Models/Cockpit/Instruments/ins-label.xml</path>
+    <offsets>
+      <x-m>-23.825</x-m>
+      <y-m>0.66</y-m>
+      <z-m>1.194</z-m>
+      <pitch-deg>-10</pitch-deg>
+    </offsets>
+  </model>
+  <model>
+    <name>Copilot INS Source</name>
+    <path>Aircraft/Concorde/Models/Cockpit/Instruments/ins-switch.xml</path>
+    <overlay>
+      <params>
+        <att-ins3>/instrumentation/compass[1]/att-ins3</att-ins3>
+      </params>
+    </overlay>
+    <offsets>
+      <x-m>-23.825</x-m>
+      <y-m>0.66</y-m>
+      <z-m>1.194</z-m>
+      <pitch-deg>-10</pitch-deg>
+    </offsets>
+  </model>
+  <model>
+    <name>Copilot COMP Source Label</name>
+    <path>Aircraft/Concorde/Models/Cockpit/Instruments/comp-label.xml</path>
+    <offsets>
+      <x-m>-23.821</x-m>
+      <y-m>0.66</y-m>
+      <z-m>1.1753</z-m>
+      <pitch-deg>-10</pitch-deg>
+    </offsets>
+  </model>
+  <model>
+    <name>Copilot COMP Source</name>
+    <path>Aircraft/Concorde/Models/Cockpit/Instruments/comp-switch.xml</path>
+    <overlay>
+      <params>
+        <compass2>/instrumentation/hsi[1]/compass2</compass2>
+      </params>
+    </overlay>
+    <offsets>
+      <x-m>-23.821</x-m>
+      <y-m>0.66</y-m>
+      <z-m>1.1753</z-m>
+      <pitch-deg>-10</pitch-deg>
+    </offsets>
+  </model>
+  <model>
+    <name>Copilot DEV Switch Label</name>
+    <path>Aircraft/Concorde/Models/Cockpit/Instruments/dev-label.xml</path>
+    <offsets>
+      <x-m>-23.817</x-m>
+      <y-m>0.66</y-m>
+      <z-m>1.1564</z-m>
+      <pitch-deg>-10</pitch-deg>
+    </offsets>
+  </model>
+  <model>
+    <name>Copilot DEV Source</name>
+    <path>Aircraft/Concorde/Models/Cockpit/Instruments/dev-switch.xml</path>
+    <overlay>
+      <params>
+        <dev-nav2>/instrumentation/hsi[1]/dev-nav2</dev-nav2>
+      </params>
+    </overlay>
+    <offsets>
+      <x-m>-23.817</x-m>
+      <y-m>0.66</y-m>
+      <z-m>1.1564</z-m>
+      <pitch-deg>-10</pitch-deg>
+    </offsets>
+  </model>
+  <model>
+    <name>Copilot NAV Source Label</name>
+    <path>Aircraft/Concorde/Models/Cockpit/Instruments/nav-label.xml</path>
+    <offsets>
+      <x-m>-23.814</x-m>
+      <y-m>0.66</y-m>
+      <z-m>1.1375</z-m>
+      <pitch-deg>-10</pitch-deg>
+    </offsets>
+  </model>
+  <model>
+    <name>Copilot NAV Source</name>
+    <path>Aircraft/Concorde/Models/Cockpit/Instruments/nav-switch.xml</path>
+    <overlay>
+      <params>
+        <nav-ins2>/instrumentation/hsi[1]/nav-ins2</nav-ins2>
+      </params>
+    </overlay>
+    <offsets>
+      <x-m>-23.814</x-m>
+      <y-m>0.66</y-m>
+      <z-m>1.1375</z-m>
+      <pitch-deg>-10</pitch-deg>
+    </offsets>
+  </model>
+
+
+  <model>
+    <name>Copilot DME</name>
+    <path>Aircraft/Concorde/Models/Cockpit/Instruments/dme.xml</path>
+    <offsets>
+      <x-m>-23.792</x-m>
+      <y-m>0.262</y-m>
+      <z-m>0.975</z-m>
+      <pitch-deg>-10</pitch-deg>
+    </offsets>
+  </model>
+
+  <model>
+    <name>Copilot VOR Compass</name>
+    <path>Aircraft/Concorde/Models/Cockpit/Instruments/vor.xml</path>
+    <overlay>
+      <params>
+        <heading-deg>/instrumentation/compass[1]/heading-deg</heading-deg>
+      </params>
+    </overlay>
+    <offsets>
+      <x-m>-23.7919</x-m>
+      <y-m>0.355</y-m>
+      <z-m>0.9986</z-m>
+      <pitch-deg>-10</pitch-deg>
+    </offsets>
+  </model>
+  <model>
+    <name>Copilot Mach Meter</name>
+    <path>Aircraft/Concorde/Models/Cockpit/Instruments/machmeter.xml</path>
+    <overlay>
+      <params>
+        <serviceable>/instrumentation/mach-indicator[1]/serviceable</serviceable>
+        <failure-flag>/instrumentation/mach-indicator[1]/failure-flag</failure-flag>
+        <mach-sel>/instrumentation/mach-indicator[1]/indicated-mach</mach-sel>
+        <mmo-sel>/instrumentation/mach-indicator[1]/mmo-mach</mmo-sel>
+        <min-sel>/instrumentation/mach-indicator[1]/min</min-sel>
+        <max-sel>/instrumentation/mach-indicator[1]/max</max-sel>
+      </params>
+    </overlay>
+    <offsets>
+      <x-m>-23.8072</x-m>
+      <y-m>0.355</y-m>
+      <z-m>1.0873</z-m>
+      <pitch-deg>-10</pitch-deg>
+    </offsets>
+  </model>
+  <model>
+    <name>Copilot ASI Meter</name>
+    <path>Aircraft/Concorde/Models/Cockpit/Instruments/asi.xml</path>
+    <overlay>
+      <params>
+        <test>/controls/lighting/crew/copilot/test</test>
+        <serviceable>/instrumentation/airspeed-indicator[1]/serviceable</serviceable>
+        <failure-flag>/instrumentation/airspeed-indicator[1]/failure-flag</failure-flag>
+        <vmo-failure-flag>/instrumentation/airspeed-indicator[1]/vmo-failure-flag</vmo-failure-flag>
+        <speed-sel>/instrumentation/airspeed-indicator[1]/indicated-speed-kt</speed-sel>
+        <vmo-sel>/instrumentation/airspeed-indicator[1]/vmo-kt</vmo-sel>
+        <standby-ctrl>/instrumentation/airspeed-indicator[1]/standby</standby-ctrl>
+      </params>
+    </overlay>
+    <offsets>
+      <x-m>-23.8228</x-m>
+      <y-m>0.348</y-m>
+      <z-m>1.177</z-m>
+      <pitch-deg>-10</pitch-deg>
+    </offsets>
+  </model>
+  <model>
+    <name>Copilot Warning Lights</name>
+    <path>Aircraft/Concorde/Models/Cockpit/Instruments/warning-lights.xml</path>
+    <overlay>
+      <params>
+        <test>/controls/autoflight/autopilot[1]/test-land</test>
+        <serviceable>/instrumentation/cg[1]/serviceable</serviceable>
+        <cg-sel>/instrumentation/cg[1]/percent</cg-sel>
+        <min-sel>/instrumentation/cg[1]/min-percent</min-sel>
+        <max-sel>/instrumentation/cg[1]/max-percent</max-sel>
+      </params>
+    </overlay>
+    <offsets>
+      <x-m>-23.83</x-m>
+      <y-m>0.322</y-m>
+      <z-m>1.25</z-m>
+      <pitch-deg>-10</pitch-deg>
+    </offsets>
+  </model>
+  <model>
+    <name>Copilot ACFS Warning Lights</name>
+    <path>Aircraft/Concorde/Models/Cockpit/Instruments/afcs-warning-lights.xml</path>
+    <overlay>
+      <params>
+        <test>/controls/autoflight/autopilot[1]/test-land</test>
+        <failure-sel>/systems/autopilot/state/failure[1]</failure-sel>
+        <serviceable-sel>/systems/autothrottle[1]/serviceable</serviceable-sel>
+        <decision-ctrl>/instrumentation/radio-altimeter[1]/decision-height</decision-ctrl>
+        <decision-ft>/instrumentation/radio-altimeter[1]/decision-ft</decision-ft>
+        <ft-sel>/instrumentation/radio-altimeter[1]/indicated-altitude-ft</ft-sel>
+      </params>
+    </overlay>
+    <offsets>
+      <x-m>-23.83</x-m>
+      <y-m>0.43</y-m>
+      <z-m>1.25</z-m>
+      <pitch-deg>-10</pitch-deg>
+    </offsets>
+    <condition>
+      <or>
+           <not-equals>
+            <property>/autopilot/locks/speed</property>
+            <value></value>
+           </not-equals>
+           <equals>
+            <value>1</value>
+            <value>1</value>
+           </equals>
+      </or>
+    </condition>
+  </model>
+
+  <model>
+    <name>Captain RNAV WX Radar Update</name>
+    <path>Aircraft/Concorde/Models/Cockpit/Instruments/rnav-wx-update.xml</path>
+    <overlay>
+      <params>
+        <test>/controls/lighting/crew/captain/test</test>
+        <low>/controls/lighting/crew/captain/low</low>
+        <aligned-select>/instrumentation/ins[0]/msu/aligned</aligned-select>
+        <dme-select>/instrumentation/dme[0]/in-range</dme-select>
+      </params>
+    </overlay>
+    <offsets>
+      <x-m>-23.83</x-m>
+      <y-m>0.59</y-m>
+      <z-m>1.25</z-m>
+      <pitch-deg>-10</pitch-deg>
+    </offsets>
+  </model>
+
+  <model>
+    <name>Copilot VSI</name>
+    <path>Aircraft/Concorde/Models/Cockpit/Instruments/vsi.xml</path>
+    <overlay>
+      <params>
+        <vertical-speed-fps>instrumentation/vertical-speed-indicator[1]/indicated-speed-fps</vertical-speed-fps>
+        <ap-vertical-speed-fpm>autopilot/settings/vertical-speed-fpm</ap-vertical-speed-fpm>
+      </params>
+    </overlay>
+    <offsets>
+      <x-m>-23.8208</x-m>
+      <y-m>0.533</y-m>
+      <z-m>1.1652</z-m>
+      <pitch-deg>-10</pitch-deg>
+    </offsets>
+  </model>
+  <model>
+    <name>Copilot ADF Compass</name>
+    <path>Aircraft/Concorde/Models/Cockpit/Instruments/adf.xml</path>
+    <overlay>
+      <params>
+        <heading-deg>/instrumentation/compass[1]/heading-deg</heading-deg>
+      </params>
+    </overlay>
+    <offsets>
+      <x-m>-23.7919</x-m>
+      <y-m>0.57</y-m>
+      <z-m>0.9986</z-m>
+      <pitch-deg>-10</pitch-deg>
+    </offsets>
+  </model>
+  <model>
+    <name>Copilot Altimeter</name>
+    <path>Aircraft/Concorde/Models/Cockpit/Instruments/altimeter.xml</path>
+    <overlay>
+      <params>
+        <altitude>instrumentation/altimeter[1]/indicated-altitude-ft</altitude>
+        <setting-inhg>instrumentation/altimeter-adc[1]/setting-inhg</setting-inhg>
+        <setting-hpa>instrumentation/altimeter-adc[1]/setting-hpa</setting-hpa>
+      </params>
+    </overlay>
+    <offsets>
+      <x-m>-23.8099</x-m>
+      <y-m>0.59</y-m>
+      <z-m>1.1026</z-m>
+      <pitch-deg>-10</pitch-deg>
+    </offsets>
+  </model>
+  <model>
+    <name>Copilot Radio Altimeter</name>
+    <path>Aircraft/Concorde/Models/Cockpit/Instruments/radio-altimeter.xml</path>
+    <overlay>
+      <params>
+        <serviceable>/instrumentation/radio-altimeter[1]/serviceable</serviceable>
+        <dial-ft>/instrumentation/radio-altimeter[1]/dial-decision-ft</dial-ft>
+        <decision-ft>/instrumentation/radio-altimeter[1]/dial-decision-ft</decision-ft>
+        <ft-sel>/instrumentation/radio-altimeter[1]/indicated-altitude-ft</ft-sel>
+        <decision-ctrl>/instrumentation/radio-altimeter[1]/decision-height</decision-ctrl>
+      </params>
+    </overlay>
+    <offsets>
+      <x-m>-23.8245</x-m>
+      <y-m>0.59</y-m>
+      <z-m>1.1865</z-m>
+      <pitch-deg>-10</pitch-deg>
+    </offsets>
+  </model>
+  <model>
+    <name>Copilot Marker Beacon</name>
+    <path>Aircraft/Concorde/Models/Cockpit/Instruments/marker-beacon.xml</path>
+    <offsets>
+      <x-m>-23.8072</x-m>
+      <y-m>0.728</y-m>
+      <z-m>1.05</z-m>
+      <pitch-deg>-10</pitch-deg>
+    </offsets>
+  </model>
+  <model>
+    <name>Copilot Chronometer</name>
+    <path>Aircraft/Concorde/Models/Cockpit/Instruments/chronometer.xml</path>
+    <offsets>
+      <x-m>-23.811</x-m>
+      <y-m>0.675</y-m>
+      <z-m>1.08</z-m>
+      <pitch-deg>-10</pitch-deg>
+    </offsets>
+  </model>
+
+  <model>
+    <name>Captain INS Warning Lights</name>
+    <path>Aircraft/Concorde/Models/Cockpit/Instruments/ins-warning-lights.xml</path>
+    <offsets>
+      <x-m>-23.8003</x-m>
+      <y-m>-0.2611</y-m>
+      <z-m>1.052</z-m>
+      <pitch-deg>-10</pitch-deg>
+    </offsets>
+  </model>
+  
+  <model>
+    <name>Captain Cabin Altimeter</name>
+    <path>Aircraft/Concorde/Models/Cockpit/Instruments/cabin-alt.xml</path>
+    <offsets>
+      <x-m>-23.7726</x-m>
+      <y-m>-0.187</y-m>
+      <z-m>0.8876</z-m>
+      <pitch-deg>-10</pitch-deg>
+    </offsets>
+  </model>
+  <model>
+    <name>Captain Radio Altimeter</name>
+    <path>Aircraft/Concorde/Models/Cockpit/Instruments/radio-altimeter.xml</path>
+    <overlay>
+      <params>
+        <serviceable>/instrumentation/radio-altimeter[0]/serviceable</serviceable>
+        <dial-ft>/instrumentation/radio-altimeter[0]/dial-decision-ft</dial-ft>
+        <decision-ft>/instrumentation/radio-altimeter[0]/dial-decision-ft</decision-ft>
+        <ft-sel>/instrumentation/radio-altimeter[0]/indicated-altitude-ft</ft-sel>
+        <decision-ctrl>/instrumentation/radio-altimeter[0]/decision-height</decision-ctrl>
+      </params>
+    </overlay>
+    <offsets>
+      <x-m>-23.8245</x-m>
+      <y-m>-0.3155</y-m>
+      <z-m>1.1865</z-m>
+      <pitch-deg>-10</pitch-deg>
+    </offsets>
+  </model>
+  <model>
+    <name>Captain RNAV WX Radar Update</name>
+    <path>Aircraft/Concorde/Models/Cockpit/Instruments/rnav-wx-update.xml</path>
+    <overlay>
+      <params>
+        <test>/controls/lighting/crew/captain/test</test>
+        <low>/controls/lighting/crew/captain/low</low>
+        <aligned-select>/instrumentation/ins[0]/msu/aligned</aligned-select>
+        <dme-select>/instrumentation/dme[0]/in-range</dme-select>
+	<power>/systems/electrical/outputs/bulb</power>
+      </params>
+    </overlay>
+    <offsets>
+      <x-m>-23.83</x-m>
+      <y-m>-0.30</y-m>
+      <z-m>1.25</z-m>
+      <pitch-deg>-10</pitch-deg>
+    </offsets>
+  </model>
+
+  <model>
+    <name>Captain Marker Beacon</name>
+    <path>Aircraft/Concorde/Models/Cockpit/Instruments/marker-beacon.xml</path>
+    <offsets>
+      <x-m>-23.8245</x-m>
+      <y-m>-0.178</y-m>
+      <z-m>1.1865</z-m>
+      <pitch-deg>-10</pitch-deg>
+    </offsets>
+  </model>
+  <model>
+    <name>Captain Engine Rating</name>
+    <path>Aircraft/Concorde/Models/Cockpit/Instruments/engine-rating.xml</path>
+    <offsets>
+      <x-m>-23.8099</x-m>
+      <y-m>-0.178</y-m>
+      <z-m>1.1026</z-m>
+      <pitch-deg>-10</pitch-deg>
+    </offsets>
+  </model>
+  <model>
+    <name>Captain Sideslip Meter</name>
+    <path>Aircraft/Concorde/Models/Cockpit/Instruments/sideslip.xml</path>
+    <overlay>
+      <params>
+        <serviceable>/instrumentation/side-slip[0]/serviceable</serviceable>
+        <angle-sel>/instrumentation/side-slip[0]/angle-deg</angle-sel>
+      </params>
+    </overlay>
+    <offsets>
+      <x-m>-23.7838</x-m>
+      <y-m>-0.4478</y-m>
+      <z-m>0.965</z-m>
+      <pitch-deg>-10</pitch-deg>
+    </offsets>
+  </model>
+
+  <model>
+    <name>Copilot Sideslip Meter</name>
+    <path>Aircraft/Concorde/Models/Cockpit/Instruments/sideslip.xml</path>
+    <overlay>
+      <params>
+        <serviceable>/instrumentation/side-slip[1]/serviceable</serviceable>
+        <angle-sel>/instrumentation/side-slip[1]/angle-deg</angle-sel>
+      </params>
+    </overlay>
+    <offsets>
+      <x-m>-23.7838</x-m>
+      <y-m>0.458</y-m>
+      <z-m>0.965</z-m>
+      <pitch-deg>-10</pitch-deg>
+    </offsets>
+  </model>
+
+
+
+  <model>
+    <name>Captain FD2 Switch Label</name>
+    <path>Aircraft/Concorde/Models/Cockpit/Instruments/flight-director-label.xml</path>
+    <offsets>
+      <x-m>-23.8003</x-m>
+      <y-m>-0.365</y-m>
+      <z-m>1.0471</z-m>
+      <pitch-deg>-10</pitch-deg>
+    </offsets>
+  </model>
+  <model>
+    <name>Captain FD2 Source</name>
+    <path>Aircraft/Concorde/Models/Cockpit/Instruments/flight-director-switch.xml</path>
+    <offsets>
+      <x-m>-23.8003</x-m>
+      <y-m>-0.365</y-m>
+      <z-m>1.0471</z-m>
+      <pitch-deg>-10</pitch-deg>
+    </offsets>
+  </model>
+
+
+
+  <model>
+    <name>Captain VOR Compass</name>
+    <path>Aircraft/Concorde/Models/Cockpit/Instruments/vor.xml</path>
+    <overlay>
+      <params>
+        <heading-deg>/instrumentation/compass[0]/heading-deg</heading-deg>
+      </params>
+    </overlay>
+    <offsets>
+      <x-m>-23.7919</x-m>
+      <y-m>-0.55</y-m>
+      <z-m>0.9986</z-m>
+      <pitch-deg>-10</pitch-deg>
+    </offsets>
+  </model>
+  <model>
+    <name>Captain ADF Compass</name>
+    <path>Aircraft/Concorde/Models/Cockpit/Instruments/adf.xml</path>
+    <overlay>
+      <params>
+        <heading-deg>/instrumentation/compass[0]/heading-deg</heading-deg>
+      </params>
+    </overlay>
+    <offsets>
+      <x-m>-23.7919</x-m>
+      <y-m>-0.3450</y-m>
+      <z-m>0.9986</z-m>
+      <pitch-deg>-10</pitch-deg>
+    </offsets>
+  </model>
+  <model>
+    <name>Captain Chronometer</name>
+    <path>Aircraft/Concorde/Models/Cockpit/Instruments/chronometer.xml</path>
+    <offsets>
+      <x-m>-23.7919</x-m>
+      <y-m>-0.2611</y-m>
+      <z-m>0.9986</z-m>
+      <pitch-deg>-10</pitch-deg>
+    </offsets>
+  </model>
+
+
+
+  <model>
+    <name>Captain VSI</name>
+    <path>Aircraft/Concorde/Models/Cockpit/Instruments/vsi.xml</path>
+    <overlay>
+      <params>
+        <vertical-speed-fps>instrumentation/vertical-speed-indicator[0]/indicated-speed-fps</vertical-speed-fps>
+        <ap-vertical-speed-fpm>autopilot/settings/vertical-speed-fpm</ap-vertical-speed-fpm>
+      </params>
+    </overlay>
+    <offsets>
+      <x-m>-23.8208</x-m>
+      <y-m>-0.372</y-m>
+      <z-m>1.1652</z-m>
+      <pitch-deg>-10</pitch-deg>
+    </offsets>
+  </model>
+  <model>
+    <name>Autoselector</name>
+    <path>Aircraft/Concorde/Models/Cockpit/Instruments/autoselector.xml</path>
+    <offsets>
+      <x-m>-23.7</x-m>
+      <y-m>0</y-m>
+      <z-m> 0.835</z-m>
+      <pitch-deg>-90</pitch-deg>
+    </offsets>
+  </model>
+  <model>
+    <name>Captain DME</name>
+    <path>Aircraft/Concorde/Models/Cockpit/Instruments/dme.xml</path>
+    <offsets>
+      <x-m>-23.7956</x-m>
+      <y-m>-0.6334</y-m>
+      <z-m>1.0199</z-m>
+      <pitch-deg>-10</pitch-deg>
+    </offsets>
+  </model>
+
+
+  
+  <model>
+    <name>Captain swfrm</name>
+    <path>Aircraft/Concorde/Models/Cockpit/Instruments/frm.xml</path>
+    <offsets>
+      <x-m>-23.828</x-m>
+      <y-m>-0.635</y-m>
+      <z-m>1.176</z-m>
+      <pitch-deg>-10</pitch-deg>
+    </offsets>
+  </model>
+
+
+
+  <model>
+    <name>Captain COG</name>
+    <path>Aircraft/Concorde/Models/Cockpit/Instruments/cog.xml</path>
+    <offsets>
+      <x-m>-23.7927</x-m>
+      <y-m>-0.1938</y-m>
+      <z-m>1.003</z-m>
+      <pitch-deg>-10</pitch-deg>
+    </offsets>
+  </model>
+  
+
+  <model>
+    <name>Captain Light Switch</name>
+    <path>Aircraft/Concorde/Models/Cockpit/Instruments/light-switch.xml</path>
+    <offsets>
+      <x-m>-23.829</x-m>
+      <y-m>-0.635</y-m>
+      <z-m>1.217</z-m>
+      <pitch-deg>-10</pitch-deg>
+    </offsets>
+  </model>
+  <model>
+    <name>Captain INS Source Label</name>
+    <path>Aircraft/Concorde/Models/Cockpit/Instruments/ins-label.xml</path>
+    <offsets>
+      <x-m>-23.825</x-m>
+      <y-m>-0.635</y-m>
+      <z-m>1.198</z-m>
+      <pitch-deg>-10</pitch-deg>
+    </offsets>
+  </model>
+  <model>
+    <name>Captain INS Source</name>
+    <path>Aircraft/Concorde/Models/Cockpit/Instruments/ins-switch.xml</path>
+    <overlay>
+      <params>
+        <att-ins3>/instrumentation/compass[0]/att-ins3</att-ins3>
+      </params>
+    </overlay>
+    <offsets>
+      <x-m>-23.825</x-m>
+      <y-m>-0.635</y-m>
+      <z-m>1.198</z-m>
+      <pitch-deg>-10</pitch-deg>
+    </offsets>
+  </model>
+  <model>
+    <name>Captain COMP Source Label</name>
+    <path>Aircraft/Concorde/Models/Cockpit/Instruments/comp-label.xml</path>
+    <offsets>
+      <x-m>-23.821</x-m>
+      <y-m>-0.635</y-m>
+      <z-m>1.179</z-m>
+      <pitch-deg>-10</pitch-deg>
+    </offsets>
+  </model>
+  <model>
+    <name>Captain COMP Source</name>
+    <path>Aircraft/Concorde/Models/Cockpit/Instruments/comp-switch.xml</path>
+    <overlay>
+      <params>
+        <compass2>/instrumentation/hsi[0]/compass2</compass2>
+      </params>
+    </overlay>
+    <offsets>
+      <x-m>-23.821</x-m>
+      <y-m>-0.635</y-m>
+      <z-m>1.179</z-m>
+      <pitch-deg>-10</pitch-deg>
+    </offsets>
+  </model>
+  <model>
+    <name>Captain DEV Switch Label</name>
+    <path>Aircraft/Concorde/Models/Cockpit/Instruments/dev-label.xml</path>
+    <offsets>
+      <x-m>-23.817</x-m>
+      <y-m>-0.635</y-m>
+      <z-m>1.160</z-m>
+      <pitch-deg>-10</pitch-deg>
+    </offsets>
+  </model>
+  <model>
+    <name>Captain DEV Source</name>
+    <path>Aircraft/Concorde/Models/Cockpit/Instruments/dev-switch.xml</path>
+    <overlay>
+      <params>
+        <dev-nav2>/instrumentation/hsi[0]/dev-nav2</dev-nav2>
+      </params>
+    </overlay>
+    <offsets>
+      <x-m>-23.817</x-m>
+      <y-m>-0.635</y-m>
+      <z-m>1.160</z-m>
+      <pitch-deg>-10</pitch-deg>
+    </offsets>
+  </model>
+  <model>
+    <name>Captain NAV Source Label</name>
+    <path>Aircraft/Concorde/Models/Cockpit/Instruments/nav-label.xml</path>
+    <offsets>
+      <x-m>-23.813</x-m>
+      <y-m>-0.635</y-m>
+      <z-m>1.141</z-m>
+      <pitch-deg>-10</pitch-deg>
+    </offsets>
+  </model>
+  <model>
+    <name>Captain NAV Source</name>
+    <path>Aircraft/Concorde/Models/Cockpit/Instruments/nav-switch.xml</path>
+    <overlay>
+      <params>
+        <nav-ins2>/instrumentation/hsi[0]/nav-ins2</nav-ins2>
+      </params>
+    </overlay>
+    <offsets>
+      <x-m>-23.813</x-m>
+      <y-m>-0.635</y-m>
+      <z-m>1.141</z-m>
+      <pitch-deg>-10</pitch-deg>
+    </offsets>
+  </model>
+
+
+
+  <model>
+    <name>Standby KIAS Meter</name>
+    <path>Aircraft/Concorde/Models/Cockpit/Instruments/kias.xml</path>
+    <offsets>
+      <x-m>-23.8072</x-m>
+      <y-m>-0.6334</y-m>
+      <z-m>1.0873</z-m>
+      <pitch-deg>-10</pitch-deg>
+    </offsets>
+  </model>
+
+
+  <model>
+    <name>ASI Meter</name>
+    <path>Aircraft/Concorde/Models/Cockpit/Instruments/asi.xml</path>
+    <overlay>
+      <params>
+        <test>/controls/lighting/crew/copilot/test</test>
+        <serviceable>/instrumentation/airspeed-indicator[0]/serviceable</serviceable>
+        <failure-flag>/instrumentation/airspeed-indicator[0]/failure-flag</failure-flag>
+        <vmo-failure-flag>/instrumentation/airspeed-indicator[0]/vmo-failure-flag</vmo-failure-flag>
+        <speed-sel>/instrumentation/airspeed-indicator[0]/indicated-speed-kt</speed-sel>
+        <vmo-sel>/instrumentation/airspeed-indicator[0]/vmo-kt</vmo-sel>
+        <standby-ctrl>/instrumentation/airspeed-indicator[0]/standby</standby-ctrl>
+      </params>
+    </overlay>
+    <offsets>
+      <x-m>-23.8228</x-m>
+      <y-m>-0.5566</y-m>
+      <z-m>1.177</z-m>
+      <pitch-deg>-10</pitch-deg>
+    </offsets>
+  </model>
+
+
+
+  <model>
+    <name>Mach Meter</name>
+    <path>Aircraft/Concorde/Models/Cockpit/Instruments/machmeter.xml</path>
+    <overlay>
+      <params>
+        <serviceable>/instrumentation/mach-indicator[0]/serviceable</serviceable>
+        <failure-flag>/instrumentation/mach-indicator[0]/failure-flag</failure-flag>
+        <mach-sel>/instrumentation/mach-indicator[0]/indicated-mach</mach-sel>
+        <mmo-sel>/instrumentation/mach-indicator[0]/mmo-mach</mmo-sel>
+        <min-sel>/instrumentation/mach-indicator[0]/min</min-sel>
+        <max-sel>/instrumentation/mach-indicator[0]/max</max-sel>
+      </params>
+    </overlay>
+    <offsets>
+      <x-m>-23.8072</x-m>
+      <y-m>-0.55</y-m>
+      <z-m>1.0873</z-m>
+      <pitch-deg>-10</pitch-deg>
+    </offsets>
+  </model>
+
+
+  <model>
+    <name>ACFS Warning Lights</name>
+    <path>Aircraft/Concorde/Models/Cockpit/Instruments/afcs-warning-lights.xml</path>
+    <overlay>
+      <params>
+        <test>/controls/autoflight/autopilot[0]/test-land</test>
+        <failure-sel>/systems/autopilot/state/failure[0]</failure-sel>
+        <serviceable-sel>/systems/autothrottle[0]/serviceable</serviceable-sel>
+        <decision-ctrl>/instrumentation/radio-altimeter[0]/decision-height</decision-ctrl>
+        <decision-ft>/instrumentation/radio-altimeter[0]/decision-ft</decision-ft>
+        <ft-sel>/instrumentation/radio-altimeter[0]/indicated-altitude-ft</ft-sel>
+      </params>
+    </overlay>
+    <offsets>
+      <x-m>-23.83</x-m>
+      <y-m>-0.475</y-m>
+      <z-m>1.25</z-m>
+      <pitch-deg>-10</pitch-deg>
+    </offsets>
+  </model>
+
+
+  <model>
+    <name>Warning Lights</name>
+    <path>Aircraft/Concorde/Models/Cockpit/Instruments/warning-lights.xml</path>
+    <overlay>
+      <params>
+        <test>/controls/autoflight/autopilot[0]/test-land</test>
+        <serviceable>/instrumentation/cg[0]/serviceable</serviceable>
+        <cg-sel>/instrumentation/cg[0]/percent</cg-sel>
+        <min-sel>/instrumentation/cg[0]/min-percent</min-sel>
+        <max-sel>/instrumentation/cg[0]/max-percent</max-sel>
+      </params>
+    </overlay>
+    <offsets>
+      <x-m>-23.83</x-m>
+      <y-m>-0.585</y-m>
+      <z-m>1.25</z-m>
+      <pitch-deg>-10</pitch-deg>
+    </offsets>
+  </model>
+
+
+  <model>
+    <name>Copilot Horizon</name>
+    <path>Aircraft/Concorde/Models/Cockpit/Instruments/horizon.xml</path>
+    <overlay>
+      <params>
+        <test>/instrumentation/attitude-indicator[1]/test</test>
+        <fd-engage>/controls/autoflight/flight-director[1]/engage</fd-engage>
+        <fd2>/instrumentation/attitude-indicator[1]/fd2</fd2>
+        <roll>/instrumentation/attitude-indicator[1]/indicated-roll-deg</roll>
+        <pitch>/instrumentation/attitude-indicator[1]/indicated-pitch-deg</pitch>
+        <nav1-in-range>/instrumentation/nav[1]/in-range</nav1-in-range>
+        <nav2-in-range>/instrumentation/nav[2]/in-range</nav2-in-range>
+        <nav1-deflection>/instrumentation/nav[1]/heading-needle-deflection-norm</nav1-deflection>
+        <nav2-deflection>/instrumentation/nav[2]/heading-needle-deflection-norm</nav2-deflection>
+        <has-gs1>/instrumentation/nav[1]/has-gs</has-gs1>
+        <has-gs2>/instrumentation/nav[2]/has-gs</has-gs2>
+        <gs1-in-range>/instrumentation/nav[2]/gs-in-range</gs1-in-range>
+        <gs2-in-range>/instrumentation/nav[1]/gs-in-range</gs2-in-range>
+        <gs1-deflection>/instrumentation/nav[1]/gs-needle-deflection-norm</gs1-deflection>
+        <gs2-deflection>/instrumentation/nav[2]/gs-needle-deflection-norm</gs2-deflection>
+        <attitude-serviceable>/instrumentation/attitude-indicator[1]/serviceable</attitude-serviceable>
+        <fd-serviceable>/instrumentation/flight-director[1]/serviceable</fd-serviceable>
+        <dh-on>/instrumentation/radio-altimeter[1]/decision-height</dh-on>
+        <dh-ft>/instrumentation/radio-altimeter[1]/decision-ft</dh-ft>
+        <radio-ft>/instrumentation/radio-altimeter[1]/indicated-altitude-ft</radio-ft>
+        <slip-ball>/instrumentation/slip-skid-ball/indicated-slip-skid</slip-ball>
+      </params>
+    </overlay>
+    <offsets>
+      <x-m>-23.8215</x-m>
+      <y-m>0.458</y-m>
+      <z-m>1.165</z-m>
+      <pitch-deg>-10</pitch-deg>
+    </offsets>
+  </model>
+  <model>
+    <name>Copilot HSI</name>
+    <path>Aircraft/Concorde/Models/Cockpit/Instruments/hsi.xml</path>
+    <overlay>
+      <params>
+        <heading-deg>/instrumentation/hsi[1]/heading-deg</heading-deg>
+        <heading-select>/controls/autoflight/autopilot[1]/heading-select</heading-select>
+        <nav1-radial>/instrumentation/nav[1]/radials/selected-deg</nav1-radial>
+        <nav2-radial>/instrumentation/nav[2]/radials/selected-deg</nav2-radial>
+        <nav1-to-flag>/instrumentation/nav[1]/to-flag</nav1-to-flag>
+        <nav1-from-flag>/instrumentation/nav[1]/from-flag</nav1-from-flag>
+        <nav2-to-flag>/instrumentation/nav[2]/to-flag</nav2-to-flag>
+        <nav2-from-flag>/instrumentation/nav[2]/from-flag</nav2-from-flag>
+        <nav2-switch>/instrumentation/hsi[1]/dev-nav2</nav2-switch>
+        <ins-source>/instrumentation/hsi[1]/ins-source</ins-source>
+        <true-heading-deg>/autopilot[1]/settings/true-heading-deg</true-heading-deg>
+        <nav1-in-range>/instrumentation/nav[1]/in-range</nav1-in-range>
+        <nav2-in-range>/instrumentation/nav[2]/in-range</nav2-in-range>
+        <nav1-deflection>/instrumentation/nav[1]/heading-needle-deflection-norm</nav1-deflection>
+        <nav2-deflection>/instrumentation/nav[2]/heading-needle-deflection-norm</nav2-deflection>
+        <gs1-in-range>/instrumentation/nav[1]/gs-in-range</gs1-in-range>
+        <gs2-in-range>/instrumentation/nav[2]/gs-in-range</gs2-in-range>
+        <gs1-deflection>/instrumentation/nav[1]/gs-needle-deflection-norm</gs1-deflection>
+        <gs2-deflection>/instrumentation/nav[2]/gs-needle-deflection-norm</gs2-deflection>
+        <true-heading-error-deg>/autopilot[1]/internal/true-heading-error-deg</true-heading-error-deg>
+        <track-push>/controls/autoflight/autopilot[1]/track-push</track-push>
+        <wp-dist>/autopilot/route-manager/wp/dist</wp-dist>
+        <ground-speed-fps>/instrumentation/ins[0]/computed/ground-speed-fps</ground-speed-fps>
+      </params>
+    </overlay>
+    <offsets>
+      <x-m>-23.80</x-m>
+      <y-m>0.458</y-m>
+      <z-m>1.043</z-m>
+      <pitch-deg>-10</pitch-deg>
+    </offsets>
+  </model>
+
+
+  <model>
+    <name>Captain Standby Horizon</name>
+    <path>Aircraft/Concorde/Models/Cockpit/Instruments/standby-horizon.xml</path>
+    <offsets>
+      <x-m>-23.8245</x-m>
+      <y-m>-0.230</y-m>
+      <z-m>1.1865</z-m>
+      <pitch-deg>-10</pitch-deg>
+    </offsets>
+  </model>
+
+
+  <model>
+    <name>Captain Altimeter</name>
+    <path>Aircraft/Concorde/Models/Cockpit/Instruments/altimeter.xml</path>
+    <overlay>
+      <params>
+        <altitude>instrumentation/altimeter[0]/indicated-altitude-ft</altitude>
+        <setting-inhg>instrumentation/altimeter-adc[0]/setting-inhg</setting-inhg>
+        <setting-hpa>instrumentation/altimeter-adc[0]/setting-hpa</setting-hpa>
+      </params>
+    </overlay>
+    <offsets>
+      <x-m>-23.8099</x-m>
+      <y-m>-0.3155</y-m>
+      <z-m>1.1026</z-m>
+      <pitch-deg>-10</pitch-deg>
+    </offsets>
+  </model>
+
+
+
+  <model>
+    <name>Captain Horizon</name>
+    <path>Aircraft/Concorde/Models/Cockpit/Instruments/horizon.xml</path>
+    <overlay>
+      <overlay>
+        <params>
+          <test>/instrumentation/attitude-indicator[0]/test</test>
+          <fd-engage>/controls/autoflight/flight-director[0]/engage</fd-engage>
+          <fd2>/instrumentation/attitude-indicator[0]/fd2</fd2>
+          <roll>/instrumentation/attitude-indicator[0]/indicated-roll-deg</roll>
+          <pitch>/instrumentation/attitude-indicator[0]/indicated-pitch-deg</pitch>
+          <nav1-in-range>/instrumentation/nav[1]/in-range</nav1-in-range>
+          <nav2-in-range>/instrumentation/nav[2]/in-range</nav2-in-range>
+          <nav1-deflection>/instrumentation/nav[1]/heading-needle-deflection-norm</nav1-deflection>
+          <nav2-deflection>/instrumentation/nav[2]/heading-needle-deflection-norm</nav2-deflection>
+          <has-gs1>/instrumentation/nav[1]/has-gs</has-gs1>
+          <has-gs2>/instrumentation/nav[2]/has-gs</has-gs2>
+          <gs1-in-range>/instrumentation/nav[2]/gs-in-range</gs1-in-range>
+          <gs2-in-range>/instrumentation/nav[1]/gs-in-range</gs2-in-range>
+          <gs1-deflection>/instrumentation/nav[1]/gs-needle-deflection-norm</gs1-deflection>
+          <gs2-deflection>/instrumentation/nav[2]/gs-needle-deflection-norm</gs2-deflection>
+          <attitude-serviceable>/instrumentation/attitude-indicator[0]/serviceable</attitude-serviceable>
+          <fd-serviceable>/instrumentation/flight-director[0]/serviceable</fd-serviceable>
+          <dh-on>/instrumentation/radio-altimeter[0]/decision-height</dh-on>
+          <dh-ft>/instrumentation/radio-altimeter[0]/decision-ft</dh-ft>
+          <radio-ft>/instrumentation/radio-altimeter[0]/indicated-altitude-ft</radio-ft>
+          <slip-ball>/instrumentation/slip-skid-ball/indicated-slip-skid</slip-ball>
+        </params>
+      </overlay>
+    </overlay>
+    <offsets>
+      <x-m>-23.8215</x-m>
+      <y-m>-0.4478</y-m>
+      <z-m>1.165</z-m>
+      <pitch-deg>-10</pitch-deg>
+    </offsets>
+  </model>
+  <model>
+    <name>Captain HSI</name>
+    <path>Aircraft/Concorde/Models/Cockpit/Instruments/hsi.xml</path>
+    <overlay>
+      <params>
+        <heading-deg>/instrumentation/hsi[0]/heading-deg</heading-deg>
+        <heading-select>/controls/autoflight/autopilot[0]/heading-select</heading-select>
+        <nav1-radial>/instrumentation/nav[1]/radials/selected-deg</nav1-radial>
+        <nav2-radial>/instrumentation/nav[2]/radials/selected-deg</nav2-radial>
+        <nav1-to-flag>/instrumentation/nav[1]/to-flag</nav1-to-flag>
+        <nav1-from-flag>/instrumentation/nav[1]/from-flag</nav1-from-flag>
+        <nav2-to-flag>/instrumentation/nav[2]/to-flag</nav2-to-flag>
+        <nav2-from-flag>/instrumentation/nav[2]/from-flag</nav2-from-flag>
+        <nav2-switch>/instrumentation/hsi[0]/dev-nav2</nav2-switch>
+        <ins-source>/instrumentation/hsi[0]/ins-source</ins-source>
+        <true-heading-deg>/autopilot/settings/true-heading-deg</true-heading-deg>
+        <nav1-in-range>/instrumentation/nav[1]/in-range</nav1-in-range>
+        <nav2-in-range>/instrumentation/nav[2]/in-range</nav2-in-range>
+        <nav1-deflection>/instrumentation/nav[1]/heading-needle-deflection-norm</nav1-deflection>
+        <nav2-deflection>/instrumentation/nav[2]/heading-needle-deflection-norm</nav2-deflection>
+        <gs1-in-range>/instrumentation/nav[1]/gs-in-range</gs1-in-range>
+        <gs2-in-range>/instrumentation/nav[2]/gs-in-range</gs2-in-range>
+        <gs1-deflection>/instrumentation/nav[1]/gs-needle-deflection-norm</gs1-deflection>
+        <gs2-deflection>/instrumentation/nav[2]/gs-needle-deflection-norm</gs2-deflection>
+        <true-heading-error-deg>/autopilot/internal/true-heading-error-deg</true-heading-error-deg>
+        <track-push>/controls/autoflight/autopilot[0]/track-push</track-push>
+        <wp-dist>/autopilot/route-manager/wp/dist</wp-dist>
+        <ground-speed-fps>/instrumentation/ins[0]/computed/ground-speed-fps</ground-speed-fps>
+      </params>
+    </overlay>
+    <offsets>
+      <x-m>-23.80</x-m>
+      <y-m>-0.4478</y-m>
+      <z-m>1.043</z-m>
+      <pitch-deg>-10</pitch-deg>
+    </offsets>
+  </model>
+
+
+
+  <model>
+    <name>Visor Wiper Override</name>
+    <path>Aircraft/Concorde/Models/Cockpit/Instruments/visor-wiper-override.xml</path>
+    <offsets>
+      <x-m>-23.828</x-m>
+      <y-m>0.28</y-m>
+      <z-m>1.23</z-m>
+      <pitch-deg>-10</pitch-deg>
+    </offsets>
+  </model>
+
+
+  <model>
+    <name>Engine 1 Nozzle</name>
+    <path>Aircraft/Concorde/Models/Cockpit/Instruments/engine-nozzle.xml</path>
+    <overlay>
+      <params>
+        <nozzle>/engines/engine[0]/nozzle-pos-norm</nozzle>
+      </params>
+    </overlay>
+    <offsets>
+      <x-m>-23.778</x-m>
+      <y-m>-0.115</y-m>
+      <z-m>0.898</z-m>
+      <pitch-deg>-10</pitch-deg>
+    </offsets>
+  </model>
+  <model>
+    <name>Engine 2 Nozzle</name>
+    <path>Aircraft/Concorde/Models/Cockpit/Instruments/engine-nozzle.xml</path>
+    <overlay>
+      <params>
+        <nozzle>/engines/engine[1]/nozzle-pos-norm</nozzle>
+      </params>
+    </overlay>
+    <offsets>
+      <x-m>-23.778</x-m>
+      <y-m>-0.044</y-m>
+      <z-m>0.898</z-m>
+      <pitch-deg>-10</pitch-deg>
+    </offsets>
+  </model>
+  <model>
+    <name>Engine 3 Nozzle</name>
+    <path>Aircraft/Concorde/Models/Cockpit/Instruments/engine-nozzle.xml</path>
+    <overlay>
+      <params>
+        <nozzle>/engines/engine[2]/nozzle-pos-norm</nozzle>
+      </params>
+    </overlay>
+    <offsets>
+      <x-m>-23.778</x-m>
+      <y-m>0.027</y-m>
+      <z-m>0.898</z-m>
+      <pitch-deg>-10</pitch-deg>
+    </offsets>
+  </model>
+  <model>
+    <name>Engine 4 Nozzle</name>
+    <path>Aircraft/Concorde/Models/Cockpit/Instruments/engine-nozzle4.xml</path>
+    <overlay>
+      <params>
+        <nozzle>/engines/engine[3]/nozzle-pos-norm</nozzle>
+      </params>
+    </overlay>
+    <offsets>
+      <x-m>-23.778</x-m>
+      <y-m>0.098</y-m>
+      <z-m>0.898</z-m>
+      <pitch-deg>-10</pitch-deg>
+    </offsets>
+  </model>
+
+
+  <model>
+    <name>Engine 1 EGT</name>
+    <path>Aircraft/Concorde/Models/Cockpit/Instruments/engine-egt.xml</path>
+    <overlay>
+      <params>
+        <egt>/engines/engine[0]/egt-degf</egt>
+      </params>
+    </overlay>
+    <offsets>
+      <x-m>-23.79</x-m>
+      <y-m>-0.115</y-m>
+      <z-m>0.962</z-m>
+      <pitch-deg>-10</pitch-deg>
+    </offsets>
+  </model>
+  <model>
+    <name>Engine 2 EGT</name>
+    <path>Aircraft/Concorde/Models/Cockpit/Instruments/engine-egt.xml</path>
+    <overlay>
+      <params>
+        <egt>/engines/engine[1]/egt-degf</egt>
+      </params>
+    </overlay>
+    <offsets>
+      <x-m>-23.79</x-m>
+      <y-m>-0.044</y-m>
+      <z-m>0.962</z-m>
+      <pitch-deg>-10</pitch-deg>
+    </offsets>
+  </model>
+  <model>
+    <name>Engine 3 EGT</name>
+    <path>Aircraft/Concorde/Models/Cockpit/Instruments/engine-egt.xml</path>
+    <overlay>
+      <params>
+        <egt>/engines/engine[2]/egt-degf</egt>
+      </params>
+    </overlay>
+    <offsets>
+      <x-m>-23.79</x-m>
+      <y-m>0.027</y-m>
+      <z-m>0.962</z-m>
+      <pitch-deg>-10</pitch-deg>
+    </offsets>
+  </model>
+  <model>
+    <name>Engine 4 EGT</name>
+    <path>Aircraft/Concorde/Models/Cockpit/Instruments/engine-egt.xml</path>
+    <overlay>
+      <params>
+        <egt>/engines/engine[3]/egt-degf</egt>
+      </params>
+    </overlay>
+    <offsets>
+      <x-m>-23.79</x-m>
+      <y-m>0.098</y-m>
+      <z-m>0.962</z-m>
+      <pitch-deg>-10</pitch-deg>
+    </offsets>
+  </model>
+
+
+  <model>
+    <name>Engine 1 Fuel Flow</name>
+    <path>Aircraft/Concorde/Models/Cockpit/Instruments/engine-fuel.xml</path>
+    <overlay>
+      <params>
+        <fuelflow>/engines/engine[0]/fuel-flow_pph</fuelflow>
+        <bug-select>/controls/engines/engine[0]/bug_pph</bug-select>
+      </params>
+    </overlay>
+    <offsets>
+      <x-m>-23.80</x-m>
+      <y-m>-0.115</y-m>
+      <z-m>1.027</z-m>
+      <pitch-deg>-10</pitch-deg>
+    </offsets>
+  </model>
+  <model>
+    <name>Engine 2 Fuel Flow</name>
+    <path>Aircraft/Concorde/Models/Cockpit/Instruments/engine-fuel.xml</path>
+    <overlay>
+      <params>
+        <fuelflow>/engines/engine[1]/fuel-flow_pph</fuelflow>
+        <bug-select>/controls/engines/engine[1]/bug_pph</bug-select>
+      </params>
+    </overlay>
+    <offsets>
+      <x-m>-23.80</x-m>
+      <y-m>-0.044</y-m>
+      <z-m>1.027</z-m>
+      <pitch-deg>-10</pitch-deg>
+    </offsets>
+  </model>
+  <model>
+    <name>Engine 3 Fuel Flow</name>
+    <path>Aircraft/Concorde/Models/Cockpit/Instruments/engine-fuel.xml</path>
+    <overlay>
+      <params>
+        <fuelflow>/engines/engine[2]/fuel-flow_pph</fuelflow>
+        <bug-select>/controls/engines/engine[2]/bug_pph</bug-select>
+      </params>
+    </overlay>
+    <offsets>
+      <x-m>-23.80</x-m>
+      <y-m>0.027</y-m>
+      <z-m>1.027</z-m>
+      <pitch-deg>-10</pitch-deg>
+    </offsets>
+  </model>
+  <model>
+    <name>Engine 4 Fuel Flow</name>
+    <path>Aircraft/Concorde/Models/Cockpit/Instruments/engine-fuel.xml</path>
+    <overlay>
+      <params>
+        <fuelflow>/engines/engine[3]/fuel-flow_pph</fuelflow>
+        <bug-select>/controls/engines/engine[3]/bug_pph</bug-select>
+      </params>
+    </overlay>
+    <offsets>
+      <x-m>-23.80</x-m>
+      <y-m>0.098</y-m>
+      <z-m>1.027</z-m>
+      <pitch-deg>-10</pitch-deg>
+    </offsets>
+  </model>
+
+  <model>
+    <name>Engine 1 Indicator</name>
+    <path>Aircraft/Concorde/Models/Cockpit/Instruments/engine-indicator.xml</path>
+    <overlay>
+      <params>
+        <running>/engines/engine[0]/running</running>
+        <bucket>/systems/engines/engine[0]/bucket-deg</bucket>
+        <fuel>/engines/engine[0]/fuel-flow_pph</fuel>
+        <fuel-bug>/controls/engines/engine[0]/bug_pph</fuel-bug>
+        <configuration>/systems/engines/engine[0]/configuration</configuration>
+      </params>
+    </overlay>
+    <offsets>
+      <x-m>-23.824</x-m>
+      <y-m>-0.115</y-m>
+      <z-m>1.196</z-m>
+      <pitch-deg>-10</pitch-deg>
+    </offsets>
+  </model>
+  <model>
+    <name>Engine 2 Indicator</name>
+    <path>Aircraft/Concorde/Models/Cockpit/Instruments/engine-indicator.xml</path>
+    <overlay>
+      <params>
+        <running>/engines/engine[1]/running</running>
+        <bucket>/systems/engines/engine[1]/bucket-deg</bucket>
+        <fuel>/engines/engine[1]/fuel-flow_pph</fuel>
+        <fuel-bug>/controls/engines/engine[1]/bug_pph</fuel-bug>
+        <configuration>/systems/engines/engine[1]/configuration</configuration>
+      </params>
+    </overlay>
+    <offsets>
+      <x-m>-23.824</x-m>
+      <y-m>-0.044</y-m>
+      <z-m>1.196</z-m>
+      <pitch-deg>-10</pitch-deg>
+    </offsets>
+  </model>
+  <model>
+    <name>Engine 3 Indicator</name>
+    <path>Aircraft/Concorde/Models/Cockpit/Instruments/engine-indicator.xml</path>
+    <overlay>
+      <params>
+        <running>/engines/engine[2]/running</running>
+        <bucket>/systems/engines/engine[2]/bucket-deg</bucket>
+        <fuel>/engines/engine[2]/fuel-flow_pph</fuel>
+        <fuel-bug>/controls/engines/engine[2]/bug_pph</fuel-bug>
+        <configuration>/systems/engines/engine[2]/configuration</configuration>
+      </params>
+    </overlay>
+    <offsets>
+      <x-m>-23.824</x-m>
+      <y-m>0.027</y-m>
+      <z-m>1.196</z-m>
+      <pitch-deg>-10</pitch-deg>
+    </offsets>
+  </model>
+  <model>
+    <name>Engine 4 Indicator</name>
+    <path>Aircraft/Concorde/Models/Cockpit/Instruments/engine-indicator.xml</path>
+    <overlay>
+      <params>
+        <running>/engines/engine[3]/running</running>
+        <bucket>/systems/engines/engine[3]/bucket-deg</bucket>
+        <fuel>/engines/engine[3]/fuel-flow_pph</fuel>
+        <fuel-bug>/controls/engines/engine[3]/bug_pph</fuel-bug>
+        <configuration>/systems/engines/engine[3]/configuration</configuration>
+      </params>
+    </overlay>
+    <offsets>
+      <x-m>-23.824</x-m>
+      <y-m>0.098</y-m>
+      <z-m>1.196</z-m>
+      <pitch-deg>-10</pitch-deg>
+    </offsets>
+  </model>
+  <model>
+    <name>Engine 1 N2</name>
+    <path>Aircraft/Concorde/Models/Cockpit/Instruments/engine-n2_1.xml</path>
+    <overlay>
+      <params>
+        <n2>/engines/engine[0]/n2</n2>
+      </params>
+    </overlay>
+    <offsets>
+      <x-m>-23.822</x-m>
+      <y-m>-0.115</y-m>
+      <z-m>1.155</z-m>
+      <pitch-deg>-10</pitch-deg>
+    </offsets>
+  </model>
+  <model>
+    <name>Engine 2 N2</name>
+    <path>Aircraft/Concorde/Models/Cockpit/Instruments/engine-n2_2.xml</path>
+    <overlay>
+      <params>
+        <n2>/engines/engine[1]/n2</n2>
+      </params>
+    </overlay>
+    <offsets>
+      <x-m>-23.822</x-m>
+      <y-m>-0.044</y-m>
+      <z-m>1.155</z-m>
+      <pitch-deg>-10</pitch-deg>
+    </offsets>
+  </model>
+  <model>
+    <name>Engine 3 N2</name>
+    <path>Aircraft/Concorde/Models/Cockpit/Instruments/engine-n2_3.xml</path>
+    <overlay>
+      <params>
+        <n2>/engines/engine[2]/n2</n2>
+      </params>
+    </overlay>
+    <offsets>
+      <x-m>-23.822</x-m>
+      <y-m>0.027</y-m>
+      <z-m>1.155</z-m>
+      <pitch-deg>-10</pitch-deg>
+    </offsets>
+  </model>
+  <model>
+    <name>Engine 4 N2</name>
+    <path>Aircraft/Concorde/Models/Cockpit/Instruments/engine-n2_4.xml</path>
+    <overlay>
+      <params>
+        <n2>/engines/engine[3]/n2</n2>
+      </params>
+    </overlay>
+    <offsets>
+      <x-m>-23.822</x-m>
+      <y-m>0.098</y-m>
+      <z-m>1.155</z-m>
+      <pitch-deg>-10</pitch-deg>
+    </offsets>
+  </model>
+
+
+  <model>
+    <name>Engine 1 N1</name>
+    <path>Aircraft/Concorde/Models/Cockpit/Instruments/engine-n1.xml</path>
+    <overlay>
+      <params>
+        <n1>/engines/engine[0]/n1</n1>
+      </params>
+    </overlay>
+    <offsets>
+      <x-m>-23.81</x-m>
+      <y-m>-0.115</y-m>
+      <z-m>1.092</z-m>
+      <pitch-deg>-10</pitch-deg>
+    </offsets>
+  </model>
+  <model>
+    <name>Engine 2 N1</name>
+    <path>Aircraft/Concorde/Models/Cockpit/Instruments/engine-n1.xml</path>
+    <overlay>
+      <params>
+        <n1>/engines/engine[1]/n1</n1>
+      </params>
+    </overlay>
+    <offsets>
+      <x-m>-23.81</x-m>
+      <y-m>-0.044</y-m>
+      <z-m>1.092</z-m>
+      <pitch-deg>-10</pitch-deg>
+    </offsets>
+  </model>
+  <model>
+    <name>Engine 3 N1</name>
+    <path>Aircraft/Concorde/Models/Cockpit/Instruments/engine-n1.xml</path>
+    <overlay>
+      <params>
+        <n1>/engines/engine[2]/n1</n1>
+      </params>
+    </overlay>
+    <offsets>
+      <x-m>-23.81</x-m>
+      <y-m>0.027</y-m>
+      <z-m>1.092</z-m>
+      <pitch-deg>-10</pitch-deg>
+    </offsets>
+  </model>
+  <model>
+    <name>Engine 4 N1</name>
+    <path>Aircraft/Concorde/Models/Cockpit/Instruments/engine-n1.xml</path>
+    <overlay>
+      <params>
+        <n1>/engines/engine[3]/n1</n1>
+      </params>
+    </overlay>
+    <offsets>
+      <x-m>-23.81</x-m>
+      <y-m>0.098</y-m>
+      <z-m>1.092</z-m>
+      <pitch-deg>-10</pitch-deg>
+    </offsets>
+  </model>
+
+
+  <model>
+    <name>Captain TCAS</name>
+    <path>Aircraft/Concorde/Models/Cockpit/Instruments/tcas.xml</path>
+    <offsets>
+      <x-m>-23.8099</x-m>
+      <y-m>-0.2290</y-m>
+      <z-m>1.1026</z-m>
+      <pitch-deg>-10</pitch-deg>
+    </offsets>
+  </model>
+
+  <model>
+    <name>FO TCAS</name>
+    <path>Aircraft/Concorde/Models/Cockpit/Instruments/tcas.xml</path>
+    <offsets>
+      <x-m>-23.797</x-m>
+      <y-m>0.675</y-m>
+      <z-m>0.995</z-m>
+      <pitch-deg>-10</pitch-deg>
+    </offsets>
+  </model>
+
+
+
+  <model>
+    <name>Landing Gear</name>
+    <path>Aircraft/Concorde/Models/Cockpit/Instruments/landing-gear.xml</path>
+    <offsets>
+      <x-m>-23.795</x-m>
+      <y-m>0.1489</y-m>
+      <z-m>1.011</z-m>
+      <pitch-deg>-10</pitch-deg>
+    </offsets>
+  </model>
 
   <model>
     <name>Nose Visor</name>
@@ -109,7 +1646,7 @@
       </params>
     </overlay>
     <offsets>
-      <x-m>-23.7992</x-m>
+      <x-m>-23.802</x-m>
       <y-m>-0.6984</y-m>
       <z-m>1.0412</z-m>
       <pitch-deg>-10</pitch-deg>
@@ -132,7 +1669,7 @@
     </offsets>
   </model>
 
--->
+
 
 <!-- OVERHEAD -->
 

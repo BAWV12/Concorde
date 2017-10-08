@@ -1,0 +1,58 @@
+<?xml version="1.0"?>
+<PropertyList>
+  <path>../Models/rnav-wx-update.ac</path>
+  <params>
+    <test>/controls/lighting/crew/captain/test</test>
+    <low>/controls/lighting/crew/captain/low</low>
+    <aligned-select>/instrumentation/ins[0]/msu/aligned</aligned-select>
+    <dme-select>/instrumentation/dme[0]/in-range</dme-select>
+    <power>/systems/electrical/outputs/bulb</power>
+  </params>
+  <animation>
+    <type>material</type>
+    <object-name>RNAV</object-name>
+    <condition>
+      <or>
+        <property alias="/params/test"/>
+	<and>
+        	<property alias="/params/aligned-select"/>
+        	<property alias="/params/dme-select"/>
+		<greater-than>
+			<property alias="/params/power"/>
+			<value>20</value>
+		</greater-than>
+	</and>
+      </or>
+    </condition>
+    <emission>
+      <red>0.8</red>
+      <green>0.8</green>
+      <blue>0</blue>
+    </emission>
+  </animation>
+  <animation>
+    <type>material</type>
+    <object-name>WXR</object-name>
+    <condition>
+      <or>
+        <property alias="/params/test"/>
+      </or>
+    </condition>
+    <emission>
+      <red>0.8</red>
+      <green>0.8</green>
+      <blue>0</blue>
+    </emission>
+  </animation>
+  <!--Default Lighting-->
+  <animation>
+    <type>material</type>
+    <object-name>Frame</object-name>
+    <emission>
+      <red>0.01</red>
+      <green>0.005</green>
+      <blue>0.005</blue>
+      <factor-prop>controls/lighting/panel-norm</factor-prop>
+    </emission>
+  </animation>
+</PropertyList>

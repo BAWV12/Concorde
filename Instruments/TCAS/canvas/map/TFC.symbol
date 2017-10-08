@@ -1,0 +1,117 @@
+# See: http://wiki.flightgear.org/MapStructure
+# Class things:
+var name = 'TFC';
+var parents = [DotSym];
+var __self__ = caller(0)[0];
+DotSym.makeinstance( name, __self__ );
+
+SymbolLayer.get(name).df_style = { # style to use by default
+	line_width: 3,
+	scale_factor: 1,
+	color_by_lvl: {
+		3: [1,0,0], # resolution advisory
+		2: [1,0.5,0], # traffic advisory
+		1: [1,1,1], # proximate traffic
+	},
+	color_default: [1,1,1]
+};
+
+var element_type = "group"; # we want a group, becomes "me.element"
+var text_tcas = nil;
+var icon_tcas = nil;
+var arrow_tcas = [nil,nil];
+var arrow_type = nil;
+
+var draw_tcas_arrow = nil;
+var color = nil;
+var threatLvl = 0e-0; # NaN to update even when threatLvl == nil
+
+# TODO: how to integrate both styling and caching?
+var draw = func {
+	# TODO: get rid of draw_tcas_arrow hacks
+	if (draw_tcas_arrow == nil)
+		draw_tcas_arrow = [
+			draw_tcas_arrow_above_500,
+			draw_tcas_arrow_below_500
+		];
+	#var callsign = me.model.getNode("callsign").getValue();
+	# print("Drawing traffic for:", callsign );
+	var threatLvl = me.model.get_threat_lvl();
+	var vspeed = me.model.get_vspd();
+	var altDiff = me.layer.controller.get_alt_diff(me.model);
+	# Init
+	if (me.text_tcas == nil) {
+		me.text_tcas = me.element.createChild("text")
+			.setDrawMode( canvas.Text.TEXT )
+			.setText(sprintf("%+02.0f",altDiff/100))
+			.setFont("LiberationFonts/LiberationSans-Regular.ttf")
+			.setColor(1,1,1)
+			.setFontSize(20)
+			.setAlignment("center-center");
+		me.icon_tcas = me.element.createChild("path")
+			.setStrokeLineWidth(3);
+	}
+	# Update
+	if (altDiff > 0)
+		me.text_tcas.setTranslation(0,-40);
+	else
+		me.text_tcas.setTranslation(0,40);
+	var arrow_type = (vspeed >= 500);
+	if (arrow_type != me.arrow_type) {
+		(old_type, me.arrow_type) = (me.arrow_type, arrow_type);
+		if (old_type != nil and me.arrow_tcas[old_type] != nil) me.arrow_tcas[old_type].hide();
+		if (me.arrow_tcas[arrow_type] == nil)
+			me.arrow_tcas[arrow_type] = me.draw_tcas_arrow[arrow_type](me.element);
+		me.arrow_tcas[arrow_type].show();
+	}
+	if (threatLvl != me.threatLvl) {
+		me.threatLvl = threatLvl;
+		## TODO: should threat level symbols also be moved to *.draw files?
+		if (threatLvl == 3) {
+			# resolution advisory
+			me.icon_tcas.moveTo(-17,-17)
+				.horiz(34)
+				.vert(34)
+				.horiz(-34)
+				.close();
+		} elsif (threatLvl == 2) {
+			# traffic advisory
+			me.icon_tcas.moveTo(-17,0)
+				.arcSmallCW(17,17,0,34,0)
+				.arcSmallCW(17,17,0,-34,0);
+		} elsif (threatLvl == 1) {
+			# proximate traffic
+			me.icon_tcas.moveTo(-10,0)
+				.lineTo(0,-17)
+				.lineTo(10,0)
+				.lineTo(0,17)
+				.close();
+		} else {
+			# other traffic
+			me.icon_tcas.moveTo(-10,0)
+				.lineTo(0,-17)
+				.lineTo(10,0)
+				.lineTo(0,17)
+				.close();
+		}
+	}
+	var color = nil;
+	if (threatLvl != nil)
+		if ((var c = me.style.color_by_lvl[threatLvl]) != nil)
+			var color = canvas._getColor(c);
+	if (color == nil)
+		color = canvas._getColor(me.style.color_default);
+	if (me.color != color) {
+		me.color = color;
+		me.icon_tcas.setColor(color);
+		me.text_tcas.setColor(color);
+		me.arrow_tcas[me.arrow_type].setColor(color);
+		if (num(threatLvl) == nil or (threatLvl < 1 or threatLvl > 3)) {
+			color = [0,0,0,0];
+		}
+		me.icon_tcas.setColorFill(color);
+	}
+	if (me.style.scale_factor != me.element.getScale())
+		me.element.setScale(me.style.scale_factor);
+};
+

@@ -1,0 +1,37 @@
+<?xml version="1.0"?>
+<PropertyList>
+  <path>../Models/frm.ac</path>
+  <!--Default Lighting-->
+  <animation>
+    <type>material</type>
+    <object-name>Guage</object-name>
+    <emission>
+      <red>0.2</red>
+      <green>0.1</green>
+      <blue>0.1</blue>
+      <factor-prop>controls/lighting/panel-norm</factor-prop>
+    </emission>
+  </animation>
+  <animation>
+    <type>material</type>
+    <object-name>Frame</object-name>
+    <emission>
+      <red>0.01</red>
+      <green>0.005</green>
+      <blue>0.005</blue>
+      <factor-prop>controls/lighting/panel-norm</factor-prop>
+    </emission>
+  </animation>
+  <animation>
+    <type>material</type>
+    <object-name>CG</object-name>
+    <object-name>FWD</object-name>
+    <object-name>AFT</object-name>
+    <emission>
+      <red>0.1</red>
+      <green>0.03</green>
+      <blue>0.01</blue>
+      <factor-prop>controls/lighting/panel-norm</factor-prop>
+    </emission>
+  </animation>
+</PropertyList>

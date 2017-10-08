@@ -7,69 +7,39 @@ var nd_display = {};
 
 setprop("instrumentation/airspeed-indicator/true-speed-kt",0);
 
-setlistener("sim/signals/fdm-initialized", func() {
+setprop("/instrumentation/efis[0]/inputs/range-nm",40);
 
+var my_canvas = canvas.new({
+  "name": "PFD-Test",   # The name is optional but allow for easier identification
+  "size": [1024, 1024], # Size of the underlying texture (should be a power of 2, required) [Resolution]
+  "view": [1024, 1024],  # Virtual resolution (Defines the coordinate system of the canvas [Dimensions]
+                        # which will be stretched the size of the texture, required)
+  "mipmapping": 1       # Enable mipmapping (optional)
+});
 
-	var myCockpit_switches = {
-		# symbolic alias : relative property (as used in bindings), initial value, type
-		'toggle_range': 	{path: '/inputs/range-nm', value:40, type:'INT'},
-		'toggle_weather': 	{path: '/inputs/wxr', value:0, type:'BOOL'},
-		'toggle_airports': 	{path: '/inputs/arpt', value:0, type:'BOOL'},
-		'toggle_ndb': 	{path: '/inputs/NDB', value:0, type:'BOOL'},
-		'toggle_stations':     {path: '/inputs/sta', value:0, type:'BOOL'},
-		'toggle_vor': 	{path: '/inputs/VORD', value:0, type:'BOOL'},
-		'toggle_dme': 	{path: '/inputs/DME', value:0, type:'BOOL'},
-		'toggle_cstr': 	{path: '/inputs/CSTR', value:0, type:'BOOL'},
-		'toggle_waypoints': 	{path: '/inputs/wpt', value:0, type:'BOOL'},
-		'toggle_position': 	{path: '/inputs/pos', value:0, type:'BOOL'},
-		'toggle_data': 		{path: '/inputs/data',value:0, type:'BOOL'},
-		'toggle_terrain': 	{path: '/inputs/terr',value:0, type:'BOOL'},
-		'toggle_traffic': 		{path: '/inputs/tfc',value:1, type:'BOOL'},
-		'toggle_centered': 		{path: '/inputs/nd-centered',value:1, type:'BOOL'},
-		'toggle_lh_vor_adf':	{path: '/input/lh-vor-adf',value:0, type:'INT'},
-		'toggle_rh_vor_adf':	{path: '/input/rh-vor-adf',value:0, type:'INT'},
-		'toggle_display_mode': 	{path: '/nd/canvas-display-mode', value:'NAV', type:'STRING'},
-		'toggle_display_type': 	{path: '/mfd/display-type', value:'LCD', type:'STRING'},
-		'toggle_true_north': 	{path: '/mfd/true-north', value:1, type:'BOOL'},
-		'toggle_track_heading': 	{path: '/trk-selected', value:0, type:'BOOL'},
-		'toggle_wpt_idx': {path: '/inputs/plan-wpt-index', value: -1, type: 'INT'},
-		'toggle_plan_loop': {path: '/nd/plan-mode-loop', value: 0, type: 'INT'},
-		'toggle_weather_live': {path: '/mfd/wxr-live-enabled', value: 0, type: 'BOOL'},
-		'toggle_chrono': {path: '/inputs/CHRONO', value: 0, type: 'INT'},
-		'toggle_xtrk_error': {path: '/mfd/xtrk-error', value: 0, type: 'BOOL'},
-		'toggle_trk_line': {path: '/mfd/trk-line', value: 0, type: 'BOOL'},
-		# add new switches here
-	};
+my_canvas.addPlacement({"node": "TCAS"});
 
-	# get a handle to the NavDisplay in canvas namespace (for now), see $FG_ROOT/Nasal/canvas/map/navdisplay.mfd
-	var ND = canvas.NavDisplay;
+var group = my_canvas.createGroup();
 
-	## TODO: We want to support multiple independent ND instances here!
-	# foreach(var pilot; var pilots = [ {name:'cpt', path:'instrumentation/efis',
-	#				     name:'fo',  path:'instrumentation[1]/efis']) {
+var TestMap = group.createChild("map");
+  TestMap.setController("Aircraft position");
+  TestMap.setRange(40); 
+  
+  # this will center the map
+  TestMap.setTranslation(512,512);
+ var r = func(name,vis=1,zindex=nil) return caller(0)[0];
+ foreach(var type; [r('TFC')] )
+        TestMap.addLayer(factory: canvas.SymbolLayer, type_arg: type.name, visible: type.vis, priority: type.zindex,);
 
+var txt_range = group.createChild("text")
+	.setText("Range 40")
+	.setFontSize(24,1)
+        .setAlignment("center-center")
+        .setTranslation(512,748)
+	.setColor(0,1,1,1);
 
-	##
-	# set up a  new ND instance, under 'instrumentation/efis' and use the
-	# myCockpit_switches hash to map control properties
-	var NDCpt = ND.new("instrumentation/efis", myCockpit_switches, 'TCAS');
-
-	nd_display.main = canvas.new({
-		"name": "ND",
-		"size": [1024, 1024],
-		"view": [1024, 1024],
-		"mipmapping": 1
-	});
-
-	nd_display.main.addPlacement({"node": "TCAS"});
-
-	var group = nd_display.main.createGroup();
-	NDCpt.newMFD(group);
-	NDCpt.update();
-
-	print("ND Canvas Initialized!");
-}); # fdm-initialized listener callback
-
-#setprop("instrumentation/efis/inputs/tfc","true");
-
-
+setlistener("instrumentation/efis/inputs/range-nm", func() {
+trange=getprop("/instrumentation/efis/inputs/range-nm");
+TestMap.setRange(trange);
+txt_range.setText(sprintf("Range %i",trange));
+});

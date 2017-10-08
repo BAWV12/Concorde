@@ -1,0 +1,11 @@
+From top to bottom:
+
+ 4 TCAS
+ 3 Altitude profile (T/C, T/D etc.)
+ 2 Waypoint
+ 1 Route
+ 0 Map overlay (range, track)
+-1 Airports
+-2 Stations
+-3 Fixes
+-4 Weather radar

@@ -1,0 +1,227 @@
+<?xml version="1.0"?>
+<PropertyList>
+  <path>../Models/abs.ac</path>
+
+  <animation>
+    <type>rotate</type>
+    <object-name>Switch.001</object-name>
+    <property>controls/gear/steering/test</property>
+    <interpolation>
+      <entry>
+        <ind>0</ind>
+        <dep>0</dep>
+      </entry>
+      <entry>
+        <ind>1</ind>
+        <dep>-35</dep>
+      </entry>
+    </interpolation>
+    <center>
+      <x-m>0.00058</x-m>
+      <y-m>0.01077</y-m>
+      <z-m>0.01045</z-m>
+    </center>
+    <axis>
+      <x>0</x>
+      <y>1</y>
+      <z>0</z>
+    </axis>
+  </animation>
+
+  <animation>
+    <type>rotate</type>
+    <object-name>Switch.002</object-name>
+    <property>controls/gear/antiskid/test</property>
+    <interpolation>
+      <entry>
+        <ind>0</ind>
+        <dep>0</dep>
+      </entry>
+      <entry>
+        <ind>1</ind>
+        <dep>-35</dep>
+      </entry>
+    </interpolation>
+    <center>
+      <x-m>0.00132</x-m>
+      <y-m>0.00795</y-m>
+      <z-m>-0.04726</z-m>
+    </center>
+    <axis>
+      <x>0</x>
+      <y>1</y>
+      <z>0</z>
+    </axis>
+  </animation>
+  
+  <animation>
+    <type>pick</type>
+    <object-name>Switch.002</object-name>
+  <action>
+   <name>Toggle</name>
+   <button>0</button>
+   <binding>
+    <command>property-assign</command>
+    <property>/controls/gear/antiskid/test</property>
+    <value>true</value>
+    <repeatable>true</repeatable>
+   </binding>
+   <mod-up>
+    <binding>
+     <command>property-assign</command>
+     <property>/controls/gear/antiskid/test</property>
+     <value>false</value>
+    </binding>
+    <binding>
+     <command>property-toggle</command>
+     <property>/instrumentation/generic/click</property>
+    </binding>
+   </mod-up>
+  <binding>
+    <command>property-toggle</command>
+    <property>/instrumentation/generic/click</property>
+   </binding>
+  </action>
+  </animation>
+
+  <animation>
+    <type>pick</type>
+    <object-name>Switch.002</object-name>
+   <action>
+   <name>Toggle</name>
+   <button>1</button>
+   <binding>
+    <command>property-toggle</command>
+    <property>/controls/gear/antiskid/channel</property>
+   </binding>
+   <binding>
+    <command>property-toggle</command>
+    <property>/instrumentation/generic/click</property>
+   </binding>
+  </action>
+
+  </animation>
+
+
+<animation>
+    <type>pick</type>
+    <object-name>Switch.001</object-name>
+  <action>
+      <button>0</button>
+   <binding>
+    <command>property-assign</command>
+    <property>/controls/gear/steering/test</property>
+    <value>true</value>
+    <repeatable>true</repeatable>
+   </binding>
+   <mod-up>
+    <binding>
+     <command>property-assign</command>
+     <property>/controls/gear/steering/test</property>
+     <value>false</value>
+    </binding>
+    <binding>
+     <command>property-assign</command>
+     <property>/controls/gear/steering/hydraulic</property>
+     <value>true</value>
+    </binding>
+    <binding>
+     <command>property-toggle</command>
+     <property>/instrumentation/generic/click</property>
+    </binding>
+   </mod-up>
+  </action>
+  </animation>
+
+  <animation>
+    <type>pick</type>
+    <object-name>Switch.001</object-name>
+<action>
+   <name>Toggle</name>
+   <button>1</button>
+   <binding>
+    <command>property-toggle</command>
+    <property>/controls/gear/steering/channel</property>
+   </binding>
+   <binding>
+    <command>property-toggle</command>
+    <property>/instrumentation/generic/click</property>
+   </binding>
+  </action>
+  </animation>
+
+
+ <animation>
+  <type>material</type>
+  <object-name>GreenFrame.009</object-name>
+     <condition>
+     <not>
+      <or include="concorde-cond-voltage-bulb.xml">
+       <and>
+        <not>
+         <property>/controls/gear/steering/test</property>
+        </not>
+        <property>/controls/gear/steering/hydraulic</property>
+       </and>
+      </or>
+     </not>
+     </condition>
+
+  <emission>
+   <red>0.7</red>
+   <green>0</green>
+   <blue>0</blue>
+  </emission>
+ </animation>
+
+ <animation>
+  <type>material</type>
+  <object-name>GreenFrame.003</object-name>
+  <object-name>GreenFrame.000</object-name>
+  <object-name>GreenFrame.001</object-name>
+  <object-name>GreenFrame.002</object-name>
+  <object-name>GreenFrame.004</object-name>
+  <object-name>GreenFrame.005</object-name>
+  <object-name>GreenFrame.006</object-name>
+  <object-name>GreenFrame.007</object-name>
+
+     <condition>
+     <not>
+     <or include="concorde-cond-voltage-bulb.xml">
+      <not>
+       <property>/controls/gear/antiskid/test</property>
+      </not>
+     </or>
+     </not>
+     </condition>
+
+  <emission>
+   <red>0.7</red>
+   <green>0.7</green>
+   <blue>0</blue>
+  </emission>
+ </animation>
+
+  <!--Default Lighting-->
+
+  <animation>
+    <type>material</type>
+    <object-name>Frame.000</object-name>
+  <condition>
+  <and>
+   <greater-than>
+    <property>sim/time/sun-angle-rad</property>
+    <value>1.59</value>
+   </greater-than>
+    <property>controls/lighting/instrument-lights</property>
+  </and>
+  </condition>
+  <emission>
+   <red>0.7</red>
+   <green>0.2</green>
+   <blue>0.2</blue>
+  </emission>
+</animation>
+
+
+</PropertyList>

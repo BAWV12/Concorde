@@ -1,0 +1,529 @@
+<?xml version="1.0"?>
+<PropertyList>
+  <path>../Models/hsi.ac</path>
+  <params>
+    <heading-deg>/instrumentation/hsi[0]/heading-deg</heading-deg>
+    <heading-select>/controls/autoflight/autopilot[0]/heading-select</heading-select>
+    <nav1-radial>/instrumentation/nav[1]/radials/selected-deg</nav1-radial>
+    <nav2-radial>/instrumentation/nav[2]/radials/selected-deg</nav2-radial>
+    <nav1-to-flag>/instrumentation/nav[1]/to-flag</nav1-to-flag>
+    <nav1-from-flag>/instrumentation/nav[1]/from-flag</nav1-from-flag>
+    <nav2-to-flag>/instrumentation/nav[2]/to-flag</nav2-to-flag>
+    <nav2-from-flag>/instrumentation/nav[2]/from-flag</nav2-from-flag>
+    <nav2-switch>/instrumentation/hsi[0]/dev-nav2</nav2-switch>
+    <ins-source>/instrumentation/hsi[0]/ins-source</ins-source>
+    <true-heading-deg>/autopilot/settings/true-heading-deg</true-heading-deg>
+    <nav1-in-range>/instrumentation/nav[1]/in-range</nav1-in-range>
+    <nav2-in-range>/instrumentation/nav[2]/in-range</nav2-in-range>
+    <nav1-deflection>/instrumentation/nav[1]/heading-needle-deflection-norm</nav1-deflection>
+    <nav2-deflection>/instrumentation/nav[2]/heading-needle-deflection-norm</nav2-deflection>
+    <gs1-in-range>/instrumentation/nav[1]/gs-in-range</gs1-in-range>
+    <gs2-in-range>/instrumentation/nav[2]/gs-in-range</gs2-in-range>
+    <gs1-deflection>/instrumentation/nav[1]/gs-needle-deflection-norm</gs1-deflection>
+    <gs2-deflection>/instrumentation/nav[2]/gs-needle-deflection-norm</gs2-deflection>
+    <true-heading-error-deg>/autopilot/internal/true-heading-error-deg</true-heading-error-deg>
+    <track-push>/controls/autoflight/autopilot[0]/track-push</track-push>
+    <wp-dist>/autopilot/route-manager/wp/dist</wp-dist>
+    <ground-speed-fps>/instrumentation/ins[0]/computed/ground-speed-fps</ground-speed-fps>
+  </params>
+  <animation>
+    <type>rotate</type>
+    <object-name>Compass</object-name>
+    <property alias="/params/heading-deg"/>
+    <center>
+      <x-m>0</x-m>
+      <y-m>0</y-m>
+      <z-m>-0.0125</z-m>
+    </center>
+    <axis>
+      <x>1</x>
+      <y>0</y>
+      <z>0</z>
+    </axis>
+  </animation>
+  <animation>
+    <type>rotate</type>
+    <object-name>HdgBug</object-name>
+    <expression>
+      <difference>
+        <property alias="/params/heading-select"/>
+        <property alias="/params/heading-deg"/>
+      </difference>
+    </expression>
+    <center>
+      <x-m>0</x-m>
+      <y-m>0</y-m>
+      <z-m>-0.0125</z-m>
+    </center>
+    <axis>
+      <x>-1</x>
+      <y>0</y>
+      <z>0</z>
+    </axis>
+  </animation>
+  <animation>
+    <type>rotate</type>
+    <object-name>CompassNeedle</object-name>
+    <object-name>LocGuage</object-name>
+    <object-name>LocNeedle</object-name>
+    <object-name>ToFlag</object-name>
+    <object-name>FromFlag</object-name>
+    <expression>
+      <difference>
+        <sum>
+          <prod>
+            <sum>
+              <prod>
+                <property alias="/params/nav1-radial"/>
+                <abs>
+                  <difference>
+                    <property alias="/params/nav2-switch"/>
+                    <value>1</value>
+                  </difference>
+                </abs>
+              </prod>
+              <prod>
+                <property alias="/params/nav2-radial"/>
+                <property alias="/params/nav2-switch"/>
+              </prod>
+            </sum>
+            <abs>
+              <difference>
+                <property alias="/params/ins-source"/>
+                <value>1</value>
+              </difference>
+            </abs>
+          </prod>
+          <prod>
+            <property alias="/params/true-heading-deg"/>
+            <property alias="/params/ins-source"/>
+          </prod>
+        </sum>
+        <property alias="/params/heading-deg"/>
+      </difference>
+    </expression>
+    <center>
+      <x-m>0</x-m>
+      <y-m>0</y-m>
+      <z-m>-0.0125</z-m>
+    </center>
+    <axis>
+      <x>-1</x>
+      <y>0</y>
+      <z>0</z>
+    </axis>
+  </animation>
+  <animation>
+    <type>translate</type>
+    <object-name>LocNeedle</object-name>
+    <expression>
+      <prod>
+        <sum>
+          <prod>
+            <abs>
+              <difference>
+                <property alias="/params/nav2-switch"/>
+                <value>1</value>
+              </difference>
+            </abs>
+            <property alias="/params/nav1-in-range"/>
+            <property alias="/params/nav1-deflection"/>
+            <abs>
+              <difference>
+                <property alias="/params/ins-source"/>
+                <value>1</value>
+              </difference>
+            </abs>
+          </prod>
+          <prod>
+            <property alias="/params/nav2-switch"/>
+            <property alias="/params/nav2-in-range"/>
+            <property alias="/params/nav2-deflection"/>
+            <abs>
+              <difference>
+                <property alias="/params/ins-source"/>
+                <value>1</value>
+              </difference>
+            </abs>
+          </prod>
+          <max>
+            <min>
+              <prod>
+                <property alias="/params/true-heading-error-deg"/>
+                <property alias="/params/ins-source"/>
+                <value>0.1</value>
+              </prod>
+              <value>1</value>
+            </min>
+            <value>-1</value>
+          </max>
+        </sum>
+        <value>0.016</value>
+      </prod>
+    </expression>
+    <axis>
+      <x>0</x>
+      <y>1</y>
+      <z>0</z>
+    </axis>
+  </animation>
+  <animation>
+    <type>translate</type>
+    <object-name>GSArrow</object-name>
+    <expression>
+      <prod>
+        <sum>
+          <prod>
+            <abs>
+              <difference>
+                <property alias="/params/nav2-switch"/>
+                <value>1</value>
+              </difference>
+            </abs>
+            <property alias="/params/gs1-in-range"/>
+            <property alias="/params/gs1-deflection"/>
+            <abs>
+              <difference>
+                <property alias="/params/ins-source"/>
+                <value>1</value>
+              </difference>
+            </abs>
+          </prod>
+          <prod>
+            <property alias="/params/nav2-switch"/>
+            <property alias="/params/gs2-in-range"/>
+            <property alias="/params/gs2-deflection"/>
+            <abs>
+              <difference>
+                <property alias="/params/ins-source"/>
+                <value>1</value>
+              </difference>
+            </abs>
+          </prod>
+        </sum>
+        <value>0.02</value>
+      </prod>
+    </expression>
+    <axis>
+      <x>0</x>
+      <y>0</y>
+      <z>1</z>
+    </axis>
+  </animation>
+  <animation>
+    <type>select</type>
+    <object-name>ToFlag</object-name>
+    <condition>
+      <and>
+        <or>
+          <and>
+            <not>
+              <property alias="/params/nav2-switch"/>
+            </not>
+            <property alias="/params/nav1-in-range"/>
+            <property alias="/params/nav1-to-flag"/>
+          </and>
+          <and>
+            <property alias="/params/nav2-switch"/>
+            <property alias="/params/nav2-in-range"/>
+            <property alias="/params/nav2-to-flag"/>
+          </and>
+        </or>
+        <not>
+          <property alias="/params/ins-source"/>
+        </not>
+      </and>
+    </condition>
+  </animation>
+  <animation>
+    <type>select</type>
+    <object-name>FromFlag</object-name>
+    <condition>
+      <and>
+        <or>
+          <and>
+            <not>
+              <property alias="/params/nav2-switch"/>
+            </not>
+            <property alias="/params/nav1-in-range"/>
+            <property alias="/params/nav1-from-flag"/>
+          </and>
+          <and>
+            <property alias="/params/nav2-switch"/>
+            <property alias="/params/nav2-in-range"/>
+            <property alias="/params/nav2-from-flag"/>
+          </and>
+        </or>
+        <not>
+          <property alias="/params/ins-source"/>
+        </not>
+      </and>
+    </condition>
+  </animation>
+  <animation>
+    <type>textranslate</type>
+    <object-name>TrueMag</object-name>
+    <factor>.5</factor>
+    <property alias="/params/ins-source"/>
+    <axis>
+      <x>0</x>
+      <y>1</y>
+      <z>0</z>
+    </axis>
+  </animation>
+  <animation>
+    <type>textranslate</type>
+    <object-name>CompIns</object-name>
+    <factor>.5</factor>
+    <property alias="/params/ins-source"/>
+    <axis>
+      <x>0</x>
+      <y>1</y>
+      <z>0</z>
+    </axis>
+  </animation>
+  <animation>
+    <type>textranslate</type>
+    <object-name>HdgTrk</object-name>
+    <factor>.5</factor>
+    <property alias="/params/track-push"/>
+    <axis>
+      <x>0</x>
+      <y>1</y>
+      <z>0</z>
+    </axis>
+  </animation>
+  <animation>
+    <object-name>Miles1</object-name>
+    <type>select</type>
+    <condition>
+      <greater-than>
+        <property alias="/params/wp-dist"/>
+        <value>1000</value>
+      </greater-than>
+    </condition>
+  </animation>
+  <animation>
+    <object-name>Miles2</object-name>
+    <type>select</type>
+    <condition>
+      <greater-than>
+        <property alias="/params/wp-dist"/>
+        <value>100</value>
+      </greater-than>
+    </condition>
+  </animation>
+  <animation>
+    <object-name>Miles3</object-name>
+    <type>select</type>
+    <condition>
+      <greater-than>
+        <property alias="/params/wp-dist"/>
+        <value>10</value>
+      </greater-than>
+    </condition>
+  </animation>
+  <animation>
+    <object-name>Miles4</object-name>
+    <type>select</type>
+    <condition>
+      <greater-than>
+        <property alias="/params/wp-dist"/>
+        <value>1</value>
+      </greater-than>
+    </condition>
+  </animation>
+  <animation>
+    <type>textranslate</type>
+    <object-name>Miles1</object-name>
+    <property alias="/params/wp-dist"/>
+    <bias>0.0001</bias>
+    <factor>0.0001</factor>
+    <step>1000</step>
+    <axis>
+      <x>1</x>
+      <y>0</y>
+    </axis>
+  </animation>
+  <animation>
+    <type>textranslate</type>
+    <object-name>Miles2</object-name>
+    <property alias="/params/wp-dist"/>
+    <bias>0.0001</bias>
+    <factor>0.001</factor>
+    <step>100</step>
+    <axis>
+      <x>1</x>
+      <y>0</y>
+    </axis>
+  </animation>
+  <animation>
+    <type>textranslate</type>
+    <object-name>Miles3</object-name>
+    <property alias="/params/wp-dist"/>
+    <bias>0.0001</bias>
+    <factor>0.01</factor>
+    <step>10</step>
+    <axis>
+      <x>1</x>
+      <y>0</y>
+    </axis>
+  </animation>
+  <animation>
+    <type>textranslate</type>
+    <object-name>Miles4</object-name>
+    <property alias="/params/wp-dist"/>
+    <bias>0.0001</bias>
+    <factor>.1</factor>
+    <step>1</step>
+    <axis>
+      <x>1</x>
+      <y>0</y>
+    </axis>
+  </animation>
+  <animation>
+    <object-name>Speed1</object-name>
+    <type>select</type>
+    <condition>
+      <greater-than>
+        <property alias="/params/ground-speed-fps"/>
+        <value>1687.81</value>
+      </greater-than>
+    </condition>
+  </animation>
+  <animation>
+    <object-name>Speed2</object-name>
+    <type>select</type>
+    <condition>
+      <greater-than>
+        <property alias="/params/ground-speed-fps"/>
+        <value>168.781</value>
+      </greater-than>
+    </condition>
+  </animation>
+  <animation>
+    <object-name>Speed3</object-name>
+    <type>select</type>
+    <condition>
+      <greater-than>
+        <property alias="/params/ground-speed-fps"/>
+        <value>16.8781</value>
+      </greater-than>
+    </condition>
+  </animation>
+  <animation>
+    <type>textranslate</type>
+    <object-name>Speed1</object-name>
+    <property alias="/params/ground-speed-fps"/>
+    <bias>0.0001</bias>
+    <factor>0.0000592484</factor>
+    <step>1687.80929105</step>
+    <axis>
+      <x>1</x>
+      <y>0</y>
+    </axis>
+  </animation>
+  <animation>
+    <type>textranslate</type>
+    <object-name>Speed2</object-name>
+    <property alias="/params/ground-speed-fps"/>
+    <bias>0.0001</bias>
+    <factor>0.000592484</factor>
+    <step>168.780929105</step>
+    <axis>
+      <x>1</x>
+      <y>0</y>
+    </axis>
+  </animation>
+  <animation>
+    <type>textranslate</type>
+    <object-name>Speed3</object-name>
+    <property alias="/params/ground-speed-fps"/>
+    <bias>0.0001</bias>
+    <factor>0.00592484</factor>
+    <step>16.8780929105</step>
+    <axis>
+      <x>1</x>
+      <y>0</y>
+    </axis>
+  </animation>
+  <animation>
+    <type>textranslate</type>
+    <object-name>Speed4</object-name>
+    <property alias="/params/ground-speed-fps"/>
+    <bias>0.0001</bias>
+    <factor>0.0592484</factor>
+    <step>1.68780929105</step>
+    <axis>
+      <x>1</x>
+      <y>0</y>
+    </axis>
+  </animation>
+  <!--Default Lighting-->
+  <animation>
+    <type>material</type>
+    <object-name>GsGuage</object-name>
+    <object-name>TrueMag</object-name>
+    <object-name>Compass</object-name>
+    <object-name>LocGuage</object-name>
+    <object-name>Guage</object-name>
+  <condition>
+  <and>
+   <greater-than>
+    <property>sim/time/sun-angle-rad</property>
+    <value>1.59</value>
+   </greater-than>
+    <property>controls/lighting/instrument-lights</property>
+  </and>
+  </condition>
+  <emission>
+   <red>0.7</red>
+   <green>0.2</green>
+   <blue>0.2</blue>
+  </emission>
+  </animation>
+  <animation>
+    <type>material</type>
+    <object-name>Frame</object-name>
+    <object-name>MilesFrame</object-name>
+    <object-name>SpeedFrame</object-name>
+    <emission>
+      <red>0.01</red>
+      <green>0.005</green>
+      <blue>0.005</blue>
+      <factor-prop>controls/lighting/panel-norm</factor-prop>
+    </emission>
+  </animation>
+  <animation>
+    <type>material</type>
+    <object-name>CompassNeedle</object-name>
+    <object-name>LocNeedle</object-name>
+    <object-name>CenterPlane</object-name>
+    <object-name>FromFlag</object-name>
+    <object-name>ToFlag</object-name>
+    <object-name>GSArrow</object-name>
+    <object-name>0Ind</object-name>
+    <object-name>45Ind</object-name>
+    <object-name>90Ind</object-name>
+    <object-name>180Ind</object-name>
+    <object-name>270Ind</object-name>
+    <object-name>315Ind</object-name>
+    <object-name>MilesLabel.001</object-name>
+    <object-name>MilesLabel</object-name>
+    <object-name>HdgBug</object-name>
+  <condition>
+  <and>
+   <greater-than>
+    <property>sim/time/sun-angle-rad</property>
+    <value>1.59</value>
+   </greater-than>
+    <property>controls/lighting/instrument-lights</property>
+  </and>
+  </condition>
+  <emission>
+   <red>0.7</red>
+   <green>0.2</green>
+   <blue>0.2</blue>
+  </emission>
+  </animation>
+</PropertyList>

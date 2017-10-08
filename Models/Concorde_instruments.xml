@@ -16,7 +16,7 @@
  <!-- ======================================= -->
 
  <!-- AUTOPILOT -->
-
+<!--
   <panel>
    <path>Aircraft/Concorde/Panels/Concorde-autopilot.xml</path>
    <bottom-left>
@@ -54,9 +54,10 @@
     <z-m> 1.382</z-m>
    </top-left>
   </panel>
-
+-->
  <!-- PILOT -->
 
+<!--
   <panel>
    <path>Aircraft/Concorde/Panels/Concorde-pilot.xml</path>
    <bottom-left>
@@ -75,7 +76,7 @@
     <z-m> 1.593</z-m>
    </top-left>
   </panel>
-
+-->
  <!-- OVERHEAD -->
 
   <panel>
@@ -175,24 +176,7 @@
 
  <!-- CONSOLE -->
 
-  <panel>
-   <path>Aircraft/Concorde/Panels/Concorde-console-captain.xml</path>
-   <bottom-left>
-    <x-m>-23.30</x-m>
-    <y-m>-0.765</y-m>
-    <z-m>0.853</z-m>
-   </bottom-left>
-   <bottom-right>
-    <x-m>-23.30</x-m>
-    <y-m>-0.165</y-m>
-    <z-m>0.853</z-m>
-   </bottom-right>
-   <top-left>
-    <x-m>-23.60</x-m>
-    <y-m>-0.765</y-m>
-    <z-m>0.873</z-m>
-   </top-left>
-  </panel>
+  
 
   <panel>
    <path>Aircraft/Concorde/Panels/Concorde-console-captain-top.xml</path>
@@ -213,24 +197,6 @@
    </top-left>
   </panel>
 
-  <panel>
-   <path>Aircraft/Concorde/Panels/Concorde-console-copilot.xml</path>
-   <bottom-left>
-    <x-m>-23.30</x-m>
-    <y-m> 0.735</y-m>
-    <z-m>0.853</z-m>
-   </bottom-left>
-   <bottom-right>
-    <x-m>-23.30</x-m>
-    <y-m> 1.335</y-m>
-    <z-m>0.853</z-m>
-   </bottom-right>
-   <top-left>
-    <x-m>-23.60</x-m>
-    <y-m> 0.735</y-m>
-    <z-m>0.873</z-m>
-   </top-left>
-  </panel>
 
   <panel>
    <path>Aircraft/Concorde/Panels/Concorde-console-copilot-top.xml</path>
@@ -252,7 +218,7 @@
   </panel>
 
  <!-- PEDESTAL (slope) -->
-
+<!--
   <panel>
    <path>Aircraft/Concorde/Panels/Concorde-pedestal.xml</path>
    <bottom-left>
@@ -271,7 +237,7 @@
     <z-m> 0.831</z-m>
    </top-left>
   </panel>
-
+-->
   <panel>
    <path>Aircraft/Concorde/Panels/Concorde-pedestal-middle.xml</path>
    <bottom-left>

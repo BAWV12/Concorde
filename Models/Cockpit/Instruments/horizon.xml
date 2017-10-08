@@ -1,0 +1,443 @@
+<?xml version="1.0"?>
+<PropertyList>
+  <path>../Models/horizon.ac</path>
+  <params>
+    <test>/instrumentation/attitude-indicator[0]/test</test>
+    <fd-engage>/controls/autoflight/flight-director[0]/engage</fd-engage>
+    <fd2>/instrumentation/attitude-indicator[0]/fd2</fd2>
+    <roll>/instrumentation/attitude-indicator[0]/indicated-roll-deg</roll>
+    <pitch>/instrumentation/attitude-indicator[0]/indicated-pitch-deg</pitch>
+    <nav1-in-range>/instrumentation/nav[1]/in-range</nav1-in-range>
+    <nav2-in-range>/instrumentation/nav[2]/in-range</nav2-in-range>
+    <nav1-deflection>/instrumentation/nav[1]/heading-needle-deflection-norm</nav1-deflection>
+    <nav2-deflection>/instrumentation/nav[2]/heading-needle-deflection-norm</nav2-deflection>
+    <has-gs1>/instrumentation/nav[1]/has-gs</has-gs1>
+    <has-gs2>/instrumentation/nav[2]/has-gs</has-gs2>
+    <gs1-in-range>/instrumentation/nav[2]/gs-in-range</gs1-in-range>
+    <gs2-in-range>/instrumentation/nav[1]/gs-in-range</gs2-in-range>
+    <gs1-deflection>/instrumentation/nav[1]/gs-needle-deflection-norm</gs1-deflection>
+    <gs2-deflection>/instrumentation/nav[2]/gs-needle-deflection-norm</gs2-deflection>
+    <attitude-serviceable>/instrumentation/attitude-indicator[0]/serviceable</attitude-serviceable>
+    <fd-serviceable>/instrumentation/flight-director[0]/serviceable</fd-serviceable>
+    <dh-on>/instrumentation/radio-altimeter[0]/decision-height</dh-on>
+    <dh-ft>/instrumentation/radio-altimeter[0]/decision-ft</dh-ft>
+    <radio-ft>/instrumentation/radio-altimeter[0]/indicated-altitude-ft</radio-ft>
+    <slip-ball>/instrumentation/slip-skid-ball/indicated-slip-skid</slip-ball>
+  </params>
+  <animation>
+    <type>rotate</type>
+    <object-name>Horizon</object-name>
+    <property alias="/params/roll"/>
+    <factor>1</factor>
+    <center>
+      <x-m>0</x-m>
+      <y-m>0</y-m>
+      <z-m>0</z-m>
+    </center>
+    <axis>
+      <x>1</x>
+      <y>0</y>
+      <z>0</z>
+    </axis>
+  </animation>
+  <animation>
+    <type>rotate</type>
+    <object-name>RollArrow</object-name>
+    <property>/instrumentation/attitude-indicator[0]/indicated-roll-deg</property>
+    <factor>1</factor>
+    <center>
+      <x-m>0</x-m>
+      <y-m>0</y-m>
+      <z-m>0</z-m>
+    </center>
+    <axis>
+      <x>1</x>
+      <y>0</y>
+      <z>0</z>
+    </axis>
+  </animation>
+  <animation>
+    <type>textranslate</type>
+    <object-name>Horizon</object-name>
+    <property alias="/params/pitch"/>
+    <factor>0.009765625</factor>
+    <axis>
+      <x>0</x>
+      <y>1</y>
+    </axis>
+  </animation>
+  <animation>
+    <type>select</type>
+    <object-name>LOCWarning</object-name>
+    <condition>
+      <or>
+        <and>
+          <or>
+            <and>
+              <not>
+                <property alias="/params/nav1-in-range"/>
+              </not>
+              <not>
+                <property alias="/params/fd2"/>
+              </not>
+            </and>
+            <and>
+              <not>
+                <property alias="/params/nav2-in-range"/>
+              </not>
+              <property alias="/params/fd2"/>
+            </and>
+          </or>
+          <property alias="/params/fd-engage"/>
+        </and>
+        <property alias="/params/test"/>
+      </or>
+    </condition>
+  </animation>
+  <animation>
+    <type>select</type>
+    <object-name>GSWarning</object-name>
+    <condition>
+      <or>
+        <and>
+          <or>
+            <and>
+              <not>
+                <property alias="/params/gs1-in-range"/>
+              </not>
+              <not>
+                <property alias="/params/fd2"/>
+              </not>
+              <property alias="/params/nav1-has-gs"/>
+            </and>
+            <and>
+              <not>
+                <property alias="/params/gs2-in-range"/>
+              </not>
+              <property alias="/params/nav2-has-gs"/>
+              <property alias="/params/fd2"/>
+            </and>
+          </or>
+          <property alias="/params/fd-engage"/>
+        </and>
+        <property alias="/params/test"/>
+      </or>
+    </condition>
+  </animation>
+  <animation>
+    <type>select</type>
+    <object-name>GyroWarning</object-name>
+    <condition>
+      <or>
+        <not>
+          <property alias="/params/attitude-serviceable"/>
+        </not>
+        <property alias="/params/test"/>
+      </or>
+    </condition>
+  </animation>
+  <animation>
+    <type>select</type>
+    <object-name>FDWarning</object-name>
+    <condition>
+      <or>
+        <property alias="/params/fd-serviceable"/>
+        <property alias="/params/test"/>
+      </or>
+    </condition>
+  </animation>
+  <animation>
+    <type>select</type>
+    <object-name>AltWarning</object-name>
+    <condition>
+      <or>
+        <greater-than>
+          <property>/position/altitude-ft</property>
+          <value>60000</value>
+        </greater-than>
+        <property alias="/params/test"/>
+      </or>
+    </condition>
+  </animation>
+  <animation>
+    <type>translate</type>
+    <object-name>LOCBar</object-name>
+    <expression>
+      <prod>
+        <sum>
+          <prod>
+            <abs>
+              <difference>
+                <property alias="/params/fd2"/>
+                <value>1</value>
+              </difference>
+            </abs>
+            <property alias="/params/fd-engage"/>
+            <property alias="/params/nav1-in-range"/>
+            <property alias="/params/nav1-deflection"/>
+          </prod>
+          <prod>
+            <property alias="/params/fd-engage"/>
+            <property alias="/params/fd2"/>
+            <property alias="/params/nav2-in-range"/>
+            <property alias="/params/nav2-deflection"/>
+          </prod>
+        </sum>
+        <value>0.02</value>
+      </prod>
+    </expression>
+    <axis>
+      <x>0</x>
+      <y>1</y>
+      <z>0</z>
+    </axis>
+  </animation>
+  <animation>
+    <type>translate</type>
+    <object-name>GSBar</object-name>
+    <expression>
+      <prod>
+        <sum>
+          <prod>
+            <abs>
+              <difference>
+                <property alias="/params/fd2"/>
+                <value>1</value>
+              </difference>
+            </abs>
+            <property alias="/params/fd-engage"/>
+            <property alias="/params/gs1-in-range"/>
+            <property alias="/params/gs1-deflection"/>
+          </prod>
+          <prod>
+            <property alias="/params/fd-engage"/>
+            <property alias="/params/fd2"/>
+            <property alias="/params/gs2-in-range"/>
+            <property alias="/params/gs2-deflection"/>
+          </prod>
+        </sum>
+        <value>0.02</value>
+      </prod>
+    </expression>
+    <axis>
+      <x>0</x>
+      <y>0</y>
+      <z>1</z>
+    </axis>
+  </animation>
+  <animation>
+    <type>translate</type>
+    <object-name>LocArrow</object-name>
+    <expression>
+      <prod>
+        <sum>
+          <prod>
+            <abs>
+              <difference>
+                <property alias="/params/fd2"/>
+                <value>1</value>
+              </difference>
+            </abs>
+            <property alias="/params/nav1-in-range"/>
+            <property alias="/params/nav1-deflection"/>
+          </prod>
+          <prod>
+            <property alias="/params/fd2"/>
+            <property alias="/params/nav2-in-range"/>
+            <property alias="/params/nav2-deflection"/>
+          </prod>
+        </sum>
+        <value>0.014</value>
+      </prod>
+    </expression>
+    <axis>
+      <x>0</x>
+      <y>1</y>
+      <z>0</z>
+    </axis>
+  </animation>
+  <animation>
+    <type>translate</type>
+    <object-name>GSArrow</object-name>
+    <expression>
+      <prod>
+        <sum>
+          <prod>
+            <abs>
+              <difference>
+                <property alias="/params/fd2"/>
+                <value>1</value>
+              </difference>
+            </abs>
+            <property alias="/params/gs1-in-range"/>
+            <property alias="/params/gs1-deflection"/>
+          </prod>
+          <prod>
+            <property alias="/params/fd2"/>
+            <property alias="/params/gs2-in-range"/>
+            <property alias="/params/gs2-deflection"/>
+          </prod>
+        </sum>
+        <value>0.02</value>
+      </prod>
+    </expression>
+    <axis>
+      <x>0</x>
+      <y>0</y>
+      <z>1</z>
+    </axis>
+  </animation>
+  <animation>
+    <type>material</type>
+    <object-name>ATT</object-name>
+    <condition>
+      <or>
+        <or>
+          <greater-than-equals>
+            <property>/orientation/pitch-deg</property>
+            <value>16.5</value>
+          </greater-than-equals>
+          <less-than-equals>
+            <property>/orientation/pitch-deg</property>
+            <value>-5.5</value>
+          </less-than-equals>
+        </or>
+        <property alias="/params/test"/>
+      </or>
+    </condition>
+    <emission>
+      <red>0.5</red>
+      <green>0.5</green>
+      <blue>0.0</blue>
+    </emission>
+  </animation>
+  <animation>
+    <type>material</type>
+    <object-name>DH</object-name>
+    <condition>
+      <or>
+        <and>
+          <property alias="/params/dh-on"/>
+          <less-than-equals>
+            <property alias="/params/radio-ft"/>
+            <property alias="/params/dh-ft"/>
+          </less-than-equals>
+        </and>
+        <property alias="/params/test"/>
+      </or>
+    </condition>
+    <emission>
+      <red>0.5</red>
+      <green>0.5</green>
+      <blue>0.0</blue>
+    </emission>
+  </animation>
+  <!-- Slip ball -->
+  <!-- Y -->
+  <animation>
+    <type>translate</type>
+    <object-name>CoordBall</object-name>
+    <expression>
+      <prod>
+        <max>
+          <min>
+            <property alias="/params/slip-ball"/>
+            <value>0.6</value>
+          </min>
+          <value>-0.6</value>
+        </max>
+        <value>0.02</value>
+      </prod>
+    </expression>
+    <axis>
+      <x>0</x>
+      <y>1</y>
+      <z>0</z>
+    </axis>
+  </animation>
+  <!-- Z -->
+  <animation>
+    <type>translate</type>
+    <object-name>CoordBall</object-name>
+    <expression>
+      <prod>
+        <min>
+          <abs>
+            <property alias="/params/slip-ball"/>
+          </abs>
+          <value>0.6</value>
+        </min>
+        <value>0.002</value>
+      </prod>
+    </expression>
+    <axis>
+      <x>0</x>
+      <y>0</y>
+      <z>1</z>
+    </axis>
+  </animation>
+  <!-- Test button -->
+  <animation>
+    <type>pick</type>
+    <object-name>Test</object-name>
+    <action>
+      <button>0</button>
+      <repeatable>false</repeatable>
+      <interval-sec>0.2</interval-sec>
+      <binding>
+        <command>property-assign</command>
+        <property alias="/params/test"/>
+        <value>1</value>
+      </binding>
+      <mod-up>
+        <binding>
+          <command>property-assign</command>
+          <property alias="/params/test"/>
+          <value>0</value>
+        </binding>
+      </mod-up>
+    </action>
+  </animation>
+  <!--Default Lighting-->
+  <animation>
+    <type>material</type>
+    <object-name>Frame</object-name>
+    <emission>
+      <red>0.01</red>
+      <green>0.005</green>
+      <blue>0.005</blue>
+      <factor-prop>controls/lighting/panel-norm</factor-prop>
+    </emission>
+  </animation>
+  <animation>
+    <type>material</type>
+    <object-name>RollArrow</object-name>
+    <object-name>LOCBar</object-name>
+    <object-name>GSBar</object-name>
+    <object-name>GSWarning</object-name>
+    <object-name>Offset</object-name>
+    <object-name>OffsetDot</object-name>
+    <object-name>LOCBar</object-name>
+    <object-name>LOCWarning</object-name>
+    <object-name>Horizon</object-name>
+    <object-name>Inner</object-name>
+    <object-name>GsGuage</object-name>
+    <object-name>LocGuage</object-name>
+    <object-name>GSArrow</object-name>
+    <object-name>LocArrow</object-name>
+  <condition>
+  <and>
+   <greater-than>
+    <property>sim/time/sun-angle-rad</property>
+    <value>1.59</value>
+   </greater-than>
+    <property>controls/lighting/instrument-lights</property>
+  </and>
+  </condition>
+  <emission>
+   <red>0.7</red>
+   <green>0.2</green>
+   <blue>0.2</blue>
+  </emission>
+  </animation>
+</PropertyList>

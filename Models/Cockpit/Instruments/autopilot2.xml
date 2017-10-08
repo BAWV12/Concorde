@@ -1,0 +1,2765 @@
+<?xml version="1.0"?>
+<PropertyList>
+
+ <params>
+  <hdg-ctrl0>/controls/autoflight/autopilot[0]/heading-select</hdg-ctrl0>
+  <true-hdg-ctrl0>/controls/autoflight/autopilot[0]/heading-true-select</true-hdg-ctrl0>
+  <track-ctrl0>/controls/autoflight/autopilot[0]/track-push</track-ctrl0>
+  <hdg-ctrl1>/controls/autoflight/autopilot[1]/heading-select</hdg-ctrl1>
+  <true-hdg-ctrl1>/controls/autoflight/autopilot[1]/heading-true-select</true-hdg-ctrl1>
+  <track-ctrl1>/controls/autoflight/autopilot[1]/track-push</track-ctrl1>
+  <test>/controls/autoflight/autopilot[0]/test-land</test>
+ </params>
+
+
+  <path>../Models/autopilot.ac</path>
+  <!--=== AUTOLAND DISPLAY ===-->
+  <animation>
+    <type>material</type>
+    <object-name>ALL</object-name>
+    <object-name>ALR</object-name>
+    <condition>
+      <and>
+       <not include="concorde-cond-voltage-bulb.xml"/>
+       <or>
+        <and>
+         <property alias="/params/test"/>
+         <not include="concorde-cond-flashing-light.xml"/>
+        </and>
+        <and>
+         <not include="concorde-cond-flashing-light.xml"/>
+         <or include="concorde-cond-land.xml"/>
+         <or>
+          <and>
+           <greater-than>
+            <property>position/altitude-agl-ft</property>
+            <value>14.0</value> <!-- autoland stops below -->
+           </greater-than>
+           <less-than>
+            <property>position/altitude-agl-ft</property>
+            <value>200.0</value>
+           </less-than>
+           <or>
+            <less-than>
+             <property>instrumentation/nav[0]/heading-needle-deflection</property>
+             <value>-0.1</value>
+            </less-than>
+            <greater-than>
+             <property>instrumentation/nav[0]/heading-needle-deflection</property>
+             <value>0.1</value>
+            </greater-than>
+           </or>
+          </and>
+          <and>
+           <greater-than>
+            <property>position/altitude-agl-ft</property>
+            <value>100.0</value>
+           </greater-than>
+           <less-than>
+            <property>position/altitude-agl-ft</property>
+            <value>200.0</value>
+           </less-than>
+           <or>
+            <less-than>
+             <property>instrumentation/nav[0]/gs-needle-deflection</property>
+             <value>-0.8</value>
+            </less-than>
+            <greater-than>
+             <property>instrumentation/nav[0]/gs-needle-deflection</property>
+             <value>0.8</value> <!-- was 0.5 without pitch hold -->
+             </greater-than>
+           </or>
+          </and>
+          <and>
+           <greater-than>
+            <property>position/altitude-agl-ft</property>
+            <value>14.0</value> <!-- autoland stops below -->
+           </greater-than>
+           <less-than>
+            <property>position/altitude-agl-ft</property>
+            <value>200.0</value>
+           </less-than>
+           <or>
+            <not>
+             <property>instrumentation/nav[0]/in-range</property>
+            </not>
+            <not>
+             <property>instrumentation/nav[0]/nav-loc</property>
+            </not>
+           </or>
+          </and>
+          <and>
+           <greater-than>
+            <property>position/altitude-agl-ft</property>
+            <value>75.0</value>
+           </greater-than>
+           <less-than>
+            <property>position/altitude-agl-ft</property>
+            <value>200.0</value>
+           </less-than>
+           <not>
+            <property>instrumentation/nav[0]/has-gs</property>
+           </not>
+          </and>
+          <and>
+           <greater-than>
+            <property>position/altitude-agl-ft</property>
+            <value>14.0</value> <!-- autoland stops below -->
+           </greater-than>
+           <less-than>
+            <property>position/altitude-agl-ft</property>
+            <value>600.0</value>
+           </less-than>
+           <equals>
+            <property>controls/autoflight/speed</property>
+            <value></value>
+           </equals>
+          </and>
+         </or>
+        </and>
+       </or>
+      </and>
+
+    </condition>
+    <emission>
+      <red>1</red>
+      <green>0</green>
+      <blue>0</blue>
+    </emission>
+  </animation>
+
+
+
+
+  <!--=== SPEED DISPLAY ===-->
+  <!-- IH -->
+  <animation>
+    <type>material</type>
+    <object-name>IH</object-name>
+    <condition>
+     <and>
+      <equals>
+       <property>/controls/autoflight/speed</property>
+       <value>speed-with-throttle</value>
+      </equals>
+      <equals>
+       <property>/controls/autoflight/speed2</property>
+       <value></value>
+      </equals>
+      <not include="concorde-cond-land.xml"/>
+     </and>
+    </condition>
+    <emission>
+      <red>0.5</red>
+      <green>0.5</green>
+      <blue>0.0</blue>
+    </emission>
+  </animation>
+
+ <animation>
+    <type>material</type>
+    <object-name>IH</object-name>
+    <condition>
+<and>
+<not>
+     <and>
+      <equals>
+       <property>/controls/autoflight/speed</property>
+       <value>speed-with-throttle</value>
+      </equals>
+      <equals>
+       <property>/controls/autoflight/speed2</property>
+       <value></value>
+      </equals>
+      <not include="concorde-cond-land.xml"/>
+     </and>
+</not>
+   	<greater-than>
+    	  <property>sim/time/sun-angle-rad</property>
+          <value>1.59</value>
+        </greater-than>
+        <property>controls/lighting/instrument-lights</property>
+
+</and>
+    </condition>
+    <emission>
+      <red>0.7</red>
+      <green>0.2</green>
+      <blue>0.2</blue>
+    </emission>
+  </animation>
+
+
+  <!-- MH -->
+  <animation>
+    <type>material</type>
+    <object-name>MH</object-name>
+    <condition>
+    <not>
+     <or>
+      <not-equals>
+       <property>/controls/autoflight/speed</property>
+       <value>mach-with-throttle</value>
+      </not-equals>
+      <equals>
+       <property>/controls/autoflight/speed2</property>
+       <value>maxclimb</value>
+      </equals>
+      <equals>
+       <property>/controls/autoflight/speed2</property>
+       <value>maxcruise</value>
+      </equals>
+     </or>
+    </not>
+    </condition>
+    <emission>
+      <red>0.5</red>
+      <green>0.5</green>
+      <blue>0.0</blue>
+    </emission>
+  </animation>
+
+  <animation>
+    <type>material</type>
+    <object-name>MH</object-name>
+    <condition>
+<and>
+
+     <or>
+      <not-equals>
+       <property>/controls/autoflight/speed</property>
+       <value>mach-with-throttle</value>
+      </not-equals>
+      <equals>
+       <property>/controls/autoflight/speed2</property>
+       <value>maxclimb</value>
+      </equals>
+      <equals>
+       <property>/controls/autoflight/speed2</property>
+       <value>maxcruise</value>
+      </equals>
+     </or>
+
+   	<greater-than>
+    	  <property>sim/time/sun-angle-rad</property>
+          <value>1.59</value>
+        </greater-than>
+        <property>controls/lighting/instrument-lights</property>
+
+</and>
+    </condition>
+    <emission>
+      <red>0.7</red>
+      <green>0.2</green>
+      <blue>0.2</blue>
+    </emission>
+  </animation>
+
+
+
+  <!-- IA -->
+  <animation>
+    <type>material</type>
+    <object-name>IA</object-name>
+    <condition>
+     <and>
+      <equals>
+       <property>/controls/autoflight/speed</property>
+       <value>speed-with-throttle</value>
+      </equals>
+      <equals>
+       <property>/controls/autoflight/speed2</property>
+       <value>speed-acquire</value>
+      </equals>
+      <not include="concorde-cond-land.xml"/>
+     </and>
+    </condition>
+    <emission>
+      <red>0.5</red>
+      <green>0.5</green>
+      <blue>0.0</blue>
+    </emission>
+  </animation>
+  <animation>
+    <type>material</type>
+    <object-name>IA</object-name>
+    <condition>
+<and>
+<not>
+     <and>
+      <equals>
+       <property>/controls/autoflight/speed</property>
+       <value>speed-with-throttle</value>
+      </equals>
+      <equals>
+       <property>/controls/autoflight/speed2</property>
+       <value>speed-acquire</value>
+      </equals>
+      <not include="concorde-cond-land.xml"/>
+     </and>
+</not>
+   	<greater-than>
+    	  <property>sim/time/sun-angle-rad</property>
+          <value>1.59</value>
+        </greater-than>
+        <property>controls/lighting/instrument-lights</property>
+
+</and>
+    </condition>
+    <emission>
+      <red>0.7</red>
+      <green>0.2</green>
+      <blue>0.2</blue>
+    </emission>
+  </animation>
+
+  <!-- Speed Numbers -->
+  <animation>
+    <type>textranslate</type>
+    <object-name>Speed1</object-name>
+    <property>controls/autoflight/speed-select</property>
+    <factor>.001</factor>
+    <step>100</step>
+    <axis>
+      <x>0</x>
+      <y>1</y>
+      <z>0</z>
+    </axis>
+  </animation>
+  <animation>
+    <type>textranslate</type>
+    <object-name>Speed2</object-name>
+    <property>controls/autoflight/speed-select</property>
+    <factor>.01</factor>
+    <step>10</step>
+    <axis>
+      <x>0</x>
+      <y>1</y>
+      <z>0</z>
+    </axis>
+  </animation>
+  <animation>
+    <type>textranslate</type>
+    <object-name>Speed3</object-name>
+    <property>controls/autoflight/speed-select</property>
+    <factor>.1</factor>
+    <step>1</step>
+    <axis>
+      <x>0</x>
+      <y>1</y>
+      <z>0</z>
+    </axis>
+  </animation>
+
+
+  <!--=== Horizontal Display ===-->
+  <!-- IN -->
+  <animation>
+    <type>material</type>
+    <object-name>IN</object-name>
+    <condition>
+     <equals>
+      <property>/controls/autoflight/horizontal</property>
+      <value>ins</value>
+     </equals>
+    </condition>
+    <emission>
+      <red>0.5</red>
+      <green>0.5</green>
+      <blue>0.0</blue>
+    </emission>
+  </animation>
+  <animation>
+    <type>material</type>
+    <object-name>IN</object-name>
+    <condition>
+      <and>
+     <not-equals>
+      <property>/controls/autoflight/horizontal</property>
+      <value>ins</value>
+     </not-equals>
+   	<greater-than>
+    	  <property>sim/time/sun-angle-rad</property>
+          <value>1.59</value>
+        </greater-than>
+        <property>controls/lighting/instrument-lights</property>
+
+      </and>
+    </condition>
+    <emission>
+      <red>0.7</red>
+      <green>0.2</green>
+      <blue>0.2</blue>
+    </emission>
+  </animation>
+
+  <!-- TH -->
+  <animation>
+    <type>material</type>
+    <object-name>TH</object-name>
+    <condition>
+<not>
+     <or>
+      <not-equals>
+       <property>/controls/autoflight/horizontal</property>
+       <value>track-heading</value>
+      </not-equals>
+      <or include="concorde-cond-land.xml"/>
+     </or>
+</not>
+    </condition>
+    <emission>
+      <red>0.5</red>
+      <green>0.5</green>
+      <blue>0.0</blue>
+    </emission>
+  </animation>
+  <animation>
+    <type>material</type>
+    <object-name>TH</object-name>
+    <condition>
+<and>
+     <or>
+      <not-equals>
+       <property>/controls/autoflight/horizontal</property>
+       <value>track-heading</value>
+      </not-equals>
+      <or include="concorde-cond-land.xml"/>
+     </or>
+   	<greater-than>
+    	  <property>sim/time/sun-angle-rad</property>
+          <value>1.59</value>
+        </greater-than>
+        <property>controls/lighting/instrument-lights</property>
+
+</and>
+    </condition>
+    <emission>
+      <red>0.7</red>
+      <green>0.2</green>
+      <blue>0.2</blue>
+    </emission>
+  </animation>
+
+  <!-- BB -->
+  <animation>
+    <type>material</type>
+    <object-name>BB</object-name>
+    <condition>
+      <and>
+   	<greater-than>
+    	  <property>sim/time/sun-angle-rad</property>
+          <value>1.59</value>
+        </greater-than>
+        <property>controls/lighting/instrument-lights</property>
+      </and>
+    </condition>
+    <emission>
+      <red>0.7</red>
+      <green>0.2</green>
+      <blue>0.2</blue>
+    </emission>
+  </animation>
+
+  <!-- VL -->
+  <animation>
+    <type>material</type>
+    <object-name>VL</object-name>
+    <condition>
+     <and include="concorde-cond-vorloc.xml">
+      <or>
+       <equals>
+        <property>/controls/autoflight/horizontal</property>
+        <value>vor</value>
+       </equals>
+       <equals>
+        <property>/controls/autoflight/heading</property>
+        <value>nav1-hold</value>
+       </equals>
+      </or>
+      <not include="concorde-cond-land.xml"/>
+     </and>
+    </condition>
+    <emission>
+      <red>0.5</red>
+      <green>0.5</green>
+      <blue>0.0</blue>
+    </emission>
+  </animation>
+  <animation>
+    <type>material</type>
+    <object-name>VL</object-name>
+    <condition>
+<and>
+<not>
+     <and include="concorde-cond-vorloc.xml">
+      <or>
+       <equals>
+        <property>/controls/autoflight/horizontal</property>
+        <value>vor</value>
+       </equals>
+       <equals>
+        <property>/controls/autoflight/heading</property>
+        <value>nav1-hold</value>
+       </equals>
+      </or>
+      <not include="concorde-cond-land.xml"/>
+     </and>
+</not>
+   	<greater-than>
+    	  <property>sim/time/sun-angle-rad</property>
+          <value>1.59</value>
+        </greater-than>
+        <property>controls/lighting/instrument-lights</property>
+</and>
+    </condition>
+    <emission>
+      <red>0.7</red>
+      <green>0.2</green>
+      <blue>0.2</blue>
+    </emission>
+  </animation>
+
+
+
+  <animation>
+    <type>material</type>
+    <object-name>VLAquire</object-name>
+    <condition>
+<not>
+     <or>
+      <or include="concorde-cond-vorloc.xml"/>   <!-- avoids bug -->
+      <and>
+       <not-equals>
+        <property>/controls/autoflight/horizontal</property>
+        <value>vor</value>
+       </not-equals>
+       <not-equals>
+        <property>/controls/autoflight/heading</property>
+        <value>nav1-hold</value>
+       </not-equals>
+      </and>
+     </or>
+
+</not>
+    </condition>
+    <emission>
+      <red>0.5</red>
+      <green>0.5</green>
+      <blue>0.0</blue>
+    </emission>
+  </animation>
+  <!-- HH -->
+  <animation>
+    <type>material</type>
+    <object-name>HH</object-name>
+    <condition>
+<not>
+     <or>
+      <not-equals>
+       <property>/controls/autoflight/horizontal</property>
+       <value>magnetic</value>
+      </not-equals>
+     </or>
+</not>
+    </condition>
+    <emission>
+      <red>0.5</red>
+      <green>0.5</green>
+      <blue>0.0</blue>
+    </emission>
+  </animation>
+  <animation>
+    <type>material</type>
+    <object-name>HH</object-name>
+    <condition>
+<and>
+     <or>
+      <not-equals>
+       <property>/controls/autoflight/horizontal</property>
+       <value>magnetic</value>
+      </not-equals>
+     </or>
+   	<greater-than>
+    	  <property>sim/time/sun-angle-rad</property>
+          <value>1.59</value>
+        </greater-than>
+        <property>controls/lighting/instrument-lights</property>
+</and>
+    </condition>
+    <emission>
+      <red>0.7</red>
+      <green>0.2</green>
+      <blue>0.2</blue>
+    </emission>
+  </animation>
+
+
+  <!-- TU -->
+  <animation>
+    <type>material</type>
+    <object-name>TU</object-name>
+    <condition>
+<not>
+     <not-equals>
+      <property>/controls/autoflight/vertical</property>
+      <value>turbulence</value>
+     </not-equals>
+</not>
+    </condition>
+    <emission>
+      <red>0.5</red>
+      <green>0.5</green>
+      <blue>0.0</blue>
+    </emission>
+  </animation>
+  <animation>
+    <type>material</type>
+    <object-name>TU</object-name>
+    <condition>
+<and>
+     <not-equals>
+      <property>/controls/autoflight/vertical</property>
+      <value>turbulence</value>
+     </not-equals>
+   	<greater-than>
+    	  <property>sim/time/sun-angle-rad</property>
+          <value>1.59</value>
+        </greater-than>
+        <property>controls/lighting/instrument-lights</property>
+
+</and>
+    </condition>
+    <emission>
+      <red>0.7</red>
+      <green>0.2</green>
+      <blue>0.2</blue>
+    </emission>
+  </animation>
+
+  <!-- PH -->
+  <animation>
+    <type>material</type>
+    <object-name>PH</object-name>
+    <condition>
+<not>
+     <or>
+      <or include="concorde-cond-land.xml"/>      <!-- bug -->
+      <not-equals>
+       <property>/controls/autoflight/altitude</property>
+       <value>pitch-hold</value>
+      </not-equals>
+      <equals>
+       <property>/controls/autoflight/vertical</property>
+       <value>turbulence</value>
+      </equals>
+     </or>
+</not>
+    </condition>
+    <emission>
+      <red>0.5</red>
+      <green>0.5</green>
+      <blue>0.0</blue>
+    </emission>
+  </animation>
+  <animation>
+    <type>material</type>
+    <object-name>PH</object-name>
+    <condition>
+<and>
+     <or>
+      <or include="concorde-cond-land.xml"/>      <!-- bug -->
+      <not-equals>
+       <property>/controls/autoflight/altitude</property>
+       <value>pitch-hold</value>
+      </not-equals>
+      <equals>
+       <property>/controls/autoflight/vertical</property>
+       <value>turbulence</value>
+      </equals>
+     </or>
+   	<greater-than>
+    	  <property>sim/time/sun-angle-rad</property>
+          <value>1.59</value>
+        </greater-than>
+        <property>controls/lighting/instrument-lights</property>
+</and>
+    </condition>
+    <emission>
+      <red>0.7</red>
+      <green>0.2</green>
+      <blue>0.2</blue>
+    </emission>
+  </animation>
+
+  <!-- GA -->
+  <animation>
+    <type>material</type>
+    <object-name>GA</object-name>
+    <condition>
+<not>
+     <not-equals>
+      <property>/controls/autoflight/vertical</property>
+      <value>goaround</value>
+     </not-equals>
+</not>
+    </condition>
+    <emission>
+      <red>0.5</red>
+      <green>0.5</green>
+      <blue>0.0</blue>
+    </emission>
+  </animation>
+  <animation>
+    <type>material</type>
+    <object-name>GA</object-name>
+    <condition>
+<and>
+     <not-equals>
+      <property>/controls/autoflight/vertical</property>
+      <value>goaround</value>
+     </not-equals>
+   	<greater-than>
+    	  <property>sim/time/sun-angle-rad</property>
+          <value>1.59</value>
+        </greater-than>
+        <property>controls/lighting/instrument-lights</property>
+</and>
+    </condition>
+    <emission>
+      <red>0.7</red>
+      <green>0.2</green>
+      <blue>0.2</blue>
+    </emission>
+  </animation>
+
+  <!-- LA -->
+  <animation>
+    <type>material</type>
+    <object-name>LA</object-name>
+    <condition>
+     <equals>
+      <property>/controls/autoflight/vertical</property>
+      <value>autoland</value>
+     </equals>
+    </condition>
+    <emission>
+      <red>0.5</red>
+      <green>0.5</green>
+      <blue>0.0</blue>
+    </emission>
+  </animation>
+  <animation>
+    <type>material</type>
+    <object-name>LA</object-name>
+    <condition>
+<and>
+     <not-equals>
+      <property>/controls/autoflight/vertical</property>
+      <value>autoland</value>
+     </not-equals>
+   	<greater-than>
+    	  <property>sim/time/sun-angle-rad</property>
+          <value>1.59</value>
+        </greater-than>
+        <property>controls/lighting/instrument-lights</property>
+</and>
+    </condition>
+    <emission>
+      <red>0.7</red>
+      <green>0.2</green>
+      <blue>0.2</blue>
+    </emission>
+  </animation>
+
+  <animation>
+    <type>material</type>
+    <object-name>LAAquire</object-name>
+    <condition>
+     <equals>
+      <property>/controls/autoflight/vertical</property>
+      <value>autoland-armed</value>
+     </equals>
+    </condition>
+    <emission>
+      <red>0.5</red>
+      <green>0.5</green>
+      <blue>0.0</blue>
+    </emission>
+  </animation>
+
+  <!-- Heading Settings -->
+  <!-- Heading 1 Numbers -->
+  <animation>
+    <type>textranslate</type>
+    <object-name>HDG1Num1</object-name>
+    <property>controls/autoflight/autopilot[0]/heading-select</property>
+    <factor>.001</factor>
+    <step>100</step>
+    <condition>
+	<not><property>controls/autoflight/autopilot[0]/track-push</property></not>
+    </condition>
+    <axis>
+      <x>0</x>
+      <y>1</y>
+      <z>0</z>
+    </axis>
+  </animation>
+  <animation>
+    <type>textranslate</type>
+    <object-name>HDG1Num2</object-name>
+    <property>controls/autoflight/autopilot[0]/heading-select</property>
+    <factor>.01</factor>
+    <step>10</step>
+    <condition>
+	<not><property>controls/autoflight/autopilot[0]/track-push</property></not>
+    </condition>
+    <axis>
+      <x>0</x>
+      <y>1</y>
+      <z>0</z>
+    </axis>
+  </animation>
+  <animation>
+    <type>textranslate</type>
+    <object-name>HDG1Num3</object-name>
+    <property>controls/autoflight/autopilot[0]/heading-select</property>
+    <factor>.1</factor>
+    <step>1</step>
+    <condition>
+	<not><property>controls/autoflight/autopilot[0]/track-push</property></not>
+    </condition>
+    <axis>
+      <x>0</x>
+      <y>1</y>
+      <z>0</z>
+    </axis>
+  </animation>
+
+  
+
+  <!-- VOR 1 Numbers -->
+  <animation>
+    <type>textranslate</type>
+    <object-name>VOR1Num1</object-name>
+    <property>instrumentation/nav[1]/radials/selected-deg</property>
+    <factor>.001</factor>
+    <step>100</step>
+    <axis>
+      <x>0</x>
+      <y>1</y>
+      <z>0</z>
+    </axis>
+  </animation>
+  <animation>
+    <type>textranslate</type>
+    <object-name>VOR1Num2</object-name>
+    <property>instrumentation/nav[1]/radials/selected-deg</property>
+    <factor>.01</factor>
+    <step>10</step>
+    <axis>
+      <x>0</x>
+      <y>1</y>
+      <z>0</z>
+    </axis>
+  </animation>
+  <animation>
+    <type>textranslate</type>
+    <object-name>VOR1Num3</object-name>
+    <property>instrumentation/nav[1]/radials/selected-deg</property>
+    <factor>.1</factor>
+    <step>1</step>
+    <axis>
+      <x>0</x>
+      <y>1</y>
+      <z>0</z>
+    </axis>
+  </animation>
+  <!-- VOR 2 Numbers -->
+  <animation>
+    <type>textranslate</type>
+    <object-name>VOR2Num1</object-name>
+    <property>instrumentation/nav[2]/radials/selected-deg</property>
+    <factor>.001</factor>
+    <step>100</step>
+    <axis>
+      <x>0</x>
+      <y>1</y>
+      <z>0</z>
+    </axis>
+  </animation>
+  <animation>
+    <type>textranslate</type>
+    <object-name>VOR2Num2</object-name>
+    <property>instrumentation/nav[2]/radials/selected-deg</property>
+    <factor>.01</factor>
+    <step>10</step>
+    <axis>
+      <x>0</x>
+      <y>1</y>
+      <z>0</z>
+    </axis>
+  </animation>
+  <animation>
+    <type>textranslate</type>
+    <object-name>VOR2Num3</object-name>
+    <property>instrumentation/nav[2]/radials/selected-deg</property>
+    <factor>.1</factor>
+    <step>1</step>
+    <axis>
+      <x>0</x>
+      <y>1</y>
+      <z>0</z>
+    </axis>
+  </animation>
+  <!-- Heading 2 Numbers -->
+  <animation>
+    <type>textranslate</type>
+    <object-name>HDG2Num1</object-name>
+    <property>controls/autoflight/autopilot[1]/heading-select</property>
+    <factor>.001</factor>
+    <step>100</step>
+    <axis>
+      <x>0</x>
+      <y>1</y>
+      <z>0</z>
+    </axis>
+  </animation>
+  <animation>
+    <type>textranslate</type>
+    <object-name>HDG2Num2</object-name>
+    <property>controls/autoflight/autopilot[1]/heading-select</property>
+    <factor>.01</factor>
+    <step>10</step>
+    <axis>
+      <x>0</x>
+      <y>1</y>
+      <z>0</z>
+    </axis>
+  </animation>
+  <animation>
+    <type>textranslate</type>
+    <object-name>HDG2Num3</object-name>
+    <property>controls/autoflight/autopilot[1]/heading-select</property>
+    <factor>.1</factor>
+    <step>1</step>
+    <axis>
+      <x>0</x>
+      <y>1</y>
+      <z>0</z>
+    </axis>
+  </animation>
+
+  <!--== Altitude Display ==-->
+  <!-- MP -->
+  <animation>
+    <type>material</type>
+    <object-name>MP</object-name>
+    <condition>
+    <equals>
+       <property>/controls/autoflight/altitude</property>
+       <value>mach-with-pitch</value>
+      </equals>
+    </condition>
+    <emission>
+      <red>0.5</red>
+      <green>0.5</green>
+      <blue>0.0</blue>
+    </emission>
+  </animation>
+  <animation>
+    <type>material</type>
+    <object-name>MP</object-name>
+    <condition>
+    <and>
+    <not-equals>
+       <property>/controls/autoflight/altitude</property>
+       <value>mach-with-pitch</value>
+    </not-equals>
+   	<greater-than>
+    	  <property>sim/time/sun-angle-rad</property>
+          <value>1.59</value>
+        </greater-than>
+        <property>controls/lighting/instrument-lights</property>
+
+    </and>
+    </condition>
+    <emission>
+      <red>0.7</red>
+      <green>0.2</green>
+      <blue>0.2</blue>
+    </emission>
+  </animation>
+
+  <!-- CL -->
+  <animation>
+    <type>material</type>
+    <object-name>CL</object-name>
+    <condition>
+<not>
+     <and>
+      <not-equals>
+       <property>/controls/autoflight/speed2</property>
+       <value>maxclimb</value>
+      </not-equals>
+      <not-equals>
+       <property>/controls/autoflight/speed2</property>
+       <value>maxcruise</value>
+      </not-equals>
+     </and>
+</not>
+    </condition>
+    <emission>
+      <red>0.5</red>
+      <green>0.5</green>
+      <blue>0.0</blue>
+    </emission>
+  </animation>
+
+  <animation>
+    <type>material</type>
+    <object-name>CL</object-name>
+    <condition>
+     <and>
+      <not-equals>
+       <property>/controls/autoflight/speed2</property>
+       <value>maxclimb</value>
+      </not-equals>
+      <not-equals>
+       <property>/controls/autoflight/speed2</property>
+       <value>maxcruise</value>
+      </not-equals>
+
+   	<greater-than>
+    	  <property>sim/time/sun-angle-rad</property>
+          <value>1.59</value>
+        </greater-than>
+        <property>controls/lighting/instrument-lights</property>
+
+     </and>
+    </condition>
+    <emission>
+      <red>0.7</red>
+      <green>0.2</green>
+      <blue>0.2</blue>
+    </emission>
+  </animation>
+
+  <!-- IP -->
+  <animation>
+    <type>material</type>
+    <object-name>IP</object-name>
+    <condition>
+      <equals>
+        <property>controls/autoflight/altitude</property>
+        <value>speed-with-pitch</value>
+      </equals>
+    </condition>
+    <emission>
+      <red>0.5</red>
+      <green>0.5</green>
+      <blue>0.0</blue>
+    </emission>
+  </animation>
+  <animation>
+    <type>material</type>
+    <object-name>IP</object-name>
+    <condition>
+      <and>
+        <not-equals>
+          <property>controls/autoflight/altitude</property>
+          <value>speed-with-pitch</value>
+        </not-equals>
+   	<greater-than>
+    	  <property>sim/time/sun-angle-rad</property>
+          <value>1.59</value>
+        </greater-than>
+        <property>controls/lighting/instrument-lights</property>
+      </and>
+    </condition>
+    <emission>
+      <red>0.7</red>
+      <green>0.2</green>
+      <blue>0.2</blue>
+    </emission>
+  </animation>
+
+  <!-- AH -->
+  <animation>
+    <type>material</type>
+    <object-name>AH</object-name>
+    <condition>
+<not>
+     <or>
+      <not-equals>
+       <property>/controls/autoflight/altitude</property>
+       <value>altitude-hold</value>
+      </not-equals>
+      <equals>
+       <property>/controls/autoflight/vertical</property>
+       <value>altitude-acquire</value>
+      </equals>
+     </or>
+</not>
+    </condition>
+    <emission>
+      <red>0.5</red>
+      <green>0.5</green>
+      <blue>0.0</blue>
+    </emission>
+  </animation>
+  <animation>
+    <type>material</type>
+    <object-name>AH</object-name>
+    <condition>
+    <and>
+     <or>
+      <not-equals>
+       <property>/controls/autoflight/altitude</property>
+       <value>altitude-hold</value>
+      </not-equals>
+      <equals>
+       <property>/controls/autoflight/vertical</property>
+       <value>altitude-acquire</value>
+      </equals>
+     </or>
+     <greater-than>
+       <property>sim/time/sun-angle-rad</property>
+       <value>1.59</value>
+     </greater-than>
+     <property>controls/lighting/instrument-lights</property>
+    </and>
+    </condition>
+    <emission>
+      <red>0.7</red>
+      <green>0.2</green>
+      <blue>0.2</blue>
+    </emission>
+  </animation>
+
+  <!-- GL -->
+  <animation>
+    <type>material</type>
+    <object-name>GL</object-name>
+    <condition>
+     <and include="concorde-cond-glideslope.xml">
+      <equals>
+       <property>/controls/autoflight/altitude</property>
+       <value>gs1-hold</value>
+      </equals>
+      <not include="concorde-cond-land.xml"/>
+     </and>
+    </condition>
+    <emission>
+      <red>0.5</red>
+      <green>0.5</green>
+      <blue>0.0</blue>
+    </emission>
+  </animation>
+  <animation>
+    <type>material</type>
+    <object-name>GL</object-name>
+    <condition>
+<and>
+<not>
+     <and include="concorde-cond-glideslope.xml">
+      <equals>
+       <property>/controls/autoflight/altitude</property>
+       <value>gs1-hold</value>
+      </equals>
+      <not include="concorde-cond-land.xml"/>
+     </and>
+</not>
+     <greater-than>
+       <property>sim/time/sun-angle-rad</property>
+       <value>1.59</value>
+     </greater-than>
+     <property>controls/lighting/instrument-lights</property>
+
+</and>
+    </condition>
+    <emission>
+      <red>0.7</red>
+      <green>0.2</green>
+      <blue>0.2</blue>
+    </emission>
+  </animation>
+
+  <animation>
+    <type>material</type>
+    <object-name>GLAquire</object-name>
+    <condition>
+<not>
+     <or include="concorde-cond-glideslope.xml">
+      <not-equals>
+       <property>/controls/autoflight/altitude</property>
+       <value>gs1-hold</value>
+      </not-equals>
+     </or>
+</not>
+    </condition>
+    <emission>
+      <red>0.5</red>
+      <green>0.5</green>
+      <blue>0.0</blue>
+    </emission>
+  </animation>
+
+  <!-- CR -->
+  <animation>
+    <type>material</type>
+    <object-name>CR</object-name>
+    <condition>
+     <greater-than>
+       <property>sim/time/sun-angle-rad</property>
+       <value>1.59</value>
+     </greater-than>
+     <property>controls/lighting/instrument-lights</property>
+
+    </condition>
+    <emission>
+      <red>0.7</red>
+      <green>0.2</green>
+      <blue>0.2</blue>
+    </emission>
+  </animation>
+  <!-- VS -->
+  <animation>
+    <type>material</type>
+    <object-name>VS</object-name>
+    <condition>
+<not>
+     <or>
+      <not-equals>
+       <property>/controls/autoflight/altitude</property>
+       <value>vertical-speed-hold</value>
+      </not-equals>
+      <equals>
+       <property>/controls/autoflight/speed2</property>
+       <value>maxclimb</value>
+      </equals>
+      <equals>
+       <property>/controls/autoflight/speed2</property>
+       <value>maxcruise</value>
+      </equals>
+     </or>
+</not>
+    </condition>
+    <emission>
+      <red>0.5</red>
+      <green>0.5</green>
+      <blue>0.0</blue>
+    </emission>
+  </animation>
+
+  <animation>
+    <type>material</type>
+    <object-name>VS</object-name>
+    <condition>
+<and>
+     <or>
+      <not-equals>
+       <property>/controls/autoflight/altitude</property>
+       <value>vertical-speed-hold</value>
+      </not-equals>
+      <equals>
+       <property>/controls/autoflight/speed2</property>
+       <value>maxclimb</value>
+      </equals>
+      <equals>
+       <property>/controls/autoflight/speed2</property>
+       <value>maxcruise</value>
+      </equals>
+     </or>
+     <greater-than>
+       <property>sim/time/sun-angle-rad</property>
+       <value>1.59</value>
+     </greater-than>
+     <property>controls/lighting/instrument-lights</property>
+
+</and>
+
+    </condition>
+    <emission>
+      <red>0.7</red>
+      <green>0.2</green>
+      <blue>0.2</blue>
+    </emission>
+  </animation>
+
+  <!-- AA -->
+  <animation>
+    <type>material</type>
+    <object-name>AA</object-name>
+    <condition>
+<not>
+     <or>
+      <not-equals>
+       <property>/controls/autoflight/vertical</property>
+       <value>altitude-acquire</value>
+      </not-equals>
+      <not-equals>
+       <property>/controls/autoflight/altitude</property>
+       <value>altitude-hold</value>
+      </not-equals>
+     </or>
+</not>
+    </condition>
+    <emission>
+      <red>0.5</red>
+      <green>0.5</green>
+      <blue>0.0</blue>
+    </emission>
+  </animation>
+  <animation>
+    <type>material</type>
+    <object-name>AA</object-name>
+    <condition>
+    <and>
+     <or>
+      <not-equals>
+       <property>/controls/autoflight/altitude</property>
+       <value>altitude-hold</value>
+      </not-equals>
+      <not-equals>
+       <property>/controls/autoflight/vertical</property>
+       <value>altitude-acquire</value>
+      </not-equals>
+     </or>
+     <greater-than>
+       <property>sim/time/sun-angle-rad</property>
+       <value>1.59</value>
+     </greater-than>
+     <property>controls/lighting/instrument-lights</property>
+    </and>
+    </condition>
+    <emission>
+      <red>0.7</red>
+      <green>0.2</green>
+      <blue>0.2</blue>
+    </emission>
+  </animation>
+
+  <animation>
+    <type>material</type>
+    <object-name>AAAquire</object-name>
+    <condition>
+    <not>
+     <or>
+      <not-equals>
+       <property>/controls/autoflight/vertical</property>
+       <value>altitude-acquire</value>
+      </not-equals>
+      <equals>
+       <property>/controls/autoflight/altitude</property>
+       <value>altitude-hold</value>
+      </equals>
+     </or>
+    </not>
+    </condition>
+    <emission>
+      <red>0.5</red>
+      <green>0.5</green>
+      <blue>0.0</blue>
+    </emission>
+  </animation>
+
+  <!--=== Bindings ===-->
+  <!-- Speed -->
+  <animation>
+    <type>pick</type>
+    <object-name>IH</object-name>
+    <action>
+      <name>Speed Hold</name>
+      <button>0</button>
+      <repeatable>false</repeatable>
+      <binding>
+        <command>nasal</command>
+        <script>globals.Concorde.autothrottlesystem.atspeedholdexport();</script>
+      </binding>
+      <binding>
+        <command>property-toggle</command>
+        <property>/instrumentation/generic/click</property>
+      </binding>
+    </action>
+  </animation>
+  <animation>
+    <type>pick</type>
+    <object-name>IA</object-name>
+    <action>
+      <name>Speed Acquire</name>
+      <button>0</button>
+      <repeatable>false</repeatable>
+      <binding>
+        <command>nasal</command>
+        <script>globals.Concorde.autothrottlesystem.atspeedexport();</script>
+      </binding>
+      <binding>
+        <command>property-toggle</command>
+        <property>/instrumentation/generic/click</property>
+      </binding>
+    </action>
+  </animation>
+  <animation>
+    <type>pick</type>
+    <object-name>MH</object-name>
+    <action>
+      <name>Mach Hold</name>
+      <button>0</button>
+      <repeatable>false</repeatable>
+      <binding>
+        <command>nasal</command>
+        <script>globals.Concorde.autothrottlesystem.atmachexport();</script>
+      </binding>
+      <binding>
+        <command>property-toggle</command>
+        <property>/instrumentation/generic/click</property>
+      </binding>
+    </action>
+  </animation>
+  <!-- Heading -->
+  <animation>
+    <type>pick</type>
+    <object-name>IN</object-name>
+    <action>
+      <name>INS</name>
+      <button>0</button>
+      <repeatable>false</repeatable>
+      <binding>
+        <command>nasal</command>
+        <script>globals.Concorde.autopilotsystem.apinsexport();</script>
+      </binding>
+      <binding>
+        <command>property-toggle</command>
+        <property>/instrumentation/generic/click</property>
+      </binding>
+    </action>
+  </animation>
+  <animation>
+    <type>pick</type>
+    <object-name>TH</object-name>
+    <action>
+      <name>TH</name>
+      <button>0</button>
+      <repeatable>false</repeatable>
+      <binding>
+        <command>nasal</command>
+        <script>globals.Concorde.autopilotsystem.apheadingexport();</script>
+      </binding>
+      <binding>
+        <command>property-toggle</command>
+        <property>/instrumentation/generic/click</property>
+      </binding>
+    </action>
+  </animation>
+  <animation>
+    <type>pick</type>
+    <object-name>HH</object-name>
+    <action>
+      <name>HH</name>
+      <button>0</button>
+      <repeatable>false</repeatable>
+      <binding>
+        <command>nasal</command>
+        <script>globals.Concorde.autopilotsystem.apheadingholdexport();</script>
+      </binding>
+      <binding>
+        <command>property-toggle</command>
+        <property>/instrumentation/generic/click</property>
+      </binding>
+    </action>
+  </animation>
+  <animation>
+    <type>pick</type>
+    <object-name>TU</object-name>
+    <action>
+      <name>TU</name>
+      <button>0</button>
+      <repeatable>false</repeatable>
+      <binding>
+        <command>nasal</command>
+        <script>globals.Concorde.autopilotsystem.apturbulenceexport();</script>
+      </binding>
+      <binding>
+        <command>property-toggle</command>
+        <property>/instrumentation/generic/click</property>
+      </binding>
+    </action>
+  </animation>
+  <animation>
+    <type>pick</type>
+    <object-name>VL</object-name>
+    <action>
+      <name>VL</name>
+      <button>0</button>
+      <repeatable>false</repeatable>
+      <binding>
+        <command>nasal</command>
+        <script>globals.Concorde.autopilotsystem.apvorlocexport();</script>
+      </binding>
+      <binding>
+        <command>property-toggle</command>
+        <property>/instrumentation/generic/click</property>
+      </binding>
+    </action>
+  </animation>
+  <!-- Altitude -->
+  <animation>
+    <type>pick</type>
+    <object-name>PH</object-name>
+    <action>
+      <name>PH</name>
+      <button>0</button>
+      <repeatable>false</repeatable>
+      <binding>
+        <command>nasal</command>
+        <script>globals.Concorde.autopilotsystem.appitchexport();</script>
+      </binding>
+      <binding>
+        <command>property-toggle</command>
+        <property>/instrumentation/generic/click</property>
+      </binding>
+    </action>
+  </animation>
+  <animation>
+    <type>pick</type>
+    <object-name>CL</object-name>
+    <action>
+      <name>CL</name>
+      <button>0</button>
+      <repeatable>false</repeatable>
+      <binding>
+        <command>nasal</command>
+        <script>globals.Concorde.autopilotsystem.apmaxclimbexport();</script>
+      </binding>
+      <binding>
+        <command>property-toggle</command>
+        <property>/instrumentation/generic/click</property>
+      </binding>
+    </action>
+  </animation>
+  <animation>
+    <type>pick</type>
+    <object-name>MP</object-name>
+    <action>
+      <name>MP</name>
+      <button>0</button>
+      <repeatable>false</repeatable>
+      <binding>
+        <command>nasal</command>
+        <script>globals.Concorde.autopilotsystem.apmachpitchexport();</script>
+      </binding>
+      <binding>
+        <command>property-toggle</command>
+        <property>/instrumentation/generic/click</property>
+      </binding>
+    </action>
+  </animation>
+  <animation>
+    <type>pick</type>
+    <object-name>IP</object-name>
+    <action>
+      <name>IP</name>
+      <button>0</button>
+      <repeatable>false</repeatable>
+      <binding>
+        <command>nasal</command>
+        <script>globals.Concorde.autopilotsystem.apspeedpitchexport();</script>
+      </binding>
+      <binding>
+        <command>property-toggle</command>
+        <property>/instrumentation/generic/click</property>
+      </binding>
+    </action>
+  </animation>
+  <animation>
+    <type>pick</type>
+    <object-name>AH</object-name>
+    <action>
+      <name>AH</name>
+      <button>0</button>
+      <repeatable>false</repeatable>
+      <binding>
+        <command>nasal</command>
+        <script>globals.Concorde.autopilotsystem.apaltitudeholdexport();</script>
+      </binding>
+      <binding>
+        <command>property-toggle</command>
+        <property>/instrumentation/generic/click</property>
+      </binding>
+    </action>
+  </animation>
+  <animation>
+    <type>pick</type>
+    <object-name>LA</object-name>
+    <action>
+      <name>LA</name>
+      <button>0</button>
+      <repeatable>false</repeatable>
+      <binding>
+        <command>nasal</command>
+        <script>globals.Concorde.autopilotsystem.aplandexport();</script>
+      </binding>
+      <binding>
+        <command>property-toggle</command>
+        <property>/instrumentation/generic/click</property>
+      </binding>
+    </action>
+  </animation>
+  <animation>
+    <type>pick</type>
+    <object-name>GL</object-name>
+    <action>
+      <name>GL</name>
+      <button>0</button>
+      <repeatable>false</repeatable>
+      <binding>
+        <command>nasal</command>
+        <script>globals.Concorde.autopilotsystem.apglideexport();</script>
+      </binding>
+      <binding>
+        <command>property-toggle</command>
+        <property>/instrumentation/generic/click</property>
+      </binding>
+    </action>
+  </animation>
+  <animation>
+    <type>pick</type>
+    <object-name>VS</object-name>
+    <action>
+      <name>VS</name>
+      <button>0</button>
+      <repeatable>false</repeatable>
+      <binding>
+        <command>nasal</command>
+        <script>globals.Concorde.autopilotsystem.apverticalexport();</script>
+      </binding>
+      <binding>
+        <command>property-toggle</command>
+        <property>/instrumentation/generic/click</property>
+      </binding>
+    </action>
+  </animation>
+  <animation>
+    <type>pick</type>
+    <object-name>AA</object-name>
+    <action>
+      <name>AA</name>
+      <button>0</button>
+      <repeatable>false</repeatable>
+      <binding>
+        <command>nasal</command>
+        <script>globals.Concorde.autopilotsystem.apaltitudeexport();</script>
+      </binding>
+      <binding>
+        <command>property-toggle</command>
+        <property>/instrumentation/generic/click</property>
+      </binding>
+    </action>
+  </animation>
+  <!-- Altitude Numbers -->
+  <animation>
+    <type>textranslate</type>
+    <object-name>AltNum1</object-name>
+    <property>controls/autoflight/altitude-select</property>
+    <factor>.00001</factor>
+    <step>10000</step>
+    <axis>
+      <x>0</x>
+      <y>1</y>
+      <z>0</z>
+    </axis>
+  </animation>
+  <animation>
+    <type>textranslate</type>
+    <object-name>AltNum2</object-name>
+    <property>controls/autoflight/altitude-select</property>
+    <factor>.0001</factor>
+    <step>1000</step>
+    <axis>
+      <x>0</x>
+      <y>1</y>
+      <z>0</z>
+    </axis>
+  </animation>
+  <animation>
+    <type>textranslate</type>
+    <object-name>AltNum3</object-name>
+    <property>controls/autoflight/altitude-select</property>
+    <factor>.001</factor>
+    <step>100</step>
+    <axis>
+      <x>0</x>
+      <y>1</y>
+      <z>0</z>
+    </axis>
+  </animation>
+  <!-- Altitude Select -->
+  <!--=== AP Switches ===-->
+  <!--Lighting-->
+  <animation>
+    <type>material</type>
+    <object-name>AP1</object-name>
+    <condition>
+      <property>controls/autoflight/autopilot[0]/engage</property>
+    </condition>
+    <emission>
+      <red>0.0</red>
+      <green>0.5</green>
+      <blue>0.0</blue>
+    </emission>
+  </animation>
+  <animation>
+    <type>material</type>
+    <object-name>AP1</object-name>
+    <condition>
+<and>
+      <not><property>controls/autoflight/autopilot[0]/engage</property></not>
+   <greater-than>
+    <property>sim/time/sun-angle-rad</property>
+    <value>1.59</value>
+   </greater-than>
+    <property>controls/lighting/instrument-lights</property>
+
+</and>
+    </condition>
+    <emission>
+      <red>0.7</red>
+      <green>0.2</green>
+      <blue>0.2</blue>
+    </emission>
+  </animation>
+
+
+  <animation>
+    <type>material</type>
+    <object-name>AP2</object-name>
+    <condition>
+      <property>controls/autoflight/autopilot[1]/engage</property>
+    </condition>
+    <emission>
+      <red>0.0</red>
+      <green>0.5</green>
+      <blue>0.0</blue>
+    </emission>
+  </animation>
+  <animation>
+    <type>material</type>
+    <object-name>AP2</object-name>
+    <condition>
+<and>
+      <not><property>controls/autoflight/autopilot[1]/engage</property></not>
+   <greater-than>
+    <property>sim/time/sun-angle-rad</property>
+    <value>1.59</value>
+   </greater-than>
+    <property>controls/lighting/instrument-lights</property>
+
+</and>
+    </condition>
+    <emission>
+      <red>0.7</red>
+      <green>0.2</green>
+      <blue>0.2</blue>
+    </emission>
+  </animation>
+
+  <!--Movement-->
+  <animation>
+    <type>translate</type>
+    <object-name>AP1</object-name>
+    <property>controls/autoflight/autopilot[0]/engage</property>
+    <factor>0.0175</factor>
+    <axis>
+      <x>0</x>
+      <y>0</y>
+      <z>1</z>
+    </axis>
+  </animation>
+  <animation>
+    <type>translate</type>
+    <object-name>AP2</object-name>
+    <property>controls/autoflight/autopilot[1]/engage</property>
+    <factor>0.0175</factor>
+    <axis>
+      <x>0</x>
+      <y>0</y>
+      <z>1</z>
+    </axis>
+  </animation>
+  <animation>
+    <type>translate</type>
+    <object-name>AP1Label</object-name>
+    <property>controls/autoflight/autopilot[0]/engage</property>
+    <factor>0.0175</factor>
+    <axis>
+      <x>0</x>
+      <y>0</y>
+      <z>1</z>
+    </axis>
+  </animation>
+  <animation>
+    <type>translate</type>
+    <object-name>AP2Label</object-name>
+    <property>controls/autoflight/autopilot[1]/engage</property>
+    <factor>0.0175</factor>
+    <axis>
+      <x>0</x>
+      <y>0</y>
+      <z>1</z>
+    </axis>
+  </animation>
+  <!--Binding-->
+  <animation>
+    <type>pick</type>
+    <object-name>AP1</object-name>
+    <action>
+      <name>AP1</name>
+      <button>0</button>
+      <repeatable>false</repeatable>
+      <binding>
+        <command>property-toggle</command>
+        <property>/controls/autoflight/autopilot[0]/engage</property>
+      </binding>
+      <binding>
+        <command>nasal</command>
+        <script>globals.Concorde.autopilotsystem.apexport();</script>
+      </binding>
+      <binding>
+        <command>property-toggle</command>
+        <property>/instrumentation/generic/click</property>
+      </binding>
+    </action>
+  </animation>
+  <animation>
+    <type>pick</type>
+    <object-name>AP2</object-name>
+    <action>
+      <name>AP2</name>
+      <button>0</button>
+      <repeatable>false</repeatable>
+      <binding>
+        <command>property-toggle</command>
+        <property>/controls/autoflight/autopilot[1]/engage</property>
+      </binding>
+      <binding>
+        <command>nasal</command>
+        <script>globals.Concorde.autopilotsystem.apexport();</script>
+      </binding>
+      <binding>
+        <command>property-toggle</command>
+        <property>/instrumentation/generic/click</property>
+      </binding>
+    </action>
+  </animation>
+  <!-- AT Switches -->
+  <!--Lighting-->
+  <animation>
+    <type>material</type>
+    <object-name>AT1</object-name>
+    <condition>
+      <property>controls/autoflight/autothrottle[0]/engage</property>
+    </condition>
+    <emission>
+      <red>0.0</red>
+      <green>0.5</green>
+      <blue>0.0</blue>
+    </emission>
+  </animation>
+  <animation>
+    <type>material</type>
+    <object-name>AT1</object-name>
+    <condition>
+<and>
+      <not><property>controls/autoflight/autothrottle[0]/engage</property></not>
+   <greater-than>
+    <property>sim/time/sun-angle-rad</property>
+    <value>1.59</value>
+   </greater-than>
+    <property>controls/lighting/instrument-lights</property>
+
+</and>
+    </condition>
+    <emission>
+      <red>0.7</red>
+      <green>0.2</green>
+      <blue>0.2</blue>
+    </emission>
+  </animation>
+
+
+  <animation>
+    <type>material</type>
+    <object-name>AT2</object-name>
+    <condition>
+      <property>controls/autoflight/autothrottle[1]/engage</property>
+    </condition>
+    <emission>
+      <red>0.0</red>
+      <green>0.5</green>
+      <blue>0.0</blue>
+    </emission>
+  </animation>
+  <animation>
+    <type>material</type>
+    <object-name>AT2</object-name>
+    <condition>
+<and>
+      <not><property>controls/autoflight/autothrottle[1]/engage</property></not>
+   <greater-than>
+    <property>sim/time/sun-angle-rad</property>
+    <value>1.59</value>
+   </greater-than>
+    <property>controls/lighting/instrument-lights</property>
+
+</and>
+    </condition>
+    <emission>
+      <red>0.7</red>
+      <green>0.2</green>
+      <blue>0.2</blue>
+    </emission>
+  </animation>
+  <!--Movement-->
+  <animation>
+    <type>translate</type>
+    <object-name>AT1</object-name>
+    <property>controls/autoflight/autothrottle[0]/engage</property>
+    <factor>0.0175</factor>
+    <axis>
+      <x>0</x>
+      <y>0</y>
+      <z>1</z>
+    </axis>
+  </animation>
+  <animation>
+    <type>translate</type>
+    <object-name>AT2</object-name>
+    <property>controls/autoflight/autothrottle[1]/engage</property>
+    <factor>0.0175</factor>
+    <axis>
+      <x>0</x>
+      <y>0</y>
+      <z>1</z>
+    </axis>
+  </animation>
+  <animation>
+    <type>translate</type>
+    <object-name>AT1Label</object-name>
+    <property>controls/autoflight/autothrottle[0]/engage</property>
+    <factor>0.0175</factor>
+    <axis>
+      <x>0</x>
+      <y>0</y>
+      <z>1</z>
+    </axis>
+  </animation>
+  <animation>
+    <type>translate</type>
+    <object-name>AT2Label</object-name>
+    <property>controls/autoflight/autothrottle[1]/engage</property>
+    <factor>0.0175</factor>
+    <axis>
+      <x>0</x>
+      <y>0</y>
+      <z>1</z>
+    </axis>
+  </animation>
+  <!--Binding-->
+  <animation>
+    <type>pick</type>
+    <object-name>AT1</object-name>
+    <action>
+      <name>AT1</name>
+      <button>0</button>
+      <repeatable>false</repeatable>
+      <binding>
+        <command>property-toggle</command>
+        <property>/controls/autoflight/autothrottle[0]/engage</property>
+      </binding>
+      <binding>
+        <command>nasal</command>
+        <script>globals.Concorde.autothrottlesystem.atexport();</script>
+      </binding>
+      <binding>
+        <command>property-toggle</command>
+        <property>/instrumentation/generic/click</property>
+      </binding>
+    </action>
+  </animation>
+  <animation>
+    <type>pick</type>
+    <object-name>AT2</object-name>
+    <action>
+      <name>AT2</name>
+      <button>0</button>
+      <repeatable>false</repeatable>
+      <binding>
+        <command>property-toggle</command>
+        <property>/controls/autoflight/autothrottle[1]/engage</property>
+      </binding>
+      <binding>
+        <command>nasal</command>
+        <script>globals.Concorde.autothrottlesystem.atexport();</script>
+      </binding>
+      <binding>
+        <command>property-toggle</command>
+        <property>/instrumentation/generic/click</property>
+      </binding>
+    </action>
+  </animation>
+  <!-- FD Switches -->
+  <!--Lighting-->
+  <animation>
+    <type>material</type>
+    <object-name>FD1</object-name>
+    <condition>
+      <property>controls/autoflight/flight-director[0]/engage</property>
+    </condition>
+    <emission>
+      <red>0.0</red>
+      <green>0.5</green>
+      <blue>0.0</blue>
+    </emission>
+  </animation>
+  <animation>
+    <type>material</type>
+    <object-name>FD1</object-name>
+    <condition>
+<and>
+      <not><property>controls/autoflight/flight-director[0]/engage</property></not>
+   <greater-than>
+    <property>sim/time/sun-angle-rad</property>
+    <value>1.59</value>
+   </greater-than>
+    <property>controls/lighting/instrument-lights</property>
+
+</and>
+    </condition>
+    <emission>
+      <red>0.7</red>
+      <green>0.2</green>
+      <blue>0.2</blue>
+    </emission>
+  </animation>
+
+
+  <animation>
+    <type>material</type>
+    <object-name>FD2</object-name>
+    <condition>
+      <property>controls/autoflight/flight-director[1]/engage</property>
+    </condition>
+    <emission>
+      <red>0.0</red>
+      <green>0.5</green>
+      <blue>0.0</blue>
+    </emission>
+  </animation>
+  <animation>
+    <type>material</type>
+    <object-name>FD2</object-name>
+    <condition>
+<and>
+      <not><property>controls/autoflight/flight-director[1]/engage</property></not>
+   <greater-than>
+    <property>sim/time/sun-angle-rad</property>
+    <value>1.59</value>
+   </greater-than>
+    <property>controls/lighting/instrument-lights</property>
+
+</and>
+    </condition>
+    <emission>
+      <red>0.7</red>
+      <green>0.2</green>
+      <blue>0.2</blue>
+    </emission>
+  </animation>
+  <!--Movement-->
+  <animation>
+    <type>translate</type>
+    <object-name>FD1</object-name>
+    <property>/controls/autoflight/flight-director[0]/engage</property>
+    <factor>0.0175</factor>
+    <axis>
+      <x>0</x>
+      <y>0</y>
+      <z>1</z>
+    </axis>
+  </animation>
+  <animation>
+    <type>translate</type>
+    <object-name>FD2</object-name>
+    <property>/controls/autoflight/flight-director[1]/engage</property>
+    <factor>0.0175</factor>
+    <axis>
+      <x>0</x>
+      <y>0</y>
+      <z>1</z>
+    </axis>
+  </animation>
+  <animation>
+    <type>translate</type>
+    <object-name>FD1Label</object-name>
+    <property>/controls/autoflight/flight-director[0]/engage</property>
+    <factor>0.0175</factor>
+    <axis>
+      <x>0</x>
+      <y>0</y>
+      <z>1</z>
+    </axis>
+  </animation>
+  <animation>
+    <type>translate</type>
+    <object-name>FD2Label</object-name>
+    <property>/controls/autoflight/flight-director[1]/engage</property>
+    <factor>0.0175</factor>
+    <axis>
+      <x>0</x>
+      <y>0</y>
+      <z>1</z>
+    </axis>
+  </animation>
+  <!--Binding-->
+  <animation>
+    <type>pick</type>
+    <object-name>FD1</object-name>
+    <action>
+      <name>FD1</name>
+      <button>0</button>
+      <repeatable>false</repeatable>
+      <binding>
+        <command>property-toggle</command>
+        <property>/controls/autoflight/flight-director[0]/engage</property>
+      </binding>
+      <binding>
+        <command>property-toggle</command>
+        <property>/instrumentation/generic/click</property>
+      </binding>
+    </action>
+  </animation>
+  <animation>
+    <type>pick</type>
+    <object-name>FD2</object-name>
+    <action>
+      <name>FD2</name>
+      <button>0</button>
+      <repeatable>false</repeatable>
+      <binding>
+        <command>property-toggle</command>
+        <property>/controls/autoflight/flight-director[1]/engage</property>
+      </binding>
+      <binding>
+        <command>property-toggle</command>
+        <property>/instrumentation/generic/click</property>
+      </binding>
+    </action>
+  </animation>
+
+
+<animation>
+  <name>APBulbs</name>
+  <object-name>SpeedSelectBulb</object-name>
+  <object-name>AltSelectBulb</object-name>
+  <object-name>HDG1SelectBulb</object-name>
+  <object-name>HDG2SelectBulb</object-name>
+  <object-name>VOR1SelectBulb</object-name>
+  <object-name>VOR2SelectBulb</object-name>
+  <object-name>Speed1</object-name>
+  <object-name>Speed2</object-name>
+  <object-name>Speed3</object-name>
+  <object-name>AltNum1</object-name>
+  <object-name>AltNum2</object-name>
+  <object-name>AltNum3</object-name>
+  <object-name>AltNum4</object-name>
+  <object-name>AltNum5</object-name>
+  <object-name>HDG1Num1</object-name>
+  <object-name>HDG1Num2</object-name>
+  <object-name>HDG1Num3</object-name>
+  <object-name>HDG2Num1</object-name>
+  <object-name>HDG2Num2</object-name>
+  <object-name>HDG2Num3</object-name>
+  <object-name>VOR1Num1</object-name>
+  <object-name>VOR1Num2</object-name>
+  <object-name>VOR1Num3</object-name>
+  <object-name>VOR2Num1</object-name>
+  <object-name>VOR2Num2</object-name>
+  <object-name>VOR2Num3</object-name>
+
+  <object-name>Plane.001</object-name>
+  <object-name>MainATLabel</object-name>
+  <object-name>KnotsLabel</object-name>
+  <object-name>KnotsLabel.001</object-name>
+  <object-name>HPLabel1</object-name>
+  <object-name>TPLabel1</object-name>
+  <object-name>VLLabel1</object-name>
+  <object-name>RefLabel1</object-name>
+
+  <object-name>HPLabel2</object-name>
+  <object-name>TPLabel2</object-name>
+  <object-name>VLLabel2</object-name>
+  <object-name>RefLabel2</object-name>
+
+  <object-name>Plane</object-name>
+  <object-name>KnotsLabel.002</object-name>
+  <object-name>KnotsLabel.003</object-name>
+  <object-name>KnotsLabel.004</object-name>
+  <object-name>KnotsLabel.005</object-name>
+  <object-name>KnotsLabel.006</object-name>
+ </animation>
+
+ <animation>
+  <type>material</type>
+  <object-name>APBulbs</object-name>
+  <condition>
+  <and>
+   <greater-than>
+    <property>sim/time/sun-angle-rad</property>
+    <value>1.59</value>
+   </greater-than>
+    <property>controls/lighting/instrument-lights</property>
+  </and>
+  </condition>
+
+  <emission>
+   <red>0.7</red>
+   <green>0.2</green>
+   <blue>0.2</blue>
+  </emission>
+ </animation>
+
+  <animation>
+    <type>rotate</type>
+    <object-name>HDG1Select</object-name>
+    <property>controls/autoflight/autopilot[0]/heading-select</property>
+    <factor>15</factor>
+    <condition>
+	<not><property>controls/autoflight/autopilot[0]/track-push</property></not>
+    </condition>
+    <center>
+      <x-m>0.01230</x-m>
+      <y-m>-0.05112</y-m>
+      <z-m>-0.04210</z-m>
+    </center>
+    <axis>
+      <x>-1</x>
+      <y>0</y>
+      <z>0</z>
+    </axis>
+  </animation>
+
+  <animation>
+    <type>rotate</type>
+    <object-name>HDG1Select</object-name>
+    <property>controls/autoflight/autopilot[0]/heading-true-select</property>
+    <factor>15</factor>
+    <condition>
+	<property>controls/autoflight/autopilot[0]/track-push</property>
+    </condition>
+    <center>
+      <x-m>0.01230</x-m>
+      <y-m>-0.05112</y-m>
+      <z-m>-0.04210</z-m>
+    </center>
+    <axis>
+      <x>-1</x>
+      <y>0</y>
+      <z>0</z>
+    </axis>
+  </animation>
+
+  <animation>
+    <type>rotate</type>
+    <object-name>HDG2Select</object-name>
+    <property>controls/autoflight/autopilot[1]/heading-select</property>
+    <factor>15</factor>
+    <condition>
+	<not><property>controls/autoflight/autopilot[1]/track-push</property></not>
+    </condition>
+    <center>
+      <x-m>0.01231</x-m>
+      <y-m>0.07390</y-m>
+      <z-m>-0.04210</z-m>
+    </center>
+    <axis>
+      <x>-1</x>
+      <y>0</y>
+      <z>0</z>
+    </axis>
+  </animation>
+
+  <animation>
+    <type>rotate</type>
+    <object-name>HDG2Select</object-name>
+    <property>controls/autoflight/autopilot[1]/heading-true-select</property>
+    <factor>15</factor>
+    <condition>
+	<property>controls/autoflight/autopilot[1]/track-push</property>
+    </condition>
+    <center>
+      <x-m>0.01231</x-m>
+      <y-m>0.07390</y-m>
+      <z-m>-0.04210</z-m>
+    </center>
+    <axis>
+      <x>-1</x>
+      <y>0</y>
+      <z>0</z>
+    </axis>
+  </animation>
+
+
+  <animation>
+    <type>rotate</type>
+    <object-name>VOR1Select</object-name>
+    <property>instrumentation/nav[1]/radials/selected-deg</property>
+    <factor>15</factor>
+    <center>
+      <x-m>0.01267</x-m>
+      <y-m>-0.01662</y-m>
+      <z-m>-0.04210</z-m>
+    </center>
+    <axis>
+      <x>-1</x>
+      <y>0</y>
+      <z>0</z>
+    </axis>
+  </animation>
+
+  <animation>
+    <type>rotate</type>
+    <object-name>VOR2Select</object-name>
+    <property>instrumentation/nav[2]/radials/selected-deg</property>
+    <factor>15</factor>
+    <center>
+      <x-m>0.01256</x-m>
+      <y-m>0.10834</y-m>
+      <z-m>-0.04210</z-m>
+    </center>
+    <axis>
+      <x>-1</x>
+      <y>0</y>
+      <z>0</z>
+    </axis>
+  </animation>
+
+
+
+  <!-- Altitude Select -->
+
+  <animation>
+    <type>rotate</type>
+    <object-name>AltSelect</object-name>
+    <property>controls/autoflight/altitude-select</property>
+    <factor>.01</factor>
+    <center>
+      <x-m>0.01278</x-m>
+      <y-m>0.18402</y-m>
+      <z-m>-0.02475</z-m>
+    </center>
+    <axis>
+      <x>-1</x>
+      <y>0</y>
+      <z>0</z>
+    </axis>
+  </animation>
+  <animation>
+    <type>pick</type>
+    <object-name>AltSelect</object-name>
+    <action>
+      <name>Alt 100 Up</name>
+      <button>0</button>
+      <repeatable>false</repeatable>
+      <binding>
+        <command>property-adjust</command>
+        <property>controls/autoflight/altitude-select</property>
+        <step>100</step>
+        <min>0</min>
+        <max>60000</max>
+        <wrap>false</wrap>
+      </binding>
+    </action>
+    <action>
+      <name>Alt 100 Down</name>
+      <button>1</button>
+      <repeatable>false</repeatable>
+      <binding>
+        <command>property-adjust</command>
+        <property>controls/autoflight/altitude-select</property>
+        <step>-100</step>
+        <min>0</min>
+        <max>60000</max>
+        <wrap>false</wrap>
+      </binding>
+    </action>
+    <action>
+      <name>Alt 1000 Up</name>
+      <button>3</button>
+      <repeatable>false</repeatable>
+      <binding>
+        <command>property-adjust</command>
+        <property>controls/autoflight/altitude-select</property>
+        <step>1000</step>
+        <min>0</min>
+        <max>60000</max>
+        <wrap>false</wrap>
+      </binding>
+    </action>
+    <action>
+      <name>Alt 1000 Down</name>
+      <button>4</button>
+      <repeatable>false</repeatable>
+      <binding>
+        <command>property-adjust</command>
+        <property>controls/autoflight/altitude-select</property>
+        <step>-1000</step>
+        <min>0</min>
+        <max>60000</max>
+        <wrap>false</wrap>
+      </binding>
+    </action>
+  </animation>
+
+
+
+  <!-- Speed Select -->
+  <animation>
+    <type>rotate</type>
+    <object-name>SpeedSelect</object-name>
+    <property>controls/autoflight/speed-select</property>
+    <factor>1</factor>
+    <center>
+      <x-m>0.01278</x-m>
+      <y-m>-0.12650</y-m>
+      <z-m>-0.02412</z-m>
+    </center>
+    <axis>
+      <x>-1</x>
+      <y>0</y>
+      <z>0</z>
+    </axis>
+  </animation>
+  <animation>
+    <type>pick</type>
+    <object-name>SpeedSelect</object-name>
+    <action>
+      <name>Speed 1 Up</name>
+      <button>0</button>
+      <repeatable>false</repeatable>
+      <binding>
+        <command>property-adjust</command>
+        <property>controls/autoflight/speed-select</property>
+        <step>1</step>
+        <min>120</min>
+        <max>400</max>
+        <wrap>false</wrap>
+      </binding>
+    </action>
+    <action>
+      <name>Speed 1 Down</name>
+      <button>1</button>
+      <repeatable>false</repeatable>
+      <binding>
+        <command>property-adjust</command>
+        <property>controls/autoflight/speed-select</property>
+        <step>-1</step>
+        <min>120</min>
+        <max>400</max>
+        <wrap>false</wrap>
+      </binding>
+    </action>
+    <action>
+      <name>Speed 10 Up</name>
+      <button>3</button>
+      <repeatable>false</repeatable>
+      <binding>
+        <command>property-adjust</command>
+        <property>controls/autoflight/speed-select</property>
+        <step>10</step>
+        <min>120</min>
+        <max>400</max>
+        <wrap>false</wrap>
+      </binding>
+    </action>
+    <action>
+      <name>Speed 10 Down</name>
+      <button>4</button>
+      <repeatable>false</repeatable>
+      <binding>
+        <command>property-adjust</command>
+        <property>controls/autoflight/speed-select</property>
+        <step>-10</step>
+        <min>120</min>
+        <max>400</max>
+        <wrap>false</wrap>
+      </binding>
+    </action>
+  </animation>
+
+
+
+
+  <!-- Heading 1 Select -->
+  <animation>
+    <type>translate</type>
+    <object-name>HDG1Select</object-name>
+    <property>controls/autoflight/autopilot[0]/track-push</property>
+    <factor>-.005</factor>
+    <axis>
+      <x>1</x>
+      <y>0</y>
+      <z>0</z>
+    </axis>
+  </animation>
+  <animation>
+    <type>pick</type>
+    <object-name>HDG1Select</object-name>
+    <action>
+      <name>Heading Track Push</name>
+      <button>1</button>
+      <repeatable>false</repeatable>
+      <binding>
+        <command>property-toggle</command>
+        <property>controls/autoflight/autopilot[0]/track-push</property>
+      </binding>
+    </action>
+    <action>
+      <name>Heading Up</name>
+      <button>3</button>
+      <repeatable>false</repeatable>
+
+   <binding>
+    <condition>
+     <property alias="../../../../../params/track-ctrl0"/>
+    </condition>
+    <command>property-adjust</command>
+    <property alias="../../../../params/true-hdg-ctrl0"/>
+    <step>1</step>
+    <min>0</min>
+    <max>360</max>
+    <wrap>1</wrap>
+   </binding>
+   <binding>
+    <condition>
+     <not>
+      <property alias="../../../../../../params/track-ctrl0"/>
+     </not>
+    </condition>
+    <command>property-adjust</command>
+    <property alias="../../../../params/hdg-ctrl0"/>
+    <step>1</step>
+    <min>0</min>
+    <max>360</max>
+    <wrap>1</wrap>
+   </binding>
+
+      <binding>
+        <command>nasal</command>
+        <script>globals.Concorde.autopilotsystem.apsendheadingexport();</script>
+      </binding>
+    </action>
+    <action>
+      <name>Heading Down</name>
+      <button>4</button>
+      <repeatable>false</repeatable>
+
+   <binding>
+    <condition>
+     <property alias="../../../../../params/track-ctrl0"/>
+    </condition>
+    <command>property-adjust</command>
+    <property alias="../../../../params/true-hdg-ctrl0"/>
+    <step>-1</step>
+    <min>0</min>
+    <max>360</max>
+    <wrap>1</wrap>
+   </binding>
+   <binding>
+    <condition>
+     <not>
+      <property alias="../../../../../../params/track-ctrl0"/>
+     </not>
+    </condition>
+    <command>property-adjust</command>
+    <property alias="../../../../params/hdg-ctrl0"/>
+    <step>-1</step>
+    <min>0</min>
+    <max>360</max>
+    <wrap>1</wrap>
+   </binding>
+
+      <binding>
+        <command>nasal</command>
+        <script>globals.Concorde.autopilotsystem.apsendheadingexport();</script>
+      </binding>
+    </action>
+  </animation>
+  <!-- Heading 2 Select -->
+  <animation>
+    <type>translate</type>
+    <object-name>HDG2Select</object-name>
+    <property>controls/autoflight/autopilot[1]/track-push</property>
+    <factor>-.005</factor>
+    <axis>
+      <x>1</x>
+      <y>0</y>
+      <z>0</z>
+    </axis>
+  </animation>
+  <animation>
+    <type>pick</type>
+    <object-name>HDG2Select</object-name>
+    <action>
+      <name>Heading 2 Track Push</name>
+      <button>1</button>
+      <repeatable>false</repeatable>
+      <binding>
+        <command>property-toggle</command>
+        <property>controls/autoflight/autopilot[1]/track-push</property>
+      </binding>
+    </action>
+  </animation>
+  <animation>
+    <type>pick</type>
+    <object-name>HDG2Select</object-name>
+    <action>
+      <name>Heading Up</name>
+      <button>3</button>
+      <repeatable>false</repeatable>
+
+   <binding>
+    <condition>
+     <property alias="../../../../../params/track-ctrl1"/>
+    </condition>
+    <command>property-adjust</command>
+    <property alias="../../../../params/true-hdg-ctrl1"/>
+    <step>1</step>
+    <min>0</min>
+    <max>360</max>
+    <wrap>1</wrap>
+   </binding>
+   <binding>
+    <condition>
+     <not>
+      <property alias="../../../../../../params/track-ctrl1"/>
+     </not>
+    </condition>
+    <command>property-adjust</command>
+    <property alias="../../../../params/hdg-ctrl1"/>
+    <step>1</step>
+    <min>0</min>
+    <max>360</max>
+    <wrap>1</wrap>
+   </binding>
+
+      <binding>
+        <command>nasal</command>
+        <script>globals.Concorde.autopilotsystem.apsendheadingexport();</script>
+      </binding>
+    </action>
+    <action>
+      <name>Heading Down</name>
+      <button>4</button>
+      <repeatable>false</repeatable>
+
+   <binding>
+    <condition>
+     <property alias="../../../../../params/track-ctrl1"/>
+    </condition>
+    <command>property-adjust</command>
+    <property alias="../../../../params/true-hdg-ctrl1"/>
+    <step>-1</step>
+    <min>0</min>
+    <max>360</max>
+    <wrap>1</wrap>
+   </binding>
+   <binding>
+    <condition>
+     <not>
+      <property alias="../../../../../../params/track-ctrl1"/>
+     </not>
+    </condition>
+    <command>property-adjust</command>
+    <property alias="../../../../params/hdg-ctrl1"/>
+    <step>-1</step>
+    <min>0</min>
+    <max>360</max>
+    <wrap>1</wrap>
+   </binding>
+
+      <binding>
+        <command>nasal</command>
+        <script>globals.Concorde.autopilotsystem.apsendheadingexport();</script>
+      </binding>
+    </action>
+  </animation>
+  <!-- Vor 1 Select -->
+  <animation>
+    <type>pick</type>
+    <object-name>VOR1Select</object-name>
+    <action>
+      <name>VOR Heading Up</name>
+      <button>3</button>
+      <repeatable>false</repeatable>
+      <binding>
+        <command>property-adjust</command>
+        <property>instrumentation/nav[1]/radials/selected-deg</property>
+        <step>1</step>
+        <min>0</min>
+        <max>360</max>
+        <wrap>true</wrap>
+      </binding>
+    </action>
+    <action>
+      <name>VOR Heading Down</name>
+      <button>4</button>
+      <repeatable>false</repeatable>
+      <binding>
+        <command>property-adjust</command>
+        <property>instrumentation/nav[1]/radials/selected-deg</property>
+        <step>-1</step>
+        <min>0</min>
+        <max>360</max>
+        <wrap>true</wrap>
+      </binding>
+    </action>
+  </animation>
+  <!-- Vor 2 Select -->
+  <animation>
+    <type>pick</type>
+    <object-name>VOR2Select</object-name>
+    <action>
+      <name>VOR 2 Heading Up</name>
+      <button>3</button>
+      <repeatable>false</repeatable>
+      <binding>
+        <command>property-adjust</command>
+        <property>instrumentation/nav[2]/radials/selected-deg</property>
+        <step>1</step>
+        <min>0</min>
+        <max>360</max>
+        <wrap>true</wrap>
+      </binding>
+    </action>
+    <action>
+      <name>VOR 2 Heading Down</name>
+      <button>4</button>
+      <repeatable>false</repeatable>
+      <binding>
+        <command>property-adjust</command>
+        <property>instrumentation/nav[2]/radials/selected-deg</property>
+        <step>-1</step>
+        <min>0</min>
+        <max>360</max>
+        <wrap>true</wrap>
+      </binding>
+    </action>
+  </animation>
+
+
+
+</PropertyList>
+
+
+

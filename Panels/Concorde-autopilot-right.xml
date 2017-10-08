@@ -108,41 +108,6 @@ During the capture, a triangle lights below VO, LA, GL and AA, until the acquisi
 
 <!-- frequencies -->
 
-  <instrument include="Instruments/concorde-hsi-source.xml">
-   <name>HSI source (copilot)</name>
-   <condition>
-    <or>
-     <and>
-      <property>/sim/current-view/internal</property>
-      <property>/systems/seat/captain</property>
-      <less-than>
-       <property>/sim/current-view/goal-heading-offset-deg</property>
-       <value>335</value>
-      </less-than>
-      <greater-than>
-       <property>/sim/current-view/goal-heading-offset-deg</property>
-       <value>275</value>
-      </greater-than>
-      <greater-than>
-       <property>/sim/current-view/goal-pitch-offset-deg</property>
-       <value>-45</value>
-      </greater-than>
-      <less-than>
-       <property>/sim/current-view/goal-pitch-offset-deg</property>
-       <value>15</value>
-      </less-than>
-     </and>
-     <property>/controls/seat/all</property>
-    </or>
-   </condition>
-   <params>
-    <ins-source>/instrumentation/hsi[1]/ins-source</ins-source>
-   </params>
-   <x>-15</x>
-   <y>518</y>
-   <w>50</w>
-   <h>50</h>
-  </instrument>
 
   <instrument include="Instruments/concorde-ap-nav.xml">
    <name>NAV 2 dial</name>

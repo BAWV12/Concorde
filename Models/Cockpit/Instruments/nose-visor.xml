@@ -44,5 +44,26 @@
       </binding>
     </action>
     </animation>
-  -->
+
+ <animation>
+  <type>material</type>
+  <object-name>Cylinder</object-name>
+  <condition>
+  <and>
+   <greater-than>
+    <property>sim/time/sun-angle-rad</property>
+    <value>1.59</value>
+   </greater-than>
+    <property>controls/lighting/instrument-lights</property>
+  </and>
+  </condition>
+
+  <emission>
+   <red>0.7</red>
+   <green>0.2</green>
+   <blue>0.2</blue>
+  </emission>
+ </animation>
+
+
 </PropertyList>

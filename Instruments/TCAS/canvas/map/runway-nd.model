@@ -1,0 +1,27 @@
+# WARNING: *.model files will be deprecated, see: http://wiki.flightgear.org/MapStructure
+var RunwayNDModel = {};
+ RunwayNDModel.new = func make( LayerModel, RunwayNDModel );
+
+ RunwayNDModel.init = func {
+ me._view.reset();
+
+ # check if RM is active and bail out if not
+if (!getprop("/autopilot/route-manager/active")) 
+	print("runway-nd.model: Cannot access flight plan, route manager inactive!") and return;
+
+ 
+
+ var desApt = airportinfo(getprop("/autopilot/route-manager/destination/airport"));
+ var depApt = airportinfo(getprop("/autopilot/route-manager/departure/airport"));
+ var desRwy = desApt.runway(getprop("/autopilot/route-manager/destination/runway"));
+ var depRwy = depApt.runway(getprop("/autopilot/route-manager/departure/runway"));
+			
+
+ me.push(depRwy);
+ me.push(desRwy);
+  
+
+ me.notifyView();
+}
+
+

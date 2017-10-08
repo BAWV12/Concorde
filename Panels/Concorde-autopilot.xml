@@ -984,40 +984,6 @@ During the capture, a triangle lights below VO, LA, GL and AA, until the acquisi
    <h>140</h>
   </instrument>
 
-  <instrument include="Instruments/concorde-hsi-source.xml">
-   <name>HSI source</name>
-   <condition>
-    <or>
-     <and>
-      <property>/sim/current-view/internal</property>
-      <property>/systems/seat/captain</property>
-      <or>
-       <less-than>
-        <property>/sim/current-view/goal-heading-offset-deg</property>
-        <value>10</value>
-       </less-than>
-       <greater-than>
-        <property>/sim/current-view/goal-heading-offset-deg</property>
-        <value>305</value>
-       </greater-than>
-      </or>
-      <greater-than>
-       <property>/sim/current-view/goal-pitch-offset-deg</property>
-       <value>-45</value>
-      </greater-than>
-      <less-than>
-       <property>/sim/current-view/goal-pitch-offset-deg</property>
-       <value>15</value>
-      </less-than>
-     </and>
-     <property>/controls/seat/all</property>
-    </or>
-   </condition>
-   <x>160</x>
-   <y>518</y>
-   <w>50</w>
-   <h>50</h>
-  </instrument>
 
 <!-- dials -->
 
