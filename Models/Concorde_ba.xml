@@ -163,8 +163,8 @@
   model.getNode("controls/lighting/external/main-landing[1]/norm").alias(model.getNode("sim/multiplay/generic/float[15]"));
   model.getNode("controls/lighting/external/landing-taxi[0]/norm").alias(model.getNode("sim/multiplay/generic/float[16]"));
   model.getNode("controls/lighting/external/landing-taxi[1]/norm").alias(model.getNode("sim/multiplay/generic/float[17]"));
-  model.getNode("controls/lighting/external/interpolate/on").alias(model.getNode("sim/multiplay/generic/float[18]"));
-<!--  model.getNode("velocities/airspeed-kt").alias(model.getNode("sim/multiplay/generic/float[19]"));-->
+<!--  model.getNode("controls/lighting/external/interpolate/on").alias(model.getNode("sim/multiplay/generic/float[18]"));
+  model.getNode("velocities/airspeed-kt").alias(model.getNode("sim/multiplay/generic/float[19]"));-->
    </load>
 
    <unload>
