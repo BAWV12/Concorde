@@ -2645,6 +2645,35 @@
      - groups are allowed.
 -->
 
+ <animation>
+  <type>select</type>
+  <object-name>windows</object-name>
+  <condition>
+  <and>
+   <greater-than>
+    <property>sim/time/sun-angle-rad</property>
+    <value>1.56</value>
+   </greater-than>
+    <property>controls/lighting/instrument-lights</property>
+  </and>
+  </condition>
+ </animation>
+
+
+ <animation>
+  <type>select</type>
+  <object-name>Cabin</object-name>
+  <condition>
+  <and>
+   <less-than-equals>
+    <property>sim/time/sun-angle-rad</property>
+    <value>1.56</value>
+   </less-than-equals>
+    <property>controls/lighting/instrument-lights</property>
+  </and>
+  </condition>
+ </animation>
+
 <!-- FLUORESCENT LIGHTS -->
 
  <animation>
