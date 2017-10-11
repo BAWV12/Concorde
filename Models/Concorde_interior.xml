@@ -9,8 +9,6 @@
 -->
 
 <PropertyList>
-
-
   <model>
     <name>Captain WXR</name>
     <path>Aircraft/Concorde/Models/Cockpit/Instruments/cnd.xml</path>
