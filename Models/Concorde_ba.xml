@@ -245,6 +245,7 @@
   <animation>
    <name>flightdeck</name>
    <object-name>Cockpit</object-name>
+   <object-name>Cube.001</object-name>
    <object-name>Pillar</object-name>
    <object-name>CeilingEdge</object-name>
    <object-name>Dashboard</object-name>
