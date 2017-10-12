@@ -2651,7 +2651,7 @@
   <condition>
 
    <greater-than>
-    <property>sim/time/sun-angle-rad</property>
+    <property>/sim/time/sun-angle-rad</property>
     <value>1.53</value>
    </greater-than>
 
@@ -2665,7 +2665,7 @@
   <condition>
 
    <less-than-equals>
-    <property>sim/time/sun-angle-rad</property>
+    <property>/sim/time/sun-angle-rad</property>
     <value>1.53</value>
    </less-than-equals>
 
