@@ -8,15 +8,30 @@
     <decision-ctrl>/instrumentation/radio-altimeter[0]/decision-height</decision-ctrl>
     <decision-ft>/instrumentation/radio-altimeter[0]/decision-ft</decision-ft>
     <ft-sel>/instrumentation/radio-altimeter[0]/indicated-altitude-ft</ft-sel>
+    <navloc>/instrumentation/nav[1]/nav-loc</navloc>
+    <navinrange>/instrumentation/nav[1]/in-range</navinrange>
+    <gsinrange>/instrumentation/nav[1]/gs-in-range</gsinrange>
+    <hasgs>/instrumentation/nav[1]/has-gs</hasgs>
+    <dist>/instrumentation/nav[1]/nav-distance</dist>
   </params>
   <animation>
     <type>material</type>
     <object-name>AP</object-name>
     <condition>
+     <and>
+      <not include="concorde-cond-voltage-bulb.xml"/>
       <or>
+       <and>
         <property alias="/params/test"/>
+        <not include="concorde-cond-flashing-light.xml"/>
+       </and>
+       <and>
+        <not include="concorde-cond-flashing-light.xml"/>
         <property alias="/params/failure-sel"/>
+       </and>
+       <not include="concorde-cond-voltage-autopilot.xml"/>
       </or>
+     </and>
     </condition>
     <emission>
       <red>0.8</red>
@@ -28,12 +43,68 @@
     <type>material</type>
     <object-name>AT</object-name>
     <condition>
-      <or>
-        <property alias="/params/test"/>
-        <not>
-          <property alias="/params/serviceable-sel"/>
-        </not>
-      </or>
+      <and>
+       <not include="concorde-cond-voltage-bulb.xml"/>
+       <or>
+        <and>
+         <property alias="/params/test"/>
+         <not include="concorde-cond-flashing-light.xml"/>
+        </and>
+        <and>
+         <not include="concorde-cond-flashing-light.xml"/>
+         <or>
+	 <greater-than>
+        	<property alias="/params/tmo-sel"/>
+		<value>134</value>
+	 </greater-than>
+          <not>
+           <property alias="/params/serviceable-sel"/>
+          </not>
+          <and>
+           <equals>
+            <property>/autopilot/locks/altitude</property>
+            <value>altitude-hold</value>
+           </equals>
+           <equals>
+            <property>/autopilot/locks/speed</property>
+            <value></value>
+           </equals>
+          </and>
+          <and>
+           <equals>
+            <property>/autopilot/locks/altitude</property>
+            <value>gs1-hold</value>
+           </equals>
+           <equals>
+            <property>/autopilot/locks/speed</property>
+            <value></value>
+           </equals>
+          </and>
+          <and>
+           <or include="concorde-cond-land.xml"/>       <!-- bug -->
+           <greater-than>
+            <property>/position/altitude-agl-ft</property>
+            <value>14</value> <!-- autoland stops below -->
+           </greater-than>
+           <equals>
+            <property>/controls/autoflight/speed</property>
+            <value></value>
+           </equals>
+          </and>
+          <and>
+           <not>
+            <property>/instrumentation/airspeed-indicator[0]/serviceable</property>
+           </not>
+           <not-equals>
+            <property>/autopilot/locks/speed</property>
+            <value></value>
+           </not-equals>
+          </and>
+         </or>
+        </and>
+        <not include="concorde-cond-voltage-autopilot.xml"/>
+       </or>
+      </and>
     </condition>
     <emission>
       <red>0.8</red>
@@ -48,10 +119,18 @@
       <or>
         <property alias="/params/test"/>
         <and>
-          <property>/controls/autoflight/land-display</property>
           <less-than>
             <property>/instrumentation/nav[0]/heading-needle-deflection-norm</property>
             <value>-0.05</value>
+          </less-than>
+          <greater-than>
+            <property>/instrumentation/nav[0]/heading-needle-deflection-norm</property>
+            <value>-0.85</value>
+          </greater-than>
+	  <property alias="/params/navloc"/>
+          <less-than>
+            <property alias="/params/dist"/>
+            <value>35000</value>
           </less-than>
         </and>
       </or>
@@ -69,11 +148,19 @@
       <or>
         <property alias="/params/test"/>
         <and>
-          <property>/controls/autoflight/land-display</property>
           <greater-than>
             <property>/instrumentation/nav[0]/heading-needle-deflection-norm</property>
             <value>0.05</value>
           </greater-than>
+          <less-than>
+            <property>/instrumentation/nav[0]/heading-needle-deflection-norm</property>
+            <value>0.85</value>
+          </less-than>
+	  <property alias="/params/navloc"/>
+          <less-than>
+            <property alias="/params/dist"/>
+            <value>35000</value>
+          </less-than>
         </and>
       </or>
     </condition>
@@ -90,10 +177,24 @@
       <or>
         <property alias="/params/test"/>
         <and>
-          <property>/controls/autoflight/land-display</property>
           <less-than>
             <property>/instrumentation/nav[0]/gs-needle-deflection-norm</property>
             <value>-0.05</value>
+          </less-than>
+	  <property alias="/params/navloc"/>
+          <less-than>
+            <property alias="/params/dist"/>
+            <value>35000</value>
+          </less-than>
+	  <property alias="/params/gsinrange"/>
+	  <property alias="/params/hasgs"/>
+          <greater-than>
+            <property>/instrumentation/nav[0]/heading-needle-deflection-norm</property>
+            <value>-0.85</value>
+          </greater-than>
+          <less-than>
+            <property>/instrumentation/nav[0]/heading-needle-deflection-norm</property>
+            <value>0.85</value>
           </less-than>
         </and>
       </or>
@@ -111,11 +212,25 @@
       <or>
         <property alias="/params/test"/>
         <and>
-          <property>/controls/autoflight/land-display</property>
           <greater-than>
             <property>/instrumentation/nav[0]/gs-needle-deflection-norm</property>
             <value>0.05</value>
           </greater-than>
+	  <property alias="/params/navloc"/>
+	  <property alias="/params/navinrange"/>
+          <less-than>
+            <property alias="/params/dist"/>
+            <value>35000</value>
+          </less-than>
+	  <property alias="/params/hasgs"/>
+          <greater-than>
+            <property>/instrumentation/nav[0]/heading-needle-deflection-norm</property>
+            <value>-0.85</value>
+          </greater-than>
+          <less-than>
+            <property>/instrumentation/nav[0]/heading-needle-deflection-norm</property>
+            <value>0.85</value>
+          </less-than>
         </and>
       </or>
     </condition>
@@ -130,10 +245,16 @@
     <object-name>Aircraft1</object-name>
     <object-name>Aircraft2</object-name>
     <condition>
-      <or>
-        <property alias="/params/test"/>
-        <property>/controls/autoflight/land-display</property>
-      </or>
+     <or>
+      <property alias="/params/test"/>
+      <and>
+        <property alias="/params/navloc"/>
+          <less-than>
+            <property alias="/params/dist"/>
+            <value>35000</value>
+          </less-than>
+      </and>
+     </or>
     </condition>
     <emission>
       <red>0.5</red>

@@ -4,6 +4,7 @@
   <params>
     <heading-deg>/instrumentation/hsi[0]/heading-deg</heading-deg>
     <heading-select>/controls/autoflight/autopilot[0]/heading-select</heading-select>
+    <heading1-select>/controls/autoflight/autopilot[1]/heading-select</heading1-select>
     <nav1-radial>/instrumentation/nav[1]/radials/selected-deg</nav1-radial>
     <nav2-radial>/instrumentation/nav[2]/radials/selected-deg</nav2-radial>
     <nav1-to-flag>/instrumentation/nav[1]/to-flag</nav1-to-flag>
@@ -41,12 +42,52 @@
       <z>0</z>
     </axis>
   </animation>
+
   <animation>
     <type>rotate</type>
     <object-name>HdgBug</object-name>
+
     <expression>
       <difference>
+        <sum>
+          <prod>
+            <sum>
+              <prod>
+
+      <difference>
         <property alias="/params/heading-select"/>
+        <property alias="/params/heading-deg"/>
+      </difference>
+
+                <abs>
+                  <difference>
+                    <property alias="/params/nav2-switch"/>
+                    <value>1</value>
+                  </difference>
+                </abs>
+              </prod>
+              <prod>
+
+      <difference>
+        <property alias="/params/heading1-select"/>
+        <property alias="/params/heading-deg"/>
+      </difference>
+
+                <property alias="/params/nav2-switch"/>
+              </prod>
+            </sum>
+            <abs>
+              <difference>
+                <property alias="/params/ins-source"/>
+                <value>1</value>
+              </difference>
+            </abs>
+          </prod>
+          <prod>
+            <property alias="/params/true-heading-deg"/>
+            <property alias="/params/ins-source"/>
+          </prod>
+        </sum>
         <property alias="/params/heading-deg"/>
       </difference>
     </expression>
@@ -526,4 +567,54 @@
    <blue>0.2</blue>
   </emission>
   </animation>
+
+  <animation>
+    <type>select</type>
+    <object-name>GSArrow</object-name>
+  <condition>
+    <not>
+      <equals>
+<expression>
+      <prod>
+        <sum>
+          <prod>
+            <abs>
+              <difference>
+                <property alias="/params/nav2-switch"/>
+                <value>1</value>
+              </difference>
+            </abs>
+            <property alias="/params/gs1-in-range"/>
+            <property alias="/params/gs1-deflection"/>
+            <abs>
+              <difference>
+                <property alias="/params/ins-source"/>
+                <value>1</value>
+              </difference>
+            </abs>
+          </prod>
+          <prod>
+            <property alias="/params/nav2-switch"/>
+            <property alias="/params/gs2-in-range"/>
+            <property alias="/params/gs2-deflection"/>
+            <abs>
+              <difference>
+                <property alias="/params/ins-source"/>
+                <value>1</value>
+              </difference>
+            </abs>
+          </prod>
+        </sum>
+        <value>0.02</value>
+      </prod>
+</expression>
+
+
+	<value>0</value>
+      </equals>
+    </not>
+  </condition>
+  </animation>
+
+
 </PropertyList>

@@ -13,8 +13,8 @@
     <nav2-deflection>/instrumentation/nav[2]/heading-needle-deflection-norm</nav2-deflection>
     <has-gs1>/instrumentation/nav[1]/has-gs</has-gs1>
     <has-gs2>/instrumentation/nav[2]/has-gs</has-gs2>
-    <gs1-in-range>/instrumentation/nav[2]/gs-in-range</gs1-in-range>
-    <gs2-in-range>/instrumentation/nav[1]/gs-in-range</gs2-in-range>
+    <gs1-in-range>/instrumentation/nav[1]/gs-in-range</gs1-in-range>
+    <gs2-in-range>/instrumentation/nav[2]/gs-in-range</gs2-in-range>
     <gs1-deflection>/instrumentation/nav[1]/gs-needle-deflection-norm</gs1-deflection>
     <gs2-deflection>/instrumentation/nav[2]/gs-needle-deflection-norm</gs2-deflection>
     <attitude-serviceable>/instrumentation/attitude-indicator[0]/serviceable</attitude-serviceable>
@@ -440,4 +440,76 @@
    <blue>0.2</blue>
   </emission>
   </animation>
+
+  <animation>
+    <type>select</type>
+    <object-name>GSArrow</object-name>
+<condition>
+<not>
+<equals>
+    <expression>
+      <prod>
+        <sum>
+          <prod>
+            <abs>
+              <difference>
+                <property alias="/params/fd2"/>
+                <value>1</value>
+              </difference>
+            </abs>
+            <property alias="/params/gs1-in-range"/>
+            <property alias="/params/gs1-deflection"/>
+          </prod>
+          <prod>
+            <property alias="/params/fd2"/>
+            <property alias="/params/gs2-in-range"/>
+            <property alias="/params/gs2-deflection"/>
+          </prod>
+        </sum>
+        <value>0.02</value>
+      </prod>
+    </expression>
+    <value>0</value>
+</equals>
+</not>
+</condition>
+  </animation>
+
+
+  <animation>
+    <type>select</type>
+    <object-name>LocArrow</object-name>
+<condition>
+<not>
+<equals>
+    <expression>
+      <prod>
+        <sum>
+          <prod>
+            <abs>
+              <difference>
+                <property alias="/params/fd2"/>
+                <value>1</value>
+              </difference>
+            </abs>
+            <property alias="/params/nav1-in-range"/>
+            <property alias="/params/nav1-deflection"/>
+          </prod>
+          <prod>
+            <property alias="/params/fd2"/>
+            <property alias="/params/nav2-in-range"/>
+            <property alias="/params/nav2-deflection"/>
+          </prod>
+        </sum>
+        <value>0.014</value>
+      </prod>
+    </expression>
+    <value>0</value>
+</equals>
+</not>
+</condition>
+  </animation>
+
+
+
 </PropertyList>
