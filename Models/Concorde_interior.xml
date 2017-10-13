@@ -9,6 +9,7 @@
 -->
 
 <PropertyList>
+
   <model>
     <name>Captain WXR</name>
     <path>Aircraft/Concorde/Models/Cockpit/Instruments/cnd.xml</path>
@@ -984,6 +985,32 @@
     </offsets>
   </model>
 
+<!--
+        <params>
+          <test>/instrumentation/attitude-indicator[0]/test</test>
+          <fd-engage>/controls/autoflight/flight-director[0]/engage</fd-engage>
+          <fd2>/instrumentation/attitude-indicator[0]/fd2</fd2>
+          <roll>/instrumentation/attitude-indicator[0]/indicated-roll-deg</roll>
+          <pitch>/instrumentation/attitude-indicator[0]/indicated-pitch-deg</pitch>
+          <nav1-in-range>/instrumentation/nav[1]/in-range</nav1-in-range>
+          <nav2-in-range>/instrumentation/nav[2]/in-range</nav2-in-range>
+          <nav1-deflection>/instrumentation/nav[1]/heading-needle-deflection-norm</nav1-deflection>
+          <nav2-deflection>/instrumentation/nav[2]/heading-needle-deflection-norm</nav2-deflection>
+          <has-gs1>/instrumentation/nav[1]/has-gs</has-gs1>
+          <has-gs2>/instrumentation/nav[2]/has-gs</has-gs2>
+          <gs1-in-range>/instrumentation/nav[2]/gs-in-range</gs1-in-range>
+          <gs2-in-range>/instrumentation/nav[1]/gs-in-range</gs2-in-range>
+          <gs1-deflection>/instrumentation/nav[1]/gs-needle-deflection-norm</gs1-deflection>
+          <gs2-deflection>/instrumentation/nav[2]/gs-needle-deflection-norm</gs2-deflection>
+          <attitude-serviceable>/instrumentation/attitude-indicator[0]/serviceable</attitude-serviceable>
+          <fd-serviceable>/instrumentation/flight-director[0]/serviceable</fd-serviceable>
+          <dh-on>/instrumentation/radio-altimeter[0]/decision-height</dh-on>
+          <dh-ft>/instrumentation/radio-altimeter[0]/decision-ft</dh-ft>
+          <radio-ft>/instrumentation/radio-altimeter[0]/indicated-altitude-ft</radio-ft>
+          <slip-ball>/instrumentation/slip-skid-ball/indicated-slip-skid</slip-ball>
+        </params>
+-->
+
 
   <model>
     <name>Copilot Horizon</name>
@@ -1001,8 +1028,8 @@
         <nav2-deflection>/instrumentation/nav[2]/heading-needle-deflection-norm</nav2-deflection>
         <has-gs1>/instrumentation/nav[1]/has-gs</has-gs1>
         <has-gs2>/instrumentation/nav[2]/has-gs</has-gs2>
-        <gs1-in-range>/instrumentation/nav[2]/gs-in-range</gs1-in-range>
-        <gs2-in-range>/instrumentation/nav[1]/gs-in-range</gs2-in-range>
+        <gs1-in-range>/instrumentation/nav[1]/gs-in-range</gs1-in-range>
+        <gs2-in-range>/instrumentation/nav[2]/gs-in-range</gs2-in-range>
         <gs1-deflection>/instrumentation/nav[1]/gs-needle-deflection-norm</gs1-deflection>
         <gs2-deflection>/instrumentation/nav[2]/gs-needle-deflection-norm</gs2-deflection>
         <attitude-serviceable>/instrumentation/attitude-indicator[1]/serviceable</attitude-serviceable>
@@ -1020,13 +1047,42 @@
       <pitch-deg>-10</pitch-deg>
     </offsets>
   </model>
+
+<!--
+      <params>
+        <heading-deg>/instrumentation/hsi[0]/heading-deg</heading-deg>
+        <heading-select>/controls/autoflight/autopilot[0]/heading-select</heading-select>
+        <nav1-radial>/instrumentation/nav[1]/radials/selected-deg</nav1-radial>
+        <nav2-radial>/instrumentation/nav[2]/radials/selected-deg</nav2-radial>
+        <nav1-to-flag>/instrumentation/nav[1]/to-flag</nav1-to-flag>
+        <nav1-from-flag>/instrumentation/nav[1]/from-flag</nav1-from-flag>
+        <nav2-to-flag>/instrumentation/nav[2]/to-flag</nav2-to-flag>
+        <nav2-from-flag>/instrumentation/nav[2]/from-flag</nav2-from-flag>
+        <nav2-switch>/instrumentation/hsi[0]/dev-nav2</nav2-switch>
+        <ins-source>/instrumentation/hsi[0]/ins-source</ins-source>
+        <true-heading-deg>/autopilot/settings/true-heading-deg</true-heading-deg>
+        <nav1-in-range>/instrumentation/nav[1]/in-range</nav1-in-range>
+        <nav2-in-range>/instrumentation/nav[2]/in-range</nav2-in-range>
+        <nav1-deflection>/instrumentation/nav[1]/heading-needle-deflection-norm</nav1-deflection>
+        <nav2-deflection>/instrumentation/nav[2]/heading-needle-deflection-norm</nav2-deflection>
+        <gs1-in-range>/instrumentation/nav[1]/gs-in-range</gs1-in-range>
+        <gs2-in-range>/instrumentation/nav[2]/gs-in-range</gs2-in-range>
+        <gs1-deflection>/instrumentation/nav[1]/gs-needle-deflection-norm</gs1-deflection>
+        <gs2-deflection>/instrumentation/nav[2]/gs-needle-deflection-norm</gs2-deflection>
+        <true-heading-error-deg>/autopilot/internal/true-heading-error-deg</true-heading-error-deg>
+        <track-push>/controls/autoflight/autopilot[0]/track-push</track-push>
+        <wp-dist>/autopilot/route-manager/wp/dist</wp-dist>
+        <ground-speed-fps>/instrumentation/ins[0]/computed/ground-speed-fps</ground-speed-fps>
+      </params>
+-->
+
   <model>
     <name>Copilot HSI</name>
     <path>Aircraft/Concorde/Models/Cockpit/Instruments/hsi.xml</path>
     <overlay>
       <params>
         <heading-deg>/instrumentation/hsi[1]/heading-deg</heading-deg>
-        <heading-select>/controls/autoflight/autopilot[1]/heading-select</heading-select>
+<!--        <heading-select>/controls/autoflight/autopilot[1]/heading-select</heading-select>-->
         <nav1-radial>/instrumentation/nav[1]/radials/selected-deg</nav1-radial>
         <nav2-radial>/instrumentation/nav[2]/radials/selected-deg</nav2-radial>
         <nav1-to-flag>/instrumentation/nav[1]/to-flag</nav1-to-flag>
@@ -1108,8 +1164,8 @@
           <nav2-deflection>/instrumentation/nav[2]/heading-needle-deflection-norm</nav2-deflection>
           <has-gs1>/instrumentation/nav[1]/has-gs</has-gs1>
           <has-gs2>/instrumentation/nav[2]/has-gs</has-gs2>
-          <gs1-in-range>/instrumentation/nav[2]/gs-in-range</gs1-in-range>
-          <gs2-in-range>/instrumentation/nav[1]/gs-in-range</gs2-in-range>
+          <gs1-in-range>/instrumentation/nav[1]/gs-in-range</gs1-in-range>
+          <gs2-in-range>/instrumentation/nav[2]/gs-in-range</gs2-in-range>
           <gs1-deflection>/instrumentation/nav[1]/gs-needle-deflection-norm</gs1-deflection>
           <gs2-deflection>/instrumentation/nav[2]/gs-needle-deflection-norm</gs2-deflection>
           <attitude-serviceable>/instrumentation/attitude-indicator[0]/serviceable</attitude-serviceable>
@@ -1134,7 +1190,7 @@
     <overlay>
       <params>
         <heading-deg>/instrumentation/hsi[0]/heading-deg</heading-deg>
-        <heading-select>/controls/autoflight/autopilot[0]/heading-select</heading-select>
+<!--        <heading-select>/controls/autoflight/autopilot[0]/heading-select</heading-select>-->
         <nav1-radial>/instrumentation/nav[1]/radials/selected-deg</nav1-radial>
         <nav2-radial>/instrumentation/nav[2]/radials/selected-deg</nav2-radial>
         <nav1-to-flag>/instrumentation/nav[1]/to-flag</nav1-to-flag>
