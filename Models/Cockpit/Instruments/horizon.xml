@@ -108,13 +108,13 @@
               <not>
                 <property alias="/params/fd2"/>
               </not>
-              <property alias="/params/nav1-has-gs"/>
+              <property alias="/params/has-gs1"/>
             </and>
             <and>
               <not>
                 <property alias="/params/gs2-in-range"/>
               </not>
-              <property alias="/params/nav2-has-gs"/>
+              <property alias="/params/has-gs2"/>
               <property alias="/params/fd2"/>
             </and>
           </or>
