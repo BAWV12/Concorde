@@ -8,10 +8,16 @@
     <type>select</type>
     <object-name>FF</object-name>
     <condition>
+      <or>
         <less-than>
           <property>/systems/electrical/outputs/specific</property>
           <value>20.0</value>
         </less-than>
+        <less-than>
+          <property>/instrumentation/efis[1]/inputs/range-nm</property>
+          <value>5</value>
+        </less-than>
+      </or>
     </condition>    
   </animation>
 
@@ -77,7 +83,7 @@
         <command>property-adjust</command>
         <property>instrumentation/efis[1]/inputs/range-nm</property>
         <step>5</step>
-        <min>5</min>
+        <min>0</min>
         <max>40</max>
         <wrap>false</wrap>
       </binding>
@@ -90,7 +96,7 @@
         <command>property-adjust</command>
         <property>instrumentation/efis[1]/inputs/range-nm</property>
         <step>-5</step>
-        <min>5</min>
+        <min>0</min>
         <max>40</max>
         <wrap>false</wrap>
       </binding>
