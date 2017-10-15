@@ -123,6 +123,10 @@
     <value>1.59</value>
    </greater-than>
     <property>controls/lighting/instrument-lights</property>
+        <greater-than>
+          <property>/systems/electrical/outputs/specific</property>
+          <value>20.0</value>
+        </greater-than>
   </and>
   </condition>
   <emission>

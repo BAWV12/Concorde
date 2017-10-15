@@ -7,7 +7,21 @@
     <rudder>/controls/flight/rudder</rudder>
   </params>
   <animation>
+    <condition><not>
+        <less-than>
+          <property>/systems/electrical/outputs/specific</property>
+          <value>20.0</value>
+        </less-than>
+    </not></condition>
+
     <type>translate</type>
+    <condition><not>
+        <less-than>
+          <property>/systems/electrical/outputs/specific</property>
+          <value>20.0</value>
+        </less-than>
+    </not></condition>
+
     <object-name>B3</object-name>
     <object-name>B4</object-name>
     <property alias="/params/elev"/>
@@ -33,6 +47,13 @@
   </animation>
 
   <animation>
+    <condition><not>
+        <less-than>
+          <property>/systems/electrical/outputs/specific</property>
+          <value>20.0</value>
+        </less-than>
+    </not></condition>
+
     <type>translate</type>
     <object-name>B1</object-name>
     <property alias="/params/aileron"/>
@@ -57,6 +78,12 @@
     </axis>
   </animation>
   <animation>
+    <condition><not>
+        <less-than>
+          <property>/systems/electrical/outputs/specific</property>
+          <value>20.0</value>
+        </less-than>
+    </not></condition>
     <type>translate</type>
     <object-name>B6</object-name>
     <property alias="/params/aileron"/>
@@ -82,6 +109,13 @@
   </animation>
 
   <animation>
+    <condition><not>
+        <less-than>
+          <property>/systems/electrical/outputs/specific</property>
+          <value>20.0</value>
+        </less-than>
+    </not></condition>
+
     <type>translate</type>
     <object-name>B2</object-name>
     <property alias="/params/aileron"/>
@@ -106,6 +140,12 @@
     </axis>
   </animation>
   <animation>
+    <condition><not>
+        <less-than>
+          <property>/systems/electrical/outputs/specific</property>
+          <value>20.0</value>
+        </less-than>
+    </not></condition>
     <type>translate</type>
     <object-name>B5</object-name>
     <property alias="/params/aileron"/>
@@ -131,6 +171,13 @@
   </animation>
 
   <animation>
+    <condition><not>
+        <less-than>
+          <property>/systems/electrical/outputs/specific</property>
+          <value>20.0</value>
+        </less-than>
+    </not></condition>
+
     <type>translate</type>
     <object-name>rudder</object-name>
     <property alias="/params/rudder"/>
@@ -174,6 +221,10 @@
     <value>1.59</value>
    </greater-than>
     <property>controls/lighting/instrument-lights</property>
+        <greater-than>
+          <property>/systems/electrical/outputs/specific</property>
+          <value>20.0</value>
+        </greater-than>
   </and>
   </condition>
   <emission>

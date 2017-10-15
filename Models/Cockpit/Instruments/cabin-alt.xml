@@ -4,7 +4,26 @@
   <params>
     <altitude>instrumentation/cabin-altitude[0]/indicated-altitude-ft</altitude>
   </params>
+
   <animation>
+    <type>select</type>
+    <object-name>FF</object-name>
+    <condition>
+        <less-than>
+          <property>/systems/electrical/outputs/specific</property>
+          <value>20.0</value>
+        </less-than>
+    </condition>    
+  </animation>
+
+  <animation>
+    <condition><not>
+        <less-than>
+          <property>/systems/electrical/outputs/specific</property>
+          <value>20.0</value>
+        </less-than>
+    </not></condition>    
+
     <type>rotate</type>
     <object-name>Needle</object-name>
     <property>/instrumentation/cabin-altitude[0]/indicated-altitude-ft</property>
@@ -44,24 +63,6 @@
   <!--Default Lighting-->
   <animation>
     <type>material</type>
-    <object-name>Guage</object-name>
-  <condition>
-  <and>
-   <greater-than>
-    <property>sim/time/sun-angle-rad</property>
-    <value>1.59</value>
-   </greater-than>
-    <property>controls/lighting/instrument-lights</property>
-  </and>
-  </condition>
-  <emission>
-   <red>0.7</red>
-   <green>0.2</green>
-   <blue>0.2</blue>
-  </emission>
-  </animation>
-  <animation>
-    <type>material</type>
     <object-name>Frame</object-name>
     <emission>
       <red>0.01</red>
@@ -73,6 +74,8 @@
   <animation>
     <type>material</type>
     <object-name>Needle</object-name>
+    <object-name>Guage</object-name>
+    <object-name>FF</object-name>
   <condition>
   <and>
    <greater-than>
@@ -80,6 +83,10 @@
     <value>1.59</value>
    </greater-than>
     <property>controls/lighting/instrument-lights</property>
+        <greater-than>
+          <property>/systems/electrical/outputs/specific</property>
+          <value>20.0</value>
+        </greater-than>
   </and>
   </condition>
   <emission>

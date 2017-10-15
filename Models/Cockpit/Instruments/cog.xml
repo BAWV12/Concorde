@@ -1,7 +1,36 @@
 <?xml version="1.0"?>
 <PropertyList>
   <path>../Models/cog.ac</path>
+
+ <params>
+  <serviceable>/instrumentation/cg[0]/serviceable</serviceable>
+ </params>
+
   <animation>
+    <type>select</type>
+    <object-name>FF</object-name>
+    <condition>
+      <or>
+	<not><property alias="/params/serviceable"/></not>
+        <less-than>
+          <property>/systems/electrical/outputs/specific</property>
+          <value>20.0</value>
+        </less-than>
+      </or>
+    </condition>    
+  </animation>
+
+  <animation>
+    <condition><not>
+      <or>
+	<not><property alias="/params/serviceable"/></not>
+        <less-than>
+          <property>/systems/electrical/outputs/specific</property>
+          <value>20.0</value>
+        </less-than>
+      </or>
+    </not></condition>    
+
     <type>translate</type>
     <object-name>CG</object-name>
     <property>/instrumentation/cg[0]/percent</property>
@@ -22,6 +51,16 @@
     </axis>
   </animation>
   <animation>
+    <condition><not>
+      <or>
+	<not><property alias="/params/serviceable"/></not>
+        <less-than>
+          <property>/systems/electrical/outputs/specific</property>
+          <value>20.0</value>
+        </less-than>
+      </or>
+    </not></condition>    
+
     <type>translate</type>
     <object-name>FWD</object-name>
     <property>/instrumentation/cg[0]/min-percent</property>
@@ -42,6 +81,16 @@
     </axis>
   </animation>
   <animation>
+    <condition><not>
+      <or>
+	<not><property alias="/params/serviceable"/></not>
+        <less-than>
+          <property>/systems/electrical/outputs/specific</property>
+          <value>20.0</value>
+        </less-than>
+      </or>
+    </not></condition>    
+
     <type>translate</type>
     <object-name>AFT</object-name>
     <property>/instrumentation/cg[0]/max-percent</property>
@@ -65,6 +114,7 @@
     <type>select</type>
     <object-name>AlarmOn</object-name>
     <condition>
+     <and>
       <or>
         <greater-than>
           <property>/instrumentation/cg[0]/percent</property>
@@ -75,8 +125,15 @@
           <property>/instrumentation/cg[0]/min-percent</property>
         </less-than>
       </or>
+      <property alias="/params/serviceable"/>
+      <greater-than>
+          <property>/systems/electrical/outputs/specific</property>
+          <value>20.0</value>
+      </greater-than>
+     </and>
     </condition>
   </animation>
+
   <animation>
     <type>select</type>
     <object-name>AlarmOff</object-name>
@@ -98,24 +155,6 @@
   <!--Default Lighting-->
   <animation>
     <type>material</type>
-    <object-name>Guage</object-name>
-  <condition>
-  <and>
-   <greater-than>
-    <property>sim/time/sun-angle-rad</property>
-    <value>1.59</value>
-   </greater-than>
-    <property>controls/lighting/instrument-lights</property>
-  </and>
-  </condition>
-  <emission>
-   <red>0.7</red>
-   <green>0.2</green>
-   <blue>0.2</blue>
-  </emission>
-  </animation>
-  <animation>
-    <type>material</type>
     <object-name>Frame</object-name>
     <emission>
       <red>0.01</red>
@@ -129,6 +168,8 @@
     <object-name>CG</object-name>
     <object-name>FWD</object-name>
     <object-name>AFT</object-name>
+    <object-name>Guage</object-name>
+    <object-name>FF</object-name>
   <condition>
   <and>
    <greater-than>
@@ -136,6 +177,10 @@
     <value>1.59</value>
    </greater-than>
     <property>controls/lighting/instrument-lights</property>
+        <greater-than>
+          <property>/systems/electrical/outputs/specific</property>
+          <value>20.0</value>
+        </greater-than>
   </and>
   </condition>
   <emission>

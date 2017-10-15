@@ -9,7 +9,35 @@
     <min-sel>/instrumentation/mach-indicator[0]/min</min-sel>
     <max-sel>/instrumentation/mach-indicator[0]/max</max-sel>
   </params>
+
   <animation>
+    <type>select</type>
+    <object-name>FF</object-name>
+    <condition>
+      <or>
+	<not><property alias="/params/serviceable"/></not>
+	<property alias="/params/failure-flag"/>
+        <less-than>
+          <property>/systems/electrical/outputs/specific</property>
+          <value>20.0</value>
+        </less-than>
+      </or>
+    </condition>    
+  </animation>
+
+  <animation>
+
+    <condition><not>
+      <or>
+	<not><property alias="/params/serviceable"/></not>
+	<property alias="/params/failure-flag"/>
+        <less-than>
+          <property>/systems/electrical/outputs/specific</property>
+          <value>20.0</value>
+        </less-than>
+      </or>
+    </not></condition> 
+
     <type>rotate</type>
     <object-name>MachNeedle</object-name>
     <property alias="/params/mach-sel"/>
@@ -35,6 +63,17 @@
     </axis>
   </animation>
   <animation>
+    <condition><not>
+      <or>
+	<not><property alias="/params/serviceable"/></not>
+	<property alias="/params/failure-flag"/>
+        <less-than>
+          <property>/systems/electrical/outputs/specific</property>
+          <value>20.0</value>
+        </less-than>
+      </or>
+    </not></condition> 
+
     <type>rotate</type>
     <object-name>LimitNeedle</object-name>
     <property alias="/params/mmo-sel"/>
@@ -60,6 +99,18 @@
     </axis>
   </animation>
   <animation>
+
+    <condition><not>
+      <or>
+	<not><property alias="/params/serviceable"/></not>
+	<property alias="/params/failure-flag"/>
+        <less-than>
+          <property>/systems/electrical/outputs/specific</property>
+          <value>20.0</value>
+        </less-than>
+      </or>
+    </not></condition> 
+
     <type>rotate</type>
     <object-name>AFT</object-name>
     <property alias="/params/min-sel"/>
@@ -85,6 +136,18 @@
     </axis>
   </animation>
   <animation>
+
+    <condition><not>
+      <or>
+	<not><property alias="/params/serviceable"/></not>
+	<property alias="/params/failure-flag"/>
+        <less-than>
+          <property>/systems/electrical/outputs/specific</property>
+          <value>20.0</value>
+        </less-than>
+      </or>
+    </not></condition> 
+
     <type>rotate</type>
     <object-name>FWD</object-name>
     <property alias="/params/max-sel"/>
@@ -110,6 +173,18 @@
     </axis>
   </animation>
   <animation>
+
+    <condition><not>
+      <or>
+	<not><property alias="/params/serviceable"/></not>
+	<property alias="/params/failure-flag"/>
+        <less-than>
+          <property>/systems/electrical/outputs/specific</property>
+          <value>20.0</value>
+        </less-than>
+      </or>
+    </not></condition> 
+
     <type>rotate</type>
     <object-name>Number1</object-name>
     <expression>
@@ -147,6 +222,17 @@
     </axis>
   </animation>
   <animation>
+    <condition><not>
+      <or>
+	<not><property alias="/params/serviceable"/></not>
+	<property alias="/params/failure-flag"/>
+        <less-than>
+          <property>/systems/electrical/outputs/specific</property>
+          <value>20.0</value>
+        </less-than>
+      </or>
+    </not></condition> 
+
     <type>rotate</type>
     <object-name>Number2</object-name>
     <expression>
@@ -196,6 +282,17 @@
     </axis>
   </animation>
   <animation>
+    <condition><not>
+      <or>
+	<not><property alias="/params/serviceable"/></not>
+	<property alias="/params/failure-flag"/>
+        <less-than>
+          <property>/systems/electrical/outputs/specific</property>
+          <value>20.0</value>
+        </less-than>
+      </or>
+    </not></condition> 
+
     <type>rotate</type>
     <object-name>Number3</object-name>
     <property alias="/params/mach-sel"/>
@@ -219,6 +316,10 @@
     <object-name>Number3</object-name>
     <object-name>LimitNeedle</object-name>
     <object-name>Guage</object-name>
+    <object-name>MachNeedle</object-name>
+    <object-name>FWD</object-name>
+    <object-name>AFT</object-name>
+    <object-name>FF</object-name>
   <condition>
   <and>
    <greater-than>
@@ -226,6 +327,11 @@
     <value>1.59</value>
    </greater-than>
     <property>controls/lighting/instrument-lights</property>
+        <greater-than>
+          <property>/systems/electrical/outputs/specific</property>
+          <value>20.0</value>
+        </greater-than>
+
   </and>
   </condition>
   <emission>
@@ -244,25 +350,5 @@
       <blue>0.005</blue>
       <factor-prop>controls/lighting/panel-norm</factor-prop>
     </emission>
-  </animation>
-  <animation>
-    <type>material</type>
-    <object-name>MachNeedle</object-name>
-    <object-name>FWD</object-name>
-    <object-name>AFT</object-name>
-  <condition>
-  <and>
-   <greater-than>
-    <property>sim/time/sun-angle-rad</property>
-    <value>1.59</value>
-   </greater-than>
-    <property>controls/lighting/instrument-lights</property>
-  </and>
-  </condition>
-  <emission>
-   <red>0.7</red>
-   <green>0.2</green>
-   <blue>0.2</blue>
-  </emission>
   </animation>
 </PropertyList>

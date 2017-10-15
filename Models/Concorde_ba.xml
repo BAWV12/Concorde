@@ -2650,12 +2650,16 @@
   <type>select</type>
   <object-name>windows</object-name>
   <condition>
-
+  <and>
    <greater-than>
     <property>/sim/time/sun-angle-rad</property>
     <value>1.53</value>
    </greater-than>
-
+        <greater-than>
+          <property>/systems/electrical/outputs/specific</property>
+          <value>20.0</value>
+        </greater-than>
+  </and>
   </condition>
  </animation>
 

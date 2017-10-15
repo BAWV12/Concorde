@@ -3,6 +3,17 @@
   <path>../Models/tcas.ac</path>
 
   <animation>
+    <type>select</type>
+    <object-name>FF</object-name>
+    <condition>
+        <less-than>
+          <property>/systems/electrical/outputs/specific</property>
+          <value>20.0</value>
+        </less-than>
+    </condition>    
+  </animation>
+
+  <animation>
     <type>rotate</type>
     <object-name>VSI</object-name>
     <property>instrumentation/adc[0]/output/vertical-speed-fps</property>
@@ -49,6 +60,10 @@
     <value>1.59</value>
    </greater-than>
     <property>controls/lighting/instrument-lights</property>
+        <greater-than>
+          <property>/systems/electrical/outputs/specific</property>
+          <value>20.0</value>
+        </greater-than>
   </and>
   </condition>
 
@@ -56,27 +71,6 @@
    <red>0.7</red>
    <green>0.2</green>
    <blue>0.2</blue>
-  </emission>
- </animation>
-
- <animation>
-  <type>material</type>
-  <object-name>VSI</object-name>
-  <object-name>Cylinder</object-name>
-  <condition>
-  <and>
-   <greater-than>
-    <property>sim/time/sun-angle-rad</property>
-    <value>1.59</value>
-   </greater-than>
-    <property>controls/lighting/instrument-lights</property>
-  </and>
-  </condition>
-
-  <emission>
-   <red>1</red>
-   <green>1</green>
-   <blue>1</blue>
   </emission>
  </animation>
 

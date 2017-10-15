@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+
+<!-- Voltage condition for specific AC instruments :
+
+     - only when single instrument; otherwise creates a specific condition (example : gear, flaps).
+-->
+
+<PropertyList>
+
+   <greater-than>
+    <property>/systems/electrical/outputs/specific</property>
+    <value>20.0</value>
+   </greater-than>
+
+</PropertyList>

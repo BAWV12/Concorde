@@ -579,6 +579,7 @@ Autopilot.apengagealtitude = func {
 
 # activate autopilot
 Autopilot.apexport = func {
+if (getprop("/systems/electrical/outputs/specific")>20){
    var channel1 = me.itself["channel"][constantaero.AP1].getChild("engage").getValue();
    var channel2 = me.itself["channel"][constantaero.AP2].getChild("engage").getValue();
 
@@ -613,6 +614,7 @@ Autopilot.apexport = func {
    else {
        me.apengage();
    }
+}
 }
 
 Autopilot.engagechannel = func( index, value ) {
@@ -1202,6 +1204,7 @@ Autopilot.is_autoland = func {
 
 # autopilot autoland
 Autopilot.aplandexport = func {
+if (getprop("/systems/electrical/outputs/specific")>20){
    if( !me.is_autoland() ) {
        me.apactivatemode("vertical","autoland-armed");
    }
@@ -1214,6 +1217,7 @@ Autopilot.aplandexport = func {
    if( !me.is_goaround() ) {
        me.autoland();
    }
+}
 }
 
 Autopilot.is_turbulence = func {
@@ -1229,6 +1233,7 @@ Autopilot.is_turbulence = func {
 
 # autopilot turbulence mode
 Autopilot.apturbulenceexport = func {
+if (getprop("/systems/electrical/outputs/specific")>20){
    if( !me.is_turbulence() ) {
        me.magneticheading();
        me.apactivatemode2("heading","dg-heading-hold","");
@@ -1242,7 +1247,7 @@ Autopilot.apturbulenceexport = func {
 
    me.apengage();
 }
-
+}
 
 # -------------
 # ALTITUDE MODE
@@ -1437,6 +1442,7 @@ Autopilot.is_altitude_acquire = func {
 
 # autopilot altitude acquire
 Autopilot.apaltitudeexport = func {
+if (getprop("/systems/electrical/outputs/specific")>20){
    if( !me.is_altitude_acquire() ) {
        me.apactivatemode("vertical","altitude-acquire");
        me.apaltitudeselectexport();
@@ -1450,6 +1456,7 @@ Autopilot.apaltitudeexport = func {
 
        me.apengage();
    }
+}
 }
 
 Autopilot.apaltitude = func( altitudeft ) {
@@ -1473,6 +1480,7 @@ Autopilot.aptogglealtitudeholdexport = func {
 
 # autopilot altitude hold
 Autopilot.apaltitudeholdexport = func {
+if (getprop("/systems/electrical/outputs/specific")>20){
    var altitudeft = 0.0;
 
    if( !me.is_altitude_hold() ) {
@@ -1487,6 +1495,7 @@ Autopilot.apaltitudeholdexport = func {
    me.apengage();
 
    me.altitudelight();
+}
 }
 
 Autopilot.has_altitude_hold = func {
@@ -1547,6 +1556,7 @@ Autopilot.is_glide = func {
 
 # autopilot glide slope
 Autopilot.apglideexport = func {
+if (getprop("/systems/electrical/outputs/specific")>20){
    if( !me.is_glide() ) {
        me.apactivatemode("altitude","gs1-hold");
        me.apactivatemode2("heading","nav1-hold","");
@@ -1562,6 +1572,7 @@ Autopilot.apglideexport = func {
    if( !me.is_goaround() ) {
        me.autoland();
    }
+}
 }
 
 Autopilot.attitudepitch = func {
@@ -1618,6 +1629,7 @@ Autopilot.is_pitch = func {
 
 # autopilot pitch hold
 Autopilot.appitchexport = func {
+if (getprop("/systems/electrical/outputs/specific")>20){
    if( !me.is_pitch() or me.is_turbulence() ) {
        me.attitudepitch();
        me.apactivatemode("altitude","pitch-hold");
@@ -1630,6 +1642,7 @@ Autopilot.appitchexport = func {
    }
 
    me.apengage();
+}
 }
 
 Autopilot.sonicverticalspeed = func {
@@ -1700,6 +1713,7 @@ Autopilot.is_vertical_speed = func {
 
 # autopilot vertical speed hold
 Autopilot.apverticalexport = func {
+if (getprop("/systems/electrical/outputs/specific")>20){
    if( !me.is_vertical_speed() or me.autothrottlesystem.is_maxclimb() ) {
        if( !me.is_altitude_acquire() ) {
            me.apdiscverticalmode2();
@@ -1712,6 +1726,7 @@ Autopilot.apverticalexport = func {
    }
 
    me.apengage();
+}
 }
 
 Autopilot.is_lock_speed_pitch = func {
@@ -1738,6 +1753,7 @@ Autopilot.is_speed_pitch = func {
 
 # speed with pitch
 Autopilot.apspeedpitchexport = func {
+if (getprop("/systems/electrical/outputs/specific")>20){
    # only if no autothrottle
    if( !me.is_speed_pitch() ) {
        if( !me.autothrottlesystem.is_engaged() ) {
@@ -1755,6 +1771,7 @@ Autopilot.apspeedpitchexport = func {
    }
 
    me.apengage();
+}
 }
 
 Autopilot.is_lock_mach_pitch = func {
@@ -1781,6 +1798,7 @@ Autopilot.is_mach_pitch = func {
 
 # mach with pitch
 Autopilot.apmachpitchexport = func {
+if (getprop("/systems/electrical/outputs/specific")>20){
    # only if no autothrottle
    if( !me.is_mach_pitch() ) {
        if( !me.autothrottlesystem.is_engaged() ) {
@@ -1800,6 +1818,7 @@ Autopilot.apmachpitchexport = func {
 
    me.apengage();
 }
+}
 
 # max climb mode (includes max cruise mode)
 Autopilot.maxclimb = func {
@@ -1815,6 +1834,7 @@ Autopilot.maxclimb = func {
 
 # max climb mode
 Autopilot.apmaxclimbexport = func {
+if (getprop("/systems/electrical/outputs/specific")>20){
    if( me.autothrottlesystem.is_maxclimb() ) {          
        me.apdiscaltitude();
    }
@@ -1831,7 +1851,7 @@ Autopilot.apmaxclimbexport = func {
 
    me.apengage();
 }
-
+}
 
 # ---------------
 # HORIZONTAL MODE
@@ -2016,6 +2036,7 @@ Autopilot.is_ins = func {
 
 # ins mode
 Autopilot.apinsexport = func {
+if (getprop("/systems/electrical/outputs/specific")>20){
    if( !me.is_ins() ) {
        if( me.is_waypoint() ) {
            me.apactivatemode2("heading","true-heading-hold","ins");
@@ -2027,7 +2048,7 @@ Autopilot.apinsexport = func {
 
    me.apengage();
 }
-
+}
 
 # ------------
 # HEADING MODE
@@ -2282,6 +2303,7 @@ Autopilot.magneticheading = func {
 
 # heading hold
 Autopilot.apheadingholdexport = func {
+if (getprop("/systems/electrical/outputs/specific")>20){
    var mode = me.itself["autoflight"].getChild("horizontal").getValue();
 
    if( mode != "magnetic" ) {
@@ -2293,6 +2315,7 @@ Autopilot.apheadingholdexport = func {
    }
 
    me.apengage();
+}
 }
 
 Autopilot.lockmagnetic = func {
@@ -2378,6 +2401,7 @@ Autopilot.apsendheadingexport = func {
 
 # autopilot heading
 Autopilot.apheadingexport = func {
+if (getprop("/systems/electrical/outputs/specific")>20){
    if( !me.istrackheading() ) {
        me.apactivatemode("horizontal","track-heading");
        me.apsendheadingexport();
@@ -2387,6 +2411,7 @@ Autopilot.apheadingexport = func {
    }
 
    me.apengage();
+}
 }
 
 Autopilot.is_vor = func {
@@ -2471,6 +2496,7 @@ Autopilot.is_nav = func {
 
 # autopilot vor localizer
 Autopilot.apvorlocexport = func {
+if (getprop("/systems/electrical/outputs/specific")>20){
    if( !me.is_nav() ) {
        me.apactivatemode2("heading","nav1-hold","");
        me.modevorloc();
@@ -2481,4 +2507,5 @@ Autopilot.apvorlocexport = func {
    }
 
    me.apengage();
+}
 }

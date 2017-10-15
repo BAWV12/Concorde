@@ -1,7 +1,27 @@
 <?xml version="1.0"?>
 <PropertyList>
   <path>../Models/brakepressure.ac</path>
+
   <animation>
+    <type>select</type>
+    <object-name>FF</object-name>
+    <condition>
+        <less-than>
+          <property>/systems/electrical/outputs/specific</property>
+          <value>20.0</value>
+        </less-than>
+    </condition>    
+  </animation>
+
+
+  <animation>
+    <condition><not>
+        <less-than>
+          <property>/systems/electrical/outputs/specific</property>
+          <value>20.0</value>
+        </less-than>
+    </not></condition>    
+
     <type>rotate</type>
     <object-name>LeftNeedle</object-name>
     <property>/systems/brakes/emerg-left-psi</property>
@@ -18,6 +38,13 @@
     </axis>
   </animation>
   <animation>
+    <condition><not>
+        <less-than>
+          <property>/systems/electrical/outputs/specific</property>
+          <value>20.0</value>
+        </less-than>
+    </not></condition>    
+
     <type>rotate</type>
     <object-name>RightNeedle</object-name>
     <property>/systems/brakes/emerg-right-psi</property>
@@ -39,6 +66,7 @@
     <object-name>Guage</object-name>
     <object-name>RightNeedle</object-name>
     <object-name>LeftNeedle</object-name>
+    <object-name>FF</object-name>
   <condition>
   <and>
    <greater-than>
@@ -46,6 +74,11 @@
     <value>1.59</value>
    </greater-than>
     <property>controls/lighting/instrument-lights</property>
+        <greater-than>
+          <property>/systems/electrical/outputs/specific</property>
+          <value>20.0</value>
+        </greater-than>
+
   </and>
   </condition>
   <emission>

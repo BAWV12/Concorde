@@ -2,6 +2,7 @@
 <PropertyList>
   <path>../Models/horizon.ac</path>
   <params>
+    <serviceable>/instrumentation/attitude-indicator[0]/serviceable</serviceable>
     <test>/instrumentation/attitude-indicator[0]/test</test>
     <fd-engage>/controls/autoflight/flight-director[0]/engage</fd-engage>
     <fd2>/instrumentation/attitude-indicator[0]/fd2</fd2>
@@ -24,7 +25,18 @@
     <radio-ft>/instrumentation/radio-altimeter[0]/indicated-altitude-ft</radio-ft>
     <slip-ball>/instrumentation/slip-skid-ball/indicated-slip-skid</slip-ball>
   </params>
+
   <animation>
+    <condition><not>
+      <or>
+	<not><property alias="/params/serviceable"/></not>
+        <less-than>
+          <property>/systems/electrical/outputs/specific</property>
+          <value>20.0</value>
+        </less-than>
+      </or>
+    </not></condition>    
+
     <type>rotate</type>
     <object-name>Horizon</object-name>
     <property alias="/params/roll"/>
@@ -41,6 +53,16 @@
     </axis>
   </animation>
   <animation>
+    <condition><not>
+      <or>
+	<not><property alias="/params/serviceable"/></not>
+        <less-than>
+          <property>/systems/electrical/outputs/specific</property>
+          <value>20.0</value>
+        </less-than>
+      </or>
+    </not></condition>    
+
     <type>rotate</type>
     <object-name>RollArrow</object-name>
     <property>/instrumentation/attitude-indicator[0]/indicated-roll-deg</property>
@@ -57,6 +79,16 @@
     </axis>
   </animation>
   <animation>
+    <condition><not>
+      <or>
+	<not><property alias="/params/serviceable"/></not>
+        <less-than>
+          <property>/systems/electrical/outputs/specific</property>
+          <value>20.0</value>
+        </less-than>
+      </or>
+    </not></condition>    
+
     <type>textranslate</type>
     <object-name>Horizon</object-name>
     <property alias="/params/pitch"/>
@@ -71,6 +103,12 @@
     <object-name>LOCWarning</object-name>
     <condition>
       <or>
+	<not><property alias="/params/serviceable"/></not>
+        <less-than>
+          <property>/systems/electrical/outputs/specific</property>
+          <value>20.0</value>
+        </less-than>
+
         <and>
           <or>
             <and>
@@ -99,6 +137,12 @@
     <object-name>GSWarning</object-name>
     <condition>
       <or>
+	<not><property alias="/params/serviceable"/></not>
+        <less-than>
+          <property>/systems/electrical/outputs/specific</property>
+          <value>20.0</value>
+        </less-than>
+
         <and>
           <or>
             <and>
@@ -129,6 +173,11 @@
     <object-name>GyroWarning</object-name>
     <condition>
       <or>
+        <less-than>
+          <property>/systems/electrical/outputs/specific</property>
+          <value>20.0</value>
+        </less-than>
+
         <not>
           <property alias="/params/attitude-serviceable"/>
         </not>
@@ -141,7 +190,13 @@
     <object-name>FDWarning</object-name>
     <condition>
       <or>
-        <property alias="/params/fd-serviceable"/>
+        <not><property alias="/params/serviceable"/></not>
+        <less-than>
+          <property>/systems/electrical/outputs/specific</property>
+          <value>20.0</value>
+        </less-than>
+
+        <not><property alias="/params/fd-serviceable"/></not>
         <property alias="/params/test"/>
       </or>
     </condition>
@@ -151,6 +206,12 @@
     <object-name>AltWarning</object-name>
     <condition>
       <or>
+	<not><property alias="/params/serviceable"/></not>
+        <less-than>
+          <property>/systems/electrical/outputs/specific</property>
+          <value>20.0</value>
+        </less-than>
+
         <greater-than>
           <property>/position/altitude-ft</property>
           <value>60000</value>
@@ -160,6 +221,16 @@
     </condition>
   </animation>
   <animation>
+    <condition><not>
+      <or>
+	<not><property alias="/params/serviceable"/></not>
+        <less-than>
+          <property>/systems/electrical/outputs/specific</property>
+          <value>20.0</value>
+        </less-than>
+      </or>
+    </not></condition>    
+
     <type>translate</type>
     <object-name>LOCBar</object-name>
     <expression>
@@ -193,6 +264,16 @@
     </axis>
   </animation>
   <animation>
+    <condition><not>
+      <or>
+	<not><property alias="/params/serviceable"/></not>
+        <less-than>
+          <property>/systems/electrical/outputs/specific</property>
+          <value>20.0</value>
+        </less-than>
+      </or>
+    </not></condition>    
+
     <type>translate</type>
     <object-name>GSBar</object-name>
     <expression>
@@ -226,6 +307,16 @@
     </axis>
   </animation>
   <animation>
+    <condition><not>
+      <or>
+	<not><property alias="/params/serviceable"/></not>
+        <less-than>
+          <property>/systems/electrical/outputs/specific</property>
+          <value>20.0</value>
+        </less-than>
+      </or>
+    </not></condition>    
+
     <type>translate</type>
     <object-name>LocArrow</object-name>
     <expression>
@@ -257,6 +348,16 @@
     </axis>
   </animation>
   <animation>
+    <condition><not>
+      <or>
+	<not><property alias="/params/serviceable"/></not>
+        <less-than>
+          <property>/systems/electrical/outputs/specific</property>
+          <value>20.0</value>
+        </less-than>
+      </or>
+    </not></condition>    
+
     <type>translate</type>
     <object-name>GSArrow</object-name>
     <expression>
@@ -291,6 +392,7 @@
     <type>material</type>
     <object-name>ATT</object-name>
     <condition>
+     <and>
       <or>
         <or>
           <greater-than-equals>
@@ -304,6 +406,15 @@
         </or>
         <property alias="/params/test"/>
       </or>
+
+	<property alias="/params/serviceable"/>
+        <greater-than>
+          <property>/systems/electrical/outputs/specific</property>
+          <value>20.0</value>
+        </greater-than>
+
+
+     </and>
     </condition>
     <emission>
       <red>0.5</red>
@@ -315,6 +426,12 @@
     <type>material</type>
     <object-name>DH</object-name>
     <condition>
+     <and>
+	<property alias="/params/serviceable"/>
+        <greater-than>
+          <property>/systems/electrical/outputs/specific</property>
+          <value>20.0</value>
+        </greater-than>
       <or>
         <and>
           <property alias="/params/dh-on"/>
@@ -325,6 +442,7 @@
         </and>
         <property alias="/params/test"/>
       </or>
+     </and>
     </condition>
     <emission>
       <red>0.5</red>
@@ -378,6 +496,7 @@
   </animation>
   <!-- Test button -->
   <animation>
+
     <type>pick</type>
     <object-name>Test</object-name>
     <action>
@@ -432,6 +551,10 @@
     <value>1.59</value>
    </greater-than>
     <property>controls/lighting/instrument-lights</property>
+        <greater-than>
+          <property>/systems/electrical/outputs/specific</property>
+          <value>20.0</value>
+        </greater-than>
   </and>
   </condition>
   <emission>

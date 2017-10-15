@@ -6,6 +6,12 @@
     <object-name>CTY</object-name>
     <condition>
       <and>
+
+        <greater-than>
+          <property>/systems/electrical/outputs/specific</property>
+          <value>20.0</value>
+        </greater-than>
+
         <property>/instrumentation/generic/state</property>
         <property>/controls/engines/engine[0]/contingency</property>
         <property>/controls/engines/engine[1]/contingency</property>
@@ -24,6 +30,12 @@
     <object-name>TO</object-name>
     <condition>
       <and>
+
+        <greater-than>
+          <property>/systems/electrical/outputs/specific</property>
+          <value>20.0</value>
+        </greater-than>
+
         <equals>
           <property>/systems/engines/engine[0]/rating</property>
           <value>takeoff</value>
@@ -53,6 +65,12 @@
     <object-name>CLB</object-name>
     <condition>
       <and>
+
+        <greater-than>
+          <property>/systems/electrical/outputs/specific</property>
+          <value>20.0</value>
+        </greater-than>
+
         <equals>
           <property>/systems/engines/engine[0]/rating</property>
           <value>climb</value>
@@ -82,6 +100,12 @@
     <object-name>CRS</object-name>
     <condition>
       <and>
+
+        <greater-than>
+          <property>/systems/electrical/outputs/specific</property>
+          <value>20.0</value>
+        </greater-than>
+
         <equals>
           <property>/systems/engines/engine[0]/rating</property>
           <value>cruise</value>

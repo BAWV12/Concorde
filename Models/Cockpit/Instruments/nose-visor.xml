@@ -31,7 +31,7 @@
       <repeatable>false</repeatable>
       <binding>
         <command>nasal</command>
-        <script>controls.flapsDown(1)</script>
+        <script>if (getprop("/systems/electrical/outputs/specific")>20) controls.flapsDown(1)</script>
       </binding>
     </action>
     <action>
@@ -40,7 +40,7 @@
       <repeatable>false</repeatable>
       <binding>
         <command>nasal</command>
-        <script>controls.flapsDown(-1)</script>
+        <script>if (getprop("/systems/electrical/outputs/specific")>20) controls.flapsDown(-1)</script>
       </binding>
     </action>
     </animation>
@@ -55,6 +55,10 @@
     <value>1.59</value>
    </greater-than>
     <property>controls/lighting/instrument-lights</property>
+        <greater-than>
+          <property>/systems/electrical/outputs/specific</property>
+          <value>20.0</value>
+        </greater-than>
   </and>
   </condition>
 

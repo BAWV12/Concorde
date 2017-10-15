@@ -12,6 +12,13 @@
     <type>material</type>
     <object-name>Terrain</object-name>
     <condition>
+     <and>
+
+        <greater-than>
+          <property>/systems/electrical/outputs/specific</property>
+          <value>20.0</value>
+        </greater-than>
+
       <or>
         <and>
           <property>/systems/gpws/serviceable</property>
@@ -22,6 +29,7 @@
         </and>
         <property alias="/params/test"/>
       </or>
+     </and>
     </condition>
     <emission>
       <red>0.8</red>
@@ -71,7 +79,15 @@
     <type>material</type>
     <object-name>TYRE</object-name>
     <condition>
+     <and>
+
+        <greater-than>
+          <property>/systems/electrical/outputs/specific</property>
+          <value>20.0</value>
+        </greater-than>
+
       <property alias="/params/test"/>
+     </and>
     </condition>
     <emission>
       <red>0.8</red>
@@ -83,6 +99,13 @@
     <type>material</type>
     <object-name>MCG</object-name>
     <condition>
+     <and>
+
+        <greater-than>
+          <property>/systems/electrical/outputs/specific</property>
+          <value>20.0</value>
+        </greater-than>
+
       <or>
         <property alias="/params/test"/>
         <not>
@@ -97,6 +120,7 @@
           <property alias="/params/max-sel"/>
         </greater-than>
       </or>
+     </and>
     </condition>
     <emission>
       <red>0.8</red>

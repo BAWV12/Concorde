@@ -6,6 +6,11 @@
     <object-name>Fail</object-name>
     <condition>
       <and>
+        <greater-than>
+          <property>/systems/electrical/outputs/specific</property>
+          <value>20.0</value>
+        </greater-than>
+
         <less-than>
           <property>/systems/brakes/green-accu-psi</property>
           <value>390</value>
@@ -23,10 +28,17 @@
     <type>material</type>
     <object-name>On</object-name>
     <condition>
+     <and>
+        <greater-than>
+          <property>/systems/electrical/outputs/specific</property>
+          <value>20.0</value>
+        </greater-than>
+
       <or>
         <property>/controls/gear/brake-emergency</property>
         <property>/controls/gear/brake-parking-lever</property>
       </or>
+     </and>
     </condition>
     <emission>
       <red>0.8</red>
@@ -45,17 +57,5 @@
       <factor-prop>controls/lighting/panel-norm</factor-prop>
     </emission>
   </animation>
-  <!--
-  <animation>
-    <type>material</type>
-    <object-name>VOR1Needle</object-name>
-    <object-name>VOR2Needle</object-name>
-    <emission>
-      <red>0.1</red>
-      <green>0.03</green>
-      <blue>0.03</blue>
-      <factor-prop>controls/lighting/panel-norm</factor-prop>
-    </emission>
-  </animation>
-  -->
+
 </PropertyList>

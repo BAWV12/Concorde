@@ -4,6 +4,13 @@
   <!--<property>/consumables/fuel/tank[0]/level-lbs</property>-->
   <path>../Models/fuelremain.ac</path>
   <animation>
+    <condition><not>
+        <less-than>
+          <property>/systems/electrical/outputs/specific</property>
+          <value>20.0</value>
+        </less-than>
+    </not></condition> 
+
     <type>rotate</type>
     <object-name>Num1</object-name>
     <expression>
@@ -59,6 +66,13 @@
     </axis>
   </animation>
   <animation>
+    <condition><not>
+        <less-than>
+          <property>/systems/electrical/outputs/specific</property>
+          <value>20.0</value>
+        </less-than>
+    </not></condition> 
+
     <type>rotate</type>
     <object-name>Num2</object-name>
     <expression>
@@ -114,6 +128,13 @@
     </axis>
   </animation>
   <animation>
+    <condition><not>
+        <less-than>
+          <property>/systems/electrical/outputs/specific</property>
+          <value>20.0</value>
+        </less-than>
+    </not></condition> 
+
     <type>rotate</type>
     <object-name>Num3</object-name>
     <object-name>Num4</object-name>
@@ -152,6 +173,11 @@
         		<property>consumables/fuel/tank[3]/level-lbs</property>
 	        	<value>1000</value>
 	      	</less-than>
+        <less-than>
+          <property>/systems/electrical/outputs/specific</property>
+          <value>20.0</value>
+        </less-than>
+
 	</or>
 
     </condition>
@@ -183,7 +209,11 @@
     <value>1.59</value>
    </greater-than>
     <property>controls/lighting/instrument-lights</property>
-  </and>
+        <greater-than>
+          <property>/systems/electrical/outputs/specific</property>
+          <value>20.0</value>
+        </greater-than> 
+ </and>
   </condition>
   <emission>
    <red>0.7</red>

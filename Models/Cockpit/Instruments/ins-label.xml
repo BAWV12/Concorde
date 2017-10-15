@@ -12,6 +12,10 @@
    </greater-than>
     <property>controls/lighting/instrument-lights</property>
   </and>
+        <greater-than>
+          <property>/systems/electrical/outputs/specific</property>
+          <value>20.0</value>
+        </greater-than>
   </condition>
   <emission>
    <red>0.7</red>

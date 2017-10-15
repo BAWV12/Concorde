@@ -5,7 +5,14 @@
     <type>material</type>
     <object-name>Button</object-name>
     <condition>
+      <and>
+        <greater-than>
+          <property>/systems/electrical/outputs/specific</property>
+          <value>20.0</value>
+        </greater-than>
+
          <property>/instrumentation/takeoff-monitor/armed</property>
+      </and>
     </condition>
     <emission>
       <red>0.8</red>
@@ -26,7 +33,10 @@
     <value>1.59</value>
    </greater-than>
     <property>controls/lighting/instrument-lights</property>
-
+        <greater-than>
+          <property>/systems/electrical/outputs/specific</property>
+          <value>20.0</value>
+        </greater-than>
 
       </and>
     </condition>

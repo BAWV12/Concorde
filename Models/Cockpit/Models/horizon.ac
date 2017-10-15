@@ -7,7 +7,7 @@ MATERIAL "Black" rgb 0.000 0.000 0.000  amb 0.000 0.000 0.000  emis 0.000 0.000 
 MATERIAL "Horizon2.001" rgb 1.000 1.000 1.000  amb 1.000 1.000 1.000  emis 0.000 0.000 0.000  spec 0.300 0.300 0.300  shi 32 trans 0.000
 MATERIAL "Yellow" rgb 1 1 0.000  amb 1 1 0  emis 0.000 0.000 0.000  spec 0.300 0.300 0.300  shi 32 trans 0.000
 MATERIAL "GsGuage" rgb 1.000 1.000 1.000  amb 1.000 1.000 1.000  emis 0.000 0.000 0.000  spec 0.300 0.300 0.300  shi 50 trans 0.000
-MATERIAL "HorizonFront" rgb 1.000 1.000 1.000  amb 0.500 0.500 0.500  emis 0.500 0.500 0.500  spec 0.300 0.300 0.300  shi 50 trans 0.000
+MATERIAL "HorizonFront" rgb 1.000 1.000 1.000  amb 0.7500 0.7500 0.7500  emis 0 0 0  spec 0.300 0.300 0.300  shi 50 trans 0.000
 MATERIAL "Orange" rgb 0.500 0.250 0.000  amb 0.250 0.250 0.250  emis 0.000 0.000 0.000  spec 0.300 0.300 0.300  shi 32 trans 0.000
 MATERIAL "Red" rgb 1.000 0.000 0.000  amb 0.333 0.333 0.333  emis 0.000 0.000 0.000  spec 0.300 0.300 0.300  shi 32 trans 0.000
 OBJECT world

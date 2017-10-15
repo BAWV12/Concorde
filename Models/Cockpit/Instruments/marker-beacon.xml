@@ -5,10 +5,16 @@
     <type>material</type>
     <object-name>InnerMarker</object-name>
     <condition>
+     <and>
+        <greater-than>
+          <property>/systems/electrical/outputs/specific</property>
+          <value>20.0</value>
+        </greater-than>
       <or>
         <property>/instrumentation/marker-beacon/test-inner</property>
         <property>/instrumentation/marker-beacon/inner</property>
       </or>
+     </and>
     </condition>
     <emission>
       <red>0.8</red>
@@ -20,10 +26,16 @@
     <type>material</type>
     <object-name>MiddleMarker</object-name>
     <condition>
+     <and>
+        <greater-than>
+          <property>/systems/electrical/outputs/specific</property>
+          <value>20.0</value>
+        </greater-than>
       <or>
         <property>/instrumentation/marker-beacon/test-middle</property>
         <property>/instrumentation/marker-beacon/middle</property>
       </or>
+     </and>
     </condition>
     <emission>
       <red>0.8</red>
@@ -35,10 +47,16 @@
     <type>material</type>
     <object-name>OuterMarker</object-name>
     <condition>
+     <and>
+        <greater-than>
+          <property>/systems/electrical/outputs/specific</property>
+          <value>20.0</value>
+        </greater-than>
       <or>
         <property>/instrumentation/marker-beacon/test-outer</property>
         <property>/instrumentation/marker-beacon/outer</property>
       </or>
+     </and>
     </condition>
     <emission>
       <red>0</red>

@@ -10,7 +10,35 @@
     <vmo-sel>/instrumentation/airspeed-indicator[0]/vmo-kt</vmo-sel>
     <standby-ctrl>/instrumentation/airspeed-indicator[0]/standby</standby-ctrl>
   </params>
+
   <animation>
+    <type>select</type>
+    <object-name>FF</object-name>
+    <condition>
+      <or>
+	<not><property alias="/params/serviceable"/></not>
+	<property alias="/params/failure-flag"/>
+	<property alias="/params/standby-ctrl"/>
+        <less-than>
+          <property>/systems/electrical/outputs/specific</property>
+          <value>20.0</value>
+        </less-than>
+      </or>
+    </condition>    
+  </animation>
+
+  <animation>
+    <condition><not>
+      <or>
+	<not><property alias="/params/serviceable"/></not>
+	<property alias="/params/failure-flag"/>
+	<property alias="/params/standby-ctrl"/>
+        <less-than>
+          <property>/systems/electrical/outputs/specific</property>
+          <value>20.0</value>
+        </less-than>
+      </or>
+    </not></condition>  
     <type>rotate</type>
     <object-name>ASINeedle</object-name>
     <property alias="/params/speed-sel"/>
@@ -48,6 +76,18 @@
     </axis>
   </animation>
   <animation>
+    <condition><not>
+      <or>
+	<not><property alias="/params/serviceable"/></not>
+	<property alias="/params/failure-flag"/>
+	<property alias="/params/standby-ctrl"/>
+        <less-than>
+          <property>/systems/electrical/outputs/specific</property>
+          <value>20.0</value>
+        </less-than>
+      </or>
+    </not></condition>  
+
     <type>rotate</type>
     <object-name>LimitNeedle</object-name>
     <property alias="/params/vmo-sel"/>
@@ -85,6 +125,18 @@
     </axis>
   </animation>
   <animation>
+    <condition><not>
+      <or>
+	<not><property alias="/params/serviceable"/></not>
+	<property alias="/params/failure-flag"/>
+	<property alias="/params/standby-ctrl"/>
+        <less-than>
+          <property>/systems/electrical/outputs/specific</property>
+          <value>20.0</value>
+        </less-than>
+      </or>
+    </not></condition>  
+
     <type>rotate</type>
     <object-name>Number1</object-name>
     <expression>
@@ -128,6 +180,18 @@
     </axis>
   </animation>
   <animation>
+    <condition><not>
+      <or>
+	<not><property alias="/params/serviceable"/></not>
+	<property alias="/params/failure-flag"/>
+	<property alias="/params/standby-ctrl"/>
+        <less-than>
+          <property>/systems/electrical/outputs/specific</property>
+          <value>20.0</value>
+        </less-than>
+      </or>
+    </not></condition>  
+
     <type>rotate</type>
     <object-name>Number2</object-name>
     <expression>
@@ -171,6 +235,18 @@
     </axis>
   </animation>
   <animation>
+    <condition><not>
+      <or>
+	<not><property alias="/params/serviceable"/></not>
+	<property alias="/params/failure-flag"/>
+	<property alias="/params/standby-ctrl"/>
+        <less-than>
+          <property>/systems/electrical/outputs/specific</property>
+          <value>20.0</value>
+        </less-than>
+      </or>
+    </not></condition>  
+
     <type>rotate</type>
     <object-name>Number3</object-name>
     <property alias="/params/speed-sel"/>
@@ -189,28 +265,6 @@
   <!--Default Lighting-->
   <animation>
     <type>material</type>
-    <object-name>Number1</object-name>
-    <object-name>Number2</object-name>
-    <object-name>Number3</object-name>
-    <object-name>LimitNeedle</object-name>
-    <object-name>Guage</object-name>
-  <condition>
-  <and>
-   <greater-than>
-    <property>sim/time/sun-angle-rad</property>
-    <value>1.59</value>
-   </greater-than>
-    <property>controls/lighting/instrument-lights</property>
-  </and>
-  </condition>
-  <emission>
-   <red>0.7</red>
-   <green>0.2</green>
-   <blue>0.2</blue>
-  </emission>
-  </animation>
-  <animation>
-    <type>material</type>
     <object-name>Frame</object-name>
     <object-name>FrameC</object-name>
     <emission>
@@ -223,6 +277,12 @@
   <animation>
     <type>material</type>
     <object-name>ASINeedle</object-name>
+    <object-name>Number1</object-name>
+    <object-name>Number2</object-name>
+    <object-name>Number3</object-name>
+    <object-name>LimitNeedle</object-name>
+    <object-name>Guage</object-name>
+    <object-name>FF</object-name>
   <condition>
   <and>
    <greater-than>
@@ -230,6 +290,10 @@
     <value>1.59</value>
    </greater-than>
     <property>controls/lighting/instrument-lights</property>
+        <greater-than>
+          <property>/systems/electrical/outputs/specific</property>
+          <value>20.0</value>
+        </greater-than>
   </and>
   </condition>
   <emission>

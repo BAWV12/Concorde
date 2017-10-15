@@ -1,11 +1,12 @@
 AC3Db
-MATERIAL "Yellow.004" rgb 1.000 0.200 0.000  amb 0.500 0.100 0  emis 0.000 0.000 0.000  spec 0.300 0.300 0.300  shi 32 trans 0.000
+MATERIAL "Yellow.004" rgb 1.000 0.200 0.000  amb 0.200 0.200 0.200  emis 0.000 0.000 0.000  spec 0.300 0.300 0.300  shi 32 trans 0.000
+MATERIAL "Horizon2.019" rgb 1.000 1.000 1.000  amb 1.000 1.000 1.000  emis 0.000 0.000 0.000  spec 0.300 0.300 0.300  shi 32 trans 0.000
 MATERIAL "Frame.013" rgb 0.705 0.789 0.868  amb 1.000 1.000 1.000  emis 0.000 0.000 0.000  spec 0.150 0.150 0.150  shi 32 trans 0.000
 MATERIAL "Gauge.005" rgb 1.000 1.000 1.000  amb 1.000 1.000 1.000  emis 0.000 0.000 0.000  spec 0.300 0.300 0.300  shi 32 trans 0.000
 MATERIAL "Gauge.006" rgb 1.000 1.000 1.000  amb 1.000 1.000 1.000  emis 0.000 0.000 0.000  spec 0.300 0.300 0.300  shi 32 trans 0.000
 OBJECT world
-name "Blender_exporter_v2.19__vsi.ac"
-kids 4
+name "Blender_exporter_v2.22__vsi.ac"
+kids 5
 OBJECT poly
 name "Current"
 data 12
@@ -97,6 +98,38 @@ refs 4
 10 0 0
 kids 0
 OBJECT poly
+name "FF"
+data 18
+GSWarning.mesh.016
+crease 40.0
+texture "vor-3d.png"
+texrep 1 1
+numvert 8
+0.00243 -0.07038 0.01112
+0.00243 -0.0695 0.01401
+0.00243 -0.02827 -0.0033
+0.00243 -0.0274 -0.00041
+0.00243 0.00745 0.0002
+0.00243 0.00833 0.00309
+0.00243 0.04956 -0.01422
+0.00243 0.05044 -0.01133
+numsurf 2
+SURF 0X20
+mat 1
+refs 4
+1 0.097632 0.500819
+0 0.097658 0.302806
+2 0.295041 0.302807
+3 0.295015 0.500819
+SURF 0X20
+mat 1
+refs 4
+5 0.097632 0.500819
+4 0.097658 0.302806
+6 0.295041 0.302807
+7 0.295015 0.500819
+kids 0
+OBJECT poly
 name "Frame"
 data 14
 Frame.mesh.014
@@ -118,63 +151,63 @@ numvert 12
 0.005 0.08 0.01
 numsurf 9
 SURF 0X20
-mat 1
+mat 2
 refs 4
 1 0.197431 0.108795
 0 0.196501 0.079302
 4 0.265897 0.079834
 5 0.26493 0.109311
 SURF 0X20
-mat 1
+mat 2
 refs 4
 5 0.26493 0.109311
 6 0.265373 0.10782
 2 0.19699 0.107296
 1 0.197431 0.108795
 SURF 0X20
-mat 1
+mat 2
 refs 4
 6 0.281767 0.89454
 7 0.264103 0.89454
 11 0.267047 0.872521
 10 0.278822 0.872521
 SURF 0X20
-mat 1
+mat 2
 refs 4
 0 0.196501 0.079302
 3 0.196183 0.081224
 7 0.266212 0.08176
 4 0.265897 0.079834
 SURF 0X20
-mat 1
+mat 2
 refs 4
 0 0.196501 0.079302
 1 0.197431 0.108795
 2 0.19699 0.107296
 3 0.196183 0.081224
 SURF 0X20
-mat 1
+mat 2
 refs 4
 7 0.266212 0.08176
 6 0.265373 0.10782
 5 0.26493 0.109311
 4 0.265897 0.079834
 SURF 0X20
-mat 1
+mat 2
 refs 4
 7 0.264103 0.89454
 3 0.264103 0.498221
 9 0.267046 0.520239
 11 0.267047 0.872521
 SURF 0X20
-mat 1
+mat 2
 refs 4
 10 0.278822 0.872521
 8 0.278822 0.520239
 2 0.281766 0.498221
 6 0.281767 0.89454
 SURF 0X20
-mat 1
+mat 2
 refs 4
 3 0.264103 0.498221
 2 0.281766 0.498221
@@ -184,7 +217,7 @@ kids 0
 OBJECT poly
 name "Guage"
 data 14
-Guage.mesh.005
+Guage.mesh.007
 crease 40.0
 texture "concorde-vsi.png"
 texrep 1 1
@@ -195,7 +228,7 @@ numvert 4
 0.001 -0.09 0.015
 numsurf 1
 SURF 0X20
-mat 2
+mat 3
 refs 4
 2 0.582469 0
 0 0.582469 1
@@ -208,41 +241,41 @@ data 8
 Set.mesh
 crease 40.0
 numvert 6
-0 0 0.006
+0 -0 0.006
 0 -0.005 0.012
 0.002 -0.005 0.012
-0.002 0 0.006
+0.002 -0 0.006
 0 0.005 0.012
 0.002 0.005 0.012
 numsurf 5
 SURF 0X20
-mat 3
+mat 4
 refs 4
 1 0 0
 2 0 0
 5 0 0
 4 0 0
 SURF 0X20
-mat 3
+mat 4
 refs 4
 3 0 0
 2 0 0
 1 0 0
 0 0 0
 SURF 0X20
-mat 3
+mat 4
 refs 3
 2 0 0
 3 0 0
 5 0 0
 SURF 0X20
-mat 3
+mat 4
 refs 3
 1 0 0
 4 0 0
 0 0 0
 SURF 0X20
-mat 3
+mat 4
 refs 4
 5 0 0
 3 0 0

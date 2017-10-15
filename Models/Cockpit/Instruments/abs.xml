@@ -155,6 +155,13 @@
   <type>material</type>
   <object-name>GreenFrame.009</object-name>
      <condition>
+     <and>
+
+        <greater-than>
+          <property>/systems/electrical/outputs/specific</property>
+          <value>20.0</value>
+        </greater-than>
+
      <not>
       <or include="concorde-cond-voltage-bulb.xml">
        <and>
@@ -165,6 +172,7 @@
        </and>
       </or>
      </not>
+     </and>
      </condition>
 
   <emission>
@@ -186,6 +194,11 @@
   <object-name>GreenFrame.007</object-name>
 
      <condition>
+     <and>
+        <greater-than>
+          <property>/systems/electrical/outputs/specific</property>
+          <value>20.0</value>
+        </greater-than>
      <not>
      <or include="concorde-cond-voltage-bulb.xml">
       <not>
@@ -193,6 +206,7 @@
       </not>
      </or>
      </not>
+     </and>
      </condition>
 
   <emission>
@@ -214,6 +228,10 @@
     <value>1.59</value>
    </greater-than>
     <property>controls/lighting/instrument-lights</property>
+        <greater-than>
+          <property>/systems/electrical/outputs/specific</property>
+          <value>20.0</value>
+        </greater-than>
   </and>
   </condition>
   <emission>

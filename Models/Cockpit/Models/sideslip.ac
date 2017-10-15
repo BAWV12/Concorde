@@ -1,14 +1,36 @@
 AC3Db
-MATERIAL "Frame" rgb 0.705 0.789 0.868  amb 1.000 1.000 1.000  emis 0.000 0.000 0.000  spec 0.150 0.150 0.150  shi 32 trans 0.000
-MATERIAL "Gauge" rgb 1.000 1.000 1.000  amb 1.000 1.000 1.000  emis 0.000 0.000 0.000  spec 0.300 0.300 0.300  shi 50 trans 0.000
-MATERIAL "White" rgb 1.000 1.000 1.000  amb 1.000 1.000 1.000  emis 0.000 0.000 0.000  spec 0.300 0.300 0.300  shi 32 trans 0.000
+MATERIAL "Horizon2.018" rgb 1.000 1.000 1.000  amb 1.000 1.000 1.000  emis 0.000 0.000 0.000  spec 0.300 0.300 0.300  shi 32 trans 0.000
+MATERIAL "Frame.006" rgb 0.705 0.789 0.868  amb 1.000 1.000 1.000  emis 0.000 0.000 0.000  spec 0.150 0.150 0.150  shi 32 trans 0.000
+MATERIAL "Gauge.002" rgb 1.000 1.000 1.000  amb 1.000 1.000 1.000  emis 0.000 0.000 0.000  spec 0.300 0.300 0.300  shi 50 trans 0.000
+MATERIAL "White.004" rgb 1.000 1.000 1.000  amb 1.000 1.000 1.000  emis 0.000 0.000 0.000  spec 0.300 0.300 0.300  shi 32 trans 0.000
 OBJECT world
-name "Blender_exporter_v2.19__sideslip.ac"
-kids 3
+name "Blender_exporter_v2.22__sideslip.ac"
+kids 4
+OBJECT poly
+name "FF"
+data 18
+GSWarning.mesh.015
+crease 40.0
+texture "vor-3d.png"
+texrep 1 1
+numvert 4
+0.00243 -0.00034 -0.00827
+0.00243 0.0029 -0.01093
+0.00243 -0.01323 -0.02355
+0.00243 -0.01 -0.02622
+numsurf 1
+SURF 0X20
+mat 0
+refs 4
+1 0.097632 0.500819
+0 0.097658 0.302806
+2 0.295041 0.302807
+3 0.295015 0.500819
+kids 0
 OBJECT poly
 name "Frame"
-data 10
-Frame.mesh
+data 14
+Frame.mesh.006
 crease 40.0
 texture "panel.png"
 texrep 1 1
@@ -27,63 +49,63 @@ numvert 12
 0.005 -0.01 0.05333
 numsurf 9
 SURF 0X20
-mat 0
+mat 1
 refs 4
 1 0.213999 0.024918
 0 0.242075 0.02192
 4 0.24176 0.164218
 5 0.213698 0.161096
 SURF 0X20
-mat 0
+mat 1
 refs 4
 5 0.213698 0.161096
 6 0.213504 0.162746
 2 0.213812 0.023267
 1 0.213999 0.024918
 SURF 0X20
-mat 0
+mat 1
 refs 4
 6 0.088136 0.643617
 7 0.062256 0.643617
 11 0.066569 0.620787
 10 0.083823 0.620787
 SURF 0X20
-mat 0
+mat 1
 refs 4
 0 0.242075 0.02192
 3 0.241911 0.020549
 7 0.241591 0.165589
 4 0.24176 0.164218
 SURF 0X20
-mat 0
+mat 1
 refs 4
 0 0.242075 0.02192
 1 0.213999 0.024918
 2 0.213812 0.023267
 3 0.241911 0.020549
 SURF 0X20
-mat 0
+mat 1
 refs 4
 7 0.241591 0.165589
 6 0.213504 0.162746
 5 0.213698 0.161096
 4 0.24176 0.164218
 SURF 0X20
-mat 0
+mat 1
 refs 4
 7 0.062256 0.643617
 3 0.062256 0.23268
 9 0.066569 0.25551
 11 0.066569 0.620787
 SURF 0X20
-mat 0
+mat 1
 refs 4
 10 0.083823 0.620787
 8 0.083823 0.25551
 2 0.088136 0.23268
 6 0.088136 0.643617
 SURF 0X20
-mat 0
+mat 1
 refs 4
 3 0.062256 0.23268
 2 0.088136 0.23268
@@ -92,8 +114,8 @@ refs 4
 kids 0
 OBJECT poly
 name "Guage"
-data 10
-Guage.mesh
+data 14
+Guage.mesh.006
 crease 40.0
 texture "concorde-side-slip.png"
 texrep 1 1
@@ -104,7 +126,7 @@ numvert 4
 0.0011 -0.0145 -0.0595
 numsurf 1
 SURF 0X20
-mat 1
+mat 2
 refs 4
 2 1.025234 0.619271
 0 -0.026964 0.619271
@@ -117,41 +139,41 @@ data 9
 Slip.mesh
 crease 40.0
 numvert 6
-0.001 -0.00333 0
+0.001 -0.00333 -0
 0.001 -0.01033 0.005
 0.003 -0.01033 0.005
-0.003 -0.00333 0
+0.003 -0.00333 -0
 0.001 -0.01033 -0.005
 0.003 -0.01033 -0.005
 numsurf 5
 SURF 0X20
-mat 2
+mat 3
 refs 4
 4 0 0
 5 0 0
 2 0 0
 1 0 0
 SURF 0X20
-mat 2
+mat 3
 refs 4
 0 0 0
 1 0 0
 2 0 0
 3 0 0
 SURF 0X20
-mat 2
+mat 3
 refs 3
 5 0 0
 3 0 0
 2 0 0
 SURF 0X20
-mat 2
+mat 3
 refs 3
 0 0 0
 4 0 0
 1 0 0
 SURF 0X20
-mat 2
+mat 3
 refs 4
 4 0 0
 0 0 0

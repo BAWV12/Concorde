@@ -5,7 +5,26 @@
     <altitude>instrumentation/altimeter[0]/indicated-altitude-ft</altitude>
     <setting-inhg>instrumentation/altimeter-adc[0]/setting-inhg</setting-inhg>
     <setting-hpa>instrumentation/altimeter-adc[0]/setting-hpa</setting-hpa>
+    <failure-flag>/instrumentation/altimeter[0]/warning-flag</failure-flag>
+    <serviceable>/instrumentation/altimeter[0]/serviceable</serviceable>
+    <standby-ctrl>/instrumentation/altimeter[0]/standby</standby-ctrl>
   </params>
+
+  <animation>
+    <type>select</type>
+    <object-name>FF</object-name>
+    <condition>
+      <or>
+	<not><property alias="/params/serviceable"/></not>
+	<property alias="/params/standby-ctrl"/>
+	<property alias="/params/failure-flag"/>
+        <less-than>
+          <property>/systems/electrical/outputs/specific</property>
+          <value>20.0</value>
+        </less-than>
+      </or>
+    </condition>    
+  </animation>
 
 
   <animation>
@@ -28,6 +47,20 @@
 
 
   <animation>
+    <condition>
+      <not>
+      <or>
+	<not><property alias="/params/serviceable"/></not>
+	<property alias="/params/standby-ctrl"/>
+	<property alias="/params/failure-flag"/>
+        <less-than>
+          <property>/systems/electrical/outputs/specific</property>
+          <value>20.0</value>
+        </less-than>
+      </or>
+      </not>
+    </condition>    
+
     <type>rotate</type>
     <object-name>AltNeedle</object-name>
     <property alias="/params/altitude"/>
@@ -510,6 +543,7 @@
     <object-name>Guage</object-name>
     <object-name>AltNeedle</object-name>
     <object-name>Adjust.001</object-name>
+    <object-name>FF</object-name>
   <condition>
   <and>
    <greater-than>
@@ -517,6 +551,11 @@
     <value>1.59</value>
    </greater-than>
     <property>controls/lighting/instrument-lights</property>
+        <greater-than>
+          <property>/systems/electrical/outputs/specific</property>
+          <value>20.0</value>
+        </greater-than>
+
   </and>
   </condition>
   <emission>

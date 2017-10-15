@@ -120,27 +120,6 @@
   <!--Default Lighting-->
   <animation>
     <type>material</type>
-    <object-name>ADFLabel</object-name>
-    <object-name>ADF1Error</object-name>
-    <object-name>ADF2Error</object-name>
-    <object-name>Guage</object-name>
-  <condition>
-  <and>
-   <greater-than>
-    <property>sim/time/sun-angle-rad</property>
-    <value>1.59</value>
-   </greater-than>
-    <property>controls/lighting/instrument-lights</property>
-  </and>
-  </condition>
-  <emission>
-   <red>0.7</red>
-   <green>0.2</green>
-   <blue>0.2</blue>
-  </emission>
-  </animation>
-  <animation>
-    <type>material</type>
     <object-name>Frame</object-name>
     <emission>
       <red>0.01</red>
@@ -151,6 +130,10 @@
   </animation>
   <animation>
     <type>material</type>
+    <object-name>ADFLabel</object-name>
+    <object-name>ADF1Error</object-name>
+    <object-name>ADF2Error</object-name>
+    <object-name>Guage</object-name>
     <object-name>ADF1Needle</object-name>
     <object-name>ADF2Needle</object-name>
   <condition>
@@ -160,6 +143,10 @@
     <value>1.59</value>
    </greater-than>
     <property>controls/lighting/instrument-lights</property>
+        <greater-than>
+          <property>/systems/electrical/outputs/specific</property>
+          <value>20.0</value>
+        </greater-than>
   </and>
   </condition>
   <emission>

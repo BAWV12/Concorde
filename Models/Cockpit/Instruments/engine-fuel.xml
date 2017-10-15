@@ -8,6 +8,17 @@
   </params>
 
   <animation>
+    <type>select</type>
+    <object-name>FF</object-name>
+    <condition>
+        <less-than>
+          <property>/systems/electrical/outputs/specific</property>
+          <value>20.0</value>
+        </less-than>
+    </condition>    
+  </animation>
+
+  <animation>
     <type>rotate</type>
     <object-name>FuelAdjust</object-name>
     <property alias="/params/bug-select"/>
@@ -25,6 +36,13 @@
   </animation>
 
   <animation>
+    <condition><not>
+        <less-than>
+          <property>/systems/electrical/outputs/specific</property>
+          <value>20.0</value>
+        </less-than>
+    </not></condition>
+
     <type>rotate</type>
     <object-name>Needle</object-name>
     <property alias="/params/fuelflow"/>
@@ -176,6 +194,13 @@
   </animation>
   <!--Flow Numbers-->
   <animation>
+    <condition><not>
+        <less-than>
+          <property>/systems/electrical/outputs/specific</property>
+          <value>20.0</value>
+        </less-than>
+    </not></condition>
+
     <type>rotate</type>
     <object-name>Num1</object-name>
     <expression>
@@ -231,6 +256,13 @@
     </axis>
   </animation>
   <animation>
+    <condition><not>
+        <less-than>
+          <property>/systems/electrical/outputs/specific</property>
+          <value>20.0</value>
+        </less-than>
+    </not></condition>
+
     <type>rotate</type>
     <object-name>Num2</object-name>
     <expression>
@@ -277,6 +309,13 @@
     </axis>
   </animation>
   <animation>
+    <condition><not>
+        <less-than>
+          <property>/systems/electrical/outputs/specific</property>
+          <value>20.0</value>
+        </less-than>
+    </not></condition>
+
     <type>rotate</type>
     <object-name>Num3</object-name>
     <property alias="/params/fuelflow"/>
@@ -343,6 +382,10 @@
     <value>1.59</value>
    </greater-than>
     <property>controls/lighting/instrument-lights</property>
+        <greater-than>
+          <property>/systems/electrical/outputs/specific</property>
+          <value>20.0</value>
+        </greater-than>
   </and>
   </condition>
   <emission>
@@ -361,17 +404,5 @@
       <factor-prop>controls/lighting/panel-norm</factor-prop>
     </emission>
   </animation>
-  <!--
-  <animation>
-    <type>material</type>
-    <object-name>VOR1Needle</object-name>
-    <object-name>VOR2Needle</object-name>
-    <emission>
-      <red>0.1</red>
-      <green>0.03</green>
-      <blue>0.03</blue>
-      <factor-prop>controls/lighting/panel-norm</factor-prop>
-    </emission>
-  </animation>
-  -->
+
 </PropertyList>

@@ -1,7 +1,33 @@
 <?xml version="1.0"?>
 <PropertyList>
   <path>../Models/kias.ac</path>
+
   <animation>
+    <type>select</type>
+    <object-name>FF</object-name>
+    <condition>
+      <or>
+        <less-than>
+          <property>/systems/electrical/outputs/specific</property>
+          <value>20.0</value>
+        </less-than>
+	<not><property>/instrumentation/airspeed-standby/serviceable</property></not>
+      </or>
+    </condition>    
+  </animation>
+
+  <animation>
+    <condition><not>
+      <or>
+        <less-than>
+          <property>/systems/electrical/outputs/specific</property>
+          <value>20.0</value>
+        </less-than>
+	<not><property>/instrumentation/airspeed-standby/serviceable</property></not>
+      </or>
+    </not></condition>    
+
+
     <type>rotate</type>
     <object-name>KIASNeedle</object-name>
     <property>instrumentation/airspeed-indicator[0]/indicated-speed-kt</property>
@@ -79,6 +105,16 @@
     </axis>
   </animation>
   <animation>
+    <condition><not>
+      <or>
+        <less-than>
+          <property>/systems/electrical/outputs/specific</property>
+          <value>20.0</value>
+        </less-than>
+	<not><property>/instrumentation/airspeed-standby/serviceable</property></not>
+      </or>
+    </not></condition>    
+
     <type>rotate</type>
     <object-name>LimitNeedle</object-name>
     <property>instrumentation/airspeed-indicator[0]/vmo-kt</property>
@@ -160,7 +196,9 @@
     <type>material</type>
     <object-name>LimitNeedle</object-name>
     <object-name>KnotsGuage</object-name>
+    <object-name>KIASNeedle</object-name>
     <object-name>MachGuage</object-name>
+    <object-name>FF</object-name>
   <condition>
   <and>
    <greater-than>
@@ -168,6 +206,10 @@
     <value>1.59</value>
    </greater-than>
     <property>controls/lighting/instrument-lights</property>
+        <greater-than>
+          <property>/systems/electrical/outputs/specific</property>
+          <value>20.0</value>
+        </greater-than>
   </and>
   </condition>
   <emission>
@@ -186,23 +228,5 @@
       <blue>0.005</blue>
       <factor-prop>controls/lighting/panel-norm</factor-prop>
     </emission>
-  </animation>
-  <animation>
-    <type>material</type>
-    <object-name>KIASNeedle</object-name>
-  <condition>
-  <and>
-   <greater-than>
-    <property>sim/time/sun-angle-rad</property>
-    <value>1.59</value>
-   </greater-than>
-    <property>controls/lighting/instrument-lights</property>
-  </and>
-  </condition>
-  <emission>
-   <red>0.7</red>
-   <green>0.2</green>
-   <blue>0.2</blue>
-  </emission>
   </animation>
 </PropertyList>

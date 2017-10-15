@@ -383,6 +383,7 @@ Autothrottle.atenable = func {
 
 # activate autothrottle
 Autothrottle.atexport = func {
+if (getprop("/systems/electrical/outputs/specific")>20){
    var channel1 = me.itself["channel"][constantaero.AP1].getChild("engage").getValue();
    var channel2 = me.itself["channel"][constantaero.AP2].getChild("engage").getValue();
 
@@ -409,6 +410,7 @@ Autothrottle.atexport = func {
    else {
        me.atengage();
    }
+}
 }
 
 Autothrottle.speedacquire = func {
@@ -471,6 +473,7 @@ Autothrottle.is_speed_acquire = func {
 
 # autothrottle
 Autothrottle.atspeedexport = func {
+ if (getprop("/systems/electrical/outputs/specific")>20){
    if( !me.is_speed_acquire() ) {
        me.atactivatemode2("speed","speed-with-throttle","speed-acquire");
        me.atspeedselectexport();
@@ -482,6 +485,7 @@ Autothrottle.atspeedexport = func {
    me.atengage();
 
    me.speedacquire();
+ }
 }
 
 Autothrottle.has_lock = func {
@@ -577,6 +581,7 @@ Autothrottle.is_mach_throttle = func {
 
 # mach hold
 Autothrottle.atmachexport = func {
+ if (getprop("/systems/electrical/outputs/specific")>20){
    if( !me.is_mach_throttle() ) {
        me.holdmach();
        me.atactivatemode("speed","mach-with-throttle","");
@@ -586,6 +591,7 @@ Autothrottle.atmachexport = func {
    }
 
    me.atengage();
+ }
 }
 
 # hold speed
@@ -610,7 +616,7 @@ Autothrottle.is_speed_hold = func {
    var speed2mode = me.itself["autoflight"].getChild("speed2").getValue();
    var result = constant.FALSE;
 
-   if( speed2mode == "" and me.is_speed_throttle() ) {
+   if( speed2mode == "" and me.is_speed_throttle() and getprop("/systems/electrical/outputs/specific")>20) {
        result = constant.TRUE;
    }
 
@@ -619,6 +625,7 @@ Autothrottle.is_speed_hold = func {
 
 # speed hold
 Autothrottle.atspeedholdexport = func {
+if (getprop("/systems/electrical/outputs/specific")>20){
    if( !me.is_speed_hold() ) {
        me.holdspeed();
        me.atactivatemode2("speed","speed-with-throttle","");
@@ -628,6 +635,7 @@ Autothrottle.atspeedholdexport = func {
    }
 
    me.atengage();
+}
 }
 
 # spring returns to center, once released by hand

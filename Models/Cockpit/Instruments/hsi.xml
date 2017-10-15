@@ -2,6 +2,7 @@
 <PropertyList>
   <path>../Models/hsi.ac</path>
   <params>
+    <serviceable>/instrumentation/hsi[0]/serviceable</serviceable>
     <heading-deg>/instrumentation/hsi[0]/heading-deg</heading-deg>
     <heading-select>/controls/autoflight/autopilot[0]/heading-select</heading-select>
     <heading1-select>/controls/autoflight/autopilot[1]/heading-select</heading1-select>
@@ -27,7 +28,33 @@
     <wp-dist>/autopilot/route-manager/wp/dist</wp-dist>
     <ground-speed-fps>/instrumentation/ins[0]/computed/ground-speed-fps</ground-speed-fps>
   </params>
+
   <animation>
+    <type>select</type>
+    <object-name>FF</object-name>
+    <condition>
+      <or>
+	<not><property alias="/params/serviceable"/></not>
+        <less-than>
+          <property>/systems/electrical/outputs/specific</property>
+          <value>20.0</value>
+        </less-than>
+      </or>
+    </condition>    
+  </animation>
+
+
+  <animation>
+    <condition><not>
+      <or>
+	<not><property alias="/params/serviceable"/></not>
+        <less-than>
+          <property>/systems/electrical/outputs/specific</property>
+          <value>20.0</value>
+        </less-than>
+      </or>
+    </not></condition>    
+
     <type>rotate</type>
     <object-name>Compass</object-name>
     <property alias="/params/heading-deg"/>
@@ -44,6 +71,16 @@
   </animation>
 
   <animation>
+    <condition><not>
+      <or>
+	<not><property alias="/params/serviceable"/></not>
+        <less-than>
+          <property>/systems/electrical/outputs/specific</property>
+          <value>20.0</value>
+        </less-than>
+      </or>
+    </not></condition>    
+
     <type>rotate</type>
     <object-name>HdgBug</object-name>
 
@@ -103,6 +140,16 @@
     </axis>
   </animation>
   <animation>
+    <condition><not>
+      <or>
+	<not><property alias="/params/serviceable"/></not>
+        <less-than>
+          <property>/systems/electrical/outputs/specific</property>
+          <value>20.0</value>
+        </less-than>
+      </or>
+    </not></condition>    
+
     <type>rotate</type>
     <object-name>CompassNeedle</object-name>
     <object-name>LocGuage</object-name>
@@ -155,6 +202,16 @@
     </axis>
   </animation>
   <animation>
+    <condition><not>
+      <or>
+	<not><property alias="/params/serviceable"/></not>
+        <less-than>
+          <property>/systems/electrical/outputs/specific</property>
+          <value>20.0</value>
+        </less-than>
+      </or>
+    </not></condition>    
+
     <type>translate</type>
     <object-name>LocNeedle</object-name>
     <expression>
@@ -209,6 +266,16 @@
     </axis>
   </animation>
   <animation>
+    <condition><not>
+      <or>
+	<not><property alias="/params/serviceable"/></not>
+        <less-than>
+          <property>/systems/electrical/outputs/specific</property>
+          <value>20.0</value>
+        </less-than>
+      </or>
+    </not></condition>    
+
     <type>translate</type>
     <object-name>GSArrow</object-name>
     <expression>
@@ -302,6 +369,16 @@
     </condition>
   </animation>
   <animation>
+    <condition><not>
+      <or>
+	<not><property alias="/params/serviceable"/></not>
+        <less-than>
+          <property>/systems/electrical/outputs/specific</property>
+          <value>20.0</value>
+        </less-than>
+      </or>
+    </not></condition>    
+
     <type>textranslate</type>
     <object-name>TrueMag</object-name>
     <factor>.5</factor>
@@ -313,6 +390,16 @@
     </axis>
   </animation>
   <animation>
+    <condition><not>
+      <or>
+	<not><property alias="/params/serviceable"/></not>
+        <less-than>
+          <property>/systems/electrical/outputs/specific</property>
+          <value>20.0</value>
+        </less-than>
+      </or>
+    </not></condition>    
+
     <type>textranslate</type>
     <object-name>CompIns</object-name>
     <factor>.5</factor>
@@ -324,6 +411,16 @@
     </axis>
   </animation>
   <animation>
+    <condition><not>
+      <or>
+	<not><property alias="/params/serviceable"/></not>
+        <less-than>
+          <property>/systems/electrical/outputs/specific</property>
+          <value>20.0</value>
+        </less-than>
+      </or>
+    </not></condition>    
+
     <type>textranslate</type>
     <object-name>HdgTrk</object-name>
     <factor>.5</factor>
@@ -503,28 +600,6 @@
   <!--Default Lighting-->
   <animation>
     <type>material</type>
-    <object-name>GsGuage</object-name>
-    <object-name>TrueMag</object-name>
-    <object-name>Compass</object-name>
-    <object-name>LocGuage</object-name>
-    <object-name>Guage</object-name>
-  <condition>
-  <and>
-   <greater-than>
-    <property>sim/time/sun-angle-rad</property>
-    <value>1.59</value>
-   </greater-than>
-    <property>controls/lighting/instrument-lights</property>
-  </and>
-  </condition>
-  <emission>
-   <red>0.7</red>
-   <green>0.2</green>
-   <blue>0.2</blue>
-  </emission>
-  </animation>
-  <animation>
-    <type>material</type>
     <object-name>Frame</object-name>
     <object-name>MilesFrame</object-name>
     <object-name>SpeedFrame</object-name>
@@ -537,6 +612,11 @@
   </animation>
   <animation>
     <type>material</type>
+    <object-name>GsGuage</object-name>
+    <object-name>TrueMag</object-name>
+    <object-name>Compass</object-name>
+    <object-name>LocGuage</object-name>
+    <object-name>Guage</object-name>
     <object-name>CompassNeedle</object-name>
     <object-name>LocNeedle</object-name>
     <object-name>CenterPlane</object-name>
@@ -552,6 +632,7 @@
     <object-name>MilesLabel.001</object-name>
     <object-name>MilesLabel</object-name>
     <object-name>HdgBug</object-name>
+    <object-name>FF</object-name>
   <condition>
   <and>
    <greater-than>
@@ -559,7 +640,11 @@
     <value>1.59</value>
    </greater-than>
     <property>controls/lighting/instrument-lights</property>
-  </and>
+        <greater-than>
+          <property>/systems/electrical/outputs/specific</property>
+          <value>20.0</value>
+        </greater-than> 
+ </and>
   </condition>
   <emission>
    <red>0.7</red>
