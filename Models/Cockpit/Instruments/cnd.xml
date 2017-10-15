@@ -4,6 +4,18 @@
 
   <!--Default Lighting-->
 
+  <animation>
+    <type>select</type>
+    <object-name>FF</object-name>
+    <condition>
+        <less-than>
+          <property>/systems/electrical/outputs/specific</property>
+          <value>20.0</value>
+        </less-than>
+    </condition>    
+  </animation>
+
+
 
  <animation>
   <type>material</type>
