@@ -195,8 +195,6 @@
           <property>/systems/electrical/outputs/specific</property>
           <value>20.0</value>
         </less-than>
-
-        <not><property alias="/params/fd-serviceable"/></not>
         <property alias="/params/test"/>
       </or>
     </condition>
