@@ -126,8 +126,7 @@
             <float n="15" alias="/controls/lighting/external/main-landing[1]/norm"/>
             <float n="16" alias="/controls/lighting/external/landing-taxi[0]/norm"/>
             <float n="17" alias="/controls/lighting/external/landing-taxi[1]/norm"/>
-            <float n="18" alias="/controls/lighting/external/interpolate/on"/>
-<!--            <float n="19" alias="/velocities/airspeed-kt"/>-->
+            <float n="18" alias="/systems/electrical/outputs/specific"/>
         </generic>
     </multiplay>
 
