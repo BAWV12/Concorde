@@ -30,7 +30,7 @@ var TestMap1 = group1.createChild("map");
         TestMap1.addLayer(factory: canvas.SymbolLayer, type_arg: type.name, visible: type.vis, priority: type.zindex,);
 };
 var txt_range1 = group1.createChild("text")
-	.setText("Range 40")
+	.setText("Range nm 40")
 	.setFontSize(24,1)
         .setAlignment("center-center")
         .setTranslation(512,748)
@@ -40,6 +40,6 @@ var txt_range1 = group1.createChild("text")
 setlistener("instrumentation/efis[1]/inputs/range-nm", func() {
 wrange=getprop("/instrumentation/efis[1]/inputs/range-nm");
 TestMap1.setRange(wrange);
-txt_range1.setText(sprintf("Range %i",wrange));
+txt_range1.setText(sprintf("Range nm %i",wrange));
 });
 

@@ -7,13 +7,10 @@
     <object-name>FF</object-name>
     <condition>
       <or>
+	<not><property>/instrumentation/tcas/serviceable</property></not>
         <less-than>
           <property>/systems/electrical/outputs/specific</property>
           <value>20.0</value>
-        </less-than>
-        <less-than>
-          <property>/instrumentation/efis/inputs/range-nm</property>
-          <value>5</value>
         </less-than>
       </or>
     </condition>    
@@ -58,7 +55,8 @@
 
  <animation>
   <type>material</type>
-  <object-name>Adjust.002</object-name>
+  <object-name>Adjust</object-name>
+  <object-name>OnOff</object-name>
   <condition>
   <and>
    <greater-than>
@@ -92,54 +90,40 @@
     </emission>
   </animation>
 
-  <animation>
-    <type>rotate</type>
-    <object-name>Adjust</object-name>
-    <property>instrumentation/efis/inputs/range-nm</property>
-    <factor>5</factor>
-    <center>
-      <x-m>0.1</x-m>
-      <y-m>0.02693</y-m>
-      <z-m>-0.02676</z-m>
-    </center>
-    <axis>
-      <x>-1</x>
-      <y>0</y>
-      <z>0</z>
-    </axis>
-  </animation>
+
   <animation>
     <type>pick</type>
     <object-name>Adjust</object-name>
-    <action>
-      <name>Up</name>
-      <button>3</button>
-      <repeatable>false</repeatable>
-      <binding>
-        <command>property-adjust</command>
-        <property>instrumentation/efis/inputs/range-nm</property>
-        <step>5</step>
-        <min>0</min>
-        <max>40</max>
-        <wrap>false</wrap>
-      </binding>
-    </action>
+
     <action>
       <name>Dwn</name>
-      <button>4</button>
+      <button>0</button>
       <repeatable>false</repeatable>
       <binding>
         <command>property-adjust</command>
         <property>instrumentation/efis/inputs/range-nm</property>
         <step>-5</step>
-        <min>0</min>
-        <max>40</max>
-        <wrap>false</wrap>
+        <min>5</min>
+        <max>45</max>
+        <wrap>true</wrap>
       </binding>
     </action>
   </animation>
 
+  <animation>
+    <type>pick</type>
+    <object-name>OnOff</object-name>
 
+    <action>
+      <name>Dwn</name>
+      <button>0</button>
+      <repeatable>false</repeatable>
+      <binding>
+        <command>property-toggle</command>
+        <property>instrumentation/tcas/serviceable</property>
+      </binding>
+    </action>
+  </animation>
 
 
 </PropertyList>

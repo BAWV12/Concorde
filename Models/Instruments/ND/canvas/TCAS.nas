@@ -32,14 +32,14 @@ var TestMap = group.createChild("map");
         TestMap.addLayer(factory: canvas.SymbolLayer, type_arg: type.name, visible: type.vis, priority: type.zindex,);
 
 var txt_range = group.createChild("text")
-	.setText("Range 40")
+	.setText("Rng nm 40")
 	.setFontSize(24,1)
         .setAlignment("center-center")
-        .setTranslation(512,748)
-	.setColor(0,1,1,1);
+        .setTranslation(695,276)
+	.setColor(1,1,1,1);
 
 setlistener("instrumentation/efis/inputs/range-nm", func() {
 trange=getprop("/instrumentation/efis/inputs/range-nm");
 TestMap.setRange(trange);
-txt_range.setText(sprintf("Range %i",trange));
+txt_range.setText(sprintf("Rng nm %i",trange));
 });
