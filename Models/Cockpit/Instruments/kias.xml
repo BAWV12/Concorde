@@ -104,6 +104,67 @@
       <z>0</z>
     </axis>
   </animation>
+
+  <animation>
+    <condition><not>
+      <or>
+        <less-than>
+          <property>/systems/electrical/outputs/specific</property>
+          <value>20.0</value>
+        </less-than>
+	<not><property>/instrumentation/airspeed-standby/serviceable</property></not>
+      </or>
+    </not></condition>    
+
+
+    <type>rotate</type>
+    <object-name>MachGuage</object-name>
+    <expression>
+    	<sum>
+    		<table>  
+    			<property>instrumentation/mach-indicator[0]/indicated-mach</property>
+			<entry><ind>0.8</ind><dep>10</dep></entry>
+			<entry><ind>0.898</ind><dep>8</dep></entry>
+			<entry><ind>0.899</ind><dep>8</dep></entry>
+			<entry><ind>0.9</ind><dep>8</dep></entry>
+			<entry><ind>0.901</ind><dep>8</dep></entry>
+			<entry><ind>0.902</ind><dep>8</dep></entry>
+        		<entry><ind>0.999</ind><dep>-14</dep></entry>
+        		<entry><ind>1</ind><dep>-14</dep></entry>
+        		<entry><ind>1.001</ind><dep>-14</dep></entry>
+        		<entry><ind>1.2</ind><dep>-52</dep></entry>
+        		<entry><ind>1.5</ind><dep>-97</dep></entry>
+        		<entry><ind>2</ind><dep>-151</dep></entry>
+        		<entry><ind>2.2</ind><dep>-169</dep></entry>
+    		</table>
+    		<table>  
+    			<property>instrumentation/airspeed-indicator[0]/indicated-speed-kt</property>
+		      	<entry><ind>249.98</ind><dep>-3</dep></entry>
+      			<entry><ind>249.99</ind><dep>-3</dep></entry>
+      			<entry><ind>250</ind><dep>-3</dep></entry>
+      			<entry><ind>250.01</ind><dep>-3</dep></entry>
+      			<entry><ind>250.02</ind><dep>-3</dep></entry>
+      			<entry><ind>300</ind><dep>29</dep></entry>
+      			<entry><ind>400</ind><dep>81</dep></entry>
+      			<entry><ind>500</ind><dep>125</dep></entry>
+      			<entry><ind>600</ind><dep>162</dep></entry>
+    		</table>
+    	</sum>
+    </expression>
+
+    <center>
+      <x-m>0.001</x-m>
+      <y-m>0</y-m>
+      <z-m>0</z-m>
+    </center>
+    <axis>
+      <x>-1</x>
+      <y>0</y>
+      <z>0</z>
+    </axis>
+  </animation>
+
+
   <animation>
     <condition><not>
       <or>
