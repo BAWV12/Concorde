@@ -461,6 +461,7 @@
   </animation>
 
 <!-- hide side windows in cockpit view -->
+
   <animation>
    <type>select</type>
    <object-name>Side</object-name>

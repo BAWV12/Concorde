@@ -10,6 +10,18 @@
 
 <PropertyList>
 
+<!--
+  <model>
+    <name>Overhead Panel</name>
+    <path>Aircraft/Concorde/Models/Cockpit/Instruments/ohp.xml</path>
+    <offsets>
+      <x-m>0</x-m>
+      <y-m>0</y-m>
+      <z-m>0</z-m>
+    </offsets>
+  </model>
+-->
+
   <model>
     <name>Captain WXR</name>
     <path>Aircraft/Concorde/Models/Cockpit/Instruments/cnd.xml</path>

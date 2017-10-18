@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+
+<!-- Test of overhead master warning lights.
+-->
+
+<PropertyList>
+
+   <not>
+    <property>/controls/lighting/crew/overhead/push</property>
+   </not>
+
+</PropertyList>

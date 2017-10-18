@@ -79,12 +79,13 @@
 -->
  <!-- OVERHEAD -->
 
+
   <panel>
    <path>Aircraft/Concorde/Panels/Concorde-overhead.xml</path>
    <bottom-left>
     <x-m>-23.585</x-m>
     <y-m>-0.332</y-m>
-    <z-m> 1.620</z-m>       <!-- keep slope ! -->
+    <z-m> 1.620</z-m>      
    </bottom-left>
    <bottom-right>
     <x-m>-23.585</x-m>
@@ -116,6 +117,7 @@
     <z-m> 1.775</z-m>
    </top-left>
   </panel>
+
 
   <panel>
    <path>Aircraft/Concorde/Panels/Concorde-overhead-channel.xml</path>
