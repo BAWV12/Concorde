@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+
+<!-- Test of overhead warning lights.
+-->
+
+<PropertyList>
+
+   <not>
+    <property>/controls/lighting/crew/overhead/test</property>
+   </not>
+
+</PropertyList>

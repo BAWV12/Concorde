@@ -1261,3 +1261,48 @@ Intake.subramp = func( ratio, target, present ) {
 
    return result;
 }
+
+setprop("/controls/engines/engine[0]/rating-n",1);
+setprop("/controls/engines/engine[1]/rating-n",1);
+setprop("/controls/engines/engine[2]/rating-n",1);
+setprop("/controls/engines/engine[3]/rating-n",1);
+
+setlistener("/controls/engines/engine[0]/rating", func() {
+  ratingn=getprop("/controls/engines/engine[0]/rating");
+  if (ratingn=="takeoff"){
+    setprop("/controls/engines/engine[0]/rating-n",1);
+  }
+  else{
+    setprop("/controls/engines/engine[0]/rating-n",0);
+  };
+});
+
+setlistener("/controls/engines/engine[1]/rating", func() {
+  ratingn=getprop("/controls/engines/engine[1]/rating");
+  if (ratingn=="takeoff"){
+    setprop("/controls/engines/engine[1]/rating-n",1);
+  }
+  else{
+    setprop("/controls/engines/engine[1]/rating-n",0);
+  };
+});
+
+setlistener("/controls/engines/engine[2]/rating", func() {
+  ratingn=getprop("/controls/engines/engine[2]/rating");
+  if (ratingn=="takeoff"){
+    setprop("/controls/engines/engine[2]/rating-n",1);
+  }
+  else{
+    setprop("/controls/engines/engine[2]/rating-n",0);
+  };
+});
+
+setlistener("/controls/engines/engine[3]/rating", func() {
+  ratingn=getprop("/controls/engines/engine[3]/rating");
+  if (ratingn=="takeoff"){
+    setprop("/controls/engines/engine[3]/rating-n",1);
+  }
+  else{
+    setprop("/controls/engines/engine[3]/rating-n",0);
+  };
+});

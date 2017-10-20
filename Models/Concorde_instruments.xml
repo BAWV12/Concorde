@@ -79,7 +79,7 @@
 -->
  <!-- OVERHEAD -->
 
-
+<!--
   <panel>
    <path>Aircraft/Concorde/Panels/Concorde-overhead.xml</path>
    <bottom-left>
@@ -174,7 +174,7 @@
     <y-m>-0.422</y-m>
     <z-m> 1.765</z-m>
    </top-left>
-  </panel>
+  </panel>-->
 
  <!-- CONSOLE -->
 
