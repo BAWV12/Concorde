@@ -57,12 +57,18 @@
   <animation>
     <type>material</type>
     <object-name>Switch</object-name>
-    <object-name>Ball</object-name>
-    <emission>
-      <red>0.03</red>
-      <green>0.015</green>
-      <blue>0.015</blue>
-      <factor-prop>controls/lighting/panel-norm</factor-prop>
-    </emission>
-  </animation>
+  <condition>
+	<greater-than>
+	  <property>systems/lighting/level/roof</property>
+	  <value>0</value>
+	</greater-than>
+  </condition>
+  <emission>
+   <red>0.66</red>
+   <green>0.68</green>
+   <blue>0.64</blue>
+   <factor-prop>systems/lighting/level/roof</factor-prop>
+  </emission>
+ </animation>
+
 </PropertyList>

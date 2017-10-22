@@ -2,7 +2,7 @@ AC3Db
 MATERIAL "White" rgb 1.000 1.000 1.000  amb 1.000 1.000 1.000  emis 0.000 0.000 0.000  spec 0.500 0.500 0.500  shi 32 trans 0.000
 MATERIAL "Horizon2.003" rgb 1.000 1.000 1.000  amb 1.000 1.000 1.000  emis 0.000 0.000 0.000  spec 0.300 0.300 0.300  shi 32 trans 0.000
 MATERIAL "Horizon2.005" rgb 1.000 1.000 1.000  amb 1.000 1.000 1.000  emis 0.000 0.000 0.000  spec 0.300 0.300 0.300  shi 32 trans 0.000
-MATERIAL "Frame.001" rgb 0.705 0.789 0.868  amb 1.000 1.000 1.000  emis 0.000 0.000 0.000  spec 0.150 0.150 0.150  shi 32 trans 0.000
+MATERIAL "Frame.001" rgb 0.705 0.789 0.868  amb 1.000 1.000 1.000  emis 0.150 0.150 0.150  spec 0.150 0.150 0.150  shi 32 trans 0.000
 MATERIAL "Gauge" rgb 1.000 1.000 1.000  amb 1.000 1.000 1.000  emis 0.000 0.000 0.000  spec 0.300 0.300 0.300  shi 32 trans 0.000
 OBJECT world
 name "Blender_exporter_v2.22__aoa.ac"

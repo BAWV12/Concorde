@@ -1,9 +1,0 @@
-<PropertyList>
- <name>Gauge BG</name>
- <w-base>128</w-base>
- <h-base>128</h-base>
-
- <layers>
-  <layer include="concorde-gauge.xml"/>
- </layers>
-</PropertyList>

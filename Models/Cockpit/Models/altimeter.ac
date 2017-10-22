@@ -4,7 +4,7 @@ MATERIAL "LIT.004" rgb 0.163 0.163 0.163  amb 0.100 0.100 0.100  emis 0.1 0.1 0.
 MATERIAL "Number.001" rgb 1.000 1.000 1.000  amb 1.000 1.000 1.000  emis 0.000 0.000 0.000  spec 1.000 1.000 1.000  shi 32 trans 0.000
 MATERIAL "White.019" rgb 1.000 1.000 1.000  amb 1.000 1.000 1.000  emis 0.000 0.000 0.000  spec 1.000 1.000 1.000  shi 20 trans 0.000
 MATERIAL "Horizon2.002" rgb 1.000 1.000 1.000  amb 1.000 1.000 1.000  emis 0.000 0.000 0.000  spec 0.300 0.300 0.300  shi 32 trans 0.000
-MATERIAL "Frame.028" rgb 0.705 0.789 0.868  amb 1.000 1.000 1.000  emis 0.000 0.000 0.000  spec 0.150 0.150 0.150  shi 32 trans 0.000
+MATERIAL "Frame.028" rgb 0.705 0.789 0.868  amb 1.000 1.000 1.000  emis 0.150 0.150 0.150  spec 0.150 0.150 0.150  shi 32 trans 0.000
 MATERIAL "Black.020" rgb 0.020 0.020 0.020  amb 0.010 0.010 0.010  emis 0.000 0.000 0.000  spec 0.000 0.000 0.000  shi 20 trans 0.000
 MATERIAL "Number.002" rgb 1.000 1.000 1.000  amb 1.000 1.000 1.000  emis 0.000 0.000 0.000  spec 1.000 1.000 1.000  shi 32 trans 0.000
 OBJECT world

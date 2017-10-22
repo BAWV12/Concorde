@@ -2683,7 +2683,14 @@
   <type>material</type>
   <object-name>CeilingEdge</object-name>
   <object-name>Dashboard</object-name>
+  <object-name>Dashboard.001</object-name>
   <object-name>Rack lighting</object-name>
+  <condition>
+	<greater-than>
+	  <property>systems/lighting/level/roof</property>
+	  <value>0</value>
+	</greater-than>
+  </condition>
   <emission>
    <red>0.66</red>
    <green>0.68</green>
@@ -2697,6 +2704,12 @@
  <animation>
   <type>material</type>
   <object-name>engineer</object-name>
+  <condition>
+	<greater-than>
+	  <property>systems/lighting/level/roof</property>
+	  <value>0</value>
+	</greater-than>
+  </condition>
   <emission>
    <red>0.66</red>
    <green>0.68</green>
@@ -2708,6 +2721,12 @@
  <animation>
   <type>material</type>
   <object-name>observer</object-name>
+  <condition>
+	<greater-than>
+	  <property>systems/lighting/level/roof</property>
+	  <value>0</value>
+	</greater-than>
+  </condition>
   <emission>
    <red>0.66</red>
    <green>0.68</green>
@@ -2725,6 +2744,12 @@
   <object-name>ConsoleRight</object-name>
   <object-name>CeilingPanel</object-name>
   <object-name>Dash lighting</object-name>
+  <condition>
+	<greater-than>
+	  <property>systems/lighting/level/roof</property>
+	  <value>0</value>
+	</greater-than>
+  </condition>
   <emission>
    <red>0.71</red>
    <green>0.79</green>
@@ -2752,6 +2777,12 @@
  <animation>
   <type>material</type>
   <object-name>MainPanel</object-name>
+  <condition>
+	<greater-than>
+	  <property>systems/lighting/level/panel/main</property>
+	  <value>0</value>
+	</greater-than>
+  </condition>
   <emission>
    <red>0.83</red>
    <green>0.74</green>
@@ -2764,6 +2795,12 @@
   <type>material</type>
   <object-name>ConsoleForward</object-name>
   <object-name>ConsoleAft</object-name>
+  <condition>
+	<greater-than>
+	  <property>systems/lighting/level/panel/console</property>
+	  <value>0</value>
+	</greater-than>
+  </condition>
   <emission>
    <red>0.83</red>
    <green>0.74</green>

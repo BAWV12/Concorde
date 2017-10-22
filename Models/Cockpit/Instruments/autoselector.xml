@@ -116,6 +116,8 @@
     <type>material</type>
     <object-name>ATLabel</object-name>
     <object-name>APLabel</object-name>
+    <object-name>NoseSet</object-name>
+    <object-name>AutothrottleSet</object-name>
   <condition>
   <and>
    <greater-than>

@@ -1,8 +1,8 @@
 AC3Db
-MATERIAL "White.016" rgb 0.500 0.500 0.500  amb 0.500 0.500 0.500  emis 0.000 0.000 0.000  spec 0.300 0.300 0.300  shi 32 trans 0.000
+MATERIAL "White.016" rgb 0.500 0.500 0.500  amb 0.500 0.500 0.500  emis 0.100 0.100 0.100  spec 0.300 0.300 0.300  shi 32 trans 0.000
 MATERIAL "Label.009" rgb 0.000 0.000 0.000  amb 0.000 0.000 0.000  emis 0.000 0.000 0.000  spec 0.000 0.000 0.000  shi 32 trans 0.000
-MATERIAL "Yellow.009" rgb 0.500 0.500 0.000  amb 0.25 0.25 0  emis 0.000 0.000 0.000  spec 0.300 0.300 0.300  shi 32 trans 0.000
-MATERIAL "Frame.023" rgb 0.705 0.789 0.868  amb 1.000 1.000 1.000  emis 0.000 0.000 0.000  spec 0.150 0.150 0.150  shi 32 trans 0.000
+MATERIAL "Yellow.009" rgb 0.500 0.500 0.000  amb 0.25 0.25 0  emis 0.100 0.100 0.0  spec 0.300 0.300 0.300  shi 32 trans 0.000
+MATERIAL "Frame.023" rgb 0.705 0.789 0.868  amb 1.000 1.000 1.000  emis 0.150 0.150 0.150  spec 0.150 0.150 0.150  shi 32 trans 0.000
 OBJECT world
 name "Blender_exporter_v2.19__engine-rating.ac"
 kids 9

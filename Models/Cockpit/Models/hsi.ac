@@ -5,7 +5,7 @@ MATERIAL "White.004" rgb 1.000 1.000 1.000  amb 1.000 1.000 1.000  emis 0.000 0.
 MATERIAL "Yellow.002" rgb 1.000 1.000 0.000  amb 0.75 0.75 0.000  emis 0.000 0.000 0.000  spec 0.300 0.300 0.300  shi 32 trans 0.000
 MATERIAL "TrueMag" rgb 1.000 1.000 1.000  amb 1.000 1.000 1.000  emis 0.000 0.000 0.000  spec 0.300 0.300 0.300  shi 50 trans 0.000
 MATERIAL "Digits" rgb 1.000 1.000 1.000  amb 0.100 0.100 0.100  emis 1.000 1.000 1.000  spec 0.300 0.300 0.300  shi 50 trans 0.000
-MATERIAL "Frame.004" rgb 0.705 0.789 0.868  amb 1.000 1.000 1.000  emis 0.000 0.000 0.000  spec 0.150 0.150 0.150  shi 32 trans 0.000
+MATERIAL "Frame.004" rgb 0.705 0.789 0.868  amb 1.000 1.000 1.000  emis 0.150 0.150 0.150  spec 0.150 0.150 0.150  shi 32 trans 0.000
 MATERIAL "TrueMag.001" rgb 1.000 1.000 1.000  amb 1.000 1.000 1.000  emis 0.000 0.000 0.000  spec 0.300 0.300 0.300  shi 50 trans 0.000
 MATERIAL "White.005" rgb 1.000 1.000 1.000  amb 1.000 1.000 1.000  emis 0.000 0.000 0.000  spec 0.300 0.300 0.300  shi 32 trans 0.000
 OBJECT world
