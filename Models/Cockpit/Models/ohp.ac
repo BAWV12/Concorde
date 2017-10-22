@@ -7,7 +7,7 @@ MATERIAL "Yellow" rgb 0.8 0.8 0 amb 0.4 0.4 0 emis 0.05 0.05 0 spec 1 1 1 shi 64
 MATERIAL "Lit" rgb 1 1 1 amb 1 1 1 emis 0.1 0.1 0.1 spec 0.5 0.5 0.5 shi 128 trans 0
 MATERIAL "SwitchRed" rgb 0.8 0 0 amb 0.8 0 0 emis 0.03 0 0 spec 1 1 1 shi 64 trans 0
 MATERIAL "SwitchBase" rgb 0.1 0.1 0.1 amb 0.1 0.1 0.1 emis 0 0 0 spec 0.3 0.3 0.3 shi 128 trans 0
-MATERIAL "Switch" rgb 0.985 1 0.97 amb 0.367 0.367 0.367 emis 0.03 0.03 0.03 spec 0.855 0.855 0.855 shi 128 trans 0
+MATERIAL "Switch" rgb 0.985 1 0.97 amb 0.367 0.367 0.367 emis 0.05 0.05 0.05 spec 0.855 0.855 0.855 shi 128 trans 0
 MATERIAL "Green" rgb 0 0.8 0 amb 0 0.4 0 emis 0 0.1 0 spec 1 1 1 shi 64 trans 0
 MATERIAL "Blue" rgb 0 0 0.8 amb 0 0 0.4 emis 0 0 0.1 spec 1 1 1 shi 0 trans 0
 MATERIAL "Red" rgb 0.8 0 0 amb 0.4 0 0 emis 0.1 0 0 spec 0.5 0 0.002 shi 0 trans 0
