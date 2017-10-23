@@ -477,7 +477,7 @@
     <system n="1" type="bool">false</system>
    </anti-stall>
    <channel>
-    <inner-blue type="bool">true</inner-blue>
+    <inner-blue type="bool">false</inner-blue>
     <inner-mechanical type="bool">false</inner-mechanical>
     <outer-blue type="bool">true</outer-blue>
     <outer-mechanical type="bool">false</outer-mechanical>
