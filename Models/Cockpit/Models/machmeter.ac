@@ -3,7 +3,7 @@ MATERIAL "YellowM" rgb 1.000 0.800 0.000  amb 0.400 0.400 0.400  emis 0.000 0.00
 MATERIAL "Horizon2.020" rgb 1.000 1.000 1.000  amb 1.000 1.000 1.000  emis 0.000 0.000 0.000  spec 0.300 0.300 0.300  shi 32 trans 0.000
 MATERIAL "Black.004" rgb 0.705 0.789 0.868  amb 1.000 1.000 1.000  emis 0.150 0.150 0.150  spec 0.150 0.150 0.150  shi 32 trans 0.000
 MATERIAL "Gauge.007" rgb 1.000 1.000 1.000  amb 1.000 1.000 1.000  emis 0.000 0.000 0.000  spec 0.300 0.300 0.300  shi 32 trans 0.000
-MATERIAL "Yellow.002" rgb 1.000 1.000 0.000  amb 1.000 1.000 1.000  emis 0.000 0.000 0.000  spec 1.000 1.000 1.000  shi 20 trans 0.000
+MATERIAL "Yellow.002" rgb 1.000 1.000 0.000  amb 0.8 0.8 0  emis 0.000 0.000 0.000  spec 1.000 1.000 1.000  shi 20 trans 0.000
 MATERIAL "White.009" rgb 1.000 1.000 1.000  amb 1.000 1.000 1.000  emis 0.000 0.000 0.000  spec 1.000 1.000 1.000  shi 1 trans 0.000
 MATERIAL "Gauge.008" rgb 1.000 1.000 1.000  amb 1.000 1.000 1.000  emis 0.000 0.000 0.000  spec 0.300 0.300 0.300  shi 32 trans 0.000
 OBJECT world
