@@ -2508,4 +2508,21 @@ if (getprop("/systems/electrical/outputs/specific")>20){
 
    me.apengage();
 }
-}
+};
+
+setlistener("/controls/autoflight/altitude", func() {
+  mode1=getprop("/controls/autoflight/altitude");
+  if (mode1=="altitude-hold"){
+    setprop("/autopilot/settings/vertical-speed-fpm",0);
+  }
+});
+
+#setlistener("/controls/autoflight/vertical", func() {
+#  mode2=getprop("/controls/autoflight/vertical");
+#  if (mode2=="altitude-acquire"){
+#    setprop("/autopilot/settings/vertical-speed-fpm",800);
+#  }
+#});
+
+
+

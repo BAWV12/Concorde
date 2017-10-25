@@ -392,9 +392,9 @@
       </params>
     </overlay>
     <offsets>
-      <x-m>-23.83</x-m>
+      <x-m>-23.835</x-m>
       <y-m>0.322</y-m>
-      <z-m>1.25</z-m>
+      <z-m>1.244</z-m>
       <pitch-deg>-10</pitch-deg>
     </offsets>
   </model>
@@ -412,9 +412,9 @@
       </params>
     </overlay>
     <offsets>
-      <x-m>-23.83</x-m>
+      <x-m>-23.835</x-m>
       <y-m>0.43</y-m>
-      <z-m>1.25</z-m>
+      <z-m>1.244</z-m>
       <pitch-deg>-10</pitch-deg>
     </offsets>
     <condition>
