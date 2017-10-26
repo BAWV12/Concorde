@@ -4,21 +4,51 @@
       <animation>
     <type>pick</type>
     <object-name>Knob</object-name>
-    <object-name>Knob1</object-name>
     <action>
-      <name>Toggle</name>
-      <button>0</button>
+      <name>Up</name>
+      <button>3</button>
       <repeatable>false</repeatable>
-     <binding>
-    <command>property-toggle</command>
-    <property>/controls/lighting/crew/afcs/low</property>
-   </binding>
-   <binding>
-    <command>property-toggle</command>
-    <property>/instrumentation/generic/click</property>
-   </binding>
-      </action>
+      <binding>
+        <command>property-adjust</command>
+        <property>/controls/lighting/instruments-norm</property>
+        <step>0.1</step>
+        <min>0.2</min>
+        <max>1</max>
+        <wrap>false</wrap>
+      </binding>
+    </action>
+    <action>
+      <name>Dwn</name>
+      <button>4</button>
+      <repeatable>false</repeatable>
+      <binding>
+        <command>property-adjust</command>
+        <property>/controls/lighting/instruments-norm</property>
+        <step>-0.1</step>
+        <min>0.2</min>
+        <max>1</max>
+        <wrap>false</wrap>
+      </binding>
+    </action>
     </animation>
+
+  <animation>
+    <type>rotate</type>
+    <object-name>Knob</object-name>
+    <property>/controls/lighting/instruments-norm</property>
+    <factor>200</factor>
+    <center>
+      <x-m>0.01298</x-m>
+      <y-m>0</y-m>
+      <z-m>-0.00222</z-m>
+    </center>
+    <axis>
+      <x>-1</x>
+      <y>0</y>
+      <z>0</z>
+    </axis>
+  </animation>
+
 
   <!--Default Lighting-->
   <animation>

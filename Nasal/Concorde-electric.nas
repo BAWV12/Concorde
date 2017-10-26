@@ -1293,3 +1293,5 @@ Antiicing.schedule = func {
 Antiicing.slowschedule = func {
     me.detector.schedule();
 }
+
+setprop("/controls/lighting/instruments-norm",0.5);
