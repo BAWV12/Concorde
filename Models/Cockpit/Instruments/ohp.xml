@@ -2873,6 +2873,7 @@
   <animation>
     <type>rotate</type>
     <object-name>Knob</object-name>
+    <object-name>Knob.010</object-name>
     <property>/controls/lighting/instrument-lights</property>
     <factor>180</factor>
     <axis>   
@@ -2892,6 +2893,7 @@
   <animation>
     <type>rotate</type>
     <object-name>Knob.001</object-name>
+    <object-name>Knob.009</object-name>
     <property>/controls/lighting/instrument-lights</property>
     <factor>180</factor>
     <axis>   
@@ -2911,6 +2913,7 @@
   <animation>
     <type>rotate</type>
     <object-name>Knob.002</object-name>
+    <object-name>Knob.013</object-name>
     <property>/controls/lighting/instrument-lights</property>
     <factor>180</factor>
     <axis>   
@@ -2930,6 +2933,7 @@
   <animation>
     <type>rotate</type>
     <object-name>Knob.004</object-name>
+    <object-name>Knob.011</object-name>
     <property>/controls/lighting/instrument-lights</property>
     <factor>180</factor>
     <axis>   
@@ -4599,6 +4603,7 @@
   <animation>
     <type>rotate</type>
     <object-name>Knob.006</object-name>
+    <object-name>Knob.015</object-name>
     <property>/controls/anti-ice/wing/main-selector</property>
     <factor>-25</factor>
 
@@ -4664,6 +4669,7 @@
   <animation>
     <type>rotate</type>
     <object-name>Knob.005</object-name>
+    <object-name>Knob.014</object-name>
     <property>/controls/anti-ice/wing/alternate-selector</property>
     <factor>-25</factor>
 
@@ -4739,6 +4745,13 @@
     <object-name>p_label.003</object-name>
     <object-name>p_label.004</object-name>
     <object-name>p_label.005</object-name>
+    <object-name>Knob.009</object-name>
+    <object-name>Knob.010</object-name>
+    <object-name>Knob.011</object-name>
+    <object-name>Knob.012</object-name>
+    <object-name>Knob.013</object-name>
+    <object-name>Knob.014</object-name>
+    <object-name>Knob.015</object-name>
   <condition>
   <and>
    <greater-than>
