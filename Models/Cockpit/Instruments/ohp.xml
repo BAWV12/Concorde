@@ -4730,6 +4730,79 @@
     </action>
   </animation>
 
+<!-- Seat belts -->
+  <animation>
+    <type>rotate</type>
+    <object-name>Switch.017</object-name>
+    <expression>
+    	<table><property>/controls/captain/seatbelt</property><entry><ind>0</ind><dep>-35</dep></entry><entry><ind>1</ind><dep>35</dep></entry></table>
+    </expression>
+    <center>
+      <x-m>-22.86351</x-m>
+      <y-m>-0.17452</y-m>
+      <z-m>1.76239</z-m>
+    </center>
+    <axis>
+      <x>0</x>
+      <y>-1</y>
+      <z>0</z>
+    </axis>
+  </animation>
+  <animation>
+    <type>pick</type>
+    <object-name>Switch.017</object-name>
+    <action>
+      <name>toggle throttle 1</name>
+      <button>0</button>
+      <binding>
+        <command>property-toggle</command>
+        <property>/controls/captain/seatbelt</property>
+      </binding>
+      <binding>
+        <command>property-toggle</command>
+        <property>/instrumentation/generic/click</property>
+      </binding>
+    </action>
+  </animation>
+
+<!-- No smoke -->
+  <animation>
+    <type>rotate</type>
+    <object-name>Switch.019</object-name>
+    <expression>
+    	<table><property>/controls/captain/nosmoke</property><entry><ind>0</ind><dep>-35</dep></entry><entry><ind>1</ind><dep>35</dep></entry></table>
+    </expression>
+    <center>
+      <x-m>-22.86351</x-m>
+      <y-m>-0.17452</y-m>
+      <z-m>1.76239</z-m>
+    </center>
+    <axis>
+      <x>0</x>
+      <y>-1</y>
+      <z>0</z>
+    </axis>
+  </animation>
+  <animation>
+    <type>pick</type>
+    <object-name>Switch.019</object-name>
+    <action>
+      <name>toggle throttle 1</name>
+      <button>0</button>
+      <binding>
+        <command>property-toggle</command>
+        <property>/controls/captain/nosmoke</property>
+      </binding>
+      <binding>
+        <command>property-toggle</command>
+        <property>/instrumentation/generic/click</property>
+      </binding>
+    </action>
+  </animation>
+
+
+
+
 <!-- Default lighting -->
 
   <animation>
@@ -4831,7 +4904,8 @@
     <object-name>Switch.062</object-name>
     <object-name>Switch.042</object-name>
     <object-name>Switch.067</object-name>
-
+    <object-name>Switch.017</object-name>
+    <object-name>Switch.019</object-name>
   <condition>
 	<greater-than>
 	  <property>systems/lighting/level/roof</property>
