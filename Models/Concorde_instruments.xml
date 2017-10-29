@@ -179,7 +179,7 @@
  <!-- CONSOLE -->
 
   
-
+<!--
   <panel>
    <path>Aircraft/Concorde/Panels/Concorde-console-captain-top.xml</path>
    <bottom-left>
@@ -218,6 +218,7 @@
     <z-m>1.048</z-m>
    </top-left>
   </panel>
+-->
 
  <!-- PEDESTAL (slope) -->
 <!--
@@ -239,7 +240,7 @@
     <z-m> 0.831</z-m>
    </top-left>
   </panel>
--->
+
   <panel>
    <path>Aircraft/Concorde/Panels/Concorde-pedestal-middle.xml</path>
    <bottom-left>
@@ -258,7 +259,7 @@
     <z-m> 0.833</z-m>
    </top-left>
   </panel>
-
+-->
   <panel>
    <path>Aircraft/Concorde/Panels/Concorde-pedestal-bottom.xml</path>
    <bottom-left>
@@ -686,7 +687,7 @@
    <name>Brake Cylinder</name>
    <path>Aircraft/Concorde/Instruments/pedestal/brake-cylinder.xml</path>
    <offsets>
-    <x-m>-23.185</x-m>
+    <x-m>-23.175</x-m>
     <y-m> 0.115</y-m>
     <z-m> 0.807</z-m>
    </offsets>

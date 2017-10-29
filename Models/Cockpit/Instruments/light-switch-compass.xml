@@ -1,0 +1,72 @@
+<?xml version="1.0"?>
+<PropertyList>
+  <path>../Models/switch_compassl.ac</path>
+  <animation>
+    <type>rotate</type>
+    <object-name>Switch</object-name>
+    <property>/controls/lighting/crew/overhead/compass-norm</property>
+    <interpolation>
+      <entry>
+        <ind>0</ind>
+        <dep>-35</dep>
+      </entry>
+      <entry>
+        <ind>1</ind>
+        <dep>35</dep>
+      </entry>
+    </interpolation>
+    <center>
+      <x-m>0</x-m>
+      <y-m>0</y-m>
+      <z-m>0</z-m>
+    </center>
+    <axis>
+      <x>0</x>
+      <y>-1</y>
+      <z>0</z>
+    </axis>
+  </animation>
+  <animation>
+    <type>pick</type>
+    <object-name>Switch</object-name>
+    <action>
+      <name>Captain Light Switch</name>
+      <button>0</button>
+      <repeatable>false</repeatable>
+      <binding>
+        <command>property-toggle</command>
+        <property>/controls/lighting/crew/overhead/compass-norm</property>
+        <step>1</step>
+        <min>0</min>
+        <max>1</max>
+        <wrap>true</wrap>
+      </binding>
+      <binding>
+        <command>nasal</command>
+        <script>globals.Concorde.lightingsystem.compassexport( 1.0 );</script>
+      </binding>
+      <binding>
+        <command>property-toggle</command>
+        <property>/instrumentation/generic/click</property>
+      </binding>
+    </action>
+  </animation>
+
+  <animation>
+    <type>material</type>
+    <object-name>Switch</object-name>
+  <condition>
+	<greater-than>
+	  <property>systems/lighting/level/roof</property>
+	  <value>0</value>
+	</greater-than>
+  </condition>
+  <emission>
+   <red>0.66</red>
+   <green>0.68</green>
+   <blue>0.64</blue>
+   <factor-prop>systems/lighting/level/roof</factor-prop>
+  </emission>
+ </animation>
+
+</PropertyList>

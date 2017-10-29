@@ -10,6 +10,38 @@
 
 <PropertyList>
 
+  <model>
+    <name>Wipers</name>
+    <path>Aircraft/Concorde/Models/Cockpit/Instruments/wipers.xml</path>
+    <offsets>
+      <x-m>-23.29</x-m>
+      <y-m>0.192</y-m>
+      <z-m>0.819</z-m>
+      <pitch-deg>-90</pitch-deg>
+    </offsets>
+  </model>
+
+  <model>
+    <name>Captain standby compass light</name>
+    <path>Aircraft/Concorde/Models/Cockpit/Instruments/light-switch-compass.xml</path>
+    <offsets>
+      <x-m>-23.2</x-m>
+      <y-m>-0.84</y-m>
+      <z-m>1.051</z-m>
+      <pitch-deg>-90</pitch-deg>
+    </offsets>
+  </model>
+
+  <model>
+    <name>F/O standby compass light</name>
+    <path>Aircraft/Concorde/Models/Cockpit/Instruments/light-switch-compass.xml</path>
+    <offsets>
+      <x-m>-23.2</x-m>
+      <y-m>0.84</y-m>
+      <z-m>1.051</z-m>
+      <pitch-deg>-90</pitch-deg>
+    </offsets>
+  </model>
 
   <model>
     <name>Overhead Panel</name>

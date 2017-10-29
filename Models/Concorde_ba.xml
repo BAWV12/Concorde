@@ -215,10 +215,12 @@
    <path>Aircraft/Concorde/Models/Concorde_interior.xml</path>
   </model>
 
+<!--
   <model>
    <name>Cockpit</name>
    <path>Aircraft/Concorde/Models/Concorde_3d_cockpit.xml</path>
   </model>
+-->
 
   <model>
    <name>Exterior</name>
