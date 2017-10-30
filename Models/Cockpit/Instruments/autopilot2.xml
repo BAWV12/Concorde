@@ -2589,6 +2589,21 @@
         <property>controls/autoflight/autopilot[0]/track-push</property>
       </binding>
     </action>
+
+    <action>
+      <name>set actual hdg</name>
+      <button>0</button>
+      <repeatable>false</repeatable>
+      <binding>
+        <command>nasal</command>
+	  <script>
+		hdg=getprop("orientation/heading-deg");
+		setprop("controls/autoflight/autopilot[0]/heading-select",hdg);
+	  </script>
+      </binding>
+    </action>
+
+
     <action>
       <name>Heading Up</name>
       <button>3</button>
@@ -2672,6 +2687,21 @@
       <z>0</z>
     </axis>
   </animation>
+
+    <action>
+      <name>set actual hdg</name>
+      <button>0</button>
+      <repeatable>false</repeatable>
+      <binding>
+        <command>nasal</command>
+	  <script>
+		hdg=getprop("orientation/heading-deg");
+		setprop("controls/autoflight/autopilot[1]/heading-select",hdg);
+	  </script>
+      </binding>
+    </action>
+
+
   <animation>
     <type>pick</type>
     <object-name>HDG2Select</object-name>

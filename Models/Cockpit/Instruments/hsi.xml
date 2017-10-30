@@ -125,7 +125,7 @@
             <property alias="/params/ins-source"/>
           </prod>
         </sum>
-        <property alias="/params/heading-deg"/>
+<!--        <property alias="/params/heading-deg"/>-->
       </difference>
     </expression>
     <center>
