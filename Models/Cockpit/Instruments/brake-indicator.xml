@@ -12,14 +12,17 @@
         </greater-than>
 	<or>
 	  <property>/controls/lighting/crew/captain/test</property>	
-          <less-than>
-            <property>/systems/brakes/green-accu-psi</property>
-            <value>390</value>
-          </less-than>
-          <property>/systems/brakes/pedals</property>
+	  <and>
+            <less-than>
+            	<property>/systems/brakes/green-accu-psi</property>
+            	<value>390</value>
+            </less-than>
+            <property>/systems/brakes/pedals</property>
+	  </and>
 	</or>
       </and>
     </condition>
+
     <emission>
       <red>0.8</red>
       <green>0</green>
