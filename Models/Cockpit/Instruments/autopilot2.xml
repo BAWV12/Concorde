@@ -808,6 +808,47 @@
   </animation>
 
   <!-- Heading Settings -->
+  <animation>
+    <type>select</type>
+    <object-name>HDG1Num1</object-name>
+    <object-name>HDG1Num2</object-name>
+    <object-name>HDG1Num3</object-name>
+    <condition>
+	<not><property>/controls/autoflight/autopilot[0]/track-push</property></not>
+    </condition>
+  </animation>
+  <animation>
+    <type>select</type>
+    <object-name>HDG1Num1.001</object-name>
+    <object-name>HDG1Num1.001</object-name>
+    <object-name>HDG1Num1.001</object-name>
+    <condition>
+	<property>/controls/autoflight/autopilot[0]/track-push</property>
+    </condition>
+  </animation>
+
+  <animation>
+    <type>select</type>
+    <object-name>HDG2Num1</object-name>
+    <object-name>HDG2Num2</object-name>
+    <object-name>HDG2Num3</object-name>
+    <condition>
+	<not><property>/controls/autoflight/autopilot[1]/track-push</property></not>
+    </condition>
+  </animation>
+  <animation>
+    <type>select</type>
+    <object-name>HDG2Num1.001</object-name>
+    <object-name>HDG2Num1.001</object-name>
+    <object-name>HDG2Num1.001</object-name>
+    <condition>
+	<property>/controls/autoflight/autopilot[1]/track-push</property>
+    </condition>
+  </animation>
+
+
+
+
   <!-- Heading 1 Numbers -->
   <animation>
     <type>textranslate</type>
@@ -815,9 +856,6 @@
     <property>controls/autoflight/autopilot[0]/heading-select</property>
     <factor>.001</factor>
     <step>100</step>
-    <condition>
-	<not><property>controls/autoflight/autopilot[0]/track-push</property></not>
-    </condition>
     <axis>
       <x>0</x>
       <y>1</y>
@@ -830,9 +868,6 @@
     <property>controls/autoflight/autopilot[0]/heading-select</property>
     <factor>.01</factor>
     <step>10</step>
-    <condition>
-	<not><property>controls/autoflight/autopilot[0]/track-push</property></not>
-    </condition>
     <axis>
       <x>0</x>
       <y>1</y>
@@ -845,9 +880,43 @@
     <property>controls/autoflight/autopilot[0]/heading-select</property>
     <factor>.1</factor>
     <step>1</step>
-    <condition>
-	<not><property>controls/autoflight/autopilot[0]/track-push</property></not>
-    </condition>
+    <axis>
+      <x>0</x>
+      <y>1</y>
+      <z>0</z>
+    </axis>
+  </animation>
+
+  <animation>
+    <type>textranslate</type>
+    <object-name>HDG1Num1.001</object-name>
+    <property>controls/autoflight/autopilot[0]/heading-true-select</property>
+    <factor>.001</factor>
+    <step>100</step>
+    <axis>
+      <x>0</x>
+      <y>1</y>
+      <z>0</z>
+    </axis>
+  </animation>
+  <animation>
+    <type>textranslate</type>
+    <object-name>HDG1Num2.001</object-name>
+    <property>controls/autoflight/autopilot[0]/heading-true-select</property>
+    <factor>.01</factor>
+    <step>10</step>
+    <axis>
+      <x>0</x>
+      <y>1</y>
+      <z>0</z>
+    </axis>
+  </animation>
+  <animation>
+    <type>textranslate</type>
+    <object-name>HDG1Num3.001</object-name>
+    <property>controls/autoflight/autopilot[0]/heading-true-select</property>
+    <factor>.1</factor>
+    <step>1</step>
     <axis>
       <x>0</x>
       <y>1</y>
@@ -968,6 +1037,44 @@
       <z>0</z>
     </axis>
   </animation>
+
+  <animation>
+    <type>textranslate</type>
+    <object-name>HDG2Num1.001</object-name>
+    <property>controls/autoflight/autopilot[1]/heading-true-select</property>
+    <factor>.001</factor>
+    <step>100</step>
+    <axis>
+      <x>0</x>
+      <y>1</y>
+      <z>0</z>
+    </axis>
+  </animation>
+  <animation>
+    <type>textranslate</type>
+    <object-name>HDG2Num2.001</object-name>
+    <property>controls/autoflight/autopilot[1]/heading-true-select</property>
+    <factor>.01</factor>
+    <step>10</step>
+    <axis>
+      <x>0</x>
+      <y>1</y>
+      <z>0</z>
+    </axis>
+  </animation>
+  <animation>
+    <type>textranslate</type>
+    <object-name>HDG2Num3.001</object-name>
+    <property>controls/autoflight/autopilot[1]/heading-true-select</property>
+    <factor>.1</factor>
+    <step>1</step>
+    <axis>
+      <x>0</x>
+      <y>1</y>
+      <z>0</z>
+    </axis>
+  </animation>
+
 
   <!--== Altitude Display ==-->
   <!-- MP -->
@@ -2245,6 +2352,14 @@
   <object-name>HDG2Num1</object-name>
   <object-name>HDG2Num2</object-name>
   <object-name>HDG2Num3</object-name>
+
+  <object-name>HDG1Num1.001</object-name>
+  <object-name>HDG1Num2.001</object-name>
+  <object-name>HDG1Num3.001</object-name>
+  <object-name>HDG2Num1.001</object-name>
+  <object-name>HDG2Num2.001</object-name>
+  <object-name>HDG2Num3.001</object-name>
+
   <object-name>VOR1Num1</object-name>
   <object-name>VOR1Num2</object-name>
   <object-name>VOR1Num3</object-name>
@@ -2599,6 +2714,7 @@
 	  <script>
 		hdg=getprop("orientation/heading-deg");
 		setprop("controls/autoflight/autopilot[0]/heading-select",hdg);
+		setprop("controls/autoflight/autopilot[0]/heading-true-select",hdg);
 	  </script>
       </binding>
     </action>
@@ -2688,20 +2804,6 @@
     </axis>
   </animation>
 
-    <action>
-      <name>set actual hdg</name>
-      <button>0</button>
-      <repeatable>false</repeatable>
-      <binding>
-        <command>nasal</command>
-	  <script>
-		hdg=getprop("orientation/heading-deg");
-		setprop("controls/autoflight/autopilot[1]/heading-select",hdg);
-	  </script>
-      </binding>
-    </action>
-
-
   <animation>
     <type>pick</type>
     <object-name>HDG2Select</object-name>
@@ -2714,7 +2816,23 @@
         <property>controls/autoflight/autopilot[1]/track-push</property>
       </binding>
     </action>
+
+    <action>
+      <name>set actual hdg</name>
+      <button>0</button>
+      <repeatable>false</repeatable>
+      <binding>
+        <command>nasal</command>
+	  <script>
+		hdg=getprop("orientation/heading-deg");
+		setprop("controls/autoflight/autopilot[1]/heading-select",hdg);
+		setprop("controls/autoflight/autopilot[1]/heading-true-select",hdg);
+	  </script>
+      </binding>
+    </action>
+
   </animation>
+
   <animation>
     <type>pick</type>
     <object-name>HDG2Select</object-name>
