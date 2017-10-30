@@ -5,7 +5,16 @@
     <type>material</type>
     <object-name>INS1</object-name>
     <condition>
-      <property>/instrumentation/ins[0]/light/warning</property>
+      <and>
+        <greater-than>
+          <property>/systems/electrical/outputs/specific</property>
+          <value>20.0</value>
+        </greater-than>
+        <or>
+	  <property>/controls/lighting/crew/captain/test</property>	
+          <property>/instrumentation/ins[0]/light/warning</property>
+        </or>
+      </and>
     </condition>
     <emission>
       <red>0.8</red>
@@ -17,7 +26,16 @@
     <type>material</type>
     <object-name>INS2</object-name>
     <condition>
-      <property>/instrumentation/ins[1]/light/warning</property>
+      <and>
+        <greater-than>
+          <property>/systems/electrical/outputs/specific</property>
+          <value>20.0</value>
+        </greater-than>
+        <or>
+	  <property>/controls/lighting/crew/captain/test</property>	
+          <property>/instrumentation/ins[1]/light/warning</property>
+        </or>
+      </and>
     </condition>
     <emission>
       <red>0.8</red>
@@ -29,7 +47,16 @@
     <type>material</type>
     <object-name>INS3</object-name>
     <condition>
-      <property>/instrumentation/ins[2]/light/warning</property>
+      <and>
+        <greater-than>
+          <property>/systems/electrical/outputs/specific</property>
+          <value>20.0</value>
+        </greater-than>
+        <or>
+	  <property>/controls/lighting/crew/captain/test</property>	
+          <property>/instrumentation/ins[3]/light/warning</property>
+        </or>
+      </and>
     </condition>
     <emission>
       <red>0.8</red>
@@ -37,12 +64,23 @@
       <blue>0</blue>
     </emission>
   </animation>
-  <!--
+
   <animation>
     <type>material</type>
     <object-name>INSComp</object-name>
     <condition>
-
+      <and>
+        <greater-than>
+          <property>/systems/electrical/outputs/specific</property>
+          <value>20.0</value>
+        </greater-than>
+        <or>
+	  <property>/controls/lighting/crew/captain/test</property>	
+          <property>/instrumentation/ins[0]/light/warning</property>
+          <property>/instrumentation/ins[1]/light/warning</property>
+          <property>/instrumentation/ins[2]/light/warning</property>
+        </or>
+      </and>
     </condition>
     <emission>
       <red>0.8</red>
@@ -50,22 +88,16 @@
       <blue>0</blue>
     </emission>
   </animation>
-  -->
+
   <!--Default Lighting-->
   <animation>
     <type>material</type>
     <object-name>Frame</object-name>
-  <condition>
-	<greater-than>
-	  <property>systems/lighting/level/roof</property>
-	  <value>0</value>
-	</greater-than>
-  </condition>
   <emission>
    <red>0.66</red>
    <green>0.68</green>
    <blue>0.64</blue>
-   <factor-prop>systems/lighting/level/roof</factor-prop>
+      <factor-prop>systems/lighting/level/panel/main</factor-prop>
   </emission>
  </animation>
 </PropertyList>

@@ -5,10 +5,19 @@
     <type>material</type>
     <object-name>WheelOverheat</object-name>
     <condition>
-        <greater-than>
-         <property>/systems/brakes/temperature-degc</property>
-         <value>220</value>
-        </greater-than>
+     <and>
+       <greater-than>
+         <property>/systems/electrical/outputs/specific</property>
+         <value>20.0</value>
+       </greater-than>
+       <or>
+	 <property>/controls/lighting/crew/captain/test</property>	
+         <greater-than>
+           <property>/systems/brakes/temperature-degc</property>
+           <value>220</value>
+         </greater-than>
+       </or>
+     </and>
     </condition>
     <emission>
       <red>0.8</red>
@@ -20,17 +29,11 @@
   <animation>
     <type>material</type>
     <object-name>Frame</object-name>
-  <condition>
-	<greater-than>
-	  <property>systems/lighting/level/roof</property>
-	  <value>0</value>
-	</greater-than>
-  </condition>
   <emission>
    <red>0.66</red>
    <green>0.68</green>
    <blue>0.64</blue>
-   <factor-prop>systems/lighting/level/roof</factor-prop>
+      <factor-prop>systems/lighting/level/panel/main</factor-prop>
   </emission>
  </animation>
 </PropertyList>

@@ -6,17 +6,22 @@
     <object-name>CTY</object-name>
     <condition>
       <and>
-
         <greater-than>
           <property>/systems/electrical/outputs/specific</property>
           <value>20.0</value>
         </greater-than>
-
-        <property>/instrumentation/generic/state</property>
-        <property>/controls/engines/engine[0]/contingency</property>
-        <property>/controls/engines/engine[1]/contingency</property>
-        <property>/controls/engines/engine[2]/contingency</property>
-        <property>/controls/engines/engine[3]/contingency</property>
+	<and>
+	  <or>
+	    <property>/controls/lighting/crew/captain/test</property>	
+	    <and>
+        	<property>/instrumentation/generic/state</property>
+        	<property>/controls/engines/engine[0]/contingency</property>
+        	<property>/controls/engines/engine[1]/contingency</property>
+        	<property>/controls/engines/engine[2]/contingency</property>
+        	<property>/controls/engines/engine[3]/contingency</property>
+            </and>
+          </or>
+	</and>
       </and>
     </condition>
     <emission>
@@ -30,28 +35,33 @@
     <object-name>TO</object-name>
     <condition>
       <and>
-
         <greater-than>
           <property>/systems/electrical/outputs/specific</property>
           <value>20.0</value>
         </greater-than>
-
-        <equals>
-          <property>/systems/engines/engine[0]/rating</property>
-          <value>takeoff</value>
-        </equals>
-        <equals>
-          <property>/systems/engines/engine[1]/rating</property>
-          <value>takeoff</value>
-        </equals>
-        <equals>
-          <property>/systems/engines/engine[2]/rating</property>
-          <value>takeoff</value>
-        </equals>
-        <equals>
-          <property>/systems/engines/engine[3]/rating</property>
-          <value>takeoff</value>
-        </equals>
+	<and>
+	  <or>
+	    <property>/controls/lighting/crew/captain/test</property>	
+	    <and>
+              <equals>
+                <property>/systems/engines/engine[0]/rating</property>
+                <value>takeoff</value>
+              </equals>
+              <equals>
+                <property>/systems/engines/engine[1]/rating</property>
+                <value>takeoff</value>
+              </equals>
+              <equals>
+                <property>/systems/engines/engine[2]/rating</property>
+                <value>takeoff</value>
+              </equals>
+              <equals>
+                <property>/systems/engines/engine[3]/rating</property>
+                <value>takeoff</value>
+              </equals>
+            </and>
+          </or>
+	</and>
       </and>
     </condition>
     <emission>
@@ -65,28 +75,33 @@
     <object-name>CLB</object-name>
     <condition>
       <and>
-
         <greater-than>
           <property>/systems/electrical/outputs/specific</property>
           <value>20.0</value>
         </greater-than>
-
-        <equals>
-          <property>/systems/engines/engine[0]/rating</property>
-          <value>climb</value>
-        </equals>
-        <equals>
-          <property>/systems/engines/engine[1]/rating</property>
-          <value>climb</value>
-        </equals>
-        <equals>
-          <property>/systems/engines/engine[2]/rating</property>
-          <value>climb</value>
-        </equals>
-        <equals>
-          <property>/systems/engines/engine[3]/rating</property>
-          <value>climb</value>
-        </equals>
+	<and>
+	  <or>
+	    <property>/controls/lighting/crew/captain/test</property>	
+	    <and>
+              <equals>
+                <property>/systems/engines/engine[0]/rating</property>
+                <value>climb</value>
+              </equals>
+              <equals>
+                <property>/systems/engines/engine[1]/rating</property>
+                <value>climb</value>
+              </equals>
+              <equals>
+                <property>/systems/engines/engine[2]/rating</property>
+                <value>climb</value>
+              </equals>
+              <equals>
+                <property>/systems/engines/engine[3]/rating</property>
+                <value>climb</value>
+              </equals>
+            </and>
+          </or>
+	</and>
       </and>
     </condition>
     <emission>
@@ -100,28 +115,33 @@
     <object-name>CRS</object-name>
     <condition>
       <and>
-
         <greater-than>
           <property>/systems/electrical/outputs/specific</property>
           <value>20.0</value>
         </greater-than>
-
-        <equals>
-          <property>/systems/engines/engine[0]/rating</property>
-          <value>cruise</value>
-        </equals>
-        <equals>
-          <property>/systems/engines/engine[1]/rating</property>
-          <value>cruise</value>
-        </equals>
-        <equals>
-          <property>/systems/engines/engine[2]/rating</property>
-          <value>cruise</value>
-        </equals>
-        <equals>
-          <property>/systems/engines/engine[3]/rating</property>
-          <value>cruise</value>
-        </equals>
+	<and>
+	  <or>
+	    <property>/controls/lighting/crew/captain/test</property>	
+	    <and>
+              <equals>
+                <property>/systems/engines/engine[0]/rating</property>
+                <value>cruise</value>
+              </equals>
+              <equals>
+                <property>/systems/engines/engine[1]/rating</property>
+                <value>cruise</value>
+              </equals>
+              <equals>
+                <property>/systems/engines/engine[2]/rating</property>
+                <value>cruise</value>
+              </equals>
+              <equals>
+                <property>/systems/engines/engine[3]/rating</property>
+                <value>cruise</value>
+              </equals>
+            </and>
+          </or>
+	</and>
       </and>
     </condition>
     <emission>
@@ -134,17 +154,11 @@
   <animation>
     <type>material</type>
     <object-name>Frame</object-name>
-  <condition>
-	<greater-than>
-	  <property>systems/lighting/level/roof</property>
-	  <value>0</value>
-	</greater-than>
-  </condition>
   <emission>
    <red>0.66</red>
    <green>0.68</green>
    <blue>0.64</blue>
-   <factor-prop>systems/lighting/level/roof</factor-prop>
+      <factor-prop>systems/lighting/level/panel/main</factor-prop>
   </emission>
  </animation>
 </PropertyList>

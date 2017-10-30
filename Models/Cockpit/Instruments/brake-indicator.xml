@@ -10,12 +10,14 @@
           <property>/systems/electrical/outputs/specific</property>
           <value>20.0</value>
         </greater-than>
-
-        <less-than>
-          <property>/systems/brakes/green-accu-psi</property>
-          <value>390</value>
-        </less-than>
-        <property>/systems/brakes/pedals</property>
+	<or>
+	  <property>/controls/lighting/crew/captain/test</property>	
+          <less-than>
+            <property>/systems/brakes/green-accu-psi</property>
+            <value>390</value>
+          </less-than>
+          <property>/systems/brakes/pedals</property>
+	</or>
       </and>
     </condition>
     <emission>
@@ -35,6 +37,7 @@
         </greater-than>
 
       <or>
+	<property>/controls/lighting/crew/captain/test</property>	
         <property>/controls/gear/brake-emergency</property>
         <property>/controls/gear/brake-parking-lever</property>
       </or>
@@ -50,17 +53,11 @@
   <animation>
     <type>material</type>
     <object-name>Frame</object-name>
-  <condition>
-	<greater-than>
-	  <property>systems/lighting/level/roof</property>
-	  <value>0</value>
-	</greater-than>
-  </condition>
   <emission>
    <red>0.66</red>
    <green>0.68</green>
    <blue>0.64</blue>
-   <factor-prop>systems/lighting/level/roof</factor-prop>
+      <factor-prop>systems/lighting/level/panel/main</factor-prop>
   </emission>
  </animation>
 

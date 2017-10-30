@@ -25,7 +25,7 @@
     <name>Captain standby compass light</name>
     <path>Aircraft/Concorde/Models/Cockpit/Instruments/light-switch-compass.xml</path>
     <offsets>
-      <x-m>-23.2</x-m>
+      <x-m>-23.15</x-m>
       <y-m>-0.84</y-m>
       <z-m>1.051</z-m>
       <pitch-deg>-90</pitch-deg>
@@ -36,7 +36,7 @@
     <name>F/O standby compass light</name>
     <path>Aircraft/Concorde/Models/Cockpit/Instruments/light-switch-compass.xml</path>
     <offsets>
-      <x-m>-23.2</x-m>
+      <x-m>-23.15</x-m>
       <y-m>0.84</y-m>
       <z-m>1.051</z-m>
       <pitch-deg>-90</pitch-deg>
@@ -793,11 +793,11 @@
   
   <model>
     <name>Captain swfrm</name>
-    <path>Aircraft/Concorde/Models/Cockpit/Instruments/frm.xml</path>
+    <path>Aircraft/Concorde/Models/Cockpit/Instruments/frm_fo.xml</path>
     <offsets>
-      <x-m>-23.828</x-m>
-      <y-m>-0.635</y-m>
-      <z-m>1.176</z-m>
+      <x-m>-23.826</x-m>
+      <y-m>-0.65</y-m>
+      <z-m>1.168</z-m>
       <pitch-deg>-10</pitch-deg>
     </offsets>
   </model>
@@ -816,23 +816,14 @@
   </model>
   
 
-  <model>
-    <name>Captain Light Switch</name>
-    <path>Aircraft/Concorde/Models/Cockpit/Instruments/light-switch.xml</path>
-    <offsets>
-      <x-m>-23.829</x-m>
-      <y-m>-0.635</y-m>
-      <z-m>1.217</z-m>
-      <pitch-deg>-10</pitch-deg>
-    </offsets>
-  </model>
+
   <model>
     <name>Captain INS Source Label</name>
     <path>Aircraft/Concorde/Models/Cockpit/Instruments/ins-label.xml</path>
     <offsets>
       <x-m>-23.825</x-m>
       <y-m>-0.635</y-m>
-      <z-m>1.198</z-m>
+      <z-m>1.196</z-m>
       <pitch-deg>-10</pitch-deg>
     </offsets>
   </model>

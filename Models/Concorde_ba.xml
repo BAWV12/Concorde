@@ -2741,7 +2741,6 @@
   <type>material</type>
   <object-name>RoofLight1</object-name>
   <object-name>RoofLight2</object-name>
-  <object-name>UpperPanel</object-name>
   <object-name>ConsoleLeft</object-name>
   <object-name>ConsoleRight</object-name>
   <object-name>CeilingPanel</object-name>
@@ -2779,6 +2778,7 @@
  <animation>
   <type>material</type>
   <object-name>MainPanel</object-name>
+  <object-name>UpperPanel</object-name>
   <condition>
 	<greater-than>
 	  <property>systems/lighting/level/panel/main</property>

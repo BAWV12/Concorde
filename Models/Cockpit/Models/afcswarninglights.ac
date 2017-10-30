@@ -1,137 +1,22 @@
 AC3Db
-MATERIAL "Yellow.006" rgb 0.500 0.500 0.000  amb 0.333 0.333 0  emis 0.100 0.100 0.000  spec 0.300 0.300 0.300  shi 32 trans 0.000
-MATERIAL "Red.003" rgb 0.500 0.000 0.000  amb 0.25 0 0  emis 0.100 0.000 0.000  spec 0.300 0.300 0.300  shi 32 trans 0.000
+MATERIAL "DefaultWhite" rgb 1 1 1  amb 1 1 1  emis 0 0 0  spec 0.5 0.5 0.5  shi 64  trans 0
 MATERIAL "Label.005" rgb 1.000 1.000 1.000  amb 1.000 1.000 1.000  emis 0.100 0.100 0.100  spec 0.300 0.300 0.300  shi 32 trans 0.000
-MATERIAL "Orange.002" rgb 0.500 0.200 0.000  amb 0.25 0.125 0.0  emis 0.000 0.000 0.000  spec 0.300 0.300 0.300  shi 32 trans 0.000
-MATERIAL "Frame.024" rgb 0.705 0.789 0.868  amb 1.000 1.000 1.000  emis 0.150 0.150 0.150  spec 0.150 0.150 0.150  shi 32 trans 0.000
-MATERIAL "Grey.003" rgb 0.100 0.100 0.100  amb 0.100 0.100 0.100  emis 0.050 0.050 0.050  spec 0.300 0.300 0.300  shi 32 trans 0.000
+MATERIAL "Material.009" rgb 0.640 0.640 0.640  amb 1.000 1.000 1.000  emis 0.100 0.100 0.100  spec 0.500 0.500 0.500  shi 12 trans 0.000
 MATERIAL "White.015" rgb 0.200 0.200 0.200  amb 0.200 0.200 0.200  emis 0.100 0.100 0.100  spec 0.300 0.300 0.300  shi 32 trans 0.000
 MATERIAL "Green.000" rgb 0.000 0.500 0.000  amb 0 0.25 0  emis 0.000 0.100 0.000  spec 0.300 0.300 0.300  shi 32 trans 0.000
-MATERIAL "Material.009" rgb 0.640 0.640 0.640  amb 1.000 1.000 1.000  emis 0.100 0.100 0.100  spec 0.500 0.500 0.500  shi 12 trans 0.000
+MATERIAL "Grey.003" rgb 0.705 0.789 0.868  amb 1.000 1.000 1.000  emis 0.150 0.150 0.150  spec 0.150 0.150 0.150  shi 32 trans 0.000
+MATERIAL "Frame.024" rgb 0.705 0.789 0.868  amb 1.000 1.000 1.000  emis 0.150 0.150 0.150  spec 0.150 0.150 0.150  shi 32 trans 0.000
+MATERIAL "Orange.002" rgb 0.500 0.200 0.000  amb 0.25 0.125 0.0  emis 0.000 0.000 0.000  spec 0.300 0.300 0.300  shi 32 trans 0.000
+MATERIAL "Red.003" rgb 0.500 0.000 0.000  amb 0.25 0 0  emis 0.100 0.000 0.000  spec 0.300 0.300 0.300  shi 32 trans 0.000
+MATERIAL "Yellow.006" rgb 0.500 0.500 0.000  amb 0.333 0.333 0  emis 0.100 0.100 0.000  spec 0.300 0.300 0.300  shi 32 trans 0.000
 OBJECT world
-name "Blender_exporter_v2.19__afcswarninglights.ac"
 kids 21
 OBJECT poly
-name "Aircraft1"
-data 18
-Aircraft1.mesh.001
-crease 40.0
-numvert 8
-0.0065 0.005 -0.0015
-0.0065 -0.005 -0.0015
-0.0065 0.005 0.0015
-0.0065 -0.005 0.0015
-0.0055 0.005 -0.0015
-0.0055 -0.005 -0.0015
-0.0055 0.005 0.0015
-0.0055 -0.005 0.0015
-numsurf 6
-SURF 0X20
-mat 0
-refs 4
-1 0 0
-0 0 0
-2 0 0
-3 0 0
-SURF 0X20
-mat 0
-refs 4
-6 0 0
-4 0 0
-5 0 0
-7 0 0
-SURF 0X20
-mat 0
-refs 4
-7 0 0
-3 0 0
-2 0 0
-6 0 0
-SURF 0X20
-mat 0
-refs 4
-4 0 0
-0 0 0
-1 0 0
-5 0 0
-SURF 0X20
-mat 0
-refs 4
-3 0 0
-7 0 0
-5 0 0
-1 0 0
-SURF 0X20
-mat 0
-refs 4
-0 0 0
-4 0 0
-6 0 0
-2 0 0
-kids 0
-OBJECT poly
-name "Aircraft2"
-data 18
-Aircraft2.mesh.001
-crease 40.0
-numvert 8
-0.0065 -0.002 0.005
-0.0065 -0.002 -0.005
-0.0065 -0.005 0.005
-0.0065 -0.005 -0.005
-0.0055 -0.002 0.005
-0.0055 -0.002 -0.005
-0.0055 -0.005 0.005
-0.0055 -0.005 -0.005
-numsurf 6
-SURF 0X20
-mat 0
-refs 4
-1 0 0
-0 0 0
-2 0 0
-3 0 0
-SURF 0X20
-mat 0
-refs 4
-6 0 0
-4 0 0
-5 0 0
-7 0 0
-SURF 0X20
-mat 0
-refs 4
-7 0 0
-3 0 0
-2 0 0
-6 0 0
-SURF 0X20
-mat 0
-refs 4
-4 0 0
-0 0 0
-1 0 0
-5 0 0
-SURF 0X20
-mat 0
-refs 4
-3 0 0
-7 0 0
-5 0 0
-1 0 0
-SURF 0X20
-mat 0
-refs 4
-0 0 0
-4 0 0
-6 0 0
-2 0 0
-kids 0
-OBJECT poly
 name "AP"
-data 11
-AP.mesh.001
-crease 40.0
+loc 0 0 -0
+data 2
+AP
+crease 39.999999
 numvert 10
 0.0055 -0.015 0.06931
 0.0055 0.015 0.06931
@@ -144,83 +29,83 @@ numvert 10
 0.0025 -0.015 0.05931
 0.0025 -0 0.05931
 numsurf 13
-SURF 0X20
-mat 1
+SURF 0x20
+mat 8
 refs 3
 1 0 0
 0 0 0
 2 0 0
-SURF 0X20
-mat 1
+SURF 0x20
+mat 8
 refs 3
 2 0 0
 0 0 0
 4 0 0
-SURF 0X20
-mat 1
+SURF 0x20
+mat 8
 refs 3
 0 0 0
 3 0 0
 4 0 0
-SURF 0X20
-mat 1
+SURF 0x20
+mat 8
 refs 3
 7 0 0
 5 0 0
 6 0 0
-SURF 0X20
-mat 1
+SURF 0x20
+mat 8
 refs 3
 7 0 0
 9 0 0
 5 0 0
-SURF 0X20
-mat 1
+SURF 0x20
+mat 8
 refs 3
 9 0 0
 8 0 0
 5 0 0
-SURF 0X20
-mat 1
+SURF 0x20
+mat 8
 refs 4
 5 0 0
 0 0 0
 1 0 0
 6 0 0
-SURF 0X20
-mat 1
+SURF 0x20
+mat 8
 refs 4
 0 0 0
 5 0 0
 8 0 0
 3 0 0
-SURF 0X20
-mat 1
+SURF 0x20
+mat 8
 refs 4
 2 0 0
 7 0 0
 6 0 0
 1 0 0
-SURF 0X20
-mat 1
+SURF 0x20
+mat 8
 refs 3
 9 0 0
 7 0 0
 2 0 0
-SURF 0X20
-mat 1
+SURF 0x20
+mat 8
 refs 3
 4 0 0
 9 0 0
 2 0 0
-SURF 0X20
-mat 1
+SURF 0x20
+mat 8
 refs 3
 4 0 0
 8 0 0
 9 0 0
-SURF 0X20
-mat 1
+SURF 0x20
+mat 8
 refs 3
 4 0 0
 3 0 0
@@ -228,30 +113,32 @@ refs 3
 kids 0
 OBJECT poly
 name "APLabel"
-data 16
-APLabel.mesh.003
-crease 40.0
+loc 0 0 -0
+data 7
+APLabel
 texture "afcswarninglights.png"
-texrep 1 1
+texrep 1.000000 1.000000
+crease 39.999999
 numvert 4
 0.0065 -0.0075 0.06931
 0.0065 0.0075 0.06931
 0.0065 0.0075 0.05931
 0.0065 -0.0075 0.05931
 numsurf 1
-SURF 0X20
-mat 2
+SURF 0x20
+mat 1
 refs 4
-0 0.697522 0.769647
-3 0.786853 0.769647
-2 0.786853 0.999102
-1 0.697522 0.999102
+0 0.697521984577 0.76964700222
+3 0.786853015423 0.76964700222
+2 0.786853015423 0.999101996422
+1 0.697521984577 0.999101996422
 kids 0
 OBJECT poly
 name "AT"
-data 11
-AT.mesh.001
-crease 40.0
+loc 0 0 -0
+data 2
+AT
+crease 39.999999
 numvert 10
 0.0055 -0.015 0.054
 0.0055 0.015 0.054
@@ -264,83 +151,83 @@ numvert 10
 0.0025 -0.015 0.044
 0.0025 -0 0.044
 numsurf 13
-SURF 0X20
-mat 1
+SURF 0x20
+mat 8
 refs 3
 1 0 0
 0 0 0
 2 0 0
-SURF 0X20
-mat 1
+SURF 0x20
+mat 8
 refs 3
 2 0 0
 0 0 0
 4 0 0
-SURF 0X20
-mat 1
+SURF 0x20
+mat 8
 refs 3
 0 0 0
 3 0 0
 4 0 0
-SURF 0X20
-mat 1
+SURF 0x20
+mat 8
 refs 3
 7 0 0
 5 0 0
 6 0 0
-SURF 0X20
-mat 1
+SURF 0x20
+mat 8
 refs 3
 7 0 0
 9 0 0
 5 0 0
-SURF 0X20
-mat 1
+SURF 0x20
+mat 8
 refs 3
 9 0 0
 8 0 0
 5 0 0
-SURF 0X20
-mat 1
+SURF 0x20
+mat 8
 refs 4
 5 0 0
 0 0 0
 1 0 0
 6 0 0
-SURF 0X20
-mat 1
+SURF 0x20
+mat 8
 refs 4
 0 0 0
 5 0 0
 8 0 0
 3 0 0
-SURF 0X20
-mat 1
+SURF 0x20
+mat 8
 refs 4
 2 0 0
 7 0 0
 6 0 0
 1 0 0
-SURF 0X20
-mat 1
+SURF 0x20
+mat 8
 refs 3
 9 0 0
 7 0 0
 2 0 0
-SURF 0X20
-mat 1
+SURF 0x20
+mat 8
 refs 3
 4 0 0
 9 0 0
 2 0 0
-SURF 0X20
-mat 1
+SURF 0x20
+mat 8
 refs 3
 4 0 0
 8 0 0
 9 0 0
-SURF 0X20
-mat 1
+SURF 0x20
+mat 8
 refs 3
 4 0 0
 3 0 0
@@ -348,30 +235,150 @@ refs 3
 kids 0
 OBJECT poly
 name "ATLabel"
-data 16
-ATLabel.mesh.003
-crease 40.0
+loc 0 0 -0
+data 7
+ATLabel
 texture "afcswarninglights.png"
-texrep 1 1
+texrep 1.000000 1.000000
+crease 39.999999
 numvert 4
 0.0065 -0.0075 0.054
 0.0065 0.0075 0.054
 0.0065 0.0075 0.044
 0.0065 -0.0075 0.044
 numsurf 1
-SURF 0X20
-mat 2
+SURF 0x20
+mat 1
 refs 4
-0 0.697522 0.519647
-3 0.786853 0.519647
-2 0.786853 0.749102
-1 0.697522 0.749102
+0 0.697521984577 0.51964700222
+3 0.786853015423 0.51964700222
+2 0.786853015423 0.749101996422
+1 0.697521984577 0.749101996422
+kids 0
+OBJECT poly
+name "Aircraft1"
+loc 0 0 -0
+data 9
+Aircraft1
+crease 39.999999
+numvert 8
+0.0065 0.005 -0.0015
+0.0065 -0.005 -0.0015
+0.0065 0.005 0.0015
+0.0065 -0.005 0.0015
+0.0055 0.005 -0.0015
+0.0055 -0.005 -0.0015
+0.0055 0.005 0.0015
+0.0055 -0.005 0.0015
+numsurf 6
+SURF 0x20
+mat 9
+refs 4
+1 0 0
+0 0 0
+2 0 0
+3 0 0
+SURF 0x20
+mat 9
+refs 4
+6 0 0
+4 0 0
+5 0 0
+7 0 0
+SURF 0x20
+mat 9
+refs 4
+7 0 0
+3 0 0
+2 0 0
+6 0 0
+SURF 0x20
+mat 9
+refs 4
+4 0 0
+0 0 0
+1 0 0
+5 0 0
+SURF 0x20
+mat 9
+refs 4
+3 0 0
+7 0 0
+5 0 0
+1 0 0
+SURF 0x20
+mat 9
+refs 4
+0 0 0
+4 0 0
+6 0 0
+2 0 0
+kids 0
+OBJECT poly
+name "Aircraft2"
+loc 0 0 -0
+data 9
+Aircraft2
+crease 39.999999
+numvert 8
+0.0065 -0.002 0.005
+0.0065 -0.002 -0.005
+0.0065 -0.005 0.005
+0.0065 -0.005 -0.005
+0.0055 -0.002 0.005
+0.0055 -0.002 -0.005
+0.0055 -0.005 0.005
+0.0055 -0.005 -0.005
+numsurf 6
+SURF 0x20
+mat 9
+refs 4
+1 0 0
+0 0 0
+2 0 0
+3 0 0
+SURF 0x20
+mat 9
+refs 4
+6 0 0
+4 0 0
+5 0 0
+7 0 0
+SURF 0x20
+mat 9
+refs 4
+7 0 0
+3 0 0
+2 0 0
+6 0 0
+SURF 0x20
+mat 9
+refs 4
+4 0 0
+0 0 0
+1 0 0
+5 0 0
+SURF 0x20
+mat 9
+refs 4
+3 0 0
+7 0 0
+5 0 0
+1 0 0
+SURF 0x20
+mat 9
+refs 4
+0 0 0
+4 0 0
+6 0 0
+2 0 0
 kids 0
 OBJECT poly
 name "DH"
-data 11
-DH.mesh.002
-crease 40.0
+loc -0 -0.006746 0.000899
+data 2
+DH
+crease 39.999999
 numvert 32
 0.0055 0.007 -0.0545
 0.0085 0.007 -0.0545
@@ -406,282 +413,282 @@ numvert 32
 0.0055 0.00891 -0.05412
 0.0085 0.00891 -0.05412
 numsurf 44
-SURF 0X20
-mat 3
+SURF 0x20
+mat 7
 refs 4
 0 0 0
 1 0 0
 3 0 0
 2 0 0
-SURF 0X20
-mat 3
+SURF 0x20
+mat 7
 refs 4
 2 0 0
 3 0 0
 5 0 0
 4 0 0
-SURF 0X20
-mat 3
+SURF 0x20
+mat 7
 refs 4
 4 0 0
 5 0 0
 7 0 0
 6 0 0
-SURF 0X20
-mat 3
+SURF 0x20
+mat 7
 refs 4
 6 0 0
 7 0 0
 9 0 0
 8 0 0
-SURF 0X20
-mat 3
+SURF 0x20
+mat 7
 refs 4
 8 0 0
 9 0 0
 11 0 0
 10 0 0
-SURF 0X20
-mat 3
+SURF 0x20
+mat 7
 refs 4
 10 0 0
 11 0 0
 13 0 0
 12 0 0
-SURF 0X20
-mat 3
+SURF 0x20
+mat 7
 refs 4
 12 0 0
 13 0 0
 15 0 0
 14 0 0
-SURF 0X20
-mat 3
+SURF 0x20
+mat 7
 refs 4
 14 0 0
 15 0 0
 17 0 0
 16 0 0
-SURF 0X20
-mat 3
+SURF 0x20
+mat 7
 refs 4
 16 0 0
 17 0 0
 19 0 0
 18 0 0
-SURF 0X20
-mat 3
+SURF 0x20
+mat 7
 refs 4
 18 0 0
 19 0 0
 21 0 0
 20 0 0
-SURF 0X20
-mat 3
+SURF 0x20
+mat 7
 refs 4
 20 0 0
 21 0 0
 23 0 0
 22 0 0
-SURF 0X20
-mat 3
+SURF 0x20
+mat 7
 refs 4
 22 0 0
 23 0 0
 25 0 0
 24 0 0
-SURF 0X20
-mat 3
+SURF 0x20
+mat 7
 refs 4
 24 0 0
 25 0 0
 27 0 0
 26 0 0
-SURF 0X20
-mat 3
+SURF 0x20
+mat 7
 refs 4
 26 0 0
 27 0 0
 29 0 0
 28 0 0
-SURF 0X20
-mat 3
+SURF 0x20
+mat 7
 refs 3
 27 0 0
 25 0 0
 23 0 0
-SURF 0X20
-mat 3
+SURF 0x20
+mat 7
 refs 3
 27 0 0
 23 0 0
 21 0 0
-SURF 0X20
-mat 3
+SURF 0x20
+mat 7
 refs 3
 29 0 0
 27 0 0
 21 0 0
-SURF 0X20
-mat 3
+SURF 0x20
+mat 7
 refs 3
 29 0 0
 21 0 0
 19 0 0
-SURF 0X20
-mat 3
+SURF 0x20
+mat 7
 refs 3
 31 0 0
 29 0 0
 19 0 0
-SURF 0X20
-mat 3
+SURF 0x20
+mat 7
 refs 3
 31 0 0
 19 0 0
 17 0 0
-SURF 0X20
-mat 3
+SURF 0x20
+mat 7
 refs 3
 1 0 0
 31 0 0
 17 0 0
-SURF 0X20
-mat 3
+SURF 0x20
+mat 7
 refs 3
 3 0 0
 1 0 0
 17 0 0
-SURF 0X20
-mat 3
+SURF 0x20
+mat 7
 refs 3
 3 0 0
 17 0 0
 15 0 0
-SURF 0X20
-mat 3
+SURF 0x20
+mat 7
 refs 3
 3 0 0
 15 0 0
 5 0 0
-SURF 0X20
-mat 3
+SURF 0x20
+mat 7
 refs 3
 15 0 0
 13 0 0
 5 0 0
-SURF 0X20
-mat 3
+SURF 0x20
+mat 7
 refs 3
 13 0 0
 11 0 0
 5 0 0
-SURF 0X20
-mat 3
+SURF 0x20
+mat 7
 refs 3
 11 0 0
 7 0 0
 5 0 0
-SURF 0X20
-mat 3
+SURF 0x20
+mat 7
 refs 3
 11 0 0
 9 0 0
 7 0 0
-SURF 0X20
-mat 3
+SURF 0x20
+mat 7
 refs 4
 1 0 0
 0 0 0
 30 0 0
 31 0 0
-SURF 0X20
-mat 3
+SURF 0x20
+mat 7
 refs 4
 28 0 0
 29 0 0
 31 0 0
 30 0 0
-SURF 0X20
-mat 3
+SURF 0x20
+mat 7
 refs 3
 22 0 0
 24 0 0
 26 0 0
-SURF 0X20
-mat 3
+SURF 0x20
+mat 7
 refs 3
 20 0 0
 22 0 0
 26 0 0
-SURF 0X20
-mat 3
+SURF 0x20
+mat 7
 refs 3
 20 0 0
 26 0 0
 28 0 0
-SURF 0X20
-mat 3
+SURF 0x20
+mat 7
 refs 3
 18 0 0
 20 0 0
 28 0 0
-SURF 0X20
-mat 3
+SURF 0x20
+mat 7
 refs 3
 18 0 0
 28 0 0
 30 0 0
-SURF 0X20
-mat 3
+SURF 0x20
+mat 7
 refs 3
 16 0 0
 18 0 0
 30 0 0
-SURF 0X20
-mat 3
+SURF 0x20
+mat 7
 refs 3
 0 0 0
 16 0 0
 30 0 0
-SURF 0X20
-mat 3
+SURF 0x20
+mat 7
 refs 3
 0 0 0
 2 0 0
 16 0 0
-SURF 0X20
-mat 3
+SURF 0x20
+mat 7
 refs 3
 2 0 0
 14 0 0
 16 0 0
-SURF 0X20
-mat 3
+SURF 0x20
+mat 7
 refs 3
 2 0 0
 4 0 0
 14 0 0
-SURF 0X20
-mat 3
+SURF 0x20
+mat 7
 refs 3
 4 0 0
 12 0 0
 14 0 0
-SURF 0X20
-mat 3
+SURF 0x20
+mat 7
 refs 3
 4 0 0
 10 0 0
 12 0 0
-SURF 0X20
-mat 3
+SURF 0x20
+mat 7
 refs 3
 4 0 0
 6 0 0
 10 0 0
-SURF 0X20
-mat 3
+SURF 0x20
+mat 7
 refs 3
 6 0 0
 8 0 0
@@ -689,11 +696,12 @@ refs 3
 kids 0
 OBJECT poly
 name "Frame"
-data 14
-Frame.mesh.026
-crease 40.0
+loc 0 0 -0
+data 5
+Frame
 texture "panel.png"
-texrep 1 1
+texrep 1.000000 1.000000
+crease 39.999999
 numvert 8
 0.0025 0.02 -0.085
 0.0025 0.02 0.085
@@ -704,54 +712,57 @@ numvert 8
 -0.0025 -0.02 0.085
 -0.0025 -0.02 -0.085
 numsurf 6
-SURF 0X20
-mat 4
+SURF 0x20
+mat 6
 refs 4
-5 0 0
-1 0 0
-2 0 0
-6 0 0
-SURF 0X20
-mat 4
+5 0.263781636953 0.57678091526
+1 0.263781636953 0.841438412666
+2 0.191771060228 0.841438412666
+6 0.191771060228 0.57678091526
+SURF 0x20
+mat 6
 refs 4
-0 0 0
-4 0 0
-7 0 0
-3 0 0
-SURF 0X20
-mat 4
+0 0.059092130512 0.766827106476
+4 0.054868903011 0.766827106476
+7 0.054868903011 0.781827092171
+3 0.059092130512 0.781827092171
+SURF 0x20
+mat 6
 refs 4
-0 0 0
-3 0 0
-2 0 0
-1 0 0
-SURF 0X20
-mat 4
+0 0.057332485914 0.766827106476
+3 0.057754788548 0.766827106476
+2 0.057754788548 0.781827092171
+1 0.057332485914 0.781827092171
+SURF 0x20
+mat 6
 refs 4
-7 0 0
-4 0 0
-5 0 0
-6 0 0
-SURF 0X20
-mat 4
+7 0.057754788548 0.781827092171
+4 0.057332485914 0.781827092171
+5 0.057332485914 0.766827106476
+6 0.057754788548 0.766827106476
+SURF 0x20
+mat 6
 refs 4
-0 0.262626 0.927925
-1 0.163541 0.927925
-5 0.163541 0.842943
-4 0.262626 0.842943
-SURF 0X20
-mat 4
+0 0.087456032634 0.230314463377
+1 0.087456032634 0.647860765457
+5 0.062802150846 0.647860765457
+4 0.062802150846 0.230314537883
+SURF 0x20
+mat 6
 refs 4
-7 0 0
-6 0 0
-2 0 0
-3 0 0
+7 0.057754788548 0.766827106476
+6 0.057332485914 0.766827106476
+2 0.057332485914 0.781827092171
+3 0.057754788548 0.781827092171
 kids 0
 OBJECT poly
 name "Frame2"
-data 15
-Frame2.mesh.003
-crease 40.0
+loc 0 0 -0
+data 6
+Frame2
+texture "panel.png"
+texrep 1.000000 1.000000
+crease 39.999999
 numvert 8
 0.0055 0.015 -0.015
 0.0055 0.015 0.015
@@ -762,54 +773,57 @@ numvert 8
 0.0025 -0.015 -0.015
 0.0025 -0.015 0.015
 numsurf 6
-SURF 0X20
+SURF 0x20
 mat 5
 refs 4
-0 0 0
-1 0 0
-3 0 0
-2 0 0
-SURF 0X20
+0 0.263781636953 0.57678091526
+1 0.263781636953 0.841438412666
+3 0.191771060228 0.841438412666
+2 0.191771060228 0.57678091526
+SURF 0x20
 mat 5
 refs 4
-4 0 0
-6 0 0
-7 0 0
-5 0 0
-SURF 0X20
+4 0.059092130512 0.766827106476
+6 0.054868903011 0.766827106476
+7 0.054868903011 0.781827092171
+5 0.059092130512 0.781827092171
+SURF 0x20
 mat 5
 refs 4
-7 0 0
-3 0 0
-1 0 0
-5 0 0
-SURF 0X20
+7 0.057332485914 0.766827106476
+3 0.057754788548 0.766827106476
+1 0.057754788548 0.781827092171
+5 0.057332485914 0.781827092171
+SURF 0x20
 mat 5
 refs 4
-3 0 0
-7 0 0
-6 0 0
-2 0 0
-SURF 0X20
+3 0.057754788548 0.781827092171
+7 0.057332485914 0.781827092171
+6 0.057332485914 0.766827106476
+2 0.057754788548 0.766827106476
+SURF 0x20
 mat 5
 refs 4
-4 0 0
-0 0 0
-2 0 0
-6 0 0
-SURF 0X20
+4 0.057332485914 0.781827092171
+0 0.057754788548 0.781827092171
+2 0.057754788548 0.766827106476
+6 0.057332485914 0.766827106476
+SURF 0x20
 mat 5
 refs 4
-0 0 0
-4 0 0
-5 0 0
-1 0 0
+0 0.057754788548 0.766827106476
+4 0.057332485914 0.766827106476
+5 0.057332485914 0.781827092171
+1 0.057754788548 0.781827092171
 kids 0
 OBJECT poly
 name "Frame3"
-data 15
-Frame3.mesh.003
-crease 40.0
+loc 0 0 -0
+data 6
+Frame3
+texture "panel.png"
+texrep 1.000000 1.000000
+crease 39.999999
 numvert 8
 0.0055 0.015 -0.055
 0.0055 0.015 -0.025
@@ -820,54 +834,55 @@ numvert 8
 0.0025 -0.015 -0.055
 0.0025 -0.015 -0.025
 numsurf 6
-SURF 0X20
+SURF 0x20
 mat 5
 refs 4
-0 0 0
-1 0 0
-3 0 0
-2 0 0
-SURF 0X20
+0 0.192742854357 0.835211634636
+1 0.192742854357 0.577316880226
+3 0.26279309392 0.577316880226
+2 0.26279309392 0.835211634636
+SURF 0x20
 mat 5
 refs 4
-4 0 0
-6 0 0
-7 0 0
-5 0 0
-SURF 0X20
+4 0.04896607995 0.934210121632
+6 0.0447428599 0.934210121632
+7 0.0447428599 0.949210166931
+5 0.04896607995 0.949210166931
+SURF 0x20
 mat 5
 refs 4
-7 0 0
-3 0 0
-1 0 0
-5 0 0
-SURF 0X20
+7 0.047206450254 0.954210162163
+3 0.047628745437 0.954210162163
+1 0.047628745437 0.969210147858
+5 0.047206450254 0.969210147858
+SURF 0x20
 mat 5
 refs 4
-3 0 0
-7 0 0
-6 0 0
-2 0 0
-SURF 0X20
+3 0.047628745437 0.949210166931
+7 0.047206450254 0.949210166931
+6 0.047206450254 0.934210121632
+2 0.047628745437 0.934210121632
+SURF 0x20
 mat 5
 refs 4
-4 0 0
-0 0 0
-2 0 0
-6 0 0
-SURF 0X20
+4 0.047206450254 0.969210147858
+0 0.047628745437 0.969210147858
+2 0.047628745437 0.954210162163
+6 0.047206450254 0.954210162163
+SURF 0x20
 mat 5
 refs 4
-0 0 0
-4 0 0
-5 0 0
-1 0 0
+0 0.047628745437 0.934210121632
+4 0.047206450254 0.934210121632
+5 0.047206450254 0.949210166931
+1 0.047628745437 0.949210166931
 kids 0
 OBJECT poly
 name "GSDown"
-data 15
-GSDown.mesh.001
-crease 40.0
+loc 0 0 -0
+data 6
+GSDown
+crease 39.999999
 numvert 8
 0.0065 -0.0115 -0.0075
 0.0065 -0.0115 0.0075
@@ -878,43 +893,43 @@ numvert 8
 0.0055 -0.0085 -0.0075
 0.0055 -0.0085 0.0075
 numsurf 6
-SURF 0X20
-mat 6
+SURF 0x20
+mat 3
 refs 4
 1 0 0
 0 0 0
 2 0 0
 3 0 0
-SURF 0X20
-mat 6
+SURF 0x20
+mat 3
 refs 4
 6 0 0
 4 0 0
 5 0 0
 7 0 0
-SURF 0X20
-mat 6
+SURF 0x20
+mat 3
 refs 4
 7 0 0
 3 0 0
 2 0 0
 6 0 0
-SURF 0X20
-mat 6
+SURF 0x20
+mat 3
 refs 4
 4 0 0
 0 0 0
 1 0 0
 5 0 0
-SURF 0X20
-mat 6
+SURF 0x20
+mat 3
 refs 4
 3 0 0
 7 0 0
 5 0 0
 1 0 0
-SURF 0X20
-mat 6
+SURF 0x20
+mat 3
 refs 4
 0 0 0
 4 0 0
@@ -923,9 +938,10 @@ refs 4
 kids 0
 OBJECT poly
 name "GSUp"
-data 13
-GSUp.mesh.001
-crease 40.0
+loc 0 0 -0
+data 4
+GSUp
+crease 39.999999
 numvert 8
 0.0065 0.0085 -0.0075
 0.0065 0.0085 0.0075
@@ -936,233 +952,55 @@ numvert 8
 0.0055 0.0115 -0.0075
 0.0055 0.0115 0.0075
 numsurf 6
-SURF 0X20
-mat 6
+SURF 0x20
+mat 3
 refs 4
 1 0 0
 0 0 0
 2 0 0
 3 0 0
-SURF 0X20
-mat 6
+SURF 0x20
+mat 3
 refs 4
 6 0 0
 4 0 0
 5 0 0
 7 0 0
-SURF 0X20
-mat 6
-refs 4
-7 0 0
-3 0 0
-2 0 0
-6 0 0
-SURF 0X20
-mat 6
-refs 4
-4 0 0
-0 0 0
-1 0 0
-5 0 0
-SURF 0X20
-mat 6
-refs 4
-3 0 0
-7 0 0
-5 0 0
-1 0 0
-SURF 0X20
-mat 6
-refs 4
-0 0 0
-4 0 0
-6 0 0
-2 0 0
-kids 0
-OBJECT poly
-name "Land2"
-data 14
-Land2.mesh.001
-crease 40.0
-numvert 8
-0.0065 0.002 -0.0425
-0.0065 0.002 -0.0275
-0.0065 0.012 -0.0425
-0.0065 0.012 -0.0275
-0.0055 0.002 -0.0425
-0.0055 0.002 -0.0275
-0.0055 0.012 -0.0425
-0.0055 0.012 -0.0275
-numsurf 6
-SURF 0X20
-mat 7
-refs 4
-1 0 0
-0 0 0
-2 0 0
-3 0 0
-SURF 0X20
-mat 7
-refs 4
-6 0 0
-4 0 0
-5 0 0
-7 0 0
-SURF 0X20
-mat 7
+SURF 0x20
+mat 3
 refs 4
 7 0 0
 3 0 0
 2 0 0
 6 0 0
-SURF 0X20
-mat 7
+SURF 0x20
+mat 3
 refs 4
 4 0 0
 0 0 0
 1 0 0
 5 0 0
-SURF 0X20
-mat 7
+SURF 0x20
+mat 3
 refs 4
 3 0 0
 7 0 0
 5 0 0
 1 0 0
-SURF 0X20
-mat 7
+SURF 0x20
+mat 3
 refs 4
 0 0 0
 4 0 0
 6 0 0
 2 0 0
-kids 0
-OBJECT poly
-name "Land2Label"
-data 19
-Land2Label.mesh.001
-crease 40.0
-texture "afcswarninglights.png"
-texrep 1 1
-numvert 4
-0.0066 0.002 -0.0425
-0.0066 0.002 -0.0275
-0.0066 0.012 -0.0425
-0.0066 0.012 -0.0275
-numsurf 1
-SURF 0X20
-mat 2
-refs 4
-1 0 0.78125
-0 0.46875 0.78125
-2 0.46875 1.09375
-3 0 1.09375
-kids 0
-OBJECT poly
-name "Land2Label.001"
-data 23
-Land2Label.001.mesh.001
-crease 40.0
-texture "afcswarninglights.png"
-texrep 1 1
-numvert 4
-0.0086 0.0035 -0.053
-0.0086 0.0035 -0.046
-0.0086 0.0105 -0.053
-0.0086 0.0105 -0.046
-numsurf 1
-SURF 0X20
-mat 2
-refs 4
-1 0.159059 0.122874
-0 0.340941 0.122874
-2 0.340941 0.274783
-3 0.159059 0.274783
-kids 0
-OBJECT poly
-name "Land3"
-data 14
-Land3.mesh.001
-crease 40.0
-numvert 8
-0.0065 -0.012 -0.0425
-0.0065 -0.012 -0.0275
-0.0065 -0.002 -0.0425
-0.0065 -0.002 -0.0275
-0.0055 -0.012 -0.0425
-0.0055 -0.012 -0.0275
-0.0055 -0.002 -0.0425
-0.0055 -0.002 -0.0275
-numsurf 6
-SURF 0X20
-mat 7
-refs 4
-1 0 0
-0 0 0
-2 0 0
-3 0 0
-SURF 0X20
-mat 7
-refs 4
-6 0 0
-4 0 0
-5 0 0
-7 0 0
-SURF 0X20
-mat 7
-refs 4
-7 0 0
-3 0 0
-2 0 0
-6 0 0
-SURF 0X20
-mat 7
-refs 4
-4 0 0
-0 0 0
-1 0 0
-5 0 0
-SURF 0X20
-mat 7
-refs 4
-3 0 0
-7 0 0
-5 0 0
-1 0 0
-SURF 0X20
-mat 7
-refs 4
-0 0 0
-4 0 0
-6 0 0
-2 0 0
-kids 0
-OBJECT poly
-name "Land3.001"
-data 18
-Land3.001.mesh.001
-crease 40.0
-texture "afcswarninglights.png"
-texrep 1 1
-numvert 4
-0.0066 -0.012 -0.0425
-0.0066 -0.012 -0.0275
-0.0066 -0.002 -0.0425
-0.0066 -0.002 -0.0275
-numsurf 1
-SURF 0X20
-mat 2
-refs 4
-1 0 0.53125
-0 0.46875 0.53125
-2 0.46875 0.84375
-3 0 0.84375
 kids 0
 OBJECT poly
 name "LOCLeft"
-data 16
-LOCLeft.mesh.001
-crease 40.0
+loc 0 0 -0
+data 7
+LOCLeft
+crease 39.999999
 numvert 8
 0.0065 0.0075 0.0085
 0.0065 -0.0075 0.0085
@@ -1173,43 +1011,43 @@ numvert 8
 0.0055 0.0075 0.0115
 0.0055 -0.0075 0.0115
 numsurf 6
-SURF 0X20
-mat 6
+SURF 0x20
+mat 3
 refs 4
 1 0 0
 0 0 0
 2 0 0
 3 0 0
-SURF 0X20
-mat 6
+SURF 0x20
+mat 3
 refs 4
 6 0 0
 4 0 0
 5 0 0
 7 0 0
-SURF 0X20
-mat 6
+SURF 0x20
+mat 3
 refs 4
 7 0 0
 3 0 0
 2 0 0
 6 0 0
-SURF 0X20
-mat 6
+SURF 0x20
+mat 3
 refs 4
 4 0 0
 0 0 0
 1 0 0
 5 0 0
-SURF 0X20
-mat 6
+SURF 0x20
+mat 3
 refs 4
 3 0 0
 7 0 0
 5 0 0
 1 0 0
-SURF 0X20
-mat 6
+SURF 0x20
+mat 3
 refs 4
 0 0 0
 4 0 0
@@ -1218,9 +1056,10 @@ refs 4
 kids 0
 OBJECT poly
 name "LOCRight"
-data 17
-LOCRight.mesh.001
-crease 40.0
+loc 0 0 -0
+data 8
+LOCRight
+crease 39.999999
 numvert 8
 0.0065 0.0075 -0.0115
 0.0065 -0.0075 -0.0115
@@ -1231,43 +1070,43 @@ numvert 8
 0.0055 0.0075 -0.0085
 0.0055 -0.0075 -0.0085
 numsurf 6
-SURF 0X20
-mat 6
+SURF 0x20
+mat 3
 refs 4
 1 0 0
 0 0 0
 2 0 0
 3 0 0
-SURF 0X20
-mat 6
+SURF 0x20
+mat 3
 refs 4
 6 0 0
 4 0 0
 5 0 0
 7 0 0
-SURF 0X20
-mat 6
+SURF 0x20
+mat 3
 refs 4
 7 0 0
 3 0 0
 2 0 0
 6 0 0
-SURF 0X20
-mat 6
+SURF 0x20
+mat 3
 refs 4
 4 0 0
 0 0 0
 1 0 0
 5 0 0
-SURF 0X20
-mat 6
+SURF 0x20
+mat 3
 refs 4
 3 0 0
 7 0 0
 5 0 0
 1 0 0
-SURF 0X20
-mat 6
+SURF 0x20
+mat 3
 refs 4
 0 0 0
 4 0 0
@@ -1275,10 +1114,195 @@ refs 4
 2 0 0
 kids 0
 OBJECT poly
+name "Land2"
+loc 0 0 -0.001012
+data 5
+Land2
+crease 39.999999
+numvert 8
+0.0065 0.002 -0.0425
+0.0065 0.002 -0.0275
+0.0065 0.012 -0.0425
+0.0065 0.012 -0.0275
+0.0055 0.002 -0.0425
+0.0055 0.002 -0.0275
+0.0055 0.012 -0.0425
+0.0055 0.012 -0.0275
+numsurf 6
+SURF 0x20
+mat 4
+refs 4
+1 0 0
+0 0 0
+2 0 0
+3 0 0
+SURF 0x20
+mat 4
+refs 4
+6 0 0
+4 0 0
+5 0 0
+7 0 0
+SURF 0x20
+mat 4
+refs 4
+7 0 0
+3 0 0
+2 0 0
+6 0 0
+SURF 0x20
+mat 4
+refs 4
+4 0 0
+0 0 0
+1 0 0
+5 0 0
+SURF 0x20
+mat 4
+refs 4
+3 0 0
+7 0 0
+5 0 0
+1 0 0
+SURF 0x20
+mat 4
+refs 4
+0 0 0
+4 0 0
+6 0 0
+2 0 0
+kids 0
+OBJECT poly
+name "Land2Label"
+loc 0 0 -0.001012
+data 10
+Land2Label
+texture "afcswarninglights.png"
+texrep 1.000000 1.000000
+crease 39.999999
+numvert 4
+0.0066 0.002 -0.0425
+0.0066 0.002 -0.0275
+0.0066 0.012 -0.0425
+0.0066 0.012 -0.0275
+numsurf 1
+SURF 0x20
+mat 1
+refs 4
+1 0 0.78125
+0 0.46875 0.78125
+2 0.46875 1.09375
+3 0 1.09375
+kids 0
+OBJECT poly
+name "Land2Label.001"
+loc -0 -0.006746 0.000899
+data 14
+Land2Label.001
+texture "afcswarninglights.png"
+texrep 1.000000 1.000000
+crease 39.999999
+numvert 4
+0.0086 0.0035 -0.053
+0.0086 0.0035 -0.046
+0.0086 0.0105 -0.053
+0.0086 0.0105 -0.046
+numsurf 1
+SURF 0x20
+mat 1
+refs 4
+1 0.159059002995 0.122873999178
+0 0.340941011906 0.122873999178
+2 0.340941011906 0.274782985449
+3 0.159059002995 0.274782985449
+kids 0
+OBJECT poly
+name "Land3"
+loc 0 0 -0.001012
+data 5
+Land3
+crease 39.999999
+numvert 8
+0.0065 -0.012 -0.0425
+0.0065 -0.012 -0.0275
+0.0065 -0.002 -0.0425
+0.0065 -0.002 -0.0275
+0.0055 -0.012 -0.0425
+0.0055 -0.012 -0.0275
+0.0055 -0.002 -0.0425
+0.0055 -0.002 -0.0275
+numsurf 6
+SURF 0x20
+mat 4
+refs 4
+1 0 0
+0 0 0
+2 0 0
+3 0 0
+SURF 0x20
+mat 4
+refs 4
+6 0 0
+4 0 0
+5 0 0
+7 0 0
+SURF 0x20
+mat 4
+refs 4
+7 0 0
+3 0 0
+2 0 0
+6 0 0
+SURF 0x20
+mat 4
+refs 4
+4 0 0
+0 0 0
+1 0 0
+5 0 0
+SURF 0x20
+mat 4
+refs 4
+3 0 0
+7 0 0
+5 0 0
+1 0 0
+SURF 0x20
+mat 4
+refs 4
+0 0 0
+4 0 0
+6 0 0
+2 0 0
+kids 0
+OBJECT poly
+name "Land3.001"
+loc 0 0 -0.001012
+data 9
+Land3.001
+texture "afcswarninglights.png"
+texrep 1.000000 1.000000
+crease 39.999999
+numvert 4
+0.0066 -0.012 -0.0425
+0.0066 -0.012 -0.0275
+0.0066 -0.002 -0.0425
+0.0066 -0.002 -0.0275
+numsurf 1
+SURF 0x20
+mat 1
+refs 4
+1 0 0.53125
+0 0.46875 0.53125
+2 0.46875 0.84375
+3 0 0.84375
+kids 0
+OBJECT poly
 name "Test"
-data 13
-Test.mesh.003
-crease 40.0
+loc 0 0 -0
+data 4
+Test
+crease 39.999999
 numvert 32
 0.0035 0 -0.06943
 0.0065 0 -0.06943
@@ -1313,282 +1337,282 @@ numvert 32
 0.0035 0.00191 -0.06905
 0.0065 0.00191 -0.06905
 numsurf 44
-SURF 0X20
-mat 8
+SURF 0x20
+mat 2
 refs 4
 0 0 0
 1 0 0
 3 0 0
 2 0 0
-SURF 0X20
-mat 8
+SURF 0x20
+mat 2
 refs 4
 2 0 0
 3 0 0
 5 0 0
 4 0 0
-SURF 0X20
-mat 8
+SURF 0x20
+mat 2
 refs 4
 4 0 0
 5 0 0
 7 0 0
 6 0 0
-SURF 0X20
-mat 8
+SURF 0x20
+mat 2
 refs 4
 6 0 0
 7 0 0
 9 0 0
 8 0 0
-SURF 0X20
-mat 8
+SURF 0x20
+mat 2
 refs 4
 8 0 0
 9 0 0
 11 0 0
 10 0 0
-SURF 0X20
-mat 8
+SURF 0x20
+mat 2
 refs 4
 10 0 0
 11 0 0
 13 0 0
 12 0 0
-SURF 0X20
-mat 8
+SURF 0x20
+mat 2
 refs 4
 12 0 0
 13 0 0
 15 0 0
 14 0 0
-SURF 0X20
-mat 8
+SURF 0x20
+mat 2
 refs 4
 14 0 0
 15 0 0
 17 0 0
 16 0 0
-SURF 0X20
-mat 8
+SURF 0x20
+mat 2
 refs 4
 16 0 0
 17 0 0
 19 0 0
 18 0 0
-SURF 0X20
-mat 8
+SURF 0x20
+mat 2
 refs 4
 18 0 0
 19 0 0
 21 0 0
 20 0 0
-SURF 0X20
-mat 8
+SURF 0x20
+mat 2
 refs 4
 20 0 0
 21 0 0
 23 0 0
 22 0 0
-SURF 0X20
-mat 8
+SURF 0x20
+mat 2
 refs 4
 22 0 0
 23 0 0
 25 0 0
 24 0 0
-SURF 0X20
-mat 8
+SURF 0x20
+mat 2
 refs 4
 24 0 0
 25 0 0
 27 0 0
 26 0 0
-SURF 0X20
-mat 8
+SURF 0x20
+mat 2
 refs 4
 26 0 0
 27 0 0
 29 0 0
 28 0 0
-SURF 0X20
-mat 8
+SURF 0x20
+mat 2
 refs 3
 27 0 0
 25 0 0
 23 0 0
-SURF 0X20
-mat 8
+SURF 0x20
+mat 2
 refs 3
 27 0 0
 23 0 0
 21 0 0
-SURF 0X20
-mat 8
+SURF 0x20
+mat 2
 refs 3
 29 0 0
 27 0 0
 21 0 0
-SURF 0X20
-mat 8
+SURF 0x20
+mat 2
 refs 3
 29 0 0
 21 0 0
 19 0 0
-SURF 0X20
-mat 8
+SURF 0x20
+mat 2
 refs 3
 31 0 0
 29 0 0
 19 0 0
-SURF 0X20
-mat 8
+SURF 0x20
+mat 2
 refs 3
 31 0 0
 19 0 0
 17 0 0
-SURF 0X20
-mat 8
+SURF 0x20
+mat 2
 refs 3
 1 0 0
 31 0 0
 17 0 0
-SURF 0X20
-mat 8
+SURF 0x20
+mat 2
 refs 3
 3 0 0
 1 0 0
 17 0 0
-SURF 0X20
-mat 8
+SURF 0x20
+mat 2
 refs 3
 3 0 0
 17 0 0
 15 0 0
-SURF 0X20
-mat 8
+SURF 0x20
+mat 2
 refs 3
 3 0 0
 15 0 0
 5 0 0
-SURF 0X20
-mat 8
+SURF 0x20
+mat 2
 refs 3
 15 0 0
 13 0 0
 5 0 0
-SURF 0X20
-mat 8
+SURF 0x20
+mat 2
 refs 3
 13 0 0
 11 0 0
 5 0 0
-SURF 0X20
-mat 8
+SURF 0x20
+mat 2
 refs 3
 11 0 0
 7 0 0
 5 0 0
-SURF 0X20
-mat 8
+SURF 0x20
+mat 2
 refs 3
 11 0 0
 9 0 0
 7 0 0
-SURF 0X20
-mat 8
+SURF 0x20
+mat 2
 refs 4
 1 0 0
 0 0 0
 30 0 0
 31 0 0
-SURF 0X20
-mat 8
+SURF 0x20
+mat 2
 refs 4
 28 0 0
 29 0 0
 31 0 0
 30 0 0
-SURF 0X20
-mat 8
+SURF 0x20
+mat 2
 refs 3
 22 0 0
 24 0 0
 26 0 0
-SURF 0X20
-mat 8
+SURF 0x20
+mat 2
 refs 3
 20 0 0
 22 0 0
 26 0 0
-SURF 0X20
-mat 8
+SURF 0x20
+mat 2
 refs 3
 20 0 0
 26 0 0
 28 0 0
-SURF 0X20
-mat 8
+SURF 0x20
+mat 2
 refs 3
 18 0 0
 20 0 0
 28 0 0
-SURF 0X20
-mat 8
+SURF 0x20
+mat 2
 refs 3
 18 0 0
 28 0 0
 30 0 0
-SURF 0X20
-mat 8
+SURF 0x20
+mat 2
 refs 3
 16 0 0
 18 0 0
 30 0 0
-SURF 0X20
-mat 8
+SURF 0x20
+mat 2
 refs 3
 0 0 0
 16 0 0
 30 0 0
-SURF 0X20
-mat 8
+SURF 0x20
+mat 2
 refs 3
 0 0 0
 2 0 0
 16 0 0
-SURF 0X20
-mat 8
+SURF 0x20
+mat 2
 refs 3
 2 0 0
 14 0 0
 16 0 0
-SURF 0X20
-mat 8
+SURF 0x20
+mat 2
 refs 3
 2 0 0
 4 0 0
 14 0 0
-SURF 0X20
-mat 8
+SURF 0x20
+mat 2
 refs 3
 4 0 0
 12 0 0
 14 0 0
-SURF 0X20
-mat 8
+SURF 0x20
+mat 2
 refs 3
 4 0 0
 10 0 0
 12 0 0
-SURF 0X20
-mat 8
+SURF 0x20
+mat 2
 refs 3
 4 0 0
 6 0 0
 10 0 0
-SURF 0X20
-mat 8
+SURF 0x20
+mat 2
 refs 3
 6 0 0
 8 0 0
@@ -1596,22 +1620,23 @@ refs 3
 kids 0
 OBJECT poly
 name "TestLabel"
-data 18
-TestLabel.mesh.003
-crease 40.0
+loc 0 0 -0
+data 9
+TestLabel
 texture "afcswarninglights.png"
-texrep 1 1
+texrep 1.000000 1.000000
+crease 39.999999
 numvert 4
 0.0031 0.005 -0.04869
 0.0031 0.015 -0.04869
 0.0031 0.015 -0.07869
 0.0031 0.005 -0.07869
 numsurf 1
-SURF 0X20
-mat 2
+SURF 0x20
+mat 1
 refs 4
-0 -0.007414 0.343871
-3 0.483976 0.343871
-2 0.483977 0.538942
-1 -0.007414 0.538942
+0 -0.007414000109 0.343870997429
+3 0.483976006508 0.343870997429
+2 0.483976989985 0.538941979408
+1 -0.007414000109 0.538941979408
 kids 0

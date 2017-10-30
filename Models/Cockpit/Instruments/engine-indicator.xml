@@ -12,13 +12,22 @@
     <type>material</type>
     <object-name>GO</object-name>
     <condition>
-    <and>
-      <greater-than>
-        <property alias="/params/fuel"/>
-        <property alias="/params/fuel-bug"/>
-      </greater-than>
-      <property>/instrumentation/takeoff-monitor/armed</property>
-    </and>
+      <and>
+        <greater-than>
+           <property>/systems/electrical/outputs/specific</property>
+           <value>20.0</value>
+        </greater-than>
+        <or>
+	  <property>/controls/lighting/crew/captain/test</property>	
+      	  <and>
+            <greater-than>
+              <property alias="/params/fuel"/>
+              <property alias="/params/fuel-bug"/>
+            </greater-than>
+            <property>/instrumentation/takeoff-monitor/armed</property>
+          </and>
+        </or>
+      </and>
     </condition>
     <emission>
       <red>0</red>
@@ -30,35 +39,53 @@
     <type>material</type>
     <object-name>CON</object-name>
     <condition>
-		<greater-than>
-			<property alias="/params/configuration"/>
-			<value>0</value>
-		</greater-than>
-	</condition>
+      <and>
+        <greater-than>
+           <property>/systems/electrical/outputs/specific</property>
+           <value>20.0</value>
+        </greater-than>
+        <or>
+	  <property>/controls/lighting/crew/captain/test</property>	
+          <greater-than>
+	    <property alias="/params/configuration"/>
+	    <value>0</value>
+          </greater-than>
+        </or>
+      </and>
+    </condition>
     <emission>
       <red>0.8</red>
-      <green>.4</green>
-      <blue>0</blue>
-      <factor-prop alias="/params/configuration"/>
+      <green>0.4</green>
+      <blue>0.2</blue>
+
     </emission>
   </animation>
   <animation>
     <type>material</type>
     <object-name>REV</object-name>
     <condition>
-      <or>
-        <and>
-          <greater-than>
-            <property alias="/params/bucket"/>
-            <value>22</value>
-          </greater-than>
-          <property>/instrumentation/generic/state</property>
-        </and>
+      <and>
         <greater-than>
-          <property alias="/params/bucket"/>
-          <value>70</value>
+           <property>/systems/electrical/outputs/specific</property>
+           <value>20.0</value>
         </greater-than>
-      </or>
+        <or>
+	  <property>/controls/lighting/crew/captain/test</property>
+      	  <or>
+            <and>
+              <greater-than>
+                <property alias="/params/bucket"/>
+                <value>22</value>
+              </greater-than>
+              <property>/instrumentation/generic/state</property>
+            </and>
+            <greater-than>
+              <property alias="/params/bucket"/>
+              <value>70</value>
+            </greater-than>
+          </or>
+        </or>
+      </and>
     </condition>
     <emission>
       <red>0</red>
@@ -70,17 +97,11 @@
   <animation>
     <type>material</type>
     <object-name>Frame</object-name>
-  <condition>
-	<greater-than>
-	  <property>systems/lighting/level/roof</property>
-	  <value>0</value>
-	</greater-than>
-  </condition>
   <emission>
    <red>0.66</red>
    <green>0.68</green>
    <blue>0.64</blue>
-   <factor-prop>systems/lighting/level/roof</factor-prop>
+      <factor-prop>systems/lighting/level/panel/main</factor-prop>
   </emission>
  </animation>
 </PropertyList>

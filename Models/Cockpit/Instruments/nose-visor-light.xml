@@ -5,42 +5,61 @@
     <type>material</type>
     <object-name>RedLight</object-name>
    <condition>
-     <not>
-    <or>
-       <equals>
-        <property>/instrumentation/nose-visor/pos-norm</property>
-        <property n="1">/sim/flaps/setting[0]</property>
-       </equals>
-       <equals>
-        <property>/instrumentation/nose-visor/pos-norm</property>
-        <property n="1">/sim/flaps/setting[1]</property>
-       </equals>
-       <equals>
-        <property>/instrumentation/nose-visor/pos-norm</property>
-        <property n="1">/sim/flaps/setting[2]</property>
-       </equals>
-       <equals>
-        <property>/instrumentation/nose-visor/pos-norm</property>
-        <property n="1">/sim/flaps/setting[3]</property>
-       </equals>
-    </or>
-  </not>
+     <and>
+       <greater-than>
+         <property>/systems/electrical/outputs/specific</property>
+         <value>20.0</value>
+       </greater-than>
+       <or>
+	 <property>/controls/lighting/crew/captain/test</property>	
+         <not>
+           <or>
+             <property>/controls/lighting/crew/captain/test</property>
+             <equals>
+               <property>/instrumentation/nose-visor/pos-norm</property>
+               <property n="1">/sim/flaps/setting[0]</property>
+               </equals>
+               <equals>
+               <property>/instrumentation/nose-visor/pos-norm</property>
+               <property n="1">/sim/flaps/setting[1]</property>
+             </equals>
+             <equals>
+               <property>/instrumentation/nose-visor/pos-norm</property>
+               <property n="1">/sim/flaps/setting[2]</property>
+             </equals>
+             <equals>
+               <property>/instrumentation/nose-visor/pos-norm</property>
+               <property n="1">/sim/flaps/setting[3]</property>
+             </equals>
+           </or>
+         </not>
+       </or>
+     </and>
    </condition>
-    <emission>
-      <red>0.8</red>
-      <green>0</green>
-      <blue>0</blue>
-    </emission>
+   <emission>
+     <red>0.8</red>
+     <green>0</green>
+     <blue>0</blue>
+   </emission>
   </animation>
   <animation>
     <type>material</type>
     <object-name>OrangeLight</object-name>
-       <condition>
-      <equals>
-       <property>/instrumentation/nose-visor/pos-norm</property>
-       <property n="1">/sim/flaps/setting[2]</property>
-      </equals>
-         </condition>
+    <condition>
+     <and>
+       <greater-than>
+         <property>/systems/electrical/outputs/specific</property>
+         <value>20.0</value>
+       </greater-than>
+       <or>
+	 <property>/controls/lighting/crew/captain/test</property>	
+         <equals>
+           <property>/instrumentation/nose-visor/pos-norm</property>
+           <property n="1">/sim/flaps/setting[2]</property>
+         </equals>
+       </or>
+     </and>
+    </condition>
     <emission>
       <red>0.8</red>
       <green>0.4</green>
@@ -51,10 +70,19 @@
     <type>material</type>
     <object-name>GreenLight</object-name>
     <condition>
-      <equals>
-       <property>/instrumentation/nose-visor/pos-norm</property>
-       <property n="1">/sim/flaps/setting[3]</property>
-      </equals>
+     <and>
+       <greater-than>
+         <property>/systems/electrical/outputs/specific</property>
+         <value>20.0</value>
+       </greater-than>
+       <or>
+	 <property>/controls/lighting/crew/captain/test</property>	
+         <equals>
+           <property>/instrumentation/nose-visor/pos-norm</property>
+           <property n="1">/sim/flaps/setting[3]</property>
+         </equals>
+       </or>
+     </and>
     </condition>
     <emission>
       <red>0</red>
@@ -66,17 +94,11 @@
   <animation>
     <type>material</type>
     <object-name>Frame</object-name>
-  <condition>
-	<greater-than>
-	  <property>systems/lighting/level/roof</property>
-	  <value>0</value>
-	</greater-than>
-  </condition>
   <emission>
    <red>0.66</red>
    <green>0.68</green>
    <blue>0.64</blue>
-   <factor-prop>systems/lighting/level/roof</factor-prop>
+      <factor-prop>systems/lighting/level/panel/main</factor-prop>
   </emission>
  </animation>
 </PropertyList>

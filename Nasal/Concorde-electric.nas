@@ -1295,3 +1295,5 @@ Antiicing.slowschedule = func {
 }
 
 setprop("/controls/lighting/instruments-norm",0.5);
+setprop("/controls/lighting/crew/captain/flood-norm",0.2);
+

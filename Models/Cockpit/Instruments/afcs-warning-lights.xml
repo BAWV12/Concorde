@@ -408,42 +408,44 @@
   </animation>
  
   <!--Default Lighting-->
-  <animation>
-    <type>material</type>
-    <object-name>Frame</object-name>
-        <object-name>Test</object-name>
-  <condition>
-	<greater-than>
-	  <property>systems/lighting/level/roof</property>
-	  <value>0</value>
-	</greater-than>
-  </condition>
-  <emission>
-   <red>0.66</red>
-   <green>0.68</green>
-   <blue>0.64</blue>
-   <factor-prop>systems/lighting/level/roof</factor-prop>
-  </emission>
- </animation>
-
  
    <animation>
     <type>material</type>
     <object-name>Frame</object-name>
     <object-name>Frame2</object-name>
     <object-name>Frame3</object-name>
+    <emission>
+      <red>0.66</red>
+      <green>0.68</green>
+      <blue>0.64</blue>
+      <factor-prop>systems/lighting/level/panel/main</factor-prop>
+    </emission>
+ </animation>
+
+  <animation>
+    <type>material</type>
+    <object-name>TestLabel</object-name>
   <condition>
-	<greater-than>
-	  <property>systems/lighting/level/roof</property>
-	  <value>0</value>
-	</greater-than>
+  <and>
+   <greater-than>
+    <property>sim/time/sun-angle-rad</property>
+    <value>1.59</value>
+   </greater-than>
+    <property>controls/lighting/instrument-lights</property>
+        <greater-than>
+          <property>/systems/electrical/outputs/specific</property>
+          <value>20.0</value>
+        </greater-than>
+
+  </and>
   </condition>
   <emission>
-   <red>0.1</red>
-   <green>0.1</green>
-   <blue>0.1</blue>
-   <factor-prop>systems/lighting/level/roof</factor-prop>
+   <red>0.7</red>
+   <green>0.2</green>
+   <blue>0.2</blue>
+   <factor-prop>/controls/lighting/instruments-norm</factor-prop>
   </emission>
- </animation>
+  </animation>
+
  
 </PropertyList>

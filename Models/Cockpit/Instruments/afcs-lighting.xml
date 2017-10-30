@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <PropertyList>
   <path>../Models/afcslighting.ac</path>
-      <animation>
+  <animation>
     <type>pick</type>
     <object-name>Knob</object-name>
     <action>
@@ -54,23 +54,19 @@
   <animation>
     <type>material</type>
     <object-name>Frame</object-name>
-  <condition>
-	<greater-than>
-	  <property>systems/lighting/level/roof</property>
-	  <value>0</value>
-	</greater-than>
-  </condition>
-  <emission>
-   <red>0.66</red>
-   <green>0.68</green>
-   <blue>0.64</blue>
-   <factor-prop>systems/lighting/level/roof</factor-prop>
-  </emission>
+
+    <emission>
+      <red>0.66</red>
+      <green>0.68</green>
+      <blue>0.64</blue>
+      <factor-prop>systems/lighting/level/panel/main</factor-prop>
+    </emission>
  </animation>
 
   <animation>
     <type>material</type>
     <object-name>Knob.001</object-name>
+    <object-name>Plane</object-name>
   <condition>
   <and>
    <greater-than>
