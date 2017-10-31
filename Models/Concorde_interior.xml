@@ -585,9 +585,9 @@
     <name>Captain Cabin Altimeter</name>
     <path>Aircraft/Concorde/Models/Cockpit/Instruments/cabin-alt.xml</path>
     <offsets>
-      <x-m>-23.7726</x-m>
+      <x-m>-23.780</x-m>
       <y-m>-0.187</y-m>
-      <z-m>0.8876</z-m>
+      <z-m>0.896</z-m>
       <pitch-deg>-10</pitch-deg>
     </offsets>
   </model>

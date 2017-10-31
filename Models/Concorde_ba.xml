@@ -2786,9 +2786,9 @@
 	</greater-than>
   </condition>
   <emission>
-   <red>0.83</red>
-   <green>0.74</green>
-   <blue>0.38</blue>
+   <red>0.6</red>
+   <green>0.6</green>
+   <blue>0.6</blue>
    <factor-prop>systems/lighting/level/panel/main</factor-prop>
   </emission>
  </animation>
