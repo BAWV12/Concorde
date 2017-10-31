@@ -13,6 +13,7 @@
     <gsinrange>/instrumentation/nav[1]/gs-in-range</gsinrange>
     <hasgs>/instrumentation/nav[1]/has-gs</hasgs>
     <dist>/instrumentation/nav[1]/nav-distance</dist>
+    <tmo-sel>/instrumentation/temperature[0]/indicated-tmo-degc</tmo-sel>
   </params>
   <animation>
     <type>material</type>
@@ -63,7 +64,7 @@
          <or>
 	 <greater-than>
         	<property alias="/params/tmo-sel"/>
-		<value>134</value>
+		<value>128</value>
 	 </greater-than>
           <not>
            <property alias="/params/serviceable-sel"/>
