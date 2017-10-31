@@ -2712,7 +2712,7 @@
       <binding>
         <command>nasal</command>
 	  <script>
-		hdg=getprop("orientation/heading-deg");
+		hdg=getprop("instrumentation/hsi/heading-deg");
 		setprop("controls/autoflight/autopilot[0]/heading-select",hdg);
 		setprop("controls/autoflight/autopilot[0]/heading-true-select",hdg);
 	  </script>
@@ -2824,7 +2824,7 @@
       <binding>
         <command>nasal</command>
 	  <script>
-		hdg=getprop("orientation/heading-deg");
+		hdg=getprop("instrumentation/hsi[1]/heading-deg");
 		setprop("controls/autoflight/autopilot[1]/heading-select",hdg);
 		setprop("controls/autoflight/autopilot[1]/heading-true-select",hdg);
 	  </script>

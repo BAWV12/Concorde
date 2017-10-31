@@ -105,7 +105,7 @@
     <offsets>
       <x-m>-23.815</x-m>
       <y-m>0.278</y-m>
-      <z-m>1.13</z-m>
+      <z-m>1.137</z-m>
       <pitch-deg>-10</pitch-deg>
     </offsets>
   </model>
@@ -193,7 +193,7 @@
     <path>Aircraft/Concorde/Models/Cockpit/Instruments/brake-indicator.xml</path>
     <offsets>
       <x-m>-23.837</x-m>
-      <y-m>-0.06</y-m>
+      <y-m>-0.064</y-m>
       <z-m>1.233</z-m>
       <pitch-deg>-10</pitch-deg>
     </offsets>
@@ -203,7 +203,7 @@
     <path>Aircraft/Concorde/Models/Cockpit/Instruments/takeoff-monitor.xml</path>
     <offsets>
       <x-m>-23.837</x-m>
-      <y-m>-0.028</y-m>
+      <y-m>-0.032</y-m>
       <z-m>1.233</z-m>
       <pitch-deg>-10</pitch-deg>
     </offsets>
@@ -213,7 +213,7 @@
     <path>Aircraft/Concorde/Models/Cockpit/Instruments/afcs-lighting.xml</path>
     <offsets>
       <x-m>-23.837</x-m>
-      <y-m>0.0115</y-m>
+      <y-m>0.018</y-m>
       <z-m>1.233</z-m>
       <pitch-deg>-10</pitch-deg>
     </offsets>
@@ -223,8 +223,8 @@
     <path>Aircraft/Concorde/Models/Cockpit/Instruments/fuel-remain.xml</path>
     <offsets>
       <x-m>-23.835</x-m>
-      <y-m>0.098</y-m>
-      <z-m>1.222</z-m>
+      <y-m>0.086</y-m>
+      <z-m>1.232</z-m>
       <pitch-deg>-10</pitch-deg>
     </offsets>
   </model>
@@ -586,8 +586,8 @@
     <path>Aircraft/Concorde/Models/Cockpit/Instruments/cabin-alt.xml</path>
     <offsets>
       <x-m>-23.780</x-m>
-      <y-m>-0.187</y-m>
-      <z-m>0.896</z-m>
+      <y-m>-0.185</y-m>
+      <z-m>0.890</z-m>
       <pitch-deg>-10</pitch-deg>
     </offsets>
   </model>
@@ -809,8 +809,8 @@
     <path>Aircraft/Concorde/Models/Cockpit/Instruments/cog.xml</path>
     <offsets>
       <x-m>-23.7927</x-m>
-      <y-m>-0.1938</y-m>
-      <z-m>1.003</z-m>
+      <y-m>-0.188</y-m>
+      <z-m>0.995</z-m>
       <pitch-deg>-10</pitch-deg>
     </offsets>
   </model>
@@ -1296,7 +1296,7 @@
     </overlay>
     <offsets>
       <x-m>-23.778</x-m>
-      <y-m>-0.044</y-m>
+      <y-m>-0.048</y-m>
       <z-m>0.898</z-m>
       <pitch-deg>-10</pitch-deg>
     </offsets>
@@ -1311,7 +1311,7 @@
     </overlay>
     <offsets>
       <x-m>-23.778</x-m>
-      <y-m>0.027</y-m>
+      <y-m>0.019</y-m>
       <z-m>0.898</z-m>
       <pitch-deg>-10</pitch-deg>
     </offsets>
@@ -1326,7 +1326,7 @@
     </overlay>
     <offsets>
       <x-m>-23.778</x-m>
-      <y-m>0.098</y-m>
+      <y-m>0.086</y-m>
       <z-m>0.898</z-m>
       <pitch-deg>-10</pitch-deg>
     </offsets>
@@ -1358,7 +1358,7 @@
     </overlay>
     <offsets>
       <x-m>-23.79</x-m>
-      <y-m>-0.044</y-m>
+      <y-m>-0.048</y-m>
       <z-m>0.962</z-m>
       <pitch-deg>-10</pitch-deg>
     </offsets>
@@ -1373,7 +1373,7 @@
     </overlay>
     <offsets>
       <x-m>-23.79</x-m>
-      <y-m>0.027</y-m>
+      <y-m>0.019</y-m>
       <z-m>0.962</z-m>
       <pitch-deg>-10</pitch-deg>
     </offsets>
@@ -1388,7 +1388,7 @@
     </overlay>
     <offsets>
       <x-m>-23.79</x-m>
-      <y-m>0.098</y-m>
+      <y-m>0.086</y-m>
       <z-m>0.962</z-m>
       <pitch-deg>-10</pitch-deg>
     </offsets>
@@ -1422,7 +1422,7 @@
     </overlay>
     <offsets>
       <x-m>-23.80</x-m>
-      <y-m>-0.044</y-m>
+      <y-m>-0.048</y-m>
       <z-m>1.027</z-m>
       <pitch-deg>-10</pitch-deg>
     </offsets>
@@ -1438,7 +1438,7 @@
     </overlay>
     <offsets>
       <x-m>-23.80</x-m>
-      <y-m>0.027</y-m>
+      <y-m>0.019</y-m>
       <z-m>1.027</z-m>
       <pitch-deg>-10</pitch-deg>
     </offsets>
@@ -1454,7 +1454,7 @@
     </overlay>
     <offsets>
       <x-m>-23.80</x-m>
-      <y-m>0.098</y-m>
+      <y-m>0.086</y-m>
       <z-m>1.027</z-m>
       <pitch-deg>-10</pitch-deg>
     </offsets>
@@ -1493,7 +1493,7 @@
     </overlay>
     <offsets>
       <x-m>-23.824</x-m>
-      <y-m>-0.044</y-m>
+      <y-m>-0.048</y-m>
       <z-m>1.196</z-m>
       <pitch-deg>-10</pitch-deg>
     </offsets>
@@ -1512,7 +1512,7 @@
     </overlay>
     <offsets>
       <x-m>-23.824</x-m>
-      <y-m>0.027</y-m>
+      <y-m>0.019</y-m>
       <z-m>1.196</z-m>
       <pitch-deg>-10</pitch-deg>
     </offsets>
@@ -1531,7 +1531,7 @@
     </overlay>
     <offsets>
       <x-m>-23.824</x-m>
-      <y-m>0.098</y-m>
+      <y-m>0.086</y-m>
       <z-m>1.196</z-m>
       <pitch-deg>-10</pitch-deg>
     </offsets>
@@ -1561,7 +1561,7 @@
     </overlay>
     <offsets>
       <x-m>-23.822</x-m>
-      <y-m>-0.044</y-m>
+      <y-m>-0.048</y-m>
       <z-m>1.155</z-m>
       <pitch-deg>-10</pitch-deg>
     </offsets>
@@ -1576,7 +1576,7 @@
     </overlay>
     <offsets>
       <x-m>-23.822</x-m>
-      <y-m>0.027</y-m>
+      <y-m>0.019</y-m>
       <z-m>1.155</z-m>
       <pitch-deg>-10</pitch-deg>
     </offsets>
@@ -1591,7 +1591,7 @@
     </overlay>
     <offsets>
       <x-m>-23.822</x-m>
-      <y-m>0.098</y-m>
+      <y-m>0.086</y-m>
       <z-m>1.155</z-m>
       <pitch-deg>-10</pitch-deg>
     </offsets>
@@ -1623,7 +1623,7 @@
     </overlay>
     <offsets>
       <x-m>-23.81</x-m>
-      <y-m>-0.044</y-m>
+      <y-m>-0.048</y-m>
       <z-m>1.092</z-m>
       <pitch-deg>-10</pitch-deg>
     </offsets>
@@ -1638,7 +1638,7 @@
     </overlay>
     <offsets>
       <x-m>-23.81</x-m>
-      <y-m>0.027</y-m>
+      <y-m>0.019</y-m>
       <z-m>1.092</z-m>
       <pitch-deg>-10</pitch-deg>
     </offsets>
@@ -1653,7 +1653,7 @@
     </overlay>
     <offsets>
       <x-m>-23.81</x-m>
-      <y-m>0.098</y-m>
+      <y-m>0.086</y-m>
       <z-m>1.092</z-m>
       <pitch-deg>-10</pitch-deg>
     </offsets>
@@ -1691,7 +1691,7 @@
       <x-m>-23.795</x-m>
       <y-m>0.1489</y-m>
       <z-m>1.011</z-m>
-      <pitch-deg>-10</pitch-deg>
+      <pitch-deg>-11</pitch-deg>
     </offsets>
   </model>
 
@@ -1699,8 +1699,8 @@
     <name>Nose Visor</name>
     <path>Aircraft/Concorde/Models/Cockpit/Instruments/nose-visor.xml</path>
     <offsets>
-      <x-m>-23.83</x-m>
-      <y-m>0.185</y-m>
+      <x-m>-23.833</x-m>
+      <y-m>0.175</y-m>
       <z-m>1.212</z-m>
       <pitch-deg>-10</pitch-deg>
     </offsets>
@@ -1710,7 +1710,7 @@
     <path>Aircraft/Concorde/Models/Cockpit/Instruments/nose-visor-light.xml</path>
     <offsets>
       <x-m>-23.83</x-m>
-      <y-m>0.235</y-m>
+      <y-m>0.232</y-m>
       <z-m>1.212</z-m>
       <pitch-deg>-10</pitch-deg>
     </offsets>
