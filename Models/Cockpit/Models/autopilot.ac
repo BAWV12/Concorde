@@ -1,6 +1,6 @@
 AC3Db
 MATERIAL "Button.005" rgb 0.400 0.450 0.600  amb 0.483 0.483 0.483  emis 0.050 0.050 0.050  spec 0.300 0.300 0.300  shi 32 trans 0.000
-MATERIAL "Aquire.005" rgb 0.800 0.800 0.000  amb 0.400 0.400 0.000  emis 0.050 0.050 0.000  spec 0.300 0.300 0.300  shi 32 trans 0.000
+MATERIAL "Aquire.005" rgb 0.400 0.400 0.000  amb 0.200 0.200 0.000  emis 0.050 0.050 0.000  spec 0.300 0.300 0.300  shi 32 trans 0.000
 MATERIAL "ButtonTexture.005" rgb 0.000 0.000 0.000  amb 0.000 0.000 0.000  emis 0.000 0.000 0.000  spec 0.000 0.000 0.000  shi 32 trans 0.000
 MATERIAL "Label.005" rgb 1.000 1.000 1.000  amb 0.300 0.300 0.300  emis 0.000 0.000 0.000  spec 0.300 0.300 0.300  shi 32 trans 0.000
 MATERIAL "Number.010" rgb 1.000 1.000 1.000  amb 1.000 1.000 1.000  emis 0.000 0.000 0.000  spec 0.300 0.300 0.300  shi 32 trans 0.000
