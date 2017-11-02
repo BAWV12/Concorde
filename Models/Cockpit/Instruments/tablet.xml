@@ -1,0 +1,461 @@
+<?xml version="1.0"?>
+<PropertyList>
+  <path>../Models/tablet.ac</path>
+  <!--Default Lighting-->
+
+  <animation>
+    <type>pick</type>
+    <object-name>Off</object-name>
+    <action>
+      <name>Captain Tablet hide</name>
+      <button>0</button>
+      <repeatable>false</repeatable>
+      <binding>
+        <command>nasal</command>
+	  <script>
+	  	setprop("instrumentation/tablet/installed",0);
+	  </script>
+      </binding>
+    </action>
+  </animation>
+
+  <animation>
+    <type>pick</type>
+    <object-name>Frame</object-name>
+    <object-name>Frame.002</object-name>
+    <object-name>Frame.003</object-name>
+    <object-name>Sphere</object-name>
+    <action>
+      <name>Captain Tablet show</name>
+      <button>0</button>
+      <repeatable>false</repeatable>
+      <binding>
+        <command>nasal</command>
+	  <script>
+	  	setprop("instrumentation/tablet/installed",1);
+	  </script>
+      </binding>
+    </action>
+  </animation>
+
+  <animation>
+    <type>select</type>
+    <object-name>Cube</object-name>
+    <object-name>Off</object-name>
+    <object-name>tablet</object-name>
+    <object-name>tablet.001</object-name>
+    <object-name>Btn</object-name>
+    <object-name>Btn.001</object-name>
+    <object-name>Btn.002</object-name>
+    <object-name>Btn.003</object-name>
+    <object-name>Btn.004</object-name>
+    <object-name>Btn.007</object-name>
+    <object-name>Btn.008</object-name>
+    <object-name>Btn.009</object-name>
+    <condition>
+        <property>instrumentation/tablet/installed</property>
+    </condition>
+  </animation>
+
+  <animation>
+    <type>select</type>
+    <object-name>tablet</object-name>
+    <condition>
+      <and>
+        <property>instrumentation/tablet/installed</property>
+        <not><property>instrumentation/tablet/inputs/nd-centered</property></not>
+      </and>
+    </condition>
+  </animation>
+
+  <animation>
+    <type>select</type>
+    <object-name>tablet_center</object-name>
+    <condition>
+      <and>
+        <property>instrumentation/tablet/installed</property>
+        <property>instrumentation/tablet/inputs/nd-centered</property>
+      </and>
+    </condition>
+  </animation>
+
+<!-- Buttons -->
+
+  <animation>
+    <type>material</type>
+    <object-name>Btn.008</object-name>
+    <condition>
+	<equals>
+          <property>instrumentation/tablet/nd/canvas-display-mode</property>
+	  <value>PLAN</value>
+	</equals>
+    </condition>
+    <emission>
+      <red>0.5</red>
+      <green>0.5</green>
+      <blue>0.5</blue>
+    </emission>
+  </animation>
+
+  <animation>
+    <type>material</type>
+    <object-name>Btn.009</object-name>
+    <condition>
+	<equals>
+          <property>instrumentation/tablet/nd/canvas-display-mode</property>
+	  <value>MAP</value>
+	</equals>
+    </condition>
+    <emission>
+      <red>0.5</red>
+      <green>0.5</green>
+      <blue>0.5</blue>
+    </emission>
+  </animation>
+
+  <animation>
+    <type>pick</type>
+    <object-name>Btn</object-name>
+    <action>
+      <name>Btn click</name>
+      <button>0</button>
+      <repeatable>false</repeatable>
+      <binding>
+        <command>property-toggle</command>
+        <property>instrumentation/tablet/inputs/arpt</property>
+        <step>1</step>
+        <min>0</min>
+        <max>1</max>
+        <wrap>true</wrap>
+      </binding>
+    </action>
+  </animation>
+
+  <animation>
+    <type>pick</type>
+    <object-name>Btn.001</object-name>
+    <action>
+      <name>Btn click</name>
+      <button>0</button>
+      <repeatable>false</repeatable>
+      <binding>
+        <command>property-toggle</command>
+        <property>instrumentation/tablet/inputs/NDB</property>
+        <step>1</step>
+        <min>0</min>
+        <max>1</max>
+        <wrap>true</wrap>
+      </binding>
+    </action>
+  </animation>
+
+  <animation>
+    <type>pick</type>
+    <object-name>Btn.002</object-name>
+    <action>
+      <name>Btn click</name>
+      <button>0</button>
+      <repeatable>false</repeatable>
+      <binding>
+        <command>property-toggle</command>
+        <property>instrumentation/tablet/inputs/VORD</property>
+        <step>1</step>
+        <min>0</min>
+        <max>1</max>
+        <wrap>true</wrap>
+      </binding>
+    </action>
+  </animation>
+
+  <animation>
+    <type>pick</type>
+    <object-name>Btn.003</object-name>
+    <action>
+      <name>Btn click</name>
+      <button>0</button>
+      <repeatable>false</repeatable>
+      <binding>
+        <command>property-toggle</command>
+        <property>instrumentation/tablet/inputs/wpt</property>
+        <step>1</step>
+        <min>0</min>
+        <max>1</max>
+        <wrap>true</wrap>
+      </binding>
+    </action>
+  </animation>
+
+  <animation>
+    <type>pick</type>
+    <object-name>Btn.007</object-name>
+    <action>
+      <name>Btn click</name>
+      <button>0</button>
+      <repeatable>false</repeatable>
+      <binding>
+        <command>property-cycle</command>
+        <property>instrumentation/tablet/inputs/range-nm</property>
+	<value>640</value>
+	<value>320</value>
+	<value>160</value>
+	<value>80</value>
+	<value>40</value>
+	<value>20</value>
+	<value>10</value>
+	<value>5</value>
+      </binding>
+    </action>
+  </animation>
+
+  <animation>
+    <type>pick</type>
+    <object-name>Btn.004</object-name>
+    <action>
+      <name>Btn click</name>
+      <button>0</button>
+      <repeatable>false</repeatable>
+      <binding>
+        <command>property-cycle</command>
+        <property>instrumentation/tablet/inputs/range-nm</property>
+	<value>5</value>
+	<value>10</value>
+	<value>20</value>
+	<value>40</value>
+	<value>80</value>
+	<value>160</value>
+	<value>320</value>
+	<value>640</value>
+      </binding>
+      <binding>
+        <command>nasal</command>
+	  <script>
+		tablet_rng=getprop("instrumentation/tablet/inputs/range-nm");
+		if (tablet_rng>160){
+		  setprop("instrumentation/tablet/inputs/arpt",0);
+		  setprop("instrumentation/tablet/inputs/NDB",0);
+		  setprop("instrumentation/tablet/inputs/VORD",0);
+		  setprop("instrumentation/tablet/inputs/wpt",0);
+                };
+	  </script>
+      </binding>
+    </action>
+  </animation>
+
+  <animation>
+    <type>select</type>
+    <object-name>Btn.007</object-name>
+    <condition>
+      <greater-than>
+        <property>instrumentation/tablet/inputs/range-nm</property>
+	<value>5</value>
+      </greater-than>
+    </condition>
+ </animation>
+
+  <animation>
+    <type>select</type>
+    <object-name>Btn.004</object-name>
+    <condition>
+      <less-than>
+        <property>instrumentation/tablet/inputs/range-nm</property>
+	<value>640</value>
+      </less-than>
+    </condition>
+ </animation>
+
+  <animation>
+    <type>select</type>
+    <object-name>Btn</object-name>
+    <object-name>Btn.001</object-name>
+    <object-name>Btn.002</object-name>
+    <object-name>Btn.003</object-name>
+    <condition>
+      <and>
+        <less-than>
+          <property>instrumentation/tablet/inputs/range-nm</property>
+	  <value>320</value>
+        </less-than>
+	<equals>
+          <property>instrumentation/tablet/nd/canvas-display-mode</property>
+	  <value>MAP</value>
+	</equals>
+      </and>
+    </condition>
+ </animation>
+
+  <animation>
+    <type>select</type>
+    <object-name>Btn.006</object-name>
+    <object-name>Btn.005</object-name>
+    <condition>
+	<equals>
+          <property>instrumentation/tablet/nd/canvas-display-mode</property>
+	  <value>PLAN</value>
+	</equals>
+    </condition>
+ </animation>
+
+  <animation>
+    <type>pick</type>
+    <object-name>Btn.008</object-name>
+    <action>
+      <name>Btn click</name>
+      <button>0</button>
+      <repeatable>false</repeatable>
+      <binding>
+        <command>nasal</command>
+	  <script>
+		setprop("instrumentation/tablet/inputs/nd-centered",1);
+		setprop("instrumentation/tablet/nd/canvas-display-mode",'PLAN');
+	  </script>
+      </binding>
+    </action>
+  </animation>
+
+  <animation>
+    <type>pick</type>
+    <object-name>Btn.009</object-name>
+    <action>
+      <name>Btn click</name>
+      <button>0</button>
+      <repeatable>false</repeatable>
+      <binding>
+        <command>nasal</command>
+	  <script>
+		setprop("instrumentation/tablet/inputs/nd-centered",0);
+		setprop("instrumentation/tablet/nd/canvas-display-mode",'MAP');
+	  </script>
+      </binding>
+    </action>
+  </animation>
+
+  <animation>
+    <type>pick</type>
+    <object-name>Btn.009</object-name>
+    <action>
+      <name>Btn click</name>
+      <button>1</button>
+      <repeatable>false</repeatable>
+      <binding>
+        <command>property-toggle</command>
+	<property>instrumentation/tablet/inputs/nd-centered</property>
+      </binding>
+    </action>
+  </animation>
+
+  <animation>
+    <type>pick</type>
+    <object-name>Btn.006</object-name>
+    <action>
+      <name>Btn click</name>
+      <button>0</button>
+      <repeatable>false</repeatable>
+      <binding>
+        <command>nasal</command>
+	  <script>
+		wptidx=getprop("instrumentation/tablet/inputs/plan-wpt-index")-1;
+		wptnum=getprop("autopilot/route-manager/route/num");
+                if (wptidx == -2){
+		  wptidx=wptnum-1;
+		};
+		setprop("instrumentation/tablet/inputs/plan-wpt-index",wptidx);
+	  </script>
+      </binding>
+    </action>
+  </animation>
+
+  <animation>
+    <type>pick</type>
+    <object-name>Btn.005</object-name>
+    <action>
+      <name>Btn click</name>
+      <button>0</button>
+      <repeatable>false</repeatable>
+      <binding>
+        <command>nasal</command>
+	  <script>
+		wptidx=getprop("instrumentation/tablet/inputs/plan-wpt-index")+1;
+		wptnum=getprop("autopilot/route-manager/route/num");
+                if (wptidx == wptnum-1){
+		  wptidx=-1;
+		};
+		setprop("instrumentation/tablet/inputs/plan-wpt-index",wptidx);
+	  </script>
+      </binding>
+    </action>
+  </animation>
+
+
+<!-- "autopilot/route-manager/route/num" -->
+<!-- Lighting -->
+
+  <animation>
+    <type>material</type>
+    <object-name>Btn</object-name>
+    <condition>
+      <property>instrumentation/tablet/inputs/arpt</property>
+    </condition>
+    <emission>
+      <red>0.5</red>
+      <green>0.5</green>
+      <blue>0.5</blue>
+    </emission>
+ </animation>
+
+  <animation>
+    <type>material</type>
+    <object-name>Btn.001</object-name>
+    <condition>
+      <property>instrumentation/tablet/inputs/NDB</property>
+    </condition>
+    <emission>
+      <red>0.5</red>
+      <green>0.5</green>
+      <blue>0.5</blue>
+    </emission>
+ </animation>
+
+ <animation>
+    <type>material</type>
+    <object-name>Btn.002</object-name>
+    <condition>
+      <property>instrumentation/tablet/inputs/VORD</property>
+    </condition>
+    <emission>
+      <red>0.5</red>
+      <green>0.5</green>
+      <blue>0.5</blue>
+    </emission>
+ </animation>
+
+  <animation>
+    <type>material</type>
+    <object-name>Btn.003</object-name>
+    <condition>
+      <property>instrumentation/tablet/inputs/wpt</property>
+    </condition>
+    <emission>
+      <red>0.5</red>
+      <green>0.5</green>
+      <blue>0.5</blue>
+    </emission>
+ </animation>
+
+ <animation>
+    <type>material</type>
+    <object-name>Frame</object-name>
+  <condition>
+	<greater-than>
+	  <property>systems/lighting/level/roof</property>
+	  <value>0</value>
+	</greater-than>
+  </condition>
+  <emission>
+   <red>0.66</red>
+   <green>0.68</green>
+   <blue>0.64</blue>
+   <factor-prop>systems/lighting/level/roof</factor-prop>
+  </emission>
+ </animation>
+
+</PropertyList>

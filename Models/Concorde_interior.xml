@@ -11,6 +11,17 @@
 <PropertyList>
 
   <model>
+    <name>Tablet</name>
+    <path>Aircraft/Concorde/Models/Cockpit/Instruments/tablet.xml</path>
+    <offsets>
+      <x-m>-23.84</x-m>
+      <y-m>-0.66</y-m>
+      <z-m>1.25</z-m>
+      <pitch-deg>-10</pitch-deg>
+    </offsets>
+  </model>
+
+  <model>
     <name>Wipers</name>
     <path>Aircraft/Concorde/Models/Cockpit/Instruments/wipers.xml</path>
     <offsets>

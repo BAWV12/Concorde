@@ -99,7 +99,7 @@ var searchCmd_default = func {
 			printlog("alert", "lat/lon was nil for AI node "~t.getPath());
 			continue;
 		}
-		if (me.map.controller.in_range(lat, lon) and s>80){
+		if (me.map.controller.in_range(lat, lon) and s>40){
 			append(result, TrafficModel.new(t, nil, me.layer));
 			cnt=cnt+1;
 		};
