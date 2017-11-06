@@ -2651,6 +2651,9 @@
 	   <object-name>Pillar</object-name>
   <object-name>CeilingPanel.001</object-name>
   <object-name>CeilingEdge</object-name>
+  <object-name>UpperPanel</object-name>
+  <object-name>Dashboard</object-name>
+  <object-name>Dashboard.001</object-name>
 
 </effect>
 

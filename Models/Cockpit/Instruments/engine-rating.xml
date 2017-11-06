@@ -5,6 +5,10 @@
 <effect>
     <inherits-from>Aircraft/Concorde/Models/Effects/interior</inherits-from>
     <object-name>Frame</object-name>
+    <object-name>CTY</object-name>
+    <object-name>TO</object-name>
+    <object-name>CLB</object-name>
+    <object-name>CRS</object-name>
 </effect>
 
   <animation>

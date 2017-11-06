@@ -23,7 +23,7 @@ setprop("sim/rendering/als-secondary-lights/lightspot/size[1]",0.4);
 setprop("sim/rendering/als-secondary-lights/lightspot/lightspot-r[2]",0);
 setprop("sim/rendering/als-secondary-lights/lightspot/lightspot-g[2]",0);
 setprop("sim/rendering/als-secondary-lights/lightspot/lightspot-b[2]",0);
-setprop("sim/rendering/als-secondary-lights/lightspot/size[2]",3.5);
+setprop("sim/rendering/als-secondary-lights/lightspot/size[2]",3);
 
 
 

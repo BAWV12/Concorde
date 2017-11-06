@@ -5,6 +5,24 @@
 <effect>
     <inherits-from>Aircraft/Concorde/Models/Effects/interior</inherits-from>
     <object-name>Frame.001</object-name>
+    <object-name>RedFrame</object-name>
+    <object-name>RedFrame.001</object-name>
+    <object-name>RedFrame.002</object-name>
+    <object-name>RedLight</object-name>
+    <object-name>RedLight.001</object-name>
+    <object-name>RedLight.002</object-name>
+    <object-name>OrangeFrame</object-name>
+    <object-name>OrangeFrame.001</object-name>
+    <object-name>OrangeFrame.002</object-name>
+    <object-name>OrangeFrame.003</object-name>
+    <object-name>GreenFrame</object-name>
+    <object-name>GreenFrame.001</object-name>
+    <object-name>GreenFrame.002</object-name>
+    <object-name>GreenFrame.003</object-name>
+    <object-name>GreenLight</object-name>
+    <object-name>GreenLight.001</object-name>
+    <object-name>GreenLight.002</object-name>
+    <object-name>GreenLight.003</object-name>
 </effect>
 
   <animation>
@@ -307,6 +325,17 @@
   <animation>
     <type>material</type>
     <object-name>Frame.001</object-name>
+    <object-name>RedFrame</object-name>
+    <object-name>RedFrame.001</object-name>
+    <object-name>RedFrame.002</object-name>
+    <object-name>OrangeFrame</object-name>
+    <object-name>OrangeFrame.001</object-name>
+    <object-name>OrangeFrame.002</object-name>
+    <object-name>OrangeFrame.003</object-name>
+    <object-name>GreenFrame</object-name>
+    <object-name>GreenFrame.001</object-name>
+    <object-name>GreenFrame.002</object-name>
+    <object-name>GreenFrame.003</object-name>
   <emission>
      <red>0.2</red>
      <green>0.2</green>

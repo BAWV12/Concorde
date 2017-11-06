@@ -5,6 +5,10 @@
 <effect>
     <inherits-from>Aircraft/Concorde/Models/Effects/interior</inherits-from>
     <object-name>Frame</object-name>
+    <object-name>INS1</object-name>
+    <object-name>INS2</object-name>
+    <object-name>INS3</object-name>
+    <object-name>INSComp</object-name>
 </effect>
 
   <animation>

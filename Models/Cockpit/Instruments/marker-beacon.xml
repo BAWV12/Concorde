@@ -5,6 +5,10 @@
 <effect>
     <inherits-from>Aircraft/Concorde/Models/Effects/interior</inherits-from>
     <object-name>Frame</object-name>
+    <object-name>InnerMarker</object-name>
+    <object-name>MiddleMarker</object-name>
+    <object-name>OuterMarker</object-name>
+    <object-name>Test</object-name>
 </effect>
 
   <animation>
@@ -97,4 +101,30 @@
      <blue>0.2</blue>
   </emission>
  </animation>
+
+  <animation>
+    <type>material</type>
+    <object-name>TestLabel</object-name>
+  <condition>
+  <and>
+   <greater-than>
+    <property>sim/time/sun-angle-rad</property>
+    <value>1.59</value>
+   </greater-than>
+    <property>controls/lighting/instrument-lights</property>
+        <greater-than>
+          <property>/systems/electrical/outputs/specific</property>
+          <value>20.0</value>
+        </greater-than>
+  </and>
+  </condition>
+  <emission>
+   <red>0.7</red>
+   <green>0.2</green>
+   <blue>0.2</blue>
+   <factor-prop>/controls/lighting/instruments-norm</factor-prop>
+  </emission>
+  </animation>
+
+
 </PropertyList>

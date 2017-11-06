@@ -5,6 +5,10 @@
 <effect>
     <inherits-from>Aircraft/Concorde/Models/Effects/interior</inherits-from>
     <object-name>Frame</object-name>
+    <object-name>Fail.001</object-name>
+    <object-name>Fail</object-name>
+    <object-name>Fail.002</object-name>
+    <object-name>On</object-name>
 </effect>
 
 

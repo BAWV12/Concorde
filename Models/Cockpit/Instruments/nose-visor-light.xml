@@ -5,6 +5,12 @@
 <effect>
     <inherits-from>Aircraft/Concorde/Models/Effects/interior</inherits-from>
     <object-name>Frame</object-name>
+    <object-name>RedFrame</object-name>
+    <object-name>OrangeFrame</object-name>
+    <object-name>GreenFrame</object-name>
+    <object-name>RedLight</object-name>
+    <object-name>OrangeLight</object-name>
+    <object-name>GreenLight</object-name>
 </effect>
 
   <animation>

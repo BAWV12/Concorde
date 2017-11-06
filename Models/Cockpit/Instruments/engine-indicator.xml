@@ -12,6 +12,9 @@
 <effect>
     <inherits-from>Aircraft/Concorde/Models/Effects/interior</inherits-from>
     <object-name>Frame</object-name>
+    <object-name>GO</object-name>
+    <object-name>CON</object-name>
+    <object-name>REV</object-name>
 </effect>
 
   <animation>

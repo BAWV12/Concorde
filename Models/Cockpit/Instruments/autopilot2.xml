@@ -19,6 +19,39 @@
     <object-name>Cube.003</object-name>
     <object-name>Frame</object-name>
     <object-name>Frame.001</object-name>
+    <object-name>ALL</object-name>
+    <object-name>ALR</object-name>
+    <object-name>MH</object-name>
+    <object-name>IH</object-name>
+    <object-name>IA</object-name>
+    <object-name>IN</object-name>
+    <object-name>BB</object-name>
+    <object-name>TH</object-name>
+    <object-name>VL</object-name>
+    <object-name>HH</object-name>
+    <object-name>TU</object-name>
+    <object-name>GA</object-name>
+    <object-name>PH</object-name>
+    <object-name>LA</object-name>
+    <object-name>MP</object-name>
+    <object-name>GL</object-name>
+    <object-name>CL</object-name>
+    <object-name>CR</object-name>
+    <object-name>IP</object-name>
+    <object-name>VS</object-name>
+    <object-name>AH</object-name>
+    <object-name>AA</object-name>
+    <object-name>IH</object-name>
+    <object-name>IH</object-name>
+    <object-name>AT1</object-name>
+    <object-name>AT2</object-name>
+    <object-name>FD1</object-name>
+    <object-name>FD2</object-name>
+    <object-name>AP1</object-name>
+    <object-name>AP2</object-name>
+
+
+
 </effect>
 
 
@@ -136,7 +169,7 @@
 
     </condition>
     <emission>
-      <red>1</red>
+      <red>0.5</red>
       <green>0</green>
       <blue>0</blue>
     </emission>

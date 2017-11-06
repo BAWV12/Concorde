@@ -12,6 +12,8 @@
 <effect>
     <inherits-from>Aircraft/Concorde/Models/Effects/interior</inherits-from>
     <object-name>Frame</object-name>
+    <object-name>RNAV</object-name>
+    <object-name>WXR</object-name>
 </effect>
 
   <animation>

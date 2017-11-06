@@ -5,6 +5,8 @@
 <effect>
     <inherits-from>Aircraft/Concorde/Models/Effects/interior</inherits-from>
     <object-name>Frame</object-name>
+    <object-name>LightFrame</object-name>
+    <object-name>WheelOverheat</object-name>
 </effect>
 
   <animation>
