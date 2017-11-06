@@ -5,6 +5,11 @@
 <PropertyList> 
  <path>seat-observer2.ac</path> 
 
+<effect>
+  <inherits-from>Aircraft/Concorde/Models/Effects/interior</inherits-from>
+  <object-name>Seat</object-name>
+</effect>
+
  <nasal>
   <load>
    var livery_update = aircraft.livery_update.new(

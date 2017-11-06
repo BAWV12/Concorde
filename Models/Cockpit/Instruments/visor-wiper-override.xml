@@ -1,7 +1,16 @@
 <?xml version="1.0"?>
 <PropertyList>
   <path>../Models/switch.ac</path>
-  <animation>
+
+<effect>
+    <inherits-from>Aircraft/Concorde/Models/Effects/interior</inherits-from>
+    <object-name>Frame</object-name>
+    <object-name>Nut</object-name>
+    <object-name>Ball</object-name>
+    <object-name>Switch</object-name>
+</effect>
+
+ <animation>
     <type>rotate</type>
     <object-name>Switch</object-name>
     <property>/controls/nose-visor/wiper-override</property>

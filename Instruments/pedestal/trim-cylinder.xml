@@ -3,6 +3,15 @@
 <PropertyList> 
   <path>trim-cylinder.ac</path> 
 
+<effect>
+  <inherits-from>Aircraft/Concorde/Models/Effects/interior</inherits-from>
+   <object-name>TrimCylinder</object-name>
+   <object-name>PitchTrimIndex</object-name>
+   <object-name>PitchTrimWheel</object-name>
+   <object-name>YawTrimWheel</object-name>
+   <object-name>RollTrimWheel</object-name>
+</effect>
+
   <animation>
    <name>Trim</name>
    <object-name>TrimCylinder</object-name>

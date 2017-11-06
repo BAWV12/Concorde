@@ -15,6 +15,25 @@
 <PropertyList> 
   <path>throttle-cylinder.ac</path> 
 
+<effect>
+  <inherits-from>Aircraft/Concorde/Models/Effects/interior</inherits-from>
+   <object-name>ThrottleBase</object-name>
+   <object-name>ThrottleIndexLeft</object-name>
+   <object-name>Throttle1</object-name>
+   <object-name>Throttle2</object-name>
+   <object-name>Throttle3</object-name>
+   <object-name>Throttle4</object-name>
+   <object-name>ThrottleIndexRight</object-name>
+   <object-name>Reverse1</object-name>
+   <object-name>Reverse2</object-name>
+   <object-name>Reverse3</object-name>
+   <object-name>Reverse4</object-name>
+   <object-name>ReheatSelector1</object-name>
+   <object-name>ReheatSelector2</object-name>
+   <object-name>ReheatSelector3</object-name>
+   <object-name>ReheatSelector4</object-name>
+</effect>
+
   <animation>
    <name>Throttle</name>
    <object-name>ThrottleBase</object-name>

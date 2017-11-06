@@ -2,5 +2,8 @@
 
 <PropertyList> 
  <path>console-top.ac</path> 
-
+<effect>
+	   <inherits-from>Aircraft/Concorde/Models/Effects/interior</inherits-from>
+	   <object-name>TopConsole</object-name>
+</effect>
 </PropertyList>

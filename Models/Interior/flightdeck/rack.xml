@@ -2,6 +2,10 @@
 
 <PropertyList> 
  <path>rack.ac</path> 
-
+<effect>
+	   <inherits-from>Aircraft/Concorde/Models/Effects/interior</inherits-from>
+  <object-name>AvionicsLRack</object-name>
+  <object-name>AvionicsRRack</object-name>
+</effect>
 
 </PropertyList>

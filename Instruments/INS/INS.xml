@@ -35,6 +35,32 @@
 
  <path>INS.ac</path> 
 
+<effect>
+  <inherits-from>Aircraft/Concorde/Models/Effects/interior</inherits-from>
+   <object-name>Plate</object-name>
+   <object-name>LeftDisplay</object-name>
+   <object-name>RightDisplay</object-name>
+   <object-name>WaypointSelector</object-name>
+   <object-name>FromToIndicator</object-name>
+   <object-name>WaypointChange</object-name>
+   <object-name>Button1</object-name>
+   <object-name>Button2</object-name>
+   <object-name>Button3</object-name>
+   <object-name>Button4</object-name>
+   <object-name>Button5</object-name>
+   <object-name>Button6</object-name>
+   <object-name>Button7</object-name>
+   <object-name>Button8</object-name>
+   <object-name>Button9</object-name>
+   <object-name>Button0</object-name>
+   <object-name>ClearButton</object-name>
+   <object-name>Plate2</object-name>
+   <object-name>DataSelector</object-name>
+   <object-name>DimControl</object-name>
+   <object-name>Switch</object-name>
+</effect>
+
+
   <animation>
    <name>INS</name>
    <object-name>Plate</object-name>

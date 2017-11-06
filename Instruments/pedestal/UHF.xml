@@ -13,6 +13,19 @@
  
 <!-- ROOF FLUORESCENT LIGHTING -->
 
+<effect>
+  <inherits-from>Aircraft/Concorde/Models/Effects/interior</inherits-from>
+  <object-name>Plate</object-name>
+  <object-name>SelectorUnit</object-name>
+  <object-name>SelectorUnit2</object-name>
+  <object-name>SelectorDecimal</object-name>
+  <object-name>SelectorDecimal2</object-name>
+  <object-name>SelectorHundred</object-name>
+  <object-name>SelectorHundred2</object-name>
+  <object-name>SelectorThausend</object-name>
+  <object-name>SelectorThausend2</object-name>
+</effect>
+
  <animation>
   <name>UHF</name>
   <object-name>Plate</object-name>

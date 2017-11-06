@@ -14,6 +14,17 @@
 <PropertyList> 
  <path>seat.ac</path> 
 
+<effect>
+  <inherits-from>Aircraft/Concorde/Models/Effects/interior</inherits-from>
+  <object-name>Seat_0</object-name>
+  <object-name>Seat_1</object-name>
+  <object-name>Seat</object-name>
+  <object-name>ArmrestLeft</object-name>
+  <object-name>ArmrestRight</object-name>
+  <object-name>Boggie</object-name>
+</effect>
+
+
  <nasal>
   <load>
    var livery_update = aircraft.livery_update.new(

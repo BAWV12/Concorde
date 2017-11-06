@@ -45,7 +45,7 @@
 
   <model>
     <name>F/O standby compass light</name>
-    <path>Aircraft/Concorde/Models/Cockpit/Instruments/light-switch-compass.xml</path>
+    <path>Aircraft/Concorde/Models/Cockpit/Instruments/light-switch-compass_fo.xml</path>
     <offsets>
       <x-m>-23.15</x-m>
       <y-m>0.84</y-m>

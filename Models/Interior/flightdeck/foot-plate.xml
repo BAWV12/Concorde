@@ -2,5 +2,8 @@
 
 <PropertyList> 
  <path>foot-plate.ac</path> 
-
+<effect>
+	   <inherits-from>Aircraft/Concorde/Models/Effects/interior</inherits-from>
+  <object-name>Footplate</object-name>
+</effect>
 </PropertyList>

@@ -24,6 +24,16 @@
   <center-light>/controls/lighting/instrument-lights</center-light>
  </params>
 
+<effect>
+  <inherits-from>Aircraft/Concorde/Models/Effects/interior</inherits-from>
+  <object-name>Plate</object-name>
+  <object-name>Frame</object-name>
+  <object-name>Instrument</object-name>
+  <object-name>Total</object-name>
+  <object-name>Static</object-name>
+  <object-name>ISA</object-name>
+</effect>
+
 
 <!-- ROOF FLUORESCENT LIGHTING -->
 

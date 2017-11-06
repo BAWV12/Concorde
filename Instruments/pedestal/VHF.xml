@@ -27,6 +27,17 @@
 
  <path>VHF.ac</path> 
 
+<effect>
+  <inherits-from>Aircraft/Concorde/Models/Effects/interior</inherits-from>
+  <object-name>Plate</object-name>
+  <object-name>TransfertSwitch</object-name>
+  <object-name>TransferSwitch</object-name>
+  <object-name>SwitchPlate</object-name>
+  <object-name>Selector</object-name>
+  <object-name>SelectorDecimal</object-name>
+  <object-name>SelectorStandby.001</object-name>
+  <object-name>SelectorDecimalStandby</object-name>
+</effect>
 <!-- ROOF FLUORESCENT LIGHTING -->
 
  <animation>

@@ -1,19 +1,12 @@
 <?xml version="1.0" ?> 
 
 <PropertyList> 
- <path>console-top.ac</path> 
+ <path>console-top_fo.ac</path> 
 
-<!-- make a copilot console (but that is a mirroring, once shape will be more accurate) -->
+<effect>
+	   <inherits-from>Aircraft/Concorde/Models/Effects/interior</inherits-from>
+	   <object-name>TopConsole</object-name>
+</effect>
 
- <animation>
-  <type>rotate</type>
-  <object-name>TopConsole</object-name>
-  <offset-deg>180.0</offset-deg>
-  <axis>
-   <x>0</x>
-   <y>0</y>
-   <z>1</z>
-  </axis>
- </animation>
 
 </PropertyList>

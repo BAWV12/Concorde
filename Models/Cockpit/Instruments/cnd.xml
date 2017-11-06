@@ -2,6 +2,11 @@
 <PropertyList>
   <path>../Models/cnd.ac</path>
 
+<effect>
+  <inherits-from>Aircraft/Concorde/Models/Effects/interior</inherits-from>
+    <object-name>Frame</object-name>
+</effect>
+
   <!--Default Lighting-->
 
   <animation>
@@ -55,10 +60,9 @@
 	</greater-than>
   </condition>
   <emission>
-   <red>0.66</red>
-   <green>0.68</green>
-   <blue>0.64</blue>
-   <factor-prop>systems/lighting/level/roof</factor-prop>
+     <red>0.2</red>
+     <green>0.2</green>
+     <blue>0.2</blue>
   </emission>
  </animation>
 

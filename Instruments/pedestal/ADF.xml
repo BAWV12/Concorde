@@ -29,6 +29,23 @@
 
  <path>ADF.ac</path> 
 
+<effect>
+  <inherits-from>Aircraft/Concorde/Models/Effects/interior</inherits-from>
+  <object-name>Plate</object-name>
+  <object-name>SwitchPlate</object-name>
+  <object-name>SwitchPlate2</object-name>
+  <object-name>BFOSwitch</object-name>
+  <object-name>BFOSwitch2</object-name>
+  <object-name>Selector</object-name>
+  <object-name>Selector2</object-name>
+  <object-name>SelectorUnit</object-name>
+  <object-name>SelectorUnit2</object-name>
+  <object-name>SelectorDecimal</object-name>
+  <object-name>SelectorDecimal2</object-name>
+  <object-name>Test</object-name>
+  <object-name>Test2</object-name>
+</effect>
+
 <!-- ROOF FLUORESCENT LIGHTING -->
 
  <animation>

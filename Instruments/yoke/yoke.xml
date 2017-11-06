@@ -7,6 +7,12 @@
   <seat>systems/seat/captain</seat>
  </params>
 
+<effect>
+  <inherits-from>Aircraft/Concorde/Models/Effects/interior</inherits-from>
+  <object-name>Yoke</object-name>
+  <object-name>Pillar</object-name>
+  <object-name>Bellows</object-name>
+</effect>
 
  <animation>
   <name>YokePillar</name>

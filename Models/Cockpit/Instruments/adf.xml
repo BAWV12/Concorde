@@ -4,6 +4,12 @@
   <params>
     <heading-deg>/instrumentation/compass[0]/heading-deg</heading-deg>
   </params>
+
+<effect>
+	   <inherits-from>Aircraft/Concorde/Models/Effects/interior</inherits-from>
+	   <object-name>Frame</object-name>
+</effect>
+
   <animation>
     <type>rotate</type>
     <object-name>Guage</object-name>
@@ -122,10 +128,9 @@
     <type>material</type>
     <object-name>Frame</object-name>
     <emission>
-      <red>0.66</red>
-      <green>0.68</green>
-      <blue>0.64</blue>
-      <factor-prop>systems/lighting/level/panel/main</factor-prop>
+     <red>0.2</red>
+     <green>0.2</green>
+     <blue>0.2</blue>
     </emission>
  </animation>
   <animation>

@@ -167,6 +167,7 @@
    <file>Aircraft/Concorde/Nasal/Concorde-interface.nas</file>
    <file>Aircraft/Concorde/Nasal/Concorde-jbsim.nas</file>
    <file>Aircraft/Concorde/Nasal/Concorde-override.nas</file>
+   <file>Aircraft/Concorde/Nasal/als_flood_light.nas</file>
    <file>Aircraft/Concorde/Models/Instruments/ND/canvas/TCAS.nas</file>
    <file>Aircraft/Concorde/Models/Instruments/ND/canvas/WXR.nas</file>
    <file>Aircraft/Concorde/Models/Instruments/ND/canvas/tablet.nas</file>

@@ -1,6 +1,12 @@
 <?xml version="1.0"?>
 <PropertyList>
   <path>../Models/marker-beacon.ac</path>
+
+<effect>
+    <inherits-from>Aircraft/Concorde/Models/Effects/interior</inherits-from>
+    <object-name>Frame</object-name>
+</effect>
+
   <animation>
     <type>material</type>
     <object-name>InnerMarker</object-name>
@@ -86,10 +92,9 @@
     <object-name>Frame</object-name>
     <object-name>Test</object-name>
   <emission>
-   <red>0.66</red>
-   <green>0.68</green>
-   <blue>0.64</blue>
-      <factor-prop>systems/lighting/level/panel/main</factor-prop>
+     <red>0.2</red>
+     <green>0.2</green>
+     <blue>0.2</blue>
   </emission>
  </animation>
 </PropertyList>

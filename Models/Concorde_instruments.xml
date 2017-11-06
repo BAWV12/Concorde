@@ -532,9 +532,9 @@
 
   <model>
    <name>Standby Compass</name>
-   <path>Aircraft/Instruments-3d/comp/comp.xml</path>
+   <path>Aircraft/Concorde/Models/Cockpit/Instruments/comp.xml</path>
    <offsets>
-    <x-m>-23.671</x-m>
+    <x-m>-23.661</x-m>
     <y-m>0.0</y-m>
     <z-m> 1.583</z-m>
    </offsets>

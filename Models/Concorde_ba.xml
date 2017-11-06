@@ -2637,6 +2637,22 @@
 	   <object-name>Front_1</object-name>
    </effect>
 
+<effect>
+	   <inherits-from>Aircraft/Concorde/Models/Effects/interior</inherits-from>
+	   <object-name>MainPanel_0</object-name>
+	   <object-name>MainPanel_1</object-name>
+	   <object-name>Cockpit</object-name>
+	   <object-name>Cube.001</object-name>
+	   <object-name>CeilingPanel</object-name>
+	   <object-name>ConsoleLeft</object-name>
+	   <object-name>ConsoleRight</object-name>
+	   <object-name>ConsoleForward</object-name>
+	   <object-name>ConsoleAft</object-name>
+	   <object-name>Pillar</object-name>
+  <object-name>CeilingPanel.001</object-name>
+  <object-name>CeilingEdge</object-name>
+
+</effect>
 
 <!-- =================== -->
 <!-- Internal animations -->
@@ -2741,9 +2757,30 @@
   <type>material</type>
   <object-name>RoofLight1</object-name>
   <object-name>RoofLight2</object-name>
+  <condition>
+    <and>
+	<greater-than>
+	  <property>sim/rendering/als-secondary-lights/lightspot/lightspot-r[2]</property>
+	  <value>0</value>
+	</greater-than>
+        <greater-than>
+          <property>systems/electrical/outputs/specific</property>
+          <value>20.0</value>
+        </greater-than>
+    </and>
+  </condition>
+  <emission>
+   <red>0.71</red>
+   <green>0.79</green>
+   <blue>0.7</blue>
+  </emission>
+ </animation>
+
+
+ <animation>
+  <type>material</type>
   <object-name>ConsoleLeft</object-name>
   <object-name>ConsoleRight</object-name>
-  <object-name>CeilingPanel</object-name>
   <object-name>Dash lighting</object-name>
   <condition>
 	<greater-than>

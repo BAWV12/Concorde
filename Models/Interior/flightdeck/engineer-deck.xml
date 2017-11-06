@@ -3,6 +3,11 @@
 <PropertyList> 
  <path>deck.ac</path> 
 
+<effect>
+	   <inherits-from>Aircraft/Concorde/Models/Effects/interior</inherits-from>
+  	   <object-name>EngineerDeck</object-name>
+</effect>
+
  <animation>
   <type>material</type>
   <object-name>EngineerDeck</object-name>

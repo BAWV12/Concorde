@@ -9,6 +9,14 @@
 <PropertyList> 
  <path>engineer.ac</path> 
 
+<effect>
+	   <inherits-from>Aircraft/Concorde/Models/Effects/interior</inherits-from>
+  <object-name>EngineerLeft</object-name>
+  <object-name>EngineerRight</object-name>
+  <object-name>Engineer</object-name>
+  <object-name>EngineerAft</object-name>
+
+</effect>
 
 <!-- FLOOD LIGHTING (only if no roof light) -->
 

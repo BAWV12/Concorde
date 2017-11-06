@@ -3,6 +3,17 @@
   <path>../Models/tablet.ac</path>
   <!--Default Lighting-->
 
+<effect>
+	   <inherits-from>Aircraft/Concorde/Models/Effects/interior</inherits-from>
+	   <object-name>Frame</object-name>
+	   <object-name>Sphere</object-name>
+	   <object-name>Frame.003</object-name>
+	   <object-name>Frame.002</object-name>
+	   <object-name>Cube</object-name>
+    <object-name>tablet</object-name>
+    <object-name>tablet_center</object-name>
+</effect>
+
   <animation>
     <type>pick</type>
     <object-name>Off</object-name>
@@ -91,9 +102,9 @@
 	</equals>
     </condition>
     <emission>
-      <red>0.5</red>
-      <green>0.5</green>
-      <blue>0.5</blue>
+      <red>1</red>
+      <green>1</green>
+      <blue>1</blue>
     </emission>
   </animation>
 
@@ -107,9 +118,9 @@
 	</equals>
     </condition>
     <emission>
-      <red>0.5</red>
-      <green>0.5</green>
-      <blue>0.5</blue>
+      <red>1</red>
+      <green>1</green>
+      <blue>1</blue>
     </emission>
   </animation>
 
@@ -396,9 +407,9 @@
       <property>instrumentation/tablet/inputs/arpt</property>
     </condition>
     <emission>
-      <red>0.5</red>
-      <green>0.5</green>
-      <blue>0.5</blue>
+      <red>1</red>
+      <green>1</green>
+      <blue>1</blue>
     </emission>
  </animation>
 
@@ -409,9 +420,9 @@
       <property>instrumentation/tablet/inputs/NDB</property>
     </condition>
     <emission>
-      <red>0.5</red>
-      <green>0.5</green>
-      <blue>0.5</blue>
+      <red>1</red>
+      <green>1</green>
+      <blue>1</blue>
     </emission>
  </animation>
 
@@ -422,9 +433,9 @@
       <property>instrumentation/tablet/inputs/VORD</property>
     </condition>
     <emission>
-      <red>0.5</red>
-      <green>0.5</green>
-      <blue>0.5</blue>
+      <red>1</red>
+      <green>1</green>
+      <blue>1</blue>
     </emission>
  </animation>
 
@@ -435,9 +446,9 @@
       <property>instrumentation/tablet/inputs/wpt</property>
     </condition>
     <emission>
-      <red>0.5</red>
-      <green>0.5</green>
-      <blue>0.5</blue>
+      <red>1</red>
+      <green>1</green>
+      <blue>1</blue>
     </emission>
  </animation>
 

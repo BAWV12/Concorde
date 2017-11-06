@@ -6,11 +6,18 @@
  <animation>
   <type>material</type>
   <object-name>SpotLight</object-name>
+  <condition>
+        <greater-than>
+          <property>systems/electrical/outputs/specific</property>
+          <value>20.0</value>
+        </greater-than>
+  </condition>
+
   <emission>
    <red>1.0</red>
    <green>0.91</green>
    <blue>0.92</blue>
-   <factor-prop>systems/lighting/level/engineer/deck</factor-prop>
+   <factor-prop>sim/rendering/als-secondary-lights/lightspot/lightspot-r[2]</factor-prop>
   </emission>
  </animation> 
 

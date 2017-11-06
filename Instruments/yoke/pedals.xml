@@ -2,6 +2,11 @@
 
 <path>pedals.ac</path>
 
+<effect>
+  <inherits-from>Aircraft/Concorde/Models/Effects/interior</inherits-from>
+  <object-name>LHPedal</object-name>
+  <object-name>RHPedal</object-name>
+</effect>
 
 <!-- PEDALS -->
 

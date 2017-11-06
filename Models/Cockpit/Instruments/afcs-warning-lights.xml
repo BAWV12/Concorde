@@ -15,6 +15,31 @@
     <dist>/instrumentation/nav[1]/nav-distance</dist>
     <tmo-sel>/instrumentation/temperature[0]/indicated-tmo-degc</tmo-sel>
   </params>
+
+<effect>
+	   <inherits-from>Aircraft/Concorde/Models/Effects/interior</inherits-from>
+	   <object-name>Frame</object-name>
+	   <object-name>Frame2</object-name>
+	   <object-name>Frame3</object-name>
+	   <object-name>APLabel</object-name>
+	   <object-name>ATLabel</object-name>
+	   <object-name>Land2Label</object-name>
+	   <object-name>Land3.001</object-name>
+	   <object-name>Land2Label.001</object-name>
+	   <object-name>AP</object-name>
+	   <object-name>AT</object-name>
+	   <object-name>DH</object-name>
+	   <object-name>LOCLeft</object-name>
+	   <object-name>LOCRight</object-name>
+	   <object-name>GSUp</object-name>
+	   <object-name>GSDown</object-name>
+	   <object-name>Aircraft1</object-name>
+	   <object-name>Aircraft2</object-name>
+	   <object-name>Land2</object-name>
+	   <object-name>Land3</object-name>
+	   <object-name>Test</object-name>
+</effect>
+
   <animation>
     <type>material</type>
     <object-name>AP</object-name>
@@ -153,9 +178,9 @@
      </and>
     </condition>
     <emission>
-      <red>0.5</red>
-      <green>0.5</green>
-      <blue>0.5</blue>
+      <red>1</red>
+      <green>1</green>
+      <blue>1</blue>
     </emission>
   </animation>
   <animation>
@@ -190,9 +215,9 @@
      </and>
     </condition>
     <emission>
-      <red>0.5</red>
-      <green>0.5</green>
-      <blue>0.5</blue>
+      <red>1</red>
+      <green>1</green>
+      <blue>1</blue>
     </emission>
   </animation>
   <animation>
@@ -233,9 +258,9 @@
      </and>
     </condition>
     <emission>
-      <red>0.5</red>
-      <green>0.5</green>
-      <blue>0.5</blue>
+      <red>1</red>
+      <green>1</green>
+      <blue>1</blue>
     </emission>
   </animation>
   <animation>
@@ -276,9 +301,9 @@
      </and>
     </condition>
     <emission>
-      <red>0.5</red>
-      <green>0.5</green>
-      <blue>0.5</blue>
+      <red>1</red>
+      <green>1</green>
+      <blue>1</blue>
     </emission>
   </animation>
   <animation>
@@ -306,8 +331,8 @@
      </and>
     </condition>
     <emission>
-      <red>0.5</red>
-      <green>0.5</green>
+      <red>0.8</red>
+      <green>0.8</green>
       <blue>0</blue>
     </emission>
   </animation>
@@ -381,8 +406,8 @@
      </and>
     </condition>
     <emission>
-      <red>0.5</red>
-      <green>0.2</green>
+      <red>0.8</red>
+      <green>0.4</green>
       <blue>0.0</blue>
     </emission>
   </animation>
@@ -416,10 +441,9 @@
     <object-name>Frame2</object-name>
     <object-name>Frame3</object-name>
     <emission>
-      <red>0.66</red>
-      <green>0.68</green>
-      <blue>0.64</blue>
-      <factor-prop>systems/lighting/level/panel/main</factor-prop>
+     <red>0.2</red>
+     <green>0.2</green>
+     <blue>0.2</blue>
     </emission>
  </animation>
 

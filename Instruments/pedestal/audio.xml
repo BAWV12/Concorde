@@ -25,7 +25,18 @@
 
  <path>audio.ac</path> 
 
-
+<effect>
+  <inherits-from>Aircraft/Concorde/Models/Effects/interior</inherits-from>
+  <name>Panel</name>
+  <object-name>Plate</object-name>
+  <object-name>Undefined1</object-name>
+  <object-name>Undefined11</object-name>
+  <object-name>Undefined12</object-name>
+  <object-name>Undefined13</object-name>
+  <object-name>Undefined14</object-name>
+  <object-name>Undefined32</object-name>
+  <object-name>UndefinedSwitch</object-name>
+</effect>
  
  <animation>
   <name>Panel</name>

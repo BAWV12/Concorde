@@ -3,6 +3,12 @@
 <PropertyList> 
   <path>brake-cylinder.ac</path> 
 
+<effect>
+  <inherits-from>Aircraft/Concorde/Models/Effects/interior</inherits-from>
+   <object-name>BrakeCylinder</object-name>
+   <object-name>BrakeLever</object-name>
+</effect>
+
   <animation>
    <name>Brake</name>
    <object-name>BrakeCylinder</object-name>
