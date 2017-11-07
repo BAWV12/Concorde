@@ -2647,6 +2647,7 @@
 	   <object-name>ConsoleLeft</object-name>
 	   <object-name>ConsoleRight</object-name>
 	   <object-name>ConsoleForward</object-name>
+	   <object-name>ConsoleForward.001</object-name>
 	   <object-name>ConsoleAft</object-name>
 	   <object-name>Pillar</object-name>
   <object-name>CeilingPanel.001</object-name>
@@ -2654,6 +2655,8 @@
   <object-name>UpperPanel</object-name>
   <object-name>Dashboard</object-name>
   <object-name>Dashboard.001</object-name>
+  <object-name>Cylinder</object-name>
+  <object-name>Tablet_dummy</object-name>
 
 </effect>
 
@@ -2666,6 +2669,71 @@
      - only 1 material per object (child included).
      - groups are allowed.
 -->
+
+  <animation>
+    <type>pick</type>
+    <object-name>Tablet_dummy</object-name>
+    <action>
+      <name>Captain Tablet show</name>
+      <button>0</button>
+      <repeatable>false</repeatable>
+      <binding>
+        <command>nasal</command>
+	  <script>
+	  	setprop("instrumentation/tablet/installed",1);
+	  </script>
+      </binding>
+    </action>
+  </animation>
+
+  <animation>
+    <type>select</type>
+    <object-name>Tablet_dummy</object-name>
+    <condition>
+        <not><property>instrumentation/tablet/installed</property></not>
+    </condition>
+  </animation>
+
+  <animation>
+    <type>pick</type>
+    <object-name>Lantern</object-name>
+    <action>
+      <name>Captain Tablet show</name>
+      <button>0</button>
+      <repeatable>false</repeatable>
+      <binding>
+        <command>nasal</command>
+	  <script>
+	  	setprop("sim/rendering/als-secondary-lights/use-searchlight",1);
+	  </script>
+      </binding>
+    </action>
+  </animation>
+
+  <animation>
+    <type>select</type>
+    <object-name>Lantern</object-name>
+    <condition>
+        <not><property>sim/rendering/als-secondary-lights/use-searchlight</property></not>
+    </condition>
+  </animation>
+
+  <animation>
+    <type>pick</type>
+    <object-name>ConsoleForward.001</object-name>
+    <action>
+      <name>Captain Tablet show</name>
+      <button>0</button>
+      <repeatable>false</repeatable>
+      <binding>
+        <command>nasal</command>
+	  <script>
+	  	setprop("sim/rendering/als-secondary-lights/use-searchlight",0);
+	  </script>
+      </binding>
+    </action>
+  </animation>
+
 
  <animation>
   <type>select</type>

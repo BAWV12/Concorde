@@ -31,25 +31,6 @@
   </animation>
 
   <animation>
-    <type>pick</type>
-    <object-name>Frame</object-name>
-    <object-name>Frame.002</object-name>
-    <object-name>Frame.003</object-name>
-    <object-name>Sphere</object-name>
-    <action>
-      <name>Captain Tablet show</name>
-      <button>0</button>
-      <repeatable>false</repeatable>
-      <binding>
-        <command>nasal</command>
-	  <script>
-	  	setprop("instrumentation/tablet/installed",1);
-	  </script>
-      </binding>
-    </action>
-  </animation>
-
-  <animation>
     <type>select</type>
     <object-name>Cube</object-name>
     <object-name>Off</object-name>

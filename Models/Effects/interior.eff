@@ -182,7 +182,7 @@
       <uniform>
         <name>snowlevel</name>
         <type>float</type>
-        <value>99999</value>
+        <value>999999</value>
       </uniform>
       <uniform>
 	<name>snow_thickness_factor</name>
