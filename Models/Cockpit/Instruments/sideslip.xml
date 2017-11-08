@@ -9,6 +9,9 @@
 <effect>
     <inherits-from>Aircraft/Concorde/Models/Effects/interior</inherits-from>
     <object-name>Frame</object-name>
+    <object-name>Slip</object-name>
+    <object-name>Guage</object-name>
+    <object-name>FF</object-name>
 </effect>
 
   <animation>

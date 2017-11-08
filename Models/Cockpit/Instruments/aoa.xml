@@ -10,6 +10,11 @@
 <effect>
 	   <inherits-from>Aircraft/Concorde/Models/Effects/interior</inherits-from>
 	   <object-name>Frame</object-name>
+    <object-name>Guage</object-name>
+    <object-name>FF</object-name>
+    <object-name>FF.001</object-name>
+    <object-name>Accl</object-name>
+    <object-name>Aoa</object-name>
 </effect>
 
   <animation>

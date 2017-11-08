@@ -14,6 +14,13 @@
 <effect>
 	   <inherits-from>Aircraft/Concorde/Models/Effects/interior</inherits-from>
 	   <object-name>Frame</object-name>
+    <object-name>ASINeedle</object-name>
+    <object-name>Number1</object-name>
+    <object-name>Number2</object-name>
+    <object-name>Number3</object-name>
+    <object-name>LimitNeedle</object-name>
+    <object-name>Guage</object-name>
+    <object-name>FF</object-name>
 </effect>
 
   <animation>
@@ -174,9 +181,9 @@
       </prod>
     </expression>
     <center>
-      <x-m>-0.0085</x-m>
-      <y-m>-0.004</y-m>
-      <z-m>0.015</z-m>
+      <x-m>-0.01551</x-m>
+      <y-m>0.00702</y-m>
+      <z-m>0.01271</z-m>
     </center>
     <axis>
       <x>0</x>
@@ -229,9 +236,9 @@
       </prod>
     </expression>
     <center>
-      <x-m>-0.0085</x-m>
-      <y-m>0</y-m>
-      <z-m>0.015</z-m>
+      <x-m>-0.01551</x-m>
+      <y-m>0.00702</y-m>
+      <z-m>0.01271</z-m>
     </center>
     <axis>
       <x>0</x>
@@ -257,9 +264,9 @@
     <property alias="/params/speed-sel"/>
     <factor>36</factor>
     <center>
-      <x-m>-0.0085</x-m>
-      <y-m>0.004</y-m>
-      <z-m>0.015</z-m>
+      <x-m>-0.01551</x-m>
+      <y-m>0.00702</y-m>
+      <z-m>0.01271</z-m>
     </center>
     <axis>
       <x>0</x>

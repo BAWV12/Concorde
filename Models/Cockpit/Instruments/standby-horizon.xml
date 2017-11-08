@@ -11,6 +11,11 @@
 <effect>
     <inherits-from>Aircraft/Concorde/Models/Effects/interior</inherits-from>
     <object-name>Frame</object-name>
+    <object-name>Horizon</object-name>
+    <object-name>Inner</object-name>
+    <object-name>Offset</object-name>
+    <object-name>RollArrow</object-name>
+    <object-name>FF</object-name>
 </effect>
 
   <animation>

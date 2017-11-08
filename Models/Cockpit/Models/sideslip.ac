@@ -1,15 +1,15 @@
 AC3Db
 MATERIAL "Horizon2.018" rgb 1.000 1.000 1.000  amb 1.000 1.000 1.000  emis 0.000 0.000 0.000  spec 0.300 0.300 0.300  shi 32 trans 0.000
-MATERIAL "Frame.006" rgb 0.705 0.789 0.868  amb 1.000 1.000 1.000  emis 0.150 0.150 0.150  spec 0.150 0.150 0.150  shi 32 trans 0.000
+MATERIAL "Frame.016" rgb 0.705 0.789 0.868  amb 1.000 1.000 1.000  emis 0.150 0.150 0.150  spec 0.150 0.150 0.150  shi 32 trans 0.000
 MATERIAL "Gauge.002" rgb 1.000 1.000 1.000  amb 1.000 1.000 1.000  emis 0.000 0.000 0.000  spec 0.300 0.300 0.300  shi 50 trans 0.000
-MATERIAL "White.004" rgb 1.000 1.000 1.000  amb 1.000 1.000 1.000  emis 0.000 0.000 0.000  spec 0.300 0.300 0.300  shi 32 trans 0.000
+MATERIAL "White.024" rgb 1.000 1.000 1.000  amb 1.000 1.000 1.000  emis 0.000 0.000 0.000  spec 0.300 0.300 0.300  shi 32 trans 0.000
 OBJECT world
-name "Blender_exporter_v2.22__sideslip.ac"
+name "Blender_exporter_v2.19__sideslip.ac"
 kids 4
 OBJECT poly
 name "FF"
 data 18
-GSWarning.mesh.015
+GSWarning.mesh.020
 crease 40.0
 texture "vor-3d.png"
 texrep 1 1
@@ -30,7 +30,7 @@ kids 0
 OBJECT poly
 name "Frame"
 data 14
-Frame.mesh.006
+Frame.mesh.017
 crease 40.0
 texture "panel.png"
 texrep 1 1
@@ -115,7 +115,7 @@ kids 0
 OBJECT poly
 name "Guage"
 data 14
-Guage.mesh.006
+Guage.mesh.019
 crease 40.0
 texture "concorde-side-slip.png"
 texrep 1 1
@@ -138,6 +138,8 @@ name "Slip"
 data 9
 Slip.mesh
 crease 40.0
+texture "misc-1.png"
+texrep 1 1
 numvert 6
 0.001 -0.00333 -0
 0.001 -0.01033 0.005
@@ -149,34 +151,34 @@ numsurf 5
 SURF 0X20
 mat 3
 refs 4
-4 0 0
-5 0 0
-2 0 0
-1 0 0
+4 0.824899 0.800733
+5 0.824899 0.800733
+2 0.802145 0.800733
+1 0.802145 0.800733
 SURF 0X20
 mat 3
 refs 4
-0 0 0
-1 0 0
-2 0 0
-3 0 0
+0 0.813522 0.816661
+1 0.802145 0.800733
+2 0.802145 0.800733
+3 0.813522 0.816661
 SURF 0X20
 mat 3
 refs 3
-5 0 0
-3 0 0
-2 0 0
+5 0.824899 0.800733
+3 0.813522 0.816661
+2 0.802145 0.800733
 SURF 0X20
 mat 3
 refs 3
-0 0 0
-4 0 0
-1 0 0
+0 0.813522 0.816661
+4 0.824899 0.800733
+1 0.802145 0.800733
 SURF 0X20
 mat 3
 refs 4
-4 0 0
-0 0 0
-3 0 0
-5 0 0
+4 0.824899 0.800733
+0 0.813522 0.816661
+3 0.813522 0.816661
+5 0.824899 0.800733
 kids 0

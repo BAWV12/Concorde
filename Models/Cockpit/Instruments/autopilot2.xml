@@ -50,7 +50,55 @@
     <object-name>AP1</object-name>
     <object-name>AP2</object-name>
 
+  <object-name>Speed1</object-name>
+  <object-name>Speed2</object-name>
+  <object-name>Speed3</object-name>
+  <object-name>AltNum1</object-name>
+  <object-name>AltNum2</object-name>
+  <object-name>AltNum3</object-name>
+  <object-name>AltNum4</object-name>
+  <object-name>AltNum5</object-name>
+  <object-name>HDG1Num1</object-name>
+  <object-name>HDG1Num2</object-name>
+  <object-name>HDG1Num3</object-name>
+  <object-name>HDG2Num1</object-name>
+  <object-name>HDG2Num2</object-name>
+  <object-name>HDG2Num3</object-name>
 
+  <object-name>HDG1Num1.001</object-name>
+  <object-name>HDG1Num2.001</object-name>
+  <object-name>HDG1Num3.001</object-name>
+  <object-name>HDG2Num1.001</object-name>
+  <object-name>HDG2Num2.001</object-name>
+  <object-name>HDG2Num3.001</object-name>
+
+  <object-name>VOR1Num1</object-name>
+  <object-name>VOR1Num2</object-name>
+  <object-name>VOR1Num3</object-name>
+  <object-name>VOR2Num1</object-name>
+  <object-name>VOR2Num2</object-name>
+  <object-name>VOR2Num3</object-name>
+
+  <object-name>Plane.001</object-name>
+  <object-name>MainATLabel</object-name>
+  <object-name>KnotsLabel</object-name>
+  <object-name>KnotsLabel.001</object-name>
+  <object-name>HPLabel1</object-name>
+  <object-name>TPLabel1</object-name>
+  <object-name>VLLabel1</object-name>
+  <object-name>RefLabel1</object-name>
+
+  <object-name>HPLabel2</object-name>
+  <object-name>TPLabel2</object-name>
+  <object-name>VLLabel2</object-name>
+  <object-name>RefLabel2</object-name>
+
+  <object-name>Plane</object-name>
+  <object-name>KnotsLabel.002</object-name>
+  <object-name>KnotsLabel.003</object-name>
+  <object-name>KnotsLabel.004</object-name>
+  <object-name>KnotsLabel.005</object-name>
+  <object-name>KnotsLabel.006</object-name>
 
 </effect>
 

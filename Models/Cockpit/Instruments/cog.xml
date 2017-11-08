@@ -9,6 +9,13 @@
 <effect>
     <inherits-from>Aircraft/Concorde/Models/Effects/interior</inherits-from>
     <object-name>Frame</object-name>
+    <object-name>CG</object-name>
+    <object-name>FWD</object-name>
+    <object-name>AFT</object-name>
+    <object-name>Guage</object-name>
+    <object-name>FF</object-name>
+    <object-name>AlarmOn</object-name>
+    <object-name>AlarmOff</object-name>
 </effect>
 
   <animation>

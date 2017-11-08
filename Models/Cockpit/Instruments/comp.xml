@@ -7,6 +7,7 @@
 <effect>
     <inherits-from>Aircraft/Concorde/Models/Effects/interior</inherits-from>
     <object-name>Cube</object-name>
+    <object-name>Ring</object-name>
 </effect>
 
  <animation>

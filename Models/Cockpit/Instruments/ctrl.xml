@@ -10,6 +10,15 @@
 <effect>
     <inherits-from>Aircraft/Concorde/Models/Effects/interior</inherits-from>
     <object-name>Frame</object-name>
+    <object-name>Guage</object-name>
+    <object-name>B1</object-name>
+    <object-name>B2</object-name>
+    <object-name>B3</object-name>
+    <object-name>B4</object-name>
+    <object-name>B5</object-name>
+    <object-name>B6</object-name>
+    <object-name>rudder</object-name>
+    <object-name>Frame.001</object-name>
 </effect>
 
   <animation>

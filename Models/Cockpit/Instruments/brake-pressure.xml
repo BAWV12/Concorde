@@ -5,6 +5,10 @@
 <effect>
     <inherits-from>Aircraft/Concorde/Models/Effects/interior</inherits-from>
     <object-name>Frame</object-name>
+    <object-name>Guage</object-name>
+    <object-name>RightNeedle</object-name>
+    <object-name>LeftNeedle</object-name>
+    <object-name>FF</object-name>
 </effect>
 
 

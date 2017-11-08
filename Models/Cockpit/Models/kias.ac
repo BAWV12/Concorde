@@ -1,17 +1,17 @@
 AC3Db
-MATERIAL "Horizon2.013" rgb 1.000 1.000 1.000  amb 1.000 1.000 1.000  emis 0.000 0.000 0.000  spec 0.300 0.300 0.300  shi 32 trans 0.000
-MATERIAL "Frame.009" rgb 0.705 0.789 0.868  amb 1.000 1.000 1.000  emis 0.150 0.150 0.150  spec 0.150 0.150 0.150  shi 32 trans 0.000
-MATERIAL "White.008" rgb 1.000 1.000 1.000  amb 1.000 1.000 1.000  emis 0.000 0.000 0.000  spec 1.000 1.000 1.000  shi 1 trans 0.000
+MATERIAL "Horizon2.015" rgb 1.000 1.000 1.000  amb 1.000 1.000 1.000  emis 0.000 0.000 0.000  spec 0.300 0.300 0.300  shi 32 trans 0.000
+MATERIAL "Frame.013" rgb 0.705 0.789 0.868  amb 1.000 1.000 1.000  emis 0.150 0.150 0.150  spec 0.150 0.150 0.150  shi 32 trans 0.000
+MATERIAL "White.018" rgb 1.000 1.000 1.000  amb 1.000 1.000 1.000  emis 0.000 0.000 0.000  spec 1.000 1.000 1.000  shi 1 trans 0.000
 MATERIAL "KnotsGauge" rgb 1.000 1.000 1.000  amb 1.000 1.000 1.000  emis 0.000 0.000 0.000  spec 1.000 1.000 1.000  shi 20 trans 0.000
 MATERIAL "KnotsGauge.001" rgb 1.000 1.000 1.000  amb 1.000 1.000 1.000  emis 0.000 0.000 0.000  spec 1.000 1.000 1.000  shi 20 trans 0.000
 MATERIAL "MachGauge" rgb 1.000 1.000 1.000  amb 1.000 1.000 1.000  emis 0.000 0.000 0.000  spec 0.500 0.500 0.500  shi 20 trans 0.000
 OBJECT world
-name "Blender_exporter_v2.22__kias.ac"
+name "Blender_exporter_v2.19__kias.ac"
 kids 7
 OBJECT poly
 name "FF"
 data 18
-GSWarning.mesh.012
+GSWarning.mesh.016
 crease 40.0
 texture "vor-3d.png"
 texrep 1 1
@@ -32,7 +32,7 @@ kids 0
 OBJECT poly
 name "Frame"
 data 14
-Frame.mesh.010
+Frame.mesh.013
 crease 40.0
 texture "panel.png"
 texrep 1 1
@@ -1439,6 +1439,8 @@ name "KIASNeedle"
 data 15
 KIASNeedle.mesh
 crease 40.0
+texture "misc-1.png"
+texrep 1 1
 numvert 10
 0.0025 -0 0.002
 0.0025 0 -0.0002
@@ -1454,64 +1456,64 @@ numsurf 9
 SURF 0X20
 mat 2
 refs 4
-1 0 0
-0 0 0
-7 0 0
-6 0 0
+1 0.825991 0.695514
+0 0.803127 0.695514
+7 0.803127 0.924263
+6 0.825991 0.924263
 SURF 0X20
 mat 2
 refs 4
-6 0 0
-8 0 0
-2 0 0
-1 0 0
+6 0.825991 0.924263
+8 0.825991 0.924263
+2 0.825991 0.695514
+1 0.825991 0.695514
 SURF 0X20
 mat 2
 refs 4
-8 0 0
-9 0 0
-3 0 0
-2 0 0
+8 0.825991 0.924263
+9 0.803127 0.924263
+3 0.803127 0.695514
+2 0.825991 0.695514
 SURF 0X20
 mat 2
 refs 4
-0 0 0
-3 0 0
-9 0 0
-7 0 0
+0 0.803127 0.695514
+3 0.803127 0.695514
+9 0.803127 0.924263
+7 0.803127 0.924263
 SURF 0X20
 mat 2
 refs 4
-0 0 0
-1 0 0
-2 0 0
-3 0 0
+0 0.803127 0.695514
+1 0.825991 0.695514
+2 0.825991 0.695514
+3 0.803127 0.695514
 SURF 0X20
 mat 2
 refs 4
-4 0 0
-5 0 0
-8 0 0
-6 0 0
+4 0.825991 0.955338
+5 0.825991 0.955338
+8 0.825991 0.924263
+6 0.825991 0.924263
 SURF 0X20
 mat 2
 refs 3
-6 0 0
-7 0 0
-4 0 0
+6 0.825991 0.924263
+7 0.803127 0.924263
+4 0.825991 0.955338
 SURF 0X20
 mat 2
 refs 3
-9 0 0
-8 0 0
-5 0 0
+9 0.803127 0.924263
+8 0.825991 0.924263
+5 0.825991 0.955338
 SURF 0X20
 mat 2
 refs 4
-4 0 0
-7 0 0
-9 0 0
-5 0 0
+4 0.825991 0.955338
+7 0.803127 0.924263
+9 0.803127 0.924263
+5 0.825991 0.955338
 kids 0
 OBJECT poly
 name "KnotsGuage"

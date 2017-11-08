@@ -12,6 +12,11 @@
 <effect>
     <inherits-from>Aircraft/Concorde/Models/Effects/interior</inherits-from>
     <object-name>Frame</object-name>
+    <object-name>RadioAltitude</object-name>
+    <object-name>DHAdjust</object-name>
+    <object-name>DHAltitude</object-name>
+    <object-name>Guage</object-name>
+    <object-name>FF</object-name>
 </effect>
 
   <animation>
@@ -31,6 +36,7 @@
   <animation>
     <type>rotate</type>
     <object-name>DHAdjust</object-name>
+    <object-name>DHAdjust.001</object-name>
     <property alias="/params/decision-ft"/>
     <factor>1</factor>
     <center>

@@ -5,6 +5,22 @@
 <effect>
 	   <inherits-from>Aircraft/Concorde/Models/Effects/interior</inherits-from>
 	   <object-name>Frame</object-name>
+  <object-name>GreenFrame.003</object-name>
+  <object-name>GreenFrame.000</object-name>
+  <object-name>GreenFrame.001</object-name>
+  <object-name>GreenFrame.002</object-name>
+  <object-name>GreenFrame.004</object-name>
+  <object-name>GreenFrame.005</object-name>
+  <object-name>GreenFrame.006</object-name>
+  <object-name>GreenFrame.007</object-name>
+  <object-name>GreenFrame.009</object-name>
+    <object-name>Switch.001</object-name>
+    <object-name>Switch.002</object-name>
+    <object-name>Ball.001</object-name>
+    <object-name>Ball</object-name>
+    <object-name>Nut.001</object-name>
+    <object-name>Nut</object-name>
+    <object-name>Button</object-name>
 </effect>
 
   <animation>

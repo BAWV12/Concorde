@@ -5,6 +5,11 @@
 <effect>
     <inherits-from>Aircraft/Concorde/Models/Effects/interior</inherits-from>
     <object-name>Frame</object-name>
+    <object-name>GearStick</object-name>
+    <object-name>GearKnob1</object-name>
+    <object-name>GearKnob2</object-name>
+  <object-name>GearKnob1.001</object-name>
+  <object-name>GearKnob2.001</object-name>
 </effect>
 
  <animation>
@@ -35,7 +40,6 @@
    <red>0.7</red>
    <green>0.2</green>
    <blue>0.2</blue>
-   <factor-prop>/controls/lighting/instruments-norm</factor-prop>
   </emission>
  </animation>
 

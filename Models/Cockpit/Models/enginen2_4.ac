@@ -1,16 +1,16 @@
 AC3Db
-MATERIAL "Horizon2.007" rgb 1.000 1.000 1.000  amb 1.000 1.000 1.000  emis 0.000 0.000 0.000  spec 0.300 0.300 0.300  shi 32 trans 0.000
-MATERIAL "Frame.005" rgb 0.705 0.789 0.868  amb 1.000 1.000 1.000  emis 0.150 0.150 0.150  spec 0.150 0.150 0.150  shi 32 trans 0.000
-MATERIAL "Guage.004" rgb 1.000 1.000 1.000  amb 1.000 1.000 1.000  emis 0.000 0.000 0.000  spec 0.300 0.300 0.300  shi 32 trans 0.000
-MATERIAL "White.008" rgb 1.000 1.000 1.000  amb 1.000 1.000 1.000  emis 0.000 0.000 0.000  spec 0.500 0.500 0.500  shi 32 trans 0.000
-MATERIAL "Number.007" rgb 1.000 1.000 1.000  amb 1.000 1.000 1.000  emis 0.000 0.000 0.000  spec 0.500 0.500 0.500  shi 50 trans 0.000
+MATERIAL "Horizon2.012" rgb 1.000 1.000 1.000  amb 1.000 1.000 1.000  emis 0.000 0.000 0.000  spec 0.300 0.300 0.300  shi 32 trans 0.000
+MATERIAL "Frame.006" rgb 0.705 0.789 0.868  amb 1.000 1.000 1.000  emis 0.150 0.150 0.150  spec 0.150 0.150 0.150  shi 32 trans 0.000
+MATERIAL "Guage.006" rgb 1.000 1.000 1.000  amb 1.000 1.000 1.000  emis 0.000 0.000 0.000  spec 0.300 0.300 0.300  shi 32 trans 0.000
+MATERIAL "White.012" rgb 1.000 1.000 1.000  amb 1.000 1.000 1.000  emis 0.000 0.000 0.000  spec 0.500 0.500 0.500  shi 32 trans 0.000
+MATERIAL "Number.008" rgb 1.000 1.000 1.000  amb 1.000 1.000 1.000  emis 0.000 0.000 0.000  spec 0.500 0.500 0.500  shi 50 trans 0.000
 OBJECT world
-name "Blender_exporter_v2.22__enginen2_4.ac"
+name "Blender_exporter_v2.19__enginen2_4.ac"
 kids 8
 OBJECT poly
 name "FF"
 data 18
-GSWarning.mesh.007
+GSWarning.mesh.013
 crease 40.0
 texture "vor-3d.png"
 texrep 1 1
@@ -31,7 +31,7 @@ kids 0
 OBJECT poly
 name "Frame"
 data 14
-Frame.mesh.005
+Frame.mesh.006
 crease 40.0
 texture "panel.png"
 texrep 1 1
@@ -601,7 +601,7 @@ kids 0
 OBJECT poly
 name "Frame2"
 data 15
-Frame2.mesh.007
+Frame2.mesh.009
 crease 40.0
 texture "panel.png"
 texrep 1 1
@@ -755,7 +755,7 @@ kids 0
 OBJECT poly
 name "Guage"
 data 14
-Guage.mesh.004
+Guage.mesh.011
 crease 40.0
 texture "concorde-n2.png"
 texrep 1 1
@@ -776,8 +776,10 @@ kids 0
 OBJECT poly
 name "Needle"
 data 15
-Needle.mesh.004
+Needle.mesh.007
 crease 40.0
+texture "misc-1.png"
+texrep 1 1
 numvert 10
 0.0025 -0 0.001
 0.0025 0 -0.001
@@ -793,71 +795,71 @@ numsurf 10
 SURF 0X20
 mat 3
 refs 4
-1 0 0
-0 0 0
-4 0 0
-5 0 0
+1 0.830449 0.688769
+0 0.805505 0.688769
+4 0.805505 0.963144
+5 0.830449 0.963144
 SURF 0X20
 mat 3
 refs 4
-5 0 0
-6 0 0
-2 0 0
-1 0 0
+5 0.830449 0.963144
+6 0.830449 0.963144
+2 0.830449 0.688769
+1 0.830449 0.688769
 SURF 0X20
 mat 3
 refs 4
-6 0 0
-7 0 0
-3 0 0
-2 0 0
+6 0.830449 0.963144
+7 0.805505 0.963144
+3 0.805505 0.688769
+2 0.830449 0.688769
 SURF 0X20
 mat 3
 refs 4
-0 0 0
-3 0 0
-7 0 0
-4 0 0
+0 0.805505 0.688769
+3 0.805505 0.688769
+7 0.805505 0.963144
+4 0.805505 0.963144
 SURF 0X20
 mat 3
 refs 4
-0 0 0
-1 0 0
-2 0 0
-3 0 0
+0 0.805505 0.688769
+1 0.830449 0.688769
+2 0.830449 0.688769
+3 0.805505 0.688769
 SURF 0X20
 mat 3
 refs 4
-7 0 0
-6 0 0
-5 0 0
-4 0 0
+7 0.805505 0.963144
+6 0.830449 0.963144
+5 0.830449 0.963144
+4 0.805505 0.963144
 SURF 0X20
 mat 3
 refs 4
-7 0 0
-9 0 0
-8 0 0
-4 0 0
+7 0.805505 0.963144
+9 0.817977 0.975616
+8 0.817977 0.975616
+4 0.805505 0.963144
 SURF 0X20
 mat 3
 refs 4
-8 0 0
-9 0 0
-6 0 0
-5 0 0
+8 0.817977 0.975616
+9 0.817977 0.975616
+6 0.830449 0.963144
+5 0.830449 0.963144
 SURF 0X20
 mat 3
 refs 3
-4 0 0
-8 0 0
-5 0 0
+4 0.805505 0.963144
+8 0.817977 0.975616
+5 0.830449 0.963144
 SURF 0X20
 mat 3
 refs 3
-6 0 0
-9 0 0
-7 0 0
+6 0.830449 0.963144
+9 0.817977 0.975616
+7 0.805505 0.963144
 kids 0
 OBJECT poly
 name "Num1"
