@@ -13,22 +13,7 @@
 <effect>
 	   <inherits-from>Aircraft/Concorde/Models/Effects/interior</inherits-from>
 	   <object-name>Frame</object-name>
-    <object-name>alt10000</object-name>
-    <object-name>alt1000</object-name>
-    <object-name>alt100</object-name>
-    <object-name>alt10</object-name>
-    <object-name>inhg1</object-name>
-    <object-name>inhg2</object-name>
-    <object-name>inhg3</object-name>
-    <object-name>inhg4</object-name>
-    <object-name>mbar1</object-name>
-    <object-name>mbar2</object-name>
-    <object-name>mbar3</object-name>
-    <object-name>mbar4</object-name>
-    <object-name>Guage</object-name>
-    <object-name>AltNeedle</object-name>
     <object-name>Adjust</object-name>
-    <object-name>FF</object-name>
 </effect>
 
   <animation>

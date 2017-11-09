@@ -5,11 +5,7 @@
 <effect>
     <inherits-from>Aircraft/Concorde/Models/Effects/interior</inherits-from>
     <object-name>Frame</object-name>
-    <object-name>LimitNeedle</object-name>
-    <object-name>KnotsGuage</object-name>
-    <object-name>KIASNeedle</object-name>
-    <object-name>MachGuage</object-name>
-    <object-name>FF</object-name>
+
 </effect>
 
   <animation>

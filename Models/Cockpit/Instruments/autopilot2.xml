@@ -49,7 +49,7 @@
     <object-name>FD2</object-name>
     <object-name>AP1</object-name>
     <object-name>AP2</object-name>
-
+<!--
   <object-name>Speed1</object-name>
   <object-name>Speed2</object-name>
   <object-name>Speed3</object-name>
@@ -99,7 +99,7 @@
   <object-name>KnotsLabel.004</object-name>
   <object-name>KnotsLabel.005</object-name>
   <object-name>KnotsLabel.006</object-name>
-
+-->
 </effect>
 
 
