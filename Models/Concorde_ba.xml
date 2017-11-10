@@ -199,6 +199,7 @@
     <name>Front</name>
     <object-name>Screen_0</object-name>
     <object-name>Screen_1</object-name>
+    <object-name>Screen_0.001</object-name>
   </animation>
   
 <!-- ================ -->
@@ -2592,7 +2593,7 @@
 
 <!-- SHADER effects -->
 
-  <effect>
+ <effect>
   <inherits-from>Aircraft/Concorde/Models/Effects/fuselage-reflect</inherits-from>
   <object-name>Screen_0</object-name>
   <object-name>Front_0</object-name>
@@ -2608,7 +2609,7 @@
   <object-name>ROailaron</object-name>
   <object-name>RMailaron</object-name>
   <object-name>RIailaron</object-name>
-   <object-name>Engine</object-name>
+  <object-name>Engine</object-name>
   <object-name>EngineIntake</object-name>
   <object-name>OLImaindoor</object-name>
   <object-name>OLOmaindoor</object-name>
@@ -2629,35 +2630,39 @@
   <object-name>Taildoorclosed</object-name>
  </effect>
 
-   <effect>
-	   <inherits-from>Aircraft/Concorde/Models/Effects/glass</inherits-from>
-	   <object-name>Cabin</object-name>
-	   <object-name>Screen_1</object-name>
-	   <object-name>Side</object-name>
-	   <object-name>Front_1</object-name>
-   </effect>
+ <effect>
+   <inherits-from>Aircraft/Concorde/Models/Effects/glass</inherits-from>
+   <object-name>Cabin</object-name>
+   <object-name>Screen_1</object-name>
+   <object-name>Side</object-name>
+   <object-name>Front_1</object-name>
+ </effect>
 
-<effect>
-	   <inherits-from>Aircraft/Concorde/Models/Effects/interior</inherits-from>
-	   <object-name>MainPanel_0</object-name>
-	   <object-name>MainPanel_1</object-name>
-	   <object-name>Cockpit</object-name>
-	   <object-name>Cube.001</object-name>
-	   <object-name>CeilingPanel</object-name>
-	   <object-name>ConsoleLeft</object-name>
-	   <object-name>ConsoleRight</object-name>
-	   <object-name>ConsoleForward</object-name>
-	   <object-name>ConsoleForward.001</object-name>
-	   <object-name>ConsoleAft</object-name>
-	   <object-name>Pillar</object-name>
-  <object-name>CeilingPanel.001</object-name>
-  <object-name>CeilingEdge</object-name>
-  <object-name>UpperPanel</object-name>
-  <object-name>Dashboard</object-name>
-  <object-name>Dashboard.001</object-name>
-  <object-name>Cylinder</object-name>
-  <object-name>Tablet_dummy</object-name>
+ <effect>
+   <inherits-from>Aircraft/Concorde/Models/Effects/visor</inherits-from>
+   <object-name>Screen_0.001</object-name>
+ </effect>
 
+ <effect>
+   <inherits-from>Aircraft/Concorde/Models/Effects/interior</inherits-from>
+   <object-name>MainPanel_0</object-name>
+   <object-name>MainPanel_1</object-name>
+   <object-name>Cockpit</object-name>
+   <object-name>Cube.001</object-name>
+   <object-name>CeilingPanel</object-name>
+   <object-name>ConsoleLeft</object-name>
+   <object-name>ConsoleRight</object-name>
+   <object-name>ConsoleForward</object-name>
+   <object-name>ConsoleForward.001</object-name>
+   <object-name>ConsoleAft</object-name>
+   <object-name>Pillar</object-name>
+   <object-name>CeilingPanel.001</object-name>
+   <object-name>CeilingEdge</object-name>
+   <object-name>UpperPanel</object-name>
+   <object-name>Dashboard</object-name>
+   <object-name>Dashboard.001</object-name>
+   <object-name>Cylinder</object-name>
+   <object-name>Tablet_dummy</object-name>
 </effect>
 
 <!-- =================== -->
