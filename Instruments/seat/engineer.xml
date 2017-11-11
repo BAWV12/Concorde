@@ -8,13 +8,7 @@
 <PropertyList> 
  <path>seat-engineer.ac</path> 
 
-<effect>
-  <inherits-from>Aircraft/Concorde/Models/Effects/interior</inherits-from>
-  <object-name>Seat</object-name>
-  <object-name>Armrest</object-name>
-  <object-name>TopSeat</object-name>
-  <object-name>Boggie</object-name>
-</effect>
+
 
  <nasal>
   <load>
@@ -72,11 +66,18 @@
  <animation>
   <type>material</type>
   <object-name>AllSeat</object-name>
+  <condition>
+    <greater-than>
+	<property>sim/rendering/als-secondary-lights/lightspot/lightspot-r[2]</property>
+	<value>0</value>
+    </greater-than>
+  </condition>
   <emission>
    <red>0.66</red>
    <green>0.68</green>
    <blue>0.64</blue>
-   <factor-prop>systems/lighting/level/roof</factor-prop>
+<!--   <factor-prop>systems/lighting/level/roof</factor-prop>-->
+   <factor-prop>sim/rendering/als-secondary-lights/lightspot/lightspot-r[2]</factor-prop>
   </emission> 
  </animation> 
 
