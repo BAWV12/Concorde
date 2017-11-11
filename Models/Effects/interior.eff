@@ -5,20 +5,20 @@
 	<parameters>
 
 		<!-- 		BEGIN fog include -->
-		<visibility>25000</visibility>
-    		<avisibility>25000</avisibility>
-    		<lthickness>2000</lthickness>
+		<visibility><use>/environment/ground-visibility-m</use></visibility>
+    		<avisibility><use>/environment/visibility-m</use></avisibility>
+    		<lthickness><use>/environment/ground-haze-thickness-m</use></lthickness>
     		<scattering><use>/rendering/scene/scattering</use></scattering>
     		<ground_scattering><use>/environment/surface/scattering</use></ground_scattering>
-    		<terminator>2600000</terminator>
-    		<terrain_alt>0</terrain_alt>
+    		<terminator><use>/environment/terminator-relative-position-m</use></terminator>
+    		<terrain_alt><use>/environment/mean-terrain-elevation-m</use></terrain_alt>
     		<overcast><use>/rendering/scene/overcast</use></overcast>
-    		<eye_alt>0</eye_alt>
-    		<snow_level>999999</snow_level>
-    		<dust_cover_factor>0</dust_cover_factor>
-    		<lichen_cover_factor>0</lichen_cover_factor>
-    		<snow_thickness_factor>0</snow_thickness_factor>
-    		<wetness>0</wetness>
+    		<eye_alt><use>/sim/rendering/eye-altitude-m</use></eye_alt>
+    		<snow_level><use>/environment/snow-level-m</use></snow_level>
+    		<dust_cover_factor><use>/environment/surface/dust-cover-factor</use></dust_cover_factor>
+    		<lichen_cover_factor><use>/environment/surface/lichen-cover-factor</use></lichen_cover_factor>
+    		<snow_thickness_factor><use>/environment/surface/snow-thickness-factor</use></snow_thickness_factor>
+    		<wetness><use>/environment/surface/wetness</use></wetness>
     		<uvstretch>1.0</uvstretch>
 		<num_lightspots><use>/sim/rendering/als-secondary-lights/num-lightspots</use></num_lightspots>
 		<eyerel_x1><use>/sim/rendering/als-secondary-lights/lightspot/eyerel-x-m</use></eyerel_x1>
@@ -64,7 +64,7 @@
     		<fogstructure><use>/environment/fog-structure</use></fogstructure>
     		<cloud_self_shading><use>/environment/cloud-self-shading</use></cloud_self_shading>
     		<moonlight><use>/environment/moonlight</use></moonlight>
-    		<delta_T>0</delta_T>
+    		<delta_T><use>/environment/surface/delta-T-rock</use></delta_T>
    		<quality_level><use>/sim/rendering/shaders/landmass</use></quality_level>
     		<tquality_level><use>/sim/rendering/shaders/transition</use></tquality_level>
 		<raise_vertex type="bool">false</raise_vertex>
