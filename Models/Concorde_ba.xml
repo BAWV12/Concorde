@@ -2638,10 +2638,6 @@
    <object-name>Front_1</object-name>
  </effect>
 
- <effect>
-   <inherits-from>Aircraft/Concorde/Models/Effects/visor</inherits-from>
-   <object-name>Screen_0.001</object-name>
- </effect>
 
  <effect>
    <inherits-from>Aircraft/Concorde/Models/Effects/interior</inherits-from>
@@ -2663,6 +2659,7 @@
    <object-name>Dashboard.001</object-name>
    <object-name>Cylinder</object-name>
    <object-name>Tablet_dummy</object-name>
+   <object-name>Screen_0.001</object-name>
 </effect>
 
 <!-- =================== -->
