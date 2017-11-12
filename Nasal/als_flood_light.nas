@@ -6,7 +6,7 @@ setprop("sim/rendering/als-secondary-lights/lightspot/eyerel-x-m[1]",-0.7);
 setprop("sim/rendering/als-secondary-lights/lightspot/eyerel-y-m[1]",0.8);
 setprop("sim/rendering/als-secondary-lights/lightspot/eyerel-z-m[1]",-0.4);
 
-setprop("sim/rendering/als-secondary-lights/lightspot/eyerel-x-m[2]",1.9);
+setprop("sim/rendering/als-secondary-lights/lightspot/eyerel-x-m[2]",1.5);
 setprop("sim/rendering/als-secondary-lights/lightspot/eyerel-y-m[2]",0.45);
 setprop("sim/rendering/als-secondary-lights/lightspot/eyerel-z-m[2]",0.27);
 
@@ -42,7 +42,7 @@ setprop("sim/rendering/als-secondary-lights/lightspot/eyerel-x-m[1]",x_o1);
 setprop("sim/rendering/als-secondary-lights/lightspot/eyerel-y-m[1]",y_o1);
 setprop("sim/rendering/als-secondary-lights/lightspot/eyerel-z-m[1]",z_o1);
 
-x_o2=9.98-getprop("sim/current-view/z-offset-m");
+x_o2=9.48-getprop("sim/current-view/z-offset-m");
 y_o2=-getprop("sim/current-view/x-offset-m");
 z_o2=1.8-getprop("sim/current-view/y-offset-m");
 setprop("sim/rendering/als-secondary-lights/lightspot/eyerel-x-m[2]",x_o2);

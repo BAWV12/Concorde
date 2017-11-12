@@ -126,24 +126,11 @@
       <button>3</button>
       <repeatable>false</repeatable>
       <binding>
+	<condition>
+          <property>/controls/lighting/instrument-lights</property>	  
+	</condition>
         <command>property-adjust</command>
         <property>sim/rendering/als-secondary-lights/lightspot/lightspot-r</property>
-        <step>0.1</step>
-        <min>0</min>
-        <max>0.5</max>
-        <wrap>false</wrap>
-      </binding>
-      <binding>
-        <command>property-adjust</command>
-        <property>sim/rendering/als-secondary-lights/lightspot/lightspot-g</property>
-        <step>0.1</step>
-        <min>0</min>
-        <max>0.5</max>
-        <wrap>false</wrap>
-      </binding>
-      <binding>
-        <command>property-adjust</command>
-        <property>sim/rendering/als-secondary-lights/lightspot/lightspot-b</property>
         <step>0.1</step>
         <min>0</min>
         <max>0.5</max>
@@ -155,24 +142,11 @@
       <button>4</button>
       <repeatable>false</repeatable>
       <binding>
+	<condition>
+          <property>/controls/lighting/instrument-lights</property>	  
+	</condition>
         <command>property-adjust</command>
         <property>sim/rendering/als-secondary-lights/lightspot/lightspot-r</property>
-        <step>-0.1</step>
-        <min>0</min>
-        <max>0.5</max>
-        <wrap>false</wrap>
-      </binding>
-      <binding>
-        <command>property-adjust</command>
-        <property>sim/rendering/als-secondary-lights/lightspot/lightspot-g</property>
-        <step>-0.1</step>
-        <min>0</min>
-        <max>0.5</max>
-        <wrap>false</wrap>
-      </binding>
-      <binding>
-        <command>property-adjust</command>
-        <property>sim/rendering/als-secondary-lights/lightspot/lightspot-b</property>
         <step>-0.1</step>
         <min>0</min>
         <max>0.5</max>
