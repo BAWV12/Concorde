@@ -121,6 +121,7 @@
     </offsets>
   </model>
 
+
   <model>
     <name>Autopilot</name>
     <path>Aircraft/Concorde/Models/Cockpit/Instruments/autopilot2.xml</path>
@@ -131,6 +132,7 @@
       <pitch-deg>-15</pitch-deg>
     </offsets>
   </model>
+
 
  <model>
     <name>Radio Selector</name>
