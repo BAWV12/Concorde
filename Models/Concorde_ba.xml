@@ -2390,7 +2390,10 @@
   <object-name>OuterFlame1</object-name>
   <object-name>InnerFlame1</object-name>
   <condition>
+   <equals>
    <property>engines/engine[0]/augmentation</property>
+   <value>2</value>
+   </equals>
   </condition>
  </animation>
 
@@ -2399,7 +2402,10 @@
   <object-name>OuterFlame2</object-name>
   <object-name>InnerFlame2</object-name>
   <condition>
+   <equals>
    <property>engines/engine[1]/augmentation</property>
+   <value>2</value>
+   </equals>
   </condition>
  </animation>
 
@@ -2408,7 +2414,10 @@
   <object-name>OuterFlame3</object-name>
   <object-name>InnerFlame3</object-name>
   <condition>
+   <equals>
    <property>engines/engine[2]/augmentation</property>
+   <value>2</value>
+   </equals>
   </condition>
  </animation>
 
@@ -2417,7 +2426,10 @@
   <object-name>OuterFlame4</object-name>
   <object-name>InnerFlame4</object-name>
   <condition>
+   <equals>
    <property>engines/engine[3]/augmentation</property>
+   <value>2</value>
+   </equals>
   </condition>
  </animation>
 
@@ -2637,6 +2649,8 @@
    <object-name>Side</object-name>
    <object-name>Front_1</object-name>
  </effect>
+
+
 
 
  <effect>
@@ -3466,5 +3480,46 @@
 
  </condition>
 </animation>
+
+
+
+    <model>
+        <nopreview/>
+        <path>Effects/Engines/AfterBurner1.xml</path>
+        <offsets>
+            <x-m>13.8</x-m>
+            <y-m>-6.15</y-m>
+            <z-m>-0.95</z-m>
+        </offsets>
+    </model>
+    <model>
+        <nopreview/>
+        <path>Effects/Engines/AfterBurner2.xml</path>
+        <offsets>
+            <x-m>13.8</x-m>
+            <y-m>-4.8</y-m>
+            <z-m>-0.95</z-m>
+        </offsets>
+    </model>
+    <model>
+        <nopreview/>
+        <path>Effects/Engines/AfterBurner3.xml</path>
+        <offsets>
+            <x-m>13.8</x-m>
+            <y-m>4.8</y-m>
+            <z-m>-0.95</z-m>
+        </offsets>
+    </model>
+    <model>
+        <nopreview/>
+        <path>Effects/Engines/AfterBurner4.xml</path>
+        <offsets>
+            <x-m>13.8</x-m>
+            <y-m>6.15</y-m>
+            <z-m>-0.95</z-m>
+        </offsets>
+    </model>
+
+
 
 </PropertyList>
