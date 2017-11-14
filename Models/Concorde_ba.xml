@@ -3488,8 +3488,8 @@
         <path>Effects/Engines/AfterBurner1.xml</path>
         <offsets>
             <x-m>13.8</x-m>
-            <y-m>-6.15</y-m>
-            <z-m>-0.95</z-m>
+            <y-m>-6.1</y-m>
+            <z-m>-0.9</z-m>
         </offsets>
     </model>
     <model>
@@ -3497,8 +3497,8 @@
         <path>Effects/Engines/AfterBurner2.xml</path>
         <offsets>
             <x-m>13.8</x-m>
-            <y-m>-4.8</y-m>
-            <z-m>-0.95</z-m>
+            <y-m>-4.77</y-m>
+            <z-m>-0.9</z-m>
         </offsets>
     </model>
     <model>
@@ -3506,8 +3506,8 @@
         <path>Effects/Engines/AfterBurner3.xml</path>
         <offsets>
             <x-m>13.8</x-m>
-            <y-m>4.8</y-m>
-            <z-m>-0.95</z-m>
+            <y-m>4.77</y-m>
+            <z-m>-0.9</z-m>
         </offsets>
     </model>
     <model>
@@ -3515,8 +3515,8 @@
         <path>Effects/Engines/AfterBurner4.xml</path>
         <offsets>
             <x-m>13.8</x-m>
-            <y-m>6.15</y-m>
-            <z-m>-0.95</z-m>
+            <y-m>6.1</y-m>
+            <z-m>-0.9</z-m>
         </offsets>
     </model>
 
