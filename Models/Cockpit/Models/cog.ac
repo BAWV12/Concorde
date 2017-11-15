@@ -1,7 +1,7 @@
 AC3Db
 MATERIAL "Yellow.003" rgb 1.000 1.000 0.000  amb 0.500 0.500 0.500  emis 0.000 0.000 0.000  spec 0.300 0.300 0.300  shi 32 trans 0.000
 MATERIAL "RedOff.001" rgb 0.250 0.000 0.000  amb 0.042 0.042 0.042  emis 0.000 0.000 0.000  spec 0.500 0.500 0.500  shi 50 trans 0.000
-MATERIAL "RedOn.001" rgb 1.000 0.000 0.000  amb 0.167 0.167 0.167  emis 0.167 0.167 0.167  spec 0.500 0.500 0.500  shi 50 trans 0.000
+MATERIAL "RedOn.001" rgb 0.500 0.000 0.000  amb 0.2 0 0  emis 0.8 0 0  spec 0.500 0.500 0.500  shi 50 trans 0.000
 MATERIAL "White.010" rgb 1.000 1.000 1.000  amb 1.000 1.000 1.000  emis 0.000 0.000 0.000  spec 0.300 0.300 0.300  shi 32 trans 0.000
 MATERIAL "Horizon2.011" rgb 1.000 1.000 1.000  amb 1.000 1.000 1.000  emis 0.000 0.000 0.000  spec 0.300 0.300 0.300  shi 32 trans 0.000
 MATERIAL "Frame.011" rgb 0.705 0.789 0.868  amb 1.000 1.000 1.000  emis 0.150 0.150 0.150  spec 0.150 0.150 0.150  shi 32 trans 0.000

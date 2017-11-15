@@ -31,7 +31,7 @@
     <object-name>ATT</object-name>
     <object-name>DH</object-name>
     <object-name>Frame</object-name>
-
+    <object-name>Test</object-name>
 </effect>
 
   <animation>
@@ -527,7 +527,6 @@
   <animation>
     <type>material</type>
     <object-name>Frame</object-name>
-    <object-name>Test</object-name>
   <emission>
      <red>0.2</red>
      <green>0.2</green>

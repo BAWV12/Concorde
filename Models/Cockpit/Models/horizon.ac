@@ -4,7 +4,7 @@ MATERIAL "YellowOff.001" rgb 0.500 0.500 0.000  amb 0.222 0.222 0.222  emis 0.06
 MATERIAL "Material.002" rgb 0.640 0.640 0.640  amb 1.000 1.000 1.000  emis 0.000 0.000 0.000  spec 0.500 0.500 0.500  shi 12 trans 0.000
 MATERIAL "Material.001" rgb 0.640 0.640 0.640  amb 1.000 1.000 1.000  emis 0.000 0.000 0.000  spec 0.500 0.500 0.500  shi 12 trans 0.000
 MATERIAL "Frame.001" rgb 0.705 0.789 0.868  amb 1.000 1.000 1.000  emis 0.150 0.150 0.150  spec 0.150 0.150 0.150  shi 32 trans 0.000
-MATERIAL "Horizon2.003" rgb 1.000 1.000 1.000  amb 1.000 1.000 1.000  emis 0.100 0.100 0.100  spec 0.300 0.300 0.300  shi 32 trans 0.000
+MATERIAL "Horizon2.003" rgb 1.000 1.000 1.000  amb 1.000 1.000 1.000  emis 0.1 0.1 0.1  spec 0.300 0.300 0.300  shi 32 trans 0.000
 MATERIAL "Yellow.001" rgb 1.000 1.000 0.000  amb 0.667 0.667 0.667  emis 0.133 0.133 0.133  spec 0.300 0.300 0.300  shi 32 trans 0.000
 MATERIAL "GsGuage.001" rgb 1.000 1.000 1.000  amb 1.000 1.000 1.000  emis 0.000 0.000 0.000  spec 0.300 0.300 0.300  shi 50 trans 0.000
 MATERIAL "HorizonFront.001" rgb 1.000 1.000 1.000  amb 0.750 0.750 0.750  emis 0.000 0.000 0.000  spec 0.300 0.300 0.300  shi 50 trans 0.000
