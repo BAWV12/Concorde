@@ -9,7 +9,8 @@
 <effect>
     <inherits-from>Aircraft/Concorde/Models/Effects/interior</inherits-from>
     <object-name>Frame</object-name>
-
+    <object-name>AlarmOn</object-name>
+    <object-name>AlarmOff</object-name>
 </effect>
 
   <animation>

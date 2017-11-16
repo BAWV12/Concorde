@@ -49,6 +49,11 @@
     <object-name>FD2</object-name>
     <object-name>AP1</object-name>
     <object-name>AP2</object-name>
+    <object-name>LAAquire</object-name>
+    <object-name>AAAquire</object-name>
+    <object-name>VLAquire</object-name>
+    <object-name>GLAquire</object-name>
+
 <!--
   <object-name>Speed1</object-name>
   <object-name>Speed2</object-name>
