@@ -3589,5 +3589,30 @@
   </axis>
  </animation>
 
+ <animation>
+  <type>rotate</type>
+  <object-name>Intake.001</object-name>
+  <property>systems/engines/engine[0]/ramp-percent</property>
+    <interpolation>
+      <entry>
+        <ind>0</ind>
+        <dep>0</dep>
+      </entry>
+      <entry>
+        <ind>100</ind>
+        <dep>35</dep>
+      </entry>
+    </interpolation>
+    <center>
+      <x-m>4.54492</x-m>
+      <y-m>-0.4123</y-m>
+      <z-m>0.00762</z-m>
+    </center>
+    <axis>
+      <x>0</x>
+      <y>1</y>
+      <z>0</z>
+    </axis>
+ </animation>
 
 </PropertyList>
