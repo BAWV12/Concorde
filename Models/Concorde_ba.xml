@@ -2621,8 +2621,8 @@
   <object-name>ROailaron</object-name>
   <object-name>RMailaron</object-name>
   <object-name>RIailaron</object-name>
-  <object-name>Engine</object-name>
-  <object-name>EngineIntake</object-name>
+<!--  <object-name>Engine</object-name>
+  <object-name>EngineIntake</object-name>-->
   <object-name>OLImaindoor</object-name>
   <object-name>OLOmaindoor</object-name>
   <object-name>ORImaindoor</object-name>
@@ -3520,6 +3520,74 @@
         </offsets>
     </model>
 
+<!-- Engine fans -->
+ <animation>
+  <type>spin</type>
+  <object-name>FanL</object-name>
+  <property>engines/engine[0]/n1</property>
+  <factor>1</factor>
+  <center>
+   <x-m>10.51557</x-m>
+   <y-m>-5.85634</y-m>
+   <z-m>-1.16629</z-m>
+  </center>
+  <axis>
+   <x>1</x>
+   <y>0</y>
+   <z>0</z>
+  </axis>
+ </animation>
+
+ <animation>
+  <type>spin</type>
+  <object-name>FanL.003</object-name>
+  <property>engines/engine[1]/n1</property>
+  <factor>1</factor>
+  <center>
+   <x-m>10.51557</x-m>
+   <y-m>-4.77832</y-m>
+   <z-m>-1.16629</z-m>
+  </center>
+  <axis>
+   <x>1</x>
+   <y>0</y>
+   <z>0</z>
+  </axis>
+ </animation>
+
+ <animation>
+  <type>spin</type>
+  <object-name>FanL.011</object-name>
+  <property>engines/engine[2]/n1</property>
+  <factor>1</factor>
+  <center>
+   <x-m>10.51557</x-m>
+   <y-m>4.76984</y-m>
+   <z-m>-1.16629</z-m>
+  </center>
+  <axis>
+   <x>1</x>
+   <y>0</y>
+   <z>0</z>
+  </axis>
+ </animation>
+
+ <animation>
+  <type>spin</type>
+  <object-name>FanL.008</object-name>
+  <property>engines/engine[3]/n1</property>
+  <factor>1</factor>
+  <center>
+   <x-m>10.51557</x-m>
+   <y-m>5.84787</y-m>
+   <z-m>-1.16629</z-m>
+  </center>
+  <axis>
+   <x>1</x>
+   <y>0</y>
+   <z>0</z>
+  </axis>
+ </animation>
 
 
 </PropertyList>
