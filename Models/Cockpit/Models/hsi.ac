@@ -1,13 +1,13 @@
 AC3Db
-MATERIAL "White.000" rgb 1.000 1.000 1.000  amb 1.000 1.000 1.000  emis 0.000 0.000 0.000  spec 0.300 0.300 0.300  shi 32 trans 0.000
-MATERIAL "Black.008" rgb 0.000 0.000 0.000  amb 0.000 0.000 0.000  emis 0.000 0.000 0.000  spec 0.300 0.300 0.300  shi 50 trans 0.000
-MATERIAL "White.001" rgb 1.000 1.000 1.000  amb 1.000 1.000 1.000  emis 0.000 0.000 0.000  spec 0.300 0.300 0.300  shi 32 trans 0.000
-MATERIAL "Yellow.004" rgb 1.000 1.000 0.000  amb 0.500 0.500 0.500  emis 0.000 0.000 0.000  spec 0.300 0.300 0.300  shi 32 trans 0.000
-MATERIAL "TrueMag.002" rgb 1.000 1.000 1.000  amb 1.000 1.000 1.000  emis 0.000 0.000 0.000  spec 0.300 0.300 0.300  shi 50 trans 0.000
-MATERIAL "Digits.001" rgb 1.000 1.000 1.000  amb 0.100 0.100 0.100  emis 1.000 1.000 1.000  spec 0.300 0.300 0.300  shi 50 trans 0.000
+MATERIAL "White.000" rgb 0.8 0.8 0.8  amb 0.4 0.4 0.4  emis 0.000 0.000 0.000  spec 0 0 0  shi 32 trans 0.000
+MATERIAL "Black.008" rgb 0.000 0.000 0.000  amb 0.000 0.000 0.000  emis 0.000 0.000 0.000  spec 0 0 0  shi 0 trans 0.000
+MATERIAL "White.001" rgb 0.8 0.8 0.8  amb 0.4 0.4 0.4  emis 0.000 0.000 0.000  spec 0 0 0  shi 32 trans 0.000
+MATERIAL "Yellow.004" rgb 0.8 0.8 0.8  amb 0.4 0.4 0.4  emis 0.000 0.000 0.000  spec 0 0 0  shi 32 trans 0.000
+MATERIAL "TrueMag.002" rgb 0.8 0.8 0.8  amb 0.4 0.4 0.4  emis 0.000 0.000 0.000  spec 0 0 0  shi 32 trans 0.000
+MATERIAL "Digits.001" rgb 1 1 1  amb 1 1 1  emis 1.000 0.000 0.000  spec 0 0 0  shi 0 trans 0.000
 MATERIAL "Frame.005" rgb 0.705 0.789 0.868  amb 1.000 1.000 1.000  emis 0.150 0.150 0.150  spec 0.150 0.150 0.150  shi 32 trans 0.000
-MATERIAL "TrueMag.003" rgb 1.000 1.000 1.000  amb 1.000 1.000 1.000  emis 0.000 0.000 0.000  spec 0.300 0.300 0.300  shi 50 trans 0.000
-MATERIAL "White.003" rgb 1.000 1.000 1.000  amb 1.000 1.000 1.000  emis 0.000 0.000 0.000  spec 0.300 0.300 0.300  shi 32 trans 0.000
+MATERIAL "TrueMag.003" rgb 0.8 0.8 0.8  amb 0.4 0.4 0.4  emis 0.000 0.000 0.000  spec 0 0 0  shi 32 trans 0.000
+MATERIAL "White.003" rgb 0.8 0.8 0.8  amb 0.4 0.4 0.4  emis 0.000 0.000 0.000  spec 0 0 0  shi 32 trans 0.000
 OBJECT world
 name "Blender_exporter_v2.19__hsi.ac"
 kids 37

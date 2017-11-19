@@ -1,11 +1,11 @@
 AC3Db
-MATERIAL "YellowM" rgb 1.000 0.800 0.000  amb 0.267 0.267 0.267  emis 0.000 0.000 0.000  spec 1.000 0.800 0.000  shi 32 trans 0.000
-MATERIAL "Horizon2.020" rgb 1.000 1.000 1.000  amb 1.000 1.000 1.000  emis 0.000 0.000 0.000  spec 0.300 0.300 0.300  shi 32 trans 0.000
+MATERIAL "YellowM" rgb 0.8 0.8 0.8  amb 0.4 0.4 0.4  emis 0.000 0.000 0.000  spec 0 0 0  shi 32 trans 0.000
+MATERIAL "Horizon2.020" rgb 0.8 0.8 0.8  amb 0.4 0.4 0.4  emis 0.000 0.000 0.000  spec 0 0 0  shi 32 trans 0.000
 MATERIAL "Black.004" rgb 0.705 0.789 0.868  amb 1.000 1.000 1.000  emis 0.150 0.150 0.150  spec 0.150 0.150 0.150  shi 32 trans 0.000
-MATERIAL "Gauge.007" rgb 1.000 1.000 1.000  amb 1.000 1.000 1.000  emis 0.000 0.000 0.000  spec 0.300 0.300 0.300  shi 32 trans 0.000
-MATERIAL "Yellow.004" rgb 1.000 1.000 0.000  amb 0.533 0.533 0.533  emis 0.000 0.000 0.000  spec 1.000 1.000 1.000  shi 20 trans 0.000
-MATERIAL "White.021" rgb 1.000 1.000 1.000  amb 1.000 1.000 1.000  emis 0.000 0.000 0.000  spec 1.000 1.000 1.000  shi 1 trans 0.000
-MATERIAL "Gauge.008" rgb 1.000 1.000 1.000  amb 1.000 1.000 1.000  emis 0.000 0.000 0.000  spec 0.300 0.300 0.300  shi 32 trans 0.000
+MATERIAL "Gauge.007" rgb 0.8 0.8 0.8  amb 0.4 0.4 0.4  emis 0.000 0.000 0.000  spec 0 0 0  shi 32 trans 0.000
+MATERIAL "Yellow.004" rgb 0.8 0.8 0.8  amb 0.4 0.4 0.4  emis 0.000 0.000 0.000  spec 0 0 0  shi 32 trans 0.000
+MATERIAL "White.021" rgb 0.8 0.8 0.8  amb 0.4 0.4 0.4  emis 0.000 0.000 0.000  spec 0 0 0  shi 32 trans 0.000
+MATERIAL "Gauge.008" rgb 0.8 0.8 0.8  amb 0.4 0.4 0.4  emis 0.000 0.000 0.000  spec 0 0 0  shi 32 trans 0.000
 OBJECT world
 name "Blender_exporter_v2.19__machmeter.ac"
 kids 11

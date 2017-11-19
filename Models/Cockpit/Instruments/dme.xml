@@ -218,9 +218,9 @@
     </axis>
   </animation>
   <!--Default Lighting-->
+
   <animation>
-    <type>material</type>
-    <object-name>Label</object-name>
+    <type>select</type>
     <object-name>DigitL100</object-name>
     <object-name>DigitL10</object-name>
     <object-name>DigitL1</object-name>
@@ -231,6 +231,18 @@
     <object-name>DigitR1</object-name>
     <object-name>DigitRPoint</object-name>
     <object-name>DigitRDecimal</object-name>
+  <condition>
+        <greater-than>
+          <property>/systems/electrical/outputs/specific</property>
+          <value>20.0</value>
+        </greater-than>
+  </condition>
+  </animation>
+
+
+  <animation>
+    <type>material</type>
+    <object-name>Label</object-name>
   <condition>
   <and>
    <greater-than>

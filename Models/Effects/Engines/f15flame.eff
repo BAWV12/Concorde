@@ -11,7 +11,7 @@
         <flame_color_high_b type="float">0.8</flame_color_high_b>
         <flame_color_high_g type="float">0.85</flame_color_high_g>
         <flame_color_high_r type="float">0.9</flame_color_high_r>
-        <flame_color_low_b type="float">0.4</flame_color_low_b>
+        <flame_color_low_b type="float">0.07</flame_color_low_b>
         <flame_color_low_g type="float">0.15</flame_color_low_g>
         <flame_color_low_r type="float">0.35</flame_color_low_r>
         <flame_radius_fraction type="float">0.8</flame_radius_fraction>
@@ -20,7 +20,7 @@
         <thrust_collimation type="float">0.1</thrust_collimation>
         <thrust_density type="float">0.7</thrust_density>
         <use_noise type="int">1</use_noise>
-        <use_shocks type="int">0</use_shocks>
+        <use_shocks type="int">1</use_shocks>
     </parameters>
 
  <technique n="4">
@@ -29,7 +29,8 @@
          <fragment-shader n="0">Shaders/thrustflame-ALS-detailed.frag</fragment-shader>
      </program>
   </pass>
-  </technique>
-
+ </technique>
 
 </PropertyList>
+
+

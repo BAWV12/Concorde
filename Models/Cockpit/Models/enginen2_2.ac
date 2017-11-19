@@ -1,9 +1,9 @@
 AC3Db
-MATERIAL "Horizon2.006" rgb 1.000 1.000 1.000  amb 1.000 1.000 1.000  emis 0.000 0.000 0.000  spec 0.300 0.300 0.300  shi 32 trans 0.000
+MATERIAL "Horizon2.006" rgb 0.8 0.8 0.8  amb 0.4 0.4 0.4  emis 0.000 0.000 0.000  spec 0 0 0  shi 32 trans 0.000
 MATERIAL "Frame.004" rgb 0.705 0.789 0.868  amb 1.000 1.000 1.000  emis 0.150 0.150 0.150  spec 0.150 0.150 0.150  shi 32 trans 0.000
-MATERIAL "Guage.004" rgb 1.000 1.000 1.000  amb 1.000 1.000 1.000  emis 0.000 0.000 0.000  spec 0.300 0.300 0.300  shi 32 trans 0.000
-MATERIAL "White.008" rgb 1.000 1.000 1.000  amb 1.000 1.000 1.000  emis 0.000 0.000 0.000  spec 0.500 0.500 0.500  shi 32 trans 0.000
-MATERIAL "Number.006" rgb 1.000 1.000 1.000  amb 1.000 1.000 1.000  emis 0.000 0.000 0.000  spec 0.500 0.500 0.500  shi 50 trans 0.000
+MATERIAL "Guage.004" rgb 0.8 0.8 0.8  amb 0.4 0.4 0.4  emis 0.000 0.000 0.000  spec 0 0 0  shi 32 trans 0.000
+MATERIAL "White.008" rgb 0.8 0.8 0.8  amb 0.4 0.4 0.4  emis 0.000 0.000 0.000  spec 0 0 0  shi 32 trans 0.000
+MATERIAL "Number.006" rgb 0.8 0.8 0.8  amb 0.4 0.4 0.4  emis 0.000 0.000 0.000  spec 0 0 0  shi 32 trans 0.000
 OBJECT world
 name "Blender_exporter_v2.19__enginen2_2.ac"
 kids 8
