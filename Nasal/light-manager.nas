@@ -80,7 +80,7 @@ var light_manager = {
 	        	setprop("/sim/rendering/als-secondary-lights/lightspot/lightspot-g", 0);
 	        	setprop("/sim/rendering/als-secondary-lights/lightspot/lightspot-b", 0);
 			setprop("sim/rendering/als-secondary-lights/lightspot/size",0.4);
-			setprop("sim/rendering/als-secondary-lights/lightspot/stretch",1);
+			setprop("sim/rendering/als-secondary-lights/lightspot/stretch",0);
 			me.prev_view=1;
 		};				
 	});
