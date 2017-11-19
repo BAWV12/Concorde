@@ -20,7 +20,7 @@
         <thrust_collimation type="float">0.1</thrust_collimation>
         <thrust_density type="float">0.7</thrust_density>
         <use_noise type="int">1</use_noise>
-        <use_shocks type="int">1</use_shocks>
+        <use_shocks type="int">0</use_shocks>
     </parameters>
 
  <technique n="4">
