@@ -211,10 +211,6 @@
     <object-name>Fail</object-name>
   <condition>
   <and>
-   <greater-than>
-    <property>sim/time/sun-angle-rad</property>
-    <value>1.59</value>
-   </greater-than>
     <property>controls/lighting/instrument-lights</property>
         <greater-than>
           <property>/systems/electrical/outputs/specific</property>

@@ -533,8 +533,12 @@
      <blue>0.2</blue>
   </emission>
  </animation>
+
+ 
   <animation>
     <type>material</type>
+    <object-name>TestLabel</object-name>
+    <object-name>Horizon</object-name>
     <object-name>RollArrow</object-name>
     <object-name>LOCBar</object-name>
     <object-name>GSBar</object-name>
@@ -552,13 +556,8 @@
     <object-name>GyroWarning</object-name>
     <object-name>FDWarning</object-name>
     <object-name>AltWarning</object-name>
-    <object-name>TestLabel</object-name>
   <condition>
   <and>
-   <greater-than>
-    <property>sim/time/sun-angle-rad</property>
-    <value>1.59</value>
-   </greater-than>
     <property>controls/lighting/instrument-lights</property>
         <greater-than>
           <property>/systems/electrical/outputs/specific</property>

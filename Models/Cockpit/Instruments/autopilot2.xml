@@ -278,10 +278,7 @@
       <not include="concorde-cond-land.xml"/>
      </and>
 </not>
-   	<greater-than>
-    	  <property>sim/time/sun-angle-rad</property>
-          <value>1.59</value>
-        </greater-than>
+   	
         <property>controls/lighting/instrument-lights</property><property>controls/lighting/instrument-lights</property><greater-than><property>/systems/electrical/outputs/specific</property><value>20.0</value></greater-than>
 
 </and>
@@ -350,10 +347,7 @@
       </equals>
      </or>
 
-   	<greater-than>
-    	  <property>sim/time/sun-angle-rad</property>
-          <value>1.59</value>
-        </greater-than>
+   	
         <property>controls/lighting/instrument-lights</property><property>controls/lighting/instrument-lights</property><greater-than><property>/systems/electrical/outputs/specific</property><value>20.0</value></greater-than>
 
 </and>
@@ -412,10 +406,7 @@
       <not include="concorde-cond-land.xml"/>
      </and>
 </not>
-   	<greater-than>
-    	  <property>sim/time/sun-angle-rad</property>
-          <value>1.59</value>
-        </greater-than>
+   	
         <property>controls/lighting/instrument-lights</property><property>controls/lighting/instrument-lights</property><greater-than><property>/systems/electrical/outputs/specific</property><value>20.0</value></greater-than>
 
 </and>
@@ -492,10 +483,7 @@
       <property>/controls/autoflight/horizontal</property>
       <value>ins</value>
      </not-equals>
-   	<greater-than>
-    	  <property>sim/time/sun-angle-rad</property>
-          <value>1.59</value>
-        </greater-than>
+   	
         <property>controls/lighting/instrument-lights</property><property>controls/lighting/instrument-lights</property><greater-than><property>/systems/electrical/outputs/specific</property><value>20.0</value></greater-than>
 
       </and>
@@ -540,10 +528,7 @@
       </not-equals>
       <or include="concorde-cond-land.xml"/>
      </or>
-   	<greater-than>
-    	  <property>sim/time/sun-angle-rad</property>
-          <value>1.59</value>
-        </greater-than>
+   	
         <property>controls/lighting/instrument-lights</property><property>controls/lighting/instrument-lights</property><greater-than><property>/systems/electrical/outputs/specific</property><value>20.0</value></greater-than>
 
 </and>
@@ -561,10 +546,7 @@
     <object-name>BB</object-name>
     <condition>
       <and>
-   	<greater-than>
-    	  <property>sim/time/sun-angle-rad</property>
-          <value>1.59</value>
-        </greater-than>
+   	
         <property>controls/lighting/instrument-lights</property><property>controls/lighting/instrument-lights</property><greater-than><property>/systems/electrical/outputs/specific</property><value>20.0</value></greater-than>
       </and>
     </condition>
@@ -620,10 +602,7 @@
       <not include="concorde-cond-land.xml"/>
      </and>
 </not>
-   	<greater-than>
-    	  <property>sim/time/sun-angle-rad</property>
-          <value>1.59</value>
-        </greater-than>
+   	
         <property>controls/lighting/instrument-lights</property><property>controls/lighting/instrument-lights</property><greater-than><property>/systems/electrical/outputs/specific</property><value>20.0</value></greater-than>
 </and>
     </condition>
@@ -694,10 +673,7 @@
        <value>magnetic</value>
       </not-equals>
      </or>
-   	<greater-than>
-    	  <property>sim/time/sun-angle-rad</property>
-          <value>1.59</value>
-        </greater-than>
+   	
         <property>controls/lighting/instrument-lights</property><property>controls/lighting/instrument-lights</property><greater-than><property>/systems/electrical/outputs/specific</property><value>20.0</value></greater-than>
 </and>
     </condition>
@@ -736,10 +712,7 @@
       <property>/controls/autoflight/vertical</property>
       <value>turbulence</value>
      </not-equals>
-   	<greater-than>
-    	  <property>sim/time/sun-angle-rad</property>
-          <value>1.59</value>
-        </greater-than>
+   	
         <property>controls/lighting/instrument-lights</property><property>controls/lighting/instrument-lights</property><greater-than><property>/systems/electrical/outputs/specific</property><value>20.0</value></greater-than>
 
 </and>
@@ -792,10 +765,7 @@
        <value>turbulence</value>
       </equals>
      </or>
-   	<greater-than>
-    	  <property>sim/time/sun-angle-rad</property>
-          <value>1.59</value>
-        </greater-than>
+   	
         <property>controls/lighting/instrument-lights</property><property>controls/lighting/instrument-lights</property><greater-than><property>/systems/electrical/outputs/specific</property><value>20.0</value></greater-than>
 </and>
     </condition>
@@ -833,10 +803,7 @@
       <property>/controls/autoflight/vertical</property>
       <value>goaround</value>
      </not-equals>
-   	<greater-than>
-    	  <property>sim/time/sun-angle-rad</property>
-          <value>1.59</value>
-        </greater-than>
+   	
         <property>controls/lighting/instrument-lights</property><property>controls/lighting/instrument-lights</property><greater-than><property>/systems/electrical/outputs/specific</property><value>20.0</value></greater-than>
 </and>
     </condition>
@@ -872,10 +839,7 @@
       <property>/controls/autoflight/vertical</property>
       <value>autoland</value>
      </not-equals>
-   	<greater-than>
-    	  <property>sim/time/sun-angle-rad</property>
-          <value>1.59</value>
-        </greater-than>
+   	
         <property>controls/lighting/instrument-lights</property><property>controls/lighting/instrument-lights</property><greater-than><property>/systems/electrical/outputs/specific</property><value>20.0</value></greater-than>
 </and>
     </condition>
@@ -1197,10 +1161,7 @@
        <property>/controls/autoflight/altitude</property>
        <value>mach-with-pitch</value>
     </not-equals>
-   	<greater-than>
-    	  <property>sim/time/sun-angle-rad</property>
-          <value>1.59</value>
-        </greater-than>
+   	
         <property>controls/lighting/instrument-lights</property><property>controls/lighting/instrument-lights</property><greater-than><property>/systems/electrical/outputs/specific</property><value>20.0</value></greater-than>
 
     </and>
@@ -1251,10 +1212,7 @@
        <value>maxcruise</value>
       </not-equals>
 
-   	<greater-than>
-    	  <property>sim/time/sun-angle-rad</property>
-          <value>1.59</value>
-        </greater-than>
+   	
         <property>controls/lighting/instrument-lights</property><property>controls/lighting/instrument-lights</property><greater-than><property>/systems/electrical/outputs/specific</property><value>20.0</value></greater-than>
 
      </and>
@@ -1291,10 +1249,7 @@
           <property>controls/autoflight/altitude</property>
           <value>speed-with-pitch</value>
         </not-equals>
-   	<greater-than>
-    	  <property>sim/time/sun-angle-rad</property>
-          <value>1.59</value>
-        </greater-than>
+   	
         <property>controls/lighting/instrument-lights</property><property>controls/lighting/instrument-lights</property><greater-than><property>/systems/electrical/outputs/specific</property><value>20.0</value></greater-than>
       </and>
     </condition>
@@ -1344,10 +1299,7 @@
        <value>altitude-acquire</value>
       </equals>
      </or>
-     <greater-than>
-       <property>sim/time/sun-angle-rad</property>
-       <value>1.59</value>
-     </greater-than>
+     
      <property>controls/lighting/instrument-lights</property><property>controls/lighting/instrument-lights</property><greater-than><property>/systems/electrical/outputs/specific</property><value>20.0</value></greater-than>
     </and>
     </condition>
@@ -1391,10 +1343,7 @@
       <not include="concorde-cond-land.xml"/>
      </and>
 </not>
-     <greater-than>
-       <property>sim/time/sun-angle-rad</property>
-       <value>1.59</value>
-     </greater-than>
+     
      <property>controls/lighting/instrument-lights</property><property>controls/lighting/instrument-lights</property><greater-than><property>/systems/electrical/outputs/specific</property><value>20.0</value></greater-than>
 
 </and>
@@ -1431,10 +1380,7 @@
     <type>material</type>
     <object-name>CR</object-name>
     <condition>
-     <greater-than>
-       <property>sim/time/sun-angle-rad</property>
-       <value>1.59</value>
-     </greater-than>
+     
      <property>controls/lighting/instrument-lights</property><property>controls/lighting/instrument-lights</property><greater-than><property>/systems/electrical/outputs/specific</property><value>20.0</value></greater-than>
 
     </condition>
@@ -1492,10 +1438,7 @@
        <value>maxcruise</value>
       </equals>
      </or>
-     <greater-than>
-       <property>sim/time/sun-angle-rad</property>
-       <value>1.59</value>
-     </greater-than>
+     
      <property>controls/lighting/instrument-lights</property><property>controls/lighting/instrument-lights</property><greater-than><property>/systems/electrical/outputs/specific</property><value>20.0</value></greater-than>
 
 </and>
@@ -1547,10 +1490,7 @@
        <value>altitude-acquire</value>
       </not-equals>
      </or>
-     <greater-than>
-       <property>sim/time/sun-angle-rad</property>
-       <value>1.59</value>
-     </greater-than>
+     
      <property>controls/lighting/instrument-lights</property><property>controls/lighting/instrument-lights</property><greater-than><property>/systems/electrical/outputs/specific</property><value>20.0</value></greater-than>
     </and>
     </condition>
@@ -1944,10 +1884,7 @@
     <condition>
 <and>
       <not><property>controls/autoflight/autopilot[0]/engage</property></not>
-   <greater-than>
-    <property>sim/time/sun-angle-rad</property>
-    <value>1.59</value>
-   </greater-than>
+   
     <property>controls/lighting/instrument-lights</property><property>controls/lighting/instrument-lights</property><greater-than><property>/systems/electrical/outputs/specific</property><value>20.0</value></greater-than>
 
 </and>
@@ -1986,10 +1923,7 @@
     <condition>
 <and>
       <not><property>controls/autoflight/autopilot[1]/engage</property></not>
-   <greater-than>
-    <property>sim/time/sun-angle-rad</property>
-    <value>1.59</value>
-   </greater-than>
+   
     <property>controls/lighting/instrument-lights</property><property>controls/lighting/instrument-lights</property><greater-than><property>/systems/electrical/outputs/specific</property><value>20.0</value></greater-than>
 
 </and>
@@ -2117,10 +2051,7 @@
     <condition>
 <and>
       <not><property>controls/autoflight/autothrottle[0]/engage</property></not>
-   <greater-than>
-    <property>sim/time/sun-angle-rad</property>
-    <value>1.59</value>
-   </greater-than>
+   
     <property>controls/lighting/instrument-lights</property><property>controls/lighting/instrument-lights</property><greater-than><property>/systems/electrical/outputs/specific</property><value>20.0</value></greater-than>
 
 </and>
@@ -2159,10 +2090,7 @@
     <condition>
 <and>
       <not><property>controls/autoflight/autothrottle[1]/engage</property></not>
-   <greater-than>
-    <property>sim/time/sun-angle-rad</property>
-    <value>1.59</value>
-   </greater-than>
+   
     <property>controls/lighting/instrument-lights</property><property>controls/lighting/instrument-lights</property><greater-than><property>/systems/electrical/outputs/specific</property><value>20.0</value></greater-than>
 
 </and>
@@ -2288,10 +2216,7 @@
     <condition>
 <and>
       <not><property>controls/autoflight/flight-director[0]/engage</property></not>
-   <greater-than>
-    <property>sim/time/sun-angle-rad</property>
-    <value>1.59</value>
-   </greater-than>
+   
     <property>controls/lighting/instrument-lights</property><property>controls/lighting/instrument-lights</property><greater-than><property>/systems/electrical/outputs/specific</property><value>20.0</value></greater-than>
 
 </and>
@@ -2329,10 +2254,7 @@
     <condition>
 <and>
       <not><property>controls/autoflight/flight-director[1]/engage</property></not>
-   <greater-than>
-    <property>sim/time/sun-angle-rad</property>
-    <value>1.59</value>
-   </greater-than>
+   
     <property>controls/lighting/instrument-lights</property><property>controls/lighting/instrument-lights</property><greater-than><property>/systems/electrical/outputs/specific</property><value>20.0</value></greater-than>
 
 </and>
@@ -2489,10 +2411,7 @@
   <object-name>APBulbs</object-name>
   <condition>
   <and>
-   <greater-than>
-    <property>sim/time/sun-angle-rad</property>
-    <value>1.59</value>
-   </greater-than>
+   
     <property>controls/lighting/instrument-lights</property><property>controls/lighting/instrument-lights</property><greater-than><property>/systems/electrical/outputs/specific</property><value>20.0</value></greater-than>
   </and>
   </condition>

@@ -11,7 +11,6 @@
 <effect>
     <inherits-from>Aircraft/Concorde/Models/Effects/interior</inherits-from>
     <object-name>Frame</object-name>
-
 </effect>
 
   <animation>
@@ -91,6 +90,7 @@
     </axis>
   </animation>
   <!--Default Lighting-->
+
   <animation>
     <type>material</type>
     <object-name>Horizon</object-name>
@@ -100,10 +100,6 @@
     <object-name>FF</object-name>
   <condition>
   <and>
-   <greater-than>
-    <property>sim/time/sun-angle-rad</property>
-    <value>1.59</value>
-   </greater-than>
     <property>controls/lighting/instrument-lights</property>
         <greater-than>
           <property>/systems/electrical/outputs/specific</property>
