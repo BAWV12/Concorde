@@ -1297,3 +1297,14 @@ Antiicing.slowschedule = func {
 setprop("/controls/lighting/instruments-norm",0.5);
 setprop("/controls/lighting/crew/captain/flood-norm",0.2);
 
+var _instrlight = setlistener("sim/signals/fdm-initialized", func() {
+	sun=getprop("/sim/time/sun-angle-rad");
+	if (sun<1.53){
+	  setprop("/controls/lighting/instrument-lights",0);
+	  } else{
+	  setprop("/controls/lighting/instrument-lights",1);
+	};
+	
+	removelistener(_instrlight); # run ONCE
+});
+
