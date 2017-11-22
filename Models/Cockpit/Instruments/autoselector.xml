@@ -9,6 +9,14 @@
     <object-name>Frame.001</object-name>
 </effect>
 
+<effect>
+  <inherits-from>Aircraft/Concorde/Models/Effects/flash</inherits-from>
+    <object-name>ATLabel</object-name>
+    <object-name>APLabel</object-name>
+    <object-name>NoseSet</object-name>
+    <object-name>AutothrottleSet</object-name>
+</effect>
+
   <animation>
     <type>pick</type>
     <object-name>NoseSet</object-name>

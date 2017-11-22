@@ -54,6 +54,11 @@
    <object-name>Button9</object-name>
    <object-name>Button0</object-name>
    <object-name>ClearButton</object-name>
+   <object-name>HoldButton</object-name>
+   <object-name>InsertButton</object-name>
+   <object-name>AlertButton</object-name>
+   <object-name>BatteryButton</object-name>
+   <object-name>WarningButton</object-name>
    <object-name>Plate2</object-name>
    <object-name>DataSelector</object-name>
    <object-name>DimControl</object-name>

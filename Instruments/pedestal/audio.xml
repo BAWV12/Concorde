@@ -36,6 +36,16 @@
   <object-name>Undefined14</object-name>
   <object-name>Undefined32</object-name>
   <object-name>UndefinedSwitch</object-name>
+  <object-name>VHF1Rx</object-name>
+  <object-name>VHF2Rx</object-name>
+  <object-name>Undefined20</object-name>
+  <object-name>Undefined21</object-name>
+  <object-name>ADF1Rx</object-name>
+  <object-name>ADF2Rx</object-name>
+  <object-name>NAV1Rx</object-name>
+  <object-name>NAV2Rx</object-name>
+  <object-name>Undefined30</object-name>
+  <object-name>Undefined31</object-name>
 </effect>
  
  <animation>
@@ -138,7 +148,7 @@
   <type>pick</type>
   <object-name>VHF1Rx</object-name>
   <action>
-   <button>0</button>
+   <button>3</button>
    <binding>
     <condition>
      <property alias="../../../../../params/vol-push"/>
@@ -156,7 +166,7 @@
    </binding>
   </action>
   <action>
-   <button>1</button>
+   <button>4</button>
    <binding>
     <condition>
      <property alias="../../../../../params/vol-push"/>
@@ -174,7 +184,7 @@
    </binding>
   </action>
   <action>
-   <button>2</button>
+   <button>0</button>
    <binding>
     <command>property-toggle</command>
     <property alias="../../../../params/vol-push"/>
@@ -240,7 +250,7 @@
   <type>pick</type>
   <object-name>VHF2Rx</object-name>
   <action>
-   <button>0</button>
+   <button>3</button>
    <binding>
     <condition>
      <property alias="../../../../../params/vol-push2"/>
@@ -258,7 +268,7 @@
    </binding>
   </action>
   <action>
-   <button>1</button>
+   <button>4</button>
    <binding>
     <condition>
      <property alias="../../../../../params/vol-push2"/>
@@ -276,7 +286,7 @@
    </binding>
   </action>
   <action>
-   <button>2</button>
+   <button>0</button>
    <binding>
     <command>property-toggle</command>
     <property alias="../../../../params/vol-push2"/>
@@ -342,7 +352,7 @@
   <type>pick</type>
   <object-name>ADF1Rx</object-name>
   <action>
-   <button>0</button>
+   <button>3</button>
    <binding>
     <condition>
      <property alias="../../../../../params/adf-push"/>
@@ -360,7 +370,7 @@
    </binding>
   </action>
   <action>
-   <button>1</button>
+   <button>4</button>
    <binding>
     <condition>
      <property alias="../../../../../params/adf-push"/>
@@ -378,7 +388,7 @@
    </binding>
   </action>
   <action>
-   <button>2</button>
+   <button>0</button>
    <binding>
     <command>property-toggle</command>
     <property alias="../../../../params/adf-push"/>
@@ -444,7 +454,7 @@
   <type>pick</type>
   <object-name>ADF2Rx</object-name>
   <action>
-   <button>0</button>
+   <button>3</button>
    <binding>
     <condition>
      <property alias="../../../../../params/adf-push2"/>
@@ -462,7 +472,7 @@
    </binding>
   </action>
   <action>
-   <button>1</button>
+   <button>4</button>
    <binding>
     <condition>
      <property alias="../../../../../params/adf-push2"/>
@@ -480,7 +490,7 @@
    </binding>
   </action>
   <action>
-   <button>2</button>
+   <button>0</button>
    <binding>
     <command>property-toggle</command>
     <property alias="../../../../params/adf-push2"/>
@@ -546,7 +556,7 @@
   <type>pick</type>
   <object-name>NAV1Rx</object-name>
   <action>
-   <button>0</button>
+   <button>3</button>
    <binding>
     <condition>
      <property alias="../../../../../params/nav-push"/>
@@ -564,7 +574,7 @@
    </binding>
   </action>
   <action>
-   <button>1</button>
+   <button>4</button>
    <binding>
     <condition>
      <property alias="../../../../../params/nav-push"/>
@@ -582,7 +592,7 @@
    </binding>
   </action>
   <action>
-   <button>2</button>
+   <button>0</button>
    <binding>
     <command>property-toggle</command>
     <property alias="../../../../params/nav-push"/>
@@ -648,7 +658,7 @@
   <type>pick</type>
   <object-name>NAV2Rx</object-name>
   <action>
-   <button>0</button>
+   <button>3</button>
    <binding>
     <condition>
      <property alias="../../../../../params/nav-push2"/>
@@ -666,7 +676,7 @@
    </binding>
   </action>
   <action>
-   <button>1</button>
+   <button>4</button>
    <binding>
     <condition>
      <property alias="../../../../../params/nav-push2"/>
@@ -684,7 +694,7 @@
    </binding>
   </action>
   <action>
-   <button>2</button>
+   <button>0</button>
    <binding>
     <command>property-toggle</command>
     <property alias="../../../../params/nav-push2"/>

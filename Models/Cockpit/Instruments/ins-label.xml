@@ -3,8 +3,8 @@
   <path>../Models/ins-label.ac</path>
 
 <effect>
-    <inherits-from>Aircraft/Concorde/Models/Effects/interior</inherits-from>
-    <object-name>label</object-name>
+    <inherits-from>Aircraft/Concorde/Models/Effects/flash</inherits-from>
+    <object-name>Label</object-name>
 
 </effect>
 

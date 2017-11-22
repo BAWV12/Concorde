@@ -7,6 +7,11 @@
     <object-name>Frame</object-name>
 </effect>
 
+<effect>
+    <inherits-from>Aircraft/Concorde/Models/Effects/flash</inherits-from>
+    <object-name>Label</object-name>
+</effect>
+
   <!--LEFT SIDE-->
   <animation>
     <object-name>DigitL100</object-name>

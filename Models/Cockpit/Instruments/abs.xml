@@ -23,6 +23,11 @@
     <object-name>Button</object-name>
 </effect>
 
+<effect>
+	   <inherits-from>Aircraft/Concorde/Models/Effects/flash</inherits-from>
+    <object-name>Frame.000</object-name>
+</effect>
+
   <animation>
     <type>rotate</type>
     <object-name>Switch.001</object-name>

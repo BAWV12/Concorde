@@ -37,6 +37,11 @@
 	   <object-name>Test</object-name>
 </effect>
 
+<effect>
+	   <inherits-from>Aircraft/Concorde/Models/Effects/flash</inherits-from>
+    <object-name>TestLabel</object-name>
+</effect>
+
   <animation>
     <type>material</type>
     <object-name>AP</object-name>
