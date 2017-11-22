@@ -7,6 +7,12 @@
     <object-name>Frame.001</object-name>
 </effect>
 
+<effect>
+    <inherits-from>Aircraft/Concorde/Models/Effects/flash</inherits-from>
+    <object-name>Label1</object-name>
+    <object-name>Label2</object-name>
+</effect>
+
   <animation>
     <type>material</type>
     <object-name>Button</object-name>

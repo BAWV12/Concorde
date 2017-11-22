@@ -13,6 +13,23 @@
     <object-name>FuelAdjust</object-name>
 </effect>
 
+<effect>
+    <inherits-from>Aircraft/Concorde/Models/Effects/flash</inherits-from>
+    <object-name>Guage</object-name>
+    <object-name>Needle</object-name>
+    <object-name>FuelAdjust.001</object-name>
+    <object-name>FuelBug</object-name>
+    <object-name>Set1</object-name>
+    <object-name>Num1</object-name>
+    <object-name>Set2</object-name>
+    <object-name>Num2</object-name>
+    <object-name>Set3</object-name>
+    <object-name>Num3</object-name>
+</effect>
+
+
+
+
   <animation>
     <type>select</type>
     <object-name>FF</object-name>

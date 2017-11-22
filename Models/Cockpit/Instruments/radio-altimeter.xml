@@ -15,6 +15,15 @@
     <object-name>DHAdjust</object-name>
 </effect>
 
+<effect>
+    <inherits-from>Aircraft/Concorde/Models/Effects/flash</inherits-from>
+    <object-name>RadioAltitude</object-name>
+    <object-name>DHAdjust.001</object-name>
+    <object-name>DHAltitude</object-name>
+    <object-name>Guage</object-name>
+    <object-name>FF</object-name>
+</effect>
+
   <animation>
     <type>select</type>
     <object-name>FF</object-name>

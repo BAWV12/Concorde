@@ -13,6 +13,18 @@
 
 </effect>
 
+<effect>
+	   <inherits-from>Aircraft/Concorde/Models/Effects/flash</inherits-from>
+    <object-name>Guage</object-name>
+    <object-name>FF</object-name>
+    <object-name>FF.001</object-name>
+    <object-name>Accl</object-name>
+    <object-name>Aoa</object-name>
+
+
+</effect>
+
+
   <animation>
     <type>select</type>
     <object-name>FF</object-name>

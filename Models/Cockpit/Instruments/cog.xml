@@ -13,6 +13,17 @@
     <object-name>AlarmOff</object-name>
 </effect>
 
+<effect>
+    <inherits-from>Aircraft/Concorde/Models/Effects/flash</inherits-from>
+    <object-name>CG</object-name>
+    <object-name>FWD</object-name>
+    <object-name>AFT</object-name>
+    <object-name>Guage</object-name>
+    <object-name>FF</object-name>
+</effect>
+
+
+
   <animation>
     <type>select</type>
     <object-name>FF</object-name>

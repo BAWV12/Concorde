@@ -2,7 +2,16 @@
 <PropertyList>
   <path>../Models/radioselector.ac</path>
 
+<effect>
+    <inherits-from>Aircraft/Concorde/Models/Effects/flash</inherits-from>
 
+  <object-name>Freq1</object-name>
+  <object-name>Freq2</object-name>
+  <object-name>Freq3</object-name>
+  <object-name>Freq4</object-name>
+  <object-name>Freq5</object-name>
+  <object-name>Plane</object-name>
+</effect>
 
  <animation>
   <name>NAV1Bulbs</name>

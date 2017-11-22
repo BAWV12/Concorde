@@ -11,6 +11,14 @@
 
 </effect>
 
+<effect>
+    <inherits-from>Aircraft/Concorde/Models/Effects/flash</inherits-from>
+    <object-name>Guage</object-name>
+    <object-name>Needle</object-name>
+
+</effect>
+
+
   <animation>
     <type>select</type>
     <object-name>FF</object-name>

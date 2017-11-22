@@ -53,8 +53,10 @@
     <object-name>AAAquire</object-name>
     <object-name>VLAquire</object-name>
     <object-name>GLAquire</object-name>
+</effect>
 
-<!--
+<effect>
+    <inherits-from>Aircraft/Concorde/Models/Effects/flash</inherits-from>
   <object-name>Speed1</object-name>
   <object-name>Speed2</object-name>
   <object-name>Speed3</object-name>
@@ -104,7 +106,7 @@
   <object-name>KnotsLabel.004</object-name>
   <object-name>KnotsLabel.005</object-name>
   <object-name>KnotsLabel.006</object-name>
--->
+
 </effect>
 
 

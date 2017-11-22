@@ -30,6 +30,8 @@ var light_manager = {
     init: func {
         # define your lights here
 
+	setprop("sim/rendering/als-secondary-lights/flash-radius",13);
+
 	setprop("sim/rendering/als-secondary-lights/lightspot/eyerel-x-m",-0.7);
 	setprop("sim/rendering/als-secondary-lights/lightspot/eyerel-y-m",0.1);
 	setprop("sim/rendering/als-secondary-lights/lightspot/eyerel-z-m",-0.4);

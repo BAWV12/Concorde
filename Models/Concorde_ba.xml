@@ -2674,6 +2674,7 @@
    <object-name>Cylinder</object-name>
    <object-name>Tablet_dummy</object-name>
    <object-name>Screen_0.001</object-name>
+   <object-name>Lantern</object-name>  
 </effect>
 
 <!-- =================== -->
@@ -2714,13 +2715,14 @@
     <type>pick</type>
     <object-name>Lantern</object-name>
     <action>
-      <name>Captain Tablet show</name>
+      <name>Take lantern</name>
       <button>0</button>
       <repeatable>false</repeatable>
       <binding>
         <command>nasal</command>
 	  <script>
 	  	setprop("sim/rendering/als-secondary-lights/use-searchlight",1);
+	  	setprop("sim/rendering/als-secondary-lights/use-flashlight",1);
 	  </script>
       </binding>
     </action>
@@ -2738,13 +2740,15 @@
     <type>pick</type>
     <object-name>ConsoleForward.001</object-name>
     <action>
-      <name>Captain Tablet show</name>
+      <name>Drop lantern</name>
       <button>0</button>
       <repeatable>false</repeatable>
       <binding>
         <command>nasal</command>
 	  <script>
+		light=getprop("sim/rendering/als-secondary-lights/lightspot/lightspot-r[2]");
 	  	setprop("sim/rendering/als-secondary-lights/use-searchlight",0);
+  	        setprop("sim/rendering/als-secondary-lights/use-flashlight",light);		
 	  </script>
       </binding>
     </action>

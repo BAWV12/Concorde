@@ -11,6 +11,16 @@
 
 </effect>
 
+<effect>
+    <inherits-from>Aircraft/Concorde/Models/Effects/flash</inherits-from>
+    <object-name>ADFLabel</object-name>
+    <object-name>ADF1Error</object-name>
+    <object-name>ADF2Error</object-name>
+    <object-name>Guage</object-name>
+    <object-name>ADF1Needle</object-name>
+    <object-name>ADF2Needle</object-name>
+</effect>
+
   <animation>
     <type>rotate</type>
     <object-name>Guage</object-name>

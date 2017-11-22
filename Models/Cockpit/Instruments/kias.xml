@@ -8,6 +8,16 @@
 
 </effect>
 
+<effect>
+    <inherits-from>Aircraft/Concorde/Models/Effects/flash</inherits-from>
+    <object-name>LimitNeedle</object-name>
+    <object-name>KnotsGuage</object-name>
+    <object-name>KIASNeedle</object-name>
+    <object-name>MachGuage</object-name>
+    <object-name>FF</object-name>
+
+</effect>
+
   <animation>
     <type>select</type>
     <object-name>FF</object-name>

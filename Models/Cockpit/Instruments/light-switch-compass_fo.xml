@@ -115,6 +115,16 @@
         <wrap>true</wrap>
       </binding>
       <binding>
+        <command>nasal</command>	
+     	<script>
+	  instrlight=getprop("controls/lighting/instrument-lights");
+	  if (instrlight='false') {
+		setprop("sim/rendering/als-secondary-lights/lightspot/lightspot-r",instrlight);
+		setprop("sim/rendering/als-secondary-lights/lightspot/lightspot-r[1]",instrlight);
+	  };
+     	</script>
+      </binding>
+      <binding>
         <command>property-toggle</command>
         <property>/instrumentation/generic/click</property>
       </binding>

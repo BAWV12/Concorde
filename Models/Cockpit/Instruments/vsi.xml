@@ -13,6 +13,14 @@
 
 </effect>
 
+<effect>
+    <inherits-from>Aircraft/Concorde/Models/Effects/flash</inherits-from>
+    <object-name>Guage</object-name>
+    <object-name>Current</object-name>
+    <object-name>Set</object-name>
+
+</effect>
+
   <animation>
     <type>select</type>
     <object-name>FF</object-name>

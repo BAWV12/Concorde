@@ -34,6 +34,30 @@
     <object-name>Test</object-name>
 </effect>
 
+<effect>
+    <inherits-from>Aircraft/Concorde/Models/Effects/flash</inherits-from>
+    <object-name>TestLabel</object-name>
+    <object-name>Horizon</object-name>
+    <object-name>RollArrow</object-name>
+    <object-name>LOCBar</object-name>
+    <object-name>GSBar</object-name>
+    <object-name>GSWarning</object-name>
+    <object-name>Offset</object-name>
+    <object-name>OffsetDot</object-name>
+    <object-name>LOCBar</object-name>
+    <object-name>LOCWarning</object-name>
+    <object-name>Horizon</object-name>
+    <object-name>Inner</object-name>
+    <object-name>GsGuage</object-name>
+    <object-name>LocGuage</object-name>
+    <object-name>GSArrow</object-name>
+    <object-name>LocArrow</object-name>
+    <object-name>GyroWarning</object-name>
+    <object-name>FDWarning</object-name>
+    <object-name>AltWarning</object-name>
+
+</effect>
+
   <animation>
     <condition><not>
       <or>

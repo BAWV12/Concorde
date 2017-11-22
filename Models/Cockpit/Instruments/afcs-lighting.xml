@@ -7,6 +7,11 @@
 	   <object-name>Frame</object-name>
 </effect>
 
+<effect>
+    <inherits-from>Aircraft/Concorde/Models/Effects/flash</inherits-from>
+    <object-name>Plane</object-name>
+</effect>
+
   <animation>
     <type>pick</type>
     <object-name>Knob</object-name>

@@ -37,6 +37,34 @@
 
 </effect>
 
+<effect>
+    <inherits-from>Aircraft/Concorde/Models/Effects/flash</inherits-from>
+    <object-name>GsGuage</object-name>
+    <object-name>TrueMag</object-name>
+    <object-name>Compass</object-name>
+    <object-name>LocGuage</object-name>
+    <object-name>Guage</object-name>
+    <object-name>CompassNeedle</object-name>
+    <object-name>LocNeedle</object-name>
+    <object-name>CenterPlane</object-name>
+    <object-name>FromFlag</object-name>
+    <object-name>ToFlag</object-name>
+    <object-name>GSArrow</object-name>
+    <object-name>0Ind</object-name>
+    <object-name>45Ind</object-name>
+    <object-name>90Ind</object-name>
+    <object-name>180Ind</object-name>
+    <object-name>270Ind</object-name>
+    <object-name>315Ind</object-name>
+    <object-name>MilesLabel.001</object-name>
+    <object-name>MilesLabel</object-name>
+    <object-name>HdgBug</object-name>
+    <object-name>FF</object-name>
+    <object-name>CompIns</object-name>
+    <object-name>HdgTrk</object-name>
+
+</effect>
+
   <animation>
     <type>select</type>
     <object-name>FF</object-name>

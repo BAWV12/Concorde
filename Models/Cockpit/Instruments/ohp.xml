@@ -3292,6 +3292,22 @@
       <property>sim/rendering/als-secondary-lights/lightspot/lightspot-b[2]</property>
       <wrap>true</wrap>
    </binding>
+
+   <binding>
+     <command>nasal</command>
+     <script>
+	light=getprop("sim/rendering/als-secondary-lights/lightspot/lightspot-r[2]");
+	lantern=getprop("sim/rendering/als-secondary-lights/use-searchlight");
+        if (light>0){
+	  setprop("sim/rendering/als-secondary-lights/flash-radius",99);
+	  setprop("sim/rendering/als-secondary-lights/use-flashlight",1);
+        } else {
+	  setprop("sim/rendering/als-secondary-lights/flash-radius",13);
+	  setprop("sim/rendering/als-secondary-lights/use-flashlight",lantern);
+        };
+     </script>
+   </binding>
+
    <binding>
     <command>property-toggle</command>
     <property>/instrumentation/generic/click</property>

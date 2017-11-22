@@ -13,6 +13,16 @@
     <object-name>Frame</object-name>
 </effect>
 
+<effect>
+    <inherits-from>Aircraft/Concorde/Models/Effects/flash</inherits-from>
+    <object-name>Horizon</object-name>
+    <object-name>Inner</object-name>
+    <object-name>Offset</object-name>
+    <object-name>RollArrow</object-name>
+    <object-name>FF</object-name>
+
+</effect>
+
   <animation>
     <type>select</type>
     <object-name>FF</object-name>
