@@ -11,13 +11,6 @@
     <object-name>FF</object-name>
 </effect>
 
-<effect>
-    <inherits-from>Aircraft/Concorde/Models/Effects/flash</inherits-from>
-    <object-name>Guage</object-name>
-    <object-name>RightNeedle</object-name>
-    <object-name>LeftNeedle</object-name>
-    <object-name>FF</object-name>
-</effect>
 
   <animation>
     <type>select</type>
@@ -101,14 +94,6 @@
    <factor-prop>/controls/lighting/instruments-norm</factor-prop>
   </emission>
   </animation>
-  <animation>
-    <type>material</type>
-    <object-name>Frame</object-name>
-  <emission>
-     <red>0.2</red>
-     <green>0.2</green>
-     <blue>0.2</blue>
-  </emission>
- </animation>
+
 
 </PropertyList>
