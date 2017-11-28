@@ -32,6 +32,10 @@
    <object-name>ReheatSelector2</object-name>
    <object-name>ReheatSelector3</object-name>
    <object-name>ReheatSelector4</object-name>
+   <object-name>RedThrottle1</object-name>
+   <object-name>RedThrottle2</object-name>
+   <object-name>RedThrottle3</object-name>
+   <object-name>RedThrottle4</object-name>
 </effect>
 
   <animation>

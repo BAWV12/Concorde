@@ -145,9 +145,9 @@
 	</condition>
         <command>property-adjust</command>
         <property>sim/rendering/als-secondary-lights/lightspot/lightspot-r[1]</property>
-        <step>0.1</step>
+        <step>0.2</step>
         <min>0</min>
-        <max>0.5</max>
+        <max>1</max>
         <wrap>false</wrap>
       </binding>
     </action>
@@ -161,9 +161,9 @@
 	</condition>
         <command>property-adjust</command>
         <property>sim/rendering/als-secondary-lights/lightspot/lightspot-r[1]</property>
-        <step>-0.1</step>
+        <step>-0.2</step>
         <min>0</min>
-        <max>0.5</max>
+        <max>1</max>
         <wrap>false</wrap>
       </binding>
     </action>

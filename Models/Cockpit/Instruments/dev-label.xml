@@ -3,7 +3,7 @@
   <path>../Models/dev-label.ac</path>
 
 <effect>
-    <inherits-from>Aircraft/Concorde/Models/Effects/interior</inherits-from>
+    <inherits-from>Aircraft/Concorde/Models/Effects/flash</inherits-from>
     <object-name>Label</object-name>
 </effect>
 

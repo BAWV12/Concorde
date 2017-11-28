@@ -1,80 +1,17 @@
 AC3Db
-MATERIAL "DefaultWhite" rgb 1 1 1  amb 1 1 1  emis 0 0 0  spec 0.5 0.5 0.5  shi 64  trans 0
-MATERIAL "Label.006" rgb 0 0 0 amb 0 0 0 emis 0.2 0.2 0.2 spec 0 0 0 shi 128 trans 0
-MATERIAL "Orange.002" rgb 0.5 0.25 0 amb 0.125 0.125 0.125 emis 0.1 0.1 0.1 spec 0.3 0.3 0.3 shi 128 trans 0
-MATERIAL "Red.003" rgb 0.5 0 0 amb 0.083333 0.083333 0.083333 emis 0.066667 0.066667 0.066667 spec 0.3 0.3 0.3 shi 128 trans 0
-MATERIAL "Frame.017" rgb 0.705 0.789 0.868 amb 1 1 1 emis 0.3 0.3 0.3 spec 0.15 0.15 0.15 shi 128 trans 0
+MATERIAL "Red.000" rgb 0.500 0.000 0.000  amb 0.083 0.083 0.083  emis 0.067 0.067 0.067  spec 0.300 0.300 0.300  shi 128 trans 0.000
+MATERIAL "Label.006" rgb 0.000 0.000 0.000  amb 0.000 0.000 0.000  emis 0.200 0.200 0.200  spec 0.000 0.000 0.000  shi 128 trans 0.000
+MATERIAL "Orange.003" rgb 0.500 0.250 0.000  amb 0.125 0.125 0.125  emis 0.100 0.100 0.100  spec 0.300 0.300 0.300  shi 128 trans 0.000
 OBJECT world
-kids 9
-OBJECT poly
-name "Frame"
-loc 0 0 -0
-data 5
-Frame
-texture "panel.png"
-texrep 1.000000 1.000000
-crease 39.999999
-numvert 8
-0 -0.01 -0.0415
-0 0.01 -0.0415
-0.005 0.01 -0.0415
-0.005 -0.01 -0.0415
-0 -0.01 0.0415
-0 0.01 0.0415
-0.005 0.01 0.0415
-0.005 -0.01 0.0415
-numsurf 6
-SURF 0x20
-mat 4
-refs 4
-1 0 0
-0 0 0
-4 0 0
-5 0 0
-SURF 0x20
-mat 4
-refs 4
-5 0 0
-6 0 0
-2 0 0
-1 0 0
-SURF 0x20
-mat 4
-refs 4
-6 0.411864995956 0.604677021503
-7 0.411864995956 0.464857012033
-3 0.580698013306 0.464857012033
-2 0.580698013306 0.604677021503
-SURF 0x20
-mat 4
-refs 4
-0 0 0
-3 0 0
-7 0 0
-4 0 0
-SURF 0x20
-mat 4
-refs 4
-0 0 0
-1 0 0
-2 0 0
-3 0 0
-SURF 0x20
-mat 4
-refs 4
-7 0 0
-6 0 0
-5 0 0
-4 0 0
-kids 0
+name "Blender_exporter_v2.19__ins-warning-lights.ac"
+kids 8
 OBJECT poly
 name "INS1"
-loc 0 0 -0
 data 4
 INS1
+crease 40.0
 texture "red_pastic.png"
-texrep 1.000000 1.000000
-crease 39.999999
+texrep 1 1
 numvert 8
 0.005 -0.0075 0.03937
 0.005 -0.0075 0.02437
@@ -85,43 +22,43 @@ numvert 8
 0.008 0.0075 0.02437
 0.008 0.0075 0.03937
 numsurf 6
-SURF 0x20
-mat 3
+SURF 0X20
+mat 0
 refs 4
 1 0 0
 0 0 1
 4 1 1
 5 1 0
-SURF 0x20
-mat 3
+SURF 0X20
+mat 0
 refs 4
 5 1 0
 6 1 0
 2 0 0
 1 0 0
-SURF 0x20
-mat 3
+SURF 0X20
+mat 0
 refs 4
 6 1 0
 7 1 1
 3 0 1
 2 0 0
-SURF 0x20
-mat 3
+SURF 0X20
+mat 0
 refs 4
 0 0 1
 3 0 1
 7 1 1
 4 1 1
-SURF 0x20
-mat 3
+SURF 0X20
+mat 0
 refs 4
 0 0 1
 1 0 0
 2 0 0
 3 0 1
-SURF 0x20
-mat 3
+SURF 0X20
+mat 0
 refs 4
 7 1 1
 6 1 0
@@ -130,19 +67,18 @@ refs 4
 kids 0
 OBJECT poly
 name "INS1Label"
-loc 0 0 -0
 data 9
 INS1Label
+crease 40.0
 texture "ins-warning-lights.png"
-texrep 1.000000 1.000000
-crease 39.999999
+texrep 1 1
 numvert 4
 0.0081 -0.0075 0.02437
 0.0081 -0.0075 0.03937
 0.0081 0.0075 0.02437
 0.0081 0.0075 0.03937
 numsurf 1
-SURF 0x20
+SURF 0X20
 mat 1
 refs 4
 1 0 0.5
@@ -152,12 +88,11 @@ refs 4
 kids 0
 OBJECT poly
 name "INS2"
-loc 0 0 -0
 data 4
 INS2
+crease 40.0
 texture "red_pastic.png"
-texrep 1.000000 1.000000
-crease 39.999999
+texrep 1 1
 numvert 8
 0.005 -0.0075 0.0183
 0.005 -0.0075 0.0033
@@ -168,43 +103,43 @@ numvert 8
 0.008 0.0075 0.0033
 0.008 0.0075 0.0183
 numsurf 6
-SURF 0x20
-mat 3
+SURF 0X20
+mat 0
 refs 4
-1 0.000000159308 0
+1 0 0
 0 0 1
 4 1 1
 5 1 0
-SURF 0x20
-mat 3
+SURF 0X20
+mat 0
 refs 4
 5 1 0
 6 1 0
-2 0.000000159308 0
-1 0.000000159308 0
-SURF 0x20
-mat 3
+2 0 0
+1 0 0
+SURF 0X20
+mat 0
 refs 4
 6 1 0
 7 1 1
 3 0 1
-2 0.000000159308 0
-SURF 0x20
-mat 3
+2 0 0
+SURF 0X20
+mat 0
 refs 4
 0 0 1
 3 0 1
 7 1 1
 4 1 1
-SURF 0x20
-mat 3
+SURF 0X20
+mat 0
 refs 4
 0 0 1
-1 0.000000159308 0
-2 0.000000159308 0
+1 0 0
+2 0 0
 3 0 1
-SURF 0x20
-mat 3
+SURF 0X20
+mat 0
 refs 4
 7 1 1
 6 1 0
@@ -213,19 +148,18 @@ refs 4
 kids 0
 OBJECT poly
 name "INS2Label"
-loc 0 0 -0
 data 9
 INS2Label
+crease 40.0
 texture "ins-warning-lights.png"
-texrep 1.000000 1.000000
-crease 39.999999
+texrep 1 1
 numvert 4
 0.0081 -0.0075 0.0033
 0.0081 -0.0075 0.0183
 0.0081 0.0075 0.0033
 0.0081 0.0075 0.0183
 numsurf 1
-SURF 0x20
+SURF 0X20
 mat 1
 refs 4
 1 0.5 0.5
@@ -235,12 +169,11 @@ refs 4
 kids 0
 OBJECT poly
 name "INS3"
-loc 0 0 -0
 data 4
 INS3
+crease 40.0
 texture "red_pastic.png"
-texrep 1.000000 1.000000
-crease 39.999999
+texrep 1 1
 numvert 8
 0.005 -0.0075 -0.0025
 0.005 -0.0075 -0.0175
@@ -251,43 +184,43 @@ numvert 8
 0.008 0.0075 -0.0175
 0.008 0.0075 -0.0025
 numsurf 6
-SURF 0x20
-mat 3
+SURF 0X20
+mat 0
 refs 4
 1 0 0
 0 0 1
 4 1 1
 5 1 0
-SURF 0x20
-mat 3
+SURF 0X20
+mat 0
 refs 4
 5 1 0
 6 1 0
 2 0 0
 1 0 0
-SURF 0x20
-mat 3
+SURF 0X20
+mat 0
 refs 4
 6 1 0
 7 1 1
 3 0 1
 2 0 0
-SURF 0x20
-mat 3
+SURF 0X20
+mat 0
 refs 4
 0 0 1
 3 0 1
 7 1 1
 4 1 1
-SURF 0x20
-mat 3
+SURF 0X20
+mat 0
 refs 4
 0 0 1
 1 0 0
 2 0 0
 3 0 1
-SURF 0x20
-mat 3
+SURF 0X20
+mat 0
 refs 4
 7 1 1
 6 1 0
@@ -296,19 +229,18 @@ refs 4
 kids 0
 OBJECT poly
 name "INS3Label"
-loc 0 0 -0
 data 9
 INS3Label
+crease 40.0
 texture "ins-warning-lights.png"
-texrep 1.000000 1.000000
-crease 39.999999
+texrep 1 1
 numvert 4
 0.0081 -0.0075 -0.0175
 0.0081 -0.0075 -0.0025
 0.0081 0.0075 -0.0175
 0.0081 0.0075 -0.0025
 numsurf 1
-SURF 0x20
+SURF 0X20
 mat 1
 refs 4
 1 0 0
@@ -318,12 +250,11 @@ refs 4
 kids 0
 OBJECT poly
 name "INSComp"
-loc 0 0 -0
 data 7
 INSComp
+crease 40.0
 texture "amber_plastic.png"
-texrep 1.000000 1.000000
-crease 39.999999
+texrep 1 1
 numvert 8
 0.005 -0.0075 -0.02424
 0.005 -0.0075 -0.03924
@@ -334,64 +265,63 @@ numvert 8
 0.008 0.0075 -0.03924
 0.008 0.0075 -0.02424
 numsurf 6
-SURF 0x20
+SURF 0X20
 mat 2
 refs 4
-1 0.000000159308 0
+1 0 0
 0 0 1
-4 0.999999701977 1
+4 1 1
 5 1 0
-SURF 0x20
+SURF 0X20
 mat 2
 refs 4
 5 1 0
 6 1 0
-2 0.000000159308 0
-1 0.000000159308 0
-SURF 0x20
+2 0 0
+1 0 0
+SURF 0X20
 mat 2
 refs 4
 6 1 0
-7 0.999999701977 1
+7 1 1
 3 0 1
-2 0.000000159308 0
-SURF 0x20
+2 0 0
+SURF 0X20
 mat 2
 refs 4
 0 0 1
 3 0 1
-7 0.999999701977 1
-4 0.999999701977 1
-SURF 0x20
+7 1 1
+4 1 1
+SURF 0X20
 mat 2
 refs 4
 0 0 1
-1 0.000000159308 0
-2 0.000000159308 0
+1 0 0
+2 0 0
 3 0 1
-SURF 0x20
+SURF 0X20
 mat 2
 refs 4
-7 0.999999701977 1
+7 1 1
 6 1 0
 5 1 0
-4 0.999999701977 1
+4 1 1
 kids 0
 OBJECT poly
 name "INSCompLabel"
-loc 0 0 -0
 data 12
 INSCompLabel
+crease 40.0
 texture "ins-warning-lights.png"
-texrep 1.000000 1.000000
-crease 39.999999
+texrep 1 1
 numvert 4
 0.0081 -0.0075 -0.03924
 0.0081 -0.0075 -0.02424
 0.0081 0.0075 -0.03924
 0.0081 0.0075 -0.02424
 numsurf 1
-SURF 0x20
+SURF 0X20
 mat 1
 refs 4
 1 0.5 0

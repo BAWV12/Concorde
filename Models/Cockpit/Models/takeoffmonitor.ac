@@ -1,15 +1,14 @@
 AC3Db
-MATERIAL "White" rgb 0.500 0.500 0.500  amb 0.500 0.500 0.500  emis 0.100 0.100 0.100  spec 0.500 0.500 0.500  shi 50 trans 0.000
+MATERIAL "White.028" rgb 0.500 0.500 0.500  amb 0.500 0.500 0.500  emis 0.100 0.100 0.100  spec 0.500 0.500 0.500  shi 50 trans 0.000
 MATERIAL "Black" rgb 0.030 0.030 0.030  amb 0.030 0.030 0.030  emis 0.000 0.000 0.000  spec 0.500 0.500 0.500  shi 50 trans 0.000
-MATERIAL "Frame" rgb 0.705 0.789 0.868  amb 1.000 1.000 1.000  emis 0.150 0.150 0.150  spec 0.150 0.150 0.150  shi 32 trans 0.000
-MATERIAL "Label" rgb 1.000 1.000 1.000  amb 1.000 1.000 1.000  emis 0.000 0.000 0.000  spec 0.300 0.300 0.300  shi 32 trans 0.000
+MATERIAL "Label.004" rgb 1.000 1.000 1.000  amb 1.000 1.000 1.000  emis 0.000 0.000 0.000  spec 0.300 0.300 0.300  shi 32 trans 0.000
 OBJECT world
 name "Blender_exporter_v2.19__takeoffmonitor.ac"
-kids 5
+kids 4
 OBJECT poly
 name "Button"
-data 11
-Button.mesh
+data 15
+Button.mesh.001
 crease 40.0
 numvert 64
 0.0035 -0.00347 -0.009
@@ -664,8 +663,8 @@ refs 3
 kids 0
 OBJECT poly
 name "Cylinder"
-data 13
-Cylinder.mesh
+data 17
+Cylinder.mesh.001
 crease 40.0
 numvert 12
 0.0025 -0.00347 -0.013
@@ -773,90 +772,6 @@ refs 3
 4 0 0
 kids 0
 OBJECT poly
-name "Frame.001"
-data 10
-Frame.mesh
-crease 40.0
-texture "panel.png"
-texrep 1 1
-numvert 10
-0 -0.0315 0.01575
-0 0.0315 0.01575
-0 0.0315 -0.01575
-0 -0.0315 -0.01575
-0.005 -0.0315 0.01575
-0.005 0.0315 0.01575
-0.005 0.0315 -0.01575
-0.005 -0.0315 -0.01575
-0.005 0 -0.01575
-0.005 -0 0.01575
-numsurf 10
-SURF 0X20
-mat 2
-refs 4
-3 0.47932 0.885614
-0 0.486537 0.880309
-1 0.538964 0.883321
-2 0.522707 0.888293
-SURF 0X20
-mat 2
-refs 4
-2 0.522707 0.888293
-1 0.538964 0.883321
-5 0.53059 0.887431
-6 0.520006 0.881659
-SURF 0X20
-mat 2
-refs 4
-0 0.486537 0.880309
-3 0.47932 0.885614
-7 0.470362 0.882164
-4 0.484486 0.887431
-SURF 0X20
-mat 2
-refs 3
-6 0.520006 0.881659
-3 0.47932 0.885614
-2 0.522707 0.888293
-SURF 0X20
-mat 2
-refs 3
-6 0.520006 0.881659
-8 0.509232 0.884114
-3 0.47932 0.885614
-SURF 0X20
-mat 2
-refs 3
-8 0.509232 0.884114
-7 0.470362 0.882164
-3 0.47932 0.885614
-SURF 0X20
-mat 2
-refs 3
-1 0.538964 0.883321
-0 0.486537 0.880309
-5 0.53059 0.887431
-SURF 0X20
-mat 2
-refs 3
-0 0.486537 0.880309
-9 0.507318 0.881972
-5 0.53059 0.887431
-SURF 0X20
-mat 2
-refs 3
-0 0.486537 0.880309
-4 0.484486 0.887431
-9 0.507318 0.881972
-SURF 0X20
-mat 2
-refs 4
-7 0.090398 0.824906
-6 0.090398 0.61797
-5 0.131148 0.61797
-4 0.131148 0.824906
-kids 0
-OBJECT poly
 name "Label1"
 data 11
 Label1.mesh
@@ -870,7 +785,7 @@ numvert 4
 0.0055 0.01803 -0.015
 numsurf 1
 SURF 0X20
-mat 3
+mat 2
 refs 4
 1 0 1
 0 0 0.5
@@ -891,7 +806,7 @@ numvert 4
 0.0055 -0.01597 -0.015
 numsurf 1
 SURF 0X20
-mat 3
+mat 2
 refs 4
 1 0 0.496094
 0 0 -0.003906

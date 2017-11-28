@@ -242,19 +242,6 @@
     </offsets>
   </model>
 
-
-
-  <model>
-    <name>FO swfrm</name>
-    <path>Aircraft/Concorde/Models/Cockpit/Instruments/frm_fo.xml</path>
-    <offsets>
-      <x-m>-23.826</x-m>
-      <y-m>0.646</y-m>
-      <z-m>1.166</z-m>
-      <pitch-deg>-10</pitch-deg>
-    </offsets>
-  </model>
-
   <model>
     <name>Copilot INS Source Label</name>
     <path>Aircraft/Concorde/Models/Cockpit/Instruments/ins-label.xml</path>
@@ -802,21 +789,6 @@
     </offsets>
   </model>
 
-
-  
-  <model>
-    <name>Captain swfrm</name>
-    <path>Aircraft/Concorde/Models/Cockpit/Instruments/frm_fo.xml</path>
-    <offsets>
-      <x-m>-23.826</x-m>
-      <y-m>-0.65</y-m>
-      <z-m>1.168</z-m>
-      <pitch-deg>-10</pitch-deg>
-    </offsets>
-  </model>
-
-
-
   <model>
     <name>Captain COG</name>
     <path>Aircraft/Concorde/Models/Cockpit/Instruments/cog.xml</path>
@@ -1026,7 +998,7 @@
       </params>
     </overlay>
     <offsets>
-      <x-m>-23.83</x-m>
+      <x-m>-23.837</x-m>
       <y-m>-0.585</y-m>
       <z-m>1.25</z-m>
       <pitch-deg>-10</pitch-deg>

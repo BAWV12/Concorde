@@ -1,12 +1,11 @@
 AC3Db
-MATERIAL "Yellow.003" rgb 0.8 0.8 0.8  amb 0.4 0.4 0.4  emis 0.000 0.000 0.000  spec 0 0 0  shi 32 trans 0.000
-MATERIAL "Frame.004" rgb 0.705 0.789 0.868  amb 1.000 1.000 1.000  emis 0.150 0.150 0.150  spec 0.150 0.150 0.150  shi 32 trans 0.000
-MATERIAL "Material.003" rgb 0.8 0.8 0.8  amb 0.4 0.4 0.4  emis 0.000 0.000 0.000  spec 0 0 0  shi 32 trans 0.000
-MATERIAL "DefaultWhite" rgb 0.8 0.8 0.8  amb 0.4 0.4 0.4  emis 0.000 0.000 0.000  spec 0 0 0  shi 32 trans 0.000
-MATERIAL "Horizon2.006" rgb 0.8 0.8 0.8  amb 0.4 0.4 0.4  emis 0.000 0.000 0.000  spec 0 0 0  shi 32 trans 0.000
+MATERIAL "Yellow.000" rgb 0.800 0.800 0.800  amb 0.400 0.400 0.400  emis 0.000 0.000 0.000  spec 0.000 0.000 0.000  shi 32 trans 0.000
+MATERIAL "Material.003" rgb 0.800 0.800 0.800  amb 0.400 0.400 0.400  emis 0.000 0.000 0.000  spec 0.000 0.000 0.000  shi 32 trans 0.000
+MATERIAL "DefaultWhite.001" rgb 0.800 0.800 0.800  amb 0.400 0.400 0.400  emis 0.000 0.000 0.000  spec 0.000 0.000 0.000  shi 32 trans 0.000
+MATERIAL "Horizon2.006" rgb 0.800 0.800 0.800  amb 0.400 0.400 0.400  emis 0.000 0.000 0.000  spec 0.000 0.000 0.000  shi 32 trans 0.000
 OBJECT world
 name "Blender_exporter_v2.19__ctrl.ac"
-kids 13
+kids 12
 OBJECT poly
 name "B1"
 data 10
@@ -134,69 +133,9 @@ refs 4
 2 0.401108 0.611222
 kids 0
 OBJECT poly
-name "Frame"
-data 14
-Frame.mesh.002
-crease 40.0
-texture "panel.png"
-texrep 1 1
-numvert 8
--0.00272 -0.05093 0.04896
--0.00272 -0.05093 -0.04894
-0.00272 -0.05093 -0.04894
-0.00272 -0.05093 0.04896
--0.00272 0.05093 0.04896
--0.00272 0.05093 -0.04894
-0.00272 0.05093 -0.04894
-0.00272 0.05093 0.04896
-numsurf 6
-SURF 0X20
-mat 1
-refs 4
-1 0.215956 0.038734
-0 0.215956 0.137249
-4 0.245426 0.137249
-5 0.245426 0.038734
-SURF 0X20
-mat 1
-refs 4
-5 0.229824 0.140327
-6 0.231557 0.140327
-2 0.231557 0.035657
-1 0.229824 0.035657
-SURF 0X20
-mat 1
-refs 4
-6 0.692445 0.335239
-7 0.692445 0.548819
-3 0.633408 0.548819
-2 0.633408 0.335239
-SURF 0X20
-mat 1
-refs 4
-0 0.229824 0.035657
-3 0.231557 0.035657
-7 0.231557 0.140327
-4 0.229824 0.140327
-SURF 0X20
-mat 1
-refs 4
-0 0.229824 0.137249
-1 0.229824 0.038734
-2 0.231557 0.038734
-3 0.231557 0.137249
-SURF 0X20
-mat 1
-refs 4
-7 0.231557 0.137249
-6 0.231557 0.038734
-5 0.229824 0.038734
-4 0.229824 0.137249
-kids 0
-OBJECT poly
 name "Frame.001"
 data 14
-Frame.mesh.004
+Frame.mesh.007
 crease 40.0
 texture "controls.png"
 texrep 1 1
@@ -211,42 +150,42 @@ numvert 8
 0.00335 0.0391 0.03759
 numsurf 6
 SURF 0X20
-mat 2
+mat 1
 refs 4
 1 0.081756 0.81719
 0 0.081756 0.972944
 4 0.128348 0.972944
 5 0.128348 0.81719
 SURF 0X20
-mat 2
+mat 1
 refs 4
 5 0.104316 0.977809
 6 0.107056 0.977809
 2 0.107056 0.812325
 1 0.104316 0.812325
 SURF 0X20
-mat 2
+mat 1
 refs 4
 6 1.000192 0.998755
 7 -0.000419 0.99843
 3 -0.000192 -0.001205
 2 1.000419 -0.00088
 SURF 0X20
-mat 2
+mat 1
 refs 4
 0 0.104316 0.812325
 3 0.107056 0.812325
 7 0.107056 0.977809
 4 0.104316 0.977809
 SURF 0X20
-mat 2
+mat 1
 refs 4
 0 0.104316 0.972944
 1 0.104316 0.81719
 2 0.107056 0.81719
 3 0.107056 0.972944
 SURF 0X20
-mat 2
+mat 1
 refs 4
 7 0.107056 0.972944
 6 0.107056 0.81719
@@ -256,7 +195,7 @@ kids 0
 OBJECT poly
 name "Frame.002"
 data 14
-Frame.mesh.005
+Frame.mesh.010
 crease 40.0
 texture "controls.png"
 texrep 1 1
@@ -271,42 +210,42 @@ numvert 8
 0.00335 0.04357 0.02089
 numsurf 6
 SURF 0X20
-mat 2
+mat 1
 refs 4
 1 0.481439 0.512906
 0 0.481439 0.519818
 4 0.483506 0.519818
 5 0.483506 0.512906
 SURF 0X20
-mat 2
+mat 1
 refs 4
 5 0.48244 0.520034
 6 0.482561 0.520034
 2 0.482561 0.51269
 1 0.48244 0.51269
 SURF 0X20
-mat 2
+mat 1
 refs 4
 6 0.522198 0.520964
 7 0.477792 0.52095
 3 0.477802 0.476586
 2 0.522208 0.476601
 SURF 0X20
-mat 2
+mat 1
 refs 4
 0 0.48244 0.51269
 3 0.482561 0.51269
 7 0.482561 0.520034
 4 0.48244 0.520034
 SURF 0X20
-mat 2
+mat 1
 refs 4
 0 0.48244 0.519818
 1 0.48244 0.512906
 2 0.482561 0.512906
 3 0.482561 0.519818
 SURF 0X20
-mat 2
+mat 1
 refs 4
 7 0.482561 0.519818
 6 0.482561 0.512906
@@ -337,84 +276,84 @@ numvert 16
 0.00395 0.02733 0.00417
 numsurf 12
 SURF 0X0
-mat 3
+mat 2
 refs 4
 0 0 0
 1 0 0
 3 0 0
 2 0 0
 SURF 0X0
-mat 3
+mat 2
 refs 4
 2 0 0
 3 0 0
 7 0 0
 6 0 0
 SURF 0X0
-mat 3
+mat 2
 refs 4
 6 0 0
 7 0 0
 5 0 0
 4 0 0
 SURF 0X0
-mat 3
+mat 2
 refs 4
 4 0 0
 5 0 0
 1 0 0
 0 0 0
 SURF 0X0
-mat 3
+mat 2
 refs 4
 2 0 0
 6 0 0
 4 0 0
 0 0 0
 SURF 0X0
-mat 3
+mat 2
 refs 4
 7 0 0
 3 0 0
 1 0 0
 5 0 0
 SURF 0X0
-mat 3
+mat 2
 refs 4
 8 0 0
 9 0 0
 11 0 0
 10 0 0
 SURF 0X0
-mat 3
+mat 2
 refs 4
 10 0 0
 11 0 0
 15 0 0
 14 0 0
 SURF 0X0
-mat 3
+mat 2
 refs 4
 14 0 0
 15 0 0
 13 0 0
 12 0 0
 SURF 0X0
-mat 3
+mat 2
 refs 4
 12 0 0
 13 0 0
 9 0 0
 8 0 0
 SURF 0X0
-mat 3
+mat 2
 refs 4
 10 0 0
 14 0 0
 12 0 0
 8 0 0
 SURF 0X0
-mat 3
+mat 2
 refs 4
 15 0 0
 11 0 0
@@ -461,168 +400,168 @@ numvert 32
 0.00395 0.02733 0.02969
 numsurf 24
 SURF 0X0
-mat 3
+mat 2
 refs 4
 0 0 0
 1 0 0
 3 0 0
 2 0 0
 SURF 0X0
-mat 3
+mat 2
 refs 4
 2 0 0
 3 0 0
 7 0 0
 6 0 0
 SURF 0X0
-mat 3
+mat 2
 refs 4
 6 0 0
 7 0 0
 5 0 0
 4 0 0
 SURF 0X0
-mat 3
+mat 2
 refs 4
 4 0 0
 5 0 0
 1 0 0
 0 0 0
 SURF 0X0
-mat 3
+mat 2
 refs 4
 2 0 0
 6 0 0
 4 0 0
 0 0 0
 SURF 0X0
-mat 3
+mat 2
 refs 4
 7 0 0
 3 0 0
 1 0 0
 5 0 0
 SURF 0X0
-mat 3
+mat 2
 refs 4
 8 0 0
 9 0 0
 11 0 0
 10 0 0
 SURF 0X0
-mat 3
+mat 2
 refs 4
 10 0 0
 11 0 0
 15 0 0
 14 0 0
 SURF 0X0
-mat 3
+mat 2
 refs 4
 14 0 0
 15 0 0
 13 0 0
 12 0 0
 SURF 0X0
-mat 3
+mat 2
 refs 4
 12 0 0
 13 0 0
 9 0 0
 8 0 0
 SURF 0X0
-mat 3
+mat 2
 refs 4
 10 0 0
 14 0 0
 12 0 0
 8 0 0
 SURF 0X0
-mat 3
+mat 2
 refs 4
 15 0 0
 11 0 0
 9 0 0
 13 0 0
 SURF 0X0
-mat 3
+mat 2
 refs 4
 16 0 0
 17 0 0
 19 0 0
 18 0 0
 SURF 0X0
-mat 3
+mat 2
 refs 4
 18 0 0
 19 0 0
 23 0 0
 22 0 0
 SURF 0X0
-mat 3
+mat 2
 refs 4
 22 0 0
 23 0 0
 21 0 0
 20 0 0
 SURF 0X0
-mat 3
+mat 2
 refs 4
 20 0 0
 21 0 0
 17 0 0
 16 0 0
 SURF 0X0
-mat 3
+mat 2
 refs 4
 18 0 0
 22 0 0
 20 0 0
 16 0 0
 SURF 0X0
-mat 3
+mat 2
 refs 4
 23 0 0
 19 0 0
 17 0 0
 21 0 0
 SURF 0X0
-mat 3
+mat 2
 refs 4
 24 0 0
 25 0 0
 27 0 0
 26 0 0
 SURF 0X0
-mat 3
+mat 2
 refs 4
 26 0 0
 27 0 0
 31 0 0
 30 0 0
 SURF 0X0
-mat 3
+mat 2
 refs 4
 30 0 0
 31 0 0
 29 0 0
 28 0 0
 SURF 0X0
-mat 3
+mat 2
 refs 4
 28 0 0
 29 0 0
 25 0 0
 24 0 0
 SURF 0X0
-mat 3
+mat 2
 refs 4
 26 0 0
 30 0 0
 28 0 0
 24 0 0
 SURF 0X0
-mat 3
+mat 2
 refs 4
 31 0 0
 27 0 0
@@ -645,42 +584,42 @@ numvert 8
 0.00395 0.0408 -0.00192
 numsurf 6
 SURF 0X0
-mat 3
+mat 2
 refs 4
 0 0 0
 1 0 0
 3 0 0
 2 0 0
 SURF 0X0
-mat 3
+mat 2
 refs 4
 2 0 0
 3 0 0
 7 0 0
 6 0 0
 SURF 0X0
-mat 3
+mat 2
 refs 4
 6 0 0
 7 0 0
 5 0 0
 4 0 0
 SURF 0X0
-mat 3
+mat 2
 refs 4
 4 0 0
 5 0 0
 1 0 0
 0 0 0
 SURF 0X0
-mat 3
+mat 2
 refs 4
 2 0 0
 6 0 0
 4 0 0
 0 0 0
 SURF 0X0
-mat 3
+mat 2
 refs 4
 7 0 0
 3 0 0
@@ -703,33 +642,33 @@ numvert 6
 0.0042 0.03134 0.00001
 numsurf 5
 SURF 0X20
-mat 4
+mat 3
 refs 3
 1 0.372868 0.884057
 0 0.351823 0.884057
 4 0.362345 0.893597
 SURF 0X20
-mat 4
+mat 3
 refs 3
 3 0.351823 0.884057
 2 0.372868 0.884057
 5 0.362345 0.893597
 SURF 0X20
-mat 4
+mat 3
 refs 4
 0 0.351823 0.884057
 3 0.351823 0.884057
 5 0.362345 0.893597
 4 0.362345 0.893597
 SURF 0X20
-mat 4
+mat 3
 refs 4
 0 0.351823 0.884057
 1 0.372868 0.884057
 2 0.372868 0.884057
 3 0.351823 0.884057
 SURF 0X20
-mat 4
+mat 3
 refs 4
 2 0.372868 0.884057
 1 0.372868 0.884057

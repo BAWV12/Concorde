@@ -2650,12 +2650,14 @@
    <object-name>Front_1</object-name>
  </effect>
 
-
+ <effect>
+   <inherits-from>Aircraft/Concorde/Models/Effects/panel</inherits-from>
+   <object-name>MainPanel_1</object-name>
+ </effect>
 
 
  <effect>
    <inherits-from>Aircraft/Concorde/Models/Effects/interior</inherits-from>
-   <object-name>MainPanel_0</object-name>
    <object-name>MainPanel_1</object-name>
    <object-name>Cockpit</object-name>
    <object-name>Cube.001</object-name>
