@@ -98,7 +98,7 @@
       <desc>altitude acquire</desc>
     </key>
     <key>
-      <name>ctrl-B</name>
+      <name>DEL</name>
       <desc>reverse thrust</desc>
     </key>
     <key>
