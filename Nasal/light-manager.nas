@@ -67,7 +67,7 @@ var light_manager = {
 		};				
 
 		if (type_of_view == 1) {
-			setprop("/sim/rendering/als-secondary-lights/lightspot/lightspot-r", 0);			
+			setprop("/sim/rendering/als-secondary-lights/lightspot/lightspot-r", me.flcpt);			
 	        	setprop("/sim/rendering/als-secondary-lights/lightspot/lightspot-g", 0);
 	        	setprop("/sim/rendering/als-secondary-lights/lightspot/lightspot-b", 0);
 			setprop("sim/rendering/als-secondary-lights/lightspot/size",0);
