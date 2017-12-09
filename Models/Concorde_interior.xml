@@ -464,7 +464,7 @@
   </model>
 
   <model>
-    <name>Captain RNAV WX Radar Update</name>
+    <name>FO RNAV WX Radar Update</name>
     <path>Aircraft/Concorde/Models/Cockpit/Instruments/rnav-wx-update.xml</path>
     <overlay>
       <params>
@@ -475,7 +475,7 @@
       </params>
     </overlay>
     <offsets>
-      <x-m>-23.83</x-m>
+      <x-m>-23.84</x-m>
       <y-m>0.59</y-m>
       <z-m>1.25</z-m>
       <pitch-deg>-10</pitch-deg>
@@ -623,7 +623,7 @@
       </params>
     </overlay>
     <offsets>
-      <x-m>-23.83</x-m>
+      <x-m>-23.84</x-m>
       <y-m>-0.30</y-m>
       <z-m>1.25</z-m>
       <pitch-deg>-10</pitch-deg>
