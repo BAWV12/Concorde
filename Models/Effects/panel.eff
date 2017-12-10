@@ -48,9 +48,9 @@
 	<lightmap-enabled type="int">1</lightmap-enabled>
 	<lightmap-multi type="int">1</lightmap-multi>
 	<lightmap-factor1><use>sim/rendering/als-secondary-lights/lightspot/lightspot-r</use></lightmap-factor1>
-	<lightmap-color type="vec3d" n="0"> 0.9 0 0 </lightmap-color>
+	<lightmap-color type="vec3d" n="0"> 1 0 0 </lightmap-color>
 	<lightmap-factor2><use>sim/rendering/als-secondary-lights/lightspot/lightspot-r</use></lightmap-factor2>
-	<lightmap-color type="vec3d" n="1"> 1.1 0 0 </lightmap-color>
+	<lightmap-color type="vec3d" n="1"> 1 0 0 </lightmap-color>
 	<lightmap-factor3><use>sim/rendering/als-secondary-lights/lightspot/lightspot-r[1]</use></lightmap-factor3>
 	<lightmap-color type="vec3d" n="2"> 1 0 0 </lightmap-color>
 	<lightmap-factor type="float" n="3">0</lightmap-factor>
