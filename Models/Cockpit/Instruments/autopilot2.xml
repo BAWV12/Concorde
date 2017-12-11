@@ -259,7 +259,7 @@
       <red>0.5</red>
       <green>0.5</green>
       <blue>0.0</blue>
-    <factor-prop>/controls/lighting/instruments-norm</factor-prop></emission>
+</emission>
   </animation>
 
  <animation>
@@ -325,7 +325,7 @@
       <red>0.5</red>
       <green>0.5</green>
       <blue>0.0</blue>
-    <factor-prop>/controls/lighting/instruments-norm</factor-prop></emission>
+</emission>
   </animation>
 
   <animation>
@@ -388,7 +388,7 @@
       <red>0.5</red>
       <green>0.5</green>
       <blue>0.0</blue>
-    <factor-prop>/controls/lighting/instruments-norm</factor-prop></emission>
+</emission>
   </animation>
   <animation>
     <type>material</type>
@@ -474,7 +474,7 @@
       <red>0.5</red>
       <green>0.5</green>
       <blue>0.0</blue>
-    <factor-prop>/controls/lighting/instruments-norm</factor-prop></emission>
+</emission>
   </animation>
   <animation>
     <type>material</type>
@@ -516,7 +516,7 @@
       <red>0.5</red>
       <green>0.5</green>
       <blue>0.0</blue>
-    <factor-prop>/controls/lighting/instruments-norm</factor-prop></emission>
+</emission>
   </animation>
   <animation>
     <type>material</type>
@@ -582,7 +582,7 @@
       <red>0.5</red>
       <green>0.5</green>
       <blue>0.0</blue>
-    <factor-prop>/controls/lighting/instruments-norm</factor-prop></emission>
+ </emission>
   </animation>
   <animation>
     <type>material</type>
@@ -642,7 +642,7 @@
       <red>0.5</red>
       <green>0.5</green>
       <blue>0.0</blue>
-    <factor-prop>/controls/lighting/instruments-norm</factor-prop></emission>
+</emission>
   </animation>
   <!-- HH -->
   <animation>
@@ -662,7 +662,7 @@
       <red>0.5</red>
       <green>0.5</green>
       <blue>0.0</blue>
-    <factor-prop>/controls/lighting/instruments-norm</factor-prop></emission>
+</emission>
   </animation>
   <animation>
     <type>material</type>
@@ -703,7 +703,7 @@
       <red>0.5</red>
       <green>0.5</green>
       <blue>0.0</blue>
-    <factor-prop>/controls/lighting/instruments-norm</factor-prop></emission>
+</emission>
   </animation>
   <animation>
     <type>material</type>
@@ -749,7 +749,7 @@
       <red>0.5</red>
       <green>0.5</green>
       <blue>0.0</blue>
-    <factor-prop>/controls/lighting/instruments-norm</factor-prop></emission>
+</emission>
   </animation>
   <animation>
     <type>material</type>
@@ -794,7 +794,7 @@
       <red>0.5</red>
       <green>0.5</green>
       <blue>0.0</blue>
-    <factor-prop>/controls/lighting/instruments-norm</factor-prop></emission>
+</emission>
   </animation>
   <animation>
     <type>material</type>
@@ -830,7 +830,7 @@
       <red>0.5</red>
       <green>0.5</green>
       <blue>0.0</blue>
-    <factor-prop>/controls/lighting/instruments-norm</factor-prop></emission>
+</emission>
   </animation>
   <animation>
     <type>material</type>
@@ -865,7 +865,7 @@
       <red>0.5</red>
       <green>0.5</green>
       <blue>0.0</blue>
-    <factor-prop>/controls/lighting/instruments-norm</factor-prop></emission>
+</emission>
   </animation>
 
   <!-- Heading Settings -->
@@ -1152,7 +1152,7 @@
       <red>0.5</red>
       <green>0.5</green>
       <blue>0.0</blue>
-    <factor-prop>/controls/lighting/instruments-norm</factor-prop></emission>
+</emission>
   </animation>
   <animation>
     <type>material</type>
@@ -1197,7 +1197,7 @@
       <red>0.5</red>
       <green>0.5</green>
       <blue>0.0</blue>
-    <factor-prop>/controls/lighting/instruments-norm</factor-prop></emission>
+</emission>
   </animation>
 
   <animation>
@@ -1240,7 +1240,7 @@
       <red>0.5</red>
       <green>0.5</green>
       <blue>0.0</blue>
-    <factor-prop>/controls/lighting/instruments-norm</factor-prop></emission>
+</emission>
   </animation>
   <animation>
     <type>material</type>
@@ -1284,7 +1284,7 @@
       <red>0.5</red>
       <green>0.5</green>
       <blue>0.0</blue>
-    <factor-prop>/controls/lighting/instruments-norm</factor-prop></emission>
+</emission>
   </animation>
   <animation>
     <type>material</type>
@@ -1329,7 +1329,7 @@
       <red>0.5</red>
       <green>0.5</green>
       <blue>0.0</blue>
-    <factor-prop>/controls/lighting/instruments-norm</factor-prop></emission>
+</emission>
   </animation>
   <animation>
     <type>material</type>
@@ -1374,7 +1374,7 @@
       <red>0.5</red>
       <green>0.5</green>
       <blue>0.0</blue>
-    <factor-prop>/controls/lighting/instruments-norm</factor-prop></emission>
+</emission>
   </animation>
 
   <!-- CR -->
@@ -1418,7 +1418,7 @@
       <red>0.5</red>
       <green>0.5</green>
       <blue>0.0</blue>
-    <factor-prop>/controls/lighting/instruments-norm</factor-prop></emission>
+</emission>
   </animation>
 
   <animation>
@@ -1475,7 +1475,7 @@
       <red>0.5</red>
       <green>0.5</green>
       <blue>0.0</blue>
-    <factor-prop>/controls/lighting/instruments-norm</factor-prop></emission>
+</emission>
   </animation>
   <animation>
     <type>material</type>
@@ -1524,7 +1524,7 @@
       <red>0.5</red>
       <green>0.5</green>
       <blue>0.0</blue>
-    <factor-prop>/controls/lighting/instruments-norm</factor-prop></emission>
+</emission>
   </animation>
 
   <!--=== Bindings ===-->
@@ -1877,7 +1877,7 @@
       <red>0.0</red>
       <green>0.5</green>
       <blue>0.0</blue>
-<factor-prop>/controls/lighting/instruments-norm</factor-prop>
+
     </emission>
   </animation>
   <animation>
@@ -1916,7 +1916,7 @@
       <red>0.0</red>
       <green>0.5</green>
       <blue>0.0</blue>
-<factor-prop>/controls/lighting/instruments-norm</factor-prop>
+
     </emission>
   </animation>
   <animation>
@@ -2044,7 +2044,7 @@
       <red>0.0</red>
       <green>0.5</green>
       <blue>0.0</blue>
-<factor-prop>/controls/lighting/instruments-norm</factor-prop>
+
     </emission>
   </animation>
   <animation>
@@ -2083,7 +2083,7 @@
       <red>0.0</red>
       <green>0.5</green>
       <blue>0.0</blue>
-<factor-prop>/controls/lighting/instruments-norm</factor-prop>
+
     </emission>
   </animation>
   <animation>
@@ -2209,7 +2209,7 @@
       <red>0.0</red>
       <green>0.5</green>
       <blue>0.0</blue>
-<factor-prop>/controls/lighting/instruments-norm</factor-prop>
+
     </emission>
   </animation>
   <animation>
@@ -2247,7 +2247,7 @@
       <red>0.0</red>
       <green>0.5</green>
       <blue>0.0</blue>
-<factor-prop>/controls/lighting/instruments-norm</factor-prop>
+
     </emission>
   </animation>
   <animation>
