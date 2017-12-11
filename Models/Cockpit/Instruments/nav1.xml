@@ -16,7 +16,6 @@
  <animation>
   <name>NAV1Bulbs</name>
   <object-name>FreqSelectBig.001</object-name>
-  <object-name>FreqSelectSmall.001</object-name>
   <object-name>Freq1</object-name>
   <object-name>Freq2</object-name>
   <object-name>Freq3</object-name>
@@ -30,19 +29,19 @@
   <type>material</type>
   <object-name>NAV1Bulbs</object-name>
   <condition>
-  <and>
-    <property>controls/lighting/instrument-lights</property>
+
+
         <greater-than>
           <property>/systems/electrical/outputs/specific</property>
           <value>20.0</value>
         </greater-than>
-  </and>
+
   </condition>
 
   <emission>
-   <red>0.7</red>
-   <green>0.2</green>
-   <blue>0.2</blue>
+   <red>0.35</red>
+   <green>0.1</green>
+   <blue>0.1</blue>
    <factor-prop>/controls/lighting/instruments-norm</factor-prop>
   </emission>
  </animation>
@@ -53,7 +52,7 @@
     <type>rotate</type>
     <object-name>FreqSelectBig</object-name>
     <property>instrumentation/nav[1]/frequencies/selected-mhz</property>
-    <factor>18</factor>
+    <factor>180</factor>
     <center>
       <x-m>0.00850</x-m>
       <y-m>-0.01378</y-m>
@@ -65,25 +64,6 @@
       <z>0</z>
     </axis>
   </animation>
-
-
-  <animation>
-    <type>rotate</type>
-    <object-name>FreqSelectSmall</object-name>
-    <property>instrumentation/nav[1]/frequencies/selected-mhz</property>
-    <factor>144</factor>
-    <center>
-      <x-m>0.00850</x-m>
-      <y-m>-0.01378</y-m>
-      <z-m>-0.0200</z-m>
-    </center>
-    <axis>
-      <x>-1</x>
-      <y>0</y>
-      <z>0</z>
-    </axis>
-  </animation>
-
 
 
   <animation>
@@ -96,9 +76,9 @@
       <binding>
         <command>property-adjust</command>
         <property>instrumentation/nav[1]/frequencies/selected-mhz</property>
-        <step>1</step>
+        <step>0.1</step>
         <min>108</min>
-        <max>117.95</max>
+        <max>118</max>
         <wrap>false</wrap>
       </binding>
       <binding>
@@ -113,9 +93,9 @@
       <binding>
         <command>property-adjust</command>
         <property>instrumentation/nav[1]/frequencies/selected-mhz</property>
-        <step>-1</step>
+        <step>-0.1</step>
         <min>108</min>
-        <max>117.95</max>
+        <max>118</max>
         <wrap>false</wrap>
       </binding>
       <binding>
@@ -124,44 +104,7 @@
       </binding>
     </action>
   </animation>
-  <animation>
-    <type>pick</type>
-    <object-name>FreqSelectSmall</object-name>
-    <action>
-      <name>Frequency 0.05 Up</name>
-      <button>3</button>
-      <repeatable>false</repeatable>
-      <binding>
-        <command>property-adjust</command>
-        <property>instrumentation/nav[1]/frequencies/selected-mhz</property>
-        <step>0.05</step>
-        <min>108</min>
-        <max>117.95</max>
-        <wrap>false</wrap>
-      </binding>
-      <binding>
-        <command>nasal</command>
-        <script>globals.Concorde.autopilotsystem.apsendnavexport();</script>
-      </binding>
-    </action>
-    <action>
-      <name>Frequency 0.05 Down</name>
-      <button>4</button>
-      <repeatable>false</repeatable>
-      <binding>
-        <command>property-adjust</command>
-        <property>instrumentation/nav[1]/frequencies/selected-mhz</property>
-        <step>-0.05</step>
-        <min>108</min>
-        <max>117.95</max>
-        <wrap>false</wrap>
-      </binding>
-      <binding>
-        <command>nasal</command>
-        <script>globals.Concorde.autopilotsystem.apsendnavexport();</script>
-      </binding>
-    </action>
-  </animation>
+
   <!-- Freq Display -->
   <animation>
     <type>textranslate</type>

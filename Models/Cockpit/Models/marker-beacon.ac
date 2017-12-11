@@ -3,7 +3,7 @@ MATERIAL "Grey.002" rgb 0.400 0.400 0.400  amb 0.400 0.400 0.400  emis 0.200 0.2
 MATERIAL "Yellow.007" rgb 0.500 0.500 0.000  amb 0.233 0.233 0.233  emis 0.133 0.133 0.133  spec 0.300 0.300 0.300  shi 128 trans 0.000
 MATERIAL "Blue" rgb 0.000 0.000 0.500  amb 0.083 0.083 0.083  emis 0.067 0.067 0.067  spec 0.300 0.300 0.300  shi 128 trans 0.000
 MATERIAL "White.024" rgb 1.000 1.000 1.000  amb 1.000 1.000 1.000  emis 0.200 0.200 0.200  spec 0.300 0.300 0.300  shi 128 trans 0.000
-MATERIAL "White.025" rgb 1.000 1.000 1.000  amb 1.000 1.000 1.000  emis 0.100 0.100 0.100  spec 0.300 0.300 0.300  shi 128 trans 0.000
+MATERIAL "White.025" rgb 0.8 0.8 0.8  amb 0.4 0.4 0.4  emis 0.1 0.1 0.1  spec 0 0 0  shi 0 trans 0.000
 OBJECT world
 name "Blender_exporter_v2.19__marker-beacon.ac"
 kids 5

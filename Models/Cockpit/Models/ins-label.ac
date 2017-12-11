@@ -1,6 +1,6 @@
 AC3Db
 MATERIAL "DefaultWhite" rgb 0.8 0.8 0.8  amb 0.4 0.4 0.4  emis 0.000 0.000 0.000  spec 0 0 0  shi 32 trans 0.000
-MATERIAL "Label" rgb 0.8 0.8 0.8  amb 0.4 0.4 0.4  emis 0.200 0.200 0.200  spec 0 0 0  shi 32 trans 0.000
+MATERIAL "Label" rgb 0.8 0.8 0.8  amb 0.4 0.4 0.4  emis 0.100 0.100 0.100  spec 0 0 0  shi 32 trans 0.000
 OBJECT world
 name "Blender_export__ins-label.ac"
 kids 1

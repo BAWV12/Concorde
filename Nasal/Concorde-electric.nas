@@ -1294,7 +1294,7 @@ Antiicing.slowschedule = func {
     me.detector.schedule();
 }
 
-setprop("/controls/lighting/instruments-norm",0.4);
+setprop("/controls/lighting/instruments-norm",0.0);
 setprop("/controls/lighting/crew/captain/flood-norm",0.2);
 
 var _instrlight = setlistener("sim/signals/fdm-initialized", func() {
@@ -1303,6 +1303,7 @@ var _instrlight = setlistener("sim/signals/fdm-initialized", func() {
 	  setprop("/controls/lighting/instrument-lights",0);
 	  } else{
 	  setprop("/controls/lighting/instrument-lights",1);
+	  setprop("/controls/lighting/instruments-norm",0.4);
 	};
 	
 	removelistener(_instrlight); # run ONCE

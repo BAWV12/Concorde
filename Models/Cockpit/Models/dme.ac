@@ -1,6 +1,6 @@
 AC3Db
 MATERIAL "Digit" rgb 1.000 1.000 1.000  amb 1.000 1.000 1.000  emis 0.333 0.333 0.333  spec 0.000 0.000 0.000  shi 0 trans 0.000
-MATERIAL "Label.002" rgb 0.800 0.800 0.800  amb 0.400 0.400 0.400  emis 0.200 0.200 0.200  spec 0.000 0.000 0.000  shi 32 trans 0.000
+MATERIAL "Label.002" rgb 0.800 0.800 0.800  amb 0.400 0.400 0.400  emis 0.100 0.100 0.100  spec 0.000 0.000 0.000  shi 32 trans 0.000
 MATERIAL "Black.005" rgb 0.000 0.000 0.000  amb 0.000 0.000 0.000  emis 0.000 0.000 0.000  spec 0.000 0.000 0.000  shi 0 trans 0.000
 OBJECT world
 name "Blender_exporter_v2.19__dme.ac"

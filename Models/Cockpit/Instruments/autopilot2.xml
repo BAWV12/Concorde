@@ -281,14 +281,14 @@
      </and>
 </not>
    	
-        <property>controls/lighting/instrument-lights</property><property>controls/lighting/instrument-lights</property><greater-than><property>/systems/electrical/outputs/specific</property><value>20.0</value></greater-than>
+        <greater-than><property>/systems/electrical/outputs/specific</property><value>20.0</value></greater-than>
 
 </and>
     </condition>
     <emission>
-      <red>0.7</red>
-      <green>0.2</green>
-      <blue>0.2</blue>   <factor-prop>/controls/lighting/instruments-norm</factor-prop>
+      <red>0.35</red>
+      <green>0.1</green>
+      <blue>0.1</blue>   <factor-prop>/controls/lighting/instruments-norm</factor-prop>
     </emission>
   </animation>
 
@@ -350,14 +350,14 @@
      </or>
 
    	
-        <property>controls/lighting/instrument-lights</property><property>controls/lighting/instrument-lights</property><greater-than><property>/systems/electrical/outputs/specific</property><value>20.0</value></greater-than>
+        <greater-than><property>/systems/electrical/outputs/specific</property><value>20.0</value></greater-than>
 
 </and>
     </condition>
     <emission>
-      <red>0.7</red>
-      <green>0.2</green>
-      <blue>0.2</blue>   <factor-prop>/controls/lighting/instruments-norm</factor-prop>
+      <red>0.35</red>
+      <green>0.1</green>
+      <blue>0.1</blue>   <factor-prop>/controls/lighting/instruments-norm</factor-prop>
     </emission>
   </animation>
 
@@ -409,14 +409,14 @@
      </and>
 </not>
    	
-        <property>controls/lighting/instrument-lights</property><property>controls/lighting/instrument-lights</property><greater-than><property>/systems/electrical/outputs/specific</property><value>20.0</value></greater-than>
+        <greater-than><property>/systems/electrical/outputs/specific</property><value>20.0</value></greater-than>
 
 </and>
     </condition>
     <emission>
-      <red>0.7</red>
-      <green>0.2</green>
-      <blue>0.2</blue>   <factor-prop>/controls/lighting/instruments-norm</factor-prop>
+      <red>0.35</red>
+      <green>0.1</green>
+      <blue>0.1</blue>   <factor-prop>/controls/lighting/instruments-norm</factor-prop>
     </emission>
   </animation>
 
@@ -486,14 +486,14 @@
       <value>ins</value>
      </not-equals>
    	
-        <property>controls/lighting/instrument-lights</property><property>controls/lighting/instrument-lights</property><greater-than><property>/systems/electrical/outputs/specific</property><value>20.0</value></greater-than>
+        <greater-than><property>/systems/electrical/outputs/specific</property><value>20.0</value></greater-than>
 
       </and>
     </condition>
     <emission>
-      <red>0.7</red>
-      <green>0.2</green>
-      <blue>0.2</blue>   <factor-prop>/controls/lighting/instruments-norm</factor-prop>
+      <red>0.35</red>
+      <green>0.1</green>
+      <blue>0.1</blue>    <factor-prop>/controls/lighting/instruments-norm</factor-prop>
     </emission>
   </animation>
 
@@ -531,14 +531,14 @@
       <or include="concorde-cond-land.xml"/>
      </or>
    	
-        <property>controls/lighting/instrument-lights</property><property>controls/lighting/instrument-lights</property><greater-than><property>/systems/electrical/outputs/specific</property><value>20.0</value></greater-than>
+        <greater-than><property>/systems/electrical/outputs/specific</property><value>20.0</value></greater-than>
 
 </and>
     </condition>
     <emission>
-      <red>0.7</red>
-      <green>0.2</green>
-      <blue>0.2</blue>   <factor-prop>/controls/lighting/instruments-norm</factor-prop>
+      <red>0.35</red>
+      <green>0.1</green>
+      <blue>0.1</blue>   <factor-prop>/controls/lighting/instruments-norm</factor-prop>
     </emission>
   </animation>
 
@@ -549,13 +549,13 @@
     <condition>
       <and>
    	
-        <property>controls/lighting/instrument-lights</property><property>controls/lighting/instrument-lights</property><greater-than><property>/systems/electrical/outputs/specific</property><value>20.0</value></greater-than>
+        <greater-than><property>/systems/electrical/outputs/specific</property><value>20.0</value></greater-than>
       </and>
     </condition>
     <emission>
-      <red>0.7</red>
-      <green>0.2</green>
-      <blue>0.2</blue>   <factor-prop>/controls/lighting/instruments-norm</factor-prop>
+      <red>0.35</red>
+      <green>0.1</green>
+      <blue>0.1</blue>   <factor-prop>/controls/lighting/instruments-norm</factor-prop>
     </emission>
   </animation>
 
@@ -605,13 +605,13 @@
      </and>
 </not>
    	
-        <property>controls/lighting/instrument-lights</property><property>controls/lighting/instrument-lights</property><greater-than><property>/systems/electrical/outputs/specific</property><value>20.0</value></greater-than>
+        <greater-than><property>/systems/electrical/outputs/specific</property><value>20.0</value></greater-than>
 </and>
     </condition>
     <emission>
-      <red>0.7</red>
-      <green>0.2</green>
-      <blue>0.2</blue>   <factor-prop>/controls/lighting/instruments-norm</factor-prop>
+      <red>0.35</red>
+      <green>0.1</green>
+      <blue>0.1</blue>   <factor-prop>/controls/lighting/instruments-norm</factor-prop>
     </emission>
   </animation>
 
@@ -676,13 +676,13 @@
       </not-equals>
      </or>
    	
-        <property>controls/lighting/instrument-lights</property><property>controls/lighting/instrument-lights</property><greater-than><property>/systems/electrical/outputs/specific</property><value>20.0</value></greater-than>
+        <greater-than><property>/systems/electrical/outputs/specific</property><value>20.0</value></greater-than>
 </and>
     </condition>
     <emission>
-      <red>0.7</red>
-      <green>0.2</green>
-      <blue>0.2</blue>   <factor-prop>/controls/lighting/instruments-norm</factor-prop>
+      <red>0.35</red>
+      <green>0.1</green>
+      <blue>0.1</blue>   <factor-prop>/controls/lighting/instruments-norm</factor-prop>
     </emission>
   </animation>
 
@@ -715,14 +715,14 @@
       <value>turbulence</value>
      </not-equals>
    	
-        <property>controls/lighting/instrument-lights</property><property>controls/lighting/instrument-lights</property><greater-than><property>/systems/electrical/outputs/specific</property><value>20.0</value></greater-than>
+        <greater-than><property>/systems/electrical/outputs/specific</property><value>20.0</value></greater-than>
 
 </and>
     </condition>
     <emission>
-      <red>0.7</red>
-      <green>0.2</green>
-      <blue>0.2</blue>   <factor-prop>/controls/lighting/instruments-norm</factor-prop>
+      <red>0.35</red>
+      <green>0.1</green>
+      <blue>0.1</blue>   <factor-prop>/controls/lighting/instruments-norm</factor-prop>
     </emission>
   </animation>
 
@@ -768,13 +768,13 @@
       </equals>
      </or>
    	
-        <property>controls/lighting/instrument-lights</property><property>controls/lighting/instrument-lights</property><greater-than><property>/systems/electrical/outputs/specific</property><value>20.0</value></greater-than>
+        <greater-than><property>/systems/electrical/outputs/specific</property><value>20.0</value></greater-than>
 </and>
     </condition>
     <emission>
-      <red>0.7</red>
-      <green>0.2</green>
-      <blue>0.2</blue>   <factor-prop>/controls/lighting/instruments-norm</factor-prop>
+      <red>0.35</red>
+      <green>0.1</green>
+      <blue>0.1</blue>   <factor-prop>/controls/lighting/instruments-norm</factor-prop>
     </emission>
   </animation>
 
@@ -806,13 +806,13 @@
       <value>goaround</value>
      </not-equals>
    	
-        <property>controls/lighting/instrument-lights</property><property>controls/lighting/instrument-lights</property><greater-than><property>/systems/electrical/outputs/specific</property><value>20.0</value></greater-than>
+        <greater-than><property>/systems/electrical/outputs/specific</property><value>20.0</value></greater-than>
 </and>
     </condition>
     <emission>
-      <red>0.7</red>
-      <green>0.2</green>
-      <blue>0.2</blue>   <factor-prop>/controls/lighting/instruments-norm</factor-prop>
+      <red>0.35</red>
+      <green>0.1</green>
+      <blue>0.1</blue>   <factor-prop>/controls/lighting/instruments-norm</factor-prop>
     </emission>
   </animation>
 
@@ -842,13 +842,13 @@
       <value>autoland</value>
      </not-equals>
    	
-        <property>controls/lighting/instrument-lights</property><property>controls/lighting/instrument-lights</property><greater-than><property>/systems/electrical/outputs/specific</property><value>20.0</value></greater-than>
+        <greater-than><property>/systems/electrical/outputs/specific</property><value>20.0</value></greater-than>
 </and>
     </condition>
     <emission>
-      <red>0.7</red>
-      <green>0.2</green>
-      <blue>0.2</blue>   <factor-prop>/controls/lighting/instruments-norm</factor-prop>
+      <red>0.35</red>
+      <green>0.1</green>
+      <blue>0.1</blue>   <factor-prop>/controls/lighting/instruments-norm</factor-prop>
     </emission>
   </animation>
 
@@ -1164,14 +1164,14 @@
        <value>mach-with-pitch</value>
     </not-equals>
    	
-        <property>controls/lighting/instrument-lights</property><property>controls/lighting/instrument-lights</property><greater-than><property>/systems/electrical/outputs/specific</property><value>20.0</value></greater-than>
+        <greater-than><property>/systems/electrical/outputs/specific</property><value>20.0</value></greater-than>
 
     </and>
     </condition>
     <emission>
-      <red>0.7</red>
-      <green>0.2</green>
-      <blue>0.2</blue>   <factor-prop>/controls/lighting/instruments-norm</factor-prop>
+      <red>0.35</red>
+      <green>0.1</green>
+      <blue>0.1</blue>   <factor-prop>/controls/lighting/instruments-norm</factor-prop>
     </emission>
   </animation>
 
@@ -1215,14 +1215,14 @@
       </not-equals>
 
    	
-        <property>controls/lighting/instrument-lights</property><property>controls/lighting/instrument-lights</property><greater-than><property>/systems/electrical/outputs/specific</property><value>20.0</value></greater-than>
+        <greater-than><property>/systems/electrical/outputs/specific</property><value>20.0</value></greater-than>
 
      </and>
     </condition>
     <emission>
-      <red>0.7</red>
-      <green>0.2</green>
-      <blue>0.2</blue>   <factor-prop>/controls/lighting/instruments-norm</factor-prop>
+      <red>0.35</red>
+      <green>0.1</green>
+      <blue>0.1</blue>   <factor-prop>/controls/lighting/instruments-norm</factor-prop>
     </emission>
   </animation>
 
@@ -1252,13 +1252,13 @@
           <value>speed-with-pitch</value>
         </not-equals>
    	
-        <property>controls/lighting/instrument-lights</property><property>controls/lighting/instrument-lights</property><greater-than><property>/systems/electrical/outputs/specific</property><value>20.0</value></greater-than>
+        <greater-than><property>/systems/electrical/outputs/specific</property><value>20.0</value></greater-than>
       </and>
     </condition>
     <emission>
-      <red>0.7</red>
-      <green>0.2</green>
-      <blue>0.2</blue>   <factor-prop>/controls/lighting/instruments-norm</factor-prop>
+      <red>0.35</red>
+      <green>0.1</green>
+      <blue>0.1</blue>   <factor-prop>/controls/lighting/instruments-norm</factor-prop>
     </emission>
   </animation>
 
@@ -1302,13 +1302,13 @@
       </equals>
      </or>
      
-     <property>controls/lighting/instrument-lights</property><property>controls/lighting/instrument-lights</property><greater-than><property>/systems/electrical/outputs/specific</property><value>20.0</value></greater-than>
+     <greater-than><property>/systems/electrical/outputs/specific</property><value>20.0</value></greater-than>
     </and>
     </condition>
     <emission>
-      <red>0.7</red>
-      <green>0.2</green>
-      <blue>0.2</blue>   <factor-prop>/controls/lighting/instruments-norm</factor-prop>
+      <red>0.35</red>
+      <green>0.1</green>
+      <blue>0.1</blue>   <factor-prop>/controls/lighting/instruments-norm</factor-prop>
     </emission>
   </animation>
 
@@ -1346,14 +1346,14 @@
      </and>
 </not>
      
-     <property>controls/lighting/instrument-lights</property><property>controls/lighting/instrument-lights</property><greater-than><property>/systems/electrical/outputs/specific</property><value>20.0</value></greater-than>
+     <greater-than><property>/systems/electrical/outputs/specific</property><value>20.0</value></greater-than>
 
 </and>
     </condition>
     <emission>
-      <red>0.7</red>
-      <green>0.2</green>
-      <blue>0.2</blue>   <factor-prop>/controls/lighting/instruments-norm</factor-prop>
+      <red>0.35</red>
+      <green>0.1</green>
+      <blue>0.1</blue>   <factor-prop>/controls/lighting/instruments-norm</factor-prop>
     </emission>
   </animation>
 
@@ -1383,13 +1383,13 @@
     <object-name>CR</object-name>
     <condition>
      
-     <property>controls/lighting/instrument-lights</property><property>controls/lighting/instrument-lights</property><greater-than><property>/systems/electrical/outputs/specific</property><value>20.0</value></greater-than>
+     <greater-than><property>/systems/electrical/outputs/specific</property><value>20.0</value></greater-than>
 
     </condition>
     <emission>
-      <red>0.7</red>
-      <green>0.2</green>
-      <blue>0.2</blue>   <factor-prop>/controls/lighting/instruments-norm</factor-prop>
+      <red>0.35</red>
+      <green>0.1</green>
+      <blue>0.1</blue>   <factor-prop>/controls/lighting/instruments-norm</factor-prop>
     </emission>
   </animation>
   <!-- VS -->
@@ -1441,15 +1441,15 @@
       </equals>
      </or>
      
-     <property>controls/lighting/instrument-lights</property><property>controls/lighting/instrument-lights</property><greater-than><property>/systems/electrical/outputs/specific</property><value>20.0</value></greater-than>
+     <greater-than><property>/systems/electrical/outputs/specific</property><value>20.0</value></greater-than>
 
 </and>
 
     </condition>
     <emission>
-      <red>0.7</red>
-      <green>0.2</green>
-      <blue>0.2</blue>   <factor-prop>/controls/lighting/instruments-norm</factor-prop>
+      <red>0.35</red>
+      <green>0.1</green>
+      <blue>0.1</blue>   <factor-prop>/controls/lighting/instruments-norm</factor-prop>
     </emission>
   </animation>
 
@@ -1493,13 +1493,13 @@
       </not-equals>
      </or>
      
-     <property>controls/lighting/instrument-lights</property><property>controls/lighting/instrument-lights</property><greater-than><property>/systems/electrical/outputs/specific</property><value>20.0</value></greater-than>
+     <greater-than><property>/systems/electrical/outputs/specific</property><value>20.0</value></greater-than>
     </and>
     </condition>
     <emission>
-      <red>0.7</red>
-      <green>0.2</green>
-      <blue>0.2</blue>   <factor-prop>/controls/lighting/instruments-norm</factor-prop>
+      <red>0.35</red>
+      <green>0.1</green>
+      <blue>0.1</blue>   <factor-prop>/controls/lighting/instruments-norm</factor-prop>
     </emission>
   </animation>
 
@@ -1887,14 +1887,14 @@
 <and>
       <not><property>controls/autoflight/autopilot[0]/engage</property></not>
    
-    <property>controls/lighting/instrument-lights</property><property>controls/lighting/instrument-lights</property><greater-than><property>/systems/electrical/outputs/specific</property><value>20.0</value></greater-than>
+    <greater-than><property>/systems/electrical/outputs/specific</property><value>20.0</value></greater-than>
 
 </and>
     </condition>
     <emission>
-      <red>0.7</red>
-      <green>0.2</green>
-      <blue>0.2</blue>   <factor-prop>/controls/lighting/instruments-norm</factor-prop>
+      <red>0.35</red>
+      <green>0.1</green>
+      <blue>0.1</blue>   <factor-prop>/controls/lighting/instruments-norm</factor-prop>
     </emission>
   </animation>
 
@@ -1926,14 +1926,14 @@
 <and>
       <not><property>controls/autoflight/autopilot[1]/engage</property></not>
    
-    <property>controls/lighting/instrument-lights</property><property>controls/lighting/instrument-lights</property><greater-than><property>/systems/electrical/outputs/specific</property><value>20.0</value></greater-than>
+    <greater-than><property>/systems/electrical/outputs/specific</property><value>20.0</value></greater-than>
 
 </and>
     </condition>
     <emission>
-      <red>0.7</red>
-      <green>0.2</green>
-      <blue>0.2</blue>   <factor-prop>/controls/lighting/instruments-norm</factor-prop>
+      <red>0.35</red>
+      <green>0.1</green>
+      <blue>0.1</blue>   <factor-prop>/controls/lighting/instruments-norm</factor-prop>
     </emission>
   </animation>
 
@@ -2054,14 +2054,14 @@
 <and>
       <not><property>controls/autoflight/autothrottle[0]/engage</property></not>
    
-    <property>controls/lighting/instrument-lights</property><property>controls/lighting/instrument-lights</property><greater-than><property>/systems/electrical/outputs/specific</property><value>20.0</value></greater-than>
+    <greater-than><property>/systems/electrical/outputs/specific</property><value>20.0</value></greater-than>
 
 </and>
     </condition>
     <emission>
-      <red>0.7</red>
-      <green>0.2</green>
-      <blue>0.2</blue>   <factor-prop>/controls/lighting/instruments-norm</factor-prop>
+      <red>0.35</red>
+      <green>0.1</green>
+      <blue>0.1</blue>   <factor-prop>/controls/lighting/instruments-norm</factor-prop>
     </emission>
   </animation>
 
@@ -2093,14 +2093,14 @@
 <and>
       <not><property>controls/autoflight/autothrottle[1]/engage</property></not>
    
-    <property>controls/lighting/instrument-lights</property><property>controls/lighting/instrument-lights</property><greater-than><property>/systems/electrical/outputs/specific</property><value>20.0</value></greater-than>
+    <greater-than><property>/systems/electrical/outputs/specific</property><value>20.0</value></greater-than>
 
 </and>
     </condition>
     <emission>
-      <red>0.7</red>
-      <green>0.2</green>
-      <blue>0.2</blue>   <factor-prop>/controls/lighting/instruments-norm</factor-prop>
+      <red>0.35</red>
+      <green>0.1</green>
+      <blue>0.1</blue>   <factor-prop>/controls/lighting/instruments-norm</factor-prop>
     </emission>
   </animation>
   <!--Movement-->
@@ -2219,14 +2219,14 @@
 <and>
       <not><property>controls/autoflight/flight-director[0]/engage</property></not>
    
-    <property>controls/lighting/instrument-lights</property><property>controls/lighting/instrument-lights</property><greater-than><property>/systems/electrical/outputs/specific</property><value>20.0</value></greater-than>
+    <greater-than><property>/systems/electrical/outputs/specific</property><value>20.0</value></greater-than>
 
 </and>
     </condition>
     <emission>
-      <red>0.7</red>
-      <green>0.2</green>
-      <blue>0.2</blue>   <factor-prop>/controls/lighting/instruments-norm</factor-prop>
+      <red>0.35</red>
+      <green>0.1</green>
+      <blue>0.1</blue>   <factor-prop>/controls/lighting/instruments-norm</factor-prop>
     </emission>
   </animation>
 
@@ -2257,14 +2257,14 @@
 <and>
       <not><property>controls/autoflight/flight-director[1]/engage</property></not>
    
-    <property>controls/lighting/instrument-lights</property><property>controls/lighting/instrument-lights</property><greater-than><property>/systems/electrical/outputs/specific</property><value>20.0</value></greater-than>
+    <greater-than><property>/systems/electrical/outputs/specific</property><value>20.0</value></greater-than>
 
 </and>
     </condition>
     <emission>
-      <red>0.7</red>
-      <green>0.2</green>
-      <blue>0.2</blue>   <factor-prop>/controls/lighting/instruments-norm</factor-prop>
+      <red>0.35</red>
+      <green>0.1</green>
+      <blue>0.1</blue>   <factor-prop>/controls/lighting/instruments-norm</factor-prop>
     </emission>
   </animation>
   <!--Movement-->
@@ -2386,26 +2386,8 @@
   <object-name>VOR2Num2</object-name>
   <object-name>VOR2Num3</object-name>
 
-  <object-name>Plane.001</object-name>
-  <object-name>MainATLabel</object-name>
-  <object-name>KnotsLabel</object-name>
-  <object-name>KnotsLabel.001</object-name>
-  <object-name>HPLabel1</object-name>
-  <object-name>TPLabel1</object-name>
-  <object-name>VLLabel1</object-name>
-  <object-name>RefLabel1</object-name>
 
-  <object-name>HPLabel2</object-name>
-  <object-name>TPLabel2</object-name>
-  <object-name>VLLabel2</object-name>
-  <object-name>RefLabel2</object-name>
 
-  <object-name>Plane</object-name>
-  <object-name>KnotsLabel.002</object-name>
-  <object-name>KnotsLabel.003</object-name>
-  <object-name>KnotsLabel.004</object-name>
-  <object-name>KnotsLabel.005</object-name>
-  <object-name>KnotsLabel.006</object-name>
  </animation>
 
  <animation>
@@ -2414,14 +2396,14 @@
   <condition>
   <and>
    
-    <property>controls/lighting/instrument-lights</property><property>controls/lighting/instrument-lights</property><greater-than><property>/systems/electrical/outputs/specific</property><value>20.0</value></greater-than>
+    <greater-than><property>/systems/electrical/outputs/specific</property><value>20.0</value></greater-than>
   </and>
   </condition>
 
   <emission>
-   <red>0.7</red>
-   <green>0.2</green>
-   <blue>0.2</blue>   <factor-prop>/controls/lighting/instruments-norm</factor-prop>
+      <red>0.35</red>
+      <green>0.1</green>
+      <blue>0.1</blue>   <factor-prop>/controls/lighting/instruments-norm</factor-prop>
   </emission>
  </animation>
 
@@ -2986,17 +2968,6 @@
     </action>
   </animation>
 
-  <animation>
-    <type>material</type>
-    <object-name>Cube.003</object-name>
-    <object-name>Frame</object-name>
-    <object-name>Frame.001</object-name>
-  <emission>
-     <red>0.2</red>
-     <green>0.2</green>
-     <blue>0.2</blue>
-  </emission>
- </animation>
 
 </PropertyList>
 

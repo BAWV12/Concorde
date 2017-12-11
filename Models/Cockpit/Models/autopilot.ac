@@ -1,16 +1,16 @@
 AC3Db
-MATERIAL "Button.005" rgb 0.400 0.450 0.600  amb 0.483 0.483 0.483  emis 0.250 0.250 0.250  spec 0.300 0.300 0.300  shi 32 trans 0.000
+MATERIAL "Button.005" rgb 0.400 0.450 0.600  amb 0.483 0.483 0.483  emis 0 0 0  spec 0.300 0.300 0.300  shi 32 trans 0.000
 MATERIAL "Aquire.005" rgb 0.200 0.200 0.000  amb 0.1 0.1 0.0  emis 0.1 0.1 0.00  spec 0.300 0.300 0.300  shi 32 trans 0.000
 MATERIAL "ButtonTexture.005" rgb 0.000 0.000 0.000  amb 0.000 0.000 0.000  emis 0.000 0.000 0.000  spec 0.000 0.000 0.000  shi 32 trans 0.000
 MATERIAL "Label.005" rgb 1.000 1.000 1.000  amb 0.300 0.300 0.300  emis 0.2 0.2 0.2  spec 0.300 0.300 0.300  shi 32 trans 0.000
 MATERIAL "Number.010" rgb 1.000 1.000 1.000  amb 1.000 1.000 1.000  emis 0.000 0.000 0.000  spec 0.300 0.300 0.300  shi 32 trans 0.000
 MATERIAL "Black.011" rgb 0.050 0.050 0.050  amb 0.050 0.050 0.050  emis 0 0 0  spec 0 0 0  shi 0 trans 0.000
-MATERIAL "Lit.005" rgb 0.163 0.163 0.163  amb 0.100 0.100 0.100  emis 0.100 0.100 0.100  spec 0.500 0.500 0.500  shi 32 trans 0.000
-MATERIAL "Number.011" rgb 1.000 1.000 1.000  amb 1.000 1.000 1.000  emis 0.200 0.200 0.200  spec 0.300 0.300 0.300  shi 32 trans 0.000
-MATERIAL "navlabel" rgb 0.640 0.640 0.640  amb 1.000 1.000 1.000  emis 0.200 0.200 0.200  spec 0.500 0.500 0.500  shi 12 trans 0.000
+MATERIAL "Lit.005" rgb 0.8 0.8 0.8  amb 0.400 0.400 0.400  emis 0.100 0.100 0.100  spec 0.500 0.500 0.500  shi 32 trans 0.000
+MATERIAL "Number.011" rgb 0.8 0.8 0.8  amb 0.4 0.4 0.4  emis 0.05 0.05 0.05  spec 0.000 0.000 0.000  shi 0 trans 0.000
+MATERIAL "navlabel" rgb 0.8 0.8 0.8  amb 0.4 0.4 0.4  emis 0.05 0.05 0.05  spec 0.000 0.000 0.000  shi 0 trans 0.000
 MATERIAL "Black.012" rgb 0.000 0.000 0.000  amb 0.000 0.000 0.000  emis 0.033 0.033 0.033  spec 0.300 0.300 0.300  shi 32 trans 0.000
-MATERIAL "Text.010" rgb 1.000 1.000 1.000  amb 1.000 1.000 1.000  emis 0.200 0.200 0.200  spec 0.300 0.300 0.300  shi 32 trans 0.000
-MATERIAL "Text.011" rgb 1.000 1.000 1.000  amb 1.000 1.000 1.000  emis 0.200 0.200 0.200  spec 0.300 0.300 0.300  shi 32 trans 0.000
+MATERIAL "Text.010" rgb 0.8 0.8 0.8  amb 0.4 0.4 0.4  emis 0.05 0.05 0.05  spec 0.000 0.000 0.000  shi 0 trans 0.000
+MATERIAL "Text.011" rgb 0.8 0.8 0.8  amb 0.4 0.4 0.4  emis 0.05 0.05 0.05  spec 0.000 0.000 0.000  shi 0 trans 0.000
 OBJECT world
 name "Blender_exporter_v2.19__autopilot.ac"
 kids 110

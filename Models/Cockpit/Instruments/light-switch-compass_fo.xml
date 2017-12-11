@@ -266,10 +266,6 @@
     <type>material</type>
     <object-name>Knob.001</object-name>
     <object-name>Knob.003</object-name>
-    <object-name>Plane</object-name>
-    <object-name>Plane.001</object-name>
-    <object-name>Plane.002</object-name>
-    <object-name>Plane.003</object-name>
   <condition>
   <and>
     <property>controls/lighting/instrument-lights</property>

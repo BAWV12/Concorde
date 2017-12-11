@@ -81,36 +81,6 @@
       </action>
     </animation>
       <!--Default Lighting-->
-  <animation>
-    <type>material</type>
-    <object-name>Frame.001</object-name>
-  <emission>
-     <red>0.2</red>
-     <green>0.2</green>
-     <blue>0.2</blue>
-  </emission>
- </animation>
 
-  <animation>
-    <type>material</type>
-    <object-name>Label1</object-name>
-    <object-name>Label2</object-name>
-  <condition>
-  <and>
-    <property>controls/lighting/instrument-lights</property>
-        <greater-than>
-          <property>/systems/electrical/outputs/specific</property>
-          <value>20.0</value>
-        </greater-than>
-
-  </and>
-  </condition>
-  <emission>
-   <red>0.7</red>
-   <green>0.2</green>
-   <blue>0.2</blue>
-   <factor-prop>/controls/lighting/instruments-norm</factor-prop>
-  </emission>
-  </animation>
 
 </PropertyList>

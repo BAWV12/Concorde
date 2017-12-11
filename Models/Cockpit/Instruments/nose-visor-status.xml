@@ -145,12 +145,8 @@
     <type>material</type>
     <object-name>VisorLabelTransit</object-name>
     <object-name>NoseLabelTransit</object-name>
-    <object-name>VisorLabel2</object-name>
-    <object-name>NoseLabel2</object-name>
     <object-name>VisorLabel</object-name>
     <object-name>NoseLabel</object-name>
-    <object-name>VisorLabel2.002</object-name>
-    <object-name>VisorLabel2.001</object-name>
   <condition>
   <and>
     <property>controls/lighting/instrument-lights</property>

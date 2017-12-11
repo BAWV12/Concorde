@@ -5095,17 +5095,8 @@
 
   <animation>
     <type>material</type>
-    <object-name>p_label.007</object-name>
-    <object-name>planne001.001</object-name>
-    <object-name>planne001.000</object-name>
-    <object-name>CeilingPanel.002</object-name>
-    <object-name>CeilingPanel.001</object-name>
-    <object-name>p_label</object-name>
-    <object-name>p_label.001</object-name>
-    <object-name>p_label.002</object-name>
-    <object-name>p_label.003</object-name>
-    <object-name>p_label.004</object-name>
-    <object-name>p_label.005</object-name>
+
+
     <object-name>Knob.009</object-name>
     <object-name>Knob.010</object-name>
     <object-name>Knob.011</object-name>
