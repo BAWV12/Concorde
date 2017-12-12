@@ -3,71 +3,50 @@
 <PropertyList>
   <name>Aircraft/Concorde/Models/Effects/fuselage-reflect</name>
   <inherits-from>Effects/model-combined-deferred</inherits-from>
-  <parameters>
-    <normalmap-enabled type="int"> 0 </normalmap-enabled>
-    <normalmap-dds type="int"> 0 </normalmap-dds>
-    <normalmap-tiling type="float"> 1.0 </normalmap-tiling>
-    <lightmap-enabled type="int"> 0 </lightmap-enabled>
-    <reflection-enabled type="int"> 1 </reflection-enabled>
-    <reflection-correction type="float"> -0.05 </reflection-correction>
-    <reflection-dynamic type="int"> 1 </reflection-dynamic>
-    <reflection-fresnel type="float"> 0.1 </reflection-fresnel>
-    <reflection-rainbow type="float"> 0.0 </reflection-rainbow>
-    <reflection-noise type="float"> 0.0 </reflection-noise>
-    <texture n= "5" >
-        <type>cubemap</type>
-        <images>
-            <positive-x>Aircraft/Generic/Effects/fgfs-sky2/1.png</positive-x>
-            <negative-x>Aircraft/Generic/Effects/fgfs-sky2/4.png</negative-x>
-            <positive-y>Aircraft/Generic/Effects/fgfs-sky2/2.png</positive-y>
-            <negative-y>Aircraft/Generic/Effects/fgfs-sky2/3.png</negative-y>
-            <positive-z>Aircraft/Generic/Effects/fgfs-sky2/6.png</positive-z>
-            <negative-z>Aircraft/Generic/Effects/fgfs-sky2/5.png</negative-z>
-        </images>
-    </texture>
-    <ambient-correction type="float"> -0.05 </ambient-correction>
-  </parameters>
 
 
-<!--WARNING: Do not edit below this line -->
-<!-- ####################
-### NORMALMAP INCLUDE ###
-######################### -->
-  <!--<generate>
-    <tangent type="int">6</tangent>
-    <binormal type="int">7</binormal>
-  </generate>
 
-  <technique n="8">
-    <pass>
-      <program>
-        <attribute>
-          <name>tangent</name>
-          <index>6</index>
-        </attribute>
-        <attribute>
-          <name>binormal</name>
-          <index>7</index>
-        </attribute>
-      </program>
-    </pass>
-  </technique>
+    <parameters>
+        <normalmap-enabled type="int">0</normalmap-enabled>
+        <normalmap-dds type="int"> 0 </normalmap-dds>
+        <normalmap-tiling type="float"> 1.0 </normalmap-tiling>
+        <reflection-enabled type="int">1</reflection-enabled>
+        <reflection-dynamic type="int">1</reflection-dynamic>
+        <reflect_map-enabled type="int">0</reflect_map-enabled>
+        <reflection-correction type="float">-0.05</reflection-correction>
+        <lightmap-enabled type="int">1</lightmap-enabled>
+        <lightmap-multi type="int">1</lightmap-multi>
+        <lightmap-factor type="float" n="0"><use>controls/lighting/external/main-landing[0]/on</use></lightmap-factor>
+        <lightmap-color type="vec3d" n="0">1 1 1</lightmap-color>
+        <lightmap-factor type="float" n="1"><use>controls/lighting/external/main-landing[1]/on</use></lightmap-factor>
+        <lightmap-color type="vec3d" n="1">1 1 1</lightmap-color>
+        <lightmap-factor type="float" n="2">0.0</lightmap-factor>
+        <lightmap-color type="vec3d" n="2">0 0 0</lightmap-color>
+        <lightmap-factor type="float" n="3">0.0</lightmap-factor>
+        <lightmap-color type="vec3d" n="3">0 0 0</lightmap-color>
+        <texture n="3">
+            <image>Aircraft/Concorde/Models/Effects/concorde_lm_final.png</image>
+            <filter>linear-mipmap-linear</filter>
+            <wrap-s>clamp</wrap-s>
+            <wrap-t>clamp</wrap-t>
+            <internal-format>normalized</internal-format>
+        </texture>
+        <texture n="5">
+            <type>cubemap</type>
+            <images>
+                <positive-x>Aircraft/Generic/Effects/fgfs-sky2/1.png</positive-x>
+                <negative-x>Aircraft/Generic/Effects/fgfs-sky2/4.png</negative-x>
+                <positive-y>Aircraft/Generic/Effects/fgfs-sky2/2.png</positive-y>
+                <negative-y>Aircraft/Generic/Effects/fgfs-sky2/3.png</negative-y>
+                <positive-z>Aircraft/Generic/Effects/fgfs-sky2/6.png</positive-z>
+                <negative-z>Aircraft/Generic/Effects/fgfs-sky2/5.png</negative-z>
+            </images>
+        </texture>
+                <reflection-rainbow type="float">0.05</reflection-rainbow>
+                <reflection-fresnel type="float">0.1</reflection-fresnel>
+        <ambient_correction>0.1</ambient_correction>
+    </parameters>
 
-  <technique n="9">
-    <pass>
-      <program>
-        <attribute>
-	  <name>tangent</name>
-	  <index>6</index>
-        </attribute>
-        <attribute>
-	  <name>binormal</name>
-	  <index>7</index>
-        </attribute>
-      </program>
-    </pass>
-  </technique>-->
-<!-- ########################
-### END NORMALMAP INCLUDE ###
-############################# -->
+
+
 </PropertyList>
