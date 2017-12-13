@@ -26,18 +26,22 @@
 -->
  
 <PropertyList>
-  <path>taxi.ac</path>
+  <path>procedural_light.ac</path>
+
+    <effect>
+        <inherits-from>procedural-light-nav</inherits-from>
+        <object-name>procedural_light</object-name>
+    </effect>
+
 
  <animation>
   <type>noshadow</type>
-  <object-name>LandingTaxi</object-name>
+  <object-name>procedural_light</object-name>
  </animation>
-
-<!-- no light during gear transit (door movement) -->
 
  <animation>
   <type>select</type>
-  <object-name>LandingTaxi</object-name>
+  <object-name>procedural_light</object-name>
   <condition>
    <and include="../../../Panels/Instruments/concorde-cond-voltage-light.xml">
     <greater-than-equals>
@@ -61,7 +65,7 @@
 
  <animation>
   <type>material</type>
-  <object-name>LandingTaxi</object-name>
+  <object-name>procedural_light</object-name>
   <emission>
    <red>1.0</red>
    <green>1.0</green>
@@ -72,7 +76,7 @@
 
  <animation>
   <type>translate</type>
-  <object-name>LandingTaxi</object-name>
+  <object-name>procedural_light</object-name>
   <offset-m>-13.561</offset-m>
   <axis>
    <x>1.0</x>
@@ -83,7 +87,7 @@
 
  <animation>
   <type>translate</type>
-  <object-name>LandingTaxi</object-name>
+  <object-name>procedural_light</object-name>
   <offset-m>-0.386</offset-m>
   <axis>
    <x>0.0</x>
@@ -94,7 +98,7 @@
 
  <animation>
   <type>translate</type>
-  <object-name>LandingTaxi</object-name>
+  <object-name>procedural_light</object-name>
   <offset-m>-1.056</offset-m>
   <axis>
    <x>0.0</x>
@@ -105,7 +109,7 @@
 
  <animation>
   <type>rotate</type>
-  <object-name>LandingTaxi</object-name>
+  <object-name>procedural_light</object-name>
   <property>controls/lighting/external/landing-taxi[0]/norm</property>
   <interpolation>
    <entry>
@@ -135,7 +139,7 @@
 
  <animation>
   <type>scale</type>
-  <object-name>LandingTaxi</object-name>
+  <object-name>procedural_light</object-name>
   <property>sim/time/sun-angle-rad</property>
   <x-min>1</x-min>
   <y-min>1</y-min>
