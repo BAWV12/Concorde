@@ -15,7 +15,7 @@
 
      References
      ==========
-     http://fr.wikipedia.org/wiki/Concorde : anti-collision lights are red.
+     http://fr.wikipedia.org/wiki/Concorde : anti-procedural_light lights are red.
 
 
      Credits
@@ -25,16 +25,22 @@
 -->
  
 <PropertyList>
-  <path>collision.ac</path>
+  <path>procedural_light.ac</path>
+
+    <effect>
+        <inherits-from>procedural-light-nav-left</inherits-from>
+        <object-name>procedural_light</object-name>
+    </effect>
+
 
  <animation>
   <type>noshadow</type>
-  <object-name>Collision</object-name>
+  <object-name>procedural_light</object-name>
  </animation>
 
  <animation>
   <type>select</type>
-  <object-name>Collision</object-name>
+  <object-name>procedural_light</object-name>
   <condition>
    <and include="../../../Panels/Instruments/concorde-cond-voltage-light.xml">
     <property>controls/lighting/external/strobe/state</property>
@@ -44,7 +50,7 @@
 
  <animation>
   <type>material</type>
-  <object-name>Collision</object-name>
+  <object-name>procedural_light</object-name>
   <emission>
    <red>1.0</red>
    <green>1.0</green>
@@ -55,7 +61,7 @@
 
  <animation>
   <type>translate</type>
-  <object-name>Collision</object-name>
+  <object-name>procedural_light</object-name>
   <offset-m>6.951</offset-m>
   <axis>
    <x>1.0</x>
@@ -66,7 +72,7 @@
 
  <animation>
   <type>translate</type>
-  <object-name>Collision</object-name>
+  <object-name>procedural_light</object-name>
   <offset-m>9.498</offset-m>
   <axis>
    <x>0.0</x>
@@ -77,7 +83,7 @@
 
  <animation>
   <type>translate</type>
-  <object-name>Collision</object-name>
+  <object-name>procedural_light</object-name>
   <offset-m>-0.459</offset-m>
   <axis>
    <x>0.0</x>
@@ -88,12 +94,12 @@
 
  <animation>
   <type>billboard</type>
-  <object-name>Collision</object-name>
+  <object-name>procedural_light</object-name>
  </animation>
 
  <animation>
   <type>scale</type>
-  <object-name>Collision</object-name>
+  <object-name>procedural_light</object-name>
   <property>sim/time/sun-angle-rad</property>
   <x-min>1</x-min>
   <y-min>1</y-min>
@@ -108,7 +114,7 @@
 
  <animation>
   <type>dist-scale</type>
-  <object-name>Collision</object-name>
+  <object-name>procedural_light</object-name>
   <condition>
    <greater-than>
     <property>sim/time/sun-angle-rad</property>
