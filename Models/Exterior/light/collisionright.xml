@@ -28,7 +28,7 @@
   <path>procedural_light.ac</path>
 
     <effect>
-        <inherits-from>procedural-light-nav-left</inherits-from>
+        <inherits-from>procedural-light-anticoll</inherits-from>
         <object-name>procedural_light</object-name>
     </effect>
 
@@ -62,7 +62,7 @@
  <animation>
   <type>translate</type>
   <object-name>procedural_light</object-name>
-  <offset-m>6.951</offset-m>
+  <offset-m>13.8</offset-m>
   <axis>
    <x>1.0</x>
    <y>0.0</y>
@@ -73,7 +73,7 @@
  <animation>
   <type>translate</type>
   <object-name>procedural_light</object-name>
-  <offset-m>9.498</offset-m>
+  <offset-m>12.315</offset-m>
   <axis>
    <x>0.0</x>
    <y>1.0</y>
@@ -84,7 +84,7 @@
  <animation>
   <type>translate</type>
   <object-name>procedural_light</object-name>
-  <offset-m>-0.459</offset-m>
+  <offset-m>-0.868</offset-m>
   <axis>
    <x>0.0</x>
    <y>0.0</y>
@@ -92,10 +92,6 @@
   </axis>
  </animation>
 
- <animation>
-  <type>billboard</type>
-  <object-name>procedural_light</object-name>
- </animation>
 
  <animation>
   <type>scale</type>

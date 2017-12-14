@@ -190,6 +190,25 @@
    </offsets>
   </model>
 
+  <model>
+   <name>Beacon FWD</name>
+   <path>Aircraft/Concorde/Models/Exterior/light/beacon_fwd.xml</path>
+   <offsets>
+    <x-m>0.0</x-m>
+    <y-m>0.0</y-m>
+    <z-m>0.0</z-m>
+   </offsets>
+  </model>
+
+  <model>
+   <name>Beacon Rear</name>
+   <path>Aircraft/Concorde/Models/Exterior/light/beacon_rear.xml</path>
+   <offsets>
+    <x-m>0.0</x-m>
+    <y-m>0.0</y-m>
+    <z-m>0.0</z-m>
+   </offsets>
+  </model>
 
 <!-- wheel chocks -->
 

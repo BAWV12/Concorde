@@ -28,7 +28,7 @@
   <path>procedural_light.ac</path>
 
     <effect>
-        <inherits-from>procedural-light-nav-left</inherits-from>
+        <inherits-from>procedural-light-anticoll</inherits-from>
         <object-name>procedural_light</object-name>
     </effect>
 
@@ -81,10 +81,6 @@
   </axis>
  </animation>
 
- <animation>
-  <type>billboard</type>
-  <object-name>procedural_light</object-name>
- </animation>
 
  <animation>
   <type>scale</type>

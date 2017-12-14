@@ -1,7 +1,6 @@
 <?xml version="1.0"?>
 
-<!-- 
-     The external lights must :
+<!-- The external lights must :
      - be centered at the model origin, where the billboard rotation happen (also required by scaling).
      - have the surface vertical, oriented to the left of aircraft (otherwise billboard makes
      the object disappear !).
@@ -14,8 +13,13 @@
      - scaling makes them more visible at night.
 
 
+     References
+     ==========
+     http://fr.wikipedia.org/wiki/Concorde : anti-procedural_light lights are red.
+
+
      Credits
-     =======
+     .......
      Light texture from bo105 (M. Franz).
 
 -->
@@ -24,7 +28,7 @@
   <path>procedural_light.ac</path>
 
     <effect>
-        <inherits-from>procedural-light-nav-left</inherits-from>
+        <inherits-from>procedural-light-beacon</inherits-from>
         <object-name>procedural_light</object-name>
     </effect>
 
@@ -39,7 +43,7 @@
   <object-name>procedural_light</object-name>
   <condition>
    <and include="../../../Panels/Instruments/concorde-cond-voltage-light.xml">
-   <property>controls/lighting/nav-lights</property>
+    <property>controls/lighting/external/strobe/state</property>
    </and>
   </condition>
  </animation>
@@ -58,7 +62,7 @@
  <animation>
   <type>translate</type>
   <object-name>procedural_light</object-name>
-  <offset-m>13.4</offset-m>
+  <offset-m>-15.52109</offset-m>
   <axis>
    <x>1.0</x>
    <y>0.0</y>
@@ -69,18 +73,7 @@
  <animation>
   <type>translate</type>
   <object-name>procedural_light</object-name>
-  <offset-m>-12.315</offset-m>
-  <axis>
-   <x>0.0</x>
-   <y>1.0</y>
-   <z>0.0</z>
-  </axis>
- </animation>
-
- <animation>
-  <type>translate</type>
-  <object-name>procedural_light</object-name>
-  <offset-m>-0.868</offset-m>
+  <offset-m>3.04222</offset-m>
   <axis>
    <x>0.0</x>
    <y>0.0</y>
@@ -102,6 +95,31 @@
   <x-factor>2</x-factor>
   <y-factor>2</y-factor>
   <z-factor>2</z-factor>
+ </animation>
+
+ <animation>
+  <type>dist-scale</type>
+  <object-name>procedural_light</object-name>
+  <condition>
+   <greater-than>
+    <property>sim/time/sun-angle-rad</property>
+    <value>1.57</value>
+   </greater-than>
+  </condition>
+  <interpolation>
+   <entry>
+    <ind>0</ind>
+    <dep>1</dep>
+   </entry>
+   <entry>
+    <ind>20</ind>
+    <dep>1</dep>
+   </entry>
+   <entry>
+    <ind>1500</ind>
+    <dep>5</dep>
+   </entry>
+  </interpolation>
  </animation>
 
 </PropertyList>
