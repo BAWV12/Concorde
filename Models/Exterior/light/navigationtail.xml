@@ -91,19 +91,6 @@
   </axis>
  </animation>
 
- <animation>
-  <type>scale</type>
-  <object-name>procedural_light</object-name>
-  <property>sim/time/sun-angle-rad</property>
-  <x-min>1</x-min>
-  <y-min>1</y-min>
-  <z-min>1</z-min>
-  <x-offset>-1.4</x-offset>
-  <y-offset>-1.4</y-offset>
-  <z-offset>-1.4</z-offset>
-  <x-factor>1.4</x-factor>
-  <y-factor>1.4</y-factor>
-  <z-factor>1.4</z-factor>
- </animation>
+
 
 </PropertyList>

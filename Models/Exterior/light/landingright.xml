@@ -122,20 +122,7 @@
   </axis>
  </animation>
 
- <animation>
-  <type>scale</type>
-  <object-name>procedural_light</object-name>
-  <property>sim/time/sun-angle-rad</property>
-  <x-min>1</x-min>
-  <y-min>1</y-min>
-  <z-min>1</z-min>
-  <x-offset>-1.4</x-offset>
-  <y-offset>-1.4</y-offset>
-  <z-offset>-1.4</z-offset>
-  <x-factor>1.3</x-factor>                       <!-- avoids to cut wing -->
-  <y-factor>1.3</y-factor>
-  <z-factor>1.3</z-factor>
- </animation>
+
 
  <animation>
   <type>dist-scale</type>
@@ -157,7 +144,7 @@
    </entry>
    <entry>
     <ind>1500</ind>
-    <dep>5</dep>
+    <dep>3</dep>
    </entry>
   </interpolation>
  </animation>
