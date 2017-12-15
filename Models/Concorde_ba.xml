@@ -3566,7 +3566,7 @@
 
  <animation>
   <type>spin</type>
-  <object-name>FanL.011</object-name>
+  <object-name>FanL.006</object-name>
   <property>engines/engine[2]/n1</property>
   <factor>1</factor>
   <center>
@@ -3583,7 +3583,7 @@
 
  <animation>
   <type>spin</type>
-  <object-name>FanL.008</object-name>
+  <object-name>FanL.007</object-name>
   <property>engines/engine[3]/n1</property>
   <factor>1</factor>
   <center>
