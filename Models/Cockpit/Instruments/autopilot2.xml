@@ -2401,9 +2401,9 @@
   </condition>
 
   <emission>
-      <red>0.35</red>
-      <green>0.1</green>
-      <blue>0.1</blue>   <factor-prop>/controls/lighting/instruments-norm</factor-prop>
+      <red>0.7</red>
+      <green>0.2</green>
+      <blue>0.2</blue>   <factor-prop>/controls/lighting/instruments-norm</factor-prop>
   </emission>
  </animation>
 
