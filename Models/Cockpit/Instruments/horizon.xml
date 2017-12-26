@@ -21,7 +21,7 @@
     <attitude-serviceable>/instrumentation/attitude-indicator[0]/serviceable</attitude-serviceable>
     <fd-serviceable>/instrumentation/flight-director[0]/serviceable</fd-serviceable>
     <dh-on>/instrumentation/radio-altimeter[0]/decision-height</dh-on>
-    <dh-ft>/instrumentation/radio-altimeter[0]/decision-ft</dh-ft>
+    <dh-ft>/instrumentation/radio-altimeter[0]/dial-decision-ft</dh-ft>
     <radio-ft>/instrumentation/radio-altimeter[0]/indicated-altitude-ft</radio-ft>
     <slip-ball>/instrumentation/slip-skid-ball/indicated-slip-skid</slip-ball>
   </params>
@@ -464,7 +464,7 @@
         </greater-than>
       <or>
         <and>
-          <property alias="/params/dh-on"/>
+<!--          <property alias="/params/dh-on"/> -->
           <less-than-equals>
             <property alias="/params/radio-ft"/>
             <property alias="/params/dh-ft"/>

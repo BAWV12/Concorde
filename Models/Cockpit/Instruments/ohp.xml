@@ -275,7 +275,7 @@
   <animation>
     <type>rotate</type>
     <object-name>Switch</object-name>
-    <property>/controls/lighting/external/main-landing[0]/extend</property>
+    <property>controls/lighting/external/main-landing[0]/extend</property>
     <interpolation>
       <entry>
         <ind>0</ind>
@@ -306,7 +306,7 @@
       <repeatable>false</repeatable>
       <binding>
         <command>property-toggle</command>
-        <property>/controls/lighting/external/main-landing[0]/extend</property>
+        <property>controls/lighting/external/main-landing[0]/extend</property>
         <step>1</step>
         <min>0</min>
         <max>1</max>
@@ -318,7 +318,7 @@
       </binding>
       <binding>
         <command>property-toggle</command>
-        <property>/instrumentation/generic/click</property>
+        <property>instrumentation/generic/click</property>
       </binding>
     </action>
   </animation>
@@ -326,7 +326,7 @@
   <animation>
     <type>rotate</type>
     <object-name>Switch.001</object-name>
-    <property>/controls/lighting/external/main-landing[1]/extend</property>
+    <property>controls/lighting/external/main-landing[1]/extend</property>
     <interpolation>
       <entry>
         <ind>0</ind>
@@ -357,7 +357,7 @@
       <repeatable>false</repeatable>
       <binding>
         <command>property-toggle</command>
-        <property>/controls/lighting/external/main-landing[1]/extend</property>
+        <property>controls/lighting/external/main-landing[1]/extend</property>
         <step>1</step>
         <min>0</min>
         <max>1</max>
@@ -369,7 +369,7 @@
       </binding>
       <binding>
         <command>property-toggle</command>
-        <property>/instrumentation/generic/click</property>
+        <property>instrumentation/generic/click</property>
       </binding>
     </action>
   </animation>
@@ -378,7 +378,7 @@
   <animation>
     <type>rotate</type>
     <object-name>Switch.002</object-name>
-    <property>/controls/lighting/external/main-landing[0]/on</property>
+    <property>controls/lighting/external/main-landing[0]/on</property>
     <interpolation>
       <entry>
         <ind>0</ind>
@@ -409,7 +409,7 @@
       <repeatable>false</repeatable>
       <binding>
         <command>property-toggle</command>
-        <property>/controls/lighting/external/main-landing[0]/on</property>
+        <property>controls/lighting/external/main-landing[0]/on</property>
         <step>1</step>
         <min>0</min>
         <max>1</max>
@@ -417,7 +417,7 @@
       </binding>
       <binding>
         <command>property-toggle</command>
-        <property>/instrumentation/generic/click</property>
+        <property>instrumentation/generic/click</property>
       </binding>
     </action>
   </animation>
@@ -425,7 +425,7 @@
   <animation>
     <type>rotate</type>
     <object-name>Switch.003</object-name>
-    <property>/controls/lighting/external/main-landing[1]/on</property>
+    <property>controls/lighting/external/main-landing[1]/on</property>
     <interpolation>
       <entry>
         <ind>0</ind>
@@ -456,7 +456,7 @@
       <repeatable>false</repeatable>
       <binding>
         <command>property-toggle</command>
-        <property>/controls/lighting/external/main-landing[1]/on</property>
+        <property>controls/lighting/external/main-landing[1]/on</property>
         <step>1</step>
         <min>0</min>
         <max>1</max>
@@ -464,7 +464,7 @@
       </binding>
       <binding>
         <command>property-toggle</command>
-        <property>/instrumentation/generic/click</property>
+        <property>instrumentation/generic/click</property>
       </binding>
     </action>
   </animation>
@@ -476,12 +476,12 @@
     <object-name>Switch.004</object-name>
     <expression>
       <sum>
-    	<table><property>/controls/anti-ice/windshield/de-ice[0]</property>
+    	<table><property>controls/anti-ice/windshield/de-ice[0]</property>
         <entry><ind>0</ind><dep>0</dep></entry><entry><ind>1</ind><dep>-35</dep></entry></table>
 	<prod>
-    	  <table><property>/controls/anti-ice/windshield/de-ice[0]</property>
+    	  <table><property>controls/anti-ice/windshield/de-ice[0]</property>
 	  <entry><ind>0</ind><dep>0</dep></entry><entry><ind>1</ind><dep>70</dep></entry></table>
-          <property>/controls/anti-ice/windshield/high[0]</property>
+          <property>controls/anti-ice/windshield/high[0]</property>
 	</prod>
       </sum>
     </expression>
@@ -505,7 +505,7 @@
       <repeatable>false</repeatable>
       <binding>
         <command>property-toggle</command>
-        <property>/controls/anti-ice/windshield/de-ice[0]</property>
+        <property>controls/anti-ice/windshield/de-ice[0]</property>
         <step>1</step>
         <min>0</min>
         <max>1</max>
@@ -513,7 +513,7 @@
       </binding>
       <binding>
         <command>property-toggle</command>
-        <property>/instrumentation/generic/click</property>
+        <property>instrumentation/generic/click</property>
       </binding>
     </action>
   </animation>
@@ -526,7 +526,7 @@
       <repeatable>false</repeatable>
       <binding>
         <command>property-toggle</command>
-        <property>/controls/anti-ice/windshield/high[0]</property>
+        <property>controls/anti-ice/windshield/high[0]</property>
         <step>1</step>
         <min>0</min>
         <max>1</max>
@@ -534,7 +534,7 @@
       </binding>
       <binding>
         <command>property-toggle</command>
-        <property>/instrumentation/generic/click</property>
+        <property>instrumentation/generic/click</property>
       </binding>
     </action>
   </animation>
@@ -546,12 +546,12 @@
     <object-name>Switch.005</object-name>
     <expression>
       <sum>
-    	<table><property>/controls/anti-ice/windshield/de-ice[1]</property>
+    	<table><property>controls/anti-ice/windshield/de-ice[1]</property>
         <entry><ind>0</ind><dep>0</dep></entry><entry><ind>1</ind><dep>-35</dep></entry></table>
 	<prod>
-    	  <table><property>/controls/anti-ice/windshield/de-ice[1]</property>
+    	  <table><property>controls/anti-ice/windshield/de-ice[1]</property>
 	  <entry><ind>0</ind><dep>0</dep></entry><entry><ind>1</ind><dep>70</dep></entry></table>
-          <property>/controls/anti-ice/windshield/high[1]</property>
+          <property>controls/anti-ice/windshield/high[1]</property>
 	</prod>
       </sum>
     </expression>
@@ -575,7 +575,7 @@
       <repeatable>false</repeatable>
       <binding>
         <command>property-toggle</command>
-        <property>/controls/anti-ice/windshield/de-ice[1]</property>
+        <property>controls/anti-ice/windshield/de-ice[1]</property>
         <step>1</step>
         <min>0</min>
         <max>1</max>
@@ -583,7 +583,7 @@
       </binding>
       <binding>
         <command>property-toggle</command>
-        <property>/instrumentation/generic/click</property>
+        <property>instrumentation/generic/click</property>
       </binding>
     </action>
   </animation>
@@ -596,7 +596,7 @@
       <repeatable>false</repeatable>
       <binding>
         <command>property-toggle</command>
-        <property>/controls/anti-ice/windshield/high[1]</property>
+        <property>controls/anti-ice/windshield/high[1]</property>
         <step>1</step>
         <min>0</min>
         <max>1</max>
@@ -604,7 +604,7 @@
       </binding>
       <binding>
         <command>property-toggle</command>
-        <property>/instrumentation/generic/click</property>
+        <property>instrumentation/generic/click</property>
       </binding>
     </action>
   </animation>
@@ -613,7 +613,7 @@
   <animation>
     <type>rotate</type>
     <object-name>Switch.007</object-name>
-    <property>/controls/anti-ice/visor/de-ice[0]</property>
+    <property>controls/anti-ice/visor/de-ice[0]</property>
     <interpolation>
       <entry>
         <ind>0</ind>
@@ -644,7 +644,7 @@
       <repeatable>false</repeatable>
       <binding>
         <command>property-toggle</command>
-        <property>/controls/anti-ice/visor/de-ice[0]</property>
+        <property>controls/anti-ice/visor/de-ice[0]</property>
         <step>1</step>
         <min>0</min>
         <max>1</max>
@@ -652,7 +652,7 @@
       </binding>
       <binding>
         <command>property-toggle</command>
-        <property>/instrumentation/generic/click</property>
+        <property>instrumentation/generic/click</property>
       </binding>
     </action>
   </animation>
@@ -660,7 +660,7 @@
   <animation>
     <type>rotate</type>
     <object-name>Switch.006</object-name>
-    <property>/controls/anti-ice/visor/de-ice[1]</property>
+    <property>controls/anti-ice/visor/de-ice[1]</property>
     <interpolation>
       <entry>
         <ind>0</ind>
@@ -691,7 +691,7 @@
       <repeatable>false</repeatable>
       <binding>
         <command>property-toggle</command>
-        <property>/controls/anti-ice/visor/de-ice[1]</property>
+        <property>controls/anti-ice/visor/de-ice[1]</property>
         <step>1</step>
         <min>0</min>
         <max>1</max>
@@ -699,7 +699,7 @@
       </binding>
       <binding>
         <command>property-toggle</command>
-        <property>/instrumentation/generic/click</property>
+        <property>instrumentation/generic/click</property>
       </binding>
     </action>
   </animation>
@@ -708,7 +708,7 @@
   <animation>
     <type>rotate</type>
     <object-name>Switch.008</object-name>
-    <property>/controls/anti-ice/window/demist[0]</property>
+    <property>controls/anti-ice/window/demist[0]</property>
     <interpolation>
       <entry>
         <ind>0</ind>
@@ -739,7 +739,7 @@
       <repeatable>false</repeatable>
       <binding>
         <command>property-toggle</command>
-        <property>/controls/anti-ice/window/demist[0]</property>
+        <property>controls/anti-ice/window/demist[0]</property>
         <step>1</step>
         <min>0</min>
         <max>1</max>
@@ -747,7 +747,7 @@
       </binding>
       <binding>
         <command>property-toggle</command>
-        <property>/instrumentation/generic/click</property>
+        <property>instrumentation/generic/click</property>
       </binding>
     </action>
   </animation>
@@ -755,7 +755,7 @@
   <animation>
     <type>rotate</type>
     <object-name>Switch.009</object-name>
-    <property>/controls/anti-ice/window/demist[1]</property>
+    <property>controls/anti-ice/window/demist[1]</property>
     <interpolation>
       <entry>
         <ind>0</ind>
@@ -786,7 +786,7 @@
       <repeatable>false</repeatable>
       <binding>
         <command>property-toggle</command>
-        <property>/controls/anti-ice/window/demist[1]</property>
+        <property>controls/anti-ice/window/demist[1]</property>
         <step>1</step>
         <min>0</min>
         <max>1</max>
@@ -794,7 +794,7 @@
       </binding>
       <binding>
         <command>property-toggle</command>
-        <property>/instrumentation/generic/click</property>
+        <property>instrumentation/generic/click</property>
       </binding>
     </action>
   </animation>
@@ -803,7 +803,7 @@
   <animation>
     <type>rotate</type>
     <object-name>Switch.011</object-name>
-    <property>/controls/lighting/external/landing-taxi[0]/extend</property>
+    <property>controls/lighting/external/landing-taxi[0]/extend</property>
     <interpolation>
       <entry>
         <ind>0</ind>
@@ -834,7 +834,7 @@
       <repeatable>false</repeatable>
       <binding>
         <command>property-toggle</command>
-        <property>/controls/lighting/external/landing-taxi[0]/extend</property>
+        <property>controls/lighting/external/landing-taxi[0]/extend</property>
         <step>1</step>
         <min>0</min>
         <max>1</max>
@@ -846,7 +846,7 @@
       </binding>
       <binding>
         <command>property-toggle</command>
-        <property>/instrumentation/generic/click</property>
+        <property>instrumentation/generic/click</property>
       </binding>
     </action>
   </animation>
@@ -854,7 +854,7 @@
   <animation>
     <type>rotate</type>
     <object-name>Switch.010</object-name>
-    <property>/controls/lighting/external/landing-taxi[1]/extend</property>
+    <property>controls/lighting/external/landing-taxi[1]/extend</property>
     <interpolation>
       <entry>
         <ind>0</ind>
@@ -885,7 +885,7 @@
       <repeatable>false</repeatable>
       <binding>
         <command>property-toggle</command>
-        <property>/controls/lighting/external/landing-taxi[1]/extend</property>
+        <property>controls/lighting/external/landing-taxi[1]/extend</property>
         <step>1</step>
         <min>0</min>
         <max>1</max>
@@ -897,7 +897,7 @@
       </binding>
       <binding>
         <command>property-toggle</command>
-        <property>/instrumentation/generic/click</property>
+        <property>instrumentation/generic/click</property>
       </binding>
     </action>
   </animation>
@@ -906,7 +906,7 @@
   <animation>
     <type>rotate</type>
     <object-name>Switch.012</object-name>
-    <property>/controls/lighting/external/landing-taxi[0]/on</property>
+    <property>controls/lighting/external/landing-taxi[0]/on</property>
     <interpolation>
       <entry>
         <ind>0</ind>
@@ -937,7 +937,7 @@
       <repeatable>false</repeatable>
       <binding>
         <command>property-toggle</command>
-        <property>/controls/lighting/external/landing-taxi[0]/on</property>
+        <property>controls/lighting/external/landing-taxi[0]/on</property>
         <step>1</step>
         <min>0</min>
         <max>1</max>
@@ -945,7 +945,7 @@
       </binding>
       <binding>
         <command>property-toggle</command>
-        <property>/instrumentation/generic/click</property>
+        <property>instrumentation/generic/click</property>
       </binding>
     </action>
   </animation>
@@ -953,7 +953,7 @@
   <animation>
     <type>rotate</type>
     <object-name>Switch.013</object-name>
-    <property>/controls/lighting/external/landing-taxi[1]/on</property>
+    <property>controls/lighting/external/landing-taxi[1]/on</property>
     <interpolation>
       <entry>
         <ind>0</ind>
@@ -984,7 +984,7 @@
       <repeatable>false</repeatable>
       <binding>
         <command>property-toggle</command>
-        <property>/controls/lighting/external/landing-taxi[1]/on</property>
+        <property>controls/lighting/external/landing-taxi[1]/on</property>
         <step>1</step>
         <min>0</min>
         <max>1</max>
@@ -992,7 +992,7 @@
       </binding>
       <binding>
         <command>property-toggle</command>
-        <property>/instrumentation/generic/click</property>
+        <property>instrumentation/generic/click</property>
       </binding>
     </action>
   </animation>
@@ -1001,7 +1001,7 @@
   <animation>
     <type>rotate</type>
     <object-name>Switch.015</object-name>
-    <property>/controls/lighting/external/taxi-turn[0]/on</property>
+    <property>controls/lighting/external/taxi-turn[0]/on</property>
     <interpolation>
       <entry>
         <ind>0</ind>
@@ -1032,7 +1032,7 @@
       <repeatable>false</repeatable>
       <binding>
         <command>property-toggle</command>
-        <property>/controls/lighting/external/taxi-turn[0]/on</property>
+        <property>controls/lighting/external/taxi-turn[0]/on</property>
         <step>1</step>
         <min>0</min>
         <max>1</max>
@@ -1040,7 +1040,7 @@
       </binding>
       <binding>
         <command>property-toggle</command>
-        <property>/instrumentation/generic/click</property>
+        <property>instrumentation/generic/click</property>
       </binding>
     </action>
   </animation>
@@ -1048,7 +1048,7 @@
   <animation>
     <type>rotate</type>
     <object-name>Switch.014</object-name>
-    <property>/controls/lighting/external/taxi-turn[1]/on</property>
+    <property>controls/lighting/external/taxi-turn[1]/on</property>
     <interpolation>
       <entry>
         <ind>0</ind>
@@ -1079,7 +1079,7 @@
       <repeatable>false</repeatable>
       <binding>
         <command>property-toggle</command>
-        <property>/controls/lighting/external/taxi-turn[1]/on</property>
+        <property>controls/lighting/external/taxi-turn[1]/on</property>
         <step>1</step>
         <min>0</min>
         <max>1</max>
@@ -1087,7 +1087,7 @@
       </binding>
       <binding>
         <command>property-toggle</command>
-        <property>/instrumentation/generic/click</property>
+        <property>instrumentation/generic/click</property>
       </binding>
     </action>
   </animation>
@@ -1100,17 +1100,17 @@
     <condition>
       <and>
         <greater-than>
-           <property>/systems/electrical/outputs/specific</property>
+           <property>systems/electrical/outputs/specific</property>
            <value>0.01</value>
         </greater-than>
         <or>
-	  <property>/controls/lighting/crew/overhead/test</property>
+	  <property>controls/lighting/crew/overhead/test</property>
           <greater-than>
-             <property>/controls/lighting/external/main-landing[0]/norm</property>
+             <property>controls/lighting/external/main-landing[0]/norm</property>
              <value>0.01</value>
           </greater-than>
           <greater-than>
-             <property>/controls/lighting/external/main-landing[1]/norm</property>
+             <property>controls/lighting/external/main-landing[1]/norm</property>
              <value>0.01</value>
           </greater-than>
         </or>
@@ -1131,17 +1131,17 @@
     <condition>
       <and>
         <greater-than>
-           <property>/systems/electrical/outputs/specific</property>
+           <property>systems/electrical/outputs/specific</property>
            <value>0.01</value>
         </greater-than>
         <or>
-	  <property>/controls/lighting/crew/overhead/test</property>
+	  <property>controls/lighting/crew/overhead/test</property>
           <greater-than>
-             <property>/controls/lighting/external/landing-taxi[0]/norm</property>
+             <property>controls/lighting/external/landing-taxi[0]/norm</property>
              <value>0.01</value>
           </greater-than>
           <greater-than>
-             <property>/controls/lighting/external/landing-taxi[1]/norm</property>
+             <property>controls/lighting/external/landing-taxi[1]/norm</property>
              <value>0.01</value>
           </greater-than>
         </or>
@@ -1167,10 +1167,10 @@
     <condition>
       <and>
         <greater-than>
-           <property>/systems/electrical/outputs/specific</property>
+           <property>systems/electrical/outputs/specific</property>
            <value>0.01</value>
         </greater-than>
-        <property>/controls/lighting/crew/overhead/test</property>
+        <property>controls/lighting/crew/overhead/test</property>
       </and>
     </condition>
     <emission>
@@ -1190,7 +1190,7 @@
        <and>
        <or include="concorde-cond-test-mws.xml"/>
         <not>
-         <property>/controls/mws/inhibit</property>
+         <property>controls/mws/inhibit</property>
         </not>
        </and>
       </or>
@@ -1211,12 +1211,12 @@
       <button>0</button>
       <binding>
         <command>property-assign</command>
-        <property>/controls/mws/inhibit</property>
+        <property>controls/mws/inhibit</property>
         <value>true</value>
       </binding>
       <binding>
         <command>property-toggle</command>
-        <property>/instrumentation/generic/click</property>
+        <property>instrumentation/generic/click</property>
       </binding>
     </action>
   </animation>
@@ -1228,12 +1228,12 @@
       <button>0</button>
       <binding>
         <command>property-assign</command>
-        <property>/controls/mws/inhibit</property>
+        <property>controls/mws/inhibit</property>
         <value>false</value>
       </binding>
       <binding>
         <command>property-toggle</command>
-        <property>/instrumentation/generic/click</property>
+        <property>instrumentation/generic/click</property>
       </binding>
     </action>
   </animation>
@@ -1251,7 +1251,7 @@
       <mod-up>
         <binding>
           <command>property-toggle</command>
-          <property>/instrumentation/generic/click</property>
+          <property>instrumentation/generic/click</property>
         </binding>
       </mod-up>  
     </action>
@@ -1265,14 +1265,14 @@
    <button>0</button>
    <binding>
     <command>property-assign</command>
-    <property>/controls/lighting/crew/overhead/push</property>
+    <property>controls/lighting/crew/overhead/push</property>
     <value>true</value>
     <repeatable>true</repeatable>
    </binding>
    <mod-up>
     <binding>
      <command>property-assign</command>
-     <property>/controls/lighting/crew/overhead/push</property>
+     <property>controls/lighting/crew/overhead/push</property>
      <value>false</value>
     </binding>
     <binding>
@@ -1281,7 +1281,7 @@
     </binding>
     <binding>
      <command>property-toggle</command>
-     <property>/instrumentation/generic/click</property>
+     <property>instrumentation/generic/click</property>
     </binding>
    </mod-up>
   </action>
@@ -1297,7 +1297,7 @@
       <and>
        <or include="concorde-cond-test-mws.xml"/>     <!-- bug -->
        <not>
-        <property>/systems/mws/red/feel</property>
+        <property>systems/mws/red/feel</property>
        </not>
       </and>
      </or>
@@ -1316,12 +1316,12 @@
       <button>0</button>
       <binding>
         <command>property-assign</command>
-        <property>/systems/mws/red/feel</property>
+        <property>systems/mws/red/feel</property>
         <value>false</value>
       </binding>
       <binding>
         <command>property-toggle</command>
-        <property>/instrumentation/generic/click</property>
+        <property>instrumentation/generic/click</property>
       </binding>
     </action>
  </animation>
@@ -1334,7 +1334,7 @@
       <and>
        <or include="concorde-cond-test-mws.xml"/>     <!-- bug -->
        <not>
-        <property>/systems/mws/red/pfc</property>
+        <property>systems/mws/red/pfc</property>
        </not>
       </and>
      </or>
@@ -1353,12 +1353,12 @@
       <button>0</button>
       <binding>
         <command>property-assign</command>
-        <property>/systems/mws/red/pfc</property>
+        <property>systems/mws/red/pfc</property>
         <value>false</value>
       </binding>
       <binding>
         <command>property-toggle</command>
-        <property>/instrumentation/generic/click</property>
+        <property>instrumentation/generic/click</property>
       </binding>
     </action>
  </animation>
@@ -1371,7 +1371,7 @@
       <and>
        <or include="concorde-cond-test-mws.xml"/>     <!-- bug -->
        <not>
-        <property>/systems/mws/red/cg</property>
+        <property>systems/mws/red/cg</property>
        </not>
       </and>
      </or>
@@ -1390,12 +1390,12 @@
       <button>0</button>
       <binding>
         <command>property-assign</command>
-        <property>/systems/mws/red/cg</property>
+        <property>systems/mws/red/cg</property>
         <value>false</value>
       </binding>
       <binding>
         <command>property-toggle</command>
-        <property>/instrumentation/generic/click</property>
+        <property>instrumentation/generic/click</property>
       </binding>
     </action>
  </animation>
@@ -1409,7 +1409,7 @@
       <and>
        <or include="concorde-cond-test-mws.xml"/>     <!-- bug -->
        <not>
-        <property>/systems/mws/red/engine[0]</property>
+        <property>systems/mws/red/engine[0]</property>
        </not>
       </and>
      </or>
@@ -1429,12 +1429,12 @@
       <button>0</button>
       <binding>
         <command>property-assign</command>
-        <property>/systems/mws/red/engine[0]</property>
+        <property>systems/mws/red/engine[0]</property>
         <value>false</value>
       </binding>
       <binding>
         <command>property-toggle</command>
-        <property>/instrumentation/generic/click</property>
+        <property>instrumentation/generic/click</property>
       </binding>
     </action>
  </animation>
@@ -1448,7 +1448,7 @@
       <and>
        <or include="concorde-cond-test-mws.xml"/>     <!-- bug -->
        <not>
-        <property>/systems/mws/red/engine[1]</property>
+        <property>systems/mws/red/engine[1]</property>
        </not>
       </and>
      </or>
@@ -1468,12 +1468,12 @@
       <button>0</button>
       <binding>
         <command>property-assign</command>
-        <property>/systems/mws/red/engine[1]</property>
+        <property>systems/mws/red/engine[1]</property>
         <value>false</value>
       </binding>
       <binding>
         <command>property-toggle</command>
-        <property>/instrumentation/generic/click</property>
+        <property>instrumentation/generic/click</property>
       </binding>
     </action>
  </animation>
@@ -1487,7 +1487,7 @@
       <and>
        <or include="concorde-cond-test-mws.xml"/>     <!-- bug -->
        <not>
-        <property>/systems/mws/red/engine[2]</property>
+        <property>systems/mws/red/engine[2]</property>
        </not>
       </and>
      </or>
@@ -1507,12 +1507,12 @@
       <button>0</button>
       <binding>
         <command>property-assign</command>
-        <property>/systems/mws/red/engine[2]</property>
+        <property>systems/mws/red/engine[2]</property>
         <value>false</value>
       </binding>
       <binding>
         <command>property-toggle</command>
-        <property>/instrumentation/generic/click</property>
+        <property>instrumentation/generic/click</property>
       </binding>
     </action>
  </animation>
@@ -1526,7 +1526,7 @@
       <and>
        <or include="concorde-cond-test-mws.xml"/>     <!-- bug -->
        <not>
-        <property>/systems/mws/red/engine[3]</property>
+        <property>systems/mws/red/engine[3]</property>
        </not>
       </and>
      </or>
@@ -1546,12 +1546,12 @@
       <button>0</button>
       <binding>
         <command>property-assign</command>
-        <property>/systems/mws/red/engine[3]</property>
+        <property>systems/mws/red/engine[3]</property>
         <value>false</value>
       </binding>
       <binding>
         <command>property-toggle</command>
-        <property>/instrumentation/generic/click</property>
+        <property>instrumentation/generic/click</property>
       </binding>
     </action>
  </animation>
@@ -1565,7 +1565,7 @@
       <and>
        <or include="concorde-cond-test-mws.xml"/>     <!-- bug -->
        <not>
-        <property>/systems/mws/red/throttle</property>
+        <property>systems/mws/red/throttle</property>
        </not>
       </and>
      </or>
@@ -1584,12 +1584,12 @@
       <button>0</button>
       <binding>
         <command>property-assign</command>
-        <property>/systems/mws/red/throttle</property>
+        <property>systems/mws/red/throttle</property>
         <value>false</value>
       </binding>
       <binding>
         <command>property-toggle</command>
-        <property>/instrumentation/generic/click</property>
+        <property>instrumentation/generic/click</property>
       </binding>
     </action>
  </animation>
@@ -1603,9 +1603,9 @@
        <or include="concorde-cond-test-mws.xml"/>      <!-- bug -->
        <or>
         <not>
-         <property>/systems/mws/red/pressure</property>
+         <property>systems/mws/red/pressure</property>
         </not>
-        <property>/controls/mws/inhibit</property>
+        <property>controls/mws/inhibit</property>
        </or>
       </and>
      </or>
@@ -1624,12 +1624,12 @@
       <button>0</button>
       <binding>
         <command>property-assign</command>
-        <property>/systems/mws/red/pressure</property>
+        <property>systems/mws/red/pressure</property>
         <value>false</value>
       </binding>
       <binding>
         <command>property-toggle</command>
-        <property>/instrumentation/generic/click</property>
+        <property>instrumentation/generic/click</property>
       </binding>
     </action>
  </animation>
@@ -1643,7 +1643,7 @@
       <and>
        <or include="concorde-cond-test-mws.xml"/>     <!-- bug -->
        <not>
-        <property>/systems/mws/red/ice</property>
+        <property>systems/mws/red/ice</property>
        </not>
       </and>
      </or>
@@ -1662,12 +1662,12 @@
       <button>0</button>
       <binding>
         <command>property-assign</command>
-        <property>/systems/mws/red/pressure</property>
+        <property>systems/mws/red/pressure</property>
         <value>false</value>
       </binding>
       <binding>
         <command>property-toggle</command>
-        <property>/instrumentation/generic/click</property>
+        <property>instrumentation/generic/click</property>
       </binding>
     </action>
  </animation>
@@ -1680,7 +1680,7 @@
       <and>
        <or include="concorde-cond-test-mws.xml"/>     <!-- bug -->
        <not>
-        <property>/systems/mws/red/ins</property>
+        <property>systems/mws/red/ins</property>
        </not>
       </and>
      </or>
@@ -1699,12 +1699,12 @@
       <button>0</button>
       <binding>
         <command>property-assign</command>
-        <property>/systems/mws/red/ins</property>
+        <property>systems/mws/red/ins</property>
         <value>false</value>
       </binding>
       <binding>
         <command>property-toggle</command>
-        <property>/instrumentation/generic/click</property>
+        <property>instrumentation/generic/click</property>
       </binding>
     </action>
  </animation>
@@ -1717,7 +1717,7 @@
       <and>
        <or include="concorde-cond-test-mws.xml"/>     <!-- bug -->
        <not>
-        <property>/systems/mws/red/ads</property>
+        <property>systems/mws/red/ads</property>
        </not>
       </and>
      </or>
@@ -1736,12 +1736,12 @@
       <button>0</button>
       <binding>
         <command>property-assign</command>
-        <property>/systems/mws/red/ads</property>
+        <property>systems/mws/red/ads</property>
         <value>false</value>
       </binding>
       <binding>
         <command>property-toggle</command>
-        <property>/instrumentation/generic/click</property>
+        <property>instrumentation/generic/click</property>
       </binding>
     </action>
  </animation>
@@ -1754,7 +1754,7 @@
       <and>
        <or include="concorde-cond-test-mws.xml"/>     <!-- bug -->
        <not>
-        <property>/systems/mws/amber/fuel</property>
+        <property>systems/mws/amber/fuel</property>
        </not>
       </and>
      </or>
@@ -1773,12 +1773,12 @@
       <button>0</button>
       <binding>
         <command>property-assign</command>
-        <property>/systems/mws/amber/fuel</property>
+        <property>systems/mws/amber/fuel</property>
         <value>false</value>
       </binding>
       <binding>
         <command>property-toggle</command>
-        <property>/instrumentation/generic/click</property>
+        <property>instrumentation/generic/click</property>
       </binding>
     </action>
  </animation>
@@ -1791,7 +1791,7 @@
       <and>
        <or include="concorde-cond-test-mws.xml"/>     <!-- bug -->
        <not>
-        <property>/systems/mws/red/electrical</property>
+        <property>systems/mws/red/electrical</property>
        </not>
       </and>
      </or>
@@ -1810,12 +1810,12 @@
       <button>0</button>
       <binding>
         <command>property-assign</command>
-        <property>/systems/mws/red/electrical</property>
+        <property>systems/mws/red/electrical</property>
         <value>false</value>
       </binding>
       <binding>
         <command>property-toggle</command>
-        <property>/instrumentation/generic/click</property>
+        <property>instrumentation/generic/click</property>
       </binding>
     </action>
  </animation>
@@ -1828,7 +1828,7 @@
       <and>
        <or include="concorde-cond-test-mws.xml"/>     <!-- bug -->
        <not>
-        <property>/systems/mws/red/doors</property>
+        <property>systems/mws/red/doors</property>
        </not>
       </and>
      </or>
@@ -1847,12 +1847,12 @@
       <button>0</button>
       <binding>
         <command>property-assign</command>
-        <property>/systems/mws/red/doors</property>
+        <property>systems/mws/red/doors</property>
         <value>false</value>
       </binding>
       <binding>
         <command>property-toggle</command>
-        <property>/instrumentation/generic/click</property>
+        <property>instrumentation/generic/click</property>
       </binding>
     </action>
  </animation>
@@ -1865,7 +1865,7 @@
       <and>
        <or include="concorde-cond-test-mws.xml"/>     <!-- bug -->
        <not>
-        <property>/systems/mws/amber/adc</property>
+        <property>systems/mws/amber/adc</property>
        </not>
       </and>
      </or>
@@ -1884,12 +1884,12 @@
       <button>0</button>
       <binding>
         <command>property-assign</command>
-        <property>/systems/mws/amber/adc</property>
+        <property>systems/mws/amber/adc</property>
         <value>false</value>
       </binding>
       <binding>
         <command>property-toggle</command>
-        <property>/instrumentation/generic/click</property>
+        <property>instrumentation/generic/click</property>
       </binding>
     </action>
  </animation>
@@ -1902,7 +1902,7 @@
       <and>
        <or include="concorde-cond-test-mws.xml"/>     <!-- bug -->
        <not>
-        <property>/systems/mws/amber/air</property>
+        <property>systems/mws/amber/air</property>
        </not>
       </and>
      </or>
@@ -1921,12 +1921,12 @@
       <button>0</button>
       <binding>
         <command>property-assign</command>
-        <property>/systems/mws/amber/air</property>
+        <property>systems/mws/amber/air</property>
         <value>false</value>
       </binding>
       <binding>
         <command>property-toggle</command>
-        <property>/instrumentation/generic/click</property>
+        <property>instrumentation/generic/click</property>
       </binding>
     </action>
  </animation>
@@ -1939,7 +1939,7 @@
       <and>
        <or include="concorde-cond-test-mws.xml"/>     <!-- bug -->
        <not>
-        <property>/systems/mws/amber/intake[0]</property>
+        <property>systems/mws/amber/intake[0]</property>
        </not>
       </and>
      </or>
@@ -1958,12 +1958,12 @@
       <button>0</button>
       <binding>
         <command>property-assign</command>
-        <property>/systems/mws/amber/intake[0]</property>
+        <property>systems/mws/amber/intake[0]</property>
         <value>false</value>
       </binding>
       <binding>
         <command>property-toggle</command>
-        <property>/instrumentation/generic/click</property>
+        <property>instrumentation/generic/click</property>
       </binding>
     </action>
  </animation>
@@ -1976,7 +1976,7 @@
       <and>
        <or include="concorde-cond-test-mws.xml"/>     <!-- bug -->
        <not>
-        <property>/systems/mws/amber/intake[1]</property>
+        <property>systems/mws/amber/intake[1]</property>
        </not>
       </and>
      </or>
@@ -1995,12 +1995,12 @@
       <button>0</button>
       <binding>
         <command>property-assign</command>
-        <property>/systems/mws/amber/intake[1]</property>
+        <property>systems/mws/amber/intake[1]</property>
         <value>false</value>
       </binding>
       <binding>
         <command>property-toggle</command>
-        <property>/instrumentation/generic/click</property>
+        <property>instrumentation/generic/click</property>
       </binding>
     </action>
  </animation>
@@ -2013,7 +2013,7 @@
       <and>
        <or include="concorde-cond-test-mws.xml"/>     <!-- bug -->
        <not>
-        <property>/systems/mws/amber/intake[2]</property>
+        <property>systems/mws/amber/intake[2]</property>
        </not>
       </and>
      </or>
@@ -2032,12 +2032,12 @@
       <button>0</button>
       <binding>
         <command>property-assign</command>
-        <property>/systems/mws/amber/intake[2]</property>
+        <property>systems/mws/amber/intake[2]</property>
         <value>false</value>
       </binding>
       <binding>
         <command>property-toggle</command>
-        <property>/instrumentation/generic/click</property>
+        <property>instrumentation/generic/click</property>
       </binding>
     </action>
  </animation>
@@ -2050,7 +2050,7 @@
       <and>
        <or include="concorde-cond-test-mws.xml"/>     <!-- bug -->
        <not>
-        <property>/systems/mws/amber/intake[3]</property>
+        <property>systems/mws/amber/intake[3]</property>
        </not>
       </and>
      </or>
@@ -2069,12 +2069,12 @@
       <button>0</button>
       <binding>
         <command>property-assign</command>
-        <property>/systems/mws/amber/intake[3]</property>
+        <property>systems/mws/amber/intake[3]</property>
         <value>false</value>
       </binding>
       <binding>
         <command>property-toggle</command>
-        <property>/instrumentation/generic/click</property>
+        <property>instrumentation/generic/click</property>
       </binding>
     </action>
  </animation>
@@ -2087,7 +2087,7 @@
       <and>
        <or include="concorde-cond-test-mws.xml"/>     <!-- bug -->
        <not>
-        <property>/systems/mws/amber/hydraulics</property>
+        <property>systems/mws/amber/hydraulics</property>
        </not>
       </and>
      </or>
@@ -2106,12 +2106,12 @@
       <button>0</button>
       <binding>
         <command>property-assign</command>
-        <property>/systems/mws/amber/hydraulics</property>
+        <property>systems/mws/amber/hydraulics</property>
         <value>false</value>
       </binding>
       <binding>
         <command>property-toggle</command>
-        <property>/instrumentation/generic/click</property>
+        <property>instrumentation/generic/click</property>
       </binding>
     </action>
  </animation>
@@ -2124,7 +2124,7 @@
       <and>
        <or include="concorde-cond-test-mws.xml"/>     <!-- bug -->
        <not>
-        <property>/systems/mws/amber/electrical</property>
+        <property>systems/mws/amber/electrical</property>
        </not>
       </and>
      </or>
@@ -2143,12 +2143,12 @@
       <button>0</button>
       <binding>
         <command>property-assign</command>
-        <property>/systems/mws/amber/electrical</property>
+        <property>systems/mws/amber/electrical</property>
         <value>false</value>
       </binding>
       <binding>
         <command>property-toggle</command>
-        <property>/instrumentation/generic/click</property>
+        <property>instrumentation/generic/click</property>
       </binding>
     </action>
  </animation>
@@ -2161,7 +2161,7 @@
       <and>
        <or include="concorde-cond-test-mws.xml"/>     <!-- bug -->
        <not>
-        <property>/systems/mws/red/intake[0]</property>
+        <property>systems/mws/red/intake[0]</property>
        </not>
       </and>
      </or>
@@ -2180,12 +2180,12 @@
       <button>0</button>
       <binding>
         <command>property-assign</command>
-        <property>/systems/mws/red/intake[0]</property>
+        <property>systems/mws/red/intake[0]</property>
         <value>false</value>
       </binding>
       <binding>
         <command>property-toggle</command>
-        <property>/instrumentation/generic/click</property>
+        <property>instrumentation/generic/click</property>
       </binding>
     </action>
  </animation>
@@ -2198,7 +2198,7 @@
       <and>
        <or include="concorde-cond-test-mws.xml"/>     <!-- bug -->
        <not>
-        <property>/systems/mws/red/intake[1]</property>
+        <property>systems/mws/red/intake[1]</property>
        </not>
       </and>
      </or>
@@ -2217,12 +2217,12 @@
       <button>0</button>
       <binding>
         <command>property-assign</command>
-        <property>/systems/mws/red/intake[1]</property>
+        <property>systems/mws/red/intake[1]</property>
         <value>false</value>
       </binding>
       <binding>
         <command>property-toggle</command>
-        <property>/instrumentation/generic/click</property>
+        <property>instrumentation/generic/click</property>
       </binding>
     </action>
  </animation>
@@ -2235,7 +2235,7 @@
       <and>
        <or include="concorde-cond-test-mws.xml"/>     <!-- bug -->
        <not>
-        <property>/systems/mws/red/intake[2]</property>
+        <property>systems/mws/red/intake[2]</property>
        </not>
       </and>
      </or>
@@ -2254,12 +2254,12 @@
       <button>0</button>
       <binding>
         <command>property-assign</command>
-        <property>/systems/mws/red/intake[2]</property>
+        <property>systems/mws/red/intake[2]</property>
         <value>false</value>
       </binding>
       <binding>
         <command>property-toggle</command>
-        <property>/instrumentation/generic/click</property>
+        <property>instrumentation/generic/click</property>
       </binding>
     </action>
  </animation>
@@ -2272,7 +2272,7 @@
       <and>
        <or include="concorde-cond-test-mws.xml"/>     <!-- bug -->
        <not>
-        <property>/systems/mws/red/intake[3]</property>
+        <property>systems/mws/red/intake[3]</property>
        </not>
       </and>
      </or>
@@ -2291,12 +2291,12 @@
       <button>0</button>
       <binding>
         <command>property-assign</command>
-        <property>/systems/mws/red/intake[3]</property>
+        <property>systems/mws/red/intake[3]</property>
         <value>false</value>
       </binding>
       <binding>
         <command>property-toggle</command>
-        <property>/instrumentation/generic/click</property>
+        <property>instrumentation/generic/click</property>
       </binding>
     </action>
  </animation>
@@ -2308,12 +2308,12 @@
     <object-name>Switch.016</object-name>
     <expression>
       <sum>
-    	<table><property>/controls/electric/dc/inverter-blue</property>
+    	<table><property>controls/electric/dc/inverter-blue</property>
         <entry><ind>0</ind><dep>-35</dep></entry><entry><ind>1</ind><dep>35</dep></entry></table>
 	<prod>
-    	  <table><property>/controls/electric/ac/inverter-blue</property>
+    	  <table><property>controls/electric/ac/inverter-blue</property>
 	  <entry><ind>0</ind><dep>-35</dep></entry><entry><ind>1</ind><dep>0</dep></entry></table>
-          <property>/controls/electric/dc/inverter-blue</property>
+          <property>controls/electric/dc/inverter-blue</property>
 	</prod>
       </sum>
     </expression>
@@ -2337,7 +2337,7 @@
       <repeatable>false</repeatable>
       <binding>
         <command>property-toggle</command>
-        <property>/controls/electric/dc/inverter-blue</property>
+        <property>controls/electric/dc/inverter-blue</property>
         <step>1</step>
         <min>0</min>
         <max>1</max>
@@ -2345,7 +2345,7 @@
       </binding>
       <binding>
         <command>property-toggle</command>
-        <property>/instrumentation/generic/click</property>
+        <property>instrumentation/generic/click</property>
       </binding>
     </action>
   </animation>
@@ -2358,7 +2358,7 @@
       <repeatable>false</repeatable>
       <binding>
         <command>property-toggle</command>
-        <property>/controls/electric/ac/inverter-blue</property>
+        <property>controls/electric/ac/inverter-blue</property>
         <step>1</step>
         <min>0</min>
         <max>1</max>
@@ -2366,7 +2366,7 @@
       </binding>
       <binding>
         <command>property-toggle</command>
-        <property>/instrumentation/generic/click</property>
+        <property>instrumentation/generic/click</property>
       </binding>
     </action>
   </animation>
@@ -2378,12 +2378,12 @@
     <object-name>Switch.018</object-name>
     <expression>
       <sum>
-    	<table><property>/controls/electric/dc/inverter-green</property>
+    	<table><property>controls/electric/dc/inverter-green</property>
         <entry><ind>0</ind><dep>-35</dep></entry><entry><ind>1</ind><dep>35</dep></entry></table>
 	<prod>
-    	  <table><property>/controls/electric/ac/inverter-green</property>
+    	  <table><property>controls/electric/ac/inverter-green</property>
 	  <entry><ind>0</ind><dep>-35</dep></entry><entry><ind>1</ind><dep>0</dep></entry></table>
-          <property>/controls/electric/dc/inverter-green</property>
+          <property>controls/electric/dc/inverter-green</property>
 	</prod>
       </sum>
     </expression>
@@ -2407,7 +2407,7 @@
       <repeatable>false</repeatable>
       <binding>
         <command>property-toggle</command>
-        <property>/controls/electric/dc/inverter-green</property>
+        <property>controls/electric/dc/inverter-green</property>
         <step>1</step>
         <min>0</min>
         <max>1</max>
@@ -2415,7 +2415,7 @@
       </binding>
       <binding>
         <command>property-toggle</command>
-        <property>/instrumentation/generic/click</property>
+        <property>instrumentation/generic/click</property>
       </binding>
     </action>
   </animation>
@@ -2428,7 +2428,7 @@
       <repeatable>false</repeatable>
       <binding>
         <command>property-toggle</command>
-        <property>/controls/electric/ac/inverter-green</property>
+        <property>controls/electric/ac/inverter-green</property>
         <step>1</step>
         <min>0</min>
         <max>1</max>
@@ -2436,7 +2436,7 @@
       </binding>
       <binding>
         <command>property-toggle</command>
-        <property>/instrumentation/generic/click</property>
+        <property>instrumentation/generic/click</property>
       </binding>
     </action>
   </animation>
@@ -2449,7 +2449,7 @@
       <and>
        <or include="concorde-cond-test-overhead.xml"/>
        <greater-than>
-        <property>/systems/electrical/transformers/ac-inverter-blue</property>
+        <property>systems/electrical/transformers/ac-inverter-blue</property>
         <value>0</value>
        </greater-than>
       </and>
@@ -2470,7 +2470,7 @@
       <and>
        <or include="concorde-cond-test-overhead.xml"/>
        <greater-than>
-        <property>/systems/electrical/transformers/ac-inverter-green</property>
+        <property>systems/electrical/transformers/ac-inverter-green</property>
         <value>0</value>
        </greater-than>
       </and>
@@ -2490,12 +2490,12 @@
     <object-name>Switch.020</object-name>
     <expression>
       <sum>
-    	<table><property>/controls/flight/channel/outer-blue</property>
+    	<table><property>controls/flight/channel/outer-blue</property>
         <entry><ind>0</ind><dep>0</dep></entry><entry><ind>1</ind><dep>35</dep></entry></table>
 	<prod>
-    	  <table><property>/controls/flight/channel/outer-blue</property>
+    	  <table><property>controls/flight/channel/outer-blue</property>
 	  <entry><ind>0</ind><dep>-35</dep></entry><entry><ind>1</ind><dep>-70</dep></entry></table>
-          <property>/controls/flight/channel/outer-mechanical</property>
+          <property>controls/flight/channel/outer-mechanical</property>
 	</prod>
       </sum>
     </expression>
@@ -2518,16 +2518,16 @@
         <button>0</button>
 	<binding>
     		<command>property-toggle</command>
-		<property>/controls/flight/channel/outer-blue</property>
+		<property>controls/flight/channel/outer-blue</property>
    	</binding>
    	<binding>
     		<command>property-assign</command>
-    		<property>/controls/flight/channel/outer-mechanical</property>
+    		<property>controls/flight/channel/outer-mechanical</property>
     		<value>false</value>
    	</binding>
    	<binding>
     		<command>property-toggle</command>
-    		<property>/instrumentation/generic/click</property>
+    		<property>instrumentation/generic/click</property>
    	</binding>
      </action>  
   </animation>
@@ -2539,11 +2539,11 @@
       	<button>1</button>
    	<binding>
     		<command>property-toggle</command>
-    		<property>/controls/flight/channel/outer-mechanical</property>
+    		<property>controls/flight/channel/outer-mechanical</property>
    	</binding>
    	<binding>
     		<command>property-toggle</command>
-    		<property>/instrumentation/generic/click</property>
+    		<property>instrumentation/generic/click</property>
    	</binding>
     </action>
   </animation>
@@ -2556,12 +2556,12 @@
         <button>0</button>
 	<binding>
     		<command>property-assign</command>
-		<property>/controls/flight/channel/outer-blue</property>
+		<property>controls/flight/channel/outer-blue</property>
     		<value>true</value>
    	</binding>
    	<binding>
     		<command>property-assign</command>
-    		<property>/controls/flight/channel/outer-mechanical</property>
+    		<property>controls/flight/channel/outer-mechanical</property>
     		<value>false</value>
    	</binding>
    	<binding>
@@ -2594,12 +2594,12 @@
     <object-name>Switch.022</object-name>
     <expression>
       <sum>
-    	<table><property>/controls/flight/channel/inner-blue</property>
+    	<table><property>controls/flight/channel/inner-blue</property>
         <entry><ind>0</ind><dep>0</dep></entry><entry><ind>1</ind><dep>35</dep></entry></table>
 	<prod>
-    	  <table><property>/controls/flight/channel/inner-blue</property>
+    	  <table><property>controls/flight/channel/inner-blue</property>
 	  <entry><ind>0</ind><dep>-35</dep></entry><entry><ind>1</ind><dep>-70</dep></entry></table>
-          <property>/controls/flight/channel/inner-mechanical</property>
+          <property>controls/flight/channel/inner-mechanical</property>
 	</prod>
       </sum>
     </expression>
@@ -2622,16 +2622,16 @@
         <button>0</button>
 	<binding>
     		<command>property-toggle</command>
-		<property>/controls/flight/channel/inner-blue</property>
+		<property>controls/flight/channel/inner-blue</property>
    	</binding>
    	<binding>
     		<command>property-assign</command>
-    		<property>/controls/flight/channel/inner-mechanical</property>
+    		<property>controls/flight/channel/inner-mechanical</property>
     		<value>false</value>
    	</binding>
    	<binding>
     		<command>property-toggle</command>
-    		<property>/instrumentation/generic/click</property>
+    		<property>instrumentation/generic/click</property>
    	</binding>
      </action>  
   </animation>
@@ -2643,11 +2643,11 @@
       	<button>1</button>
    	<binding>
     		<command>property-toggle</command>
-    		<property>/controls/flight/channel/inner-mechanical</property>
+    		<property>controls/flight/channel/inner-mechanical</property>
    	</binding>
    	<binding>
     		<command>property-toggle</command>
-    		<property>/instrumentation/generic/click</property>
+    		<property>instrumentation/generic/click</property>
    	</binding>
     </action>
   </animation>
@@ -2660,12 +2660,12 @@
         <button>0</button>
 	<binding>
     		<command>property-assign</command>
-		<property>/controls/flight/channel/inner-blue</property>
+		<property>controls/flight/channel/inner-blue</property>
     		<value>false</value>
    	</binding>
    	<binding>
     		<command>property-assign</command>
-    		<property>/controls/flight/channel/inner-mechanical</property>
+    		<property>controls/flight/channel/inner-mechanical</property>
     		<value>false</value>
    	</binding>
    	<binding>
@@ -2682,12 +2682,12 @@
     <object-name>Switch.024</object-name>
     <expression>
       <sum>
-    	<table><property>/controls/flight/channel/rudder-blue</property>
+    	<table><property>controls/flight/channel/rudder-blue</property>
         <entry><ind>0</ind><dep>0</dep></entry><entry><ind>1</ind><dep>35</dep></entry></table>
 	<prod>
-    	  <table><property>/controls/flight/channel/rudder-blue</property>
+    	  <table><property>controls/flight/channel/rudder-blue</property>
 	  <entry><ind>0</ind><dep>-35</dep></entry><entry><ind>1</ind><dep>-70</dep></entry></table>
-          <property>/controls/flight/channel/rudder-mechanical</property>
+          <property>controls/flight/channel/rudder-mechanical</property>
 	</prod>
       </sum>
     </expression>
@@ -2710,16 +2710,16 @@
         <button>0</button>
 	<binding>
     		<command>property-toggle</command>
-		<property>/controls/flight/channel/rudder-blue</property>
+		<property>controls/flight/channel/rudder-blue</property>
    	</binding>
    	<binding>
     		<command>property-assign</command>
-    		<property>/controls/flight/channel/rudder-mechanical</property>
+    		<property>controls/flight/channel/rudder-mechanical</property>
     		<value>false</value>
    	</binding>
    	<binding>
     		<command>property-toggle</command>
-    		<property>/instrumentation/generic/click</property>
+    		<property>instrumentation/generic/click</property>
    	</binding>
      </action>  
   </animation>
@@ -2731,11 +2731,11 @@
       	<button>1</button>
    	<binding>
     		<command>property-toggle</command>
-    		<property>/controls/flight/channel/rudder-mechanical</property>
+    		<property>controls/flight/channel/rudder-mechanical</property>
    	</binding>
    	<binding>
     		<command>property-toggle</command>
-    		<property>/instrumentation/generic/click</property>
+    		<property>instrumentation/generic/click</property>
    	</binding>
     </action>
   </animation>
@@ -2748,12 +2748,12 @@
         <button>0</button>
 	<binding>
     		<command>property-assign</command>
-		<property>/controls/flight/channel/rudder-blue</property>
+		<property>controls/flight/channel/rudder-blue</property>
     		<value>true</value>
    	</binding>
    	<binding>
     		<command>property-assign</command>
-    		<property>/controls/flight/channel/rudder-mechanical</property>
+    		<property>controls/flight/channel/rudder-mechanical</property>
     		<value>false</value>
    	</binding>
    	<binding>
@@ -2769,7 +2769,7 @@
     <type>rotate</type>
     <object-name>Switch.026</object-name>
     <expression>
-    	<table><property>/controls/flight/anti-stall/system[0]</property>
+    	<table><property>controls/flight/anti-stall/system[0]</property>
         <entry><ind>0</ind><dep>-35</dep></entry><entry><ind>1</ind><dep>35</dep></entry></table>
     </expression>
     <center>
@@ -2791,11 +2791,11 @@
         <button>0</button>
 	<binding>
     		<command>property-toggle</command>
-		<property>/controls/flight/anti-stall/system[0]</property>
+		<property>controls/flight/anti-stall/system[0]</property>
    	</binding>
    	<binding>
     		<command>property-toggle</command>
-    		<property>/instrumentation/generic/click</property>
+    		<property>instrumentation/generic/click</property>
    	</binding>
      </action>  
   </animation>
@@ -2804,7 +2804,7 @@
     <type>rotate</type>
     <object-name>Switch.028</object-name>
     <expression>
-    	<table><property>/controls/flight/anti-stall/system[1]</property>
+    	<table><property>controls/flight/anti-stall/system[1]</property>
         <entry><ind>0</ind><dep>-35</dep></entry><entry><ind>1</ind><dep>35</dep></entry></table>
     </expression>
     <center>
@@ -2826,11 +2826,11 @@
         <button>0</button>
 	<binding>
     		<command>property-toggle</command>
-		<property>/controls/flight/anti-stall/system[1]</property>
+		<property>controls/flight/anti-stall/system[1]</property>
    	</binding>
    	<binding>
     		<command>property-toggle</command>
-    		<property>/instrumentation/generic/click</property>
+    		<property>instrumentation/generic/click</property>
    	</binding>
      </action>  
   </animation>
@@ -2844,7 +2844,7 @@
       <and>
        <or include="concorde-cond-test-overhead.xml"/>     <!-- bug -->
        <not>
-        <property>/controls/flight/anti-stall/system[0]</property>
+        <property>controls/flight/anti-stall/system[0]</property>
        </not>
       </and>
      </or>
@@ -2863,7 +2863,7 @@
       <and>
        <or include="concorde-cond-test-overhead.xml"/>     <!-- bug -->
        <not>
-        <property>/controls/flight/anti-stall/system[1]</property>
+        <property>controls/flight/anti-stall/system[1]</property>
        </not>
       </and>
      </or>
@@ -2886,12 +2886,12 @@
    <button>0</button>
    <binding>
     <command>property-assign</command>
-    <property>/controls/audio/cancel</property>
+    <property>controls/audio/cancel</property>
     <value>true</value>
    </binding>
    <binding>
     <command>property-toggle</command>
-    <property>/instrumentation/generic/click</property>
+    <property>instrumentation/generic/click</property>
    </binding>
   </action>
  
@@ -2902,7 +2902,7 @@
   <animation>
     <type>rotate</type>
     <object-name>Switch.051</object-name>
-    <property>/controls/engines/engine[0]/hp-valve</property>
+    <property>controls/engines/engine[0]/hp-valve</property>
     <interpolation>
       <entry>
         <ind>0</ind>
@@ -2933,7 +2933,7 @@
       <repeatable>false</repeatable>
       <binding>
         <command>property-toggle</command>
-        <property>/controls/engines/engine[0]/hp-valve</property>
+        <property>controls/engines/engine[0]/hp-valve</property>
         <step>1</step>
         <min>0</min>
         <max>1</max>
@@ -2941,7 +2941,7 @@
       </binding>
       <binding>
         <command>property-toggle</command>
-        <property>/instrumentation/generic/click</property>
+        <property>instrumentation/generic/click</property>
       </binding>
     </action>
   </animation>
@@ -2949,7 +2949,7 @@
   <animation>
     <type>rotate</type>
     <object-name>Switch.060</object-name>
-    <property>/controls/engines/engine[1]/hp-valve</property>
+    <property>controls/engines/engine[1]/hp-valve</property>
     <interpolation>
       <entry>
         <ind>0</ind>
@@ -2980,7 +2980,7 @@
       <repeatable>false</repeatable>
       <binding>
         <command>property-toggle</command>
-        <property>/controls/engines/engine[1]/hp-valve</property>
+        <property>controls/engines/engine[1]/hp-valve</property>
         <step>1</step>
         <min>0</min>
         <max>1</max>
@@ -2988,7 +2988,7 @@
       </binding>
       <binding>
         <command>property-toggle</command>
-        <property>/instrumentation/generic/click</property>
+        <property>instrumentation/generic/click</property>
       </binding>
     </action>
   </animation>
@@ -2996,7 +2996,7 @@
   <animation>
     <type>rotate</type>
     <object-name>Switch.061</object-name>
-    <property>/controls/engines/engine[2]/hp-valve</property>
+    <property>controls/engines/engine[2]/hp-valve</property>
     <interpolation>
       <entry>
         <ind>0</ind>
@@ -3027,7 +3027,7 @@
       <repeatable>false</repeatable>
       <binding>
         <command>property-toggle</command>
-        <property>/controls/engines/engine[2]/hp-valve</property>
+        <property>controls/engines/engine[2]/hp-valve</property>
         <step>1</step>
         <min>0</min>
         <max>1</max>
@@ -3035,7 +3035,7 @@
       </binding>
       <binding>
         <command>property-toggle</command>
-        <property>/instrumentation/generic/click</property>
+        <property>instrumentation/generic/click</property>
       </binding>
     </action>
   </animation>
@@ -3043,7 +3043,7 @@
   <animation>
     <type>rotate</type>
     <object-name>Switch.062</object-name>
-    <property>/controls/engines/engine[3]/hp-valve</property>
+    <property>controls/engines/engine[3]/hp-valve</property>
     <interpolation>
       <entry>
         <ind>0</ind>
@@ -3074,7 +3074,7 @@
       <repeatable>false</repeatable>
       <binding>
         <command>property-toggle</command>
-        <property>/controls/engines/engine[3]/hp-valve</property>
+        <property>controls/engines/engine[3]/hp-valve</property>
         <step>1</step>
         <min>0</min>
         <max>1</max>
@@ -3082,7 +3082,7 @@
       </binding>
       <binding>
         <command>property-toggle</command>
-        <property>/instrumentation/generic/click</property>
+        <property>instrumentation/generic/click</property>
       </binding>
     </action>
   </animation>
@@ -3092,7 +3092,7 @@
   <animation>
     <type>rotate</type>
     <object-name>Switch.067</object-name>
-    <property>/controls/doors/flight-deck/normal</property>
+    <property>controls/doors/flight-deck/normal</property>
     <interpolation>
       <entry>
         <ind>0</ind>
@@ -3123,7 +3123,7 @@
       <repeatable>false</repeatable>
       <binding>
         <command>property-toggle</command>
-        <property>/controls/doors/flight-deck/normal</property>
+        <property>controls/doors/flight-deck/normal</property>
         <step>1</step>
         <min>0</min>
         <max>1</max>
@@ -3131,7 +3131,7 @@
       </binding>
       <binding>
         <command>property-toggle</command>
-        <property>/instrumentation/generic/click</property>
+        <property>instrumentation/generic/click</property>
       </binding>
     </action>
   </animation>
@@ -3143,7 +3143,7 @@
     <type>rotate</type>
     <object-name>Knob</object-name>
     <object-name>Knob.010</object-name>
-    <property>/controls/lighting/instrument-lights</property>
+    <property>controls/lighting/instrument-lights</property>
     <factor>180</factor>
     <axis>   
       <x1-m>-22.93176</x1-m>
@@ -3163,7 +3163,7 @@
     <type>rotate</type>
     <object-name>Knob.001</object-name>
     <object-name>Knob.009</object-name>
-    <property>/controls/lighting/instrument-lights</property>
+    <property>controls/lighting/instrument-lights</property>
     <factor>180</factor>
     <axis>   
       <x1-m>-22.93174</x1-m>
@@ -3183,7 +3183,7 @@
     <type>rotate</type>
     <object-name>Knob.002</object-name>
     <object-name>Knob.013</object-name>
-    <property>/controls/lighting/instrument-lights</property>
+    <property>controls/lighting/instrument-lights</property>
     <factor>180</factor>
     <axis>   
       <x1-m>-22.93183</x1-m>
@@ -3203,7 +3203,7 @@
     <type>rotate</type>
     <object-name>Knob.004</object-name>
     <object-name>Knob.011</object-name>
-    <property>/controls/lighting/instrument-lights</property>
+    <property>controls/lighting/instrument-lights</property>
     <factor>180</factor>
     <axis>   
       <x1-m>-22.93346</x1-m>
@@ -3232,7 +3232,7 @@
       <repeatable>false</repeatable>
       <binding>
         <command>property-toggle</command>
-        <property>/controls/lighting/instrument-lights</property>
+        <property>controls/lighting/instrument-lights</property>
         <step>1</step>
         <min>0</min>
         <max>1</max>
@@ -3240,7 +3240,7 @@
       </binding>
       <binding>
         <command>property-toggle</command>
-        <property>/instrumentation/generic/click</property>
+        <property>instrumentation/generic/click</property>
       </binding>
     </action>
   </animation>
@@ -3310,7 +3310,7 @@
 
    <binding>
     <command>property-toggle</command>
-    <property>/instrumentation/generic/click</property>
+    <property>instrumentation/generic/click</property>
    </binding>
   </action>
   </animation>
@@ -3320,7 +3320,7 @@
   <animation>
     <type>rotate</type>
     <object-name>Switch.036</object-name>
-    <property>/controls/lighting/strobe</property>
+    <property>controls/lighting/strobe</property>
     <interpolation>
       <entry>
         <ind>0</ind>
@@ -3354,11 +3354,11 @@
    <h>44</h>
    <binding>
     <command>property-toggle</command>
-    <property>/controls/lighting/strobe</property>
+    <property>controls/lighting/strobe</property>
    </binding>
    <binding>
     <command>property-toggle</command>
-    <property>/instrumentation/generic/click</property>
+    <property>instrumentation/generic/click</property>
    </binding>
   </action>
   </animation>
@@ -3367,7 +3367,7 @@
   <animation>
     <type>rotate</type>
     <object-name>Switch.037</object-name>
-    <property>/controls/lighting/nav-lights</property>
+    <property>controls/lighting/nav-lights</property>
     <interpolation>
       <entry>
         <ind>0</ind>
@@ -3401,11 +3401,11 @@
    <h>44</h>
    <binding>
     <command>property-toggle</command>
-    <property>/controls/lighting/nav-lights</property>
+    <property>controls/lighting/nav-lights</property>
    </binding>
    <binding>
     <command>property-toggle</command>
-    <property>/instrumentation/generic/click</property>
+    <property>instrumentation/generic/click</property>
    </binding>
   </action>
   </animation>
@@ -3417,12 +3417,12 @@
     <object-name>Switch.035</object-name>
     <expression>
       <sum>
-    	<table><property>/controls/lighting/crew/overhead/test</property>
+    	<table><property>controls/lighting/crew/overhead/test</property>
         <entry><ind>0</ind><dep>0</dep></entry><entry><ind>1</ind><dep>-35</dep></entry></table>
 	<prod>
-    	  <table><property>/controls/lighting/crew/overhead/test</property>
+    	  <table><property>controls/lighting/crew/overhead/test</property>
 	  <entry><ind>0</ind><dep>35</dep></entry><entry><ind>1</ind><dep>0</dep></entry></table>
-          <property>/controls/lighting/crew/overhead/low</property>
+          <property>controls/lighting/crew/overhead/low</property>
 	</prod>
       </sum>
     </expression>
@@ -3446,7 +3446,7 @@
       <repeatable>false</repeatable>
       <binding>
         <command>property-toggle</command>
-        <property>/controls/lighting/crew/overhead/test</property>
+        <property>controls/lighting/crew/overhead/test</property>
         <step>1</step>
         <min>0</min>
         <max>1</max>
@@ -3454,7 +3454,7 @@
       </binding>
       <binding>
         <command>property-toggle</command>
-        <property>/instrumentation/generic/click</property>
+        <property>instrumentation/generic/click</property>
       </binding>
     </action>
   </animation>
@@ -3467,7 +3467,7 @@
       <repeatable>false</repeatable>
       <binding>
         <command>property-toggle</command>
-        <property>/controls/lighting/crew/overhead/low</property>
+        <property>controls/lighting/crew/overhead/low</property>
         <step>1</step>
         <min>0</min>
         <max>1</max>
@@ -3475,7 +3475,7 @@
       </binding>
       <binding>
         <command>property-toggle</command>
-        <property>/instrumentation/generic/click</property>
+        <property>instrumentation/generic/click</property>
       </binding>
     </action>
   </animation>
@@ -3486,7 +3486,7 @@
     <type>rotate</type>
     <object-name>Switch.039</object-name>
     <expression>
-    	<table><property>/controls/engines/engine[0]/rating-flight-n</property>
+    	<table><property>controls/engines/engine[0]/rating-flight-n</property>
         <entry><ind>0</ind><dep>35</dep></entry><entry><ind>1</ind><dep>-35</dep></entry></table>
     </expression>
     <center>
@@ -3523,7 +3523,7 @@
    </binding>
    <binding>
     <command>property-toggle</command>
-    <property>/instrumentation/generic/click</property>
+    <property>instrumentation/generic/click</property>
    </binding>
   </action>
   </animation>
@@ -3532,7 +3532,7 @@
     <type>rotate</type>
     <object-name>Switch.038</object-name>
     <expression>
-    	<table><property>/controls/engines/engine[1]/rating-flight-n</property>
+    	<table><property>controls/engines/engine[1]/rating-flight-n</property>
         <entry><ind>0</ind><dep>35</dep></entry><entry><ind>1</ind><dep>-35</dep></entry></table>
     </expression>
     <center>
@@ -3569,7 +3569,7 @@
    </binding>
    <binding>
     <command>property-toggle</command>
-    <property>/instrumentation/generic/click</property>
+    <property>instrumentation/generic/click</property>
    </binding>
   </action>
   </animation>
@@ -3578,7 +3578,7 @@
     <type>rotate</type>
     <object-name>Switch.040</object-name>
     <expression>
-    	<table><property>/controls/engines/engine[2]/rating-flight-n</property>
+    	<table><property>controls/engines/engine[2]/rating-flight-n</property>
         <entry><ind>0</ind><dep>35</dep></entry><entry><ind>1</ind><dep>-35</dep></entry></table>
     </expression>
     <center>
@@ -3615,7 +3615,7 @@
    </binding>
    <binding>
     <command>property-toggle</command>
-    <property>/instrumentation/generic/click</property>
+    <property>instrumentation/generic/click</property>
    </binding>
   </action>
   </animation>
@@ -3624,7 +3624,7 @@
     <type>rotate</type>
     <object-name>Switch.041</object-name>
     <expression>
-    	<table><property>/controls/engines/engine[3]/rating-flight-n</property>
+    	<table><property>controls/engines/engine[3]/rating-flight-n</property>
         <entry><ind>0</ind><dep>35</dep></entry><entry><ind>1</ind><dep>-35</dep></entry></table>
     </expression>
     <center>
@@ -3661,7 +3661,7 @@
    </binding>
    <binding>
     <command>property-toggle</command>
-    <property>/instrumentation/generic/click</property>
+    <property>instrumentation/generic/click</property>
    </binding>
   </action>
   </animation>
@@ -3672,7 +3672,7 @@
     <type>rotate</type>
     <object-name>Switch.059</object-name>
     <expression>
-    	<table><property>/controls/engines/engine[0]/rating-n</property>
+    	<table><property>controls/engines/engine[0]/rating-n</property>
         <entry><ind>0</ind><dep>35</dep></entry><entry><ind>1</ind><dep>-35</dep></entry></table>
     </expression>
     <center>
@@ -3709,7 +3709,7 @@
    </binding>
    <binding>
     <command>property-toggle</command>
-    <property>/instrumentation/generic/click</property>
+    <property>instrumentation/generic/click</property>
    </binding>
   </action>
   </animation>
@@ -3718,7 +3718,7 @@
     <type>rotate</type>
     <object-name>Switch.052</object-name>
     <expression>
-    	<table><property>/controls/engines/engine[1]/rating-n</property>
+    	<table><property>controls/engines/engine[1]/rating-n</property>
         <entry><ind>0</ind><dep>35</dep></entry><entry><ind>1</ind><dep>-35</dep></entry></table>
     </expression>
     <center>
@@ -3755,7 +3755,7 @@
    </binding>
    <binding>
     <command>property-toggle</command>
-    <property>/instrumentation/generic/click</property>
+    <property>instrumentation/generic/click</property>
    </binding>
   </action>
   </animation>
@@ -3764,7 +3764,7 @@
     <type>rotate</type>
     <object-name>Switch.053</object-name>
     <expression>
-    	<table><property>/controls/engines/engine[2]/rating-n</property>
+    	<table><property>controls/engines/engine[2]/rating-n</property>
         <entry><ind>0</ind><dep>35</dep></entry><entry><ind>1</ind><dep>-35</dep></entry></table>
     </expression>
     <center>
@@ -3801,7 +3801,7 @@
    </binding>
    <binding>
     <command>property-toggle</command>
-    <property>/instrumentation/generic/click</property>
+    <property>instrumentation/generic/click</property>
    </binding>
   </action>
   </animation>
@@ -3810,7 +3810,7 @@
     <type>rotate</type>
     <object-name>Switch.054</object-name>
     <expression>
-    	<table><property>/controls/engines/engine[3]/rating-n</property>
+    	<table><property>controls/engines/engine[3]/rating-n</property>
         <entry><ind>0</ind><dep>35</dep></entry><entry><ind>1</ind><dep>-35</dep></entry></table>
     </expression>
     <center>
@@ -3847,7 +3847,7 @@
    </binding>
    <binding>
     <command>property-toggle</command>
-    <property>/instrumentation/generic/click</property>
+    <property>instrumentation/generic/click</property>
    </binding>
   </action>
   </animation>
@@ -3857,7 +3857,7 @@
   <animation>
     <type>rotate</type>
     <object-name>Switch.030</object-name>
-    <property>/controls/anti-ice/mast/heater[0]</property>
+    <property>controls/anti-ice/mast/heater[0]</property>
     <interpolation><entry><ind>0</ind><dep>-35</dep></entry><entry><ind>1</ind><dep>35</dep></entry></interpolation>
     <center>
       <x-m>-22.90311</x-m>
@@ -3879,7 +3879,7 @@
       <repeatable>false</repeatable>
       <binding>
         <command>property-toggle</command>
-        <property>/controls/anti-ice/mast/heater[0]</property>
+        <property>controls/anti-ice/mast/heater[0]</property>
         <step>1</step>
         <min>0</min>
         <max>1</max>
@@ -3887,7 +3887,7 @@
       </binding>
       <binding>
         <command>property-toggle</command>
-        <property>/instrumentation/generic/click</property>
+        <property>instrumentation/generic/click</property>
       </binding>
     </action>
   </animation>
@@ -3895,7 +3895,7 @@
   <animation>
     <type>rotate</type>
     <object-name>Switch.031</object-name>
-    <property>/controls/anti-ice/mast/heater[1]</property>
+    <property>controls/anti-ice/mast/heater[1]</property>
     <interpolation><entry><ind>0</ind><dep>-35</dep></entry><entry><ind>1</ind><dep>35</dep></entry></interpolation>
     <center>
       <x-m>-22.90311</x-m>
@@ -3917,7 +3917,7 @@
       <repeatable>false</repeatable>
       <binding>
         <command>property-toggle</command>
-        <property>/controls/anti-ice/mast/heater[1]</property>
+        <property>controls/anti-ice/mast/heater[1]</property>
         <step>1</step>
         <min>0</min>
         <max>1</max>
@@ -3925,7 +3925,7 @@
       </binding>
       <binding>
         <command>property-toggle</command>
-        <property>/instrumentation/generic/click</property>
+        <property>instrumentation/generic/click</property>
       </binding>
     </action>
   </animation>
@@ -3933,7 +3933,7 @@
   <animation>
     <type>rotate</type>
     <object-name>Switch.032</object-name>
-    <property>/controls/anti-ice/mast/heater[2]</property>
+    <property>controls/anti-ice/mast/heater[2]</property>
     <interpolation><entry><ind>0</ind><dep>-35</dep></entry><entry><ind>1</ind><dep>35</dep></entry></interpolation>
     <center>
       <x-m>-22.90311</x-m>
@@ -3955,7 +3955,7 @@
       <repeatable>false</repeatable>
       <binding>
         <command>property-toggle</command>
-        <property>/controls/anti-ice/mast/heater[2]</property>
+        <property>controls/anti-ice/mast/heater[2]</property>
         <step>1</step>
         <min>0</min>
         <max>1</max>
@@ -3963,7 +3963,7 @@
       </binding>
       <binding>
         <command>property-toggle</command>
-        <property>/instrumentation/generic/click</property>
+        <property>instrumentation/generic/click</property>
       </binding>
     </action>
   </animation>
@@ -3975,11 +3975,11 @@
     <object-name>Switch.063</object-name>
     <expression>
       <prod>
-    	<table><property>/controls/throttles/throttle[0]/master</property>
+    	<table><property>controls/throttles/throttle[0]/master</property>
         <entry><ind>0</ind><dep>35</dep></entry><entry><ind>1</ind><dep>-35</dep></entry></table>
 	<abs>
 	  <sum>
-            <property>/controls/throttles/throttle[0]/off</property>
+            <property>controls/throttles/throttle[0]/off</property>
 	    <value>-1</value>
 	  </sum>
         </abs>
@@ -4004,16 +4004,16 @@
    <button>0</button>
    <condition>
     <not>
-     <property>/controls/throttles/throttle[0]/off</property>
+     <property>controls/throttles/throttle[0]/off</property>
     </not>
    </condition>
    <binding>
     <command>property-toggle</command>
-    <property>/controls/throttles/throttle[0]/master</property>
+    <property>controls/throttles/throttle[0]/master</property>
    </binding>
    <binding>
     <command>property-toggle</command>
-    <property>/instrumentation/generic/click</property>
+    <property>instrumentation/generic/click</property>
    </binding>
   </action>
   <action>
@@ -4021,11 +4021,11 @@
    <button>1</button>
    <binding>
     <command>property-toggle</command>
-    <property>/controls/throttles/throttle[0]/off</property>
+    <property>controls/throttles/throttle[0]/off</property>
    </binding>
    <binding>
     <command>property-toggle</command>
-    <property>/instrumentation/generic/click</property>
+    <property>instrumentation/generic/click</property>
    </binding>
   </action>
   </animation>
@@ -4035,11 +4035,11 @@
     <object-name>Switch.064</object-name>
     <expression>
       <prod>
-    	<table><property>/controls/throttles/throttle[1]/master</property>
+    	<table><property>controls/throttles/throttle[1]/master</property>
         <entry><ind>0</ind><dep>35</dep></entry><entry><ind>1</ind><dep>-35</dep></entry></table>
 	<abs>
 	  <sum>
-            <property>/controls/throttles/throttle[1]/off</property>
+            <property>controls/throttles/throttle[1]/off</property>
 	    <value>-1</value>
 	  </sum>
         </abs>
@@ -4064,16 +4064,16 @@
    <button>0</button>
    <condition>
     <not>
-     <property>/controls/throttles/throttle[1]/off</property>
+     <property>controls/throttles/throttle[1]/off</property>
     </not>
    </condition>
    <binding>
     <command>property-toggle</command>
-    <property>/controls/throttles/throttle[1]/master</property>
+    <property>controls/throttles/throttle[1]/master</property>
    </binding>
    <binding>
     <command>property-toggle</command>
-    <property>/instrumentation/generic/click</property>
+    <property>instrumentation/generic/click</property>
    </binding>
   </action>
   <action>
@@ -4081,11 +4081,11 @@
    <button>1</button>
    <binding>
     <command>property-toggle</command>
-    <property>/controls/throttles/throttle[1]/off</property>
+    <property>controls/throttles/throttle[1]/off</property>
    </binding>
    <binding>
     <command>property-toggle</command>
-    <property>/instrumentation/generic/click</property>
+    <property>instrumentation/generic/click</property>
    </binding>
   </action>
   </animation>
@@ -4095,11 +4095,11 @@
     <object-name>Switch.065</object-name>
     <expression>
       <prod>
-    	<table><property>/controls/throttles/throttle[2]/master</property>
+    	<table><property>controls/throttles/throttle[2]/master</property>
         <entry><ind>0</ind><dep>35</dep></entry><entry><ind>1</ind><dep>-35</dep></entry></table>
 	<abs>
 	  <sum>
-            <property>/controls/throttles/throttle[2]/off</property>
+            <property>controls/throttles/throttle[2]/off</property>
 	    <value>-1</value>
 	  </sum>
         </abs>
@@ -4124,16 +4124,16 @@
    <button>0</button>
    <condition>
     <not>
-     <property>/controls/throttles/throttle[2]/off</property>
+     <property>controls/throttles/throttle[2]/off</property>
     </not>
    </condition>
    <binding>
     <command>property-toggle</command>
-    <property>/controls/throttles/throttle[2]/master</property>
+    <property>controls/throttles/throttle[2]/master</property>
    </binding>
    <binding>
     <command>property-toggle</command>
-    <property>/instrumentation/generic/click</property>
+    <property>instrumentation/generic/click</property>
    </binding>
   </action>
   <action>
@@ -4141,11 +4141,11 @@
    <button>1</button>
    <binding>
     <command>property-toggle</command>
-    <property>/controls/throttles/throttle[2]/off</property>
+    <property>controls/throttles/throttle[2]/off</property>
    </binding>
    <binding>
     <command>property-toggle</command>
-    <property>/instrumentation/generic/click</property>
+    <property>instrumentation/generic/click</property>
    </binding>
   </action>
   </animation>
@@ -4155,11 +4155,11 @@
     <object-name>Switch.066</object-name>
     <expression>
       <prod>
-    	<table><property>/controls/throttles/throttle[3]/master</property>
+    	<table><property>controls/throttles/throttle[3]/master</property>
         <entry><ind>0</ind><dep>35</dep></entry><entry><ind>1</ind><dep>-35</dep></entry></table>
 	<abs>
 	  <sum>
-            <property>/controls/throttles/throttle[3]/off</property>
+            <property>controls/throttles/throttle[3]/off</property>
 	    <value>-1</value>
 	  </sum>
         </abs>
@@ -4184,16 +4184,16 @@
    <button>0</button>
    <condition>
     <not>
-     <property>/controls/throttles/throttle[3]/off</property>
+     <property>controls/throttles/throttle[3]/off</property>
     </not>
    </condition>
    <binding>
     <command>property-toggle</command>
-    <property>/controls/throttles/throttle[3]/master</property>
+    <property>controls/throttles/throttle[3]/master</property>
    </binding>
    <binding>
     <command>property-toggle</command>
-    <property>/instrumentation/generic/click</property>
+    <property>instrumentation/generic/click</property>
    </binding>
   </action>
   <action>
@@ -4201,11 +4201,11 @@
    <button>1</button>
    <binding>
     <command>property-toggle</command>
-    <property>/controls/throttles/throttle[3]/off</property>
+    <property>controls/throttles/throttle[3]/off</property>
    </binding>
    <binding>
     <command>property-toggle</command>
-    <property>/instrumentation/generic/click</property>
+    <property>instrumentation/generic/click</property>
    </binding>
   </action>
   </animation>
@@ -4216,7 +4216,7 @@
     <type>rotate</type>
     <object-name>Switch.043</object-name>
     <expression>
-    	<table><property>/controls/engines/engine[0]/autoignition</property><entry><ind>0</ind><dep>-35</dep></entry><entry><ind>1</ind><dep>35</dep></entry></table>
+    	<table><property>controls/engines/engine[0]/autoignition</property><entry><ind>0</ind><dep>-35</dep></entry><entry><ind>1</ind><dep>35</dep></entry></table>
     </expression>
     <center>
       <x-m>-23.00722</x-m>
@@ -4237,11 +4237,11 @@
       <button>0</button>
       <binding>
         <command>property-toggle</command>
-        <property>/controls/engines/engine[0]/autoignition</property>
+        <property>controls/engines/engine[0]/autoignition</property>
       </binding>
       <binding>
         <command>property-toggle</command>
-        <property>/instrumentation/generic/click</property>
+        <property>instrumentation/generic/click</property>
       </binding>
     </action>
   </animation>
@@ -4250,7 +4250,7 @@
     <type>rotate</type>
     <object-name>Switch.044</object-name>
     <expression>
-    	<table><property>/controls/engines/engine[1]/autoignition</property><entry><ind>0</ind><dep>-35</dep></entry><entry><ind>1</ind><dep>35</dep></entry></table>
+    	<table><property>controls/engines/engine[1]/autoignition</property><entry><ind>0</ind><dep>-35</dep></entry><entry><ind>1</ind><dep>35</dep></entry></table>
     </expression>
     <center>
       <x-m>-23.00722</x-m>
@@ -4271,11 +4271,11 @@
       <button>0</button>
       <binding>
         <command>property-toggle</command>
-        <property>/controls/engines/engine[1]/autoignition</property>
+        <property>controls/engines/engine[1]/autoignition</property>
       </binding>
       <binding>
         <command>property-toggle</command>
-        <property>/instrumentation/generic/click</property>
+        <property>instrumentation/generic/click</property>
       </binding>
     </action>
   </animation>
@@ -4284,7 +4284,7 @@
     <type>rotate</type>
     <object-name>Switch.045</object-name>
     <expression>
-    	<table><property>/controls/engines/engine[2]/autoignition</property><entry><ind>0</ind><dep>-35</dep></entry><entry><ind>1</ind><dep>35</dep></entry></table>
+    	<table><property>controls/engines/engine[2]/autoignition</property><entry><ind>0</ind><dep>-35</dep></entry><entry><ind>1</ind><dep>35</dep></entry></table>
     </expression>
     <center>
       <x-m>-23.00722</x-m>
@@ -4305,11 +4305,11 @@
       <button>0</button>
       <binding>
         <command>property-toggle</command>
-        <property>/controls/engines/engine[2]/autoignition</property>
+        <property>controls/engines/engine[2]/autoignition</property>
       </binding>
       <binding>
         <command>property-toggle</command>
-        <property>/instrumentation/generic/click</property>
+        <property>instrumentation/generic/click</property>
       </binding>
     </action>
   </animation>
@@ -4318,7 +4318,7 @@
     <type>rotate</type>
     <object-name>Switch.046</object-name>
     <expression>
-    	<table><property>/controls/engines/engine[3]/autoignition</property><entry><ind>0</ind><dep>-35</dep></entry><entry><ind>1</ind><dep>35</dep></entry></table>
+    	<table><property>controls/engines/engine[3]/autoignition</property><entry><ind>0</ind><dep>-35</dep></entry><entry><ind>1</ind><dep>35</dep></entry></table>
     </expression>
     <center>
       <x-m>-23.00722</x-m>
@@ -4339,11 +4339,11 @@
       <button>0</button>
       <binding>
         <command>property-toggle</command>
-        <property>/controls/engines/engine[3]/autoignition</property>
+        <property>controls/engines/engine[3]/autoignition</property>
       </binding>
       <binding>
         <command>property-toggle</command>
-        <property>/instrumentation/generic/click</property>
+        <property>instrumentation/generic/click</property>
       </binding>
     </action>
   </animation>
@@ -4354,7 +4354,7 @@
     <type>rotate</type>
     <object-name>Switch.050</object-name>
     <expression>
-    	<table><property>/controls/engines/engine[0]/autothrottle</property><entry><ind>0</ind><dep>-35</dep></entry><entry><ind>1</ind><dep>35</dep></entry></table>
+    	<table><property>controls/engines/engine[0]/autothrottle</property><entry><ind>0</ind><dep>-35</dep></entry><entry><ind>1</ind><dep>35</dep></entry></table>
     </expression>
     <center>
       <x-m>-23.05807</x-m>
@@ -4375,11 +4375,11 @@
       <button>0</button>
       <binding>
         <command>property-toggle</command>
-        <property>/controls/engines/engine[0]/autothrottle</property>
+        <property>controls/engines/engine[0]/autothrottle</property>
       </binding>
       <binding>
         <command>property-toggle</command>
-        <property>/instrumentation/generic/click</property>
+        <property>instrumentation/generic/click</property>
       </binding>
     </action>
   </animation>
@@ -4388,7 +4388,7 @@
     <type>rotate</type>
     <object-name>Switch.049</object-name>
     <expression>
-    	<table><property>/controls/engines/engine[1]/autothrottle</property><entry><ind>0</ind><dep>-35</dep></entry><entry><ind>1</ind><dep>35</dep></entry></table>
+    	<table><property>controls/engines/engine[1]/autothrottle</property><entry><ind>0</ind><dep>-35</dep></entry><entry><ind>1</ind><dep>35</dep></entry></table>
     </expression>
     <center>
       <x-m>-23.05807</x-m>
@@ -4409,11 +4409,11 @@
       <button>0</button>
       <binding>
         <command>property-toggle</command>
-        <property>/controls/engines/engine[1]/autothrottle</property>
+        <property>controls/engines/engine[1]/autothrottle</property>
       </binding>
       <binding>
         <command>property-toggle</command>
-        <property>/instrumentation/generic/click</property>
+        <property>instrumentation/generic/click</property>
       </binding>
     </action>
   </animation>
@@ -4422,7 +4422,7 @@
     <type>rotate</type>
     <object-name>Switch.048</object-name>
     <expression>
-    	<table><property>/controls/engines/engine[2]/autothrottle</property><entry><ind>0</ind><dep>-35</dep></entry><entry><ind>1</ind><dep>35</dep></entry></table>
+    	<table><property>controls/engines/engine[2]/autothrottle</property><entry><ind>0</ind><dep>-35</dep></entry><entry><ind>1</ind><dep>35</dep></entry></table>
     </expression>
     <center>
       <x-m>-23.05807</x-m>
@@ -4443,11 +4443,11 @@
       <button>0</button>
       <binding>
         <command>property-toggle</command>
-        <property>/controls/engines/engine[2]/autothrottle</property>
+        <property>controls/engines/engine[2]/autothrottle</property>
       </binding>
       <binding>
         <command>property-toggle</command>
-        <property>/instrumentation/generic/click</property>
+        <property>instrumentation/generic/click</property>
       </binding>
     </action>
   </animation>
@@ -4456,7 +4456,7 @@
     <type>rotate</type>
     <object-name>Switch.047</object-name>
     <expression>
-    	<table><property>/controls/engines/engine[3]/autothrottle</property><entry><ind>0</ind><dep>-35</dep></entry><entry><ind>1</ind><dep>35</dep></entry></table>
+    	<table><property>controls/engines/engine[3]/autothrottle</property><entry><ind>0</ind><dep>-35</dep></entry><entry><ind>1</ind><dep>35</dep></entry></table>
     </expression>
     <center>
       <x-m>-23.05807</x-m>
@@ -4477,11 +4477,11 @@
       <button>0</button>
       <binding>
         <command>property-toggle</command>
-        <property>/controls/engines/engine[3]/autothrottle</property>
+        <property>controls/engines/engine[3]/autothrottle</property>
       </binding>
       <binding>
         <command>property-toggle</command>
-        <property>/instrumentation/generic/click</property>
+        <property>instrumentation/generic/click</property>
       </binding>
     </action>
   </animation>
@@ -4491,7 +4491,7 @@
     <type>rotate</type>
     <object-name>Switch.034</object-name>
     <expression>
-    	<table><property>/controls/anti-ice/static/heater[0]</property><entry><ind>0</ind><dep>-35</dep></entry><entry><ind>1</ind><dep>35</dep></entry></table>
+    	<table><property>controls/anti-ice/static/heater[0]</property><entry><ind>0</ind><dep>-35</dep></entry><entry><ind>1</ind><dep>35</dep></entry></table>
     </expression>
     <center>
       <x-m>-22.80888</x-m>
@@ -4512,11 +4512,11 @@
       <button>0</button>
       <binding>
         <command>property-toggle</command>
-        <property>/controls/anti-ice/static/heater[0]</property>
+        <property>controls/anti-ice/static/heater[0]</property>
       </binding>
       <binding>
         <command>property-toggle</command>
-        <property>/instrumentation/generic/click</property>
+        <property>instrumentation/generic/click</property>
       </binding>
     </action>
   </animation>
@@ -4526,7 +4526,7 @@
     <type>rotate</type>
     <object-name>Switch.033</object-name>
     <expression>
-    	<table><property>/controls/anti-ice/static/heater[1]</property><entry><ind>0</ind><dep>-35</dep></entry><entry><ind>1</ind><dep>35</dep></entry></table>
+    	<table><property>controls/anti-ice/static/heater[1]</property><entry><ind>0</ind><dep>-35</dep></entry><entry><ind>1</ind><dep>35</dep></entry></table>
     </expression>
     <center>
       <x-m>-22.80888</x-m>
@@ -4547,11 +4547,11 @@
       <button>0</button>
       <binding>
         <command>property-toggle</command>
-        <property>/controls/anti-ice/static/heater[1]</property>
+        <property>controls/anti-ice/static/heater[1]</property>
       </binding>
       <binding>
         <command>property-toggle</command>
-        <property>/instrumentation/generic/click</property>
+        <property>instrumentation/generic/click</property>
       </binding>
     </action>
   </animation>
@@ -4588,7 +4588,7 @@
        <or include="concorde-cond-test-overhead.xml"/>
        <or>
         <not>
-         <property>/systems/anti-icing/power/engine[0]</property>
+         <property>systems/anti-icing/power/engine[0]</property>
         </not>
        </or>
       </and>
@@ -4610,7 +4610,7 @@
        <or include="concorde-cond-test-overhead.xml"/>
        <or>
         <not>
-         <property>/systems/anti-icing/power/engine[1]</property>
+         <property>systems/anti-icing/power/engine[1]</property>
         </not>
        </or>
       </and>
@@ -4632,7 +4632,7 @@
        <or include="concorde-cond-test-overhead.xml"/>
        <or>
         <not>
-         <property>/systems/anti-icing/power/engine[2]</property>
+         <property>systems/anti-icing/power/engine[2]</property>
         </not>
        </or>
       </and>
@@ -4654,7 +4654,7 @@
        <or include="concorde-cond-test-overhead.xml"/>
        <or>
         <not>
-         <property>/systems/anti-icing/power/engine[3]</property>
+         <property>systems/anti-icing/power/engine[3]</property>
         </not>
        </or>
       </and>
@@ -4673,7 +4673,7 @@
     <type>rotate</type>
     <object-name>Switch.058</object-name>
     <expression>
-    	<table><property>/controls/anti-ice/engine[0]/inlet-vane</property><entry><ind>0</ind><dep>-35</dep></entry><entry><ind>1</ind><dep>35</dep></entry></table>
+    	<table><property>controls/anti-ice/engine[0]/inlet-vane</property><entry><ind>0</ind><dep>-35</dep></entry><entry><ind>1</ind><dep>35</dep></entry></table>
     </expression>
     <center>
       <x-m>-23.02875</x-m>
@@ -4694,11 +4694,11 @@
       <button>0</button>
       <binding>
         <command>property-toggle</command>
-        <property>/controls/anti-ice/engine[0]/inlet-vane</property>
+        <property>controls/anti-ice/engine[0]/inlet-vane</property>
       </binding>
       <binding>
         <command>property-toggle</command>
-        <property>/instrumentation/generic/click</property>
+        <property>instrumentation/generic/click</property>
       </binding>
     </action>
   </animation>
@@ -4707,7 +4707,7 @@
     <type>rotate</type>
     <object-name>Switch.057</object-name>
     <expression>
-    	<table><property>/controls/anti-ice/engine[1]/inlet-vane</property><entry><ind>0</ind><dep>-35</dep></entry><entry><ind>1</ind><dep>35</dep></entry></table>
+    	<table><property>controls/anti-ice/engine[1]/inlet-vane</property><entry><ind>0</ind><dep>-35</dep></entry><entry><ind>1</ind><dep>35</dep></entry></table>
     </expression>
     <center>
       <x-m>-23.02875</x-m>
@@ -4728,11 +4728,11 @@
       <button>0</button>
       <binding>
         <command>property-toggle</command>
-        <property>/controls/anti-ice/engine[1]/inlet-vane</property>
+        <property>controls/anti-ice/engine[1]/inlet-vane</property>
       </binding>
       <binding>
         <command>property-toggle</command>
-        <property>/instrumentation/generic/click</property>
+        <property>instrumentation/generic/click</property>
       </binding>
     </action>
   </animation>
@@ -4741,7 +4741,7 @@
     <type>rotate</type>
     <object-name>Switch.056</object-name>
     <expression>
-    	<table><property>/controls/anti-ice/engine[2]/inlet-vane</property><entry><ind>0</ind><dep>-35</dep></entry><entry><ind>1</ind><dep>35</dep></entry></table>
+    	<table><property>controls/anti-ice/engine[2]/inlet-vane</property><entry><ind>0</ind><dep>-35</dep></entry><entry><ind>1</ind><dep>35</dep></entry></table>
     </expression>
     <center>
       <x-m>-23.02875</x-m>
@@ -4762,11 +4762,11 @@
       <button>0</button>
       <binding>
         <command>property-toggle</command>
-        <property>/controls/anti-ice/engine[2]/inlet-vane</property>
+        <property>controls/anti-ice/engine[2]/inlet-vane</property>
       </binding>
       <binding>
         <command>property-toggle</command>
-        <property>/instrumentation/generic/click</property>
+        <property>instrumentation/generic/click</property>
       </binding>
     </action>
   </animation>
@@ -4775,7 +4775,7 @@
     <type>rotate</type>
     <object-name>Switch.055</object-name>
     <expression>
-    	<table><property>/controls/anti-ice/engine[3]/inlet-vane</property><entry><ind>0</ind><dep>-35</dep></entry><entry><ind>1</ind><dep>35</dep></entry></table>
+    	<table><property>controls/anti-ice/engine[3]/inlet-vane</property><entry><ind>0</ind><dep>-35</dep></entry><entry><ind>1</ind><dep>35</dep></entry></table>
     </expression>
     <center>
       <x-m>-23.02875</x-m>
@@ -4796,11 +4796,11 @@
       <button>0</button>
       <binding>
         <command>property-toggle</command>
-        <property>/controls/anti-ice/engine[3]/inlet-vane</property>
+        <property>controls/anti-ice/engine[3]/inlet-vane</property>
       </binding>
       <binding>
         <command>property-toggle</command>
-        <property>/instrumentation/generic/click</property>
+        <property>instrumentation/generic/click</property>
       </binding>
     </action>
   </animation>
@@ -4836,7 +4836,7 @@
       <and>
        <or include="concorde-cond-test-overhead.xml"/>  <!-- bug -->
        <not>
-        <property>/systems/anti-icing/warning</property>
+        <property>systems/anti-icing/warning</property>
        </not>
       </and>
      </or>
@@ -4857,20 +4857,20 @@
        <or include="concorde-cond-test-overhead.xml"/>  <!-- bug -->
        <or>
         <not>
-         <property>/systems/anti-icing/warning</property>
+         <property>systems/anti-icing/warning</property>
         </not>
         <and>
-         <property>/controls/anti-ice/engine[0]/inlet-vane</property>
-         <property>/controls/anti-ice/engine[1]/inlet-vane</property>
-         <property>/controls/anti-ice/engine[2]/inlet-vane</property>
-         <property>/controls/anti-ice/engine[3]/inlet-vane</property>
+         <property>controls/anti-ice/engine[0]/inlet-vane</property>
+         <property>controls/anti-ice/engine[1]/inlet-vane</property>
+         <property>controls/anti-ice/engine[2]/inlet-vane</property>
+         <property>controls/anti-ice/engine[3]/inlet-vane</property>
          <or>
           <greater-than>
-           <property>/controls/anti-ice/wing/main-selector</property>
+           <property>controls/anti-ice/wing/main-selector</property>
            <value>0</value>
           </greater-than>
           <greater-than>
-           <property>/controls/anti-ice/wing/alternate-selector</property>
+           <property>controls/anti-ice/wing/alternate-selector</property>
            <value>0</value>
           </greater-than>
          </or>
@@ -4892,7 +4892,7 @@
     <type>rotate</type>
     <object-name>Knob.006</object-name>
     <object-name>Knob.015</object-name>
-    <property>/controls/anti-ice/wing/main-selector</property>
+    <property>controls/anti-ice/wing/main-selector</property>
     <factor>-25</factor>
 
   <axis>   
@@ -4919,7 +4919,7 @@
       <button>3</button>
       <binding>
         <command>property-adjust</command>
-        <property>/controls/anti-ice/wing/main-selector</property>
+        <property>controls/anti-ice/wing/main-selector</property>
 	<step>1</step>
         <min>0</min>
         <max>3</max>
@@ -4927,7 +4927,7 @@
       </binding>
       <binding>
         <command>property-toggle</command>
-        <property>/instrumentation/generic/click</property>
+        <property>instrumentation/generic/click</property>
       </binding>
     </action>
   </animation>
@@ -4939,7 +4939,7 @@
       <button>4</button>
       <binding>
         <command>property-adjust</command>
-        <property>/controls/anti-ice/wing/main-selector</property>
+        <property>controls/anti-ice/wing/main-selector</property>
 	<step>-1</step>
         <min>0</min>
         <max>3</max>
@@ -4947,7 +4947,7 @@
       </binding>
       <binding>
         <command>property-toggle</command>
-        <property>/instrumentation/generic/click</property>
+        <property>instrumentation/generic/click</property>
       </binding>
     </action>
   </animation>
@@ -4958,7 +4958,7 @@
     <type>rotate</type>
     <object-name>Knob.005</object-name>
     <object-name>Knob.014</object-name>
-    <property>/controls/anti-ice/wing/alternate-selector</property>
+    <property>controls/anti-ice/wing/alternate-selector</property>
     <factor>-25</factor>
 
   <axis>   
@@ -4985,7 +4985,7 @@
       <button>3</button>
       <binding>
         <command>property-adjust</command>
-        <property>/controls/anti-ice/wing/alternate-selector</property>
+        <property>controls/anti-ice/wing/alternate-selector</property>
 	<step>1</step>
         <min>0</min>
         <max>3</max>
@@ -4993,7 +4993,7 @@
       </binding>
       <binding>
         <command>property-toggle</command>
-        <property>/instrumentation/generic/click</property>
+        <property>instrumentation/generic/click</property>
       </binding>
     </action>
   </animation>
@@ -5005,7 +5005,7 @@
       <button>4</button>
       <binding>
         <command>property-adjust</command>
-        <property>/controls/anti-ice/wing/alternate-selector</property>
+        <property>controls/anti-ice/wing/alternate-selector</property>
 	<step>-1</step>
         <min>0</min>
         <max>3</max>
@@ -5013,7 +5013,7 @@
       </binding>
       <binding>
         <command>property-toggle</command>
-        <property>/instrumentation/generic/click</property>
+        <property>instrumentation/generic/click</property>
       </binding>
     </action>
   </animation>
@@ -5023,7 +5023,7 @@
     <type>rotate</type>
     <object-name>Switch.017</object-name>
     <expression>
-    	<table><property>/controls/captain/seatbelt</property><entry><ind>0</ind><dep>-35</dep></entry><entry><ind>1</ind><dep>35</dep></entry></table>
+    	<table><property>controls/captain/seatbelt</property><entry><ind>0</ind><dep>-35</dep></entry><entry><ind>1</ind><dep>35</dep></entry></table>
     </expression>
     <center>
       <x-m>-22.86351</x-m>
@@ -5044,11 +5044,11 @@
       <button>0</button>
       <binding>
         <command>property-toggle</command>
-        <property>/controls/captain/seatbelt</property>
+        <property>controls/captain/seatbelt</property>
       </binding>
       <binding>
         <command>property-toggle</command>
-        <property>/instrumentation/generic/click</property>
+        <property>instrumentation/generic/click</property>
       </binding>
     </action>
   </animation>
@@ -5058,7 +5058,7 @@
     <type>rotate</type>
     <object-name>Switch.019</object-name>
     <expression>
-    	<table><property>/controls/captain/nosmoke</property><entry><ind>0</ind><dep>-35</dep></entry><entry><ind>1</ind><dep>35</dep></entry></table>
+    	<table><property>controls/captain/nosmoke</property><entry><ind>0</ind><dep>-35</dep></entry><entry><ind>1</ind><dep>35</dep></entry></table>
     </expression>
     <center>
       <x-m>-22.86351</x-m>
@@ -5079,11 +5079,11 @@
       <button>0</button>
       <binding>
         <command>property-toggle</command>
-        <property>/controls/captain/nosmoke</property>
+        <property>controls/captain/nosmoke</property>
       </binding>
       <binding>
         <command>property-toggle</command>
-        <property>/instrumentation/generic/click</property>
+        <property>instrumentation/generic/click</property>
       </binding>
     </action>
   </animation>
@@ -5108,7 +5108,7 @@
   <and>
     <property>controls/lighting/instrument-lights</property>
         <greater-than>
-          <property>/systems/electrical/outputs/specific</property>
+          <property>systems/electrical/outputs/specific</property>
           <value>20.0</value>
         </greater-than>
   </and>

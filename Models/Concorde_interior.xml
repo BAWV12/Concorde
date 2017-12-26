@@ -1055,7 +1055,7 @@
         <attitude-serviceable>/instrumentation/attitude-indicator[1]/serviceable</attitude-serviceable>
         <fd-serviceable>/instrumentation/flight-director[1]/serviceable</fd-serviceable>
         <dh-on>/instrumentation/radio-altimeter[1]/decision-height</dh-on>
-        <dh-ft>/instrumentation/radio-altimeter[1]/decision-ft</dh-ft>
+        <dh-ft>/instrumentation/radio-altimeter[1]/dial-decision-ft</dh-ft>
         <radio-ft>/instrumentation/radio-altimeter[1]/indicated-altitude-ft</radio-ft>
         <slip-ball>/instrumentation/slip-skid-ball/indicated-slip-skid</slip-ball>
       </params>
@@ -1191,7 +1191,7 @@
           <attitude-serviceable>/instrumentation/attitude-indicator[0]/serviceable</attitude-serviceable>
           <fd-serviceable>/instrumentation/flight-director[0]/serviceable</fd-serviceable>
           <dh-on>/instrumentation/radio-altimeter[0]/decision-height</dh-on>
-          <dh-ft>/instrumentation/radio-altimeter[0]/decision-ft</dh-ft>
+          <dh-ft>/instrumentation/radio-altimeter[0]/dial-decision-ft</dh-ft>
           <radio-ft>/instrumentation/radio-altimeter[0]/indicated-altitude-ft</radio-ft>
           <slip-ball>/instrumentation/slip-skid-ball/indicated-slip-skid</slip-ball>
         </params>
