@@ -72,7 +72,7 @@
       <binding>
         <command>property-adjust</command>
         <property>instrumentation/nav[2]/frequencies/selected-mhz</property>
-        <step>0.1</step>
+        <step>0.05</step>
         <min>108</min>
         <max>118</max>
         <wrap>false</wrap>
@@ -89,7 +89,7 @@
       <binding>
         <command>property-adjust</command>
         <property>instrumentation/nav[2]/frequencies/selected-mhz</property>
-        <step>-0.1</step>
+        <step>-0.05</step>
         <min>108</min>
         <max>118</max>
         <wrap>false</wrap>
