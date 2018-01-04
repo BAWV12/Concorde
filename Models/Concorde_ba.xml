@@ -207,20 +207,12 @@
 <!-- Separated models -->
 <!-- ================ -->
 
-  <model>
-   <name>Instruments</name>
-   <path>Aircraft/Concorde/Models/Concorde_instruments.xml</path>
-  </model>
 
-  <model>
-   <name>Interior</name>
-   <path>Aircraft/Concorde/Models/Concorde_interior.xml</path>
-  </model>
+
 
 
   <animation>
    <type>range</type>
-   <object-name>Instruments</object-name>
    <object-name>Interior</object-name>
    <min-m>0</min-m>
    <max-m>15</max-m>

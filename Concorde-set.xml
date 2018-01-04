@@ -54,6 +54,13 @@
 
   </model>
 
+  <model>
+   <usage>Interior</usage>
+   <path>Aircraft/Concorde/Models/Concorde_interior.xml</path>
+  </model>
+
+
+
 <!-- compensates the shift of VRP at nose -->
 
   <airport>
