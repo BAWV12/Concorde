@@ -3524,7 +3524,7 @@
   <animation>
     <type>rotate</type>
     <object-name>Switch.042</object-name>
-    <property>sim/rendering/als-secondary-lights/lightspot/lightspot-r[2]</property>
+    <property>/controls/lighting/crew/roof</property>
     <interpolation>
       <entry>
         <ind>0</ind>
@@ -3554,24 +3554,14 @@
    <button>0</button>
    <binding>
     <command>property-toggle</command>
-      <property>sim/rendering/als-secondary-lights/lightspot/lightspot-r[2]</property>
-      <wrap>true</wrap>
-   </binding>
-   <binding>
-    <command>property-toggle</command>
-      <property>sim/rendering/als-secondary-lights/lightspot/lightspot-g[2]</property>
-      <wrap>true</wrap>
-   </binding>
-   <binding>
-    <command>property-toggle</command>
-      <property>sim/rendering/als-secondary-lights/lightspot/lightspot-b[2]</property>
+      <property>/controls/lighting/crew/roof</property>
       <wrap>true</wrap>
    </binding>
 
    <binding>
      <command>nasal</command>
      <script>
-	light=getprop("sim/rendering/als-secondary-lights/lightspot/lightspot-r[2]");
+	light=getprop("/controls/lighting/crew/roof");
 	lantern=getprop("sim/rendering/als-secondary-lights/use-searchlight");
         if (light>0){
 	  setprop("sim/rendering/als-secondary-lights/flash-radius",99);

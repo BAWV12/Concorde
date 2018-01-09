@@ -143,7 +143,9 @@
 
   model.getNode("controls/lighting/external/taxi-turn[0]/on").alias(model.getNode("sim/multiplay/generic/int[16]"));
   model.getNode("controls/lighting/external/taxi-turn[1]/on").alias(model.getNode("sim/multiplay/generic/int[17]"));
+  model.getNode("controls/lighting/crew/roof").alias(model.getNode("sim/multiplay/generic/int[18]"));
 
+  setprop("sim/multiplay/generic/int[19]",1);
 
   model.getNode("orientation/alpha-deg").alias(model.getNode("sim/multiplay/generic/float[0]"));
   model.getNode("systems/brakes/temperature-degc").alias(model.getNode("sim/multiplay/generic/float[1]"));
@@ -258,6 +260,7 @@
    <min-m>0</min-m>
    <max-m>10</max-m>
   </animation>
+
 
 <!-- CAPTAIN -->
 
@@ -1179,12 +1182,7 @@
      <ind>1.0</ind>
      <dep>0.0</dep>
    </entry>
-  </interpolation>  <emission>
-   <red>0.66</red>
-   <green>0.68</green>
-   <blue>0.64</blue>
-   <factor-prop>systems/lighting/level/roof</factor-prop>
-  </emission>
+  </interpolation>
   <axis>
    <x>0</x>
    <y>0</y>
@@ -2651,7 +2649,6 @@
 
  <effect>
    <inherits-from>Aircraft/Concorde/Models/Effects/interior</inherits-from>
-   
    <object-name>Cockpit</object-name>
    <object-name>Cube.001</object-name>
    <object-name>CeilingPanel</object-name>
@@ -2740,7 +2737,7 @@
       <binding>
         <command>nasal</command>
 	  <script>
-		light=getprop("sim/rendering/als-secondary-lights/lightspot/lightspot-r[2]");
+		light=getprop("controls/lighting/crew/roof");
 	  	setprop("sim/rendering/als-secondary-lights/use-searchlight",0);
   	        setprop("sim/rendering/als-secondary-lights/use-flashlight",light);		
 	  </script>
@@ -2805,6 +2802,29 @@
   </emission>
  </animation>
 
+ <animation>
+  <type>material</type>
+  <object-name>flightdeck</object-name>
+  <object-name>Cockpit</object-name>
+  <condition>
+    <or>
+      <and>
+	<property>controls/lighting/crew/roof</property>
+	<not><property>sim/current-view/internal</property></not>
+      </and>
+      <and>
+	<property>controls/lighting/crew/roof</property>
+	<property>sim/multiplay/generic/int[19]</property>
+      </and>
+    </or>
+  </condition>
+  <emission>
+   <red>1</red>
+   <green>1</green>
+   <blue>1</blue>
+  </emission>
+ </animation>
+
 <!-- isolated from a group -->
 
  <animation>
@@ -2848,7 +2868,7 @@
   <condition>
     <and>
 	<greater-than>
-	  <property>sim/rendering/als-secondary-lights/lightspot/lightspot-r[2]</property>
+	  <property>controls/lighting/crew/roof</property>
 	  <value>0</value>
 	</greater-than>
         <greater-than>

@@ -68,7 +68,7 @@
   <object-name>AllSeat</object-name>
   <condition>
     <greater-than>
-	<property>sim/rendering/als-secondary-lights/lightspot/lightspot-r[2]</property>
+	<property>controls/lighting/crew/roof</property>
 	<value>0</value>
     </greater-than>
   </condition>
@@ -77,7 +77,7 @@
    <green>0.68</green>
    <blue>0.64</blue>
 <!--   <factor-prop>systems/lighting/level/roof</factor-prop>-->
-   <factor-prop>sim/rendering/als-secondary-lights/lightspot/lightspot-r[2]</factor-prop>
+   <factor-prop>controls/lighting/crew/roof</factor-prop>
   </emission> 
  </animation> 
 

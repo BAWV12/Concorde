@@ -108,6 +108,7 @@
             <int n="15" alias="/controls/lighting/external/main-landing[1]/on"/>
             <int n="16" alias="/controls/lighting/external/taxi-turn[0]/on"/>
             <int n="17" alias="/controls/lighting/external/taxi-turn[1]/on"/>
+	    <int n="18" alias="/controls/lighting/crew/roof"/>
             <float n="0" alias="/orientation/alpha-deg"/>
             <float n="1" alias="/systems/brakes/temperature-degc"/>
             <float n="2" alias="/gear/gear[4]/position-norm"/>

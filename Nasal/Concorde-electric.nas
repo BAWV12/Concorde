@@ -1309,3 +1309,7 @@ var _instrlight = setlistener("sim/signals/fdm-initialized", func() {
 	removelistener(_instrlight); # run ONCE
 });
 
+var _clight = setlistener("sim/multiplay/generic/int[19]", func() {
+	  setprop("/sim/multiplay/generic/int[19]",0);
+});
+
