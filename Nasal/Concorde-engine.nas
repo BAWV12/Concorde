@@ -861,14 +861,15 @@ Bucket.reverseexport = func {
 
    # only levers 2 and 3 in flight
    else {
-       for( var i=0; i<constantaero.NBENGINES; i=i+1 ) {
-            target = constant.not( reverse );
+       target = constant.not( reverse );
 
-            if( !constantaero.inboardengine( i ) ) {
-                target = constant.FALSE;
+       for( var i=0; i<constantaero.NBENGINES; i=i+1 ) {
+
+            if( i==1 or i==2 ) {
+                me.itself["root-ctrl"][i].getChild("reverser").setValue( target );
+		setprop("controls/engines/flight-reverse",1);
             }
 
-            me.itself["root-ctrl"][i].getChild("reverser").setValue( target );
        }
    }
 }
@@ -933,7 +934,7 @@ Bucket.reverse = func( index ) {
 
    # disarmed by throttle above 10 %.
    if( flightrev ) {
-       if( me.itself["root-ctrl"][index].getChild("throttle").getValue() > constantaero.THROTTLEREV ) {
+       if( me.itself["root-ctrl"][index].getChild("throttle").getValue() > 1.1 ) {
            flightrev = constant.FALSE;
            me.itself["engines-ctrl"].getChild("flight-reverse").setValue( flightrev );
        }
