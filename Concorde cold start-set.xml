@@ -40,19 +40,6 @@
    <path>Aircraft/Concorde/Sounds/Concorde-real-sound.xml</path>
   </sound>
 
-  <submodels>
-   <serviceable type="bool">true</serviceable>
-   <path type="string">Aircraft/Concorde/concorde-submodels.xml</path>
-  </submodels>
-
-  <panel>
-   <path>Aircraft/Concorde/Panels/Concorde-2D-captain.xml</path>
-   <visibility>false</visibility>
-  </panel>
-  <panel_2>
-   <path>Aircraft/Concorde/Panels/Concorde-2D-center.xml</path>
-  </panel_2>
-  
   <model>
    <path>Aircraft/Concorde/Models/Concorde_ba.xml</path>
    <pushback>

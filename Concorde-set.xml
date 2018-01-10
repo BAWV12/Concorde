@@ -55,9 +55,12 @@
   </model>
 
   <model>
+   <object-name>concorde_interior</object-name>
    <usage>Interior</usage>
-   <path>Aircraft/Concorde/Models/Concorde_interior.xml</path>
+   <path>Aircraft/Concorde/Models/Concorde_instruments.xml</path>
   </model>
+
+
 
 
 
