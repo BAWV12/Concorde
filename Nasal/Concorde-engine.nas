@@ -577,7 +577,7 @@ Rating.new = func {
                THROTTLETAKEOFF : 1.0,                         # N2 105.7 % (106.0 in Engines file)
                THROTTLECLIMB : 0.980,                         # N2 105.1 %
                THROTTLECRUISE : 0.967,                        # N2 104.5 % (guess)
-               THROTTLEREVERSEGROUND : 0.433,                 # N2 98 %
+               THROTTLEREVERSEGROUND : 0.933,                 # N2 98 %
 
 
 
@@ -598,8 +598,12 @@ Rating.set_throttle = func( position ) {
    var maxthrottle = constantaero.THROTTLEIDLE;
    var position_new = constantaero.THROTTLEIDLE;
    var monitor = me.dependency["takeoff-monitor"].getValue();
-   speedmach = me.dependency["mach"].getChild("indicated-mach").getValue();
-   n1gov = 2.0;
+   var speedmach = me.dependency["mach"].getChild("indicated-mach").getValue();
+   var n1gov = 2.0;
+   var r1=me.itself["root-ctrl"][0].getChild("reverser").getValue();
+   var r2=me.itself["root-ctrl"][1].getChild("reverser").getValue();
+   var r3=me.itself["root-ctrl"][2].getChild("reverser").getValue();
+   var r4=me.itself["root-ctrl"][3].getChild("reverser").getValue();
   
    # faster to process here
    for( var i = 0; i < constantaero.NBENGINES; i = i+1 ) {
@@ -623,6 +627,10 @@ Rating.set_throttle = func( position ) {
             position_new = maxthrottle;
         }
 
+        if (r1==0 and r2==1 and r3==1 and r4==0 and (i==0 or i==3)) {
+	    position_new = constantaero.THROTTLEIDLE;
+        }
+
         # engine N1 limiter
         if( i == constantaero.ENGINE4 ) {
             position_new = me.enginen1.get_throttle( position_new );
@@ -636,6 +644,7 @@ Rating.set_throttle = func( position ) {
         # last human operation (to detect goaround).
         me.itself["root-ctrl"][i].getChild("throttle-manual").setValue( position );
    }
+
 }
 
 Rating.schedule = func {
@@ -794,7 +803,7 @@ Bucket.new = func {
                TRANSITSEC : 6.0,                                   # reverser transit in 6 s
                BUCKETSEC : 1.0,                                    # refresh rate
 
-               AEROBRAKEDEG : 120.0,                               # guess of force (90 deg is no thrust)
+               AEROBRAKEDEG : 180.0,                               # guess of force (90 deg is no thrust)
                REVERSERDEG : 73.0,
                TAKEOFFDEG : 21.0,
                SUPERSONICDEG : 0.0,
