@@ -5075,16 +5075,104 @@
  <animation>
     <type>material</type>
     <object-name>lightframe.049</object-name>
-    <object-name>lightframe.050</object-name>
-    <object-name>lightframe.051</object-name>
+     <condition>
+       <and>
+         <greater-than>
+           <property>/systems/electrical/outputs/bulb</property>
+           <value>20.0</value>
+         </greater-than>
+         <or>
+	   <property>/controls/lighting/crew/overhead/test</property>
+	   <greater-than>
+             <property>controls/anti-ice/wing/alternate-selector</property>
+             <value>0</value>
+           </greater-than>
+         </or>
+       </and>
+     </condition>
+    <emission>
+      <red>1</red>
+      <green>1</green>
+      <blue>0</blue>
+    </emission>
+ </animation>
+
+ <animation>
+    <type>material</type>
     <object-name>lightframe.046</object-name>
-     <condition><not>
-     <or include="concorde-cond-voltage-bulb.xml">
-      <and>
-       <or include="concorde-cond-test-overhead.xml"/>          <!-- bug -->
-      </and>
-     </or>
-     </not></condition>
+     <condition>
+       <and>
+         <greater-than>
+           <property>/systems/electrical/outputs/bulb</property>
+           <value>20.0</value>
+         </greater-than>
+         <or>
+	   <property>/controls/lighting/crew/overhead/test</property>
+	   <equals>
+             <property>controls/anti-ice/wing/alternate-selector</property>
+             <value>1</value>
+           </equals>
+	   <equals>
+             <property>controls/anti-ice/wing/alternate-selector</property>
+             <value>2</value>
+           </equals>
+         </or>
+       </and>
+     </condition>
+    <emission>
+      <red>1</red>
+      <green>1</green>
+      <blue>0</blue>
+    </emission>
+ </animation>
+
+ <animation>
+    <type>material</type>
+    <object-name>lightframe.050</object-name>
+     <condition>
+       <and>
+         <greater-than>
+           <property>/systems/electrical/outputs/bulb</property>
+           <value>20.0</value>
+         </greater-than>
+         <or>
+	   <property>/controls/lighting/crew/overhead/test</property>
+	   <greater-than>
+             <property>controls/anti-ice/wing/main-selector</property>
+             <value>0</value>
+           </greater-than>
+         </or>
+       </and>
+     </condition>
+    <emission>
+      <red>1</red>
+      <green>1</green>
+      <blue>0</blue>
+    </emission>
+ </animation>
+
+ <animation>
+    <type>material</type>
+    <object-name>lightframe.051</object-name>
+     <condition>
+       <and>
+         <greater-than>
+           <property>/systems/electrical/outputs/bulb</property>
+           <value>20.0</value>
+         </greater-than>
+         <or>
+	   <property>/controls/lighting/crew/overhead/test</property>
+	   <equals>
+             <property>controls/anti-ice/wing/main-selector</property>
+             <value>1</value>
+           </equals>
+	   <equals>
+             <property>controls/anti-ice/wing/main-selector</property>
+             <value>2</value>
+           </equals>
+         </or>
+       </and>
+     </condition>
     <emission>
       <red>1</red>
       <green>1</green>
