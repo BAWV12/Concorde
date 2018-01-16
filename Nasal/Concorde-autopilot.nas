@@ -48,7 +48,7 @@ Autopilot.new = func {
                OSCTRACKDEG : 0.5,                             # gap between track heading and prediction filter, before oscillations
                OSCNAVDEG : 0.5,                               # gap between nav hold and prediction filter, before oscillations
 
-               WPTNM : 4.0,                                   # distance to swap to next waypoint
+               WPTNM : 0.5,                                   # distance to swap to next waypoint original 4.0
                VORNM : 3.0,                                   # distance to inhibate VOR
 
                GOAROUNDDEG : 15.0,
@@ -281,6 +281,15 @@ Autopilot.lockroll = func {
 # avoid strong roll near a waypoint
 Autopilot.lockwaypointroll = func {
     var distancenm = me.itself["waypoint"][0].getChild("dist").getValue();
+
+  dist=getprop("/instrumentation/ins[0]/computed/ground-speed-fps")/1.687/100-1.5;
+  if (dist<1){
+    dist=1;
+  };
+
+  me.WPTNM=dist;
+
+
 
     # next waypoint
     if( distancenm != nil ) {
@@ -2517,12 +2526,6 @@ setlistener("/controls/autoflight/altitude", func() {
   }
 });
 
-#setlistener("/controls/autoflight/vertical", func() {
-#  mode2=getprop("/controls/autoflight/vertical");
-#  if (mode2=="altitude-acquire"){
-#    setprop("/autopilot/settings/vertical-speed-fpm",800);
-#  }
-#});
 
 
 
