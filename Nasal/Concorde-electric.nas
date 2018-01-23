@@ -841,7 +841,7 @@ LandingLight.new = func {
                ERRORNORM : 0.1,                                # Nasal interpolate may not reach 1.0
                RETRACTNORM : 0.0,
 
-               MAXKT : 365.0                                   # speed of automatic blowback
+               MAXKT : 270.0                                   # speed of automatic blowback
          };
 
    obj.init();
