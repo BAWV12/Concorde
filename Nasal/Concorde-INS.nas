@@ -313,11 +313,17 @@ Inertial.display_waypoint = func( i, selector, aligned ) {
 
 		   dist=value;
 		   gspd = me.itself["root"][i].getNode("computed/ground-speed-fps").getValue()/1.687;
-		   h=math.floor(dist/gspd);
-		   m=(dist/gspd-h)*0.6;
-		   value_str=sprintf("%.2f",h+m);
-
-
+		   h=(dist/gspd);
+		   hh=math.floor(h);
+		   m=(h-hh)*60;
+ 		   mm=math.floor(m);
+		   s=(m-mm)*60;
+		   
+		   if (dist/gspd>0.16666){
+		   	value_str=sprintf("%.2f",hh+mm/100);
+		   }else{
+			value_str=sprintf("%.2f",mm+s/100);
+		   };
 
                    # replace 99:59 by 99.59, because the right display is a double.
                    # value_str = node.getChild("eta").getValue();
