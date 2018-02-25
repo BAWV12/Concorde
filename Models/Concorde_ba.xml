@@ -3184,7 +3184,7 @@
   <name>sonicboom</name>
   <path>Aircraft/Concorde/Models/Effects/cone/cone.xml</path>
   <offsets>
-			<x-m>-25</x-m>
+			<x-m>-19</x-m>
 			<y-m>0</y-m>
 			<z-m>1</z-m>
 			<pitch-deg>0</pitch-deg>
