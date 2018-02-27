@@ -145,7 +145,7 @@
   model.getNode("controls/lighting/external/taxi-turn[1]/on").alias(model.getNode("sim/multiplay/generic/int[17]"));
   model.getNode("controls/lighting/crew/roof").alias(model.getNode("sim/multiplay/generic/int[18]"));
 
-  setprop("sim/multiplay/generic/int[19]",1);
+<!--  setprop("sim/multiplay/generic/int[19]",1); -->
 
   model.getNode("orientation/alpha-deg").alias(model.getNode("sim/multiplay/generic/float[0]"));
   model.getNode("systems/brakes/temperature-degc").alias(model.getNode("sim/multiplay/generic/float[1]"));
@@ -2814,7 +2814,7 @@
       </and>
       <and>
 	<property>controls/lighting/crew/roof</property>
-	<property>sim/multiplay/generic/int[19]</property>
+<!--	<property>sim/multiplay/generic/int[19]</property> -->
       </and>
     </or>
   </condition>
