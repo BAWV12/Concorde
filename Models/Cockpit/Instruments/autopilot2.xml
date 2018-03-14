@@ -1323,6 +1323,24 @@
        <value>gs1-hold</value>
       </equals>
       <not include="concorde-cond-land.xml"/>
+
+      <greater-than>
+             <property>instrumentation/nav[0]/gs-needle-deflection-norm</property>
+             <value>-0.2</value>
+      </greater-than>
+      <less-than>
+             <property>instrumentation/nav[0]/gs-needle-deflection-norm</property>
+             <value>0.2</value>
+      </less-than>
+
+      <not>
+      <equals>
+             <property>instrumentation/nav[0]/gs-needle-deflection-norm</property>
+             <value>0</value>
+      </equals>
+      </not>
+
+
      </and>
     </condition>
     <emission>
@@ -1343,6 +1361,24 @@
        <value>gs1-hold</value>
       </equals>
       <not include="concorde-cond-land.xml"/>
+
+      <greater-than>
+             <property>instrumentation/nav[0]/gs-needle-deflection-norm</property>
+             <value>-0.2</value>
+      </greater-than>
+      <less-than>
+             <property>instrumentation/nav[0]/gs-needle-deflection-norm</property>
+             <value>0.2</value>
+      </less-than>
+
+      <not>
+      <equals>
+             <property>instrumentation/nav[0]/gs-needle-deflection-norm</property>
+             <value>0</value>
+      </equals>
+      </not>
+
+
      </and>
 </not>
      
@@ -1360,16 +1396,27 @@
   <animation>
     <type>material</type>
     <object-name>GLAquire</object-name>
+
     <condition>
-<not>
-     <or include="concorde-cond-glideslope.xml">
-      <not-equals>
+     <and include="concorde-cond-glideslope.xml">
+      <equals>
        <property>/controls/autoflight/altitude</property>
        <value>gs1-hold</value>
-      </not-equals>
-     </or>
-</not>
+      </equals>
+
+      <or>
+        <greater-than>
+             <property>/instrumentation/nav[0]/gs-needle-deflection-norm</property>
+             <value>0.2</value>
+        </greater-than>
+        <less-than>
+             <property>/instrumentation/nav[0]/gs-needle-deflection-norm</property>
+             <value>-0.2</value>
+        </less-than>
+      </or>
+     </and>
     </condition>
+
     <emission>
       <red>0.5</red>
       <green>0.5</green>
@@ -1778,7 +1825,10 @@
       <repeatable>false</repeatable>
       <binding>
         <command>nasal</command>
-        <script>globals.Concorde.autopilotsystem.apglideexport();</script>
+        <script>
+		if (getprop("/instrumentation/nav[0]/gs-needle-deflection-norm")!=0){
+		globals.Concorde.autopilotsystem.apglideexport();}
+	</script>
       </binding>
       <binding>
         <command>property-toggle</command>

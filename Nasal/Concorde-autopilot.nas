@@ -1529,10 +1529,21 @@ Autopilot.modeglide = func {
 Autopilot.is_lock_glide = func {
    var altitudemode = me.itself["locks"].getChild("altitude").getValue();
    var result = constant.FALSE;
+   var ndefl = getprop("instrumentation/nav[0]/gs-needle-deflection-norm");
 
-   if( altitudemode == "gs1-hold" ) {
+#   if( altitudemode == "gs1-hold" and (ndefl<-0.2 or ndefl>0.2 ) ) {
+#       me.verticalspeed(0);
+#   }
+
+
+   if( altitudemode == "gs1-hold" and ndefl>-0.2 and ndefl<0.2  ) {
        result = constant.TRUE;
    }
+
+#   if( altitudemode == "gs1-hold") {
+#       result = constant.TRUE;
+#   }
+
 
    return result;
 }
@@ -1556,7 +1567,7 @@ Autopilot.is_glide = func {
    var altitudemode = me.itself["autoflight"].getChild("altitude").getValue();
    var result = constant.FALSE;
 
-   if( altitudemode == "gs1-hold" ) {
+   if( altitudemode == "gs1-hold") {
        result = constant.TRUE;
    }
 

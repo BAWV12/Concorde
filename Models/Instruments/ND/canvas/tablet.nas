@@ -60,3 +60,5 @@ var _list = setlistener("sim/signals/fdm-initialized", func() {
 	
 	removelistener(_list); # run ONCE
 });
+
+
