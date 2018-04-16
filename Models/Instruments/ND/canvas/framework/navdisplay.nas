@@ -25,7 +25,7 @@ canvas.NavDisplay.get_nav_path = func (type, idx) {
     return sprintf(path, name, idx);
 };
 
-canvas.NavDisplay.newMFD = func(canvas_group, parent=nil, nd_options=nil, update_time=0.05)
+canvas.NavDisplay.newMFD = func(canvas_group, parent=nil, nd_options=nil, update_time=0.1)
 {
     if (me.inited) die("MFD already was added to scene");
     me.range_dependant_layers = [];

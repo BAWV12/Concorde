@@ -801,6 +801,12 @@ Autopilot.datumapexport = func( sign ) {
            elsif( me.is_lock_speed_pitch() ) {
                targetkt = me.itself["settings"].getChild("target-speed-kt").getValue();
                targetkt = targetkt + value;
+
+	       # safety minimum speed
+   	       if (targetkt<170) {
+                 targetkt=170
+               };
+
                me.autothrottlesystem.speed(targetkt);
            }
            elsif( me.is_lock_mach_pitch() ) {
@@ -975,6 +981,11 @@ Autopilot.targetwind = func {
            targetkt = targetkt + offsetkt;
        }
    }
+
+   # safety minimum speed
+   if (targetkt<170) {
+     targetkt=170
+   };
 
    # avoid infinite gliding (too much ground effect ?)
    me.autothrottlesystem.speed(targetkt);
