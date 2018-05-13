@@ -86,7 +86,13 @@
                 <signal>
                     <type>bool</type><property type="string">environment/contrail</property>
                 </signal>
+
+                <signal>
+                    <type>bool</type><property type="string">gear/gear[4]/tyre-smoke</property>
+                </signal>
+                <signal>
+                    <type>bool</type><property type="string">gear/gear[2]/tyre-smoke</property>
+                </signal>
             </signals>
     </config>
-
 </PropertyList>
