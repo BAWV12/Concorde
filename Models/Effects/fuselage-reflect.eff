@@ -16,9 +16,9 @@
         <reflection-correction type="float">-0.05</reflection-correction>
         <lightmap-enabled type="int">1</lightmap-enabled>
         <lightmap-multi type="int">1</lightmap-multi>
-        <lightmap-factor type="float" n="0"><use>controls/lighting/external/main-landing[0]/on</use></lightmap-factor>
+        <lightmap-factor type="float" n="0"><use>controls/lighting/external/main-landing[0]/on1</use></lightmap-factor>
         <lightmap-color type="vec3d" n="0">1 1 1</lightmap-color>
-        <lightmap-factor type="float" n="1"><use>controls/lighting/external/main-landing[1]/on</use></lightmap-factor>
+        <lightmap-factor type="float" n="1"><use>controls/lighting/external/main-landing[1]/on1</use></lightmap-factor>
         <lightmap-color type="vec3d" n="1">1 1 1</lightmap-color>
         <lightmap-factor type="float" n="2">0.0</lightmap-factor>
         <lightmap-color type="vec3d" n="2">0 0 0</lightmap-color>

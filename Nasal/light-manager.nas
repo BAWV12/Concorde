@@ -30,6 +30,9 @@ var light_manager = {
     init: func {
         # define your lights here
 
+	setprop("controls/lighting/external/main-landing[0]/on1",0);
+	setprop("controls/lighting/external/main-landing[1]/on1",0);
+
 	setprop("sim/rendering/als-secondary-lights/flash-radius",13);
 
 	setprop("sim/rendering/als-secondary-lights/lightspot/eyerel-x-m",-0.7);
@@ -175,7 +178,35 @@ var light_manager = {
 
 };
 
-setlistener("/sim/signals/fdm-initialized", func {
+setprop("controls/lighting/external/main-landing[0]/on1",0);
+setprop("controls/lighting/external/main-landing[1]/on1",0);
 
+setlistener("/sim/signals/fdm-initialized", func {
     light_manager.init();
 });
+
+
+setlistener("controls/lighting/external/main-landing[0]/norm", func {
+    mln=getprop("controls/lighting/external/main-landing[0]/norm");
+    mlo=getprop("controls/lighting/external/main-landing[0]/on");
+    if (mln>0.9 and mlo==1) {setprop("controls/lighting/external/main-landing[0]/on1",1)} else {setprop("controls/lighting/external/main-landing[0]/on1",0);};
+});
+setlistener("controls/lighting/external/main-landing[1]/norm", func {
+    mln=getprop("controls/lighting/external/main-landing[1]/norm");
+    mlo=getprop("controls/lighting/external/main-landing[1]/on");
+    if (mln>0.9 and mlo==1) {setprop("controls/lighting/external/main-landing[1]/on1",1)} else {setprop("controls/lighting/external/main-landing[1]/on1",0);};
+});
+
+setlistener("controls/lighting/external/main-landing[0]/on", func {
+    mln=getprop("controls/lighting/external/main-landing[0]/norm");
+    mlo=getprop("controls/lighting/external/main-landing[0]/on");
+    if (mln>0.9 and mlo==1) {setprop("controls/lighting/external/main-landing[0]/on1",1)} else {setprop("controls/lighting/external/main-landing[0]/on1",0);};
+});
+setlistener("controls/lighting/external/main-landing[1]/on", func {
+    mln=getprop("controls/lighting/external/main-landing[1]/norm");
+    mlo=getprop("controls/lighting/external/main-landing[1]/on");
+    if (mln>0.9 and mlo==1) {setprop("controls/lighting/external/main-landing[1]/on1",1)} else {setprop("controls/lighting/external/main-landing[1]/on1",0);};
+});
+
+
+
