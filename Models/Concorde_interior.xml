@@ -527,6 +527,9 @@
         <altitude>instrumentation/altimeter[1]/indicated-altitude-ft</altitude>
         <setting-inhg>instrumentation/altimeter-adc[1]/setting-inhg</setting-inhg>
         <setting-hpa>instrumentation/altimeter-adc[1]/setting-hpa</setting-hpa>
+    	<failure-flag>/instrumentation/altimeter[1]/warning-flag</failure-flag>
+    	<serviceable>/instrumentation/altimeter[1]/serviceable</serviceable>
+    	<standby-ctrl>/instrumentation/altimeter[1]/standby</standby-ctrl>
       </params>
     </overlay>
     <offsets>
@@ -1161,6 +1164,9 @@
         <altitude>instrumentation/altimeter[0]/indicated-altitude-ft</altitude>
         <setting-inhg>instrumentation/altimeter-adc[0]/setting-inhg</setting-inhg>
         <setting-hpa>instrumentation/altimeter-adc[0]/setting-hpa</setting-hpa>
+    	<failure-flag>/instrumentation/altimeter[0]/warning-flag</failure-flag>
+    	<serviceable>/instrumentation/altimeter[0]/serviceable</serviceable>
+    	<standby-ctrl>/instrumentation/altimeter[0]/standby</standby-ctrl>
       </params>
     </overlay>
     <offsets>

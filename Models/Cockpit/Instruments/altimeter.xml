@@ -511,6 +511,43 @@
       <z>0</z>
     </axis>
   </animation>
+
+
+ <!-- Stand By switch -->
+
+  <animation>
+    <type>rotate</type>
+    <object-name>stdbsw</object-name>
+    <property alias="/params/standby-ctrl"/>
+    <factor>90</factor>
+    <center>
+      <x-m>0.010075</x-m>
+      <y-m>0.029982</y-m>
+      <z-m>-0.027872</z-m>
+    </center>
+    <axis>
+      <x>1</x>
+      <y>0</y>
+      <z>0</z>
+    </axis>
+  </animation>
+
+  <animation>
+    <type>pick</type>
+    <object-name>stdbsw</object-name>
+    <action>
+      <name>StandBy switch</name>
+      <button>0</button>
+      <repeatable>true</repeatable>
+   	<binding>
+    		<command>property-toggle</command>
+    		<property alias="/params/standby-ctrl"/>
+   	</binding>
+    </action>
+  </animation>
+
+
+
   <!-- Adjustment wheel -->
   <animation>
     <type>pick</type>

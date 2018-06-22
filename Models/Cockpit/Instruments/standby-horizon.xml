@@ -27,27 +27,15 @@
     <type>select</type>
     <object-name>FF</object-name>
     <condition>
-      <or>
-	<not><property alias="/params/attitude-serviceable"/></not>
         <less-than>
-          <property>/systems/electrical/outputs/specific</property>
-          <value>20.0</value>
+          <value>2</value>
+          <value>1</value>
         </less-than>
-      </or>
     </condition>    
   </animation>
 
-  <animation>
-    <condition><not>
-      <or>
-	<not><property alias="/params/attitude-serviceable"/></not>
-        <less-than>
-          <property>/systems/electrical/outputs/specific</property>
-          <value>20.0</value>
-        </less-than>
-      </or>
-    </not></condition> 
 
+  <animation>
     <type>rotate</type>
     <object-name>Horizon</object-name>
     <property alias="/params/roll"/>
@@ -79,17 +67,8 @@
       <z>0</z>
     </axis>
   </animation>
-  <animation>
-    <condition><not>
-      <or>
-	<not><property alias="/params/attitude-serviceable"/></not>
-        <less-than>
-          <property>/systems/electrical/outputs/specific</property>
-          <value>20.0</value>
-        </less-than>
-      </or>
-    </not></condition>
 
+  <animation>
     <type>textranslate</type>
     <object-name>Horizon</object-name>
     <property alias="/params/pitch"/>

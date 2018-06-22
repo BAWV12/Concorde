@@ -1547,7 +1547,7 @@ Autopilot.is_lock_glide = func {
 #   }
 
 
-   if( altitudemode == "gs1-hold" and ndefl>-0.2 and ndefl<0.2  ) {
+   if( altitudemode == "gs1-hold" and ndefl>-0.05 and ndefl<0.2  ) {
        result = constant.TRUE;
    }
 
