@@ -2639,12 +2639,7 @@
 
  <effect>
    <inherits-from>Aircraft/Concorde/Models/Effects/panel</inherits-from>
-   <object-name>MainPanel_1</object-name>
- </effect>
-
- <effect>
-   <inherits-from>Aircraft/Concorde/Models/Effects/ap_panel</inherits-from>
-   <object-name>UpperPanel</object-name>
+   <object-name>Cockpit</object-name>
  </effect>
 
  <effect>

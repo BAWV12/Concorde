@@ -519,7 +519,7 @@
     <type>rotate</type>
     <object-name>stdbsw</object-name>
     <property alias="/params/standby-ctrl"/>
-    <factor>90</factor>
+    <factor>160</factor>
     <center>
       <x-m>0.010075</x-m>
       <y-m>0.029982</y-m>

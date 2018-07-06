@@ -249,16 +249,6 @@
   </model>
 
   <model>
-    <name>Copilot INS Source Label</name>
-    <path>Aircraft/Concorde/Models/Cockpit/Instruments/ins-label.xml</path>
-    <offsets>
-      <x-m>-23.825</x-m>
-      <y-m>0.66</y-m>
-      <z-m>1.194</z-m>
-      <pitch-deg>-10</pitch-deg>
-    </offsets>
-  </model>
-  <model>
     <name>Copilot INS Source</name>
     <path>Aircraft/Concorde/Models/Cockpit/Instruments/ins-switch.xml</path>
     <overlay>
@@ -270,16 +260,6 @@
       <x-m>-23.825</x-m>
       <y-m>0.66</y-m>
       <z-m>1.194</z-m>
-      <pitch-deg>-10</pitch-deg>
-    </offsets>
-  </model>
-  <model>
-    <name>Copilot COMP Source Label</name>
-    <path>Aircraft/Concorde/Models/Cockpit/Instruments/comp-label.xml</path>
-    <offsets>
-      <x-m>-23.821</x-m>
-      <y-m>0.66</y-m>
-      <z-m>1.1753</z-m>
       <pitch-deg>-10</pitch-deg>
     </offsets>
   </model>
@@ -299,16 +279,6 @@
     </offsets>
   </model>
   <model>
-    <name>Copilot DEV Switch Label</name>
-    <path>Aircraft/Concorde/Models/Cockpit/Instruments/dev-label.xml</path>
-    <offsets>
-      <x-m>-23.817</x-m>
-      <y-m>0.66</y-m>
-      <z-m>1.1564</z-m>
-      <pitch-deg>-10</pitch-deg>
-    </offsets>
-  </model>
-  <model>
     <name>Copilot DEV Source</name>
     <path>Aircraft/Concorde/Models/Cockpit/Instruments/dev-switch.xml</path>
     <overlay>
@@ -320,16 +290,6 @@
       <x-m>-23.817</x-m>
       <y-m>0.66</y-m>
       <z-m>1.1564</z-m>
-      <pitch-deg>-10</pitch-deg>
-    </offsets>
-  </model>
-  <model>
-    <name>Copilot NAV Source Label</name>
-    <path>Aircraft/Concorde/Models/Cockpit/Instruments/nav-label.xml</path>
-    <offsets>
-      <x-m>-23.814</x-m>
-      <y-m>0.66</y-m>
-      <z-m>1.1375</z-m>
       <pitch-deg>-10</pitch-deg>
     </offsets>
   </model>
@@ -696,16 +656,6 @@
 
 
   <model>
-    <name>Captain FD2 Switch Label</name>
-    <path>Aircraft/Concorde/Models/Cockpit/Instruments/flight-director-label.xml</path>
-    <offsets>
-      <x-m>-23.8003</x-m>
-      <y-m>-0.365</y-m>
-      <z-m>1.0471</z-m>
-      <pitch-deg>-10</pitch-deg>
-    </offsets>
-  </model>
-  <model>
     <name>Captain FD2 Source</name>
     <path>Aircraft/Concorde/Models/Cockpit/Instruments/flight-director-switch.xml</path>
     <offsets>
@@ -812,16 +762,6 @@
 
 
   <model>
-    <name>Captain INS Source Label</name>
-    <path>Aircraft/Concorde/Models/Cockpit/Instruments/ins-label.xml</path>
-    <offsets>
-      <x-m>-23.825</x-m>
-      <y-m>-0.635</y-m>
-      <z-m>1.196</z-m>
-      <pitch-deg>-10</pitch-deg>
-    </offsets>
-  </model>
-  <model>
     <name>Captain INS Source</name>
     <path>Aircraft/Concorde/Models/Cockpit/Instruments/ins-switch.xml</path>
     <overlay>
@@ -836,16 +776,7 @@
       <pitch-deg>-10</pitch-deg>
     </offsets>
   </model>
-  <model>
-    <name>Captain COMP Source Label</name>
-    <path>Aircraft/Concorde/Models/Cockpit/Instruments/comp-label.xml</path>
-    <offsets>
-      <x-m>-23.821</x-m>
-      <y-m>-0.635</y-m>
-      <z-m>1.179</z-m>
-      <pitch-deg>-10</pitch-deg>
-    </offsets>
-  </model>
+
   <model>
     <name>Captain COMP Source</name>
     <path>Aircraft/Concorde/Models/Cockpit/Instruments/comp-switch.xml</path>
@@ -861,16 +792,7 @@
       <pitch-deg>-10</pitch-deg>
     </offsets>
   </model>
-  <model>
-    <name>Captain DEV Switch Label</name>
-    <path>Aircraft/Concorde/Models/Cockpit/Instruments/dev-label.xml</path>
-    <offsets>
-      <x-m>-23.817</x-m>
-      <y-m>-0.635</y-m>
-      <z-m>1.160</z-m>
-      <pitch-deg>-10</pitch-deg>
-    </offsets>
-  </model>
+
   <model>
     <name>Captain DEV Source</name>
     <path>Aircraft/Concorde/Models/Cockpit/Instruments/dev-switch.xml</path>
@@ -886,16 +808,7 @@
       <pitch-deg>-10</pitch-deg>
     </offsets>
   </model>
-  <model>
-    <name>Captain NAV Source Label</name>
-    <path>Aircraft/Concorde/Models/Cockpit/Instruments/nav-label.xml</path>
-    <offsets>
-      <x-m>-23.813</x-m>
-      <y-m>-0.635</y-m>
-      <z-m>1.141</z-m>
-      <pitch-deg>-10</pitch-deg>
-    </offsets>
-  </model>
+
   <model>
     <name>Captain NAV Source</name>
     <path>Aircraft/Concorde/Models/Cockpit/Instruments/nav-switch.xml</path>
