@@ -235,7 +235,7 @@
   <animation>
    <name>flightdeck</name>
 
-   <object-name>Cube.001</object-name>
+   <object-name>Cockpit</object-name>
    <object-name>Pillar</object-name>
    <object-name>CeilingEdge</object-name>
 
@@ -259,6 +259,13 @@
    <object-name>flightdeck</object-name>
    <min-m>0</min-m>
    <max-m>10</max-m>
+  </animation>
+
+  <animation>
+   <type>range</type>
+   <object-name>Cockpit_dummy</object-name>
+   <min-m>9.99</min-m>
+   <max-m>100</max-m>
   </animation>
 
 
