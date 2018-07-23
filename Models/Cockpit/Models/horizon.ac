@@ -1,6 +1,6 @@
 AC3Db
 MATERIAL "Horizon2.015" rgb 0.800 0.800 0.800  amb 0.400 0.400 0.400  emis 0.100 0.100 0.000  spec 0.000 0.000 0.000  shi 32 trans 0.000
-MATERIAL "YellowOff.001" rgb 0.800 0.800 0.800  amb 0.400 0.400 0.400  emis 0.000 0.000 0.000  spec 0.000 0.000 0.000  shi 32 trans 0.000
+MATERIAL "YellowOff.001" rgb 0.800 0.800 0.800  amb 0.400 0.400 0.400  emis 0.133 0.133 0.133  spec 0.000 0.000 0.000  shi 32 trans 0.000
 MATERIAL "Material.002" rgb 0.800 0.800 0.800  amb 0.400 0.400 0.400  emis 0.000 0.000 0.000  spec 0.000 0.000 0.000  shi 32 trans 0.000
 MATERIAL "Material.001" rgb 0.800 0.800 0.800  amb 0.400 0.400 0.400  emis 0.000 0.000 0.000  spec 0.000 0.000 0.000  shi 32 trans 0.000
 MATERIAL "Horizon2.016" rgb 0.800 0.800 0.800  amb 0.400 0.400 0.400  emis 0.100 0.100 0.100  spec 0.000 0.000 0.000  shi 32 trans 0.000

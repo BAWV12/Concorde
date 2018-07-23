@@ -14,9 +14,39 @@
   </rating>
   <aircraft-version>2.14</aircraft-version>
 
-  <startup>
-   <splash-texture>Aircraft/Concorde/Concorde-splash.png</splash-texture>            <!-- EGLL 27R -->
-  </startup>
+  <previews>
+	<preview>
+		<type>exterior</type>
+		<path>Concorde-preview0.png</path>
+		<splash type="bool">true</splash>
+	</preview>
+	<preview>
+		<type>exterior</type>
+		<splash type="bool">true</splash>
+		<path>Concorde-preview1.png</path>
+	</preview>
+	<preview>
+		<type>exterior</type>
+		<splash type="bool">true</splash>
+		<path>Concorde-preview2.png</path>
+	</preview>
+	<preview>
+		<type>exterior</type>
+		<splash type="bool">true</splash>
+		<path>Concorde-preview3.png</path>
+	</preview>
+	<preview>
+		<type>exterior</type>
+		<splash type="bool">true</splash>
+		<path>Concorde-preview4.png</path>
+	</preview>
+
+	<preview>
+		<type>exterior</type>
+		<splash type="bool">true</splash>
+		<path>Concorde-preview5.png</path>
+	</preview>
+  </previews>
 
   <flight-model>jsb</flight-model>
   <aero>Concorde</aero>
