@@ -14,6 +14,16 @@
   </rating>
   <aircraft-version>2.14</aircraft-version>
 
+  <tags>
+   <tag>BAC/Aerospatiale</tag>
+   <tag>passenger</tag>
+   <tag>supersonic</tag>
+   <tag>turbojet</tag>
+   <tag>four-engine</tag>
+   <tag>afterburner</tag>
+   <tag>1970s,1980s,1990s</tag>
+  </tags>	 
+	 
   <previews>
 	<preview>
 		<type>exterior</type>
