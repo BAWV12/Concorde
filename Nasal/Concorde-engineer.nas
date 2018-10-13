@@ -1760,3 +1760,7 @@ Navigation.estimatefuelkg = func( id, distnm ) {
 
    return fuelkg;
 }
+
+
+setprop("instrumentation/transponder/id-code","5732");
+
