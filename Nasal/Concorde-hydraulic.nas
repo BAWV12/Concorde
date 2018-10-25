@@ -910,7 +910,7 @@ Gear.new = func {
 
                damper : PitchDamper.new(),
 
-               STEERINGKT : 15,
+               STEERINGKT : 25,
 
                GEARSEC : 5.0
          };

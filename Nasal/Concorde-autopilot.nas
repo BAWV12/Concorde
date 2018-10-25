@@ -298,6 +298,15 @@ Autopilot.lockwaypointroll = func {
         # avoids strong roll
         if( distancenm < me.WPTNM ) {
 
+
+		for( var i = 0; i < 3; i = i+1 ) {
+                	cwpt=getprop("/instrumentation/ins[" ~ i ~ "]/control/waypoint");
+			if (cwpt>1){
+				setprop("/instrumentation/ins[" ~ i ~ "]/control/waypoint",cwpt-1);
+			};
+		};
+
+
             # pop waypoint, enough soon to avoid banking on release
             # into the opposite direction of the next waypoint
             var rolldeg =  me.noinstrument["roll"].getValue();

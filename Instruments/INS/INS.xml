@@ -1334,4 +1334,28 @@
   </action>
  </animation>
 
+
+ <animation>
+  <type>pick</type>
+  <object-name>FromToIndicator</object-name>
+  <action>
+   <button>0</button>
+   <binding>
+        <command>nasal</command>
+        <script>
+		wptn=getprop("/autopilot/route-manager/wp/id");
+		wptd=math.round(getprop("/autopilot/route-manager/wp/dist"));
+		eta=getprop("/autopilot/route-manager/wp/eta");
+		nwptn=getprop("/autopilot/route-manager/wp[1]/id");
+		nwptd=math.round(getprop("/autopilot/route-manager/wp[1]/dist"));
+		etan=getprop("/autopilot/route-manager/wp[1]/eta");
+		lwptd=math.round(getprop("/autopilot/route-manager/wp-last/dist"));
+		msg="Direct to waypoint "~wptn~", distance "~wptd~", ETA "~eta~", next waypoint "~nwptn~", distance "~nwptd~", ETA "~etan~", "~lwptd~" nm to destination.";
+		setprop("/sim/messages/copilot", msg);
+	</script>
+   </binding>
+  </action>
+ </animation>
+
+
 </PropertyList>
