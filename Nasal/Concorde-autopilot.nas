@@ -299,12 +299,6 @@ Autopilot.lockwaypointroll = func {
         if( distancenm < me.WPTNM ) {
 
 
-		for( var i = 0; i < 3; i = i+1 ) {
-                	cwpt=getprop("/instrumentation/ins[" ~ i ~ "]/control/waypoint");
-			if (cwpt>1){
-				setprop("/instrumentation/ins[" ~ i ~ "]/control/waypoint",cwpt-1);
-			};
-		};
 
 
             # pop waypoint, enough soon to avoid banking on release
@@ -314,6 +308,17 @@ Autopilot.lockwaypointroll = func {
                 if( me.is_lock_true() ) {
                     me.itself["route-manager"].getChild("input").setValue("@DELETE0");
                     me.resetprediction( "true-heading-hold1" );
+
+		for( var i = 0; i < 3; i = i+1 ) {
+                	cwpt=getprop("/instrumentation/ins[" ~ i ~ "]/control/waypoint");
+			if (cwpt>1){
+				setprop("/instrumentation/ins[" ~ i ~ "]/control/waypoint",cwpt-1);
+			};
+		};
+
+
+
+
                 }
             }
         }
