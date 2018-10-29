@@ -1637,7 +1637,14 @@
       <repeatable>false</repeatable>
       <binding>
         <command>nasal</command>
-        <script>globals.Concorde.autopilotsystem.apinsexport();</script>
+        <script>
+		wptcnt=getprop("/autopilot/route-manager/route/num");
+		rtmstate=getprop("/autopilot/route-manager/active");
+		if (wptcnt>0 and rtmstate==0){
+			setprop("/autopilot/route-manager/active",1);
+		};
+		globals.Concorde.autopilotsystem.apinsexport();
+	</script>
       </binding>
       <binding>
         <command>property-toggle</command>
@@ -1654,7 +1661,10 @@
       <repeatable>false</repeatable>
       <binding>
         <command>nasal</command>
-        <script>globals.Concorde.autopilotsystem.apheadingexport();</script>
+        <script>
+		setprop("/autopilot/route-manager/active",0);		
+		globals.Concorde.autopilotsystem.apheadingexport();
+	</script>
       </binding>
       <binding>
         <command>property-toggle</command>
@@ -1671,7 +1681,10 @@
       <repeatable>false</repeatable>
       <binding>
         <command>nasal</command>
-        <script>globals.Concorde.autopilotsystem.apheadingholdexport();</script>
+        <script>
+		setprop("/autopilot/route-manager/active",0);		
+		globals.Concorde.autopilotsystem.apheadingholdexport();
+	</script>
       </binding>
       <binding>
         <command>property-toggle</command>
@@ -1705,7 +1718,10 @@
       <repeatable>false</repeatable>
       <binding>
         <command>nasal</command>
-        <script>globals.Concorde.autopilotsystem.apvorlocexport();</script>
+        <script>
+		setprop("/autopilot/route-manager/active",0);		
+		globals.Concorde.autopilotsystem.apvorlocexport();
+	</script>
       </binding>
       <binding>
         <command>property-toggle</command>
