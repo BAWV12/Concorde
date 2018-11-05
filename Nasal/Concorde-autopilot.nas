@@ -83,6 +83,9 @@ Autopilot.init = func {
 
    me.reinitexport();
    me.apdiscexport();
+
+   setprop("/sim/messages/copilot", "");
+
 }
 
 Autopilot.reinitexport = func {
@@ -298,6 +301,12 @@ Autopilot.lockwaypointroll = func {
         # avoids strong roll
         if( distancenm < me.WPTNM ) {
 
+		wptn=getprop("/autopilot/route-manager/wp/id");
+		nwptn=getprop("/autopilot/route-manager/wp[1]/id");
+		nwptd=math.round(getprop("/autopilot/route-manager/wp[1]/dist"));
+		etan=getprop("/autopilot/route-manager/wp[1]/eta");
+		lwptd=math.round(getprop("/autopilot/route-manager/wp-last/dist"));
+
 
 
 
@@ -309,14 +318,18 @@ Autopilot.lockwaypointroll = func {
                     me.itself["route-manager"].getChild("input").setValue("@DELETE0");
                     me.resetprediction( "true-heading-hold1" );
 
-		for( var i = 0; i < 3; i = i+1 ) {
-                	cwpt=getprop("/instrumentation/ins[" ~ i ~ "]/control/waypoint");
+		    for( var i = 0; i < 3; i = i+1 ) {
+                    	cwpt=getprop("/instrumentation/ins[" ~ i ~ "]/control/waypoint");
 			if (cwpt>1){
 				setprop("/instrumentation/ins[" ~ i ~ "]/control/waypoint",cwpt-1);
 			};
-		};
+		    };
 
-
+		    msg="Over "~wptn~", next waypoint "~nwptn~", distance "~nwptd~", ETA "~etan~", "~lwptd~" nm to destination.";
+		    oldmsg=getprop("/sim/messages/copilot");
+		    if (substr(msg,1,20)!=substr(oldmsg,1,20) and nwptd>9){
+		    	setprop("/sim/messages/copilot", msg);
+		    };
 
 
                 }

@@ -1662,7 +1662,9 @@
       <binding>
         <command>nasal</command>
         <script>
-		setprop("/autopilot/route-manager/active",0);		
+		if (getprop("controls/autoflight/autopilot[0]/engage") or getprop("controls/autoflight/autopilot[1]/engage")){
+		  setprop("/autopilot/route-manager/active",0);		
+		};
 		globals.Concorde.autopilotsystem.apheadingexport();
 	</script>
       </binding>
@@ -1682,8 +1684,10 @@
       <binding>
         <command>nasal</command>
         <script>
-		setprop("/autopilot/route-manager/active",0);		
-		globals.Concorde.autopilotsystem.apheadingholdexport();
+		if (getprop("controls/autoflight/autopilot[0]/engage") or getprop("controls/autoflight/autopilot[1]/engage")){
+		  setprop("/autopilot/route-manager/active",0);		
+		};
+	  	globals.Concorde.autopilotsystem.apheadingholdexport();
 	</script>
       </binding>
       <binding>
@@ -1719,8 +1723,10 @@
       <binding>
         <command>nasal</command>
         <script>
-		setprop("/autopilot/route-manager/active",0);		
-		globals.Concorde.autopilotsystem.apvorlocexport();
+		if (getprop("controls/autoflight/autopilot[0]/engage") or getprop("controls/autoflight/autopilot[1]/engage")){
+		  setprop("/autopilot/route-manager/active",0);		
+		};
+	  	globals.Concorde.autopilotsystem.apvorlocexport();
 	</script>
       </binding>
       <binding>
