@@ -21,6 +21,7 @@
 	<and>
 		<property>environment/contrail</property>
 		<property>engines/engine[1]/running</property>		
+		<not><property>gear/gear[0]/wow</property></not>
 	</and>
     </condition>
 
