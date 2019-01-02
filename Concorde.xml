@@ -420,8 +420,8 @@
         </documentation>
 
         <ixx unit="SLUG*FT2"> 1432000.0000 </ixx>                                        <!-- aeromatic 3419278 -->
-        <iyy unit="SLUG*FT2"> 19034000.0000 </iyy>                                       <!-- aeromatic 22486091 -->
-        <izz unit="SLUG*FT2"> 10100000.0000 </izz>                                       <!-- aeromatic 21487661 -->
+        <iyy unit="SLUG*FT2"> 44486091.0000 </iyy>                                       <!-- aeromatic 22486091 -->
+        <izz unit="SLUG*FT2"> 21487661.0000 </izz>                                       <!-- aeromatic 21487661 -->
         <ixy unit="SLUG*FT2"> 0.0000 </ixy>
         <ixz unit="SLUG*FT2"> 0.0000 </ixz>
         <iyz unit="SLUG*FT2"> 0.0000 </iyz>
@@ -725,6 +725,7 @@
         <actuator name="Elevator Actuator">
             <input>fcs/pitch-trim-sum</input>
             <output>fcs/elevator-surface</output>
+	    <rate_limit> 0.72 </rate_limit>
         </actuator>
 
         <aerosurface_scale name="Elevator Control">
@@ -763,6 +764,7 @@
         <actuator name="Aileron Actuator">
             <input>fcs/roll-trim-sum</input>
             <output>fcs/aileron-surface</output>
+	    <rate_limit> 1.2 </rate_limit>
         </actuator>
 
         <aerosurface_scale name="Left Aileron Control">
@@ -873,6 +875,7 @@
         <actuator name="Rudder Actuator">
             <input>fcs/rudder-sum</input>
             <output>fcs/rudder-surface</output>
+	    <rate_limit> 1.2 </rate_limit>
         </actuator>
 
         <aerosurface_scale name="Rudder Control">

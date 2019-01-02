@@ -609,19 +609,19 @@ Rating.set_throttle = func( position ) {
    for( var i = 0; i < constantaero.NBENGINES; i = i+1 ) {
         position_new = position;
 
-        if( monitor == 0 and speedmach<n1gov) {
-          maxthrottle = 0.90;
-        }
-        else {
+#        if( monitor == 0 and speedmach<n1gov) {
+#          maxthrottle = 0.90;
+#        }
+#        else {
 	  maxthrottle = me.level( i );        
-        }
+#        }
 
-	if (((monitor==0 or (monitor==1 and !me.is_takeoff(i))) and speedmach>n1gov) and me.itself["root-ctrl"][i].getChild("throttle").getValue()>0.90) { 
-            maxthrottle=( (100-60*(speedmach-n1gov))*0.0090 );
-	}
-        else {
-	  maxthrottle = me.level( i );        
-        }
+#	if (((monitor==0 or (monitor==1 and !me.is_takeoff(i))) and speedmach>n1gov) and me.itself["root-ctrl"][i].getChild("throttle").getValue()>0.90) { 
+#            maxthrottle=( (100-60*(speedmach-n1gov))*0.0090 );
+#	}
+#        else {
+#	  maxthrottle = me.level( i );        
+#       }
 
         if( position_new > maxthrottle ) {
             position_new = maxthrottle;
@@ -707,9 +707,9 @@ Rating.supervisor = func {
 #            me.itself["root-ctrl"][i].getChild("throttle").setValue( 0.90 );
 #	}
 
-	if (((monitor==0 or (monitor==1 and !me.is_takeoff(i))) and speedmach>n1gov) and me.itself["root-ctrl"][i].getChild("throttle").getValue()>(100-60*(speedmach-n1gov))*0.0090) { 
-            me.itself["root-ctrl"][i].getChild("throttle").setValue( (100-60*(speedmach-n1gov))*0.0090 );
-	}
+#	if (((monitor==0 or (monitor==1 and !me.is_takeoff(i))) and speedmach>n1gov) and me.itself["root-ctrl"][i].getChild("throttle").getValue()>(100-60*(speedmach-n1gov))*0.0090) { 
+#            me.itself["root-ctrl"][i].getChild("throttle").setValue( (100-60*(speedmach-n1gov))*0.0090 );
+#	}
 
    }
 
@@ -730,9 +730,9 @@ Rating.autothrottle = func {
 	  maxthrottle = me.level( i );        
 #        }
 
-	if (((monitor==0 or (monitor==1 and !me.is_takeoff(i))) and speedmach>n1gov) ) { 
-            maxthrottle=( (100-60*(speedmach-n1gov))*0.0090 );
-	}
+#	if (((monitor==0 or (monitor==1 and !me.is_takeoff(i))) and speedmach>n1gov) ) { 
+#            maxthrottle=( (100-60*(speedmach-n1gov))*0.0090 );
+#	}
 
 
          me.dependency["autothrottle"][i].getChild("u_max").setValue( maxthrottle );
