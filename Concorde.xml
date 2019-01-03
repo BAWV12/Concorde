@@ -419,7 +419,7 @@
              right wing.
         </documentation>
 
-        <ixx unit="SLUG*FT2"> 1432000.0000 </ixx>                                        <!-- aeromatic 3419278 -->
+        <ixx unit="SLUG*FT2"> 3419278.0000 </ixx>                                        <!-- aeromatic 3419278 -->
         <iyy unit="SLUG*FT2"> 44486091.0000 </iyy>                                       <!-- aeromatic 22486091 -->
         <izz unit="SLUG*FT2"> 21487661.0000 </izz>                                       <!-- aeromatic 21487661 -->
         <ixy unit="SLUG*FT2"> 0.0000 </ixy>
@@ -730,7 +730,7 @@
 
         <aerosurface_scale name="Elevator Control">
             <input>fcs/elevator-surface</input>
-            <gain>0.0175</gain>
+            <gain>0.01075</gain>
             <range>
                 <documentation>
                   => change -0.35/0.30 to -22.5/22.5 deg real.
@@ -769,7 +769,7 @@
 
         <aerosurface_scale name="Left Aileron Control">
             <input>fcs/aileron-surface</input>
-            <gain>0.0175</gain>
+            <gain>0.01075</gain>
             <range>
                 <documentation>
                    => change 0.35 to 22.5 deg real.
