@@ -715,6 +715,11 @@ Autopilot.datumapexport = func( sign ) {
 
        # plus/minus 6000 ft/min (real)
        # plus/minus 17 kt (real) : maxclimb
+
+#       if(maxcruise){
+#	   setprop("/autopilot/settings/vertical-speed-fpm",50);
+#       };
+
        if( me.is_lock_vertical() and !maxcruise ) {
            # 80 or 800 ft/min per second (real) : 10 or 100 ft/min per key
            # 0.7 or 2 kt per second (real) : 10 or 100 ft/min per key
@@ -1880,10 +1885,44 @@ if (getprop("/systems/electrical/outputs/specific")>20){
 
 # max climb mode (includes max cruise mode)
 Autopilot.maxclimb = func {
+   olddelta=getprop("/instrumentation/adc/output/delta_spd");
+   newdelta=getprop("/instrumentation/adc/output/vmo-kt")-getprop("/instrumentation/adc/output/airspeed-kt");
+   mcvspd=getprop("/instrumentation/adc/output/vertical-speed-fps");
+   dd=abs(newdelta-olddelta);
+   vspd=getprop("/autopilot/settings/vertical-speed-fpm");
+   mode=getprop("/controls/autoflight/speed2");
+
+
    if( me.autothrottlesystem.is_maxclimb() ) {          
        if( me.is_engaged() ) {
            me.autothrottlesystem.maxclimb();
        }
+
+       if(olddelta != 0){
+	  if(newdelta>olddelta and newdelta>0 and mode=='maxclimb'){
+ 	    vspd=vspd-50;
+	  };
+
+	  if(newdelta<olddelta and newdelta<2){
+ 	    vspd=vspd+50;
+	  };
+
+          if(mode=='maxcruise'){
+	  	if (mcvspd>1.2){
+		  vspd=vspd-10;
+	  	};
+
+	  	if (mcvspd<0.8){
+		  vspd=vspd+10;
+	  	};
+	  };
+
+          setprop("/autopilot/settings/vertical-speed-fpm",vspd);
+       };
+
+       setprop("/instrumentation/adc/output/delta_spd",newdelta);
+       setprop("/instrumentation/adc/output/olddelta_spd",olddelta);
+
 
        # re-schedule the next call
        settimer(func { me.maxclimb(); }, me.MAXCLIMBSEC);

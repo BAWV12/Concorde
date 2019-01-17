@@ -1429,9 +1429,34 @@
     <type>material</type>
     <object-name>CR</object-name>
     <condition>
-     
+    <and>     
      <greater-than><property>/systems/electrical/outputs/specific</property><value>20.0</value></greater-than>
+     <equals>
+       <property>/controls/autoflight/speed2</property>
+       <value>maxcruise</value>
+     </equals>
 
+    </and>
+    </condition>
+    <emission>
+      <red>0.5</red>
+      <green>0.5</green>
+      <blue>0</blue>
+    </emission>
+  </animation>
+
+  <animation>
+    <type>material</type>
+    <object-name>CR</object-name>
+    <condition>
+    <and>     
+     <greater-than><property>/systems/electrical/outputs/specific</property><value>20.0</value></greater-than>
+     <not-equals>
+       <property>/controls/autoflight/speed2</property>
+       <value>maxcruise</value>
+     </not-equals>
+
+    </and>
     </condition>
     <emission>
       <red>0.35</red>
@@ -1439,6 +1464,8 @@
       <blue>0.1</blue>   <factor-prop>/controls/lighting/instruments-norm</factor-prop>
     </emission>
   </animation>
+
+
   <!-- VS -->
   <animation>
     <type>material</type>
@@ -1762,7 +1789,9 @@
       <repeatable>false</repeatable>
       <binding>
         <command>nasal</command>
-        <script>globals.Concorde.autopilotsystem.apmaxclimbexport();</script>
+        <script>globals.Concorde.autopilotsystem.apmaxclimbexport();
+		setprop("/instrumentation/adc/output/delta_spd",0);		
+	</script>
       </binding>
       <binding>
         <command>property-toggle</command>

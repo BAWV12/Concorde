@@ -1272,6 +1272,8 @@ Intake.subramp = func( ratio, target, present ) {
    return result;
 }
 
+setprop("/instrumentation/adc/output/delta_spd",0);
+
 setprop("/controls/engines/engine[0]/rating-n",1);
 setprop("/controls/engines/engine[1]/rating-n",1);
 setprop("/controls/engines/engine[2]/rating-n",1);
