@@ -53,6 +53,7 @@ Autopilot.new = func {
 
                GOAROUNDDEG : 15.0,
 
+
 # If no pitch control, sudden swap to 10 deg causes a rebound, worsened by the ground effect.
 # Ignoring the glide slope at 200-300 ft, with a pitch of 10 degrees, would be simpler;
 # but the glide slope following is implicit until 100 ft (red autoland light).
@@ -1885,9 +1886,11 @@ if (getprop("/systems/electrical/outputs/specific")>20){
 
 # max climb mode (includes max cruise mode)
 Autopilot.maxclimb = func {
+   altft = me.get_altimeter().getChild("indicated-altitude-ft").getValue();
+   ceil=me.itself["autoflight"].getChild("altitude-select").getValue();
    olddelta=getprop("/instrumentation/adc/output/delta_spd");
    newdelta=getprop("/instrumentation/adc/output/vmo-kt")-getprop("/instrumentation/adc/output/airspeed-kt");
-   mcvspd=getprop("/instrumentation/adc/output/vertical-speed-fps");
+   mcvspd=getprop("/instrumentation/gps/indicated-vertical-speed");
    dd=abs(newdelta-olddelta);
    vspd=getprop("/autopilot/settings/vertical-speed-fpm");
    mode=getprop("/controls/autoflight/speed2");
@@ -1908,14 +1911,19 @@ Autopilot.maxclimb = func {
 	  };
 
           if(mode=='maxcruise'){
-	  	if (mcvspd>1.2){
+	  	if (mcvspd>80){
 		  vspd=vspd-10;
 	  	};
 
-	  	if (mcvspd<0.8){
+	  	if (mcvspd<40){
 		  vspd=vspd+10;
 	  	};
 	  };
+
+          if(mode=='maxcruise' and altft>ceil){
+		globals.Concorde.autopilotsystem.apaltitudeholdexport();
+	  };
+
 
           setprop("/autopilot/settings/vertical-speed-fpm",vspd);
        };

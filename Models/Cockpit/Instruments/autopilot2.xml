@@ -1789,7 +1789,12 @@
       <repeatable>false</repeatable>
       <binding>
         <command>nasal</command>
-        <script>globals.Concorde.autopilotsystem.apmaxclimbexport();
+        <script>
+		mode=getprop("/controls/autoflight/vertical");
+		if(mode=='altitude-acquire'){
+			globals.Concorde.autopilotsystem.apaltitudeexport();
+		};
+		globals.Concorde.autopilotsystem.apmaxclimbexport();
 		setprop("/instrumentation/adc/output/delta_spd",0);		
 	</script>
       </binding>
@@ -1913,7 +1918,12 @@
       <repeatable>false</repeatable>
       <binding>
         <command>nasal</command>
-        <script>globals.Concorde.autopilotsystem.apaltitudeexport();</script>
+        <script>
+		mode=getprop("/controls/autoflight/speed2");
+		if(mode!='maxcruise' and mode!='maxclimb'){
+			globals.Concorde.autopilotsystem.apaltitudeexport();
+		};
+	</script>
       </binding>
       <binding>
         <command>property-toggle</command>
