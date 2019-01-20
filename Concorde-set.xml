@@ -2,7 +2,23 @@
 
 <PropertyList>
 
- <sim include="Nasal/Concorde-sim.xml">
+<payload>
+	<weight>
+		<name type="string">Crew + Pax</name>
+		<weight-lb alias="/fdm/jsbsim/inertia/pointmass-weight-lbs[0]"/>
+		<min-lb type="double">1300</min-lb>
+		<max-lb type="double">18380</max-lb>
+	</weight>
+
+	<weight>
+		<name type="string">Cargo</name>
+		<weight-lb alias="/fdm/jsbsim/inertia/pointmass-weight-lbs[1]"/>
+		<min-lb type="double">0</min-lb>
+		<max-lb type="double">14584.0</max-lb>
+	</weight>
+</payload>
+
+<sim include="Nasal/Concorde-sim.xml">
 
   <description>Concorde</description>
   <status>early-production</status>

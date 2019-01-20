@@ -1921,6 +1921,7 @@ Autopilot.maxclimb = func {
 	  };
 
           if(mode=='maxcruise' and altft>ceil){
+		setprop("/autopilot/settings/target-altitude-ft",60000);
 		globals.Concorde.autopilotsystem.apaltitudeholdexport();
 	  };
 

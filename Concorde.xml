@@ -431,8 +431,17 @@
             <y> 0.0000 </y>
             <z> -32.5000 </z>
         </location>
-        <pointmass name="payload">
-            <weight unit="LBS"> 29500 </weight>
+        <pointmass name="Crew + Pax">
+            <weight unit="LBS"> 18380 </weight>						 <!-- 3 flight crew, 6 attendants, 100 pax -->
+            <location name="payload" unit="IN">
+                <x> 1299.4 </x>
+                <y> 0 </y>
+                <z> -32.5 </z>
+            </location>
+        </pointmass>
+
+        <pointmass name="Cargo">
+            <weight unit="LBS"> 11120 </weight>
             <location name="payload" unit="IN">
                 <x> 1299.4 </x>
                 <y> 0 </y>
