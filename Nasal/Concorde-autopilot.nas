@@ -1911,7 +1911,7 @@ Autopilot.maxclimb = func {
 	  };
 
           if(mode=='maxcruise'){
-	  	if (mcvspd>80){
+	  	if (mcvspd>60){
 		  vspd=vspd-10;
 	  	};
 

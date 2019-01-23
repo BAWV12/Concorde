@@ -773,7 +773,7 @@
         <actuator name="Aileron Actuator">
             <input>fcs/roll-trim-sum</input>
             <output>fcs/aileron-surface</output>
-	    <rate_limit> 1.2 </rate_limit>
+	    <rate_limit> 2 </rate_limit>
         </actuator>
 
         <aerosurface_scale name="Left Aileron Control">
