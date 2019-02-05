@@ -15,6 +15,9 @@
     <inherits-from>Aircraft/Concorde/Models/Effects/flash</inherits-from>
     <object-name>Guage</object-name>
     <object-name>Needle</object-name>
+    <object-name>Num1</object-name>
+    <object-name>Num2</object-name>
+    <object-name>Num3</object-name>
 
 </effect>
 
@@ -181,6 +184,10 @@
     <type>material</type>
     <object-name>Guage</object-name>
     <object-name>Needle</object-name>
+    <object-name>Num1</object-name>
+    <object-name>Num2</object-name>
+    <object-name>Num3</object-name>
+
   <condition>
   <and>
     <property>controls/lighting/instrument-lights</property>

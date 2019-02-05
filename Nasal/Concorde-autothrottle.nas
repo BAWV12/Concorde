@@ -598,7 +598,7 @@ Autothrottle.atmachexport = func {
 Autothrottle.holdspeed = func {
    var speedkt = me.get_asi().getChild("indicated-speed-kt").getValue();
 
-   me.speed(speedkt);
+   me.speed(speedkt-1);
 }
 
 Autothrottle.is_speed_throttle = func {
