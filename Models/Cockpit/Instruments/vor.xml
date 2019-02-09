@@ -38,69 +38,10 @@
       <z>0</z>
     </axis>
   </animation>
+
   <animation>
     <type>rotate</type>
     <object-name>VOR1Needle</object-name>
-    <expression>
-      <prod>
-        <difference>
-          <property>/instrumentation/nav[1]/heading-deg</property>
-          <property>/orientation/heading-deg</property>
-        </difference>
-        <difference>
-          <value>1</value>
-          <property>/instrumentation/nav[1]/frequencies/is-localizer-frequency</property>
-        </difference>
-        <property>/instrumentation/nav[1]/in-range</property>
-      </prod>
-    </expression>
-    <center>
-      <x-m>0</x-m>
-      <y-m>0</y-m>
-      <z-m>0</z-m>
-    </center>
-    <axis>
-      <x>-1</x>
-      <y>0</y>
-      <z>0</z>
-    </axis>
-  </animation>
-  <animation>
-    <type>rotate</type>
-    <object-name>VOR2Needle</object-name>
-    <expression>
-      <prod>
-        <difference>
-          <property>/instrumentation/nav[2]/heading-deg</property>
-          <property>/orientation/heading-deg</property>
-        </difference>
-        <difference>
-          <value>1</value>
-          <property>/instrumentation/nav[2]/frequencies/is-localizer-frequency</property>
-        </difference>
-        <property>/instrumentation/nav[2]/in-range</property>
-      </prod>
-    </expression>
-    <center>
-      <x-m>0</x-m>
-      <y-m>0</y-m>
-      <z-m>0</z-m>
-    </center>
-    <axis>
-      <x>-1</x>
-      <y>0</y>
-      <z>0</z>
-    </axis>
-  </animation>
-  <animation>
-    <type>rotate</type>
-    <object-name>VOR1Needle</object-name>
-    <condition>
-      <or>
-	<property>/instrumentation/nav[1]/frequencies/is-localizer-frequency</property>
-	<not><property>/instrumentation/nav[1]/in-range</property></not>
-      </or>
-    </condition>
     <expression>
         <value>90</value>
     </expression>
@@ -115,15 +56,10 @@
       <z>0</z>
     </axis>
   </animation>
+
   <animation>
     <type>rotate</type>
     <object-name>VOR2Needle</object-name>
-    <condition>
-      <or>
-	<property>/instrumentation/nav[2]/frequencies/is-localizer-frequency</property>
-	<not><property>/instrumentation/nav[2]/in-range</property></not>
-      </or>
-    </condition>
     <expression>
         <value>90</value>
     </expression>
@@ -138,24 +74,85 @@
       <z>0</z>
     </axis>
   </animation>
+
+  <animation>
+    <type>rotate</type>
+    <object-name>VOR1Needle</object-name>
+    <expression>
+      <prod>
+       <sum>
+        <difference>
+          <property>/instrumentation/nav[1]/heading-deg</property>
+          <property>/orientation/heading-deg</property>
+        </difference>
+        <value>90</value>
+       </sum>
+       <property>/instrumentation/nav[1]/in-range</property>
+       <difference>
+	 	<value>1</value>
+	  	<property>/instrumentation/nav[1]/frequencies/is-localizer-frequency</property>
+       </difference>
+      </prod>
+    </expression>
+    <center>
+      <x-m>0</x-m>
+      <y-m>0</y-m>
+      <z-m>0</z-m>
+    </center>
+    <axis>
+      <x>-1</x>
+      <y>0</y>
+      <z>0</z>
+    </axis>
+  </animation>
+
+  <animation>
+    <type>rotate</type>
+    <object-name>VOR2Needle</object-name>
+    <expression>
+      <prod>
+       <sum>
+        <difference>
+          <property>/instrumentation/nav[2]/heading-deg</property>
+          <property>/orientation/heading-deg</property>
+        </difference>
+        <value>-90</value>
+       </sum>
+       <property>/instrumentation/nav[2]/in-range</property>
+       <difference>
+	 	<value>1</value>
+	  	<property>/instrumentation/nav[2]/frequencies/is-localizer-frequency</property>
+       </difference>
+      </prod>
+    </expression>
+    <center>
+      <x-m>0</x-m>
+      <y-m>0</y-m>
+      <z-m>0</z-m>
+    </center>
+    <axis>
+      <x>-1</x>
+      <y>0</y>
+      <z>0</z>
+    </axis>
+  </animation>
+
   <animation>
     <type>select</type>
     <object-name>VOR1Error</object-name>
     <condition>
-      <or>
-	<property>/instrumentation/nav[1]/frequencies/is-localizer-frequency</property>
-	<not><property>/instrumentation/nav[1]/in-range</property></not>
-      </or>
+      <not>
+        <property>/instrumentation/nav[1]/in-range</property>
+      </not>
     </condition>
   </animation>
   <animation>
     <type>select</type>
     <object-name>VOR2Error</object-name>
     <condition>
-      <or>
-	<property>/instrumentation/nav[2]/frequencies/is-localizer-frequency</property>
-	<not><property>/instrumentation/nav[2]/in-range</property></not>
-      </or>
+      <not>
+        <property>/instrumentation/nav[2]/in-range</property>
+      </not>
     </condition>
   </animation>
   <!--Default Lighting-->
@@ -194,3 +191,4 @@
  </animation>
 
 </PropertyList>
+
