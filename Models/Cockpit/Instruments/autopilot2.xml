@@ -562,7 +562,21 @@
     <type>material</type>
     <object-name>VL</object-name>
     <condition>
-     <and include="concorde-cond-vorloc.xml">
+     <and>
+
+       <property>/instrumentation/nav[0]/in-range</property>
+
+       <greater-than>
+        <property>/instrumentation/nav[0]/heading-needle-deflection-norm</property>
+        <value>-0.1</value>
+       </greater-than>
+
+       <less-than>
+        <property>/instrumentation/nav[0]/heading-needle-deflection-norm</property>
+        <value>0.1</value>
+       </less-than>
+
+
       <or>
        <equals>
         <property>/controls/autoflight/horizontal</property>
@@ -588,7 +602,21 @@
     <condition>
 <and>
 <not>
-     <and include="concorde-cond-vorloc.xml">
+     <and>
+
+       <property>/instrumentation/nav[0]/in-range</property>
+
+       <greater-than>
+        <property>/instrumentation/nav[0]/heading-needle-deflection-norm</property>
+        <value>-0.1</value>
+       </greater-than>
+
+       <less-than>
+        <property>/instrumentation/nav[0]/heading-needle-deflection-norm</property>
+        <value>0.1</value>
+       </less-than>
+
+
       <or>
        <equals>
         <property>/controls/autoflight/horizontal</property>
@@ -619,22 +647,39 @@
     <type>material</type>
     <object-name>VLAquire</object-name>
     <condition>
-<not>
-     <or>
-      <or include="concorde-cond-vorloc.xml"/>   <!-- avoids bug -->
-      <and>
-       <not-equals>
+
+
+     <and>
+
+       <property>/instrumentation/nav[0]/in-range</property>
+
+      <or>
+       <greater-than>
+        <property>/instrumentation/nav[0]/heading-needle-deflection-norm</property>
+        <value>0.1</value>
+       </greater-than>
+
+       <less-than>
+        <property>/instrumentation/nav[0]/heading-needle-deflection-norm</property>
+        <value>-0.1</value>
+       </less-than>
+      </or>
+
+
+       <equals>
         <property>/controls/autoflight/horizontal</property>
         <value>vor</value>
-       </not-equals>
-       <not-equals>
+       </equals>
+       <equals>
         <property>/controls/autoflight/heading</property>
         <value>nav1-hold</value>
-       </not-equals>
-      </and>
-     </or>
+       </equals>
 
-</not>
+      <not include="concorde-cond-land.xml"/>
+     </and>
+
+
+
     </condition>
     <emission>
       <red>0.5</red>

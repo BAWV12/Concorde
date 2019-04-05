@@ -1911,11 +1911,11 @@ Autopilot.maxclimb = func {
 	  };
 
           if(mode=='maxcruise'){
-	  	if (mcvspd>60){
+	  	if (mcvspd>70){
 		  vspd=vspd-10;
 	  	};
 
-	  	if (mcvspd<40){
+	  	if (mcvspd<50){
 		  vspd=vspd+10;
 	  	};
 	  };
