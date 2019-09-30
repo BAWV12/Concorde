@@ -93,7 +93,7 @@
   
   <sound>
    <audible>true</audible>
-   <path>Aircraft/Concorde/Sounds/Concorde-real-sound.xml</path>
+   <path>Aircraft/Concorde/Sounds/Concorde-sound.xml</path>
   </sound>
 
   

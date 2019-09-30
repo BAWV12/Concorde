@@ -75,7 +75,7 @@
         <and>
           <greater-than>
             <property>/engines/engine[1]/egt-degf</property>
-            <value>1472</value>
+            <value>1520</value>
           </greater-than>
         </and>
       </or>

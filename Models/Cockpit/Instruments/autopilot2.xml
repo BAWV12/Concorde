@@ -1708,11 +1708,11 @@
       <binding>
         <command>nasal</command>
         <script>
-		wptcnt=getprop("/autopilot/route-manager/route/num");
-		rtmstate=getprop("/autopilot/route-manager/active");
-		if (wptcnt>0 and rtmstate==0){
-			setprop("/autopilot/route-manager/active",1);
-		};
+		#wptcnt=getprop("/autopilot/route-manager/route/num");
+		#rtmstate=getprop("/autopilot/route-manager/active");
+		#if (wptcnt>0 and rtmstate==0){
+			#setprop("/autopilot/route-manager/active",1);
+		#};
 		globals.Concorde.autopilotsystem.apinsexport();
 	</script>
       </binding>
@@ -1732,9 +1732,9 @@
       <binding>
         <command>nasal</command>
         <script>
-		if (getprop("controls/autoflight/autopilot[0]/engage") or getprop("controls/autoflight/autopilot[1]/engage")){
-		  setprop("/autopilot/route-manager/active",0);		
-		};
+		#if (getprop("controls/autoflight/autopilot[0]/engage") or getprop("controls/autoflight/autopilot[1]/engage")){
+		  #setprop("/autopilot/route-manager/active",0);		
+		#};
 		globals.Concorde.autopilotsystem.apheadingexport();
 	</script>
       </binding>
@@ -1754,9 +1754,9 @@
       <binding>
         <command>nasal</command>
         <script>
-		if (getprop("controls/autoflight/autopilot[0]/engage") or getprop("controls/autoflight/autopilot[1]/engage")){
-		  setprop("/autopilot/route-manager/active",0);		
-		};
+		#if (getprop("controls/autoflight/autopilot[0]/engage") or getprop("controls/autoflight/autopilot[1]/engage")){
+		  #setprop("/autopilot/route-manager/active",0);		
+		#};
 	  	globals.Concorde.autopilotsystem.apheadingholdexport();
 	</script>
       </binding>
@@ -1793,9 +1793,9 @@
       <binding>
         <command>nasal</command>
         <script>
-		if (getprop("controls/autoflight/autopilot[0]/engage") or getprop("controls/autoflight/autopilot[1]/engage")){
-		  setprop("/autopilot/route-manager/active",0);		
-		};
+		#if (getprop("controls/autoflight/autopilot[0]/engage") or getprop("controls/autoflight/autopilot[1]/engage")){
+		  #setprop("/autopilot/route-manager/active",0);		
+		#};
 	  	globals.Concorde.autopilotsystem.apvorlocexport();
 	</script>
       </binding>

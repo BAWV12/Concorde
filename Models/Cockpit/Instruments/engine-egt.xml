@@ -46,7 +46,7 @@
     <expression>
       <product>
         <difference>
-          <property alias="/params/egt"/>
+          <product><property alias="/params/egt"/><value>0.95</value></product>
           <value>32</value>
         </difference>
         <value>0.14465</value>
@@ -82,7 +82,7 @@
             <div>
               <prod>
                 <difference>
-                  <property alias="/params/egt"/>
+                  <product><property alias="/params/egt"/><value>0.95</value></product>
                   <value>32</value>
                 </difference>
                 <value>0.55555</value>
@@ -94,7 +94,7 @@
             <difference>
               <prod>
                 <difference>
-                  <property alias="/params/egt"/>
+                  <product><property alias="/params/egt"/><value>0.95</value></product>
                   <value>32</value>
                 </difference>
                 <value>0.55555</value>
@@ -105,7 +105,7 @@
                   <div>
                     <prod>
                       <difference>
-                        <property alias="/params/egt"/>
+                        <product><property alias="/params/egt"/><value>0.95</value></product>
                         <value>32</value>
                       </difference>
                       <value>0.55555</value>
@@ -151,7 +151,7 @@
             <div>
               <prod>
                 <difference>
-                  <property alias="/params/egt"/>
+                  <product><property alias="/params/egt"/><value>0.95</value></product>
                   <value>32</value>
                 </difference>
                 <value>0.55555</value>
@@ -163,7 +163,7 @@
             <difference>
               <prod>
                 <difference>
-                  <property alias="/params/egt"/>
+                  <product><property alias="/params/egt"/><value>0.95</value></product>
                   <value>32</value>
                 </difference>
                 <value>0.55555</value>
@@ -174,7 +174,7 @@
                   <div>
                     <prod>
                       <difference>
-                        <property alias="/params/egt"/>
+                        <product><property alias="/params/egt"/><value>0.95</value></product>
                         <value>32</value>
                       </difference>
                       <value>0.55555</value>
@@ -216,7 +216,7 @@
     <expression>
       <product>
         <difference>
-          <property alias="/params/egt"/>
+          <product><property alias="/params/egt"/><value>0.95</value></product>
           <value>32</value>
         </difference>
         <value>20</value>

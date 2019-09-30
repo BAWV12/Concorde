@@ -2208,6 +2208,7 @@ override those by providing <w>..</w> and <h>..</h> properties with the
    <h>88</h>
   </instrument>
 
+<!--
  <instrument include="Instruments/concorde-gauge_inst.xml">
    <condition>
     <or>
@@ -2319,7 +2320,7 @@ override those by providing <w>..</w> and <h>..</h> properties with the
    <y>155</y>
    <w>88</w>
    <h>88</h>
-  </instrument>
+  </instrument>-->
 
  <instrument include="Instruments/concorde-gauge_inst.xml">
    <condition>
@@ -2826,7 +2827,7 @@ override those by providing <w>..</w> and <h>..</h> properties with the
    <h>88</h>
   </instrument>
 
-<!-- EGT -->
+<!-- EGT 
 
   <instrument include="Instruments/concorde-engine-egt.xml">
    <name>Engine 1 EGT</name>
@@ -2954,7 +2955,7 @@ override those by providing <w>..</w> and <h>..</h> properties with the
    <y>155</y>
    <w>88</w>
    <h>88</h>
-  </instrument>
+  </instrument>-->
 
 <!-- NOZZLE -->
 

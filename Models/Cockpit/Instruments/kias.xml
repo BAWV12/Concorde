@@ -22,31 +22,20 @@
     <type>select</type>
     <object-name>FF</object-name>
     <condition>
-      <or>
-        <less-than>
-          <property>/systems/electrical/outputs/specific</property>
-          <value>20.0</value>
-        </less-than>
 	<not><property>/instrumentation/airspeed-standby/serviceable</property></not>
-      </or>
     </condition>    
   </animation>
 
+
   <animation>
-    <condition><not>
-      <or>
-        <less-than>
-          <property>/systems/electrical/outputs/specific</property>
-          <value>20.0</value>
-        </less-than>
-	<not><property>/instrumentation/airspeed-standby/serviceable</property></not>
-      </or>
-    </not></condition>    
+    <condition>
+	<property>/instrumentation/airspeed-standby/serviceable</property>
+    </condition>    
 
 
     <type>rotate</type>
     <object-name>KIASNeedle</object-name>
-    <property>instrumentation/airspeed-indicator[0]/indicated-speed-kt</property>
+    <property>/instrumentation/airspeed-standby/indicated-speed-kt</property>
     <interpolation>
       <entry>
         <ind>50</ind>
@@ -122,24 +111,19 @@
   </animation>
 
   <animation>
-    <condition><not>
-      <or>
-        <less-than>
-          <property>/systems/electrical/outputs/specific</property>
-          <value>20.0</value>
-        </less-than>
-	<not><property>/instrumentation/airspeed-standby/serviceable</property></not>
-      </or>
-    </not></condition>    
-
+    <condition>
+	<property>/instrumentation/airspeed-standby/serviceable</property>
+    </condition>    
 
     <type>rotate</type>
     <object-name>MachGuage</object-name>
     <expression>
     	<sum>
     		<table>  
-    			<property>instrumentation/mach-indicator[0]/indicated-mach</property>
-			<entry><ind>0.8</ind><dep>10</dep></entry>
+    			<property>/instrumentation/airspeed-standby/indicated-mach</property>
+			<entry><ind>0.0</ind><dep>45</dep></entry>
+			<entry><ind>0.7</ind><dep>45</dep></entry>
+			<entry><ind>0.8</ind><dep>20</dep></entry>
 			<entry><ind>0.898</ind><dep>8</dep></entry>
 			<entry><ind>0.899</ind><dep>8</dep></entry>
 			<entry><ind>0.9</ind><dep>8</dep></entry>
@@ -149,12 +133,12 @@
         		<entry><ind>1</ind><dep>-14</dep></entry>
         		<entry><ind>1.001</ind><dep>-14</dep></entry>
         		<entry><ind>1.2</ind><dep>-52</dep></entry>
-        		<entry><ind>1.5</ind><dep>-97</dep></entry>
-        		<entry><ind>2</ind><dep>-151</dep></entry>
-        		<entry><ind>2.2</ind><dep>-169</dep></entry>
+        		<entry><ind>1.5</ind><dep>-104</dep></entry>
+        		<entry><ind>2</ind><dep>-190</dep></entry>
+        		<entry><ind>2.2</ind><dep>-220</dep></entry>
     		</table>
     		<table>  
-    			<property>instrumentation/airspeed-indicator[0]/indicated-speed-kt</property>
+    			<property>/instrumentation/airspeed-standby/indicated-speed-kt</property>
 		      	<entry><ind>249.98</ind><dep>-3</dep></entry>
       			<entry><ind>249.99</ind><dep>-3</dep></entry>
       			<entry><ind>250</ind><dep>-3</dep></entry>
@@ -182,19 +166,13 @@
 
 
   <animation>
-    <condition><not>
-      <or>
-        <less-than>
-          <property>/systems/electrical/outputs/specific</property>
-          <value>20.0</value>
-        </less-than>
-	<not><property>/instrumentation/airspeed-standby/serviceable</property></not>
-      </or>
-    </not></condition>    
+    <condition>
+	<property>/instrumentation/airspeed-standby/serviceable</property>
+    </condition>    
 
     <type>rotate</type>
     <object-name>LimitNeedle</object-name>
-    <property>instrumentation/airspeed-indicator[0]/vmo-kt</property>
+    <property>/instrumentation/airspeed-standby/vmo-kt</property>
     <interpolation>
       <entry>
         <ind>50</ind>
