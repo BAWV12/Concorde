@@ -827,7 +827,7 @@ Autopilot.datumapexport = func( sign ) {
                me.pitch( targetdeg );
            }
            elsif( me.is_lock_altitude() ) {
-               targetft = me.itself["settings"].getChild("target-altitude-ft").getValue();
+               targetft = me.itself["settings"].getChild("target-altitude-ft1").getValue();
                targetft = targetft + value;
                me.apaltitude(targetft);
            }
@@ -1513,7 +1513,7 @@ if (getprop("/systems/electrical/outputs/specific")>20){
 }
 
 Autopilot.apaltitude = func( altitudeft ) {
-   me.itself["settings"].getChild("target-altitude-ft").setValue(altitudeft);
+   me.itself["settings"].getChild("target-altitude-ft1").setValue(altitudeft);
 }
 
 # toggle altitude hold (ctrl-T)
@@ -1622,8 +1622,11 @@ Autopilot.is_glide = func {
 Autopilot.apglideexport = func {
 if (getprop("/systems/electrical/outputs/specific")>20){
    if( !me.is_glide() ) {
-       altitudeft = me.get_altimeter().getChild("indicated-altitude-ft").getValue();
-       me.apaltitude(altitudeft);
+
+	setprop('/autopilot/settings/vertical-speed-fpm',0);
+
+#       altitudeft = me.get_altimeter().getChild("indicated-altitude-ft").getValue();
+#       me.apaltitude(altitudeft);
 
        me.apactivatemode("altitude","gs1-hold");
        me.apactivatemode2("heading","nav1-hold","");
@@ -1924,7 +1927,7 @@ Autopilot.maxclimb = func {
 	  };
 
           if(mode=='maxcruise' and altft>ceil){
-		setprop("/autopilot/settings/target-altitude-ft",60000);
+		setprop("/autopilot/settings/target-altitude-ft1",60000);
 		globals.Concorde.autopilotsystem.apaltitudeholdexport();
 	  };
 
@@ -2618,13 +2621,6 @@ if (getprop("/systems/electrical/outputs/specific")>20){
    me.apengage();
 }
 };
-
-setlistener("/controls/autoflight/altitude", func() {
-  mode1=getprop("/controls/autoflight/altitude");
-  if (mode1=="altitude-hold"){
-    setprop("/autopilot/settings/vertical-speed-fpm",0);
-  }
-});
 
 
 

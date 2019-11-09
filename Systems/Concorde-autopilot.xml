@@ -498,39 +498,19 @@
     <debug>false</debug>
     <enable>
       <condition>
-	<or>
+
 		<equals>
       			<property>/autopilot/locks/sonic/altitude</property>
       			<value>altitude-hold</value>
 		</equals>
-		<and>
-   			<property>/instrumentation/nav[0]/in-range</property>
-   			<property>/instrumentation/nav[0]/has-gs</property>
 
-      			<equals>
-       				<property>/controls/autoflight/altitude</property>
-       				<value>gs1-hold</value>
-      			</equals>
-
-			<or>
-        			<greater-than>
-             				<property>/instrumentation/nav[0]/gs-needle-deflection-norm</property>
-             				<value>0.2</value>
-        			</greater-than>
-        			<less-than>
-             				<property>/instrumentation/nav[0]/gs-needle-deflection-norm</property>
-             				<value>-0.2</value>
-        			</less-than>
-			</or>
-		</and>
-	</or>
       </condition>
     </enable>
     <input>
       <prop>/instrumentation/altimeter[0]/indicated-altitude-ft</prop>
     </input>
     <reference>
-      <prop>/autopilot/settings/target-altitude-ft</prop>
+      <prop>/autopilot/settings/target-altitude-ft1</prop>
     </reference>
     <output>
       <prop>/autopilot/internal/target-climb-rate-fps</prop>
@@ -548,39 +528,18 @@
     <debug>false</debug>
     <enable>
       <condition>
-	<or>
+
 		<equals>
       			<property>/autopilot/locks/sonic/altitude</property>
       			<value>altitude-hold-2</value>
 		</equals>
-		<and>
-   			<property>/instrumentation/nav[0]/in-range</property>
-   			<property>/instrumentation/nav[0]/has-gs</property>
-
-      			<equals>
-       				<property>/controls/autoflight/altitude</property>
-       				<value>gs1-hold</value>
-      			</equals>
-
-			<or>
-        			<greater-than>
-             				<property>/instrumentation/nav[0]/gs-needle-deflection-norm</property>
-             				<value>0.2</value>
-        			</greater-than>
-        			<less-than>
-             				<property>/instrumentation/nav[0]/gs-needle-deflection-norm</property>
-             				<value>-0.2</value>
-        			</less-than>
-			</or>
-		</and>
-	</or>
       </condition>
     </enable>
     <input>
       <prop>/instrumentation/altimeter[1]/indicated-altitude-ft</prop>
     </input>
     <reference>
-      <prop>/autopilot/settings/target-altitude-ft</prop>
+      <prop>/autopilot/settings/target-altitude-ft1</prop>
     </reference>
     <output>
       <prop>/autopilot/internal/target-climb-rate-fps</prop>
@@ -599,32 +558,11 @@
     <debug>false</debug>
     <enable>
       <condition>
-	<or>
+	
 		<equals>
       			<property>/autopilot/locks/sonic/altitude</property>
       			<value>altitude-hold</value>
 		</equals>
-		<and>
-   			<property>/instrumentation/nav[0]/in-range</property>
-   			<property>/instrumentation/nav[0]/has-gs</property>
-
-      			<equals>
-       				<property>/controls/autoflight/altitude</property>
-       				<value>gs1-hold</value>
-      			</equals>
-
-			<or>
-        			<greater-than>
-             				<property>/instrumentation/nav[0]/gs-needle-deflection-norm</property>
-             				<value>0.2</value>
-        			</greater-than>
-        			<less-than>
-             				<property>/instrumentation/nav[0]/gs-needle-deflection-norm</property>
-             				<value>-0.2</value>
-        			</less-than>
-			</or>
-		</and>
-	</or>
       </condition>
     </enable>
     <input>
@@ -643,7 +581,7 @@
       <gamma>0.0</gamma>  <!-- input value weighing factor for -->
                           <!-- unfiltered derivative error -->
       <Ti>10.0</Ti>       <!-- integrator time -->
-      <Td>0.00001</Td>    <!-- derivator time -->
+      <Td>0.0000001</Td>    <!-- derivator time -->
       <u_min>-1.0</u_min> <!-- minimum output clamp -->
       <u_max>1.0</u_max>  <!-- maximum output clamp -->
     </config>
@@ -654,32 +592,11 @@
     <debug>false</debug>
     <enable>
       <condition>
-	<or>
+
 		<equals>
       			<property>/autopilot/locks/sonic/altitude</property>
       			<value>altitude-hold-2</value>
 		</equals>
-		<and>
-   			<property>/instrumentation/nav[0]/in-range</property>
-   			<property>/instrumentation/nav[0]/has-gs</property>
-
-      			<equals>
-       				<property>/controls/autoflight/altitude</property>
-       				<value>gs1-hold</value>
-      			</equals>
-
-			<or>
-        			<greater-than>
-             				<property>/instrumentation/nav[0]/gs-needle-deflection-norm</property>
-             				<value>0.2</value>
-        			</greater-than>
-        			<less-than>
-             				<property>/instrumentation/nav[0]/gs-needle-deflection-norm</property>
-             				<value>-0.2</value>
-        			</less-than>
-			</or>
-		</and>
-	</or>
       </condition>
     </enable>
     <input>
@@ -698,7 +615,7 @@
       <gamma>0.0</gamma>  <!-- input value weighing factor for -->
                           <!-- unfiltered derivative error -->
       <Ti>10.0</Ti>       <!-- integrator time -->
-      <Td>0.00001</Td>    <!-- derivator time -->
+      <Td>0.0000001</Td>    <!-- derivator time -->
       <u_min>-1.0</u_min> <!-- minimum output clamp -->
       <u_max>1.0</u_max>  <!-- maximum output clamp -->
     </config>
@@ -842,6 +759,7 @@
     <debug>false</debug>
     <enable>
       <condition>
+<or>
        <and>
         <equals>
          <property>/autopilot/locks/sonic/altitude</property>
@@ -851,6 +769,34 @@
          <property>/systems/autopilot/state/virtual</property>
         </not>
        </and>
+
+		<and>
+   			<property>/instrumentation/nav[0]/in-range</property>
+   			<property>/instrumentation/nav[0]/has-gs</property>
+
+      			<equals>
+       				<property>/controls/autoflight/altitude</property>
+       				<value>gs1-hold</value>
+      			</equals>
+
+			<or>
+        			<greater-than>
+             				<property>/instrumentation/nav[0]/gs-needle-deflection-norm</property>
+             				<value>0.2</value>
+        			</greater-than>
+        			<less-than>
+             				<property>/instrumentation/nav[0]/gs-needle-deflection-norm</property>
+             				<value>-0.2</value>
+        			</less-than>
+			</or>
+		</and>
+
+
+
+</or>
+
+
+
       </condition>
     </enable>
     <input>
@@ -883,6 +829,7 @@
     <debug>false</debug>
     <enable>
       <condition>
+<or>
        <and>
         <equals>
          <property>/autopilot/locks/sonic/altitude</property>
@@ -892,6 +839,34 @@
          <property>/systems/autopilot/state/virtual</property>
         </not>
        </and>
+
+
+
+		<and>
+   			<property>/instrumentation/nav[0]/in-range</property>
+   			<property>/instrumentation/nav[0]/has-gs</property>
+
+      			<equals>
+       				<property>/controls/autoflight/altitude</property>
+       				<value>gs1-hold</value>
+      			</equals>
+
+			<or>
+        			<greater-than>
+             				<property>/instrumentation/nav[0]/gs-needle-deflection-norm</property>
+             				<value>0.2</value>
+        			</greater-than>
+        			<less-than>
+             				<property>/instrumentation/nav[0]/gs-needle-deflection-norm</property>
+             				<value>-0.2</value>
+        			</less-than>
+			</or>
+		</and>
+
+
+
+</or>
+
       </condition>
     </enable>
     <input>
@@ -1049,7 +1024,7 @@
       <prop>/autopilot/settings/target-speed-kt</prop>
     </reference>
     <output>
-      <prop>/controls/engines/engine[0]/throttle</prop>
+      <prop>/controls/engines/engine[0]/throttle_unf</prop>
     </output>
     <config>
       <Kp>0.1</Kp>        <!-- proportional gain -->
@@ -1080,7 +1055,7 @@
       <prop>/autopilot/settings/target-speed-kt</prop>
     </reference>
     <output>
-      <prop>/controls/engines/engine[1]/throttle</prop>
+      <prop>/controls/engines/engine[1]/throttle_unf</prop>
     </output>
     <config>
       <Kp>0.1</Kp>        <!-- proportional gain -->
@@ -1111,7 +1086,7 @@
       <prop>/autopilot/settings/target-speed-kt</prop>
     </reference>
     <output>
-      <prop>/controls/engines/engine[2]/throttle</prop>
+      <prop>/controls/engines/engine[2]/throttle_unf</prop>
     </output>
     <config>
       <Kp>0.1</Kp>        <!-- proportional gain -->
@@ -1142,7 +1117,7 @@
       <prop>/autopilot/settings/target-speed-kt</prop>
     </reference>
     <output>
-      <prop>/controls/engines/engine[3]/throttle</prop>
+      <prop>/controls/engines/engine[3]/throttle_unf</prop>
     </output>
     <config>
       <Kp>0.1</Kp>        <!-- proportional gain -->
@@ -1378,5 +1353,57 @@
       <u_max>1.0</u_max>  <!-- maximum output clamp -->
     </config>
   </pid-controller>
+
+  <filter>
+    <name>A/T 1 spike filter</name>
+    <debug>false</debug>
+    <enable>
+      <prop>/autopilot/locks/autothrottle/engine[0]</prop>
+      <value>speed-with-throttle</value>
+    </enable>
+    <type>noise-spike</type>
+    <input>/controls/engines/engine[0]/throttle_unf</input>
+    <output>/controls/engines/engine[0]/throttle</output>
+    <max-rate-of-change>0.10</max-rate-of-change>
+  </filter>
+  
+  <filter>
+    <name>A/T 2 spike filter</name>
+    <debug>false</debug>
+    <enable>
+      <prop>/autopilot/locks/autothrottle/engine[1]</prop>
+      <value>speed-with-throttle</value>
+    </enable>
+    <type>noise-spike</type>
+    <input>/controls/engines/engine[1]/throttle_unf</input>
+    <output>/controls/engines/engine[1]/throttle</output>
+    <max-rate-of-change>0.10</max-rate-of-change>
+  </filter>
+  
+  <filter>
+    <name>A/T 3 spike filter</name>
+    <debug>false</debug>
+    <enable>
+      <prop>/autopilot/locks/autothrottle/engine[2]</prop>
+      <value>speed-with-throttle</value>
+    </enable>
+    <type>noise-spike</type>
+    <input>/controls/engines/engine[2]/throttle_unf</input>
+    <output>/controls/engines/engine[2]/throttle</output>
+    <max-rate-of-change>0.10</max-rate-of-change>
+  </filter>
+  
+  <filter>
+    <name>A/T 4 spike filter</name>
+    <debug>false</debug>
+    <enable>
+      <prop>/autopilot/locks/autothrottle/engine[3]</prop>
+      <value>speed-with-throttle</value>
+    </enable>
+    <type>noise-spike</type>
+    <input>/controls/engines/engine[3]/throttle_unf</input>
+    <output>/controls/engines/engine[3]/throttle</output>
+    <max-rate-of-change>0.10</max-rate-of-change>
+  </filter>
 
 </PropertyList>
