@@ -382,6 +382,135 @@
     </mod-ctrl>
    </key>
 
+
+   <key n="257">
+    <name>F1</name>
+    <desc>NAV1 +/- 1 MHz</desc>
+    <repeatable type="bool">true</repeatable>
+
+     <binding>
+      <command>nasal</command>
+      <script>
+       f=getprop("/instrumentation/nav[1]/frequencies/selected-mhz");
+       mod=getprop("/devices/status/keyboard/ctrl");
+
+       if(mod==0) {
+	 f=f+1;
+         if (f>118){
+           f=118;
+         };      
+       }
+
+       if(mod==1) {
+	 f=f-1;
+         if (108>f){
+           f=108;
+         };      
+       };
+
+       setprop("/instrumentation/nav[1]/frequencies/selected-mhz",f);
+
+      </script>
+     </binding>
+
+   </key>
+
+   <key n="258">
+    <name>F2</name>
+    <desc>NAV1 +/- 0.05 MHz</desc>
+    <repeatable type="bool">true</repeatable>
+
+     <binding>
+      <command>nasal</command>
+      <script>
+       f=getprop("/instrumentation/nav[1]/frequencies/selected-mhz");
+       mod=getprop("/devices/status/keyboard/ctrl");
+
+       if(mod==0) {
+	 f=f+0.05;
+         if (f>118){
+           f=118;
+         };      
+       }
+
+       if(mod==1) {
+	 f=f-0.05;
+         if (108>f){
+           f=108;
+         };      
+       };
+
+       setprop("/instrumentation/nav[1]/frequencies/selected-mhz",f);
+
+      </script>
+     </binding>
+   </key>
+
+
+   <key n="260">
+    <name>F4</name>
+    <desc>NAV1 +/- 1 MHz</desc>
+    <repeatable type="bool">true</repeatable>
+
+     <binding>
+      <command>nasal</command>
+      <script>
+       f=getprop("/instrumentation/nav[2]/frequencies/selected-mhz");
+       mod=getprop("/devices/status/keyboard/ctrl");
+
+       if(mod==0) {
+	 f=f+1;
+         if (f>118){
+           f=118;
+         };      
+       }
+
+       if(mod==1) {
+	 f=f-1;
+         if (108>f){
+           f=108;
+         };      
+       };
+
+       setprop("/instrumentation/nav[2]/frequencies/selected-mhz",f);
+
+      </script>
+     </binding>
+
+   </key>
+
+   <key n="261">
+    <name>F5</name>
+    <desc>NAV1 +/- 0.05 MHz</desc>
+    <repeatable type="bool">true</repeatable>
+
+     <binding>
+      <command>nasal</command>
+      <script>
+       f=getprop("/instrumentation/nav[2]/frequencies/selected-mhz");
+       mod=getprop("/devices/status/keyboard/ctrl");
+
+       if(mod==0) {
+	 f=f+0.05;
+         if (f>118){
+           f=118;
+         };      
+       }
+
+       if(mod==1) {
+	 f=f-0.05;
+         if (108>f){
+           f=108;
+         };      
+       };
+
+       setprop("/instrumentation/nav[2]/frequencies/selected-mhz",f);
+
+      </script>
+     </binding>
+   </key>
+
+
 </PropertyList>
 
 
